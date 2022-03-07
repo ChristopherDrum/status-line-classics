@@ -655,7 +655,8 @@ Press any key to boot..." CR>
   <COND (<T? <COMPUTER-DEAD?>>
 	 <TELL CR "The mainframe doesn't seem to be responding, so your Boysenberry rejects the modular plug. Have you messed up the computer system?" CR>)
 	(T
-	 <COND (<NOT <L? <SETG REFRESH-COUNT <- ,REFRESH-COUNT 1>> 0>>
+	 <SETG REFRESH-COUNT <- ,REFRESH-COUNT 1>>
+	 <COND (<NOT <L? ,REFRESH-COUNT 0>>
 		<REPEAT ((N 0))
 		  <ZPUT ,TARGETS .N <ZGET ,ITARGETS .N>>
 		  <COND (<G? <SET N <+ .N 1>> <- ,TARGET-COUNT 1>>
