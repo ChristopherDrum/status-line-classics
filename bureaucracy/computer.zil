@@ -343,7 +343,7 @@ Press any key to boot..." CR>
 		<LINES-TO-NEXT-TARGET 0>
 		<SETUP-NEXT-TARGET>
 		<COND (<F? <DIE-ON-NEXT-COMMAND>>
-		       <INT-MESSAGE "USER RQH ABOUT TO USE "
+		       <INT-MESSAGE "RQH ABOUT TO USE "
 			     <CURRENT-TARGET-NAME>>)>)
 	       (T
 		<LINES-TO-NEXT-TARGET .LC>
@@ -356,7 +356,7 @@ Press any key to boot..." CR>
 	 <TERMINATE-CURRENT .TC>
 	 <FERROR-ACTIVE? T>
 	 <COND (<T? <CURRENT-TARGET-NAME>>
-		<INT-MESSAGE "USER RQH THROUGH WITH " <CURRENT-TARGET-NAME>>)>
+		<INT-MESSAGE "RQH DONE WITH " <CURRENT-TARGET-NAME>>)>
 	 <CURRENT-TARGET-NAME <>>
 	 <REAL-TARGET-NAME <>>
 	 <LINES-TO-NEXT-TARGET <ZRANDOM 5>>
@@ -391,18 +391,22 @@ Press any key to boot..." CR>
 	 ,FATAL-VALUE)
 	(T <>)>>
 
-<CONSTANT HELP-TABLE <PLTABLE "Type the name of a command, followed"
-			      "by a carriage return. ? or HELP gets"
-			      "this listing; DIR lists other"
-			      "commands. QUIT turns computer off."
-			      "DIR listing follows.">>
+<CONSTANT HELP-TABLE <PLTABLE 
+			"Type the name of a command,"
+			"followed by carriage return."
+			"? or HELP gets this listing."
+			"DIR lists other commands."
+			"QUIT turns computer off."
+			"DIR listing follows.">>
 
-<CONSTANT TELECOM-HELP-TABLE
-	  <PLTABLE "TYPE THE NAME OF A COMMAND, FOLLOWED"
-		   "BY A CARRIAGE RETURN. ? OR HELP GETS"
-		   "THIS LISTING. QUIT OR LOGOUT"
-		   "DISCONNECTS FROM MAINFRAME AND TURNS"
-		   "TERMINAL OFF. COMMAND LISTING FOLLOWS.">>
+<CONSTANT TELECOM-HELP-TABLE <PLTABLE 
+			"TYPE THE NAME OF A COMMAND,"
+			"FOLLOWED BY CARRIAGE RETURN."
+			"? OR HELP GETS THIS LISTING."
+			"QUIT OR LOGOUT DISCONNECTS"
+			"FROM MAINFRAME"
+			"AND TURNS TERMINAL OFF."
+			"COMMAND LISTING FOLLOWS.">>
 
 <DEFINE HELP-CMD (ARG1 ARG2 ARG3 "AUX" CTBL)
   <CLEAR-SCREEN>
@@ -416,14 +420,14 @@ Press any key to boot..." CR>
 
 <DEFINE WHO-CMD (FLD ENTRY DIR)
   <CLEAR-SCREEN>
-  <DUMP-STRING "USER    DATA                PROGRAM" T>
+  <DUMP-STRING "USER  DATA          PROGRAM" T>
   <SET-COMPUTER-CURS 1 0>
-  <DUMP-STRING "RQH     DVH2                CHA/OS" T>
+  <DUMP-STRING "RQH   DVH2          CHA/OS" T>
   <SET-COMPUTER-CURS 2 0>
-  <DUMP-STRING "RQH     " T>
+  <DUMP-STRING "RQH   " T>
   <SET-COMPUTER-CURS 2 8>
   <COND (<F? <CURRENT-TARGET-NAME>>
-	 <DUMP-STRING "DVH2                CHA/OS" T>)
+	 <DUMP-STRING "DVH2           CHA/OS" T>)
 	(T
 	 <DUMP-STRING <CURRENT-TARGET-NAME> T>
 	 <SET-COMPUTER-CURS 2 28>
@@ -436,7 +440,7 @@ Press any key to boot..." CR>
   <COND (<0? .FLINE?> <CLEAR-SCREEN>)>
   <SET-COMPUTER-CURS .FLINE? 0>
   <COND (<TELECOM?>
-	 <DUMP-STRING "COMMAND LIST:" T>)
+	 <DUMP-STRING "CMD LIST:" T>)
 	(T
 	 <DUMP-STRING "Command list:" T>)>
   <SET FLINE? <+ .FLINE? 1>>
@@ -506,7 +510,7 @@ Press any key to boot..." CR>
     <COND (<G? .REMAIN 0>
 	   <COND (<G? <SET DLINE <+ <- .N .REMAIN> ,COMPUTER-HEIGHT>> .N>
 		  <SET DLINE .N>)>
-	   <FERROR-MSG "Strike any key to see next page">
+	   <FERROR-MSG "Hit any key for next page">
 	   <INPUT 1>
 	   <HLIGHT ,H-NORMAL>
 	   <CLEAR-SCREEN>
@@ -546,12 +550,12 @@ Press any key to boot..." CR>
 	 <RETURN T .EH>)>
   <COND (<NOT .QUIET?>
 	 <COND (<T? <TELECOM?>>
-		<FERROR-MSG "Disconnect requested. Strike any key.">
+		<FERROR-MSG "Disconnecting.. Hit any key">
 		<COND (<T? <WILL-WIN?>>
 		       <COMPUTER-DEAD? T>
 		       <QUEUE I-COMPUTER-DIES 1>)>)
 	       (T
-		<FERROR-MSG "Shutdown requested. Strike any key.">)>
+		<FERROR-MSG "Shutting down.. Hit any key">)>
 	 <BLANK-LINE ,COMPUTER-COMMAND-LINE>
 	 <SET-FORM-CURS ,COMPUTER-COMMAND-LINE 1>
 	 <INPUT 1>)>
@@ -576,67 +580,90 @@ Press any key to boot..." CR>
 
 <CONSTANT HACK-TABLE
 	  <PLTABLE
-	   " The Strange and Terrible History of"
-	   "             Bureaucracy"
+	   " The Strange and Terrible "
+	   "  History of Bureaucracy"
 	   <>
-	   "Once upon a time Douglas Adams and"
-	   "Steve Meretzky collaborated on a game"
-	   "called \"The Hitchhikers Guide to the"
-	   "Galaxy.\" Everyone wanted a sequel, but"
-	   "Douglas thought it might be fun to do"
-	   "something different first. He called"
-	   "that something \"Bureaucracy,\" and"
-	   "wanted Marc Blank to work on it with"
-	   "him. Of course, Marc was busy, and"
-	   "Douglas was busy, and by the time they"
-	   "could both work on it, they were too"
-	   "busy to work on it. So, Jerry Wolper"
-	   "got a free trip to Las Vegas to talk"
-	   "to Douglas about it before it was"
-	   "decided to let it rest for a while"
-	   "instead. Jerry decided to go back to"
-	   "school, so Marc and Douglas spent some"
-	   "time on Nantucket looking at llamas,"
-	   "drinking Chateau d'Yquem, and arguing"
-	   "about puzzles. Nothing much happened"
-	   "for a while, except that Marc and"
-	   "Douglas got distracted again. Paul"
-	   "DiLascia decided to give it a try, but"
-	   "changed his mind and kept working on"
-	   "Cornerstone. Marc went to work for"
-	   "Simon and Schuster, and Paul went to"
-	   "work for Interleaf. Jeff O'Neill"
-	   "finished Ballyhoo, and, casting about"
-	   "for a new project, decided to take it"
-	   "on, about the time Jerry graduated."
-	   "Jeff got a trip to London out of it."
-	   "Douglas was enthusiastic, but busy"
-	   "with a movie. Progress was slow, and"
-	   "then Douglas was very busy with"
-	   "something named \"Dirk Gently.\" Jeff"
-	   "decided it was time to work on"
-	   "something else, and Brian Moriarty"
-	   "took it over. He visited England, and"
-	   "marvelled at Douglas's CD collection,"
-	   "but progress was slow. Eventually he"
-	   "decided it was time to work on"
-	   "something else. Paul made a cameo"
-	   "appearance, but decided to stay at"
-	   "Interleaf instead. So Chris Reeve and"
-	   "Tim Anderson took it over, and mucked"
-	   "around a lot. Finally, back in Las"
-	   "Vegas, Michael Bywater jumped (or was"
-	   "pushed) in and came to Boston for some"
-	   "serious script-doctoring, which made"
-	   "what was there into what is here. In"
-	   "addition, there were significant"
-	   "contributions from Liz Cyr-Jones,"
-	   "Suzanne Frank, Gary Brennan, Tomas"
-	   "Bok, Max Buxton, Jon Palace, Dave"
-	   "Lebling, Stu Galley, Linde Dynneson,"
-	   "and others too numerous to mention."
-	   "Most of these people are not dead yet,"
-	   "and apologise for the inconvenience.">>
+		"Once upon a time Douglas"
+		"Adams and Steve Meretzky"
+		"collaborated on a game called"
+		"\"The Hitchhikers Guide to"
+		"the Galaxy.\" Everyone"
+		"wanted a sequel, but Douglas"
+		"thought it might be fun to"
+		"do something different"
+		"first. He called that"
+		"something \"Bureaucracy,\""
+		"and wanted Marc Blank to"
+		"work on it with him. Of"
+		"course, Marc was busy, and"
+		"Douglas was busy, and by the"
+		"time they could both work on"
+		"it, they were too busy to"
+		"work on it. So, Jerry Wolper"
+		"got a free trip to Las Vegas"
+		"to talk to Douglas about it"
+		"before it was decided to let"
+		"it rest for a while"
+		"instead. Jerry decided to go"
+		"back to school, so Marc and"
+		"Douglas spent some time on"
+		"Nantucket looking at llamas,"
+		"drinking Chateau d'Yquem,"
+		"and arguing about puzzles."
+		"Nothing much happened for"
+		"awhile, except that Marc and"
+		"Douglas got distracted"
+		"again. Paul DiLascia decided"
+		"to give it a try, but"
+		"changed his mind and kept"
+		"working on Cornerstone. Marc"
+		"went to work for Simon and"
+		"Schuster, and Paul went to"
+		"work for Interleaf. Jeff"
+		"O'Neill finished Ballyhoo,"
+		"and, casting about for a new"
+		"project, decided to take it"
+		"on, about the time Jerry"
+		"graduated. Jeff got a trip"
+		"to London out of it."
+		"Douglas was enthusiastic,"
+		"but busy with a movie."
+		"Progress was slow, and"
+		"then Douglas was very busy"
+		"with something named \"Dirk"
+		"Gently.\" Jeff decided it"
+		"was time to work on some-"
+		"thing else, and Brian"
+		"Moriarty took it over. He"
+		"visited England, and mar-"
+		"velled at Douglas's CD"
+		"collection, but progress was"
+		"slow. Eventually he decided"
+		"it was time to work on"
+		"something else. Paul made a"
+		"cameo appearance, but de-"
+		"cided to stay at Interleaf"
+		"instead. So Chris Reeve and"
+		"Tim Anderson took it over,"
+		"and mucked around a lot."
+		"Finally, back in Las Vegas,"
+		"Michael Bywater jumped (or"
+		"was pushed) in and came to"
+		"Boston for some serious"
+		"script-doctoring, which made"
+		"what was there into what is"
+		"here. In addition, there"
+		"were significant"
+		"contributions from Liz"
+		"Cyr-Jones, Suzanne Frank,"
+		"Gary Brennan, Tomas Bok,"
+		"Max Buxton, Jon Palace,"
+		"Dave Lebling, Stu Galley,"
+		"Linde Dynneson, and others"
+		"too numerous to mention."
+		"Most of these people are not"
+		"dead yet, and apologise for"
+		"the inconvenience.">>
 
 <DEFINE HACK-CMD (ARG1 ARG2 ARG3)
   <CLEAR-SCREEN>
@@ -669,7 +696,7 @@ Press any key to boot..." CR>
 	 <DUMP-STRING "CONNECTION IN PROGRESS...." T>
 	 <DELAY 1>
 	 <SET-COMPUTER-CURS 2 0>
-	 <DUMP-STRING "CONNECTED TO DVH2 NODE 0106. WAITING." T>
+	 <DUMP-STRING "CONNECTED TO DVH2 NODE 0106..." T>
 	 <DELAY 1>
 	 <COND (<DO-LOGIN>
 		<SET-COMPUTER-CURS 4 0>
@@ -678,7 +705,7 @@ Press any key to boot..." CR>
 		<COND (<L? ,MINUTES:FIX 10> <TELL "0">)>
 		<TELL N ,MINUTES>
 		<SET-COMPUTER-CURS 6 0>
-		<DUMP-STRING "DVH2 CHA/OS: ? OR HELP FOR HELP" T>
+		<DUMP-STRING "DVH2 CHA/OS: ?/HELP FOR HELP" T>
 		<TELECOM? T>
 		<SETUP-NEXT-TARGET>
 		<REMAINING-TARGET-TURNS 2>
@@ -725,9 +752,9 @@ Press any key to boot..." CR>
 		     (GOOD-NAME? <>) (GOOD-PASSWORD? <>))
   <REPEAT ()
     <COND (<==? .CT 1>
-	   <FERROR-MSG "ABSOLUTELY-YOUR-LAST-CHANCE,-BOZO">)
+	   <FERROR-MSG "100%-YOUR-LAST-CHANCE,-BOZO">)
 	  (T
-	   <FERROR-MSG "ENTER-YOUR-ID,-OR-QUIT-TO-DISCONNECT">)>
+	   <FERROR-MSG "ENTER-YOUR-ID,-OR-QUIT">)>
     <SETUP-COMMAND-LINE "ID:" 3 LOGIN-COMMAND-FIELD>
     <GET-COMMAND>
     <COND (<NOT <NEQ-TBL .FLD ,QUIT-TABLE>>
@@ -857,57 +884,61 @@ saying \"">
 
 <CONSTANT FIDUC-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; FILLMORE FIDUCIARY TRUST       ;;;"
-		   ";;; CENTRAL COMPUTER ACCESS        ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";; FILLMORE FIDUCIARY     ;;"
+		   ";; TRUST CENTRAL          ;;"
+		   ";; COMPUTER ACCESS        ;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
-		   ".RUN"
-		   "LOGON SLARTIBARTFAST"
+		   "; .RUN"
+		   "; LOGON SLARTIBARTFAST"
 		   <>
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   "[NON-ASCII CHARS FOUND]">>
 
 <CONSTANT MENU-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; GENERAL RESTAURANT ACCESS CODE ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";; GENERAL RESTAURANT     ;;"
+		   ";; ACCESS CODE            ;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
-		   "; THIS CAN HACK ANY RESTAURANT WITH"
-		   "; COMPUTERISED INVENTORY, ORDER ENTRY,"
-		   "; OR BOOKKEEPING."
+		   "; THIS CAN HACK ANY"
+		   "; RESTAURANT WITH COMPUTER-"
+		   "; ISED INVENTORY, ORDER"
+		   "; ENTRY, OR BOOKKEEPING."
 		   <>
 		   ".RUN"
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   "[NON-ASCII CHARS FOUND]">>
 
 <CONSTANT AIRPLANE-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; FAA TRAFFIC CONTROL COMPUTER   ;;;"
-		   ";;; AND NATIONAL WEATHER SERVICE   ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";; FAA TRAFFIC CONTROL    ;;"
+		   ";; COMPUTER AND NATIONAL  ;;"
+		   ";; WEATHER SERVICE        ;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
-		   "; USE THIS TO CAUSE THE WEATHER"
-		   "; SERVICE TO ISSUE BOGUS FORECASTS,"
-		   "; AND TO CAUSE ANY ARBITRARY AIRCRAFT"
-		   "; TO BE ROUTED TO ANY ARBITRARY"
-		   "; LOCATION."
+		   "; USE THIS TO CAUSE THE"
+		   "; WEATHER SERVICE TO ISSUE"
+		   "; BOGUS FORECASTS, AND TO "
+		   "; CAUSE ANY ARBITRARY "
+		   "; AIRCRAFT TO BE ROUTED TO "
+		   "; ANY ARBITRARY LOCATION."
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   "[NON-ASCII CHARS FOUND]">>
 
 <CONSTANT POST-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; POSTAL MISDIRECTION HACK       ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";; POSTAL MISDIRECTION    ;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
-		   "; IN ADVANCED COUNTRIES, THIS CAN"
-		   "; CAUSE MAIL TO ANY SPECIFIED ADDRESS"
-		   "; TO BE DELIVERED TO ANY OTHER ADDRESS"
-		   "; WITHOUT USING TELL-TALE FORWARDING"
-		   "; STICKERS"
+		   "; CAN CAUSE MAIL TO ANY"
+		   "; ADDRESS TO BE DELIVERED TO"
+		   "; ANY OTHER ADDRESS WITHOUT"
+		   "; USING FORWARDING STICKERS"
 		   <>
 		   ".READ COUNTRY"
 		   ".READ STATE OR PROVINCE"
@@ -917,50 +948,55 @@ saying \"">
 		   ".READ APARTMENT"
 		   ".RUN"
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   "[NON-ASCII CHARS FOUND]">>
 
 <CONSTANT ZBUG-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; NATIVES                        ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";; NATIVES                ;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
-		   "; CONNECT TO ZALAGASA BOYSENBERRY"
-		   "; USERS' GROUP COMPUTERS, JUST TO MAKE"
-		   "; SURE THEY AREN'T GETTING ANYWHERE"
-		   "; THEY DON'T BELONG"
+		   "; CONNECT TO ZALAGASA"
+		   "; BOYSENBERRY USERS' GROUP"
+		   "; COMPUTERS, JUST TO MAKE"
+		   "; SURE THEY AREN'T GETTING"
+		   "; ANYWHERE THEY DON'T BELONG"
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   "[NON-ASCII CHARS FOUND]">>
 
 <CONSTANT TRAVEL-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; TRAVEL AGENCY AND AIRLINE      ;;;"
-		   ";;; RESERVATIONS MANIPULATION      ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";; TRAVEL AGENCY AND      ;;"
+		   ";; AIRLINE RESERVATIONS   ;;"
+		   ";; MANIPULATION           ;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
-		   "; MANIPULATE AIRLINE RESERVATIONS --"
-		   "; ROUTE SELECTED TRAVELLER TO ANY"
-		   "; DESIRED DESTINATION, WITH ANY"
-		   "; DESIRED INTERMEDIATE STOPS. CAN"
-		   "; ALSO CAUSE AIRLINES TO AUTOMATICALLY"
+		   "; ALTERS AIRLINE RESERVATIONS"
+		   "; ROUTE SELECTED TRAVELLER"
+		   "; TO ANY DESIRED DESTINATION,"
+		   "; WITH ANY DESIRED INTERME-"
+		   "; DIATE STOPS. CAN ALSO CAUSE"
+		   "; AIRLINES TO AUTOMATICALLY"
 		   "; ROUTE GROUPS OF TRAVELLERS"
 		   "; INCORRECTLY."
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   "[NON-ASCII CHARS FOUND]">>
 
 <CONSTANT DVH2-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; EMERGENCY DVH2 CHA/OS ACCESS   ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   ";; EMERGENCY              ;;"
+		   ";; DVH2 CHA/OS ACCESS     ;;"
+		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
 		   ";;===>>>WARNING<<<==="
-		   ";; MAKE SURE THIS ISN'T DIRECTED AT A"
-		   ";; FRIENDLY COMPUTER!!! IT WILL NEVER"
-		   ";; WORK AGAIN!!!"
+		   ";; MAKE SURE THIS ISN'T"
+		   ";; DIRECTED AT A"
+		   ";; FRIENDLY COMPUTER!!!"
+		   ";; IT WILL NEVERWORK AGAIN!!"
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   "[NON-ASCII CHARS FOUND]">>
 
 <CONSTANT EXE-FILES <PLTABLE PLANE-FILE HAK-FILE>>
 <CONSTANT HAK-FILES <PLTABLE FIDUC-FILE MENU-FILE AIRPLANE-FILE POST-FILE

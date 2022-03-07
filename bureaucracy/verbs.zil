@@ -379,7 +379,7 @@
 	 <TELL "[Your " .WHICH " just went ">
 	 <COND (<T? .DOWN?> <TELL "down">)
 	       (T <TELL "up">)>
-	 <TELL ".]">
+	 <TELL "]">
 	 <HLIGHT ,H-NORMAL>
 	 <ZCRLF>
 	 <SOUND 1>

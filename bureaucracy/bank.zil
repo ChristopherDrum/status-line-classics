@@ -103,11 +103,11 @@
 		      <COND (.DEP
 			     <FILL-FORM 
 			      ,BANK-FORM-DEPOSIT
-			      "              DEPOSIT SLIP              ">)
+			      "          DEPOSIT SLIP          ">)
 			    (ELSE
 			     <FILL-FORM
 			      ,BANK-FORM-WITHDRAW
-			      "            WITHDRAWAL SLIP             ">)>
+			      "         WITHDRAWAL SLIP        ">)>
 		      <TELL "You have now filled out the slip." CR>
 		      T)
 		     (<VERB? EXAMINE READ>

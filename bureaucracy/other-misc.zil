@@ -128,7 +128,7 @@ Of course you know the sort of thing. It's exactly what has happened to you. But
 	 <CURSET 1 1>
 	 <HLIGHT ,H-INVERSE>
 	 <PRINT-SPACES ,WIDTH>
-	 <COND (<L? ,WIDTH:FIX 64>
+	 <COND (<L? ,WIDTH:FIX 64> ; "Note this for conditional formatting example"
 		<CURSET 1 <- ,WIDTH:FIX 11>>
 		<TELL "BP:">)
 	       (T

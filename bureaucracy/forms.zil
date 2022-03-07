@@ -28,7 +28,7 @@
 	<TELL .NAME>
 	<BLANK-LINE 2>
 	<OPEN-LINE 3>
-	<TELL "Type ^ to back up a field. Thank you.">
+	<ITALICIZE "Type ^ to back up a field.">
 	<CLOSE-LINE 3>
 	<BLANK-LINE 4>
 	<REPEAT ((RLINE ,FIRST-FORM-LINE)
@@ -64,50 +64,51 @@
 	<SET-FORM-CURS .N 0>
 	<TELL " ">
 	<HLIGHT ,H-NORMAL>
-	<HLIGHT ,H-BOLD>>
+	<HLIGHT ,H-INVERSE>>
 
 <DEFINE CLOSE-LINE (N)
 	<SET-FORM-CURS .N <- ,FORM-WIDTH 1>>
 	<HLIGHT ,H-NORMAL>
 	<HLIGHT ,H-INVERSE>
 	<TELL " ">>
-
+	
+; "Messages should be 27 characters max"
 <BUILD-FORM LICENSE-FORM
-            (LAST-NAME "Last name:" 21 "Chomper" FF-NAME
+            (LAST-NAME "Last name" 17 "Chomper" FF-NAME
 	     <PLTABLE "How embarrassing for you"
-		      "A well-known criminal family">)
-	    (FIRST-NAME "First name:" 25 "Random" FF-NAME
-	     <PLTABLE "Your parents had the last laugh">)
-	    (MIDDLE-INITIAL "Middle initial:" 1 "Q" FF-MIDDLE-INITIAL)
-	    (YOUR-SEX "Your sex (M/F):" 1 "M" FF-SEX)
-	    (STREET-NUMBER "House number:" 4 "69"
+		      "Well-known criminal family">)
+	    (FIRST-NAME "First name" 17 "Random" FF-NAME
+	     <PLTABLE "Parents had the last laugh">)
+	    (MIDDLE-INITIAL "Middle initial" 1 "Q" FF-MIDDLE-INITIAL)
+	    (YOUR-SEX "Your sex (M/F)" 1 "M" FF-SEX)
+	    (STREET-NUMBER "House number" 4 "69"
 			   FF-STREET-NUMBER
 			   <PLTABLE "Due to be condemned">)
-	    (STREET-NAME "Street name:" 24 "Mandalay"
+	    (STREET-NAME "Street name" 16 "Mandalay"
 	     <PLTABLE "The bad part of town"
 		      "Next to the dump">)
-	    (CITY-NAME "City:" 18 "Newton" <PLTABLE "What a dump"
+	    (CITY-NAME "City" 15 "Newton" <PLTABLE "What a dump"
 						    "What a pit"
 						    "You'd better move again">)
-	    (STATE-NAME "State:" 5 "MA" FF-STATE)
-	    (ZIP-CODE "Zip:" 6 "02174")
-	    (PHONE-NUMBER "Phone:" 17 "646 9105" FF-PHONE-NUMBER)
-	    (EMPLOYER-NAME "Last employer but one:" 14 "Infocom"
+	    (STATE-NAME "State" 14 "MA" FF-STATE)
+	    (ZIP-CODE "Zip" 6 "02174")
+	    (PHONE-NUMBER "Phone" 12 "646 9105" FF-PHONE-NUMBER)
+	    (EMPLOYER-NAME "2nd-to-last employer" 9 "Infocom"
 			   <PLTABLE "Now in Chapter 11"
 				    "Now in liquidation"
 				    "A sweatshop"
 				    "Run by Bozo the Clown"
 				    "Much happier without you">)
-	    (LEAST-FAVORITE-COLOR "Least favourite colour:" 12 "red"
+	    (LEAST-FAVORITE-COLOR "Least liked colour" 6 "red"
 	     FF-LEAST-FAVORITE-COLOR)
-	    (FRIEND "Name of girl/boy friend:" 11 "Dunbar"
+	    (FRIEND "Girl/boy friend" 11 "Dunbar"
 		    <PLTABLE "What a dog"
-			     "Still? You should have learned"
+			     "Still? You should've learned"
 			     "Surely you can do better"
-			     "One of a long line of losers">)
-	    (LAST-FRIEND "Previous girl/boy friend:" 10 "None"
+			     "From a long line of losers">)
+	    (LAST-FRIEND "  Previous g/bf" 10 "None"
 			 <PLTABLE "You were better off then"
-				  "One of a long line of losers"
+				  "From a long line of losers"
 				  "Now a millionaire"
 				  "Now a famous porno star">)>
 
@@ -124,12 +125,12 @@
 		<HLIGHT ,H-NORMAL>)
 	       (T
 		<SET-FORM-CURS ,ERROR-LINE 1>
-		<HLIGHT ,H-BOLD>)>
+		<HLIGHT ,H-ITALIC>)>
 	 <COND (<T? .NOTE?>
-		<TELL "NOTE">)
+		<TELL "* ">)
 	       (T
-		<TELL "ERROR">)>
-	 <TELL ": " .STR ".">
+		<TELL "ERR: ">)>
+	 <TELL .STR >  ; "no extraneous characters; keep it terse"
 	 <HLIGHT ,H-NORMAL>
 	 <COND (,FORM-COMPUTER? <HLIGHT ,H-INVERSE>)>
 	 <SET-FORM-CURS ,FY ,FX>
@@ -407,7 +408,7 @@ Luckily, for your convenience, we have, at the last minute and at great expense,
 	<DEBUGGING-CODE
 	 <COND (<N==? <SET X <INPUT 1>> 127>
 		<FILL-FORM ,LICENSE-FORM
-			   "      SOFTWARE LICENCE APPLICATION      ">)
+			   "  SOFTWARE LICENCE APPLICATION  ">)
 	       (T
 		<CLEAR -1>
 		<INIT-STATUS-LINE>
@@ -415,7 +416,7 @@ Luckily, for your convenience, we have, at the last minute and at great expense,
 	 <BIND ()
 	   <INPUT 1>
 	   <FILL-FORM ,LICENSE-FORM
-		      "      SOFTWARE LICENCE APPLICATION      ">>>>
+		      "  SOFTWARE LICENCE APPLICATION  ">>>>
 	 
 <DEFINE PICK-FIELD (WHICH LEN:FIX HISTVEC:TABLE HISTLEN:FIX "AUX" N F)
   <REPEAT ((PASSES 0) (M 0))

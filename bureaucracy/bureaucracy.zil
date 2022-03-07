@@ -1,6 +1,7 @@
 "B for BUREAUCRACY: (C)1987 Infocom, Inc. All Rights Reserved."
 
 <CONSTANT RELEASEID 1> <VERSION EZIP>
+<ORDER-TREE? REVERSE-DEFINED> ;"recommended at github, issue #8"
 
 <FUNNY-GLOBALS?>
 <FREQUENT-WORDS?>
