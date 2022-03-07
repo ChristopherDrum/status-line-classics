@@ -26,3 +26,9 @@ This project goes through known Infocom classics and reformats them to look beau
 * Trinity's interstitial quotations are hard-formatted in the code itself. Not yet sure how to make that flexible to screen sizes, but for the Pico-8 I will likely start with just putting in new hard-coded line breaks to format properly for a 32-character wide screen.
 * Bureaucracy's "registration form" and "computer interface" is a bit of a nightmare on a small screen. It "works" but is not such a pleasant experience. May be able to reformat this to be one form entry per-line?
 * This is a small thing, but I have seen times when line breaks are introduced which, on a small screen, causes ugly orphans and widows. I may remove some of these, as they do not manifestly affect the aesthetic of the game
+
+## Build Notes
+I'm using ZILF v0.9.0. Inside each game folder, I have a `\build` folder that is excluded in the `.gitignore` file. From the root folder for a game I run this composite command (Bureaucracy shown; swap for the game you want to build)
+```
+del *.zap *.xzap \build\bureaucracy.z4 && zilf .\build\bureaucracy.zil && zapf -ab .\build\bureaucracy.zap > .\build\bureaucracy_freq.xzap & del .\build\bureaucracy_freq.zap && zapf .\build\bureaucracy.zap
+```
