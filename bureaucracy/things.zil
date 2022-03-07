@@ -621,14 +621,13 @@ the jack like a little rat from a tiny drainpipe." CR>
 		   "Sorry, girls.">
 <CONSTANT ADVENTURE-TABLE
 	  <PLTABLE 
-	  	" BBE ADVENTURES PRESENT"
-		"       \"DORK I\""
+	  	"   BBE ADVENTURES PRESENT  "
+		"          \"DORK I\""
 		<>	; "CAN'T BE EMPTY STRING BECAUSE ZILCH LOSES..."
 		" West of House"
-		" You are standing in an"
-		" open field west of a white"
-		" house, with a boarded front"
-		" door."
+		" You are standing in an open"
+		" field west of a white house"
+		" with a boarded front door."
 		" There is a mailbox here."
 		" INTERNAL ERROR 69105 ......">>
 
