@@ -655,7 +655,8 @@ Press any key to boot..." CR>
   <COND (<T? <COMPUTER-DEAD?>>
 	 <TELL CR "The mainframe doesn't seem to be responding, so your Boysenberry rejects the modular plug. Have you messed up the computer system?" CR>)
 	(T
-	 <COND (<NOT <L? <SETG REFRESH-COUNT <- ,REFRESH-COUNT 1>> 0>>
+	 <SETG REFRESH-COUNT <- ,REFRESH-COUNT 1>>
+	 <COND (<NOT <L? ,REFRESH-COUNT 0>>
 		<REPEAT ((N 0))
 		  <ZPUT ,TARGETS .N <ZGET ,ITARGETS .N>>
 		  <COND (<G? <SET N <+ .N 1>> <- ,TARGET-COUNT 1>>
@@ -703,11 +704,18 @@ Press any key to boot..." CR>
 			 1	; "128"
 			 1	; "64...">>
 
-<DEFINE DELAY ("OPT" (SEC:FIX 1) "AUX" (N:FIX <GETB ,DELAYS <LOWCORE INTID>>))
+;[" <DEFINE DELAY ("OPT" (SEC:FIX 1) "AUX" (N:FIX <GETB ,DELAYS <LOWCORE INTID>>))
   ; "N is number of 1000s to count down to get 1-sec. delay"
   <SET N <* 1000 .N .SEC>>
   <REPEAT ()
-    <COND (<L=? <SET N <- .N 1>> 0> <RETURN>)>>>
+    <COND (<L=? <SET N <- .N 1>> 0> <RETURN>)>>> "]
+<DEFINE DELAY ("OPT" (SEC:FIX 1))
+	;"Wait for input SEC s ((SEC x 10) x 0.1 s) then call a routine that 
+	  returns true and aborts the input."
+	<INPUT 1 <* .SEC 10> ABORT-WAIT>		
+	<RETURN>>
+
+<ROUTINE ABORT-WAIT () <RTRUE>>
 
 "Login stuff"
 <ROUTINE-FLAGS CLEAN-STACK?>

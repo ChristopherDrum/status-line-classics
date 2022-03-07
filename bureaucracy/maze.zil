@@ -709,7 +709,8 @@ it">)>)>
 	 <>)
 	(<AND <==? .CONTEXT ,M-BEG>
 	      <NOT ,PLANE-SUMMONED?>>
-	 <COND (<==? ,LS-MOVE-COUNT 255>
+	 <SETG LS-MOVE-COUNT <- ,LS-MOVE-COUNT 1>>
+	 <COND (<==? ,LS-MOVE-COUNT 254>
 		<TELL "Infocom regrets that the laws of nature were
 suspended for only one turn. You crash to the ground with some interesting new
 theories forming in your mind on the method of proof-by-induction.
@@ -717,7 +718,7 @@ Unfortunately, before you can organise your thoughts into anything which
 would be remotely acceptable as a Ph.D. dissertation -- even at Caltech -- you die.">
 		<JIGS-UP>
 		T)
-	       (<L=? <SETG LS-MOVE-COUNT <- ,LS-MOVE-COUNT 1>> 0>
+	       (<L=? ,LS-MOVE-COUNT 0>
 		<COND (<VERB? WAIT>
 		       <TELL "There is a limit to human patience. You are
 really fed up now, and wish you were dead. Fair enough.">
@@ -770,7 +771,8 @@ air shaft leads down." CR>)
 <SETG PLANE-ARRIVE-COUNT 4>
 
 <DEFINE I-PLANE-ARRIVES ()
-  <COND (<==? <SETG PLANE-ARRIVE-COUNT <- ,PLANE-ARRIVE-COUNT 1>> 2>
+  <SETG PLANE-ARRIVE-COUNT <- ,PLANE-ARRIVE-COUNT 1>>
+  <COND (<==? ,PLANE-ARRIVE-COUNT 2>
 	 <TELL CR
 	       "In the distance you hear the sound of Zalagasans having
 a huge row about whether bearnaise sauce or grated Parmesan is better
