@@ -703,11 +703,18 @@ Press any key to boot..." CR>
 			 1	; "128"
 			 1	; "64...">>
 
-<DEFINE DELAY ("OPT" (SEC:FIX 1) "AUX" (N:FIX <GETB ,DELAYS <LOWCORE INTID>>))
+;[" <DEFINE DELAY ("OPT" (SEC:FIX 1) "AUX" (N:FIX <GETB ,DELAYS <LOWCORE INTID>>))
   ; "N is number of 1000s to count down to get 1-sec. delay"
   <SET N <* 1000 .N .SEC>>
   <REPEAT ()
-    <COND (<L=? <SET N <- .N 1>> 0> <RETURN>)>>>
+    <COND (<L=? <SET N <- .N 1>> 0> <RETURN>)>>> "]
+<DEFINE DELAY ("OPT" (SEC:FIX 1))
+	;"Wait for input SEC s ((SEC x 10) x 0.1 s) then call a routine that 
+	  returns true and aborts the input."
+	<INPUT 1 <* .SEC 10> ABORT-WAIT>		
+	<RETURN>>
+
+<ROUTINE ABORT-WAIT () <RTRUE>>
 
 "Login stuff"
 <ROUTINE-FLAGS CLEAN-STACK?>
