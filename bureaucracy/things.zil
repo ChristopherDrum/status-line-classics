@@ -492,13 +492,13 @@ At the moment, " THEO " is ">
 		       <>)>)>>
 
 <CONSTANT BOYSENBERRY-WINDOW
-	  <PLTABLE 27
+	  <PLTABLE 25
 		  "The word \"Boysenberry,\"  "
-		  "and the symbol of a        "
-		  "partially digested purple  "
-		  "berry, are trademarks of   "
-		  "Boysenberry Business       "
-		  "Engines Corp.">>
+		  "and the symbol of a      "
+		  "partially digested purple"
+		  "berry, are trademarks of "
+		  "Boysenberry Business     "
+		  "Engines Corp.            ">>
 
 <DEFINE SCREEN-F ()
 	<COND (<THIS-PRSI?>
@@ -621,28 +621,28 @@ the jack like a little rat from a tiny drainpipe." CR>
 		   "Sorry, girls.">
 <CONSTANT ADVENTURE-TABLE
 	  <PLTABLE 
-	  	"BBE ADVENTURES PRESENT"
-		"      \"DORK I\""
+	  	" BBE ADVENTURES PRESENT"
+		"       \"DORK I\""
 		<>	; "CAN'T BE EMPTY STRING BECAUSE ZILCH LOSES..."
-		"West of House"
-		"You are standing in an"
-		"open field west of a white"
-		"house, with a boarded front"
-		"door."
-		"There is a mailbox here."
-		"INTERNAL ERROR 69105 ......">>
+		" West of House"
+		" You are standing in an"
+		" open field west of a white"
+		" house, with a boarded front"
+		" door."
+		" There is a mailbox here."
+		" INTERNAL ERROR 69105 ......">>
 
 <CONSTANT ECLIPSE-TABLE
 	  <PLTABLE 
-		"Boysenberry Eclipse"
-		"Predictor V6.9"
+		" Boysenberry Eclipse"
+		" Predictor V6.9"
 		<>
-		"Nearest eclipse: Yesterday"
-		"Totality at:  12:37PM"
-		"Prime viewing location:"
-		"Zalagasa"
+		" Nearest eclipse: Yesterday"
+		" Totality at:  12:37PM"
+		" Prime viewing location:"
+		" Zalagasa"
 		<>
-		"Next eclipse:  2/7/98">>
+		" Next eclipse:  2/7/98">>
 
 <CONSTANT RECIPE-TABLE
 	  <PLTABLE 
