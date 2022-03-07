@@ -1304,7 +1304,9 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV."
 	       (T
 		<SETG P-EXCHANGE 0>)>
 	 <COND (.MINUS?
-		<RETURN <>>)>
+	        <SETG P-EXCHANGE .EXC>
+		<SETG P-NUMBER .SUM>
+		<RETURN ,W?INTNUM>)>
 	 <SETG P-DOLLAR-FLAG .DOLLAR>
 	 <SETG P-NUMBER .SUM>
 	 <COND (<AND <T? .DOLLAR>
