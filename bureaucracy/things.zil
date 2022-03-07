@@ -646,24 +646,22 @@ the jack like a little rat from a tiny drainpipe." CR>
 
 <CONSTANT RECIPE-TABLE
 	  <PLTABLE 
-		"Midnight Recipe Projekt"
+		" Midnight Recipe Projekt"
 		<>
-		"RAGOUT \"REINE DE 
-		L'AFRIQUE\""
+		" RAGOUT \"REINE DE L'AFRIQUE\""
 		<>
-		"Take one medium llama,"
-		"peeled, 8 pecks garlic, 15"
-		"bushels STALE celery, 2"
-		"pounds shallots, 10 bushels"
-		"carrots, onions, turnips,"
-		"snails, worms, lard,"
-		"helium, nematodes, gristle"
-		"and earth to taste. Boil"
-		"llama till bored, add other"
-		"stuff and stir until"
-		"congealed. Decorate with"
-		"greenish milk curds. Serves"
-		"one small aeroplane.">>
+		" Take one medium llama,"
+		" peeled, 8 pecks garlic, 15"
+		" bushels STALE celery, 2"
+		" pounds shallots, 10 bushels"
+		" carrots, onions, turnips,"
+		" snails, worms, lard, helium,"
+		" nematodes, gristle and earth"
+		" to taste. Boil llama till"
+		" bored, add other stuff, stir"
+		" until congealed. Decorate"
+		" with greenish milk curds."
+		" Serves one small aeroplane.">>
 
 <OBJECT ECLIPSE
 	(LOC ROMCASE)

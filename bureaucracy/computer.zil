@@ -8,7 +8,7 @@
   ;<CLEAR-BIT-TABLE>
   <DO-PROG -1>
   <DRAW-COMPUTER-SCREEN>
-  <FERROR-MSG "Press ? for help, or enter a command.">
+  <FERROR-MSG "? for help, or enter command">
   <LAST-LINE-USED 0>
   <COMPUTER-LOOP .DIRTBL>
   <EXIT-HACK>
@@ -148,7 +148,7 @@ Press any key to boot..." CR>
 						    <+ ,FIELD-DATA-OFFSET 38>
 						    (BYTE)>
 						   FIELD>
-					   'FIELD-PROMPT "Command:"
+					   'FIELD-PROMPT "command:"
 					   'FIELD-FCN COMMAND-FIELD
 					   'FIELD-PROMPTLEN 8
 					   'FIELD-X 1
@@ -168,14 +168,14 @@ Press any key to boot..." CR>
 	 <>)
 	(<AND <==? .CONTEXT ,FORM-ADD-CHAR>
 	      <L=? <CHTYPE .CHAR FIX> !\ >>
-	 <FERROR "ILLEGAL-CHARACTER">
+	 <FERROR "illegal-character">
 	 <>)
 	(T T)>>
 
 <DEFINE LOGIN-COMMAND-FIELD (CONTEXT TBL "OPT" CHAR)
   <COND (<AND <==? .CONTEXT ,FORM-ADD-CHAR>
 	      <L=? <CHTYPE .CHAR FIX> !\ >>
-	 <FERROR "ILLEGAL-CHARACTER">
+	 <FERROR "illegal-character">
 	 <>)
 	(T T)>>
 
@@ -223,18 +223,18 @@ Press any key to boot..." CR>
   <TIMES-THROUGH-LOOP 0>
   <REPEAT ((ERR? <>) CVAL (1ST? T) CSS)
     <COND (<T? <TELECOM?>>
-	   <SETUP-COMMAND-LINE "CMD:" 4 COMMAND-FIELD>)
+	   <SETUP-COMMAND-LINE "cmd:" 4 COMMAND-FIELD>)
 	  (T
-	   <SETUP-COMMAND-LINE "Command:" 8 COMMAND-FIELD>)>
+	   <SETUP-COMMAND-LINE "command:" 8 COMMAND-FIELD>)>
     <COND (<T? <FERROR-ACTIVE?>>
 	   <SET ERR? T>
 	   <FERROR-ACTIVE? <>>)>
     <COND (<AND <NOT .ERR?>
 		<NOT .1ST?>>
 	   <COND (<T? <TELECOM?>>
-		  <FERROR-MSG "ENTER-COMMAND">)
+		  <FERROR-MSG "enter-command">)
 		 (T
-		  <FERROR-MSG "Enter a command">)>)>
+		  <FERROR-MSG "enter a command">)>)>
     <GET-COMMAND .ERR?>
     <SET ERR? <>>
     <COND (<T? .TC>
@@ -247,7 +247,7 @@ Press any key to boot..." CR>
 			 <COND (<F? <FIND-FILE <REAL-TARGET-NAME>>>
 				<DIE-ON-NEXT-COMMAND 4>)
 			       (T
-				<INT-MESSAGE "USER RQH ACCESSING "
+				<INT-MESSAGE "user rqh accessing "
 				      <CURRENT-TARGET-NAME>>)>)>)>
 	   <COMMANDS-SINCE-START .CSS>)>
     <SET CVAL <PROCESS-COMMAND .FLD .DIRTBL>>
@@ -343,7 +343,7 @@ Press any key to boot..." CR>
 		<LINES-TO-NEXT-TARGET 0>
 		<SETUP-NEXT-TARGET>
 		<COND (<F? <DIE-ON-NEXT-COMMAND>>
-		       <INT-MESSAGE "RQH ABOUT TO USE "
+		       <INT-MESSAGE "rqh about to use "
 			     <CURRENT-TARGET-NAME>>)>)
 	       (T
 		<LINES-TO-NEXT-TARGET .LC>
@@ -356,7 +356,7 @@ Press any key to boot..." CR>
 	 <TERMINATE-CURRENT .TC>
 	 <FERROR-ACTIVE? T>
 	 <COND (<T? <CURRENT-TARGET-NAME>>
-		<INT-MESSAGE "RQH DONE WITH " <CURRENT-TARGET-NAME>>)>
+		<INT-MESSAGE "rqh done with " <CURRENT-TARGET-NAME>>)>
 	 <CURRENT-TARGET-NAME <>>
 	 <REAL-TARGET-NAME <>>
 	 <LINES-TO-NEXT-TARGET <ZRANDOM 5>>
@@ -385,28 +385,28 @@ Press any key to boot..." CR>
 		  <RETURN>)>
 	   <SET DT <ZREST .DT 2>>>
 	 <COND (<T? <TELECOM?>>
-		<FERROR "CMD-NOT-FOUND">)
+		<FERROR "cmd-not-found">)
 	       (T
-		<FERROR "Command not found">)>
+		<FERROR "command not found">)>
 	 ,FATAL-VALUE)
 	(T <>)>>
 
 <CONSTANT HELP-TABLE <PLTABLE 
-			"Type the name of a command,"
-			"followed by carriage return."
-			"? or HELP gets this listing."
-			"DIR lists other commands."
-			"QUIT turns computer off."
-			"DIR listing follows.">>
+			" Type the name of a command,"
+			" followed by carriage return."
+			" ? or HELP gets this listing."
+			" DIR lists other commands."
+			" QUIT turns computer off."
+			" DIR listing follows.">>
 
 <CONSTANT TELECOM-HELP-TABLE <PLTABLE 
-			"TYPE THE NAME OF A COMMAND,"
-			"FOLLOWED BY CARRIAGE RETURN."
-			"? OR HELP GETS THIS LISTING."
-			"QUIT OR LOGOUT DISCONNECTS"
-			"FROM MAINFRAME"
-			"AND TURNS TERMINAL OFF."
-			"COMMAND LISTING FOLLOWS.">>
+			" TYPE THE NAME OF A COMMAND,"
+			" FOLLOWED BY CARRIAGE RETURN."
+			" ? OR HELP GETS THIS LISTING."
+			" QUIT OR LOGOUT DISCONNECTS"
+			" FROM MAINFRAME"
+			" AND TURNS TERMINAL OFF."
+			" COMMAND LISTING FOLLOWS.">>
 
 <DEFINE HELP-CMD (ARG1 ARG2 ARG3 "AUX" CTBL)
   <CLEAR-SCREEN>
@@ -440,9 +440,9 @@ Press any key to boot..." CR>
   <COND (<0? .FLINE?> <CLEAR-SCREEN>)>
   <SET-COMPUTER-CURS .FLINE? 0>
   <COND (<TELECOM?>
-	 <DUMP-STRING "CMD LIST:" T>)
+	 <DUMP-STRING "cmd list:" T>)
 	(T
-	 <DUMP-STRING "Command list:" T>)>
+	 <DUMP-STRING "command list:" T>)>
   <SET FLINE? <+ .FLINE? 1>>
   <SET DIR <ZREST .DIR 2>>
   <REPEAT (DE)
@@ -510,7 +510,7 @@ Press any key to boot..." CR>
     <COND (<G? .REMAIN 0>
 	   <COND (<G? <SET DLINE <+ <- .N .REMAIN> ,COMPUTER-HEIGHT>> .N>
 		  <SET DLINE .N>)>
-	   <FERROR-MSG "Hit any key for next page">
+	   <FERROR-MSG "hit any key for next page">
 	   <INPUT 1>
 	   <HLIGHT ,H-NORMAL>
 	   <CLEAR-SCREEN>
@@ -550,12 +550,12 @@ Press any key to boot..." CR>
 	 <RETURN T .EH>)>
   <COND (<NOT .QUIET?>
 	 <COND (<T? <TELECOM?>>
-		<FERROR-MSG "Disconnecting.. Hit any key">
+		<FERROR-MSG "disconnecting.. hit any key">
 		<COND (<T? <WILL-WIN?>>
 		       <COMPUTER-DEAD? T>
 		       <QUEUE I-COMPUTER-DIES 1>)>)
 	       (T
-		<FERROR-MSG "Shutting down.. Hit any key">)>
+		<FERROR-MSG "shutting down.. hit any key">)>
 	 <BLANK-LINE ,COMPUTER-COMMAND-LINE>
 	 <SET-FORM-CURS ,COMPUTER-COMMAND-LINE 1>
 	 <INPUT 1>)>
