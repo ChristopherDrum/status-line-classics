@@ -31,10 +31,10 @@
  (WILL-WIN? BYTE <>)		; "True if killed computer"
  (FERROR-ACTIVE? BYTE <>)>
 
-<MSETG COMPUTER-REAL-WIDTH 31>
-<MSETG COMPUTER-WIDTH 29>
-<MSETG COMPUTER-HEIGHT 19>
-<MSETG COMPUTER-REAL-HEIGHT 20>
+<MSETG COMPUTER-REAL-WIDTH 32> ; "literal character width of the pico-8"
+<MSETG COMPUTER-WIDTH 28> ; "I think this is the internal width of the computer 'screen' in the lower portion of the computer layout: MUST be a minimum of 27 or it won't compile?!"
+<MSETG COMPUTER-HEIGHT 17> ; "I think this is the number of lines in the lower window portion of the computer: MUST be at some minimum value, more than 15 or it won't compile. "
+<MSETG COMPUTER-REAL-HEIGHT 20> ; "this really is the line height of the pico-8"
 <MSETG COMPUTER-FIRST-LINE 3>
 <MSETG COMPUTER-COMMAND-LINE 0>
 <MSETG COMPUTER-ERROR-LINE 1>

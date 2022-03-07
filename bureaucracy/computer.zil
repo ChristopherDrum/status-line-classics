@@ -112,7 +112,7 @@ Press any key to boot..." CR>
     <CLOSE-LINE .N>
     <COND (<G=? <SET N <+ .N 1>> ,COMPUTER-REAL-HEIGHT:FIX>
 	   <RETURN>)>>
-  <COND (<G? ,HEIGHT:FIX <+ ,FLINE:FIX ,COMPUTER-REAL-HEIGHT>>
+  <COND (<G=? ,HEIGHT:FIX <+ ,FLINE:FIX ,COMPUTER-REAL-HEIGHT>>
 	 <BLANK-LINE ,COMPUTER-REAL-HEIGHT>)>>
 
 ;<DEFINE WRITE-CHAR (CHAR X:FIX Y:FIX)
@@ -148,7 +148,7 @@ Press any key to boot..." CR>
 						    <+ ,FIELD-DATA-OFFSET 38>
 						    (BYTE)>
 						   FIELD>
-					   'FIELD-PROMPT "command:"
+					   'FIELD-PROMPT "COMMAND:"
 					   'FIELD-FCN COMMAND-FIELD
 					   'FIELD-PROMPTLEN 8
 					   'FIELD-X 1
@@ -223,7 +223,7 @@ Press any key to boot..." CR>
   <TIMES-THROUGH-LOOP 0>
   <REPEAT ((ERR? <>) CVAL (1ST? T) CSS)
     <COND (<T? <TELECOM?>>
-	   <SETUP-COMMAND-LINE "cmd:" 4 COMMAND-FIELD>)
+	   <SETUP-COMMAND-LINE "CMD:" 4 COMMAND-FIELD>)
 	  (T
 	   <SETUP-COMMAND-LINE "command:" 8 COMMAND-FIELD>)>
     <COND (<T? <FERROR-ACTIVE?>>
@@ -397,7 +397,9 @@ Press any key to boot..." CR>
 			" ? or HELP gets this listing."
 			" DIR lists other commands."
 			" QUIT turns computer off."
-			" DIR listing follows.">>
+			" DIR listing follows."
+			<>	; "CAN'T BE EMPTY STRING BECAUSE ZILCH LOSES..."
+			>>
 
 <CONSTANT TELECOM-HELP-TABLE <PLTABLE 
 			" TYPE THE NAME OF A COMMAND,"
@@ -440,9 +442,9 @@ Press any key to boot..." CR>
   <COND (<0? .FLINE?> <CLEAR-SCREEN>)>
   <SET-COMPUTER-CURS .FLINE? 0>
   <COND (<TELECOM?>
-	 <DUMP-STRING "cmd list:" T>)
+	 <DUMP-STRING " CMD LIST:" T>)
 	(T
-	 <DUMP-STRING "command list:" T>)>
+	 <DUMP-STRING " Command list:" T>)>
   <SET FLINE? <+ .FLINE? 1>>
   <SET DIR <ZREST .DIR 2>>
   <REPEAT (DE)
