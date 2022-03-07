@@ -420,14 +420,14 @@ Press any key to boot..." CR>
 
 <DEFINE WHO-CMD (FLD ENTRY DIR)
   <CLEAR-SCREEN>
-  <DUMP-STRING "USER  DATA          PROGRAM" T>
+  <DUMP-STRING " USER  DATA         PROGRAM" T>
   <SET-COMPUTER-CURS 1 0>
-  <DUMP-STRING "RQH   DVH2          CHA/OS" T>
+  <DUMP-STRING " RQH   DVH2         CHA/OS" T>
   <SET-COMPUTER-CURS 2 0>
-  <DUMP-STRING "RQH   " T>
+  <DUMP-STRING " RQH   " T>
   <SET-COMPUTER-CURS 2 8>
   <COND (<F? <CURRENT-TARGET-NAME>>
-	 <DUMP-STRING "DVH2           CHA/OS" T>)
+	 <DUMP-STRING " DVH2          CHA/OS" T>)
 	(T
 	 <DUMP-STRING <CURRENT-TARGET-NAME> T>
 	 <SET-COMPUTER-CURS 2 28>
@@ -579,91 +579,91 @@ Press any key to boot..." CR>
   <>>
 
 <CONSTANT HACK-TABLE
-	  <PLTABLE
-	   " The Strange and Terrible "
-	   "  History of Bureaucracy"
-	   <>
-		"Once upon a time Douglas"
-		"Adams and Steve Meretzky"
-		"collaborated on a game called"
-		"\"The Hitchhikers Guide to"
-		"the Galaxy.\" Everyone"
-		"wanted a sequel, but Douglas"
-		"thought it might be fun to"
-		"do something different"
-		"first. He called that"
-		"something \"Bureaucracy,\""
-		"and wanted Marc Blank to"
-		"work on it with him. Of"
-		"course, Marc was busy, and"
-		"Douglas was busy, and by the"
-		"time they could both work on"
-		"it, they were too busy to"
-		"work on it. So, Jerry Wolper"
-		"got a free trip to Las Vegas"
-		"to talk to Douglas about it"
-		"before it was decided to let"
-		"it rest for a while"
-		"instead. Jerry decided to go"
-		"back to school, so Marc and"
-		"Douglas spent some time on"
-		"Nantucket looking at llamas,"
-		"drinking Chateau d'Yquem,"
-		"and arguing about puzzles."
-		"Nothing much happened for"
-		"awhile, except that Marc and"
-		"Douglas got distracted"
-		"again. Paul DiLascia decided"
-		"to give it a try, but"
-		"changed his mind and kept"
-		"working on Cornerstone. Marc"
-		"went to work for Simon and"
-		"Schuster, and Paul went to"
-		"work for Interleaf. Jeff"
-		"O'Neill finished Ballyhoo,"
-		"and, casting about for a new"
-		"project, decided to take it"
-		"on, about the time Jerry"
-		"graduated. Jeff got a trip"
-		"to London out of it."
-		"Douglas was enthusiastic,"
-		"but busy with a movie."
-		"Progress was slow, and"
-		"then Douglas was very busy"
-		"with something named \"Dirk"
-		"Gently.\" Jeff decided it"
-		"was time to work on some-"
-		"thing else, and Brian"
-		"Moriarty took it over. He"
-		"visited England, and mar-"
-		"velled at Douglas's CD"
-		"collection, but progress was"
-		"slow. Eventually he decided"
-		"it was time to work on"
-		"something else. Paul made a"
-		"cameo appearance, but de-"
-		"cided to stay at Interleaf"
-		"instead. So Chris Reeve and"
-		"Tim Anderson took it over,"
-		"and mucked around a lot."
-		"Finally, back in Las Vegas,"
-		"Michael Bywater jumped (or"
-		"was pushed) in and came to"
-		"Boston for some serious"
-		"script-doctoring, which made"
-		"what was there into what is"
-		"here. In addition, there"
-		"were significant"
-		"contributions from Liz"
-		"Cyr-Jones, Suzanne Frank,"
-		"Gary Brennan, Tomas Bok,"
-		"Max Buxton, Jon Palace,"
-		"Dave Lebling, Stu Galley,"
-		"Linde Dynneson, and others"
-		"too numerous to mention."
-		"Most of these people are not"
-		"dead yet, and apologise for"
-		"the inconvenience.">>
+	<PLTABLE
+		" The Strange and Terrible "
+		" History of Bureaucracy"
+		<>
+		" Once upon a time Douglas"
+		" Adams and Steve Meretzky"
+		" collaborated on a game called"
+		" \"The Hitchhikers Guide to"
+		" the Galaxy.\" Everyone"
+		" wanted a sequel, but Douglas"
+		" thought it might be fun to"
+		" do something different"
+		" first. He called that"
+		" something \"Bureaucracy,\""
+		" and wanted Marc Blank to"
+		" work on it with him. Of"
+		" course, Marc was busy, and"
+		" Douglas was busy, and by the"
+		" time they could both work on"
+		" it, they were too busy to"
+		" work on it. So, Jerry Wolper"
+		" got a free trip to Las Vegas"
+		" to talk to Douglas about it"
+		" before it was decided to let"
+		" it rest for a while"
+		" instead. Jerry decided to go"
+		" back to school, so Marc and"
+		" Douglas spent some time on"
+		" Nantucket looking at llamas,"
+		" drinking Chateau d'Yquem,"
+		" and arguing about puzzles."
+		" Nothing much happened for"
+		" awhile, except that Marc and"
+		" Douglas got distracted"
+		" again. Paul DiLascia decided"
+		" to give it a try, but"
+		" changed his mind and kept"
+		" working on Cornerstone. Marc"
+		" went to work for Simon and"
+		" Schuster, and Paul went to"
+		" work for Interleaf. Jeff"
+		" O'Neill finished Ballyhoo,"
+		" and, casting about for a new"
+		" project, decided to take it"
+		" on, about the time Jerry"
+		" graduated. Jeff got a trip"
+		" to London out of it."
+		" Douglas was enthusiastic,"
+		" but busy with a movie."
+		" Progress was slow, and"
+		" then Douglas was very busy"
+		" with something named \"Dirk"
+		" Gently.\" Jeff decided it"
+		" was time to work on some-"
+		" thing else, and Brian"
+		" Moriarty took it over. He"
+		" visited England, and mar-"
+		" velled at Douglas's CD"
+		" collection, but progress was"
+		" slow. Eventually he decided"
+		" it was time to work on"
+		" something else. Paul made a"
+		" cameo appearance, but de-"
+		" cided to stay at Interleaf"
+		" instead. So Chris Reeve and"
+		" Tim Anderson took it over,"
+		" and mucked around a lot."
+		" Finally, back in Las Vegas,"
+		" Michael Bywater jumped (or"
+		" was pushed) in and came to"
+		" Boston for some serious"
+		" script-doctoring, which made"
+		" what was there into what is"
+		" here. In addition, there"
+		" were significant"
+		" contributions from Liz"
+		" Cyr-Jones, Suzanne Frank,"
+		" Gary Brennan, Tomas Bok,"
+		" Max Buxton, Jon Palace,"
+		" Dave Lebling, Stu Galley,"
+		" Linde Dynneson, and others"
+		" too numerous to mention."
+		" Most of these people are not"
+		" dead yet, and apologise for"
+		" the inconvenience.">>
 
 <DEFINE HACK-CMD (ARG1 ARG2 ARG3)
   <CLEAR-SCREEN>
@@ -709,7 +709,7 @@ Press any key to boot..." CR>
 		<TELECOM? T>
 		<SETUP-NEXT-TARGET>
 		<REMAINING-TARGET-TURNS 2>
-		<FERROR-MSG "ENTER-COMMAND">
+		<FERROR-MSG "enter-command">
 		<COND (<F? <DIE-ON-NEXT-COMMAND>>
 		       <COMPUTER-LOOP ,TELECOM-TABLE>)
 		      (<F? <EXITED-ALREADY?>>
@@ -752,9 +752,9 @@ Press any key to boot..." CR>
 		     (GOOD-NAME? <>) (GOOD-PASSWORD? <>))
   <REPEAT ()
     <COND (<==? .CT 1>
-	   <FERROR-MSG "100%-YOUR-LAST-CHANCE,-BOZO">)
+	   <FERROR-MSG "100%-your-last-chance, bozo">)
 	  (T
-	   <FERROR-MSG "ENTER-YOUR-ID,-OR-QUIT">)>
+	   <FERROR-MSG "enter-your-id,-or-quit">)>
     <SETUP-COMMAND-LINE "ID:" 3 LOGIN-COMMAND-FIELD>
     <GET-COMMAND>
     <COND (<NOT <NEQ-TBL .FLD ,QUIT-TABLE>>
@@ -763,7 +763,7 @@ Press any key to boot..." CR>
 	   <SET GOOD-NAME? <>>)
 	  (T
 	   <SET GOOD-NAME? T>)>
-    <FERROR-MSG "ENTER-YOUR-PASSWORD">
+    <FERROR-MSG "enter-your-password">
     <SETUP-COMMAND-LINE "PSSWD:" 6 COMMAND-PASSWORD>
     <GET-COMMAND>
     <COND (<AND .GOOD-NAME? <NEQ-TBL .FLD ,PASSWORD>>
