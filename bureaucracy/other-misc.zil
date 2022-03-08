@@ -567,7 +567,7 @@ Of course you know the sort of thing. It's exactly what has happened to you. But
 	 <SET LINES <ZGET .TABLE 0>>
 	 <SET PLINES .LINES>
 	 <SET W <ZGET .TABLE 1>>
-	 <SET MARGIN </ <- ,WIDTH:FIX .W> 2>>	; "Center"
+	 <SET MARGIN <+ </ <- ,WIDTH:FIX .W> 2> 1>> 	; "Center"
 	 <SPLIT <+ .LINES .STLINE>> ; "Set up the window."
 	 <SCREEN ,S-WINDOW>
 	 <ZBUFOUT <>>

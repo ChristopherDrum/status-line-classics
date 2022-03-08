@@ -505,7 +505,7 @@ strength of ten." CR>
 			      <- ,FIELD-DATA-OFFSET 1>>
 		       <ZREST <ZGET ,LICENSE-FORM <+ ,LAST-NAME 1>>
 			      <- ,FIELD-DATA-OFFSET 1>>
-				  <> 12>
+				  <> 10>
 	       T)
 	      (ELSE <>)>>
 

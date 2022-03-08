@@ -906,7 +906,7 @@ an annoying manner.">)>
 a departing Deep Thought Corporation repairman in ">
 		       <SHOW-FIELD ,LEAST-FAVORITE-COLOR>
 		       <TELL " overalls has just finished fiddling with" ,PCR>
-		       <WINDOW ,OMNIA-SIGN-TEXT <> <> <> 12>)>
+		       <WINDOW ,OMNIA-SIGN-TEXT <> <> <> 13>)>
 		<RETURN <> .ADF>)
 	       (<==? ,HERE ,ZALAGASA-DESK>
 		<COND (<OR <T? <FLIGHT-RECALLED?>>
