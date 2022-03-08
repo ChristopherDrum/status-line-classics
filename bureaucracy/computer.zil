@@ -31,7 +31,7 @@
   <HLIGHT ,H-NORMAL>
   <HLIGHT ,H-INVERSE>
   <BLANK-LINE ,COMPUTER-REAL-HEIGHT>
-  ;[" <HLIGHT ,H-NORMAL> "]
+  <HLIGHT ,H-NORMAL>
   <LAST-LINE-USED 0>
   <SET-COMPUTER-CURS 0 0>>
 
@@ -229,7 +229,7 @@ Press any key to boot..." CR>
     <COND (<T? <TELECOM?>>
 	   <SETUP-COMMAND-LINE "CMD:" 4 COMMAND-FIELD>)
 	  (T
-	   <SETUP-COMMAND-LINE "command:" 8 COMMAND-FIELD>)>
+	   <SETUP-COMMAND-LINE "Command:" 8 COMMAND-FIELD>)>
     <COND (<T? <FERROR-ACTIVE?>>
 	   <SET ERR? T>
 	   <FERROR-ACTIVE? <>>)>
@@ -281,7 +281,7 @@ Press any key to boot..." CR>
   <TELL .STR1>
   <TELL .STR2>
   <COND (<T? .STR3> <TELL .STR3>)>
-  <DELAY 2>
+  <DELAY 3>
   <SET-FORM-CURS .OY .OX>>
 
 <CONSTANT TARGETS <TABLE FIDUC-FILE MENU-FILE AIRPLANE-FILE
@@ -592,9 +592,10 @@ Press any key to boot..." CR>
 		" The Strange and Terrible "
 		" History of Bureaucracy"
 		<>
-		" Once upon a time Douglas"
-		" Adams and Steve Meretzky"
-		" collaborated on a game called"
+		" Once upon a time"
+		" Douglas Adams and"
+		" Steve Meretzky collaborated"
+		" on a game called"
 		" \"The Hitchhikers Guide to"
 		" the Galaxy.\" Everyone"
 		" wanted a sequel, but Douglas"
@@ -734,7 +735,7 @@ Press any key to boot..." CR>
 			 10	; "ZIP20"
 			 1	; "APPLE II"
 			 4	; "MAC"
-			 2	; "PICO8 (was Amiga)"
+			 3	; "PICO8 (was Amiga)"
 			 4	; "ST"
 			 1	; "COMPAQ/PC"
 			 1	; "128"
