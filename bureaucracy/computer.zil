@@ -145,7 +145,7 @@ Press any key to boot..." CR>
 	 <PUTB .BT .X <ORB .NUM .BIT>>
 	 T)
 	(T <>)>>
-
+
 <CONSTANT REAL-COMMAND-WINDOW <PTABLE
 			       <MAKE-FIELD 'FIELD
 					   <CHTYPE <ITABLE
@@ -251,7 +251,7 @@ Press any key to boot..." CR>
 			 <COND (<F? <FIND-FILE <REAL-TARGET-NAME>>>
 				<DIE-ON-NEXT-COMMAND 4>)
 			       (T
-				<INT-MESSAGE "user rqh accessing "
+				<INT-MESSAGE "rqh accessing "
 				      <CURRENT-TARGET-NAME>>)>)>)>
 	   <COMMANDS-SINCE-START .CSS>)>
     <SET CVAL <PROCESS-COMMAND .FLD .DIRTBL>>
@@ -559,12 +559,12 @@ Press any key to boot..." CR>
 	 <RETURN T .EH>)>
   <COND (<NOT .QUIET?>
 	 <COND (<T? <TELECOM?>>
-		<FERROR-MSG "disconnecting.. hit any key">
+		<FERROR-MSG "disconnecting... hit any key">
 		<COND (<T? <WILL-WIN?>>
 		       <COMPUTER-DEAD? T>
 		       <QUEUE I-COMPUTER-DIES 1>)>)
 	       (T
-		<FERROR-MSG "shutting down.. hit any key">)>
+		<FERROR-MSG "shutting down... hit any key">)>
 	 <BLANK-LINE ,COMPUTER-COMMAND-LINE>
 	 <SET-FORM-CURS ,COMPUTER-COMMAND-LINE 1>
 	 <INPUT 1>)>
@@ -579,7 +579,8 @@ Press any key to boot..." CR>
   T>
 
 <DEFINE QUIT-CMD (ARG1 ARG2 ARG3)
-  T>
+  <EXIT-HACK>
+  <>>
 
 <DEFINE CLEAR-CMD (ARG1 ARG2 ARG3)
   <COND (<F? <TELECOM?>>
@@ -687,7 +688,7 @@ Press any key to boot..." CR>
 <CONSTANT CLEAR-DIR <DIR-ENTRY CLEAR-CMD "CLEAR" ": Clear the screen">>
 <CONSTANT TCLEAR-DIR <DIR-ENTRY CLEAR-CMD "CLR" ": CLEAR THE SCREEN">>
 
-
+
 <DEFINE RUN-TELE-COMM ("AUX" (F 0))
   <COND (<T? <COMPUTER-DEAD?>>
 	 <TELL CR "The mainframe doesn't seem to be responding, so your Boysenberry rejects the modular plug. Have you messed up the computer system?" CR>)
@@ -834,7 +835,7 @@ saying \"">
 <DEFINE COMMAND-PASSWORD (CONTEXT TBL "OPT" CHAR:FIX)
   <COND (<==? .CONTEXT ,FORM-DO-ECHO?> <>)
 	(T T)>>
-
+
 ; "Actual mainframe simulation here..."
 <CONSTANT LOGOUT-DIR <DIR-ENTRY QUIT-CMD "LOGOUT" <> DIR-ENTRY-INVISIBLE>>
 
