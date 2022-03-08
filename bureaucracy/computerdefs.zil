@@ -32,9 +32,9 @@
  (FERROR-ACTIVE? BYTE <>)>
 
 <MSETG COMPUTER-REAL-WIDTH 32> ; "literal character width of the pico-8"
-<MSETG COMPUTER-WIDTH 28> ; "I think this is the internal width of the computer 'screen' in the lower portion of the computer layout: MUST be a minimum of 27 or it won't compile?!"
-<MSETG COMPUTER-HEIGHT 18> ; "This is the actual number of lines drawn to represent the computer'screen'?, but I don't understand its relationshipo to COMPUTER-REAL-HEIGHT below"
-<MSETG COMPUTER-REAL-HEIGHT 19> ; "is this really just the line height of the pico-8"
+<MSETG COMPUTER-WIDTH 29> ; "I think this is the internal width of the computer 'screen' in the lower portion of the computer layout: MUST be a minimum of 27 or it won't compile?!"
+<MSETG COMPUTER-HEIGHT 17> ; "This is the actual number of lines drawn to represent the computer'screen'?, but I don't understand its relationshipo to COMPUTER-REAL-HEIGHT below"
+<MSETG COMPUTER-REAL-HEIGHT 20> ; "this seems to be the zero-indexed last line of the computer terminal emulator"
 <MSETG COMPUTER-FIRST-LINE 3>
 <MSETG COMPUTER-COMMAND-LINE 0>
 <MSETG COMPUTER-ERROR-LINE 1>

@@ -129,7 +129,7 @@
 	 <COND (<T? .NOTE?>
 		<TELL "* ">)
 	       (T
-		<TELL "ERR: ">)>
+		<TELL "err: ">)>
 	 <TELL .STR >  ; "no extraneous characters; keep it terse"
 	 <HLIGHT ,H-NORMAL>
 	 <COND (,FORM-COMPUTER? <HLIGHT ,H-INVERSE>)>

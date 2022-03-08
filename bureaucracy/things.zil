@@ -2387,7 +2387,7 @@ back." CR>)
 				    (ELSE
 				     <ZCRLF>
 				     <ZBUFOUT <>>
-				     <TELL "-- Any character for next msg --">
+				     <TELL "-- any character for next msg --">
 				     <ZBUFOUT T>
 				     <INPUT 1>
 				     <ZCRLF>)>

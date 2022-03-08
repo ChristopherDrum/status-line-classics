@@ -28,6 +28,10 @@
 	<PRINT-SPACES, COMPUTER-WIDTH>
     ;[" <TELL  "                             "> ;"Why was this a fixed string?" "]
     <SET N <- .N 1>>>
+  <HLIGHT ,H-NORMAL>
+  <HLIGHT ,H-INVERSE>
+  <BLANK-LINE ,COMPUTER-REAL-HEIGHT>
+  ;[" <HLIGHT ,H-NORMAL> "]
   <LAST-LINE-USED 0>
   <SET-COMPUTER-CURS 0 0>>
 
@@ -94,7 +98,7 @@ Press any key to boot..." CR>
   <ZBUFOUT <>>
   <INPUT 1>
   <CLEAR -1>
-  <SPLIT <- ,HEIGHT:FIX 1>>
+  <SPLIT HEIGHT>
   ; "So we can use form cursor addressing"
   <SETG FLINE 1>
   ;[" <SETG FLINE <+ ,FLINE:FIX 1>> "]
@@ -545,7 +549,7 @@ Press any key to boot..." CR>
 	 <HLIGHT ,H-NORMAL>
 	 ; "blank out any previous error before printing a new one"
 	 <SET-FORM-CURS ,COMPUTER-ERROR-LINE 1>
-	 <PRINT-SPACES, 30>
+	 <PRINT-SPACES, COMPUTER-WIDTH>
 	 <SET-FORM-CURS ,COMPUTER-ERROR-LINE 1>
 	 <TELL .STR>
 	 <HLIGHT ,H-INVERSE>)>>
@@ -705,7 +709,7 @@ Press any key to boot..." CR>
 	 <DELAY 1>
 	 <COND (<DO-LOGIN>
 		<SET-COMPUTER-CURS 4 0>
-		<DUMP-STRING "LOGON AT ">
+		<DUMP-STRING " LOGON AT ">
 		<TELL N ,HOURS ":">
 		<COND (<L? ,MINUTES:FIX 10> <TELL "0">)>
 		<TELL N ,MINUTES>
@@ -725,14 +729,14 @@ Press any key to boot..." CR>
 
 <CONSTANT PASSWORD <TABLE (PURE LENGTH STRING) "RAINBOW-TURTLE">>
 
-
+
 <CONSTANT DELAYS <PTABLE (BYTE) 1 ; "ZIL"
 			 10	; "ZIP20"
 			 1	; "APPLE II"
 			 4	; "MAC"
 			 2	; "PICO8 (was Amiga)"
 			 4	; "ST"
-			 1	; "COMPAQ/PC"g
+			 1	; "COMPAQ/PC"
 			 1	; "128"
 			 1	; "64...">>
 
