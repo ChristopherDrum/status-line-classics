@@ -70,8 +70,8 @@
 	<SET-FORM-CURS .N <- ,FORM-WIDTH 1>>
 	<HLIGHT ,H-NORMAL>
 	<HLIGHT ,H-INVERSE>
-	<TELL " ">>
-	
+	<TELL N .N>>
+
 ; "Messages should be 27 characters max"
 <BUILD-FORM LICENSE-FORM
             (LAST-NAME "Last name" 17 "Chomper" FF-NAME

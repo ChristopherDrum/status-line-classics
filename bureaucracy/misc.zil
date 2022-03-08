@@ -50,6 +50,7 @@
 <MSETG D-RECORD-ON 4>
 <MSETG D-RECORD-OFF -4>
 
+; " These real values are set in other-misc"
 <SETG WIDTH 0>  ; "Width of screen."
 <SETG HEIGHT 0> ; "Height of screen."
 

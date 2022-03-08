@@ -945,11 +945,11 @@ a departing Deep Thought Corporation repairman in ">
 
 <CONSTANT OMNIA-SIGN-TEXT
 	  <PLTABLE 33
-		   "Omnia Gallia airlines has been "
-		   "sold; we no longer fly out of  "
-		   "this airport. For further      "
-		   "information, contact the Air   "
-		   "Zalagasa desk.                 ">>
+		   " Omnia Gallia airlines has   "
+		   " been sold; we no longer fly "
+		   " out of this airport. For    "
+		   " further information, contact"
+		   " the Air Zalagasa desk.      ">>
 
 <DEFINE I-TERMINAL IT ("OPT" (CR T) "AUX" P)
   <COND (<HERE? IN-TOWER> <>)
