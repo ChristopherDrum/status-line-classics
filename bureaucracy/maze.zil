@@ -490,13 +490,12 @@ strength of ten." CR>
 	(ACTION PNOTICE-F)>
 
 <CONSTANT PNOTICE-TXT
-	  <PLTABLE 33
-		  "           REMINDER            "
-		  "                               "
-		  "      This week, work on       "
+	  <PLTABLE 24
+		  "    -- REMINDER --    "
+		  "  This week, work on  "
 		  <>
 		  <>
-		  "        now at Happitec        ">>
+		  "   now at Happitec    ">>
 
 <DEFINE PNOTICE-F ()
 	<COND (<VERB? READ EXAMINE LOOK-ON>
@@ -505,7 +504,8 @@ strength of ten." CR>
 		       <ZREST <ZGET ,LICENSE-FORM <+ ,FIRST-NAME 1>>
 			      <- ,FIELD-DATA-OFFSET 1>>
 		       <ZREST <ZGET ,LICENSE-FORM <+ ,LAST-NAME 1>>
-			      <- ,FIELD-DATA-OFFSET 1>>>
+			      <- ,FIELD-DATA-OFFSET 1>>
+				  <> 12>
 	       T)
 	      (ELSE <>)>>
 

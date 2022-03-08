@@ -286,11 +286,10 @@ Press any key to boot..." CR>
   <SOUND ,S-BOOP>
   <HLIGHT ,H-NORMAL>
   <TELL .STR1>
-  <DELAY 2>
+  <DELAY 3>
   <TELL .STR2>
-  <DELAY 2>
+  <DELAY 3>
   <COND (<T? .STR3> <TELL .STR3>)>
-  <DELAY 2>
   <SET-FORM-CURS .OY .OX>>
 
 <CONSTANT TARGETS <TABLE FIDUC-FILE MENU-FILE AIRPLANE-FILE
@@ -588,8 +587,7 @@ Press any key to boot..." CR>
   T>
 
 <DEFINE QUIT-CMD (ARG1 ARG2 ARG3)
-  <EXIT-HACK>
-  <>>
+  T>
 
 <DEFINE CLEAR-CMD (ARG1 ARG2 ARG3)
   <COND (<F? <TELECOM?>>
@@ -607,7 +605,7 @@ Press any key to boot..." CR>
 		" Steve Meretzky collaborated"
 		" on a game called"
 		" \"The Hitchhikers Guide to"
-		" the Galaxy.\" Everyone"
+		" the Galaxy.\" Everyone "
 		" wanted a sequel, but Douglas"
 		" thought it might be fun to"
 		" do something different"
@@ -714,10 +712,10 @@ Press any key to boot..." CR>
 	 <SET-COMPUTER-CURS 0 0>
 	 <HLIGHT ,H-NORMAL>
 	 <DUMP-STRING " CONNECTION IN PROGRESS...." T>
-	 <DELAY 1>
+	 <DELAY 3>
 	 <SET-COMPUTER-CURS 2 0>
 	 <DUMP-STRING " CONNECTED TO DVH2 NODE 0106" T>
-	 <DELAY 1>
+	 <DELAY 2>
 	 <COND (<DO-LOGIN>
 		<SET-COMPUTER-CURS 4 0>
 		<DUMP-STRING " LOGON AT ">
@@ -745,7 +743,7 @@ Press any key to boot..." CR>
 			 10	; "ZIP20"
 			 1	; "APPLE II"
 			 4	; "MAC"
-			 3	; "PICO8 (was Amiga)"
+			 1	; "PICO8 (was Amiga)"
 			 4	; "ST"
 			 1	; "COMPAQ/PC"
 			 1	; "128"
@@ -764,7 +762,7 @@ Press any key to boot..." CR>
 
 <ROUTINE ABORT-WAIT () <RTRUE>>
 
-"Login stuff"
+; "Login stuff"
 <ROUTINE-FLAGS CLEAN-STACK?>
 <DEFINE DO-LOGIN DL ("AUX" (CT 8)
 		     (FLD <ZREST <ZGET ,REAL-COMMAND-WINDOW 0>
@@ -1035,14 +1033,13 @@ saying \"">
   <DUMP-STRING " AIRPLANE REQUEST" T>
   <SET-COMPUTER-CURS 1 0>
   <DUMP-STRING " TRANSMITTING..." T>
-  <DELAY>
+  <DELAY 2>
   <SET-COMPUTER-CURS 3 0>
   <DUMP-STRING " RECEIVED..." T>
-  <DELAY>
+  <DELAY 2>
   <SET-COMPUTER-CURS 5 0>
-  <DELAY>
   <DUMP-STRING " CONFIRMED..." T>
-  <DELAY>
+  <DELAY 2>
   <SET-COMPUTER-CURS 7 0>
   <DUMP-STRING " ACKNOWLEDGED..." T>
   <SETG PLANE-SUMMONED? T>

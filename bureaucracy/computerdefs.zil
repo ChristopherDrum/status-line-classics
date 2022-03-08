@@ -33,7 +33,7 @@
 
 <MSETG COMPUTER-REAL-WIDTH 32> ; "literal character width of the pico-8"
 <MSETG COMPUTER-WIDTH 28> ; "I think this is the internal width of the computer 'screen' in the lower portion of the computer layout: MUST be a minimum of 27 or it won't compile; and no more than 28 or it will cause a strange crash in the computer when putting in the unlabelled cartridge ???"
-<MSETG COMPUTER-HEIGHT 17> ; "This is the actual number of lines drawn to represent the computer'screen'?, but I don't understand its relationshipo to COMPUTER-REAL-HEIGHT below"
+<MSETG COMPUTER-HEIGHT 17> ; "This is the actual number of lines drawn to represent the computer'screen'?, but I don't understand its relationshipo to COMPUTER-REAL-HEIGHT below. BUT we have a problem when COMPUTER-HEIGHT/2 is attempted (which happens a lot) because 17/2 winds up being 8. Do that twice and you get 16, one short of the true height of 17. Causes a minor issue with the mumble text puzzle (one line isn't printed)"
 <MSETG COMPUTER-REAL-HEIGHT 20> ; "this seems to be the zero-indexed last line of the computer terminal emulator"
 <MSETG COMPUTER-FIRST-LINE 3>
 <MSETG COMPUTER-COMMAND-LINE 0>
