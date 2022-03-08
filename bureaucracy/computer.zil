@@ -25,8 +25,15 @@
   <REPEAT ((N <- <LAST-LINE-USED> 1>))
     <COND (<L? .N 0> <RETURN>)>
     <SET-COMPUTER-CURS .N 0>
-	<PRINT-SPACES, COMPUTER-WIDTH>
-    ;[" <TELL  "                             "> ;"Why was this a fixed string?" "]
+;"Why is the below a fixed-length string and not a call to PRINT-SPACES>?"
+;"To use PRINT-SPACES, I have to set COMPUTER-WIDTH to 29 and our"
+;"COMPUTER-REAL-WIDTH is set to 32. This combination causes a strange"
+;"crash on the Boysenberry when loading the unlabelled cart. "
+;"Setting COMPUTER-WIDTH to 28 solves this crash :shrug_emoji:"
+;"but alas, is now one character short of erasing a line completely"
+;"so, whatever, we'll just do it like the implementors did. Maybe they"
+;"had run into a similar conundrum and this was the easiest fix."
+    <TELL  "                             "> ;"29 chars"
     <SET N <- .N 1>>>
   <HLIGHT ,H-NORMAL>
   <HLIGHT ,H-INVERSE>
@@ -279,9 +286,11 @@ Press any key to boot..." CR>
   <SOUND ,S-BOOP>
   <HLIGHT ,H-NORMAL>
   <TELL .STR1>
+  <DELAY 2>
   <TELL .STR2>
+  <DELAY 2>
   <COND (<T? .STR3> <TELL .STR3>)>
-  <DELAY 3>
+  <DELAY 2>
   <SET-FORM-CURS .OY .OX>>
 
 <CONSTANT TARGETS <TABLE FIDUC-FILE MENU-FILE AIRPLANE-FILE
