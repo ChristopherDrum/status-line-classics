@@ -390,7 +390,7 @@ Press any key to boot..." CR>
 		<FERROR "command not found">)>
 	 ,FATAL-VALUE)
 	(T <>)>>
-
+
 <CONSTANT HELP-TABLE <PLTABLE 
 			" Type the name of a command,"
 			" followed by carriage return."
@@ -543,6 +543,9 @@ Press any key to boot..." CR>
   <CLEAR-FERROR>
   <COND (.STR
 	 <HLIGHT ,H-NORMAL>
+	 ; "blank out any previous error before printing a new one"
+	 <SET-FORM-CURS ,COMPUTER-ERROR-LINE 1>
+	 <PRINT-SPACES, 30>
 	 <SET-FORM-CURS ,COMPUTER-ERROR-LINE 1>
 	 <TELL .STR>
 	 <HLIGHT ,H-INVERSE>)>>
