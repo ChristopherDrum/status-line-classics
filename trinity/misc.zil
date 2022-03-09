@@ -1757,7 +1757,7 @@
 	 <SET WIDTH <GET .TABLE 1>>
 	 <SET MARGIN <- ,MIDSCREEN </ .WIDTH 2>>> ; "ALWAYS center"
 
-	 ; "I think the Y value should drive the split"
+	 ; "I think the Y value should drive the split?"
 	 <SPLIT <+ .LINES .Y>> ; "Set up the window."
 	 <SCREEN ,S-WINDOW>
 	 <BUFOUT <>>
