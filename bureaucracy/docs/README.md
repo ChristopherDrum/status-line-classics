@@ -2,20 +2,22 @@
 
 ## About *Bureaucracy* for Status Line
 Bureaucracy tries to do many unusual things with screen layout to simulate various in-game world objects
+
 1. paper forms
- - registration form at the beginning of the game
- - withdrawal/deposit slips at the bank
+   - registration form at the beginning of the game
+   - withdrawal/deposit slips at the bank
+
 1. signage
- - trademark info about the Boysenberry company
- - in-taxi sign
- - notice of airline closure at the airport
- - hacker billboard at Persecution Complex
+   - trademark info about the Boysenberry company
+   - in-taxi sign
+   - notice of airline closure at the airport
+   - hacker billboard at Persecution Complex
 4. software for the "Boysenberry" computer
- - Dork 1
- - Eclipse Predictor
- - Recipes
- - "unlabelled" cartridge
- - CH/A0S
+   - Dork 1
+   - Eclipse Predictor
+   - Recipes
+   - "unlabelled" cartridge
+   - CH/A0S
 
 Other games do interesting layouts using screen 1 (the "upper" screen, with the status bar) for similar signage (the "quote boxes" in Trinity). For example, Trinity does check for a narrow screen and disallows playing, however the internal calculations for displaying unusual layouts are not hard-coded to any set values. Trinity properly evaluates a screen mid-point based on the screen size the interpreter reports. In-game signage does include hard-coded spacing which assumes a wide screen, but again the layout engine itself doesn't care about that. It will do its best to center a sign (for example) regardless. After re-spacing the in-game text, Trinity's layout engine appears to work as expected, even on a small screen.
 
