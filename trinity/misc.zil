@@ -72,7 +72,7 @@
 <ROUTINE GO ()
 	 <SETG MIDSCREEN </ <GETB 0 33> 2>>
 	 <INC MIDSCREEN>
-	 <COND (<L? ,MIDSCREEN 32>
+	 <COND (<L? ,MIDSCREEN 16>
 		<CRLF>
 		<TOO-NARROW>
 		<QUIT>)>
@@ -1750,18 +1750,15 @@
  If [left-margin] is not specified, window is centered."
 
 <ROUTINE WINDOW (TABLE "OPTIONAL" (MARGIN 0)
-		       "AUX" (Y 4) (I 2) WIDTH LINES STR PLINES)
+		       "AUX" (Y 5) (I 2) WIDTH LINES STR PLINES)
 
 	 <SET LINES <GET .TABLE 0>>
 	 <SET PLINES .LINES>
 	 <SET WIDTH <GET .TABLE 1>>
-	 <COND ; (<G? .WIDTH <GETB 0 33>>
-		  <TELL "[Window too wide!]" CR>
-		  <RTRUE>)
-	       (<ZERO? .MARGIN>
-		<SET MARGIN <- ,MIDSCREEN </ .WIDTH 2>>>)> ; "Center"
+	 <SET MARGIN <- ,MIDSCREEN </ .WIDTH 2>>> ; "ALWAYS center"
 
-	 <SPLIT <+ .LINES 4>> ; "Set up the window."
+	 ; "I think the Y value should drive the split"
+	 <SPLIT <+ .LINES .Y>> ; "Set up the window."
 	 <SCREEN ,S-WINDOW>
 	 <BUFOUT <>>
 	 <HLIGHT ,H-INVERSE>
