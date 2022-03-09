@@ -1,5 +1,32 @@
 # Bureaucracy
 
+## About *Bureaucracy* for Status Line
+Bureaucracy tries to do many unusual things with screen layout to simulate various in-game world objects
+1. paper forms
+ - registration form at the beginning of the game
+ - withdrawal/deposit slips at the bank
+1. signage
+ - trademark info about the Boysenberry company
+ - in-taxi sign
+ - notice of airline closure at the airport
+ - hacker billboard at Persecution Complex
+4. software for the "Boysenberry" computer
+ - Dork 1
+ - Eclipse Predictor
+ - Recipes
+ - "unlabelled" cartridge
+ - CH/A0S
+
+Other games do interesting layouts using screen 1 (the "upper" screen, with the status bar) for similar signage (the "quote boxes" in Trinity). For example, Trinity does check for a narrow screen and disallows playing, however the internal calculations for displaying unusual layouts are not hard-coded to any set values. Trinity properly evaluates a screen mid-point based on the screen size the interpreter reports. In-game signage does include hard-coded spacing which assumes a wide screen, but again the layout engine itself doesn't care about that. It will do its best to center a sign (for example) regardless. After re-spacing the in-game text, Trinity's layout engine appears to work as expected, even on a small screen.
+
+**Not so with *Bureaucracy*!**
+
+Bureaucracy makes a huge number of grand assumptions about screen width in characters, hard-codes in sizing values, uses fixed strings of 40 spaces (rather than its own <PRINT-SPACES> routine), and so on. Additionally, some very complex code occurs in `mumble.zil` which drives the endgame PRINT puzzle on the Boysenberry. That particular code is very fragile and needs a particular arrangement of in-game variables like WIDTH, HEIGHT, COMPUTER-WIDTH, COMPUTER-HEIGHT, COMPUTER-REAL-WIDTH, and COMPUTER-REAL-HEIGHT, whose interplay remains a bit of a mystery to me even now.
+
+For the current release of Bureaucracy for Status Line I have tried to identify all of the values that need adjustment to make this game work on a 32-character wide screen. These values should also work for a 40-character screen (the C64, for example) but may not look quite as pixel-perfect. It is going to take quite a bit of effort to generalize these changes into a universal format that functions across all devices of any given width/height. The PRINT puzzle may yet exclude certain classes of device (GameBoy, for example?)
+
+## About the r160 Source Code
+  
 ## The Game
 
 Bureaucracy is a 1987 interactive fiction game written by Douglas Adams and published by Infocom.
