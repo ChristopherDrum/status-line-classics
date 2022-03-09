@@ -6689,7 +6689,7 @@ D ,OPSHORE ,PERIOD>
 
 <GLOBAL QUOTES:TABLE
 	<PTABLE
-	<PLTABLE 24
+	<PLTABLE 22
 		"Time isn't holding us."
 		"Time isn't after us.  "
 		"Same as it ever was,  "
@@ -6697,7 +6697,7 @@ D ,OPSHORE ,PERIOD>
 		0
 		"         - David Byrne">
 
-	<PLTABLE 44
+	<PLTABLE 22
 		"They are of sick and  "
 		"diseased imaginations "
 		"who would toll the    "
@@ -6705,7 +6705,7 @@ D ,OPSHORE ,PERIOD>
 		0
 		" - Henry David Thoreau">
 
-	<PLTABLE 42
+	<PLTABLE 23
 		"Atoms or systems       "
 		"into ruin hurled,      "
 		"And now a bubble burst,"
@@ -6713,7 +6713,7 @@ D ,OPSHORE ,PERIOD>
 		0
 		"       - Alexander Pope">
 
-	<PLTABLE 42
+	<PLTABLE 24
 		"\"And 'the wabe' is the  "
 		"grass-plot round a sun- "
 		"dial, I suppose?\" said  "
@@ -6728,7 +6728,7 @@ D ,OPSHORE ,PERIOD>
 		0
 		"         - Lewis Carroll">
 
-	<PLTABLE 22
+	<PLTABLE 20
 		"Any sufficiently    "
 		"advanced technology "
 		"is indistinguishable"
@@ -6736,7 +6736,7 @@ D ,OPSHORE ,PERIOD>
 		0
 		"  - Arthur C. Clarke">
 	
-	<PLTABLE 22
+	<PLTABLE 20
 		"Any sufficiently    "
 		"arcane magic is     "
 		"indistinguishable   "
@@ -6744,7 +6744,7 @@ D ,OPSHORE ,PERIOD>
 		0
 		"  - P. David Lebling">
 
-	<PLTABLE 40
+	<PLTABLE 26
 		"The love of posterity is a"
 		"consequence of the neces- "
 		"sity of death. If a man   "
@@ -6754,14 +6754,14 @@ D ,OPSHORE ,PERIOD>
 		0
 		"     - Nathaniel Hawthorne">
 
-	<PLTABLE 37
+	<PLTABLE 24
 		"Could annihilation occur"
 		"in matter, this were the"
 		"thing to do it.         "
 		0
 		"       - Herman Melville">
 
-	<PLTABLE 44
+	<PLTABLE 24
 		"From this crude lab that"
 		"spawned a dud,          "
 		"Their necks to Truman's "
@@ -6773,19 +6773,19 @@ D ,OPSHORE ,PERIOD>
 		0
 		" Los Alamos ditty, c1945">
 
-	<PLTABLE 26
-		"Can ye not discern the  "
-		"signs of the times?     "
+	<PLTABLE 23
+		"Can ye not discern the "
+		"signs of the times?    "
 		0
-		"         - Matthew 16:3 ">
+		"         - Matthew 16:3">
 
-	<PLTABLE 20
+	<PLTABLE 18
 		"Il y a une horloge"
 		"qui ne sonne pas. "
 		0
 		"  - Arthur Rimbaud">
 
-	<PLTABLE 40
+	<PLTABLE 23
 		"'Twere better Charity  "
 		"To leave me in         "
 		"the Atom's Tomb -      "
@@ -6795,7 +6795,7 @@ D ,OPSHORE ,PERIOD>
 		0
 		"      - Emily Dickinson">
 
-	<PLTABLE 54
+	<PLTABLE 29
 		"Distant and dead resuscitate,"
 		"They show me as the dial or  "
 		"move as the hands of me,     "
