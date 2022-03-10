@@ -74,13 +74,14 @@ HINT.]" CR>
 	 <V-$REFRESH>
 	 <TELL CR "Back to the story..." CR>>
 
+;"got SUPER lucky with this LINE-TABLE going to line 21; perfect for Pico-8!"
 ;"zeroth (first) element is 5"
 <GLOBAL LINE-TABLE
 	<PTABLE 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
 	       5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21>>
 ;"zeroth (first) element is 4"
 <GLOBAL COLUMN-TABLE
-	<PTABLE 4 4 4 4 4  4  4  4  4  4  4  4  4  4  4  4  4
+	<PTABLE 3 3 3 3 3  3  3  3  3  3  3  3  3  3  3  3  3
 	       24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24>>
 ;"four and nineteen are where the text of questions start"
 
@@ -113,14 +114,13 @@ the curser and text"
 	 <SCREEN ,S-WINDOW>
 	 <CURSET 1 1>
 	 <INVERSE-LINE>
-	 <CENTER-LINE 1 "INVISICLUES" %<LENGTH "INVISICLUES">>
+	 <CENTER-LINE 1 "INVISICLUES" 11>
 	 <CURSET 3 1>
 	 <INVERSE-LINE>
 	 <COND (,WIDE
 		<TELL " ">)>
-	 <LEFT-LINE 3 "return: new hint">
-	 <RIGHT-LINE 3 "q: hint menu"
-		     %<LENGTH "q: hint menu">>
+	 <LEFT-LINE 3 "return:new hint">
+	 <RIGHT-LINE 3 "q:hint menu 11">
 	 <HLIGHT ,H-BOLD>
 	 <SET H <GET ,HINT-TBL .N>>
 	 <CENTER-LINE 2 <GET .H 1 ;,HINT-QUESTION>>
@@ -669,9 +669,9 @@ the curser and text"
 	 <INVERSE-LINE>
 	 <CENTER-LINE 1 " INVISICLUES" 11>
 	 <LEFT-LINE 2 " n:next">
-	 <RIGHT-LINE 2 "return:see hint" %<LENGTH "return: see hint">>
+	 <RIGHT-LINE 2 "return:see hint">
 	 <LEFT-LINE 3 " p:previous">
-	 <RIGHT-LINE 3 "q:resume story" %<LENGTH "q: resume story">>>
+	 <RIGHT-LINE 3 "q:resume story">>
 
 ;<CONSTANT HINT-COUNT 0>
 ;<CONSTANT HINT-QUESTION 1>

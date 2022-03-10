@@ -168,10 +168,10 @@ Infocom interactive fiction|
 Copyright (c) 1987 by Infocom, Inc. All rights reserved.|
 Nord and Bert... is a trademark of Infocom, Inc.|
 Beta Release for Donald Abernathie (IBM) / Serial number ">
-	 <ITALICIZE "Nord and Bert Couldn't Make Head or Tail of It|">
+	 <ITALICIZE "Nord and Bert Couldn't Make|Head or Tail of It|">
 	 <TELL "Infocom interactive fiction|
 Copyright (c) 1987 by Infocom, Inc. All rights reserved.|">
-	 <ITALICIZE "Nord and Bert Couldn't Make Head or Tail of It|">
+	 <ITALICIZE "Nord and Bert Couldn't Make|Head or Tail of It|">
 	 <TELL "is a trademark of Infocom, Inc. ">
 	 <V-$ID>
 	 <TELL "Release " N .V " for Status Line on the Pico-8 / Serial number ">
