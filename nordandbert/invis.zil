@@ -118,9 +118,9 @@ the curser and text"
 	 <INVERSE-LINE>
 	 <COND (,WIDE
 		<TELL " ">)>
-	 <LEFT-LINE 3 "RETURN = see new hint">
-	 <RIGHT-LINE 3 "Q = see hint menu"
-		     %<LENGTH "Q = see hint menu">>
+	 <LEFT-LINE 3 "return: new hint">
+	 <RIGHT-LINE 3 "q: hint menu"
+		     %<LENGTH "q: hint menu">>
 	 <HLIGHT ,H-BOLD>
 	 <SET H <GET ,HINT-TBL .N>>
 	 <CENTER-LINE 2 <GET .H 1 ;,HINT-QUESTION>>
@@ -657,8 +657,8 @@ the curser and text"
 	 <SET WID <GETB 0 33>>
 	 <SPLIT 0>
 	 <CLEAR -1>
-	 ;<SPLIT <GETB 0 32>>
-	 <SPLIT <- <GETB 0 32> 1>>
+	 <SPLIT <GETB 0 32>>
+	 ;" <SPLIT <- <GETB 0 32> 1>> "
 	 <SCREEN ,S-WINDOW>
 	 <BUFOUT <>>
 	 <CURSET 1 1>
@@ -667,11 +667,11 @@ the curser and text"
 	 <INVERSE-LINE>
 	 <CURSET 3 1>
 	 <INVERSE-LINE>
-	 <CENTER-LINE 1 "INVISICLUES" 11>
-	 <LEFT-LINE 2 " N = next">
-	 <RIGHT-LINE 2 "P = previous" %<LENGTH "P = previous">>
-	 <LEFT-LINE 3 " RETURN = See hint">
-	 <RIGHT-LINE 3 "Q = Resume story" %<LENGTH "Q = Resume story">>>
+	 <CENTER-LINE 1 " INVISICLUES" 11>
+	 <LEFT-LINE 2 " n:next">
+	 <RIGHT-LINE 2 "return:see hint" %<LENGTH "return: see hint">>
+	 <LEFT-LINE 3 " p:previous">
+	 <RIGHT-LINE 3 "q:resume story" %<LENGTH "q: resume story">>>
 
 ;<CONSTANT HINT-COUNT 0>
 ;<CONSTANT HINT-QUESTION 1>

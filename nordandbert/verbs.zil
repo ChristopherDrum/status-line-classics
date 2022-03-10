@@ -140,9 +140,9 @@ spleen." CR CR>)>)>
 		      ;<TELL-SCORE>)>
 	       <STATUS-LINE>
 	       <TELL
-"Would you like to start over, restore a saved position, or end this
+"Would you like to RESTART, RESTORE a saved position, or QUIT this
 session of the game?|
-(Type RESTART, RESTORE, or QUIT): >">
+>">
 	       <PUTB ,P-LEXV 0 10>
 	       <READ ,P-INBUF ,P-LEXV>
 	       <PUTB ,P-LEXV 0 60>
@@ -168,14 +168,13 @@ Infocom interactive fiction|
 Copyright (c) 1987 by Infocom, Inc. All rights reserved.|
 Nord and Bert... is a trademark of Infocom, Inc.|
 Beta Release for Donald Abernathie (IBM) / Serial number ">
-	 <TELL 
-"Nord and Bert Couldn't Make Head or Tail of It|
-Infocom interactive fiction|
-Copyright (c) 1987 by Infocom, Inc. All rights reserved.|
-Nord and Bert Couldn't Make Head or Tail of It|
-is a trademark of Infocom, Inc. ">
+	 <ITALICIZE "Nord and Bert Couldn't Make Head or Tail of It|">
+	 <TELL "Infocom interactive fiction|
+Copyright (c) 1987 by Infocom, Inc. All rights reserved.|">
+	 <ITALICIZE "Nord and Bert Couldn't Make Head or Tail of It|">
+	 <TELL "is a trademark of Infocom, Inc. ">
 	 <V-$ID>
-	 <TELL "Release " N .V " / Serial number ">
+	 <TELL "Release " N .V " for Status Line on the Pico-8 / Serial number ">
 	 <REPEAT ()
 		 <COND (<G? <SET CNT <+ .CNT 1>> 23>
 			<RETURN>)
@@ -3649,7 +3648,7 @@ followed almost immediately by the rest of ">
 <ROUTINE JIGS-UP (DESC)
 	 <TELL .DESC>
 	 <TELL CR CR
-"      ****  You have died  ****" CR>
+"   ****  You have died  ****" CR>
 	 <FINISH>>
 
 ;"subtitle useful utility routines"

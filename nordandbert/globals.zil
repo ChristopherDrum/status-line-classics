@@ -1834,12 +1834,13 @@ her ion engines, she's preparing to depart.">)>
 	 <COND (<NOT <EQUAL? ,HERE ,STARTING-ROOM>>
 		<CURSET 2 2>
 	        <COND (<NOT ,WIDE>
-		       <TELL "Go">)
+		       <TELL "">)
 	              (<EQUAL? ,SCENE ,AISLE>
 		       <TELL "Other aisles">)
 	              (T
 		       <TELL "You can go">)>
-	               <PRINTC %<ASCII !\:>>)>
+	               ;"<PRINTC %<ASCII !\:>>"
+				   )>
 	 
 	 <HLIGHT ,H-NORMAL>
 	 <SCREEN ,S-TEXT>
