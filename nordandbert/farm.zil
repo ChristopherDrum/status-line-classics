@@ -62,8 +62,7 @@
 			      <MOVE ,HORSE ,REAL-FARM>
 			      <MOVE ,CART ,REAL-FARM>			      
 			      <TELL 
-"With the horse pushing rather than pulling the cart, you follow a
-crooked and bumpy road for some time">
+"With the horse pushing rather than pulling the cart, you follow a crooked and bumpy road for some time">
 			      <COND (<OR <EQUAL? ,REAL-FARM ,ROAD>
 					 <FSET? ,MARKET ,TOUCHBIT>>
 				     <TELL "..." CR CR>
@@ -72,14 +71,9 @@ crooked and bumpy road for some time">
 				     <SETG HERE ,MARKET>
 				     <SETG OLD-HERE <>>
 				     <FSET ,MARKET ,TOUCHBIT>
-				     <TELL ". You faintly hear
-sweet music from a woodwind drifting toward you, and sure enough, around
-the next bend you come upon a man playing music on a flute. You pull the
-cart to a rumbling halt, and the horse gives a snort.|
-|
-Seeing you, the piper plays a short flat note, draws the pipe from his
-mouth, and takes quick inventory of the wares he is peddling: a cart full
-of apples, a rumpled canvas bag, and some strong-smelling peppers." CR>
+				     <TELL ". You faintly hear sweet music from a woodwind drifting toward you, and sure enough, around the next bend you come upon a man playing music on a flute. You pull the cart to a rumbling halt, and the horse gives a snort.|
+					 |
+					 Seeing you, the piper plays a short flat note, draws the pipe from his mouth, and takes quick inventory of the wares he is peddling: a cart full of apples, a rumpled canvas bag, and some strong-smelling peppers." CR>
 				     <RTRUE>)>)
 			     (T
 			      <TELL 
@@ -105,12 +99,9 @@ of apples, a rumpled canvas bag, and some strong-smelling peppers." CR>
 				     <FSET ,MILK ,RMUNGBIT>
 				     ;<PUTP ,MILK ,P?SDESC "spilt milk"> 
 				     <TELL CR
-"The old dog enthusiastically bounds into the barn after you, and heedless of
-where it's going crashes into the canister of milk, spilling it in a wide
-puddle on the floor of the barn.|
+"The old dog enthusiastically bounds into the barn after you, and heedless of where it's going crashes into the canister of milk, spilling it in a wide puddle on the floor of the barn.|
 |
-The dog looks sheepish, and exits the barn with its tail between its
-legs.">)
+The dog looks sheepish, and exits the barn with its tail between its legs.">)
 				    (<AND <FSET? ,MILK ,RMUNGBIT>
 					  <NOT <FSET? ,MILK ,PHRASEBIT>>>
 				     ;"old dog is hidden away"
@@ -139,9 +130,7 @@ legs.">)
       (LOC ROOMS)
       (DESC "Road")
       (LDESC 
-"The telltail smell of grain and dung drifts by. You're on a dusty
-road in front of abandoned farm -- a nice-sized spread of land that
-stretches far out to meet the horizon.")
+"The telltail smell of grain and dung drifts by. You're on a dusty road in front of abandoned farm -- a nice-sized spread of land that stretches far out to meet the horizon.")
       (GLOBAL FARM)
       (ACTION ROAD-F)>
 
@@ -152,9 +141,7 @@ stretches far out to meet the horizon.")
 		     <NOT <IN? ,DONKEY ,STABLE>>>
 		<MOVE ,DONKEY ,STABLE>
 		<TELL CR
-"As you stop in the road, suddenly a bucking donkey with a swarm of
-buzzing flies chasing it crosses the road in front of you and heads towards the
-stable." CR>)>>
+"As you stop in the road, suddenly a bucking donkey with a swarm of buzzing flies chasing it crosses the road in front of you and heads towards the stable." CR>)>>
 
 <OBJECT OLD-DOG
 	(LOC ROAD)
@@ -174,23 +161,20 @@ stable." CR>)>>
 "A youthful-looking old dog is here, " <PICK-ONE ,DOG-PLAYS>>)
 		      (T
 		       <TELL CR
-"An " D ,OLD-DOG " sits in the dust at the side of the road, feeling all of the spirit of gravity, looking dog-eared and worn out by a lifetime on
-the farm">)>
+"An " D ,OLD-DOG " sits in the dust at the side of the road, feeling all of the spirit of gravity, looking dog-eared and worn out by a lifetime on the farm">)>
 		<TELL ".">)
 	       (<VERB? TELL>
 		<COND (<FSET? ,OLD-DOG ,PHRASEBIT>
 		       <TELL "The dog is too busy " <PICK-ONE ,DOG-PLAYS>
 		              " to pay attention">)
 		      (T
-		       <TELL  "You lift a limp ear and issue your
-command. The old dog lets out a big yawn">)>
+		       <TELL  "You lift a limp ear and issue your command. The old dog lets out a big yawn">)>
 		<TELL ,PERIOD>
 		<STOP>)
 	       (<VERB? EXAMINE>
 		<COND (<FSET? ,OLD-DOG ,PHRASEBIT>
 		       <TELL 
-"The dog has a shiny black coat, and displays the abundant energy of a
-hungry hunting dog">)
+"The dog has a shiny black coat, and displays the abundant energy of a hungry hunting dog">)
 		      (T
 		       <TELL 
 "The dog looks as old and worn out as the Sphinx">
@@ -210,18 +194,11 @@ hungry hunting dog">)
 		       <FSET ,OLD-DOG ,PHRASEBIT>
 		       <MOVE ,STONE ,OLD-DOG>
 		       <TELL
-"The " D ,OLD-DOG " perks up one of its dog-eared ears, then the other.
-Its tail emerges from the surrounding dust and begins oscillating back
-and forth with such intensity that you'd think it was a case of the tail
-wagging the dog.|
+"The " D ,OLD-DOG " perks up one of its dog-eared ears, then the other. Its tail emerges from the surrounding dust and begins oscillating back and forth with such intensity that you'd think it was a case of the tail wagging the dog.|
 |
-In turn the old boy goes through a series of back flips, chases its tail,
-walks around on his hind legs, and howls at the moon. The dog, bursting
-with energy through its shiny new coat, is no longer dry as the dust that
-surrounds it.|
+In turn the old boy goes through a series of back flips, chases its tail, walks around on his hind legs, and howls at the moon. The dog, bursting with energy through its shiny new coat, is no longer dry as the dust that surrounds it.|
 |
-Suddenly by leaps and bounds, the old dog bolts away, and comes back with
-one stone in its slobbery mouth">)>
+Suddenly by leaps and bounds, the old dog bolts away, and comes back with one stone in its slobbery mouth">)>
 		<TELL ,PERIOD>)
 	       (<VERB? TOUCH>
 		<COND (<FSET? ,OLD-DOG ,PHRASEBIT>
@@ -267,8 +244,7 @@ one stone in its slobbery mouth">)>
 			 <PRSI? ,OLD-DOG>>>		
 		<MOVE ,STONE ,OLD-DOG>
 		<TELL
-"The old dog tears out after the stone and retrieves it back to you,
-panting and holding it in his slobbery mouth." CR>)>>
+"The old dog tears out after the stone and retrieves it back to you, panting and holding it in his slobbery mouth." CR>)>>
 		
 <OBJECT CART	
 	(LOC ROAD)
@@ -326,8 +302,7 @@ panting and holding it in his slobbery mouth." CR>)>>
 		<COND (<AND <FSET? ,TAIL ,NDESCBIT>
 			    <FSET? ,SOW-EAR ,NDESCBIT>>
 		       <TELL
-"You can tell right away what a dog-eat-dog world the farm can be, as you
-see lying on the ground a sow's ear, and then some poor animal's tail.">)>
+"You can tell right away what a dog-eat-dog world the farm can be, as you see lying on the ground a sow's ear, and then some poor animal's tail.">)>
 		<FCLEAR ,TAIL ,NDESCBIT>
 		<FCLEAR ,SOW-EAR ,NDESCBIT>
 		<RTRUE>)>>
@@ -343,8 +318,7 @@ see lying on the ground a sow's ear, and then some poor animal's tail.">)>
 	 <COND (<AND <IN? ,TAIL ,DONKEY>
 		     <VERB? TAKE REMOVE>>
 		<TELL
-"You are behooved to lay off, as the donkey jacks its rear hooves dangerously
-close to your face." CR>)
+"You are behooved to lay off, as the donkey jacks its rear hooves dangerously close to your face." CR>)
 	       (<VERB? TAKE>
 		<FCLEAR ,SOW-EAR ,NDESCBIT>
 		<RFALSE>)>>  
@@ -374,13 +348,10 @@ close to your face." CR>)
 		       <MOVE ,PURSE <LOC ,SOW-EAR>>
 		       <REMOVE ,SOW-EAR>
 		       <TELL
-"After working your fingers to the bone and using some rather amazing stitches,
-you finally tie up the last thread, taking pride in the silky radiance
-of the lavender purse">)
+"After working your fingers to the bone and using some rather amazing stitches, you finally tie up the last thread, taking pride in the silky radiance of the lavender purse">)
 		      (T
 		       <TELL 
-"It seams like a difficult thing to make, but surely impossible without a
-needle">)>
+"It seams like a difficult thing to make, but surely impossible without a needle">)>
 		<TELL ,PERIOD>)>>		       
 		
 <OBJECT PURSE	
@@ -431,8 +402,7 @@ needle">)>
 	(LOC BARNYARD)
 	(DESC "full complement of swords")
 	(LDESC 
-"You can see a full complement of swords leaning up against the broad
-side of the barn, looking very out of place here on the farm.")
+"You can see a full complement of swords leaning up against the broad side of the barn, looking very out of place here on the farm.")
 	(SYNONYM COMPLEMENT SWORDS SWORD)
 	(ADJECTIVE FULL)
 	(FLAGS TRYTAKEBIT)
@@ -445,8 +415,7 @@ side of the barn, looking very out of place here on the farm.")
 		<TELL "You're very welcome." CR>)
 	       (<VERB? TAKE>
 		<TELL 
-"These implements of ancient warfare have nothing to do with your task
-on the farm." CR>)
+"These implements of ancient warfare have nothing to do with your task on the farm." CR>)
 	       (<AND <VERB? HAMMER>
 		     <PRSI? ,PLOWSHARES>>
 		<COND (<HELD? ,HAMMER>
@@ -455,8 +424,7 @@ on the farm." CR>)
 		       <MOVE ,PLOWSHARES ,BARNYARD>
 		       <REMOVE ,SWORDS>
 		       <TELL
-"With your best craftsmanship, you fashion the swords into plowshares with
-the gold-glowing hammer">)
+"With your best craftsmanship, you fashion the swords into plowshares with the gold-glowing hammer">)
 		      (T
 		       <TELL ,IF-HAMMER>
 		       <RTRUE>)>
@@ -525,12 +493,10 @@ No one can ever challenge your accuracy after this." CR>)
 <ROUTINE BARN-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"You're surrounded by the deep shade of a nearly abandoned barn, with very
-little activity but for an occasional hoot of an owl.">
+"You're surrounded by the deep shade of a nearly abandoned barn, with very little activity but for an occasional hoot of an owl.">
 		<COND (<NOT <FSET? ,GRAIN ,RMUNGBIT>>;"else there's grain here"
 		       <TELL
-" Yet toward the rear of the barn, under the loft, a cascading
-spillage of grain is creating an ever-widening pile.">)>
+" Yet toward the rear of the barn, under the loft, a cascading spillage of grain is creating an ever-widening pile.">)>
 		<TELL-LADDER>
 		<RTRUE>)
 	       (<AND <EQUAL? .RARG ,M-ENTER>
@@ -586,12 +552,10 @@ spillage of grain is creating an ever-widening pile.">)>
 			      <UPDATE-SCORE>
 			      <FSET ,MILK ,PHRASEBIT>
 		       	      <TELL 
-"You manage the ol' stiff upper lip, and the dog comes bounding back up to
-you">)>)
+"You manage the ol' stiff upper lip, and the dog comes bounding back up to you">)>)
 		      (<NOT <IN? ,OLD-DOG ,HERE>> ;"CRY over milk"
 		       <TELL 
-"In throwing your fit, you can hear the poor ol' dog yowling in the
-distance">)
+"In throwing your fit, you can hear the poor ol' dog yowling in the distance">)
 		      (T
 		       <TELL "It's already water over the dam">)>
 		<TELL ,PERIOD>)
@@ -673,8 +637,7 @@ distance">)
 		       <RTRUE>)>
 		<COND (<NOT <FSET? ,GRAIN ,RMUNGBIT>>
 		       <TELL 
-"A cascading grainfall is spilling onto the barn floor. Mice appear to be
-riding the grain down.">)
+"A cascading grainfall is spilling onto the barn floor. Mice appear to be riding the grain down.">)
 		      (T
 		       <RFALSE>)>)
 	       (<AND <VERB? PUT>
@@ -683,11 +646,7 @@ riding the grain down.">)
 	       (<VERB? EXAMINE LOOK-INSIDE>
 		<COND (<NOT <FSET? ,GRAIN ,RMUNGBIT>>
 		       <TELL 
-"You can see, falling down within the silky stream of golden grain, a
-succession of little mice spread-eagled and smiling widely, some giggling,
-others tumbling head over heels. They each splash deeply into the
-ever-widening pile of grain, and then burrow out the side of it, and
-disappear somewhere in the barn." CR>)
+"You can see, falling down within the silky stream of golden grain, a succession of little mice spread-eagled and smiling widely, some giggling, others tumbling head over heels. They each splash deeply into the ever-widening pile of grain, and then burrow out the side of it, and disappear somewhere in the barn." CR>)
 		      (T
 		       <PERFORM ,V?TAKE ,GRAIN>
 		       <RTRUE>)>)
@@ -697,8 +656,7 @@ disappear somewhere in the barn." CR>)
 		<RTRUE>)
 	       (<VERB? TAKE>
 		<TELL 
-"The golden grain spills between your fingers. You determine
-the barley corn to be of fair quality." CR>)>>
+"The golden grain spills between your fingers. You determine the barley corn to be of fair quality." CR>)>>
 
 <OBJECT MICE
 	(LOC LOCAL-GLOBALS)
@@ -718,8 +676,7 @@ the barley corn to be of fair quality." CR>)>>
 			     (T
 			      <TELL " your hand">)>
 		       <TELL 
-" with a \"squeak,\" hits the ground running, and scampers away out of
-sight." CR>)
+" with a \"squeak,\" hits the ground running, and scampers away out of sight." CR>)
 		      (T
 		       <PERFORM ,V?EXAMINE ,MICE>
 		       <RTRUE>)>)
@@ -744,15 +701,12 @@ sight." CR>)
 <ROUTINE LOFT-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL 
-"It's humid up here in the loft, muggy with the heavy smell of barley corn
-in summer. Bags of the pungent grain, all of them torn up and derelict,
-are strewn about the edge of the loft">
+"It's humid up here in the loft, muggy with the heavy smell of barley corn in summer. Bags of the pungent grain, all of them torn up and derelict, are strewn about the edge of the loft">
 		<COND (<NOT <FSET? ,GRAIN ,RMUNGBIT>>
 		       <TELL 
 ", creating a constant spillage over the side into which mice are leaping">)>
 		<TELL ,PERIOD CR
-"This area at one time must have been used by a handyman, for against one wall
-a grindstone sits idle">
+"This area at one time must have been used by a handyman, for against one wall a grindstone sits idle">
 		<COND (<FSET? ,HAMMER ,NDESCBIT>
 		       <TELL " with a hammer next to it">)>
 		<TELL ".">
@@ -763,8 +717,7 @@ a grindstone sits idle">
 	(LOC LOFT)
 	(DESC "bags of grain")
 	;(LDESC 
-"Bags of grain, many damaged by rodents, piled into stacks next to the edge
-of the loft.")
+"Bags of grain, many damaged by rodents, piled into stacks next to the edge of the loft.")
 	(SYNONYM BAG BAGS GRAIN STACKS STACK GRAINFALL)
 	(ADJECTIVE BARLEY)
 	(FLAGS PLURALBIT TRYTAKEBIT DESC-IN-ROOMBIT)
@@ -817,8 +770,7 @@ of the loft.")
 		       <UPDATE-SCORE>
 		       <FSET ,GRINDSTONE ,PHRASEBIT>
 		       <TELL 
-"It's no skin off your nose, but the gesture of good labor stiffens your
-resolve to salvage the farm">)>
+"It's no skin off your nose, but the gesture of good labor stiffens your resolve to salvage the farm">)>
 		<TELL ,PERIOD>)
 	       (<VERB? ON>
 		<TELL "The dusty old thing hasn't worked for years." CR>)>>
@@ -832,12 +784,10 @@ resolve to salvage the farm">)>
 <ROUTINE STABLE-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"The strong, earthy smell in this wide-open area reminds you that you're|
-on a farm">
+"The strong, earthy smell in this wide-open area reminds you that you're on a farm">
 		<COND (<NOT <FSET? ,HERE ,TOUCHBIT>>
 		       <TELL 
-". So meet the primary interior decorator of the stable: a very odd-looking
-horse who snorts when it sees you">)>
+". So meet the primary interior decorator of the stable: a very odd-looking horse who snorts when it sees you">)>
 		<TELL ".">)>>     
 
 <OBJECT TROUGH
@@ -897,8 +847,7 @@ horse who snorts when it sees you">)>
 "A donkey here contentedly swats away flies with its newly acquired tail.">)
 		      (T
 		       <TELL 
-"A donkey is being chased willy-nilly around the stable being followed by a
-swarm of flies in hot and pesky pursuit.">)>)
+"A donkey is being chased willy-nilly around the stable being followed by a swarm of flies in hot and pesky pursuit.">)>)
 	       (<VERB? EXAMINE>
 		<COND (<IN? ,TAIL ,DONKEY>
 		       <TELL "He is serenely swatting flies">)
@@ -918,10 +867,7 @@ swarm of flies in hot and pesky pursuit.">)>)
 			      <FSET ,DONKEY ,PHRASEBIT>
 			      <UPDATE-SCORE>)>
 		       <TELL
-"It's so easy, you could do this blindfolded. Smarting from the sharpness
-of the needle, the donkey jacks its hooves into the air, narrowly missing
-your chin. But the beast of burden soon settles down, and starts shooing
-flies with its newly-won tail." CR>)
+"It's so easy, you could do this blindfolded. Smarting from the sharpness of the needle, the donkey jacks its hooves into the air, narrowly missing your chin. But the beast of burden soon settles down, and starts shooing flies with its newly-won tail." CR>)
 		      (T
 		       <TELL
 "You can't see anything to pin the tail with." CR>)>)>>
@@ -930,8 +876,7 @@ flies with its newly-won tail." CR>)
 	(LOC STABLE)
 	(DESC "gift horse")
 	(LDESC 
-"An odd-looking horse stands here, nonchalantly shooing at flies with
-its tail.")
+"An odd-looking horse stands here, nonchalantly shooing at flies with its tail.")
         (SYNONYM HORSE)
 	(ADJECTIVE GIFT ODD-LOOKING ODD)
 	(FLAGS ACTORBIT CONTBIT OPENBIT SEARCHBIT NO-D-CONT FIRST-TIMEBIT)
@@ -949,8 +894,7 @@ its tail.")
 		       <RTRUE>)
 		      (T
 		       <TELL
-"A horse is a horse, of course, of course, and no one can talk to a horse,
-of course." CR>
+"A horse is a horse, of course, of course, and no one can talk to a horse, of course." CR>
 		<STOP>)>)
 	       (<VERB? EXAMINE>
 		<TELL 
@@ -996,9 +940,7 @@ of course." CR>
 			      <FSET ,TROUGH ,PHRASEBIT>
 			      <UPDATE-SCORE>)>
 		       <TELL
-"Not only can you lead a horse to water, but contrary to popular belief,
-you CAN make him drink. He slurps his fill of water, and with unbridled
-energy, he trots away toward the road">)
+"Not only can you lead a horse to water, but contrary to popular belief, you CAN make him drink. He slurps his fill of water, and with unbridled energy, he trots away toward the road">)
 		      (<FSET? ,HORSE ,RMUNGBIT>
 		       <TELL "This is a horse, not a camel">)
 		      (T
@@ -1030,8 +972,7 @@ energy, he trots away toward the road">)
 		       <RTRUE>)
 		      (T
 		       <TELL 
-"The horse snorts and rears. It seems paranoid about having the cart behind
-it">)>
+"The horse snorts and rears. It seems paranoid about having the cart behind it">)>
 		<TELL ,PERIOD>)>>
 
 <OBJECT HORSE-RIBBON
@@ -1061,22 +1002,16 @@ it">)>
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<COND (<IN? ,MOLEHILL ,HERE>
 		       <TELL
-"You are standing at the edge of a barren field that is reminiscent of the dust
-bowl days. A steady wind, having secreted away the topsoil, is now drifting
-sandy dirt across the plain. A scant sign of life here is a freshly burrowed
-molehill on the ground.">)
+"You are standing at the edge of a barren field that is reminiscent of the dust bowl days. A steady wind, having secreted away the topsoil, is now drifting sandy dirt across the plain. A scant sign of life here is a freshly burrowed molehill on the ground.">)
 		      (T
 		       <TELL 
-"You are standing in a fertile valley among the tall and lush crops in
-the field. Mountains bordering the valley serve to shield the fields
-from damaging wind storms.">)>)>>
+"You are standing in a fertile valley among the tall and lush crops in the field. Mountains bordering the valley serve to shield the fields from damaging wind storms.">)>)>>
   
 <OBJECT HAYSTACK	
 	(LOC FIELD)
 	(DESC "haystack")
 	(LDESC 
-"Marking the corner of the property is a large stack of hay, whose musty odor
-sticks in your nostrils.")
+"Marking the corner of the property is a large stack of hay, whose musty odor sticks in your nostrils.")
 	(SYNONYM HAYSTACK HAY STACK)
 	(ADJECTIVE HAY)
 	;(FLAGS TRYTAKEBIT)
@@ -1092,16 +1027,13 @@ sticks in your nostrils.")
 			             <UPDATE-SCORE>)>
 			      <THIS-IS-IT ,NEEDLE>
 			      <TELL 
-"It's hard, of course, because all those stalks of hay look like needles
-themselves. The needle is found twinkling brightly silver among the
-yellow stalks of hay grass. You grab it">)
+"It's hard, of course, because all those stalks of hay look like needles themselves. The needle is found twinkling brightly silver among the yellow stalks of hay grass. You grab it">)
 			    (T
 			      <TELL ,ALREADY-HAVE>
 			      <RTRUE>)>)
 		      (T
 		       <TELL 
-"Finding" A ,PRSI " in a haystack is even less likey than finding
-a needle there">)>
+"Finding" A ,PRSI " in a haystack is even less likey than finding a needle there">)>
 		<TELL ,PERIOD>)
 	       (<VERB? SEARCH>
 		<COND (<ZERO? <LOC ,NEEDLE>>
@@ -1148,18 +1080,11 @@ a needle there">)>
 		<UPDATE-SCORE>
 		<FSET ,MOLEHILL ,PHRASEBIT>
 		<TELL 
-"There is a tremendous rumbling in the distance, getting louder and louder,
-until it is deafening. The ground shakes with violence from the mammoth
-pressures of the earth's crust. The dirt around the molehill crumbles away as
-mighty, jagged granite peaks begin to emerge from deep underneath it, and
-you are knocked back as the mountain continues to rise majestically.|
+"There is a tremendous rumbling in the distance, getting louder and louder, until it is deafening. The ground shakes with violence from the mammoth pressures of the earth's crust. The dirt around the molehill crumbles away as mighty, jagged granite peaks begin to emerge from deep underneath it, and you are knocked back as the mountain continues to rise majestically.|
 |
-The surrounding landscape, once bleak, now undergoes
-transformation into a fertile valley before your very eyes. Crops sprout
-and grow tall with the crisp snapping sound of fresh corn being husked.|
+The surrounding landscape, once bleak, now undergoes transformation into a fertile valley before your very eyes. Crops sprout and grow tall with the crisp snapping sound of fresh corn being husked.|
 |
-Yet with the abundance comes new dangers, as two birds can be seen circling
-above, surveying the lush crops." CR>)>>
+Yet with the abundance comes new dangers, as two birds can be seen circling above, surveying the lush crops." CR>)>>
 
 <OBJECT MOUNTAIN
 	(DESC "mountain")
@@ -1196,8 +1121,7 @@ above, surveying the lush crops." CR>)>>
 	;(LOC FIELD)
 	(DESC "two birds")
 	(LDESC
-"Two birds are circling high above, and every once in a while swoop down
-upon the field to despoil the green acres.")
+"Two birds are circling high above, and every once in a while swoop down upon the field to despoil the green acres.")
 	(SYNONYM BIRDS BIRD)
 	(ADJECTIVE NUMBER TWO) ;"number added per z6"
 	(FLAGS TRYTAKEBIT PLURALBIT ;TAKEBIT)
@@ -1209,8 +1133,7 @@ upon the field to despoil the green acres.")
 		<IMPOSSIBLES>)
 	       (<VERB? EXAMINE>
 		<TELL 
-"Hovering above, the two birds appear as menacing as vultures and seem to be
-having a field day with the crops." CR>)
+"Hovering above, the two birds appear as menacing as vultures and seem to be having a field day with the crops." CR>)
 	       (<AND <VERB? KILL THROW>
 		     <OR <AND <PRSO? ,STONE>
 			      <VERB? THROW>>
@@ -1230,21 +1153,15 @@ having a field day with the crops." CR>)
 		<FSET ,BIRDS ,RMUNGBIT>
 		<REMOVE ,STONE>
 		<TELL
-"Sensing their impending doom, the birds flutter down to take refuge within
-the dense, green acreage. Just now, the old dog, looking as spritely as ever,
-comes bouncing upon the scene. Intensely, the old boy scours back and forth
-between the furrows, finally scratching to a stop.|
+"Sensing their impending doom, the birds flutter down to take refuge within the dense, green acreage. Just now, the old dog, looking as spritely as ever, comes bouncing upon the scene. Intensely, the old boy scours back and forth between the furrows, finally scratching to a stop.|
 |
 He freezes, raises one paw, and stiffens his tail parallel to the ground.|
 |
-The flush is made! The birds pop up frantically from the cover, criss-crossing
-each other's heavenward flight path.|
+The flush is made! The birds pop up frantically from the cover, criss-crossing each other's heavenward flight path.|
 |
-You take aim and throw, and the birds explode in rapid succession like clay
-pigeons.|
+You take aim and throw, and the birds explode in rapid succession like clay pigeons.|
 |
-The old dog lets out a long, wolfish howl which echoes thoughout the
-valley." CR>)
+The old dog lets out a long, wolfish howl which echoes thoughout the valley." CR>)
 	       (<VERB? KILL>
 		<COND (,PRSI
 		       <TELL "Never with" A ,PRSI "!" CR>)
@@ -1252,17 +1169,13 @@ valley." CR>)
 		       <TELL "You're not properly \"stoned.\"" CR>)>)
 	       (<VERB? TAKE CATCH>
 		<TELL 
-"A bird in the hand is worth two in the sky. Unfortunately, none are at
-hand." CR>)>>
+"A bird in the hand is worth two in the sky. Unfortunately, none are at hand." CR>)>>
 
 <ROOM MARKET
       (LOC ROOMS)
       (DESC "Market")
       (LDESC 
-"Here is what's left of the town marketplace. In days of yore,
-denizens of Punster gathered here to sell their wares and
-hunt down a bargain, often crowding around carts bulging with a
-cornucopian harvest.")
+"Here is what's left of the town marketplace. In days of yore, denizens of Punster gathered here to sell their wares and hunt down a bargain, often crowding around carts bulging with a cornucopian harvest.")
       (GLOBAL FARM)>
 
 <OBJECT PIPER
@@ -1311,16 +1224,13 @@ cornucopian harvest.")
 <ROUTINE PIPE-F ()
 	 <COND (<VERB? TAKE>
 		<TELL 
-"The piper is so lively in his playing of the pipe, it's like grasping at
-straws." CR>)>>
+"The piper is so lively in his playing of the pipe, it's like grasping at straws." CR>)>>
 
 <ROUTINE WHISTLE (OBJ)
 	 <COND (<NOT <FSET? ,PIPE ,RMUNGBIT>>
 		<FSET ,PIPE ,RMUNGBIT>
 		<TELL
-"The piper strikes a high shrill note, like that of a policeman's whistle.
-\"Hands off the merchandise,\" he says, and then goes on piping a merrier
-tune." CR>)
+"The piper strikes a high shrill note, like that of a policeman's whistle. \"Hands off the merchandise,\" he says, and then goes on piping a merrier tune." CR>)
 	       (T
 		<TELL "You must first acquire the " D .OBJ "." CR>)>>
 
@@ -1347,8 +1257,7 @@ tune." CR>)
 		         <AND <VERB? BUY-WITH>
 			      <PRSI? ,PENNY>>>>
 		<TELL 
-"The piper tells you the peppers are not for sale, but can be gotten with
-the proper phrase. He plays a short lyrical phrase on his flute." CR>)
+"The piper tells you the peppers are not for sale, but can be gotten with the proper phrase. He plays a short lyrical phrase on his flute." CR>)
 	       (<AND <VERB? PICK>
 		     <FSET? ,PEPPERS ,TRYTAKEBIT>>
 		<COND (<AND <NOUN-USED ,PEPPERS ,W?PEPPERS>
@@ -1358,8 +1267,7 @@ the proper phrase. He plays a short lyrical phrase on his flute." CR>)
 		       <FSET ,PEPPERS ,PHRASEBIT>
 		       <UPDATE-SCORE>
 		       <TELL
-"\"That's easy for you to say,\" says the piper, and with a sweep of his
-pipe, allows you to take away peppers." CR>)
+"\"That's easy for you to say,\" says the piper, and with a sweep of his pipe, allows you to take away peppers." CR>)
 		      (T
 		       <TELL 
 "\"Not quite the right phrasing,\" says the piper." CR>)>)
@@ -1393,8 +1301,7 @@ pipe, allows you to take away peppers." CR>)
 	       (<VERB? OPEN LOOK-INSIDE>
 		<COND (<FSET? ,CAT-BAG ,TRYTAKEBIT>
 		       <TELL
-"\"No need for that,\" says the piper. \"A pig's in there. And he might
-escape.\"" CR>)
+"\"No need for that,\" says the piper. \"A pig's in there. And he might escape.\"" CR>)
 		      (T
 		       <TELL "Strangely, ">
 		       <COND (<HELD? ,CAT-BAG>
@@ -1415,8 +1322,7 @@ escape.\"" CR>)
 		     <IN? ,CAT ,CAT-BAG>
 		     <NOT <EQUAL? <ITAKE <>> ,M-FATAL <>>>>
 		<TELL 
-"As you touch the bag you hear \"Meow... Meow.\" You gingerly pick up the
-bag. It continues moving slowly in your hands." CR>)>>
+"As you touch the bag you hear \"Meow... Meow.\" You gingerly pick up the bag. It continues moving slowly in your hands." CR>)>>
 
 <OBJECT CAT
 	(LOC CAT-BAG)
@@ -1431,9 +1337,7 @@ bag. It continues moving slowly in your hands." CR>)>>
 		     <IN? ,CAT ,CAT-BAG>>
 		<COND (<FSET? ,CAT-BAG ,TRYTAKEBIT>
 		       <TELL
-"The piper's face turns red, and he forces a very shrill note out of his
-pipe. Then he explains that he is simply trying to sell a pig in the bag,
-and that you must first buy it before you begin fiddling with it." CR>)
+"The piper's face turns red, and he forces a very shrill note out of his pipe. Then he explains that he is simply trying to sell a pig in the bag, and that you must first buy it before you begin fiddling with it." CR>)
 		      (T
 		       <COND (<IN? ,PIPER ,HERE>
 		       	      <TELL 
@@ -1451,22 +1355,16 @@ and that you must first buy it before you begin fiddling with it." CR>)
 ". Suddenly the cat lets out an electrified scream">
 			      <COND (<HELD? ,CAT>
 				     <TELL " in your arms. You feel
-keenly its needle claws emerge from hitherto cottony paws, and
-the cat shoots out of your arms">)>
-			      <TELL ". Now the feline makes a beeline toward
-the grain. Like a fiery pin ball, the cat ricochets around the barn until the
-place is rocked into full tilt.|
-|
-As the excitement dies down, you see the grainfall slow to a
-trickle and then the last bits of grain hit the pile with a \"tick...
-tick.\"|
-|
-The mice are no longer to be seen." CR>
+keenly its needle claws emerge from hitherto cottony paws, and the cat shoots out of your arms">)>
+			      <TELL ". Now the feline makes a beeline toward the grain. Like a fiery pin ball, the cat ricochets around the barn until the place is rocked into full tilt.|
+				  |
+				  As the excitement dies down, you see the grainfall slow to a trickle and then the last bits of grain hit the pile with a \"tick... tick.\"|
+				  |
+				  The mice are no longer to be seen." CR>
 			      <REMOVE ,CAT>)
 			     (T
 			      <TELL 
-". But finding nothing of particular interest, it rolls itself back into the
-bag." CR>)>)>
+". But finding nothing of particular interest, it rolls itself back into the bag." CR>)>)>
 		<RTRUE>)
 
 	        (<AND <VERB? TAKE LET-OUT REMOVE>
@@ -1477,8 +1375,7 @@ bag." CR>)>)>
 		       <RTRUE>)
 		      (T
 		       <TELL 
-"You might have to rephrase that in a \"cat\"-chier way to make
-it work." CR>)>)
+"You might have to rephrase that in a \"cat\"-chier way to make it work." CR>)>)
 		(<AND <NOT <DONT-HANDLE ,CAT>>
 		      <IN? ,CAT ,CAT-BAG>
 		      <FSET? ,CAT-BAG ,TRYTAKEBIT>>
@@ -1493,8 +1390,7 @@ it work." CR>)>)
 		 <TELL "The cat dances out of your reach." CR>)
 		(<VERB? TOUCH>
 		 <TELL 
-"The cat unfurls and furls its tail contentedly, and begins idling with
-a steady purr." CR>)>>
+"The cat unfurls and furls its tail contentedly, and begins idling with a steady purr." CR>)>>
 
 <OBJECT PIG
 	;(LOC CAT-BAG)
@@ -1521,9 +1417,7 @@ a steady purr." CR>)>>
 			      <FCLEAR ,CAT-BAG ,TRYTAKEBIT>
 			      <THIS-IS-IT ,CAT-BAG>
 			      <TELL 
-"\"It's a deal!\" says the man. \"I like the way you do business -- buying
-a pig in a poke.\" You pay the piper and he plucks the pretty penny from
-you. \"Okay, she's yours. Take it.\"" CR>)
+"\"It's a deal!\" says the man. \"I like the way you do business -- buying a pig in a poke.\" You pay the piper and he plucks the pretty penny from you. \"Okay, she's yours. Take it.\"" CR>)
 			     (T
 			      <COST-YOU>)>)
 		      (T
@@ -1533,8 +1427,7 @@ you. \"Okay, she's yours. Take it.\"" CR>)
 		     <PRSI? ,PENNY>
 		     <FSET? ,CAT-BAG ,TRYTAKEBIT>>
 		<TELL
-"\"The price is right for the pig, yes, but that's not quite the way
-I do business.\" The piper plays a long low note." CR>)
+"\"The price is right for the pig, yes, but that's not quite the way I do business.\" The piper plays a long low note." CR>)
 	       (<AND <VERB? BUY>
 		     <EQUAL? ,HERE ,MARKET>>
 		<COND (<AND <HELD? ,PENNY>
@@ -1567,8 +1460,7 @@ I do business.\" The piper plays a long low note." CR>)
 	 <COND (<AND <VERB? TAKE>
 		     <FSET? ,APPLE ,TRYTAKEBIT>>
 		<TELL 
-"The apples are stacked in such way that it is impossible to pry one apple
-away from the rest." CR>)>>
+"The apples are stacked in such way that it is impossible to pry one apple away from the rest." CR>)>>
 
 <ROUTINE GEN-APPLE () ;"for APPLE, APPLE-CART and CART"
 	 <COND (<AND <OR <EQUAL? <GET ,P-NAMW 0> ,W?APPLE>
@@ -1597,8 +1489,7 @@ away from the rest." CR>)>>
 	 <COND (<AND <VERB? PUSH MOVE KILL MUNG>
 		     <NOT <FSET? ,APPLE-CART ,PHRASEBIT>>>
 		<TELL
-"The apples remain undisturbed. The piper intones, \"Pick your words
-as carefully as you would an apple from the bottom of the stack.\"" CR>)
+"The apples remain undisturbed. The piper intones, \"Pick your words as carefully as you would an apple from the bottom of the stack.\"" CR>)
 	       (<AND <NOUN-USED ,APPLE-CART ,W?APPLE ,W?APPLES>
 		     <VERB? TAKE>>
 		<COND (<FSET? ,APPLE-CART ,PHRASEBIT>
@@ -1618,8 +1509,5 @@ as carefully as you would an apple from the bottom of the stack.\"" CR>)
 		       <FSET ,APPLE-CART ,PHRASEBIT>
 		       <REMOVE ,APPLE>
 		       <TELL
-"Visibly perturbed, the stacked apples begin to tremble and quake, until
-one apple heaves up out of the pile and into the air. Your horsey
-companion eyeballs the apple, bares his teeth, tilts back his
-long mane, and catches it. He loudly chomps it into a pulp, and swallows">)>
+"Visibly perturbed, the stacked apples begin to tremble and quake, until one apple heaves up out of the pile and into the air. Your horsey companion eyeballs the apple, bares his teeth, tilts back his long mane, and catches it. He loudly chomps it into a pulp, and swallows">)>
 		<TELL ,PERIOD>)>>
