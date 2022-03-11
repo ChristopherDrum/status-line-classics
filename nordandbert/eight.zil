@@ -74,8 +74,7 @@
 <ROUTINE DECREE-F ()
 	 <COND (<VERB? EXAMINE READ>
 		<TELL 
-"The decree would outlaw all language play in town. There is a line at the
-bottom for the mayor's signature." CR>)>>
+"The decree would outlaw all language play in town. There is a line at the bottom for the mayor's signature." CR>)>>
 
 <ROOM SQUARE 
       (LOC ROOMS)
@@ -88,9 +87,7 @@ bottom for the mayor's signature." CR>)>>
 <ROUTINE SQUARE-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL 
-"You're in the public square. Facing one edge of the square stands an
-impressive looking neo-colonial town house, which is decoratively fronted
-by a row of laurel bushes.">)>>
+"You're in the public square. Facing one edge of the square stands an impressive looking neo-colonial town house, which is decoratively fronted by a row of laurel bushes.">)>>
 
 ;"One edge of the square has been advanced
 upon by the encroaching forest, as it is dense with trees and shrubbery"
@@ -99,11 +96,7 @@ upon by the encroaching forest, as it is dense with trees and shrubbery"
 	 <COND (<AND <HELD? ,BLESSING>
 		     <NOT <IN? ,BLESSING ,DISGUISE>>>
 		<TELL 
-"As you approach the column-lined town house through the path dividing the 
-well-manicured lawn, you are overcome with fear and trembling and
-are forced to turn back toward the square. It seems the idea of
-entering such a reviled house of corruption with a blessing is spiritually
-and realistically impossible." CR>
+"As you approach the column-lined town house through the path dividing the well-manicured lawn, you are overcome with fear and trembling and are forced to turn back toward the square. It seems the idea of entering such a reviled house of corruption with a blessing is spiritually and realistically impossible." CR>
 		<RFALSE>)
 	       (<AND <HELD? ,BLESSING>
 		     <IN? ,BLESSING ,DISGUISE>>
@@ -157,16 +150,14 @@ NDESCBIT TRYTAKEBIT PLURALBIT CONTBIT OPENBIT SEARCHBIT NO-D-CONT)
 		<UPDATE-SCORE>
 		<MOVE ,BLESSING ,PROTAGONIST>
 		<TELL 
-"Beating around the bush, you come upon a ticket stub enmeshed in the
-dense lower branches of the laurel. You pick it up and dust it off." CR>)
+"Beating around the bush, you come upon a ticket stub enmeshed in the dense lower branches of the laurel. You pick it up and dust it off." CR>)
 	       (<AND <VERB? SEARCH-WITH>
 		     <PRSI? ,COMB>>
 		<PERFORM ,V?SEARCH ,BUSHES>
 		<RTRUE>)
 	       (<VERB? EXAMINE>
 		<TELL
-"The laurel bushes are a pleasant landscaping touch as frontage to the town
-house." CR>) 
+"The laurel bushes are a pleasant landscaping touch as frontage to the town house." CR>) 
 	       (<VERB? BOARD>
 		<TELL "You can't rest on the bush itself." CR>)
 	       (<VERB? TAKE MUNG PICK>
@@ -175,8 +166,7 @@ house." CR>)
 		       <PUTP ,LAUREL ,P?SDESC "your laurels">
 		       <FSET ,LAUREL ,NARTICLEBIT>
 		       <TELL 
-"With noble bearing, you study the laurel and proceed to break
-off a few intertwined branches." CR>)
+"With noble bearing, you study the laurel and proceed to break off a few intertwined branches." CR>)
 		      (T
 		       <TELL
 "You have harvested all the laurel that you require." CR>)>)>> 
@@ -215,24 +205,15 @@ off a few intertwined branches." CR>)
 		<COND (,WON-GAME
 		       <UPDATE-SCORE>
 		       <TELL  
-"With dreamy slowness you begin to fall back upon your laurels for the
-long, soulful respite you have so well deserved. In the enclave of your dreams
-the clarion voice of a herald is given forum:|
+"With dreamy slowness you begin to fall back upon your laurels for the long, soulful respite you have so well deserved. In the enclave of your dreams the clarion voice of a herald is given forum:|
 |
-\"We, the members of the Citizens' Action Committee of Punster, do hereby
-honor your exploits in delivering our town of the nefarious crime of
-wordplay. Punster has once again returned to a life of trusting normalcy.|
+\"We, the members of the Citizens' Action Committee of Punster, do hereby honor your exploits in delivering our town of the nefarious crime of wordplay. Punster has once again returned to a life of trusting normalcy.|
 |
-For the McCleary Farm, the cows have truly come home. Audiences once again
-revel in the gift of laughter. A pretty girl is rescued from the brink
-of tragedy. You have made our town safe for shopping. The Teapot Cafe
-is a homey hearth and nourishment to our
-supping folk. A house for guests has gained back its repute. A neighboring
+For the McCleary Farm, the cows have truly come home. Audiences once again revel in the gift of laughter. A pretty girl is rescued from the brink of tragedy. You have made our town safe for shopping. The Teapot Cafe
+is a homey hearth and nourishment to our supping folk. A house for guests has gained back its repute. A neighboring
 town must no longer live down its name.|
 |
-In gratitude to your selfless dedication to our humble town, we present you
-with the Key to the City. May it unlock all the doors for you along life's
-path.\"|
+In gratitude to your selfless dedication to our humble town, we present you with the Key to the City. May it unlock all the doors for you along life's path.\"|
 |
 You fall still further into deep and luxurious sleep." CR>       
 		       <FINISH>)
@@ -257,8 +238,7 @@ You fall still further into deep and luxurious sleep." CR>
 <ROUTINE BLESSING-F ()
 	 <COND (<VERB? COUNT>
 		<TELL 
-"Though such expression is filled with gratitude, you count but one
-blessing." CR>)
+"Though such expression is filled with gratitude, you count but one blessing." CR>)
 	       (<AND <VERB? GIVE>
 		     <PRSI? ,DUCK>
 		     <FSET? ,DUCK ,PHRASEBIT>>
@@ -267,15 +247,10 @@ blessing." CR>)
 		;<REMOVE ,BLESSING>
 		<MOVE ,BLESSING ,LOCAL-GLOBALS>
 		<TELL 
-"The air surrounding the mayor gradually turns pure and bright. An expansive
-campaign-smile spreads across his face as he bathes in the saintliness of
-the blessing bestowed. As the halo effect fades, it seems to have lifted away
-the dread weight of the mayor's burdens." CR>)
+"The air surrounding the mayor gradually turns pure and bright. An expansive campaign-smile spreads across his face as he bathes in the saintliness of the blessing bestowed. As the halo effect fades, it seems to have lifted away the dread weight of the mayor's burdens." CR>)
 	       (<VERB? EXAMINE READ>
 		<TELL
-"The ticket is issued by the First Church of the Heavenly Ferris Wheel,
-the foremost religious institution in town. It decrees one blessing to
-be given by the bearer of the ticket to any individual." CR>)>>
+"The ticket is issued by the First Church of the Heavenly Ferris Wheel, the foremost religious institution in town. It decrees one blessing to be given by the bearer of the ticket to any individual." CR>)>>
 
 <OBJECT STUMP
 	(LOC SQUARE)
@@ -327,8 +302,7 @@ be given by the bearer of the ticket to any individual." CR>)>>
 		<TELL "That would be against the law." CR>)
 	       (<VERB? READ EXAMINE>
 		<TELL
-"There is a list of \"Ten Laws of the Land.\" But the bottom of the
-sheet is torn off, leaving only nine laws, which are:|
+"There is a list of \"Ten Laws of the Land.\" But the bottom of the sheet is torn off, leaving only nine laws, which are:|
 |
   No Running|
   No Panting Loons|
@@ -372,8 +346,7 @@ sheet is torn off, leaving only nine laws, which are:|
 		       <TELL 
 ", which hangs on the stump next to the sheet of paper,">)>
 		<TELL 
-" is dinged up and tarnished from seemingly centuries of use by the
-town crier." CR>)
+" is dinged up and tarnished from seemingly centuries of use by the town crier." CR>)
 	       (<VERB? BLOW>
 		<COND (<FSET? ,HORN ,TRYTAKEBIT>
 		       <PERFORM ,V?TAKE ,HORN>
@@ -387,8 +360,7 @@ town crier." CR>)
 				     <UPDATE-SCORE>
 				     <FSET ,HORN ,PHRASEBIT>
 				     <TELL 
-". It seems to be music to the mayor's ears, since he for the first time
-really takes notice of you, and smiles upon your vainglorious trumpeting">)
+". It seems to be music to the mayor's ears, since he for the first time really takes notice of you, and smiles upon your vainglorious trumpeting">)
 				    (T
 				     <TELL 
 ". \"Hey, don't let it go to your head,\" says the mayor">)>)
@@ -405,14 +377,10 @@ really takes notice of you, and smiles upon your vainglorious trumpeting">)
 		       <MOVE ,HORN ,PROTAGONIST>
 		       <PUTP ,HORN ,P?SDESC "your own horn">
 		       <TELL
-"The horn begins to trumpet out a stuttering protest, but the logic of
-law is so compelling that it quits, and you take possession of the horn." CR>)
+"The horn begins to trumpet out a stuttering protest, but the logic of law is so compelling that it quits, and you take possession of the horn." CR>)
 		      (<FSET? ,HORN ,TRYTAKEBIT>
 		       <TELL 
-"The old brass horn suddenly radiates through its tarnished surface a deep
-amber glow of indignation, and trumpets out a sharp rebuke in a nasty off-key
-pitch that seems to accuse you of taking hold of itself without rightfully
-owning it." CR>)>)>>    
+"The old brass horn suddenly radiates through its tarnished surface a deep amber glow of indignation, and trumpets out a sharp rebuke in a nasty off-key pitch that seems to accuse you of taking hold of itself without rightfully owning it." CR>)>)>>    
 
 <ROUTINE GEN-POSSESSION ()
 	 ,HORN>
@@ -429,14 +397,12 @@ owning it." CR>)>)>>
 <ROUTINE LOBBY-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL 
-"This is the lobby of the town hall, looking stately and deeply lacquered.
-A boldly impressive staircase leads up">
+"This is the lobby of the town hall, looking stately and deeply lacquered. A boldly impressive staircase leads up">
 		<COND (<IN? ,TUB ,BATHROOM>
 		       <TELL 
 " and you can see steam drifting out of a room at the top of it">)>
 		<TELL 
-". The main focus of attention in the lobby is an imposing, ornately framed
-document hanging on the wall.">)>>
+". The main focus of attention in the lobby is an imposing, ornately framed document hanging on the wall.">)>>
 
 <OBJECT PRETENSES
 	(LOC LOBBY)
@@ -464,8 +430,7 @@ And beloved shall be Our Mayor in the eyes of the World!|
 Forsooth, His Rule shall endure a thousand years!|">)
 	       (<VERB? TAKE>
 		<TELL 
-"The theft of such a hallowed document is utterly beyond the realm of
-possibilities. Period." CR>)   
+"The theft of such a hallowed document is utterly beyond the realm of possibilities. Period." CR>)   
 	       (<AND <VERB? TAKE-UNDER>
 		     <PRSI? ,PRETENSES>>
 		<COND (<AND <PRSO? ,SIX-PACK>
@@ -474,9 +439,7 @@ possibilities. Period." CR>)
 		       <FCLEAR ,SIX-PACK ,TRYTAKEBIT>
 		       <MOVE ,SIX-PACK ,PROTAGONIST>
 		       <TELL
-"Yes, there's more than one way to steal a pack, but under false Pretenses
-is surely not the worst way. You cradle the six-pack in your arms like
-the mother's milk of local politics, which it is." CR>)
+"Yes, there's more than one way to steal a pack, but under false Pretenses is surely not the worst way. You cradle the six-pack in your arms like the mother's milk of local politics, which it is." CR>)
 		      (T
 		       <PERFORM ,V?TAKE ,PRSO>
 		       <RTRUE>)>)>>
@@ -485,8 +448,7 @@ the mother's milk of local politics, which it is." CR>)
 	(LOC LOBBY)
 	(DESC "six-pack of beer")
 	(FDESC 
-"A six-pack of beer -- the loyal constituency of cigar-chomping, back-room
-politicians -- sits on the floor beneath the document.")
+"A six-pack of beer -- the loyal constituency of cigar-chomping, back-room politicians -- sits on the floor beneath the document.")
 	(SYNONYM SIX-PACK PACK BEER SIX DEEP-SIX CAN CANS)
 	(ADJECTIVE DEEP)
 	(FLAGS TRYTAKEBIT TAKEBIT)
@@ -495,18 +457,14 @@ politicians -- sits on the floor beneath the document.")
 <ROUTINE SIX-PACK-F ()
 	 <COND (<VERB? EXAMINE>
 		<TELL 
-"The cans of beer are tall and thick, each labeled with the brand name
-\"Deep Six\" and each depicting the same bluish misty ocean scene." CR>)
+"The cans of beer are tall and thick, each labeled with the brand name \"Deep Six\" and each depicting the same bluish misty ocean scene." CR>)
 	       (<AND <VERB? TAKE>
 		     <FSET? ,SIX-PACK ,TRYTAKEBIT>>
 		<TELL 
-"It's no simple matter taking something that's not yours, and you're
-unable to do it that way." CR>)
+"It's no simple matter taking something that's not yours, and you're unable to do it that way." CR>)
 	       (<VERB? OPEN>
 		<TELL
-"\"Deep Six,\" being a nostalgic brand of beer marketed toward muscle-headed
-rugged individualists, has not adopted the convenience of easy-opening
-pop-top cans. And no can opener is available." CR>)
+"\"Deep Six,\" being a nostalgic brand of beer marketed toward muscle-headed rugged individualists, has not adopted the convenience of easy-opening pop-top cans. And no can opener is available." CR>)
 	       (<VERB? DRINK>
 		<TELL "None of the cans is open." CR>)
 	       (<AND <VERB? GIVE>
@@ -522,9 +480,7 @@ pop-top cans. And no can opener is available." CR>)
 			      <REMOVE ,SKELETON>
 			      <FSET ,SKELETON ,PHRASEBIT>
 			      <TELL "As you give the skeleton the
-deep-six, the bones sink beneath the filmy surface of the water, slowly
-twisting and sinking much deeper than the tub would seem to be, until
-finally it disappears into the murky depths of Davey Jones' Locker.">
+deep-six, the bones sink beneath the filmy surface of the water, slowly twisting and sinking much deeper than the tub would seem to be, until finally it disappears into the murky depths of Davey Jones' Locker.">
 			      <COND (<FSET? ,DUCK ,PHRASEBIT>
 				     <TELL 
 " The mayor breathes a large foul-breathed sigh of relief.">)
@@ -579,15 +535,13 @@ finally it disappears into the murky depths of Davey Jones' Locker.">
 		       <OPEN-CLOSED ,JAR>)
 		      (T
 		       <TELL
-"Standing against one wall is the strange sight of a jar that stands nearly
-as high as the ceiling">)>
+"Standing against one wall is the strange sight of a jar that stands nearly as high as the ceiling">)>
 		<TELL ".">
 		<RTRUE>)
 	       (<AND <FSET? ,JAR ,PHRASEBIT>
 		     <NOUN-USED ,JAR ,W?JAR>>
 		<TELL 
-"The hinges creak eerily as the door moves slowly back and forth, but
-nothing else happens." CR>
+"The hinges creak eerily as the door moves slowly back and forth, but nothing else happens." CR>
 		<RTRUE>) ;"need rtrue, else printed twice" 
 	       (<AND <OR <NOUN-USED ,JAR ,W?DOOR ,W?AJAR>
 			 <ADJ-USED ,JAR ,W?AJAR ,W?CLOSET>>
@@ -598,12 +552,7 @@ nothing else happens." CR>
 		<FSET ,JAR ,PHRASEBIT>
 		<FSET ,JAR ,DOORBIT>
 		<FSET ,JAR ,OPENBIT>
-		<TELL  "From inside the big jar there comes a flash of
-light which intensifies in several quick, increasingly brighter pulses.
-Prismatically, the large surface  of the jar glows with the colors of
-the rainbow. Then in a blink of your eyes, the light show is over and in
-the place of the jar you observe a quite ordinary closet door, which is
-now open." CR>
+		<TELL  "From inside the big jar there comes a flash of light which intensifies in several quick, increasingly brighter pulses. Prismatically, the large surface  of the jar glows with the colors of the rainbow. Then in a blink of your eyes, the light show is over and in the place of the jar you observe a quite ordinary closet door, which is now open." CR>
 		;<STOP>
 		<RTRUE>)
 	       (<AND <NOUN-USED ,JAR ,W?LID>
@@ -652,20 +601,14 @@ CR>)
 "Darkness seems to radiate out of the closet." CR>)
 	       (<VERB? REACH-IN SEARCH>
 		<TELL
-"You grope into the darkness but can't seem to put your hands on anything of
-significance." CR>)
+"You grope into the darkness but can't seem to put your hands on anything of significance." CR>)
 	       (<AND <VERB? SEARCH-WITH>
 		     <PRSI? ,COMB>
 		     <IN? ,SKELETON ,LOCAL-GLOBALS>> ;"a must"
 	       <UPDATE-SCORE>
 	       <MOVE ,SKELETON ,HERE>
 	       <TELL
-"Using the crack resources of the well-appointed sleuth, you painstakingly
-search the closet high and search the closet low. Sounds of chattering
-teeth and then of bones knocking together come out of the closet as you
-seem to have stirred something up. There is again quiet for a moment,
-and then a full skeleton is seen to feint out of the darkness, rattling to
-the floor in a heap." CR>)
+"Using the crack resources of the well-appointed sleuth, you painstakingly search the closet high and search the closet low. Sounds of chattering teeth and then of bones knocking together come out of the closet as you seem to have stirred something up. There is again quiet for a moment, and then a full skeleton is seen to feint out of the darkness, rattling to the floor in a heap." CR>)
 	       (<VERB? OPEN CLOSE>
 		<PUT ,P-NAMW 0 ,W?DOOR>
 		<PERFORM ,PRSA ,JAR>
@@ -705,8 +648,7 @@ the floor in a heap." CR>)
 		       <TELL "The mayor is sitting in the bathtub.">)
 		      (<IN? ,DUCK ,TUB>
 		       <TELL
-"Against the far wall you can see a bathtub. Inside is a duck, which is
-looking confused and swimming around in circles and figure-8's.">)
+"Against the far wall you can see a bathtub. Inside is a duck, which is looking confused and swimming around in circles and figure-8's.">)
 		      (T
 		       <RFALSE>)>)
 	       (<AND <VERB? CLEAN-IN>
@@ -717,18 +659,15 @@ looking confused and swimming around in circles and figure-8's.">)
 		     <PRSI? ,TUB>>
 		<COND (<PRSO? ,LINEN>
 		       <TELL 
-"Washing the mayor's laundry might be politically worthwhile in the long
-run, but this is usually done out in the open." CR>)
+"Washing the mayor's laundry might be politically worthwhile in the long run, but this is usually done out in the open." CR>)
 		      (<PRSO? ,SKELETON>
 		       <TELL
-"With that phraseology, it probably wouldn't go deep enough in the water
-for you to get rid of it." CR>) 
+"With that phraseology, it probably wouldn't go deep enough in the water for you to get rid of it." CR>) 
 		      (T
 		       <TELL "But" T ,PRSO " doesn't need cleaning." CR>)>)
 	       (<VERB? ENTER BOARD>
 		<TELL 
-"Congratulations on your personal hygiene, but" T ,DUCK " doesn't really
-think it's appropriate to share his bath." CR>)
+"Congratulations on your personal hygiene, but" T ,DUCK " doesn't really think it's appropriate to share his bath." CR>)
 	       (<VERB? EXAMINE LOOK-INSIDE>
 		<COND (<FSET? ,DUCK ,PHRASEBIT>
 		       <TELL
@@ -745,9 +684,7 @@ think it's appropriate to share his bath." CR>)
 	(SYNONYM DUCK MAYOR BABY CAT)
 	(ADJECTIVE LAME FAT ANGRY)
 	(LDESC 
-"The mayor, wearing a white terry cloth robe with his initials stitched on it,
-is here pacing the floor and looking very philosophically concerned with
-the Big Problems of Our Time.") 
+"The mayor, wearing a white terry cloth robe with his initials stitched on it, is here pacing the floor and looking very philosophically concerned with the Big Problems of Our Time.") 
 	(FLAGS TRYTAKEBIT)
 	(ACTION DUCK-F)>
 
@@ -761,10 +698,7 @@ the Big Problems of Our Time.")
 		<PUTP ,DUCK ,P?SDESC "mayor">
 		<FSET ,DUCK ,ACTORBIT>
 		<TELL
-"Slapping its white wings against the surface of the water and quacking
-up a storm, the angry duck creates nothing less than a raging cyclone in the
-bathtub. When the bad weather passes, you can see the rotund figure of
-the mayor, Jimmy \"Fat Baby\" Kazooli reclining in the tub." CR>
+"Slapping its white wings against the surface of the water and quacking up a storm, the angry duck creates nothing less than a raging cyclone in the bathtub. When the bad weather passes, you can see the rotund figure of the mayor, Jimmy \"Fat Baby\" Kazooli reclining in the tub." CR>
 		<RTRUE>)
 	       (<AND <OR <NOUN-USED ,DUCK ,W?MAYOR ,W?BABY>
 			 <ADJ-USED ,DUCK ,W?FAT>>
@@ -795,10 +729,7 @@ the mayor, Jimmy \"Fat Baby\" Kazooli reclining in the tub." CR>
 "The mayor has the wide girth and aloof manner of the washed-up fat cat." CR>)
 		      (T
 		       <TELL 
-"Your first assumption, considering the circular swimming pattern, is
-that this is one duck which doesn't have both oars in the water. On closer
-examination, however, you determine that one of the duck's feet has been
-injured, no doubt in some boating accident." CR>)>)
+"Your first assumption, considering the circular swimming pattern, is that this is one duck which doesn't have both oars in the water. On closer examination, however, you determine that one of the duck's feet has been injured, no doubt in some boating accident." CR>)>)
 	       (<AND <VERB? TAKE>
 		     <NOT <FSET? ,DUCK ,PHRASEBIT>>>
 		<TELL 
@@ -811,40 +742,30 @@ injured, no doubt in some boating accident." CR>)>)
 			     (<IN? ,DUCK ,TUB>
 			      <COND (<FSET? ,SKELETON ,PHRASEBIT>
 				     <TELL 
-"The mayor seems to want to finish his bath before endeavoring in any
-official duties">)
+"The mayor seems to want to finish his bath before endeavoring in any official duties">)
 				    (T
 				     <TELL 
-"A distrustful side-glance from the mayor indicates his lack of willingness to
-deal with you">)>)
+"A distrustful side-glance from the mayor indicates his lack of willingness to deal with you">)>)
 			     (<NOT <FSET? ,HORN ,PHRASEBIT>>
 			      <TELL
-"The mayor looks down upon you with a patronizing air about him, seeming to
-regard you as a minor player in a lower league politically than himself">)
+"The mayor looks down upon you with a patronizing air about him, seeming to regard you as a minor player in a lower league politically than himself">)
 			     (<NOT <FSET? ,BLESSING ,PHRASEBIT>>
 			      <TELL
-"The mayor, pacing the floor and appearing cursed by the disasterous plague of
-nonsense that has beset his town, ignores the decree">)
+"The mayor, pacing the floor and appearing cursed by the disasterous plague of nonsense that has beset his town, ignores the decree">)
 			     (<NOT <FSET? ,LINEN ,PHRASEBIT>>
 			      <TELL
-"With most of his political problems taken care of, the mayor briefly weighs
-the importance of the decree, but concludes that his opposition would still
-be able to find some dirt on him in the ensuing political struggle">)
+"With most of his political problems taken care of, the mayor briefly weighs the importance of the decree, but concludes that his opposition would still be able to find some dirt on him in the ensuing political struggle">)
 			     (T
 			      <REMOVE ,DUCK>
 			      <SETG WON-GAME T>
 			      <UPDATE-SCORE>
 			      <TELL
-"The mayor, finally convinced of the worthiness of the decree, breaks into
-a broad smile and slaps you endearingly on the back, nearly causing
-whiplash. He grabs the scrap of paper and signs it perfunctorily. He leaves,
-happily">)>
+"The mayor, finally convinced of the worthiness of the decree, breaks into a broad smile and slaps you endearingly on the back, nearly causing whiplash. He grabs the scrap of paper and signs it perfunctorily. He leaves, happily">)>
 		       <TELL ,PERIOD>)
 		      (<AND <PRSO? ,SKELETON ,LINEN>
 			    <FSET? ,DUCK ,PHRASEBIT>>
 		       <TELL
-"The " D ,DUCK " cringes at the spectacle of" T ,PRSO ", wishing to put such
-liabilities behind him." CR>)
+"The " D ,DUCK " cringes at the spectacle of" T ,PRSO ", wishing to put such liabilities behind him." CR>)
 		      (<AND <PRSO? ,SIX-PACK>
 			    <NOT <EQUAL? ,P-PRSA-WORD ,W?DEEP ,W?DEEP-SIX>>>
 		       <TELL "He doesn't look to be thirsty." CR>)
@@ -857,23 +778,9 @@ liabilities behind him." CR>)
 		<FSET ,DUCK ,PHRASEBIT>
 		<MOVE ,DUCK ,LOBBY>
 		<REMOVE ,TUB>
-		<TELL  "From the consequential uproar, there seems to be a
-ring of truth in this phrase. In strong jets shooting at varying
-trajectories, the bathwater in the tub begins first to spout off.
-Suddenly, this messy but harmless spectacle of the spouts is over, and
-angry riptides ruffle the water's surface. Now with the tidal force of
-lunar determination, the bathwater polarizes itself around the edges of
-the tub and even higher, engulfing the mayor and leaving a wide funnel
-of air in the middle of the tub.|
-|
-As the gathering water reaches a critical peak, it pauses for one brief
-moment, and now with an awful suddenness collapses into itself to form
-a fearful wave of tubular shape and seismic strength. It gushes in front
-of your face and toward the stairs in a torrent, through which you can
-see the strange slow-motion figure of the mayor swimming half in air
-and half in water. Following the mayor inside the wave and down the
-stairway is the tub itself, which, out of your sight, makes the terrible
-crashing noise of porcelain going to smithereens." CR>)>>
+		<TELL  "From the consequential uproar, there seems to be a ring of truth in this phrase. In strong jets shooting at varying trajectories, the bathwater in the tub begins first to spout off. Suddenly, this messy but harmless spectacle of the spouts is over, and angry riptides ruffle the water's surface. Now with the tidal force of lunar determination, the bathwater polarizes itself around the edges of the tub and even higher, engulfing the mayor and leaving a wide funnel of air in the middle of the tub.|
+		|
+		As the gathering water reaches a critical peak, it pauses for one brief moment, and now with an awful suddenness collapses into itself to form a fearful wave of tubular shape and seismic strength. It gushes in front of your face and toward the stairs in a torrent, through which you can see the strange slow-motion figure of the mayor swimming half in air and half in water. Following the mayor inside the wave and down the stairway is the tub itself, which, out of your sight, makes the terrible crashing noise of porcelain going to smithereens." CR>)>>
 
 <OBJECT COMB
 	(LOC BATHROOM)
@@ -890,8 +797,7 @@ crashing noise of porcelain going to smithereens." CR>)>>
 		<CHANGE-OBJECT ,COMB ,HEAD>
 		<RTRUE>)
 	       (<VERB? EXAMINE>
-		<TELL  "The comb is distinguished by having a series of
-exceptionally fine teeth." CR>)>>
+		<TELL  "The comb is distinguished by having a series of exceptionally fine teeth." CR>)>>
 
 <OBJECT DISGUISE
 	;(LOC BATHROOM)
@@ -919,8 +825,7 @@ exceptionally fine teeth." CR>)>>
 "Sure enough, now you've got a blessing in disguise." CR>) 
 	       (<VERB? EXAMINE>
 		<TELL
-"This a grotesque, clownish, Punchinello mask, apparently worn by the mayor
-when he travels incognito." CR>)
+"This a grotesque, clownish, Punchinello mask, apparently worn by the mayor when he travels incognito." CR>)
 	       (<AND <VERB? WEAR>
 		     <FIRST? ,DISGUISE>
 		     <NOT <FSET? ,DISGUISE ,WORNBIT>>>
@@ -952,10 +857,7 @@ when he travels incognito." CR>)
 		     <ZERO? <LOC ,DISGUISE>>>
 		<MOVE ,DISGUISE ,HERE>
 		<TELL
-"Keeping your nose at a distance from the soiled clothes, with an outstretched
-arm and with the tips of your thumb and finger, you daintily lift a garment
-off the top of the pile and then drop it. Some kind of disguise slides off
-the pile." CR>
+"Keeping your nose at a distance from the soiled clothes, with an outstretched arm and with the tips of your thumb and finger, you daintily lift a garment off the top of the pile and then drop it. Some kind of disguise slides off the pile." CR>
 		<COND (<VERB? TAKE>
 		       <CRLF>
 		       <PERFORM ,V?TAKE ,LINEN>
@@ -972,13 +874,7 @@ the pile." CR>
 		       <REMOVE ,LINEN>
 		       <UPDATE-SCORE>
 		       <FSET ,LINEN ,PHRASEBIT>
-		       <TELL "You manage to launder the mayor's dirty
-linen, working it over with the sinewy resoluteness of a peasant. Though not
-entirely a wholesome experience, you can feel from the stiff westerly
-breeze that it's serving to clear the air and bring about a cleansing
-effect on the mayor's reputation. The linen is finally caught up by one
-especially strong gust -- each piece is filled with air like a sail and
-drifts far away across the blue sky." CR>)
+		       <TELL "You manage to launder the mayor's dirty linen, working it over with the sinewy resoluteness of a peasant. Though not entirely a wholesome experience, you can feel from the stiff westerly breeze that it's serving to clear the air and bring about a cleansing effect on the mayor's reputation. The linen is finally caught up by one especially strong gust -- each piece is filled with air like a sail and drifts far away across the blue sky." CR>)
 		      (T
 		       <TELL "You're not in public." CR>)>)
 	       (<VERB? CLEAN>
