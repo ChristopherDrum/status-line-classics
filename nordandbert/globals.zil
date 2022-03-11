@@ -659,8 +659,7 @@ Always return RFALSE (not handled) if you have resolved the problem."
 		       <TELL "You can't find, and don't need, your shoes">)
 		      (T
 		       <TELL 
-"As so often happens after swimming
-at the beach, you can't seem to locate where you left your shoes">)>
+"As so often happens after swimming at the beach, you can't seem to locate where you left your shoes">)>
 		<TELL ,PERIOD>)
 	       (<AND <VERB? TAKE-OFF>
 		     <NOUN-USED ,FOOT ,W?SHOE ,W?SHOES>>
@@ -668,8 +667,7 @@ at the beach, you can't seem to locate where you left your shoes">)>
 		       <COND (<AND <EQUAL? ,P-PRSA-WORD ,W?SHAKE>
 				   <NOUN-USED ,FOOT ,W?TOES ,W?TOE>>
 			      <TELL
-"Despite your wild shaking and gyrating, which recalls the most ambitious
-of the early 60's beach-blanket movies, your toes stay on." CR>)
+"Despite your wild shaking and gyrating, which recalls the most ambitious of the early 60's beach-blanket movies, your toes stay on." CR>)
 			     ;(,SWUM-IN-RHINES
 			      <PERFORM ,V?SWIM ,RHINES>
 			      <RTRUE>)
@@ -681,9 +679,7 @@ of the early 60's beach-blanket movies, your toes stay on." CR>)
 			      <MOVE ,PEARL ,PROTAGONIST>
 			      <UPDATE-SCORE>
 			      <TELL 
-"Though you feel like a real beach nut, it does the trick. You now dive
-deep into danger and pull out a gritty pearl from the bottom
-of the river and come back to shore." CR>)>);"and put on your shoes. NO"
+"Though you feel like a real beach nut, it does the trick. You now dive deep into danger and pull out a gritty pearl from the bottom of the river and come back to shore." CR>)>);"and put on your shoes. NO"
 		      (T
 		       <WASTES>)>)
 	       (<AND <VERB? WEAR>
@@ -887,27 +883,16 @@ type just the name of the room you want to go to, rather than GO TO
 		       <SHERIFF-ASKS>
 		       <RTRUE>)>
 		<TELL
-"We, the members of the Citizens' Action Committee, welcome you to our
-mixed-up Town of Punster. You have no doubt already heard
-about the nature of our troubles. Very giving of yourself indeed it is, for
-you to help cleanse the land of every wrongful, wordful deed. In this time
-when phraseology is practiced with mischief as the sole black art, when the
-currency is debased with the ceaseless random coinage of words, when
-verbicide is statistically the common household tragedy -- now is the time
-when such a doer of good words is most welcome.|
+"We, the members of the Citizens' Action Committee, welcome you to our mixed-up Town of Punster. You have no doubt already heard about the nature of our troubles. Very giving of yourself indeed it is, for you to help cleanse the land of every wrongful, wordful deed. In this time when phraseology is practiced with mischief as the sole black art, when the currency is debased with the ceaseless random coinage of words, when verbicide is statistically the common household tragedy -- now is the time when such a doer of good words is most welcome.|
 |
-We can see you are anxious to go now. So be off, but pick your words carefully;
-weigh them upon the most delicate of scales. Watch out not only for your
-P's and Q's, but your K's and M's as well. And while you're at it, watch
-your R's.|
+We can see you are anxious to go now. So be off, but pick your words carefully; weigh them upon the most delicate of scales. Watch out not only for your P's and Q's, but your K's and M's as well. And while you're at it, watch your R's.|
 |
 You can do one of the following: " <GETP ,AISLE ,P?PICK-IT> ", " 
 <GETP ,JOAT ,P?PICK-IT> ", " <GETP ,FARM ,P?PICK-IT> ", "
 <GETP ,RESTAURANT ,P?PICK-IT> ", " <GETP ,COMEDY ,P?PICK-IT> ", "
 <GETP ,DUELING ,P?PICK-IT> ", " <GETP ,HAZING ,P?PICK-IT> ", or "
 <GETP ,EIGHT ,P?PICK-IT> ".||
-If at any time in your travels you wish to tackle another situation, indicate
-BEGINNING, and you shall return here empty-handed.">)>>  
+If at any time in your travels you wish to tackle another situation, indicate BEGINNING, and you shall return here empty-handed.">)>>  
 
 ;">Play Jacks|
 >Buy the Farm|
@@ -983,23 +968,14 @@ Act the Part, Visit the Manor of Speaking, or Shake a Tower."
 		       <MOVE ,GRINDSTONE ,LOFT>
 		       <SETG HINT-TBL ,FARM-HINTS>
 		       <TELL
-"The farm crisis never seemed so desperate as it has this planting season
-in Punster. One such family farm on the edge of town, the McCleary's, has
-been especially blighted. The family, though well accustomed to hard work,
-suddenly lost the ability to perform even the simplist of chores necessary to
-scratch a living from the soil. They have since been driven from the land,
-and join with their fellow Punster neighbors in urging you to somehow save the
-family farm." CR CR>
+"The farm crisis never seemed so desperate as it has this planting season in Punster. One such family farm on the edge of town, the McCleary's, has been especially blighted. The family, though well accustomed to hard work, suddenly lost the ability to perform even the simplist of chores necessary to scratch a living from the soil. They have since been driven from the land and join with their fellow Punster neighbors in urging you to somehow save the family farm." CR CR>
 		       <GO-TO-SCENE ,FARM>)
 		      (<NOUN-USED ,START-OBJ ,W?JACKS ,W?JACK>
 		       <SETG HINT-TBL ,JOAT-HINTS>
 		       <COND (<FINISHED? ,JOAT>
 			      <RTRUE>)>
 		       <TELL 
-"The oddities of language have been so prevalant in the town of Punster,
-that surrounding communities have been similarly affected. One such bordering
-town is Jackville, located in the northern backwoods region, but still
-well within the realm of possibilities." CR CR>
+"The oddities of language have been so prevalant in the town of Punster, that surrounding communities have been similarly affected. One such bordering town is Jackville, located in the northern backwoods region, but still well within the realm of possibilities." CR CR>
 		       <GO-TO-SCENE ,JOAT>)
 		      (<NOUN-USED ,START-OBJ ,W?TOWER>
 		       <COND (<FINISHED? ,HAZING>
@@ -1009,26 +985,14 @@ well within the realm of possibilities." CR CR>
 			      <QUEUE I-DEAN -1>)>
 		       <SETG HINT-TBL ,HAZING-HINTS>
 		       <TELL
-"In the dark forest outside the town boundries of Punster, chaos has been
-the order of the day. On a recent afternoon the daughter of a leading citizen
-of our town, out for a stroll among the tall pines, disappeared without
-apparent trace. Rumor has it that one strange, stand-alone door is the only
-means of escape from the forest. But no volunteer has yet been found to face
-the oddball nature of the place. That is, until now." CR CR> 
+"In the dark forest outside the town boundries of Punster, chaos has been the order of the day. On a recent afternoon the daughter of a leading citizen of our town, out for a stroll among the tall pines, disappeared without apparent trace. Rumor has it that one strange, stand-alone door is the only means of escape from the forest. But no volunteer has yet been found to face the oddball nature of the place. That is, until now." CR CR> 
 		       <GO-TO-SCENE ,HAZING>)
 		      (<NOUN-USED ,START-OBJ ,W?BIZARRE>
 		       <COND (<FINISHED? ,AISLE>
 			      <RTRUE>)>
 		       <SETG HINT-TBL ,AISLE-HINTS>
 		       <TELL "On a recent Friday night at the
-Supermarket, the usual shopping frenzy suddenly turned into shopping
-panic. Crazed bargain-hunters, recklessly pushing shopping carts before
-them, were observed to stream from the aisles and out the market, many
-of whom not even stopping to pause in the parking lot. Whatever it was
-that caused the panic, one thing's for sure -- business has never been
-the same. By restoring some semblance of order to this bizarre
-situation, and perhaps purchasing some item or another, you can begin to
-rebuild customer confidence." CR CR>
+Supermarket, the usual shopping frenzy suddenly turned into shopping panic. Crazed bargain-hunters, recklessly pushing shopping carts before them, were observed to stream from the aisles and out the market, many of whom not even stopping to pause in the parking lot. Whatever it was that caused the panic, one thing's for sure -- business has never been the same. By restoring some semblance of order to this bizarre situation, and perhaps purchasing some item or another, you can begin to rebuild customer confidence." CR CR>
 		       <COND (,RESUME-BRAT
 			      <SETG RESUME-BRAT <>>
 			      <QUEUE I-BRAT -1>)>
@@ -1042,20 +1006,14 @@ rebuild customer confidence." CR CR>
 			      <RTRUE>)>
 		       <MOVE ,GRINDSTONE ,KITCHEN>
 		       <TELL
-"Indeed, eat your words. So widespread has this language virus become in
-the Town of Punster, that the simple act of going out for a bite to eat
-turns into a whole new adventure of its own. Enjoy." CR CR>  
+"Indeed, eat your words. So widespread has this language virus become in the Town of Punster, that the simple act of going out for a bite to eat turns into a whole new adventure of its own. Enjoy." CR CR>  
 		       <GO-TO-SCENE ,RESTAURANT>)
 		      (<NOUN-USED ,START-OBJ ,W?PART>
 		       <SETG HINT-TBL ,COMEDY-HINTS>
 		       <COND (<FINISHED? ,COMEDY>
 			      <RTRUE>)>
 		       <TELL
-"The foremost star of stage and scream in Punster, Brad Watkins, has left
-behind our small-town difficulties in search of fame and fortune beyond
-the purple horizon. We of course wish him the very worst of luck. It has
-been very dashing of you to take the stage in his absence. With the proper
-make-up applied, you're a side-splitting image." CR CR>
+"The foremost star of stage and scream in Punster, Brad Watkins, has left behind our small-town difficulties in search of fame and fortune beyond the purple horizon. We of course wish him the very worst of luck. It has been very dashing of you to take the stage in his absence. With the proper make-up applied, you're a side-splitting image." CR CR>
 		       <MOVE ,COAT ,PROTAGONIST>
 	               <FSET ,COAT ,WORNBIT>
 	               <COND (<NOT <FSET? ,WIFE ,SEENBIT>>
@@ -1069,22 +1027,12 @@ make-up applied, you're a side-splitting image." CR CR>
 		       <COND (<FINISHED? ,DUELING>
 			      <RTRUE>)>
 		       <TELL
-"The sad truth here is that the Manor of Speaking once enjoyed the reputation
-as one of ">
+"The sad truth here is that the Manor of Speaking once enjoyed the reputation as one of ">
 		       <ITALICIZE "the">
-		       <TELL " finest guest houses in the entire region
-around Punster. But queer indeed is the fate it has suffered. The
-various rooms of the house are actually possessed by the warped personalities
-of by-gone visitors. The experience of a present-day guest to each of
-the rooms is colored very strongly by the thoughts and indeed voice of
-each ghostly presence. Needless to say, vacancy rates have gone through
-the roof. Which leads us to the crucial problem with the Manor. Its
-attic, as you will notice, is radically out of joint, situated ">
+		       <TELL " finest guest houses in the entire region around Punster. But queer indeed is the fate it has suffered. The various rooms of the house are actually possessed by the warped personalities of by-gone visitors. The experience of a present-day guest to each of the rooms is colored very strongly by the thoughts and indeed voice of each ghostly presence. Needless to say, vacancy rates have gone through the roof. Which leads us to the crucial problem with the Manor. Its attic, as you will notice, is radically out of joint, situated ">
 		       <ITALICIZE "below">
 		       <TELL 
-" the level of the first floor. It has been theorized that if this misplacement
-could be dramatically rectified, the spirits who've worn out their welcome
-might flee in horror. This is our hope, may it be your quest." CR CR> 
+" the level of the first floor. It has been theorized that if this misplacement could be dramatically rectified, the spirits who've worn out their welcome might flee in horror. This is our hope, may it be your quest." CR CR> 
 		       <GO-TO-SCENE ,DUELING>)
 		      (<NOUN-USED ,START-OBJ ,W?MAYOR>
 		       <COND (<FSET? ,SQUARE ,TOUCHBIT>
@@ -1111,11 +1059,7 @@ might flee in horror. This is our hope, may it be your quest." CR CR>
 			      <COND (<FSET? ,MOUTH ,SEENBIT>
 				     <FCLEAR ,MOUTH ,SEENBIT>
 				     <TELL
-"The Committee has determined thus: The Mayor needs to be lobbied would
-that he lay down the law regarding all manner of language play in the Town
-of Punster. Only someone intimately familiar with our problems could
-hope to succeed in winning over the Mayor, who has himself been beleaguered
-by such problems." CR CR>)>
+"The Committee has determined thus: The Mayor needs to be lobbied would that he lay down the law regarding all manner of language play in the Town of Punster. Only someone intimately familiar with our problems could hope to succeed in winning over the Mayor, who has himself been beleaguered by such problems." CR CR>)>
 			      <COND (<NOT ,RECORDS-SHOW>
 				     <SETG RECORDS-SHOW T>
 			             <TELL
@@ -1226,9 +1170,7 @@ by such problems." CR CR>)>
 		       <YES-RIGHT>)>)
 	       (,RANK-Q
 		<TELL 
-"No, that's wrong. It is the determination of the Committee that it would
-be fool-hardy to send you to lobby the Mayor without the invaluable experience
-of \"" <GETP ,RANK-Q ,P?PICK-IT> ".\"" CR>)
+"No, that's wrong. It is the determination of the Committee that it would be fool-hardy to send you to lobby the Mayor without the invaluable experience of \"" <GETP ,RANK-Q ,P?PICK-IT> ".\"" CR>)
 	       (<VERB? NO-VERB>
 		<TELL "You were asked no question." CR>)
 	       (T
@@ -1253,12 +1195,7 @@ of \"" <GETP ,RANK-Q ,P?PICK-IT> ".\"" CR>)
 		     <FSET? ,AISLE ,RANKBIT>
 		     <FSET? ,FARM ,RANKBIT>>
 		<TELL 
-"Okay, you have proved to the Committee wide knowledge of the nature of
-our problems in Punster. You have now within your grasp the decree that
-would legislate against, ban from the town, outlaw forever, all the
-wordplayful shenanigans that have so tortured us. May our Mayor, the
-honorable Jimmy \"Fat Baby\" Kazooli, act in the best interest of his
-citizenry. You are sent..." CR CR>
+"Okay, you have proved to the Committee wide knowledge of the nature of our problems in Punster. You have now within your grasp the decree that would legislate against, ban from the town, outlaw forever, all the wordplayful shenanigans that have so tortured us. May our Mayor, the honorable Jimmy \"Fat Baby\" Kazooli, act in the best interest of his citizenry. You are sent..." CR CR>
 		<SETG HINT-TBL ,EIGHT-HINTS>
 		<SETG SCENE ,EIGHT>
 		<MOVE ,DECREE ,PROTAGONIST>
@@ -1287,8 +1224,7 @@ citizenry. You are sent..." CR CR>
 			   <AND <RUNNING? ,I-WIFE>
 				<NOT <ZERO? ,WIFE-N>>>>
 		       <TELL
-"You can't bow out now; this moment is too crucial to the artistic
-integrity of the scene." CR>
+"You can't bow out now; this moment is too crucial to the artistic integrity of the scene." CR>
 		       <RTRUE>)>)
 	       (<EQUAL? ,SCENE ,AISLE>
 		<COND (<RUNNING? ,I-BRAT>
@@ -1338,8 +1274,7 @@ integrity of the scene." CR>
 	 <SETG HERE ,STARTING-ROOM>
 	 <V-$REFRESH> ;"and clearing all including 2nd status line"
 	 <TELL 
-"You are surrounded by a swirling, blinding cloud. You feel your limbs going
-relaxed and your eyelids are buffeted with sand from the cloud." CR CR>
+"You are surrounded by a swirling, blinding cloud. You feel your limbs going relaxed and your eyelids are buffeted with sand from the cloud." CR CR>
 	 <SETG OLD-HERE <>>
 	 <GOTO ,STARTING-ROOM>
 	 <V-$REFRESH T> ;"bug was 2nd line of staus line didn't clear in"
@@ -1358,8 +1293,7 @@ relaxed and your eyelids are buffeted with sand from the cloud." CR CR>
 		<RTRUE>)
 	       (<FSET? .SECTION ,WONBIT>
 		<TELL 
-"You have done all you possibly could have done there. We are grateful for
-your skill in that place, and you needn't go back." CR>
+"You have done all you possibly could have done there. We are grateful for your skill in that place, and you needn't go back." CR>
 		<RTRUE>)
 	       (T ;"go to new section"
 		<RFALSE>)>>
@@ -1385,13 +1319,7 @@ your skill in that place, and you needn't go back." CR>
 	 <SETG LOUSE-ON-HEAD <>>
 	 <COND (<EQUAL? ,SCENE ,FARM>
 		<FSET ,FARM ,RANKBIT>
-		<TELL CR  "Congratulations for the completion of these
-19 chores. You have transformed their abandoned husk of a farm into a horn of
-plenty. The McCleary's, under your tutelage, have learned much about
-how to manage their farm, coping with the tough realities of modern
-farming. After this long period of want, the townspeople of Punster will
-feast heartily upon the fruits of your labor. You shall be honored by
-them with the rank of ">
+		<TELL CR  "Congratulations for the completion of these 19 chores. You have transformed their abandoned husk of a farm into a horn of plenty. The McCleary's, under your tutelage, have learned much about how to manage their farm, coping with the tough realities of modern farming. After this long period of want, the townspeople of Punster will feast heartily upon the fruits of your labor. You shall be honored by them with the rank of ">
 		<HLIGHT ,H-BOLD>
 		<TELL "Sodbuster">
 		<HLIGHT ,H-NORMAL>
@@ -1399,11 +1327,7 @@ them with the rank of ">
 		<WARN-PLAYER>)
 	       (<EQUAL? ,SCENE ,COMEDY>
 		<FSET ,COMEDY ,RANKBIT>
-		<TELL CR "\"Cut! Cut!\" booms an off-stage, directoral
-voice. \"It's a wrap.\" Drenched in the sweat of your comedic toil, you
-bask in the adoration of the cheerful Punster audience. Having milked
-this bit for the maximum number of cheap gags, namely 10, you have
-achieved the status of ">
+		<TELL CR "\"Cut! Cut!\" booms an off-stage, directoral voice. \"It's a wrap.\" Drenched in the sweat of your comedic toil, you bask in the adoration of the cheerful Punster audience. Having milked this bit for the maximum number of cheap gags, namely 10, you have achieved the status of ">
 		<HLIGHT ,H-BOLD>
 		<TELL "King of Comedy">
 		<HLIGHT ,H-NORMAL>
@@ -1419,10 +1343,7 @@ achieved the status of ">
 		<COND (<AND <HELD? ,MUSSELS>
 			    <NOT <FSET? ,MUSSELS ,OLDBIT>>>
 		       <REMOVE ,MUSSELS>)>
-		<TELL CR "Bravo! Cheer! Kudos! With your feats of
-homonymic skill, you have shown the way to restoring customer confidence
-to the puzzled shoppers of Punster. Having broken the tape at the end
-of your Bizarre shopping spree, you thusly achieve the esteemed rank of ">
+		<TELL CR "Bravo! Cheer! Kudos! With your feats of homonymic skill, you have shown the way to restoring customer confidence to the puzzled shoppers of Punster. Having broken the tape at the end of your Bizarre shopping spree, you thusly achieve the esteemed rank of ">
 		<HLIGHT ,H-BOLD>
 		<TELL "Super Saver">
 		<HLIGHT ,H-NORMAL>
@@ -1433,9 +1354,7 @@ of your Bizarre shopping spree, you thusly achieve the esteemed rank of ">
 		       <SETG CLOCK-N 0>
 		       <DEQUEUE I-CLOCK>)>
 		<TELL CR
-"Congratulations. Having rid the manor of its unwanted, if spirited,
-visitors you thereby, in the eyes of the Citizens' Action Committee,
-earn the title of ">
+"Congratulations. Having rid the manor of its unwanted, if spirited, visitors you thereby, in the eyes of the Citizens' Action Committee, earn the title of ">
 		<HLIGHT ,H-BOLD>
 		<TELL "Honored Guest">
 		<HLIGHT ,H-NORMAL>
@@ -1444,9 +1363,7 @@ earn the title of ">
 	       (<EQUAL? ,SCENE ,JOAT>
 		<DO-JACK>
 		<TELL CR
-"Congratulations. You have been nimble and you have been quick. Punster will
-from here on out enjoy better relations with its northern neighbor, Jackville.
-The Citizen's Action Committee does hereby confer upon you the title of ">
+"Congratulations. You have been nimble and you have been quick. Punster will from here on out enjoy better relations with its northern neighbor, Jackville. The Citizen's Action Committee does hereby confer upon you the title of ">
 		<HLIGHT ,H-BOLD>
 		<TELL "Jackster">
 		<HLIGHT ,H-NORMAL>
@@ -1458,9 +1375,7 @@ The Citizen's Action Committee does hereby confer upon you the title of ">
 		       <SETG RESUME-DEAN T>)>
 		<DE-LOUSE>
 		<TELL CR
-"Congratulations are in order. Having braved mutable strangeness and
-having made the heroic gesture of a rescue, you make possible the reuniting
-in joy of a grateful Punster family. This feat earns you the rank of ">
+"Congratulations are in order. Having braved mutable strangeness and having made the heroic gesture of a rescue, you make possible the reuniting in joy of a grateful Punster family. This feat earns you the rank of ">
 		<HLIGHT ,H-BOLD>
 		<TELL "Kinkering Cong">
 		<HLIGHT ,H-NORMAL>
@@ -1509,8 +1424,7 @@ in joy of a grateful Punster family. This feat earns you the rank of ">
 	 <COND (<NOT ,RANK-WARNING>
 		<SETG RANK-WARNING T>
 		<TELL CR CR
-"It would be prudent to commit to memory this and all ranks you have
-achieved.">)>
+"It would be prudent to commit to memory this and all ranks you have achieved.">)>
 	 <RTRUE>>
 
 <ROUTINE MORE-SCORE (SC STR "AUX" NUM)
@@ -1548,8 +1462,7 @@ achieved.">)>
 		<PUTP ,PROTAGONIST ,P?ACTION ,PROTAGONIST-F>
 		<CHANGE-JACK>
 		<TELL 
-"One hand slips off the handle and hits the switch. The jackhammer
-coughs, wheezes and shudders to a halt. All the features of the " 
+"One hand slips off the handle and hits the switch. The jackhammer coughs, wheezes and shudders to a halt. All the features of the " 
 D ,JOAT " return." CR>)
 	       (,WIDE
 		<TELL <PICK-NEXT ,S-JACKHAMMER>>)
@@ -2226,9 +2139,7 @@ when we get to the verb defaults, now-prsi is false."
 
 <ROUTINE PREGNANT ()
 	 <TELL
-"[So pregnant with possibilities are the names of things in this scenario
-it is impossible to use them in a series, though using \"all\" is allowed,
-as in TAKE ALL.]" CR>>
+"[So pregnant with possibilities are the names of things in this scenario it is impossible to use them in a series, though using \"all\" is allowed, as in TAKE ALL.]" CR>>
 
 <ROUTINE PRONOUN ()
 	 <COND (<PRSO? ,ME>
