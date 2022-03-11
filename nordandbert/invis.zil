@@ -20,12 +20,7 @@
 		<RTRUE>)
 	       (<NOT ,HINT-WARNING>
 		<SETG HINT-WARNING T>
-		<TELL "[Warning: It is recognized that the temptation
-for help may at times be so exceedingly strong that you might fetch
-hints prematurely. Therefore, you may at any time during the story type
-HINTS OFF, and this will disallow the seeking out of help for the
-present session of the story. If you still want a hint now, indicate
-HINT.]" CR>
+		<TELL "[Warning: It is recognized that the temptation for help may at times be so exceedingly strong that you might fetch hints prematurely. Therefore, you may at any time during the story type HINTS OFF, and this will disallow the seeking out of help for the present session of the story. If you still want a hint now, indicate HINT.]" CR>
 		<RTRUE>)>
 	 <BUFOUT <>>
 	 <SET MAXQ <GET ,HINT-TBL 0>>
@@ -114,7 +109,7 @@ the curser and text"
 	 <SCREEN ,S-WINDOW>
 	 <CURSET 1 1>
 	 <INVERSE-LINE>
-	 <CENTER-LINE 1 "INVISICLUES" 11>
+	 <CENTER-LINE 1 " INVISICLUES" 11>
 	 <CURSET 3 1>
 	 <INVERSE-LINE>
 	 <COND (,WIDE
