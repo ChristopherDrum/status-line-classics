@@ -231,26 +231,14 @@
 	 <SETG HERE ,STARTING-ROOM>
 	 <V-$REFRESH>
 	 <TELL CR
-"Untied Press International|
-|
+"Untied Press International||
   PUNSTER (UPI) - Citizens of the little town of Punster have recently
-been victimized by a series of strange happenings which have ground local
-businesses to a halt and played havoc with everyday life.|
-  The wide-spread plague seems to be focused on the area of language
-itself. In some cases, what were once simple actions to perform now
-require the use of old, time-worn phrases.|
-  In other cases, objects and even citizens have been transformed
-overnight into strange mutations of their previous selves.|
-  A man-on-the-street interview conducted by this reporter proved
-fruitless. Two local farmers asked for their opinions of the situation
-said they couldn't make head or tail of it, and made no further
-statement.|
-  The mayor of Punster, whose administration has been widely viewed as
-being paralyzed and corrupted by the plague, could not be reached for
-comment.|
-  Meanwhile, a Citizens' Action Committee was recently formed to probe for
-ways to restore the town of Punster to its happily mundane condition.|
-|
+been victimized by a series of strange happenings which have ground local businesses to a halt and played havoc with everyday life.|
+  The wide-spread plague seems to be focused on the area of language itself. In some cases, what were once simple actions to perform now require the use of old, time-worn phrases.|
+  In other cases, objects and even citizens have been transformed overnight into strange mutations of their previous selves.|
+  A man-on-the-street interview conducted by this reporter proved fruitless. Two local farmers asked for their opinions of the situation said they couldn't make head or tail of it, and made no further statement.|
+  The mayor of Punster, whose administration has been widely viewed as being paralyzed and corrupted by the plague, could not be reached for comment.|
+  Meanwhile, a Citizens' Action Committee was recently formed to probe for ways to restore the town of Punster to its happily mundane condition.||
 [Reporter's Note: This story was compiled with help from whoever it was who untied me so I could type out this story.]|">
 	 <GET-KEY>
 	 <V-$REFRESH ;T>
@@ -1199,8 +1187,7 @@ ways to restore the town of Punster to its happily mundane condition.|
 		<COND (<AND <EQUAL? ,HERE ,FRONT-ROOM>
 			    <EQUAL? ,WIFE-N 2>>
 		       <TELL CR 
-"She walks over to Bob and consoles him as he describes what a
-meanee you have been." CR>)
+"She walks over to Bob and consoles him as he describes what a meanee you have been." CR>)
 		      (<AND <EQUAL? ,HERE ,FRONT-ROOM>
 			    <EQUAL? ,WIFE-N 3>>
 		       <TELL CR
@@ -1214,18 +1201,13 @@ meanee you have been." CR>)
 		       <SETG KNOCK-JOKE ,W?DWAYNE>
 		       <COND (<EQUAL? ,HERE ,TV-KITCHEN>
 			      <TELL
-"You can hear your wife leaving and Bob locking himself in the bathroom.
-You rush to the living room..." CR CR>
+"You can hear your wife leaving and Bob locking himself in the bathroom. You rush to the living room..." CR CR>
 			      <GOTO ,FRONT-ROOM>)
 			     (T
 		              <TELL 
-"She throws a tantrum and storms out, to her mother's (that's next week's
-episode). Bob is falling apart emotionally as well, and goes and locks
-himself in the bathroom." CR>)>
+"She throws a tantrum and storms out, to her mother's (that's next week's episode). Bob is falling apart emotionally as well, and goes and locks himself in the bathroom." CR>)>
 		       <TELL CR
-"Bob stays in there several very tense minutes, without making a sound.
-Just when you think it's about time to call a professional, Bob's silence
-is suddenly broken by the words, \"Knock knock.\"" CR>
+"Bob stays in there several very tense minutes, without making a sound. Just when you think it's about time to call a professional, Bob's silence is suddenly broken by the words, \"Knock knock.\"" CR>
 		       ;<QUEUE I-KNOCK -1>
 		       <THIS-IS-IT ,GLOBAL-ROOM>
 		       <SETG KNOCK-N 0>
