@@ -204,7 +204,7 @@
 		<PRINTD .OBJ>)>>
 
 <ZSTR-ON>
-
+
 ;"former MAIN.ZIL stuff"
 
 <GLOBAL P-WON <>>
@@ -235,12 +235,14 @@
 	 <NAME-MESSAGE ,MESSAGE-B>
 	 <CHAPTER-PRINT 1>
 	 <TELL CR CR CR CR>
-	 <PRINT-SPACES 22>
+	 <PRINT-SPACES 6>
 	 <TELL "\"Tomorrow never yet" CR>
-	 <PRINT-SPACES 23>
-	 <TELL "On any human being rose or set.\"" CR>
-	 <PRINT-SPACES 39>
-	 <TELL "-- William Marsden" CR CR CR CR CR>
+	 <PRINT-SPACES 6>
+	 <TELL "On any human being" CR>
+	 <PRINT-SPACES 6>
+	 <TELL "rose or set.\"" CR>
+	 <PRINT-SPACES 8>
+	 <TELL "- William Marsden" CR CR CR CR>
 	 <CONTINUE>
 	 <INIT-STATUS-LINE 2>
 	 <STATUS-LINE>

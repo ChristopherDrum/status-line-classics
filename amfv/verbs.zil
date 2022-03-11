@@ -249,7 +249,7 @@ that you've taken a total of " N ,TURNS " turns." CR>>
 Copyright (c) 1985 by Infocom, Inc. All rights reserved." CR>
 	 <TITLE-PRINT>
 	 <TELL " is a trademark of Infocom, Inc.|
-Release " N .V " / Serial number ">
+Release " N .V " for Status Line on the Pico-8 / Serial number ">
 	 <REPEAT ()
 	   <COND (<G? <SET CNT <+ .CNT 1>> 23>
 		  <RETURN>)

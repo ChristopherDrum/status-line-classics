@@ -2721,28 +2721,28 @@ to the Devil's Tower region of Wyoming. ">
 		<RTRUE>)>
 	 <INVERSE-LINE 1>
 	 <INVERSE-LINE 2>
-	 <HLIGHT 1>
-	 <CURSET 1 2>
-	 <TELL "Mode:">
-	 <CURSET 1 60>
-	 <TELL "Time:">
-	 <CURSET 2 2>
-	 <TELL "Location:">
-	 <CURSET 2 60>
-	 <TELL "Date:">
+	 ;<HLIGHT 1>
+	 ;<CURSET 1 2>
+	 ;<TELL "Mode:">
+	 ;<CURSET 1 60>
+	 ;<TELL "Time:">
+	 ;<CURSET 2 2>
+	 ;<TELL "Location:">
+	 ;<CURSET 2 60>
+	 ;<TELL "Date:">
 	 <HLIGHT 0>
 	 <BUFOUT T>
 	 <SCREEN ,S-TEXT>>
 
 <ROUTINE INVERSE-LINE (LINE-NUMBER "OPTIONAL" (CENTER-HALF <>))
 	 <COND (.CENTER-HALF
-		<CURSET .LINE-NUMBER 21>)
+		<CURSET .LINE-NUMBER 16>)
 	       (T
 		<CURSET .LINE-NUMBER 1>)>
 	 <HLIGHT 1>
 	 <REPEAT ()
 		 <BUFOUT T>
-		 <TELL "                                        ">
+		 <TELL "                                ">
 		 <BUFOUT <>>
 		 <COND (.CENTER-HALF
 			<RETURN>)
@@ -2780,65 +2780,69 @@ to the Devil's Tower region of Wyoming. ">
 <ROUTINE STATUS-LINE ("AUX" LEN LOCATION)
 	 <BUFOUT <>>
 	 <SCREEN ,S-WINDOW>
+	 <INVERSE-LINE 1> ; "set the status line to blank so we don't have to do weird spacing tricks later"
+	 <INVERSE-LINE 2>
 	 <HLIGHT 1>
 	 <COND (<OR <NOT <EQUAL? ,MODE ,L-MODE>>
 		    <AND ,RECORDING
 			 <NOT ,L-RECORDING>>
 		    <AND ,L-RECORDING
 			 <NOT ,RECORDING>>>
-		<DIROUT ,D-SCREEN-OFF> ;"stop printing to screen"
-		<DIROUT ,D-TABLE-ON ,SL-BUFFER> ;"start printing to buffer"
-	 	<TELL D ,MODE>
-		<COND (,RECORDING
-		       <TELL " (recording)">)>
-	 	<DIROUT ,D-TABLE-OFF> ;"stop, put length in 1st slot"
-		<DIROUT ,D-SCREEN-ON> ;"resume printing to screen"
-	 	<SET LEN <GET ,SL-BUFFER 0>>
-	 	<CURSET 1 9>
+		;<DIROUT ,D-SCREEN-OFF> ;"stop printing to screen"
+		;<DIROUT ,D-TABLE-ON ,SL-BUFFER> ;"start printing to buffer"
+	 	;<TELL D ,MODE>
+		;<COND (,RECORDING
+		       <TELL "(rec)">)>
+	 	;<DIROUT ,D-TABLE-OFF> ;"stop, put length in 1st slot"
+		;<DIROUT ,D-SCREEN-ON> ;"resume printing to screen"
+	 	;<SET LEN <GET ,SL-BUFFER 0>>
+	 	<CURSET 1 1>
 	 	<TELL D ,MODE>
 		<COND (,RECORDING
 		       <SETG L-RECORDING T>
-		       <TELL " (recording)">)
+		       <TELL "(rec)">)
 		      (T
 		       <SETG L-RECORDING <>>)>
 		<SETG L-MODE ,MODE>
-	 	<PRINT-SPACES <- 33 .LEN>>)>
-	 <CURSET 1 67>
+	 	;<PRINT-SPACES <- 33 .LEN>>)>
+	 <CURSET 1 27>
 	 <COND (,SIMULATING
 		<TIME-PRINT ,STIME>)
 	       (T
 		<TIME-PRINT ,TIME>)>
-	 <PRINT-SPACES 3>
+	 ;<PRINT-SPACES 3>
 	 <COND (<OR <AND ,CURRENT-FILE
 			 <NOT <EQUAL? ,L-HERE ,CURRENT-DIRECTORY>>>
 		    <AND <NOT ,CURRENT-FILE>
 			 <NOT <EQUAL? ,L-HERE ,HERE>>>>
-		<CURSET 2 13>
-	 	<DIROUT ,D-SCREEN-OFF> ;"stop printing to screen"
-		<DIROUT ,D-TABLE-ON ,SL-BUFFER> ;"start printing to buffer"
+		<CURSET 2 1>
+	 	;<DIROUT ,D-SCREEN-OFF> ;"stop printing to screen"
+		;<DIROUT ,D-TABLE-ON ,SL-BUFFER> ;"start printing to buffer"
 	 	<COND (,CURRENT-FILE
 		       <SET LOCATION ,CURRENT-DIRECTORY>)
 	       	      (T
 		       <SET LOCATION ,HERE>)>
-	 	<TELL D .LOCATION>
+	 	;<TELL D .LOCATION>
 		<SETG L-HERE .LOCATION>
-		<DIROUT ,D-TABLE-OFF> ;"stop, put length in 1st slot"
-	 	<DIROUT ,D-SCREEN-ON> ;"resume printing to screen"
-	 	<SET LEN <GET ,SL-BUFFER 0>>
+		;<DIROUT ,D-TABLE-OFF> ;"stop, put length in 1st slot"
+	 	;<DIROUT ,D-SCREEN-ON> ;"resume printing to screen"
+	 	;<SET LEN <GET ,SL-BUFFER 0>>
 	 	<TELL D .LOCATION>
-	 	<PRINT-SPACES <- 29 .LEN>>)>
+	 	;<PRINT-SPACES <- 29 .LEN>>
+		 )>
 	 <COND (<AND ,SIMULATING
 		     <NOT <EQUAL? ,SDATE ,L-DATE>>>
-		<CURSET 2 67>
+		<CURSET 2 23>
 		<TELL N ,SMONTH "/" N ,SDATE "/" N ,SYEAR>
 		<SETG L-DATE ,SDATE>
-		<PRINT-SPACES 3>)
+		;<PRINT-SPACES 3>)
 	       (<AND <NOT ,SIMULATING>
 		     <NOT <EQUAL? ,DATE ,L-DATE>>>
-		<CURSET 2 67>
+		<CURSET 2 23>
 		<TELL N ,MONTH "/" N ,DATE "/" N ,YEAR>
 		<SETG L-DATE ,DATE>
-		<PRINT-SPACES 3>)>
+		;<PRINT-SPACES 3>
+		)>
 	 <SCREEN ,S-TEXT>
 	 <HLIGHT 0>
 	 <BUFOUT T>>
@@ -2890,10 +2894,10 @@ to the Devil's Tower region of Wyoming. ">
 <ROUTINE AM-PM-PRINT (NUM)
 	 <COND (<OR <L? .NUM 720>
 		    <EQUAL? .NUM 1440>>
-		<TELL "am">)
+		<TELL "a">)
 	       (T
-		<TELL "pm">)>>
-
+		<TELL "p">)>>
+
 ;"shared stuff"
 
 ;<ROUTINE TITLE-PRINT ()

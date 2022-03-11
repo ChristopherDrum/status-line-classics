@@ -404,7 +404,7 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
        	       2 ;"govt. official says most of his department fired, 2051"
 	       2 ;"aquarium smells of dead fish, 2071">>
 
-
+
 ;"Library Mode"
 
 <ROOM LIBRARY-ROOM
@@ -4342,8 +4342,9 @@ tests we want to run. Please come to my office in about ten minutes.\"")>
 
 <GLOBAL PART-FLAG 0>
 
-<ROUTINE CHAPTER-PRINT (NUM "AUX" WIDTH)
+<ROUTINE CHAPTER-PRINT (NUM "AUX" WIDTH C)
 	 <SETG PART-FLAG .NUM>
+	 <SET C 0>
 	 <INIT-STATUS-LINE 7>
 	 <BUFOUT <>>
 	 <SCREEN ,S-WINDOW>
@@ -4354,13 +4355,14 @@ tests we want to run. Please come to my office in about ten minutes.\"")>
 		<SET WIDTH 15>)
 	       (T
 		<SET WIDTH 16>)>
-	 <CURSET 4 33>
+	 <SET C </ <- <GETB 0 33> .WIDTH> 2>>
+	 <CURSET 4 .C>
 	 <PRINT-SPACES .WIDTH>
-	 <CURSET 5 33>
+	 <CURSET 5 .C>
 	 <PRINT-SPACES .WIDTH>
-	 <CURSET 6 33>
+	 <CURSET 6 .C>
 	 <PRINT-SPACES .WIDTH>
-	 <CURSET 5 35>
+	 <CURSET 5 <+ .C 2>>
 	 <TELL "* ">
 	 <COND (<EQUAL? .NUM 4>
 		<TELL "EPILOGUE">)
