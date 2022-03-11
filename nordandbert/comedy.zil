@@ -255,8 +255,7 @@ TR ,AUDIENCE>)
 |
 In your nervous hand, the " D ,LAMP-SHADE "'s gold tassels shake, perceptible only to " D ,ME ", slightly back and forth." CR>)	       
 	       (<VERB? EXAMINE>
-		<TELL  "The lamp shade is a very gaudy shade of purple
-and has a ring of gold tassels around its base." CR>)>>
+		<TELL  "The lamp shade is a very gaudy shade of purple and has a ring of gold tassels around its base." CR>)>>
 
 <OBJECT CORD
 	(LOC FRONT-ROOM)
@@ -778,8 +777,7 @@ An off-stage voice whispers to you insistently, \"Timing, timing.\"" CR>)
 |
 \"Bzzzzzzzzzzzzz!\"|
 |
-It feels like you are shaking hands with a Hoover Dam generator, as the mega-voltages of power surging into the palm
-of " D ,HANDS " cause your entire body to writhe.|
+It feels like you are shaking hands with a Hoover Dam generator, as the mega-voltages of power surging into the palm of " D ,HANDS " cause your entire body to writhe.|
 |
 Bob doubles himself over with knee-slapping, gasping laughter. \"I guess I got you that time, eh?\" he says, flashing you the joy buzzer in his palm, and then skates into the kitchen." CR>
 		<SETG FOLLOW-FLAG 2>
