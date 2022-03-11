@@ -1385,19 +1385,18 @@ six hours have passed." CR>)>
 		<COND (<EQUAL? ,PART-FLAG 4>
 		       <TELL "There are currently no active outlets." CR>)
 		      (T
-		       <TELL "   ">
-		       <PRINTD ,CONTROL-CENTER>
-		       <TELL " (PPCC)|    ">
-		       <PRINTD ,ROOFTOP>
-		       <TELL " (RCRO)|    ">
-		       <PRINTD ,OFFICE>
-		       <TELL " (PEOF)|    ">
-		       <PRINTD ,CAFETERIA>
-		       <TELL " (PCAF)|    ">
-		       <PRINTD ,CORE>
-		       <TELL " (MACO)|    ">
-		       <PRINTD ,NEWS>
-		       <TELL " (WNNF)|
+		       ;[" <PRINTD ,CONTROL-CENTER> "]
+		       <TELL "|   PPCC:prism project control|">
+		       ;[" <PRINTD ,ROOFTOP> "]
+		       <TELL "  RCRO:research center rooftop|">
+		       ;[" <PRINTD ,OFFICE> "]
+		       <TELL "  PEOF:dr. perelman's office|">
+		       ;[" <PRINTD ,CAFETERIA> "]
+		       <TELL "  PCAF:prism facility cafeteria|">
+		       ;[" <PRINTD ,CORE> "]
+		       <TELL "  MACO:maintenance core|">
+		       ;[" <PRINTD ,NEWS> "]
+		       <TELL "  WNNF:world news network feed||
 To activate a specific outlet, submit the associated code." CR>)>)>>
 
 <OBJECT COMM-MODE
@@ -4355,7 +4354,7 @@ tests we want to run. Please come to my office in about ten minutes.\"")>
 		<SET WIDTH 15>)
 	       (T
 		<SET WIDTH 16>)>
-	 <SET C </ <- <GETB 0 33> .WIDTH> 2>>
+	 <SET C <+ </ <- <GETB 0 33> .WIDTH> 2> 1>>
 	 <CURSET 4 .C>
 	 <PRINT-SPACES .WIDTH>
 	 <CURSET 5 .C>

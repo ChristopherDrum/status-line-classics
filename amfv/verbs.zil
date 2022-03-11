@@ -1046,7 +1046,7 @@ dealer, or via mail order using the form that came in your package.]" CR>>
 		<TELL ". ">
 		<COND (<NOT <EQUAL? ,PART-FLAG 4>>
 		       <TELL
-"The following locations are equipped with communication outlets:" CR>)>
+"The following locations are equipped with comm outlets:" CR>)>
 		<PERFORM ,V?DISPLAY ,OUTLETS>
 		<RTRUE>)
 	       (T
@@ -2919,7 +2919,7 @@ long description (fdesc or ldesc), otherwise will print short."
 	 <CRLF> <CRLF>
 	 ;<BUFOUT <>>
 	 <HLIGHT ,H-BOLD>
-	 <TELL "  -- SIMULATION TERMINATED --">
+	 <TELL "- SIMULATION TERMINATED -">
 	 
 	 <HLIGHT 0>
 	 ;<BUFOUT T>

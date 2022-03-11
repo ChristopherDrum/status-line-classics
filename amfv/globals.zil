@@ -2777,9 +2777,11 @@ to the Devil's Tower region of Wyoming. ">
 
 <GLOBAL SL-BUFFER <ITABLE NONE 80>>
 
-<ROUTINE STATUS-LINE ("AUX" LEN LOCATION)
+<ROUTINE STATUS-LINE ("AUX" LEN LOCATION SY Y)
 	 <BUFOUT <>>
 	 <SCREEN ,S-WINDOW>
+	 <SET SY 0>
+	 <SET Y 0>
 	 <INVERSE-LINE 1> ; "set the status line to blank so we don't have to do weird spacing tricks later"
 	 <INVERSE-LINE 2>
 	 <HLIGHT 1>
@@ -2796,7 +2798,7 @@ to the Devil's Tower region of Wyoming. ">
 	 	;<DIROUT ,D-TABLE-OFF> ;"stop, put length in 1st slot"
 		;<DIROUT ,D-SCREEN-ON> ;"resume printing to screen"
 	 	;<SET LEN <GET ,SL-BUFFER 0>>
-	 	<CURSET 1 1>
+	 	<CURSET 1 2>
 	 	<TELL D ,MODE>
 		<COND (,RECORDING
 		       <SETG L-RECORDING T>
@@ -2815,7 +2817,7 @@ to the Devil's Tower region of Wyoming. ">
 			 <NOT <EQUAL? ,L-HERE ,CURRENT-DIRECTORY>>>
 		    <AND <NOT ,CURRENT-FILE>
 			 <NOT <EQUAL? ,L-HERE ,HERE>>>>
-		<CURSET 2 1>
+		<CURSET 2 2>
 	 	;<DIROUT ,D-SCREEN-OFF> ;"stop printing to screen"
 		;<DIROUT ,D-TABLE-ON ,SL-BUFFER> ;"start printing to buffer"
 	 	<COND (,CURRENT-FILE
@@ -2833,13 +2835,15 @@ to the Devil's Tower region of Wyoming. ">
 	 <COND (<AND ,SIMULATING
 		     <NOT <EQUAL? ,SDATE ,L-DATE>>>
 		<CURSET 2 23>
-		<TELL N ,SMONTH "/" N ,SDATE "/" N ,SYEAR>
+		<SET SY <-, SYEAR 2000>>
+		<TELL N ,SMONTH "/" N ,SDATE "/" N , SY>
 		<SETG L-DATE ,SDATE>
 		;<PRINT-SPACES 3>)
 	       (<AND <NOT ,SIMULATING>
 		     <NOT <EQUAL? ,DATE ,L-DATE>>>
-		<CURSET 2 23>
-		<TELL N ,MONTH "/" N ,DATE "/" N ,YEAR>
+		<CURSET 2 25>
+		<SET Y <-, YEAR 2000>>
+		<TELL N ,MONTH "/" N ,DATE "/" N , Y>
 		<SETG L-DATE ,DATE>
 		;<PRINT-SPACES 3>
 		)>
