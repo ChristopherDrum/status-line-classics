@@ -79,12 +79,7 @@
 	       (<AND <EQUAL? .RARG ,M-ENTER>
 		     <NOT <FSET? ,FLOOR-1 ,TOUCHBIT>>>
 		<TELL
-"First, you arrive in front of a large, two-story Teapot with wisps of smoke
-drifting out of its spout. As you walk inside you're nearly broadsided by a
-waitress who's all in a rush, which seems odd since you see no one else in the
-restaurant. Nevertheless, the waitress does not smile and say hello, does
-not introduce herself as Jenny, does not even acknowledge your existence
-with a tip of her headband.||">)
+"First, you arrive in front of a large, two-story Teapot with wisps of smoke drifting out of its spout. As you walk inside you're nearly broadsided by a waitress who's all in a rush, which seems odd since you see no one else in the restaurant. Nevertheless, the waitress does not smile and say hello, does not introduce herself as Jenny, does not even acknowledge your existence with a tip of her headband.||">)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <NOT <IN? ,WAITRESS ,HERE>>>
 		<WAITRESS-COMES>)>>
@@ -142,17 +137,14 @@ with a tip of her headband.||">)
 	 <COND (<VERB? EXAMINE>
 		;<FSET ,SHRIFT ,SEENBIT>
 		<TELL 
-"From the looks of it, you've been given the " D ,SHRIFT ", this shrunken
-little tablecloth that's hardly big enough to cover a table." CR>)
+"From the looks of it, you've been given the " D ,SHRIFT ", this shrunken little tablecloth that's hardly big enough to cover a table." CR>)
 	       (<AND <VERB? TAKE>
 		     <IN? ,SHRIFT ,REST-TABLE>
 		     <G? <CCOUNT ,REST-TABLE> 1>
 		     ;<EQUAL? <ITAKE> T> ;"moves obj to protag"
 		     <NOT <EQUAL? <ITAKE <>> ,M-FATAL <>>>>
 		<TELL 
-"With the flair for the dramatic that has so marked your progress through
-this strange universe, you yank the " D ,SHRIFT " away without at
-all disturbing">
+"With the flair for the dramatic that has so marked your progress through this strange universe, you yank the " D ,SHRIFT " away without at all disturbing">
 		<D-CONTENTS ,REST-TABLE ;2>
 		<TELL ,PERIOD>
 		<RTRUE>)
@@ -190,8 +182,7 @@ CR>)>>
 "It's like threading a needle, and you keep missing." CR>)
 	       (<VERB? OPEN CLOSE>
 		<TELL 
-"It's not designed to be opened. You should've seen how hard it was to put
-all the grains of salt into those little holes." CR>)>>
+"It's not designed to be opened. You should've seen how hard it was to put all the grains of salt into those little holes." CR>)>>
 
 <OBJECT GRAIN-OF-SALT
 	(LOC LOCAL-GLOBALS) ;"must be, above"
@@ -217,9 +208,7 @@ all the grains of salt into those little holes." CR>)>>
 	 <COND (<VERB? OPEN MUNG EAT>
 		<MOVE ,ADVICE ,PROTAGONIST>
 		<REMOVE ,FORTUNE>
-		<TELL "Crumbs from the cookie drift away upon a pungent
-smelling wind from the kitchen. That's the way the cookie crumbles. However,
-you are left with a piece of advice." CR>)>>
+		<TELL "Crumbs from the cookie drift away upon a pungent smelling wind from the kitchen. That's the way the cookie crumbles. However, you are left with a piece of advice." CR>)>>
 
 <OBJECT ADVICE
 	(DESC "advice")
@@ -238,8 +227,7 @@ you are left with a piece of advice." CR>)>>
 "Too bad the waitress isn't around to see this insult." CR>)>)
 	       (<VERB? READ>
 		<TELL 
-"The tiny slip of paper reads: \"Patience is the best remedy for every
-trouble.\" You're not sure how to take it." CR>)>>
+"The tiny slip of paper reads: \"Patience is the best remedy for every trouble.\" You're not sure how to take it." CR>)>>
 		
 <OBJECT CROW
 	(SDESC "crow")
@@ -256,8 +244,7 @@ trouble.\" You're not sure how to take it." CR>)>>
 		       <FSET ,CROW ,RMUNGBIT>
 		       <PUTP ,CROW ,P?SDESC "nitty-gritty crow">
 		       <TELL 
-"You take a squeamish bite of it and chew slowly, finding the consistency
-to be ">
+"You take a squeamish bite of it and chew slowly, finding the consistency to be ">
 		       <ITALICIZE "nitty-gritty">)
 		      (T
 		       <TELL
@@ -277,8 +264,7 @@ to be ">
 <ROUTINE ROAST-F ()
 	 <COND (<VERB? EXAMINE>
 		<TELL 
-"It's primarily in two parts, one half charred, the other cheek merely
-well-done." CR>)
+"It's primarily in two parts, one half charred, the other cheek merely well-done." CR>)
 	       (<AND <VERB? SET>
 		     <ADJ-USED ,ROAST ,W?OTHER>
 		     <NOUN-USED ,ROAST ,W?CHEEK>>
@@ -286,8 +272,7 @@ well-done." CR>)
 		       <FSET ,ROAST ,PHRASEBIT>
 		       <UPDATE-SCORE>)>
 		<TELL
-"You mull over the food in front of you, with many thoughts. As you
-turn the other cheek, however noble your intention, ">
+"You mull over the food in front of you, with many thoughts. As you turn the other cheek, however noble your intention, ">
 		<COND (<IN? ,WAITRESS ,HERE>
 		       <TELL "the waitress still ignores you">)
 		      (T
@@ -308,10 +293,7 @@ turn the other cheek, however noble your intention, ">
 	       <UPDATE-SCORE>
 	       <REMOVE ,HUMBLE-PIE>
 	       <TELL 
-"As gingerly as possible, nibbling around the edges and taking smallish guilty
-bites out of the pie, and chewing slowly and thoughtfully with wide eyes to
-prolong the expression of your humility, you gradually consume the pie until
-it is all gone." CR>)>> 
+"As gingerly as possible, nibbling around the edges and taking smallish guilty bites out of the pie, and chewing slowly and thoughtfully with wide eyes to prolong the expression of your humility, you gradually consume the pie until it is all gone." CR>)>> 
 
 <OBJECT PRIDE
 	(DESC "collective of lions' meat")
@@ -324,14 +306,12 @@ it is all gone." CR>)>>
 	 <COND (<VERB? EAT>
 		<COND (<NOT <NOUN-USED ,PRIDE ,W?PRIDE>>
 		       <TELL 
-"The phrasing seems off, since the meat defends itself from such an
-approach">)
+"The phrasing seems off, since the meat defends itself from such an approach">)
 		      (<EQUAL? ,P-PRSA-WORD ,W?SWALLOW>
 		       <UPDATE-SCORE>
 		       <REMOVE ,PRIDE>
 		       <TELL  
-"It's hard to swallow, but with determination and several long, Adam's
-apple-jacking gulps, you manage to do it">)
+"It's hard to swallow, but with determination and several long, Adam's apple-jacking gulps, you manage to do it">)
 		      (T
 		       <TELL "You have an awful lot to chew on here">)>
 		<TELL ,PERIOD>)>> 
@@ -354,9 +334,7 @@ apple-jacking gulps, you manage to do it">)
 		       <FSET ,HATCHET ,PHRASEBIT>
 		       <UPDATE-SCORE>
 		       <TELL 
-"After all you've been through, you believe you have a legitimate axe
-to grind, and you do so, with relish. The blade of the axe twinkles with
-razor sharpness." CR>)>)
+"After all you've been through, you believe you have a legitimate axe to grind, and you do so, with relish. The blade of the axe twinkles with razor sharpness." CR>)>)
 	       (<AND <VERB? GIVE>
 		     ;<NOUN-USED ,HATCHET ,W?AX>
 		     <PRSI? ,COOK ,WAITRESS>>
@@ -381,10 +359,7 @@ razor sharpness." CR>)>)
 		       <FSET ,NAPKIN ,PHRASEBIT>
 		       <UPDATE-SCORE>)>
 		<TELL
-"With your shoulders scrunched together so as not to presume to take
-up much room in the Teapot Cafe, and with a sheepish look on your face,
-you wave the little white napkin, looking side to side to see if it's
-having any effect at all." CR>)>>
+"With your shoulders scrunched together so as not to presume to take up much room in the Teapot Cafe, and with a sheepish look on your face, you wave the little white napkin, looking side to side to see if it's having any effect at all." CR>)>>
 
 ;"total of 16 acts of offense"
 <ROUTINE OFFENCE ("OPTIONAL" (OBJ <>))
@@ -411,89 +386,59 @@ having any effect at all." CR>)>>
 		       <SETG OLD-HERE <>>
 		       <MOVE ,PROTAGONIST ,REST-CHAIR>
 		       <TELL 
-"The waitress steps quickly toward you, pressing her thighs against the
-table's opposite edge and staring coldly into your eyes.|
-|
-Her eyelashes are spidery with thick mascara, and the volume of white
-powder below each brow could open a ski season. Her cheeks are brazen
-with a raw swath of rouge, and the heavy lip blush is indeed embarrassing.|
-|
-You muster a grimace of your own, and you both follow the table around as
-it makes one complete revolution and notches to a stop. You plop down on
-the chair, sweat draining from your temples">)
+"The waitress steps quickly toward you, pressing her thighs against the table's opposite edge and staring coldly into your eyes.||Her eyelashes are spidery with thick mascara, and the volume of white powder below each brow could open a ski season. Her cheeks are brazen
+with a raw swath of rouge, and the heavy lip blush is indeed embarrassing.||You muster a grimace of your own, and you both follow the table around as it makes one complete revolution and notches to a stop. You plop down on the chair, sweat draining from your temples">)
 		      (<PRSO? ,ADVICE>
 		       <TELL 
-"You read the advice in a loud voice with much sarcasm, taking it so
-lightly that the slip of paper almosts drifts up into the air. The
-waitress seems snubbed that you don't seem to be taking the advice to
-heart">)
+"You read the advice in a loud voice with much sarcasm, taking it so lightly that the slip of paper almosts drifts up into the air. The waitress seems snubbed that you don't seem to be taking the advice to heart">)
 		      (<PRSO? ,UMBRAGE>
 		       <TELL 
-"You do so, and the Teapot cafe seems a little less dim, which unfortunately
-can't be said of its employees, not excluding the waitress">)
+"You do so, and the Teapot cafe seems a little less dim, which unfortunately can't be said of its employees, not excluding the waitress">)
 		      (<PRSO? ,SHRIFT>
 		       <REMOVE ,SHRIFT>
 		       <TELL 
-"That's one way to turn the tables on the waitress. She accepts the short
-shrift gruffly and begins polishing glasses with it">)
+"That's one way to turn the tables on the waitress. She accepts the short shrift gruffly and begins polishing glasses with it">)
 		      (<PRSO? ,WOOL>
 		       <TELL 
-"The headband slips lower upon the waitress's forehead, narrowing her vision
-to table-level and below">)
+"The headband slips lower upon the waitress's forehead, narrowing her vision to table-level and below">)
 		      (<PRSO? ,DANDER>
 		       <TELL 
-"The waitress shrugs her shoulders in contempt of your pestering, and sure
-enough her dander is raised">)
+"The waitress shrugs her shoulders in contempt of your pestering, and sure enough her dander is raised">)
 		      (<PRSO? ,CHIP>
 		       <TELL 
-"\"Come on, knock it off!\" the waitress says defiantly, and the chip goes
-flying off into the air">)
+"\"Come on, knock it off!\" the waitress says defiantly, and the chip goes flying off into the air">)
 		      (<PRSO? ,COMEUPPANCE>
 		       <REMOVE ,COMEUPPANCE>
 		       <TELL
-"The fuzzily glowing neon goes well with her dime-store face. Her eyes
-pick up the glow, and she storms away">)
+"The fuzzily glowing neon goes well with her dime-store face. Her eyes pick up the glow, and she storms away">)
 		      (<AND <PRSO? ,WAITRESS> ;"rake over coals"
 		            <VERB? RAKE-OVER>>
 		       <TELL 
-"Not a bad idea, since the " D ,WAITRESS " looked so much in need of a rake
-over. Of course, this only ends up in fanning the flames, and scorched by
-your harshness, she stalks off">)
+"Not a bad idea, since the " D ,WAITRESS " looked so much in need of a rake over. Of course, this only ends up in fanning the flames, and scorched by your harshness, she stalks off">)
 		      (<PRSO? ,CEILING>
 		       <TELL 
-"The full brunt of your impact is taken by your head and shoulders, and the
-entire teapot rattles loudly as you raise the roof">)
+"The full brunt of your impact is taken by your head and shoulders, and the entire teapot rattles loudly as you raise the roof">)
 		      (<PRSO? ,RIOT-ACT>
 		       <TELL 
-"\"How sweet,\" thinks the waitress. \"I haven't been read to since I was a
-child, before going to sleep.\" But when she suddenly realizes it's bedtime
-for Bonzo, her face reddens">)
+"\"How sweet,\" thinks the waitress. \"I haven't been read to since I was a child, before going to sleep.\" But when she suddenly realizes it's bedtime for Bonzo, her face reddens">)
 		      (<PRSO? ,DESSERTS>
 		       <REMOVE ,DESSERTS>
 		       <TELL 
-"At first, the waitress perks up, no doubt expecting a large tip. But when
-she gets the meanness of your offering, her face sours">)
+"At first, the waitress perks up, no doubt expecting a large tip. But when she gets the meanness of your offering, her face sours">)
 		      (<AND <PRSI? ,EYES> ;"perform v-examine in pre-give"
 			    <ADJ-USED ,EYES ,W?EVIL>>
 		       <TELL
-"You give her the evil eye, which is not as painful as you might have expected,
-and in fact brings you a good deal of satisfaction. As for the waitress, she
-seems ruffled, but continues about her business">)
+"You give her the evil eye, which is not as painful as you might have expected, and in fact brings you a good deal of satisfaction. As for the waitress, she seems ruffled, but continues about her business">)
 		      (<AND <PRSI? ,EYES> ;"l at x with j. eye"
 		            <ADJ-USED ,EYES ,W?JAUNDICED>>
 		       <TELL
-"Under your nasty gaze, the waitress seems momentarily self-conscious,
-then hurriedly continues on with her work">)
+"Under your nasty gaze, the waitress seems momentarily self-conscious, then hurriedly continues on with her work">)
 		      (<PRSO? ,SPLEEN>
 		       <TELL 
-"On a gut feeling, you let it all hang out, which brings you a
-general feeling of well-being. It seems to have struck a nerve in the
-waitress too, since she takes a rare glance in your direction">)
+"On a gut feeling, you let it all hang out, which brings you a general feeling of well-being. It seems to have struck a nerve in the waitress too, since she takes a rare glance in your direction">)
 		      (<PRSI? ,GROUND> ;"call x onto carpet"
 		       <TELL
-"Bristling at your presumption of authority, the waitress stops in front of
-you for one brief moment. Then before you can open your mouth, she turns
-and leaves">)>
+"Bristling at your presumption of authority, the waitress stops in front of you for one brief moment. Then before you can open your mouth, she turns and leaves">)>
 		<TELL ". ">
 		<OFFENCE-REACTION>)>>
 
@@ -520,13 +465,11 @@ and leaves">)>
 "She charges back into the kitchen, and ">
 		<GIVE-IT ,PRIDE "brings to your table" "dishes out to you">
 		<TELL
-" some strange meat that she briefly describes as being
-\"collective of lions.\" Strange indeed">)
+" some strange meat that she briefly describes as being \"collective of lions.\" Strange indeed">)
 	       (<EQUAL? ,OFFENCES 6>
 		<TELL "She leaves, comes back and ">
 		<GIVE-IT ,FORTUNE 
-"flings a fortune cookie down on your table" "closes your hand
-gently around a fortune cookie">
+"flings a fortune cookie down on your table" "closes your hand gently around a fortune cookie">
 		<GIVE-IT ,SALT-SHAKER " along with a salt shaker"
 			         " along with a salt shaker">
 		<TELL "." CR CR "The waitress "
@@ -534,8 +477,7 @@ gently around a fortune cookie">
 			<PICK-NEXT <GET ,S-WAITRESS 1>>>)
 	       (<EQUAL? ,OFFENCES 7>
 		<TELL 
-"She flies the coop for a minute and comes back with a charred,
-dark-feathered bird which she ">
+"She flies the coop for a minute and comes back with a charred, dark-feathered bird which she ">
 		<GIVE-IT ,CROW "drops onto your table" "puts in your arms">)
 	       (<EQUAL? ,OFFENCES 8>
 		<TELL 
@@ -549,14 +491,10 @@ dark-feathered bird which she ">
 			<PICK-NEXT <GET ,S-WAITRESS 1>>>)
 	       (<EQUAL? ,OFFENCES 10> ;"no need for answer"
 		<TELL 
-"She pretends not to be bothered, but you observe that she's reaching her
-boiling point, being driven into a tizzy as she walks in circles. Her dander
-is jumping up from her shoulders as she storms away, and the distant sound
-of a teapot whistling can be heard">)
+"She pretends not to be bothered, but you observe that she's reaching her boiling point, being driven into a tizzy as she walks in circles. Her dander is jumping up from her shoulders as she storms away, and the distant sound of a teapot whistling can be heard">)
 	       (<EQUAL? ,OFFENCES 12>
 		<TELL
-"\"Well, if you've really reached the boiling point,\" shouts the waitress,
-\"why don't you take it up with the cook!\"" CR>
+"\"Well, if you've really reached the boiling point,\" shouts the waitress, \"why don't you take it up with the cook!\"" CR>
 		<RTRUE>)
 	       (T
 		<TELL CR "The waitress "
@@ -626,8 +564,7 @@ of a teapot whistling can be heard">)
 		     <NOT <EQUAL? <ITAKE <>> ,M-FATAL <>>>>
 		<FCLEAR ,COMEUPPANCE ,TRYTAKEBIT>
 		<TELL 
-"Having pulled the wool over the waitress's eyes, you snatch the neon sign,
-which glows warm in your hands." CR>)
+"Having pulled the wool over the waitress's eyes, you snatch the neon sign, which glows warm in your hands." CR>)
 	       (<VERB? EXAMINE READ>
 		<COND (<NOT <FSET? ,PRSO ,TOUCHBIT>>
 		       <TELL "Next to the stairway, ">)
@@ -651,8 +588,7 @@ which glows warm in your hands." CR>)
 <ROUTINE WAITRESS-F ()
 	 <COND (<VERB? TELL>
 		<TELL 
-"She issues you a loud, head-shaking raspberry, which is as much service
-as you've gotten from her yet." CR>
+"She issues you a loud, head-shaking raspberry, which is as much service as you've gotten from her yet." CR>
 		<STOP>)
 	       (<AND <VERB? MUNG KILL>
 		     <NOT ,PRSI>
@@ -663,12 +599,10 @@ as you've gotten from her yet." CR>
 	       (<AND <VERB? MUNG KILL>
 		     <PRSI? ,HATCHET>>
 		<TELL 
-"The waitress firmly grips your forearm in defense of her mohawk. \"Come
-on now, enough of this hair-splitting, I'll get to you, just as soon as I can.\"" CR>)
+"The waitress firmly grips your forearm in defense of her mohawk. \"Come on now, enough of this hair-splitting, I'll get to you, just as soon as I can.\"" CR>)
 	       (<VERB? EXAMINE>
 		<TELL
-"She is a hatchet-faced young woman, with a spiked purple mohawk and a
-pink woolen headband">
+"She is a hatchet-faced young woman, with a spiked purple mohawk and a pink woolen headband">
 		<COND (<FSET? ,WOOL ,PHRASEBIT>
 		       <TELL ", which's been pulled over her eyes">)
 		      (T
@@ -676,8 +610,7 @@ pink woolen headband">
 		<TELL ". ">
 		<COND (<IN? ,CHIP ,WAITRESS>
 		       <TELL
-"A stray wood chip, apparently having been picked up from the kitchen,
-sits upon">)
+"A stray wood chip, apparently having been picked up from the kitchen, sits upon">)
 		       (T
 			<TELL "You've knocked the chip off">)>
 		<TELL " her shoulder">
@@ -772,9 +705,8 @@ sits upon">)
 <ROUTINE FLOOR-2-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL 
-"This is the second floor of The Teapot Cafe. You're standing below a
-low-slung ceiling, upon a carpet, next to an official-looking sign on the wall.
-Across from you, built into a stone wall, lies a large open-air hearth which is filled with smoldering coals.">)
+"This is the second floor of The Teapot Cafe. You're standing below a low-slung ceiling, upon a carpet, next to an official-looking sign on the wall.
+ Across from you, built into a stone wall, lies a large open-air hearth which is filled with smoldering coals.">)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <NOT <IN? ,WAITRESS ,HERE>>>
 		<WAITRESS-COMES>)>>
@@ -803,10 +735,11 @@ Across from you, built into a stone wall, lies a large open-air hearth which is 
 <ROUTINE RIOT-ACT-F ()
 	 <COND (<VERB? EXAMINE READ>
 		<TELL 
-"\"It is unlawful for this room to be occupied by more than 350 angry
-persons." CR>
+"\"It is unlawful for this room to be occupied by more than 350 angry persons." CR>
 		<TELL
-"              -- Section 204D, paragraph 7-6, The Riot Act\"|">)
+"               -- Section 204D,"
+"                  paragraph 7-6"
+"                  The Riot Act\"|">)
 	       (<AND <VERB? READ-TO>
 		     <PRSI? ,WAITRESS>>
 		<OFFENCE>)		
@@ -861,8 +794,7 @@ persons." CR>
 		       <RTRUE>)
 		      (T
 		       <TELL 
-"Thump! The leaves shake and shimmer in the fire light, but the tree
-is undamaged." CR>)>)
+"Thump! The leaves shake and shimmer in the fire light, but the tree is undamaged." CR>)>)
 	       (<NOUN-USED ,OLIVE-TREE ,W?OLIVE>
 		<TELL "No olives have yet been produced." CR>)>>
 		     
@@ -891,8 +823,7 @@ is undamaged." CR>)>)
 	(LOC FLOOR-2)
 	(DESC "just desserts")
 	(FDESC 
-"Some food has been left here, no doubt by some impatient patrons of the
-cafe.")
+"Some food has been left here, no doubt by some impatient patrons of the cafe.")
 	(SYNONYM DESSERTS DESSERT FOOD)
 	(ADJECTIVE JUST HER)
 	(FLAGS TAKEBIT PLURALBIT NARTICLEBIT FOODBIT)
@@ -956,10 +887,7 @@ cafe.")
 		       <MOVE ,CAPE ,PROTAGONIST>
 		       <FSET ,CAPE ,TOUCHBIT>
 		       <TELL 
-"You're drawn toward the kitchen amid the fast-paced, dramatic sounds
-of a big-band era orchestra -- matador music. As you make your
-entrance, the red velvet curtain, now appearing like a cape, comes off
-into your hands." CR CR>)>
+"You're drawn toward the kitchen amid the fast-paced, dramatic sounds of a big-band era orchestra -- matador music. As you make your entrance, the red velvet curtain, now appearing like a cape, comes off into your hands." CR CR>)>
 		<RETURN ,KITCHEN>)
 	       (T
 		<TELL 
@@ -973,15 +901,13 @@ into your hands." CR CR>)>
 		       <TELL "But you're on the right track.">)
 		      (<G? .SC 2>
 		       <TELL 
-"You don't have nearly enough gall to storm into the kitchen, but you're
-getting there.">)
+"You don't have nearly enough gall to storm into the kitchen, but you're getting there.">)
 		      (<NOT <ZERO? .SC>>
 		       <TELL 
 "You're not hot enough yet to take the kitchen by storm.">)
 		      (T
 		       <TELL 
-"You haven't even mixed it up with the waitress. So there's no need to take
-it up with the cook yet.">)>
+"You haven't even mixed it up with the waitress. So there's no need to take it up with the cook yet.">)>
 		<CRLF>
 		<RFALSE>)>>
 	       
@@ -996,18 +922,12 @@ it up with the cook yet.">)>
 <ROUTINE KITCHEN-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"The dominating feature of the kitchen is the cook, who is dwarfish in
-dimension but gigantic in size." CR CR>
+"The dominating feature of the kitchen is the cook, who is dwarfish in dimension but gigantic in size." CR CR>
 		<COND (<IN? ,BAD-BLOOD ,HERE>
 		       <TELL
 "You can immediately see there's a lot of bad blood between you and him.||">)>
 		<TELL
-"But he's getting all worked up over the meal he's preparing and doesn't
-take notice of you. He is utterly beside himself, which takes up most of
-the floor space of the kitchen. The ruffled fur is flying,
-plumes of sifted flour are exploding, the briny sweat is raining through the steamy air, as the cook wreaks havoc while whipping something together.|
-|
-The kitchen is equipped with, among other crude devices, a grindstone.">)
+"But he's getting all worked up over the meal he's preparing and doesn't take notice of you. He is utterly beside himself, which takes up most of the floor space of the kitchen. The ruffled fur is flying, plumes of sifted flour are exploding, the briny sweat is raining through the steamy air, as the cook wreaks havoc while whipping something together.||The kitchen is equipped with, among other crude devices, a grindstone.">)
 	       (<AND <EQUAL? .RARG ,M-BEG>
 		     <RUNNING? ,I-DEVICES>
 		     ,PRSO
@@ -1049,14 +969,11 @@ The kitchen is equipped with, among other crude devices, a grindstone.">)
 		       <TELL "He's approaching you with" TR ,DEVICES>)
 		      (T
 		       <TELL
-"The cook appears to be a big man with a short fuse. His hulking figure
-is covered with prickly five-and-ten o'clock shadows of hair stubble.
-Blubbery hammocks of basting bicep hang
-from each upper arm">
+"The cook appears to be a big man with a short fuse. His hulking figure is covered with prickly five-and-ten o'clock shadows of hair stubble.
+ Blubbery hammocks of basting bicep hang from each upper arm">
 		       <COND (<NOT <FSET? ,DEVICES ,PHRASEBIT>>
 			      <TELL 
-", and swing heavily through the air, following the cook's mammoth
-frenzy of food preparation">)>
+", and swing heavily through the air, following the cook's mammoth frenzy of food preparation">)>
 		       <TELL ,PERIOD>)>
 		<COND (<IN? ,CAN ,COOK>
 		       <RFALSE>)>
@@ -1089,16 +1006,7 @@ frenzy of food preparation">)>
 " by using the cape, which turns a deeper shade of red">)>
 		<TELL ".|
 |
-You shuffle toward him for a closer view, and for a moment you're standing
-toe to toe, but you don't see eye to eye. His nose is out of joint, which
-explains why he's cutting it off to spite his face. (He flings it into his
-concoction.) You can hear the volcanic roar of bitter bile in his throat,
-which is making him hot under the collar, and causing smoke to pour out of
-his ears.|
-|
-The cook glares for moment at his recipe card, and apparently you're not on
-it, because he turns back in front of a large bowl and resumes madly throwing
-ingredients together." CR>)
+You shuffle toward him for a closer view, and for a moment you're standing toe to toe, but you don't see eye to eye. His nose is out of joint, which explains why he's cutting it off to spite his face. (He flings it into his concoction.) You can hear the volcanic roar of bitter bile in his throat, which is making him hot under the collar, and causing smoke to pour out of his ears.||The cook glares for moment at his recipe card, and apparently you're not on it, because he turns back in front of a large bowl and resumes madly throwing ingredients together." CR>)
 	       (<VERB? ENTER LEAP PASS>
 		<TELL-BAD-BLOOD>)
 	       (<VERB? CLEAN>
@@ -1123,8 +1031,7 @@ ingredients together." CR>)
 <ROUTINE RECIPE-CARD-F ()
 	 <COND (<VERB? READ EXAMINE>
 		<TELL
-"Though the card is splattered with food, you can see the name of the
-concoction is \"Brew-hah-hah.\"" CR>)
+"Though the card is splattered with food, you can see the name of the concoction is \"Brew-hah-hah.\"" CR>)
 	       (<VERB? TAKE>
 		<TELL "He rips it away from you." CR>)
 	       (<VERB? CLEAN>
@@ -1138,12 +1045,8 @@ concoction is \"Brew-hah-hah.\"" CR>)
 		<MOVE ,GOOSE ,HERE>
 		<MOVE ,CAN ,COOK>
 		<TELL CR
-"Just now, two of the cook's pet peeves wander up to him, and add to the
-confusion by begging loudly for scraps -- the goat bleating, and the
-goose honking.|
-|
-The cook comes across a labeled can, picks it up, and continues scouring the
-kitchen for the right ingredients." CR>)>>  
+"Just now, two of the cook's pet peeves wander up to him, and add to the confusion by begging loudly for scraps -- the goat bleating, and the
+goose honking.||The cook comes across a labeled can, picks it up, and continues scouring the kitchen for the right ingredients." CR>)>>  
 
 <OBJECT CAN
 	;(LOC COOK)
@@ -1207,23 +1110,17 @@ kitchen for the right ingredients." CR>)>>
 		<COND (<PRSO? ,GOOSE>
 		       <REMOVE ,GOOSE>
 		       <TELL 
-"A burst of grease and flames spit up from the stunned bird, and the cook
-himself emotionally melts as his goose is cooked. (So it's safer to cook
-the goose than to goose the cook.)" CR>)
+"A burst of grease and flames spit up from the stunned bird, and the cook himself emotionally melts as his goose is cooked. (So it's safer to cook the goose than to goose the cook.)" CR>)
 		      (<PRSO? ,GOAT>
 		       <REMOVE ,GOAT>
 		       <TELL
-"The cook's goat, its hooves clanking awkwardly on the kitchen floor, is
-nevertheless gotten. The cook, being steamed up, breaks your grip
-on the goat, which bleats a hasty retreat." CR>)
+"The cook's goat, its hooves clanking awkwardly on the kitchen floor, is nevertheless gotten. The cook, being steamed up, breaks your grip on the goat, which bleats a hasty retreat." CR>)
 		      (<PRSO? ,CAPE>
 		       <TELL 
-"Bravo! Ole! Bravo! You wave the cape, and now you've got the cook
-seeing red." CR>)
+"Bravo! Ole! Bravo! You wave the cape, and now you've got the cook seeing red." CR>)
 		      (<PRSO? ,COOK>
 		       <TELL 
-"You get a lot of canned laughter coming from rows of cans, and the cook seems
-to take offense." CR>)>
+"You get a lot of canned laughter coming from rows of cans, and the cook seems to take offense." CR>)>
 	       <COND (<AND <FSET? ,GOOSE ,PHRASEBIT>
 			   <FSET? ,GOAT ,PHRASEBIT>
 			   <FSET? ,CAPE ,PHRASEBIT>
@@ -1235,9 +1132,7 @@ to take offense." CR>)>
 		      <MOVE ,FIRE ,HERE>
 		      <ROB ,PROTAGONIST ,HERE>
 		      <TELL CR 
-"Now you've really gotten him steamed up. He snatches you around the
-waist, laughs heartily into your face with marinated breath, and
-plops you down into the center of a large, family-size frying pan.|">)>)>
+"Now you've really gotten him steamed up. He snatches you around the waist, laughs heartily into your face with marinated breath, and plops you down into the center of a large, family-size frying pan.|">)>)>
 	 <RTRUE>>
 
 <OBJECT PAN
@@ -1268,12 +1163,8 @@ plops you down into the center of a large, family-size frying pan.|">)>)>
 		<FSET ,PAN ,PHRASEBIT>
 		<DEQUEUE I-PAN>
 		<TELL 
-"You avoid the fate of being merely a flash in the pan by leaping from
-the skillet, heedless of the heat outside it. As harmlessly as
-one's hand passing quickly over a lighted candle, your entire body falls
-through the large licking blue flame.
-Landing on the jet, you put out the fire, and fall to the floor. The cook
-angrily flings the pan into oblivion." CR CR>
+"You avoid the fate of being merely a flash in the pan by leaping from the skillet, heedless of the heat outside it. As harmlessly as one's hand passing quickly over a lighted candle, your entire body falls through the large licking blue flame.
+ Landing on the jet, you put out the fire, and fall to the floor. The cook angrily flings the pan into oblivion." CR CR>
 		<COND (<FSET? ,DEVICES ,PHRASEBIT>
 		       <MOVE ,OX ,HERE>
 		       <TELL 
@@ -1281,8 +1172,7 @@ angrily flings the pan into oblivion." CR CR>
 		      (T
 		       <QUEUE I-DEVICES -1>
 		       <TELL
-"The cook backs you up into a corner, and begins sharpening his own devices,
-bent on destroying you.">)>
+"The cook backs you up into a corner, and begins sharpening his own devices, bent on destroying you.">)>
 		<CRLF>)>>
 
 <GLOBAL PAN-N 0>
@@ -1291,8 +1181,7 @@ bent on destroying you.">)>
 	 <SETG PAN-N <+ ,PAN-N 1>>
 	 <COND (<EQUAL? ,PAN-N 1>
 		<TELL CR 
-"The cook begins gathering his own devices, as flames lick up around the rim
-of the frying pan">)
+"The cook begins gathering his own devices, as flames lick up around the rim of the frying pan">)
 	       (<EQUAL? ,PAN-N 2>
 		<TELL CR "Your feet are beginning to feel the heat">)
 	       (<EQUAL? ,PAN-N 3>
@@ -1330,8 +1219,7 @@ of the frying pan">)
 <ROUTINE CONCOCTION-F ()
 	 <COND (<VERB? EXAMINE LOOK-INSIDE>
 		<TELL 
-"The slimy admixture of entrails, small winged insects and the occasional
-fleshy ear, churns thickly within the pot..." CR>)
+"The slimy admixture of entrails, small winged insects and the occasional fleshy ear, churns thickly within the pot..." CR>)
 	       (<OR <VERB? TAKE>
 		    <AND <VERB? PUT>
 		         <PRSI? ,CONCOCTION>>>
@@ -1370,16 +1258,12 @@ fleshy ear, churns thickly within the pot..." CR>)
 		       <FSET ,DEVICES ,PHRASEBIT>
 		       <UPDATE-SCORE>
 		       <TELL 
-"A wise move, it would seem, since the cook is not adept in the application
-of technology to the preparation of food. Truth will tell, he's already done
-away with a cousin in a Cuisinart, lost a friend in a blender, and microwaved
-a surfer." CR CR>
+"A wise move, it would seem, since the cook is not adept in the application of technology to the preparation of food. Truth will tell, he's already done away with a cousin in a Cuisinart, lost a friend in a blender, and microwaved a surfer." CR CR>
 		       <COND (<FSET? ,PAN ,PHRASEBIT>
 			      <MOVE ,OX ,HERE>
 			      <DEQUEUE I-DEVICES>
 			      <TELL 
-"He appears to hurt himself by " D ,DEVICES ", and you get out of the corner
-only to run into a big ox that happens to be wandering through the kitchen!">)
+"He appears to hurt himself by " D ,DEVICES ", and you get out of the corner only to run into a big ox that happens to be wandering through the kitchen!">)
 			     (T
 			      <TELL
 "This gives you more time to figure a way out of the pan.">)>
@@ -1400,8 +1284,7 @@ only to run into a big ox that happens to be wandering through the kitchen!">)
 		<TELL CR "He's about ready to get you">)
 	       (<EQUAL? ,DEVICES-N 3>
 		<TELL CR 
-"His own devices appearing to be in working order, the cook bellows
-a rotten laugh">)
+"His own devices appearing to be in working order, the cook bellows a rotten laugh">)
 	       (<EQUAL? ,DEVICES-N 3>
 		<TELL CR "You're about to be gotten by his own devices">)
 	       (<EQUAL? ,DEVICES-N 4>
@@ -1432,25 +1315,13 @@ a rotten laugh">)
 		              <RTRUE>)
 			     (<NOT <EQUAL? ,P-PRSA-WORD ,W?GORE>>
 			      <TELL 
-"No, the hatchet slips in your hand. Well, this whole controversy seems to
-pivot on the matter of whose ox is..." CR> 
+"No, the hatchet slips in your hand. Well, this whole controversy seems to pivot on the matter of whose ox is..." CR> 
 			      <RTRUE>)
 			     (T
 			      <REMOVE ,OX>
 			      <UPDATE-SCORE>
 			      <QUEUE I-END-SCENE 1>
 			      <TELL 
-"Okay, you bury the hatchet in the animal and his ox is gored, leaving
-quite a mess, but also a bone of contention. Immediately, both you and
-the cook see an end to it, and each of you take a slimy end of the bone of
-contention. With your eyes closed, you make a wish, as does the
-burly cook.|
-|
-\"Snap!\" The bone breaks jaggedly, and the cook is left with the short
-end of the stick.|
-|
-He drops to the floor, mopping up the entrails of the ox and apologizing
-profusely and promising never again to wield another kitchen utensil as
-long as he lives." CR>)>)
+"Okay, you bury the hatchet in the animal and his ox is gored, leaving quite a mess, but also a bone of contention. Immediately, both you and the cook see an end to it, and each of you take a slimy end of the bone of contention. With your eyes closed, you make a wish, as does the burly cook.||\"Snap!\" The bone breaks jaggedly, and the cook is left with the short end of the stick.||He drops to the floor, mopping up the entrails of the ox and apologizing profusely and promising never again to wield another kitchen utensil as long as he lives." CR>)>)
 		      (<NOT ,PRSI>
 		       <TELL "You don't have a weapon." CR>)>)>>
