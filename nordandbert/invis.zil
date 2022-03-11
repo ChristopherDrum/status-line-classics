@@ -109,12 +109,12 @@ the curser and text"
 	 <SCREEN ,S-WINDOW>
 	 <CURSET 1 1>
 	 <INVERSE-LINE>
-	 <CENTER-LINE 1 " INVISICLUES" 11>
+	 <CENTER-LINE 1 "INVISICLUES" 11>
 	 <CURSET 3 1>
 	 <INVERSE-LINE>
 	 <COND (,WIDE
 		<TELL " ">)>
-	 <LEFT-LINE 3 " return:new hint">
+	 <LEFT-LINE 3 "return:new hint">
 	 <RIGHT-LINE 3 "q:hint menu" 11>
 	 <HLIGHT ,H-BOLD>
 	 <SET H <GET ,HINT-TBL .N>>
@@ -542,9 +542,9 @@ the curser and text"
 		 "It's antique, nice for interiors."
 		 "PUT THE OLD BOTTLE ON THE MANTEL"
 		 "Then type, YES"
-	         "When the Interior asks what you..."
-		 "...want in return for the bottle..."
-		 "...type, LOUIS XIV CHAIR.">
+		 "When the Interior asks what you..."
+			"...want in return for the bottle..."
+			"...type, LOUIS XIV CHAIR.">
 	 <PLTABLE "Kremlin"
 		 "This communist fears insurgency."
 		 "First, find the clock and the box."
@@ -666,9 +666,9 @@ the curser and text"
 	 <CURSET 3 1>
 	 <INVERSE-LINE>
 	 <CENTER-LINE 1 "INVISICLUES" 11>
-	 <LEFT-LINE 2 " n:next">
+	 <LEFT-LINE 2 "n:next">
 	 <RIGHT-LINE 2 "return:see hint">
-	 <LEFT-LINE 3 " p:previous">
+	 <LEFT-LINE 3 "p:previous">
 	 <RIGHT-LINE 3 "q:resume story">>
 
 ;<CONSTANT HINT-COUNT 0>
@@ -704,7 +704,7 @@ the curser and text"
 	 <COND (.INV <HLIGHT ,H-NORMAL>)>>
 
 <ROUTINE LEFT-LINE (LN STR "OPTIONAL" (INV T))
-	 <CURSET .LN 1>
+	 <CURSET .LN 2>
 	 <COND (.INV <HLIGHT ,H-INVERSE>)>
 	 <TELL .STR>
 	 <COND (.INV <HLIGHT ,H-NORMAL>)>>
