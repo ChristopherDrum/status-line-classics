@@ -119,8 +119,8 @@ the curser and text"
 	 <INVERSE-LINE>
 	 <COND (,WIDE
 		<TELL " ">)>
-	 <LEFT-LINE 3 "return:new hint">
-	 <RIGHT-LINE 3 "q:hint menu 11">
+	 <LEFT-LINE 3 " return:new hint">
+	 <RIGHT-LINE 3 "q:hint menu" 11>
 	 <HLIGHT ,H-BOLD>
 	 <SET H <GET ,HINT-TBL .N>>
 	 <CENTER-LINE 2 <GET .H 1 ;,HINT-QUESTION>>
@@ -670,7 +670,7 @@ the curser and text"
 	 <INVERSE-LINE>
 	 <CURSET 3 1>
 	 <INVERSE-LINE>
-	 <CENTER-LINE 1 " INVISICLUES" 11>
+	 <CENTER-LINE 1 "INVISICLUES" 11>
 	 <LEFT-LINE 2 " n:next">
 	 <RIGHT-LINE 2 "return:see hint">
 	 <LEFT-LINE 3 " p:previous">
@@ -693,13 +693,17 @@ the curser and text"
 
 ;<GLOBAL HINT-FLAG-TBL <TABLE 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1>>
 
+;"centering routine is off by one. "
+;"The calculation thinks it is calculating the cursor position for centering text,"
+;"but it is actually calculating how many spaces should be put in "
+;"before printing the text, making the cursor position is off(left) by one"
 <ROUTINE CENTER-LINE (LN STR "OPTIONAL" (LEN 0) (INV T))
 	 <COND (<ZERO? .LEN>
 		<DIROUT ,D-TABLE-ON ;,DIROUT-TBL ,SLINE>
 		<TELL .STR>
 		<DIROUT ,D-TABLE-OFF>
 		<SET LEN <GET ;,DIROUT-TBL ,SLINE 0>>)>
-	 <CURSET .LN </ <- <GETB 0 33> .LEN> 2>>
+	 <CURSET .LN <+ </ <- <GETB 0 33> .LEN> 2> 1>>
 	 <COND (.INV <HLIGHT ,H-INVERSE>)>
 	 <TELL .STR>
 	 <COND (.INV <HLIGHT ,H-NORMAL>)>>
