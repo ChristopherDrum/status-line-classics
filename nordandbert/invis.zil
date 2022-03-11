@@ -82,7 +82,7 @@ HINT.]" CR>
 ;"zeroth (first) element is 4"
 <GLOBAL COLUMN-TABLE
 	<PTABLE 3 3 3 3 3  3  3  3  3  3  3  3  3  3  3  3  3
-	       24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24>>
+	       19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19>>
 ;"four and nineteen are where the text of questions start"
 
 <GLOBAL CUR-POS 0> ;"determines where to place the highlight cursor
@@ -172,13 +172,16 @@ the curser and text"
 
 ;"Invisiclues Stuff"
 
-;"longest hint topic can be 17 chars"
+;"longest hint topic can be 13 chars..."
+;"2 char for left-hand cursor, 13(ok, actually 14) for left-hand topic, 2 char columnar gap"
+;"2 char for right-hand cursor, 13 for right-hand topic"
+;"If you *know* there is only one column of clues, you can use longer topic names"
 <GLOBAL HAZING-HINTS
 	<PLTABLE
-	 <PLTABLE "The Lead House"
+	 <PLTABLE "Lead House"
 		 "This'll be a real head scratcher."
 		 "Type, HEAD LOUSE.">
-	 <PLTABLE "The Gritty Pearl"
+	 <PLTABLE "Gritty Pearl"
 		 "A gritty pearl is like a melody."
 		 "PRETTY GIRL">
 	 <PLTABLE "The Door Girl"
@@ -191,7 +194,7 @@ the curser and text"
 		 "\"Shake off your toes.\""
 		 "Consider the letters, not sounds."
 		 "TAKE OFF YOUR SHOES">
-	 <PLTABLE "Child Goose Waist"
+	 <PLTABLE "Goose Waist"
 		 "First, EXAMINE THE GOOSE."
 		 "It's a LITTLE goose, a child."
 		 "GO ON A WILD GOOSE CHASE..."
@@ -212,7 +215,7 @@ the curser and text"
 	 <PLTABLE "An Experience"
 		  "E.g., when Buckwheat's scared."
 		  "HAIR-RAISING EXPERIENCE">
-	 <PLTABLE "Message in Sand"
+	 <PLTABLE "Sand Message"
 		 "Shepherd leads between the Rhines."
 		 "READ BETWEEN THE LINES">
 	 <PLTABLE "The Dishes"
@@ -224,7 +227,7 @@ the curser and text"
 	 <PLTABLE "Rat and Habit"
 		 "Magic? Nothing up my sleeve!"
 		 "PULL THE RABBIT OUT OF THE HAT">
-	 <PLTABLE "Bonfire Riddle"
+	 <PLTABLE "Bonfire"
 		 "Do something while foam burns."
 		 "The riddle book is useful here." 
 		 "Try phrasing \"riddle\" as a verb."
@@ -259,7 +262,7 @@ the curser and text"
 		 "TAKE OFF THE HAT. GIVE IT TO GIANT"
 		 "Now make a heavy of the giant."
 		 "Type LEAD HOUSE">
-	 <PLTABLE "Descend a Cloud"
+	 <PLTABLE "Descend Cloud"
 		 "The beets problem is a sleeper."
 		 "BED SHEETS"
 		 "You can tie and still be a winner."
@@ -271,7 +274,7 @@ the curser and text"
 	 <PLTABLE "Giant Defeat"
 		 "It'd be a crushing defeat, too."
 		 "TAKE THE BLOW. HIT GIANT WITH IT">
-	 <PLTABLE "Return the pearl"
+	 <PLTABLE "Return pearl"
 		 "First, have the GRITTY PEARL..."
 		 "Also, MAKE SMALL TALK WITH ELF"
 		 "Now, RIDE BIKE TO CLEARING"
@@ -279,7 +282,7 @@ the curser and text"
 		 
 <GLOBAL AISLE-HINTS
 	<PLTABLE
-	 <PLTABLE "Gorilla Warfare"
+	 <PLTABLE "Gorilla War"
 		 "What do primates like to eat?"
 		 "OFFER BANANA SPLIT TO APE"
 		 "What ape?! What banana split?!">
@@ -289,7 +292,7 @@ the curser and text"
 	 <PLTABLE "22 over 7"
 		 "A famous fraction, a real ratio."
 		 "It's called pi. So type, PIE.">
-	 <PLTABLE "Cereal Murderer"
+	 <PLTABLE "Cereal Murder"
 		 "How do you kill a vampire?"
 		 "In the Meets Aisle is a steak."
 		 "Also something for bad breath."
@@ -303,14 +306,14 @@ the curser and text"
 		 "Because they lack principles?"
 		 "No! This STORY lacks principals."
 		 "[This space left blank.]">
-	 <PLTABLE "The British Aisle"
+	 <PLTABLE "British Aisle"
 		 "Have you read the sign?"
 		 "Brits love this sweet & creamy."
 		 "PUDDING SECTION">
 	 <PLTABLE "The Ants"
 		 "They could be your relatives."
 		 "AUNTS">
-	 <PLTABLE "Returning Emily"
+	 <PLTABLE "Return Emily"
 		 "Bratwurst is on no shopping list."
 		 "GIVE WORST BRAT TO AUNTS">
 	 <PLTABLE "The Flour"
@@ -325,7 +328,7 @@ the curser and text"
 	 <PLTABLE "Stationary"
 		 "Get it write."
 		 "Spell it STATIONERY.">
-	 <PLTABLE "Wall of Quartz"
+	 <PLTABLE "Quartz Wall"
 		 "Not so tough, just a half pint."
 		 "KNOCK DOWN THE QUARTS">
 	 <PLTABLE "Locks"
