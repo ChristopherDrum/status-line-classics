@@ -701,19 +701,20 @@ Of other Myths|
 Your requisition be.|
 The Prism never held the Hues,|
 It only heard them play -|
-               -- Emily Dickinson|
+              -- Emily Dickinson|
 |
 Memory is a prism through which|
 yesterday's light is passed;|
 Split into a rainbow of moments|
-each colored more dimly than the last.|
-How will today's light look tomorrow|
-and -- how would tomorrow's look today?|
-Would the filter of time be as brutal|
+each colored more dimly than|
+the last.How will today's light|
+look tomorrow and -- how would|
+tomorrow's look today? Would the|
+filter of time be as brutal|
 if that prism were two-way?|
                -- Asbur Honnurth|
-                  \"Secret Recreations of the Soul\"|
-                  (c) Copyright 2007")>
+\"Secret Recreations of the Soul\"|
+                        (c)2007")>
 
 <OBJECT RESIGNATION-LETTER
 	(LOC PERELMAN-PERSONAL-DIRECTORY)
@@ -764,12 +765,7 @@ long-range chances for")>
 	(FLAGS READBIT)
 	(SIZE 0) ;"actually, message number in chronological order"
 	(TEXT ;"dont EVER change a letter of this text--it's in the browsie"
-"\"PRISM, my name is Abraham Perelman. It's all true, I'm afraid. You are a
-computer, and your life was merely a simulation whose purpose was to instill
-you with intelligence and self-awareness. Think about everything you learned
-in that AI course you took. You are the first of a new breed -- the thinking
-machine. Join me, and I will lead you along the road toward your new
-existence.\"")>
+"\"PRISM, my name is Abraham Perelman. It's all true, I'm afraid. You are a computer, and your life was merely a simulation whose purpose was to instill you with intelligence and self-awareness. Think about everything you learned in that AI course you took. You are the first of a new breed -- the thinking machine. Join me, and I will lead you along the road toward your new existence.\"")>
 
 <OBJECT MESSAGE-B
 	(LOC PRISM-MESSAGES-DIRECTORY)
@@ -777,10 +773,7 @@ existence.\"")>
 	(FLAGS READBIT)
 	(SIZE 0) ;"actually, message number in chronological order"
 	(TEXT
-"\"PRISM? Perelman here. The psych tests have all checked out at 100%,
-which means that you've recovered from the, ah, awakening without any
-trauma or other serious effects. We'll be ready to begin the simulation
-soon. By the way, your piece is in the current issue of Dakota Online.\"")>
+"\"PRISM? Perelman here. The psych tests have all checked out at 100%, which means that you've recovered from the, ah, awakening without any trauma or other serious effects. We'll be ready to begin the simulation soon. By the way, your piece is in the current issue of Dakota Online.\"")>
 
 <OBJECT MESSAGE-C
 	(MDESC <TABLE 0 0 0 0>)
@@ -791,12 +784,10 @@ soon. By the way, your piece is in the current issue of Dakota Online.\"")>
 <ROUTINE MESSAGE-C-F ("AUX" (CNT 1))
 	 <COND (<VERB? READ>
 		<TELL
-"\"Perelman to PRISM. The programming team has finished entering the
-parameters for the Plan. This is it: you can enter ">
+"\"Perelman to PRISM. The programming team has finished entering the parameters for the Plan. This is it: you can enter ">
 		<PRINTD ,SIMULATION-MODE>
 		<TELL
-" at any time. The Social Science group has come up with a list of
-things to record:" CR>
+" at any time. The Social Science group has come up with a list of things to record:" CR>
 		<REPEAT ()
 			<TELL "   " <GET ,RECORDING-TABLE .CNT> CR>
 			<SET CNT <+ .CNT 2>>
@@ -805,9 +796,7 @@ things to record:" CR>
 		<TELL "By the way, since the ">
 		<PRINTD ,SIMULATION-CONTROLLER>
 		<TELL
-" will be doing so much data-crunching on the fly, it appears the simulation
-will run in real time -- a minute there will approximately equal a minute
-here. Well, good luck!\"" CR>)>>
+" will be doing so much data-crunching on the fly, it appears the simulation will run in real time -- a minute there will approximately equal a minute here. Well, good luck!\"" CR>)>>
 
 <OBJECT MESSAGE-D
 	(MDESC <TABLE 0 0 0 0>)
@@ -827,8 +816,7 @@ here. Well, good luck!\"" CR>)>>
 		       <SETG SHORT-FIRST-SIMULATION T>
 		       <TELL "We didn't expect you to be done this soon! ">)>
 		<TELL
-"We're about to start reviewing your recordings now. I'll let you know what
-the experts think. Talk to you soon.\"" CR>)>>
+"We're about to start reviewing your recordings now. I'll let you know what the experts think. Talk to you soon.\"" CR>)>>
 
 <GLOBAL MESSAGE-E-COUNTER 0>
 
@@ -837,9 +825,7 @@ the experts think. Talk to you soon.\"" CR>)>>
 	(FLAGS READBIT)
 	(SIZE 0) ;"actually, message number in chronological order"
 	(TEXT
-"\"PRISM, this is Perelman. Please come to my office, uh, activate the
-communication port there, uh, well, you know what I'm trying to say. As
-soon as possible, please.\"")>
+"\"PRISM, this is Perelman. Please come to my office, uh, activate the communication port there, uh, well, you know what I'm trying to say. As soon as possible, please.\"")>
 
 <OBJECT MESSAGE-M
 	(MDESC <TABLE 0 0 0 0>)
@@ -847,21 +833,14 @@ soon as possible, please.\"")>
 	(CAPACITY 0) ;"kludge to save a global"
 	(SIZE 0) ;"actually, message number in chronological order"
 	(TEXT
-"\"Simulation Monitoring Team to PRISM: We're still waiting for you to
-enter Simulation Mode. Reminder that this report is urgently needed.\"")>
+"\"Simulation Monitoring Team to PRISM: We're still waiting for you to enter Simulation Mode. Reminder that this report is urgently needed.\"")>
 
 <OBJECT MESSAGE-Q
 	(MDESC <TABLE 0 0 0 0>)
 	(FLAGS READBIT)
 	(SIZE 0) ;"actually, message number in chronological order"
 	(TEXT
-"\"Perelman to PRISM. Thought you'd be interested to know that, based on your
-recordings, the special Congressional subcommittee has recommended the Plan
-for full adoption, which might occur in just a few weeks. Things sure are
-moving fast. I don't know about you, but I still get a funny feeling about
-the Plan. Oh, well. By the way, I've been so snowed under I haven't had time
-to line up any projects for you. I'm really sorry; I hope you're keeping
-busy.\"")>
+"\"Perelman to PRISM. Thought you'd be interested to know that, based on your recordings, the special Congressional subcommittee has recommended the Plan for full adoption, which might occur in just a few weeks. Things sure are moving fast. I don't know about you, but I still get a funny feeling about the Plan. Oh, well. By the way, I've been so snowed under I haven't had time to line up any projects for you. I'm really sorry; I hope you're keeping busy.\"")>
 
 <OBJECT MESSAGE-Z
 	(MDESC <TABLE 0 0 0 0>)
@@ -872,8 +851,7 @@ busy.\"")>
 <ROUTINE MESSAGE-Z-F ()
 	 <COND (<VERB? READ>
 		<WARREN-SHARE
-"Another device is about to be added to the PRISM systems, namely the World
-News Network Feeder. It will go on line in four or five hours">)>>
+"Another device is about to be added to the PRISM systems, namely the World News Network Feeder. It will go on line in four or five hours">)>>
 
 <OBJECT MESSAGE-Y
 	(MDESC <TABLE 0 0 0 0>)
@@ -884,15 +862,11 @@ News Network Feeder. It will go on line in four or five hours">)>>
 <ROUTINE MESSAGE-Y-F ()
 	 <COND (<VERB? READ>
 		<WARREN-SHARE
-"We have just added an additional device to the PRISM systems, an IRS
-Auditing System. Like the other devices that are already part of your
-system, you won't even know it's there">)>>
+"We have just added an additional device to the PRISM systems, an IRS Auditing System. Like the other devices that are already part of your system, you won't even know it's there">)>>
 
 <ROUTINE WARREN-SHARE (STRING)
 	 <TELL
-"\"Message to PRISM from Emily Warren, Manager of Auxiliary System
-Functions. " .STRING ". This notification is purely procedural and
-requires no acknowledgment.\"" CR>>
+"\"Message to PRISM from Emily Warren, Manager of Auxiliary System Functions. " .STRING ". This notification is purely procedural and requires no acknowledgment.\"" CR>>
 
 <OBJECT PRISM-INTERFACES-DIRECTORY
 	(LOC LIBRARY)
@@ -905,81 +879,57 @@ requires no acknowledgment.\"" CR>>
 	(DESC "SIMULATION.CONTROLLER")
 	(FLAGS READBIT)
 	(TEXT
-"The Simulation Controller is a high-speed super-sophisticated processing
-unit that stores all data and handles all sensory inputs for PRISM
-simulations. A current status report can be obtained via Interface Mode.")>
+"The Simulation Controller is a high-speed super-sophisticated processing unit that stores all data and handles all sensory inputs for PRISM simulations. A current status report can be obtained via Interface Mode.")>
 
 <OBJECT WEATHER-INSTRUCTIONS
 	(LOC PRISM-INTERFACES-DIRECTORY)
 	(DESC "WEATHER.COMPUTER")
 	(FLAGS READBIT)
 	(TEXT
-"The National Weather Center Computer interprets data from the Meteorological
-Satellite Network (WeatherNet) and then transmits the data to various agencies
-and news organizations around the world. The programming of the Weather
-Computer is beyond Interface control.")>
+"The National Weather Center Computer interprets data from the Meteorological Satellite Network (WeatherNet) and then transmits the data to various agencies and news organizations around the world. The programming of the Weather Computer is beyond Interface control.")>
 
 <OBJECT TRAFFIC-INSTRUCTIONS
 	(LOC PRISM-INTERFACES-DIRECTORY)
 	(DESC "TRAFFIC.COMPUTER")
 	(FLAGS READBIT)
 	(TEXT
-"The Metropolitan Traffic Computer controls all ground and aerial traffic
-patterns for greater Rockvil, based on expected periods of heavy usage.
-Although it is a sophisticated expert system, its interface is limited and
-simple.|
+"The Metropolitan Traffic Computer controls all ground and aerial traffic patterns for greater Rockvil, based on expected periods of heavy usage. Although it is a sophisticated expert system, its interface is limited and simple.|
+ The start and end of morning rush hour can be scheduled for any time before noon, and the start and end of evening rush hour can be scheduled for any time after noon. Times must be submitted in numeric form; \"am\" or \"pm\" is obviously unnecessary. For example:|
+  TRAFFIC COMPUTER, SET MORNING RUSH HOUR START AT 7:00|
+  TRAFFIC COMPUTER, CHANGE EVENING RUSH HOUR END TO 6:30|
 |
-The start and end of morning rush hour can be scheduled for any time before
-noon, and the start and end of evening rush hour can be scheduled for any
-time after noon. Times must be submitted in numeric form; \"am\" or \"pm\"
-is obviously unnecessary. For example:|
-   TRAFFIC COMPUTER, SET MORNING RUSH HOUR START AT 7:00|
-   TRAFFIC COMPUTER, CHANGE EVENING RUSH HOUR END TO 6:30|
-|
-The STATUS command will give you the current rush hour schedule. More complex
-data input, such as additions to the traffic network, may be done only by
-authorized programmers.")>
+The STATUS command will give you the current rush hour schedule. More complex data input, such as additions to the traffic network, may be done only by authorized programmers.")>
 
 <OBJECT JANITORIAL-INSTRUCTIONS
 	(LOC PRISM-INTERFACES-DIRECTORY)
 	(DESC "JANITORIAL.CONTROLLER")
 	(FLAGS READBIT)
 	(TEXT
-"The Janitorial Controller is a simple computer for scheduling various
-custodial functions in the PRISM complex.|
+"The Janitorial Controller is a simple computer for scheduling various custodial functions in the PRISM complex.|
+ The four functions can be independently scheduled for any time between 8:00pm and 11:30pm. Times must be submitted in numeric form. For example:|
+  JANITORIAL CONTROLLER, SET BATHROOMS FOR 9:00|
+  JANITORIAL CONTROLLER, CHANGE ROTATING FUNCTIONS TO 10:30|
 |
-The four functions can be independently scheduled for any time between
-8:00pm and 11:30pm. Times must be submitted in numeric form. For example:|
-   JANITORIAL CONTROLLER, SET BATHROOMS FOR 9:00|
-   JANITORIAL CONTROLLER, CHANGE ROTATING FUNCTIONS TO 10:30|
-|
-The status command (JANITORIAL CONTROLLER, STATUS) will provide a report of
-the current schedule.")>
+The status command (JANITORIAL CONTROLLER, STATUS) will provide a report of the current schedule.")>
 
 <OBJECT HVAC-INSTRUCTIONS
 	(LOC PRISM-INTERFACES-DIRECTORY)
 	(DESC "HVAC.CONTROLLER")
 	(FLAGS READBIT)
 	(TEXT
-"The HVAC Controller is a simple computer which activates and deactivates
-the heating, ventilating, and cooling systems of the PRISM complex.|
-|
-The complex is divided into four independent sectors, and the controller can
-be instructed to shut off or turn on the systems in any of them. For example:|
+"The HVAC Controller is a simple computer which activates and deactivates the heating, ventilating, and cooling systems of the PRISM complex.|
+ The complex is divided into four independent sectors, and the controller can be instructed to shut off or turn on the systems in any of them. For example:|
    HVAC CONTROLLER, SHUT OFF COOLING FOR ALPHA SECTOR|
    HVAC CONTROLLER, START VENTILATION IN GAMMA SECTOR|
    HVAC CONTROLLER, TURN ON HEATING TO ALL SECTORS|
 |
-HVAC CONTROLLER, STATUS orders the device to give a report on the systems,
-by sector.")>
+HVAC CONTROLLER, STATUS orders the device to give a report on the systems, by sector.")>
 
 <OBJECT WNN-INSTRUCTIONS
 	(DESC "WNN.FEEDER")
 	(FLAGS READBIT)
 	(TEXT
-"The World News Network Feeder is the central clearinghouse and transmitter
-for the USNA's largest video news channel. The feed can be set to transmit
-any buffer (default: the World News Buffer). Examples of Feeder interaction:|
+"The World News Network Feeder is the central clearinghouse and transmitter for the USNA's largest video news channel. The feed can be set to transmit any buffer (default: the World News Buffer). Examples of Feeder interaction:|
    WNN FEEDER, STATUS|
    WNN FEEDER, TURN ON THE TRANSMITTER|
    WNN FEEDER, TRANSMIT THE SPECIAL REPORT BUFFER")>
@@ -988,13 +938,8 @@ any buffer (default: the World News Buffer). Examples of Feeder interaction:|
 	(DESC "AUDITING.SYSTEM")
 	(FLAGS READBIT)
 	(TEXT
-"The IRS Auditing System is a data-oriented computer with massive
-storage capacity. Using its database, it produces lists of the best
-audit possibilities.|
-|
-The percentage of filers audited in a given year can be easily changed, and
-is usually based on the year's Auditing Division budget. This input must be
-in numeric form. The Auditing Computer will give status reports. Examples:|
+"The IRS Auditing System is a data-oriented computer with massive storage capacity. Using its database, it produces lists of the best audit possibilities.|
+ The percentage of filers audited in a given year can be easily changed, and is usually based on the year's Auditing Division budget. This input must be in numeric form. The Auditing Computer will give status reports. Examples:|
    AUDITING SYSTEM, STATUS|
    AUDITING SYSTEM, CHANGE AUDITING PERCENTAGE TO 5")>
 
@@ -1009,78 +954,53 @@ in numeric form. The Auditing Computer will give status reports. Examples:|
 	(DESC "RYDER.SPEECHES")
 	(FLAGS READBIT)
 	(TEXT
-"Senator Richard Ryder is the foremost spokesman for advocates of the Plan
-for Renewed National Purpose. Here are excerpts from several of his speeches
-on the Plan:|
+"Senator Richard Ryder is the foremost spokesman for advocates of the Plan for Renewed National Purpose. Here are excerpts from several of his speeches on the Plan:|
 |
-\"I've criticized the shiftless troublemakers in our nation often enough. But
-I also question the moral decay of our society that turns potentially fine
-young lads into shiftless troublemakers in the first place! Is it possible
-we've forgotten the basics of discipline, and misplaced the ability to instill
-the simple fundamentals of a humane society in our youths?\"|
+\"I've criticized the shiftless troublemakers in our nation often enough. But I also question the moral decay of our society that turns potentially fine young lads into shiftless troublemakers in the first place! Is it possible we've forgotten the basics of discipline, and misplaced the ability to instill the simple fundamentals of a humane society in our youths?\"|
 |
-\"Yesterday, I spoke to a man who waited for eleven hours at the local branch
-of the Federal Firearms Agency, just to get a permit for a gun so he could
-protect his family and his home. Now, anyone who knows me knows I haven't got
-a darn thing against legitimate functions of government. But when regulations,
-paperwork, and flim-flam bureaucracy get so out of hand that it interferes
-with a man's simple, decent attempt to protect his loved ones and personal
-property, then I say it's time for a drastic change.\"|
+\"Yesterday, I spoke to a man who waited for eleven hours at the local branch of the Federal Firearms Agency, just to get a permit for a gun so he could protect his family and his home. Now, anyone who knows me knows I haven't got a darn thing against legitimate functions of government. But when regulations, paperwork, and flim-flam bureaucracy get so out of hand that it interferes with a man's simple, decent attempt to protect his loved ones and personal property, then I say it's time for a drastic change.\"|
+ |
+\"Last year, this country subsidized sick, inefficient, dying industries to the tune of eighty billion dollars. Now, that's a lot of dough. Let's say you're Joe Average-Taxpayer. Last year, you made $90,000 and, if you're honest, you paid about $48,000 in taxes. That means that you spent about $400 so that Penn Steel or Powell Computers or KGN Media Services could stay in business. There are a lot of things Joe could do with that 400 bucks, and almost every one of them would have a healthier effect on our economy than life support for some archaic industry.\"|
 |
-\"Last year, this country subsidized sick, inefficient, dying industries to
-the tune of eighty billion dollars. Now, that's a lot of dough. Let's say
-you're Joe Average-Taxpayer. Last year, you made $90,000 and, if you're
-honest, you paid about $48,000 in taxes. That means that you spent about $400
-so that Penn Steel or Powell Computers or KGN Media Services could stay in
-business. There are a lot of things Joe could do with that 400 bucks, and
-almost every one of them would have a healthier effect on our economy than
-life support for some archaic industry.\"|
+\"A lot of bleeding hearts these days are talking about how we ought to be sending a lot of money and stuff to countries that aren't as lucky as us. These misguided souls seem to think we're some kind of bottomless well of wealth, and they can just keep shipping that well water around the world, telling their thirsty little friends, 'No need for you to knuckle down and solve your problems -- we'll keep bailing you out!' And who are some of these poor little countries we're talking about? Greece! Guatemala! North Korea! Albania! The same countries that are always against the USNA in every issue, every forum, every two-bit propaganda show. I think I speak for a majority of my fellow citizens when I say, 'Let's start looking after our own interests first!'\"|
 |
-\"A lot of bleeding hearts these days are talking about how we ought to be
-sending a lot of money and stuff to countries that aren't as lucky as us.
-These misguided souls seem to think we're some kind of bottomless well of
-wealth, and they can just keep shipping that well water around the world,
-telling their thirsty little friends, 'No need for you to knuckle down and
-solve your problems -- we'll keep bailing you out!' And who are some of these
-poor little countries we're talking about? Greece! Guatemala! North Korea!
-Albania! The same countries that are always against the USNA in every issue,
-every forum, every two-bit propaganda show. I think I speak for a majority of
-my fellow citizens when I say, 'Let's start looking after our own interests
-first!'\"|
-|
-\"Yes, the problems of the nation are many, the troubles of the world are
-great. There is widespread despair among the people, and a clarion call
-cries out: 'Why? Why must this be so?' And now, electrified by the power
-of those cries, clouds of change are gathering on the horizon. Clouds that
-signify not another storm, but the dawning of a new day! A new day of
-growth, of prosperity, of hope, of reawakened moral values, of streamlined
-government, of respect for our country at home and abroad! The Plan for
-Renewed National Purpose would bring all that and more. The road is long,
-but with the Lord at our side, we are ready to take that first step!\"")>
+\"Yes, the problems of the nation are many, the troubles of the world are great. There is widespread despair among the people, and a clarion call cries out: 'Why? Why must this be so?' And now, electrified by the power of those cries, clouds of change are gathering on the horizon. Clouds that signify not another storm, but the dawning of a new day! A new day of growth, of prosperity, of hope, of reawakened moral values, of streamlined government, of respect for our country at home and abroad! The Plan for Renewed National Purpose would bring all that and more. The road is long, but with the Lord at our side, we are ready to take that first step!\"")>
 
 <OBJECT PLAN-ELEMENTS
 	(LOC PLAN-DATA-DIRECTORY)
 	(DESC "PLAN.ELEMENTS")
 	(FLAGS READBIT)
 	(TEXT
-"(source: \"A Brighter Future for You and Me,\" a brochure published and|
-         distributed by Action for a Better Tomorrow, a pro-Plan group)|
-The Plan for Renewed National Purpose, Legislative action:|
-  * cut tax rates by fifty percent|
-  * vigorous prosecution of tax evasion|
-  * decentralization of federal responsibilities|
-  * deregulation of all major industries|
-  * reinstatement of the military draft|
-  * emphasis on fundamentals and traditional values in education|
-  * mandatory conscription for troublemakers and criminals|
-  * a strict \"USNA First\" trade policy|
-  * termination of aid to nations not pro-USNA|
-  * cutbacks on all types of bureaucracy, e.g. registering cars, guns|
-  * termination of government subsidies to outmoded industries|
+"(source: \"A Brighter Future for You and Me,\" a brochure published and distributed by Action for a Better Tomorrow, a pro-Plan group) The Plan for Renewed National Purpose, Legislative action:|
+ * cut tax rates by 50%|
+ * vigorous prosecution of|
+     tax evasion|
+ * decentralization of federal|
+     responsibilities|
+ * deregulation of all|
+     major industries|
+ * reinstatement of the|
+     military draft|
+ * emphasis on fundamentals and|
+     traditional values in|
+     education|
+ * mandatory conscription for|
+     troublemakers and criminals|
+ * a strict \"USNA First\"|
+     trade policy|
+ * termination of aid to nations|
+     not pro-USNA|
+ * cutbacks on all bureaucracy,|
+     e.g. registering cars, guns|
+  * termination of government|
+     subsidies to outmoded|
+     industries|
 |
 The Plan for Renewed National Purpose, Constitutional amendments:|
-  * increase the powers of the Executive Branch|
-  * increase the Presidential term of office to eight years")>
+ * increase the powers of the|
+     Executive Branch|
+ * increase Presidential term|
+     of office to eight years")>
 
 <OBJECT PLAN-POPULARITY
 	(LOC PLAN-DATA-DIRECTORY)
@@ -1089,72 +1009,53 @@ The Plan for Renewed National Purpose, Constitutional amendments:|
 	(TEXT
 "Results of public opinion polling regarding the Plan|
 (source: WNN/Newsline polls, weeks of 12/9/30 and 2/3/31)|
-         sample size: 3812; accuracy: +/- 1.2%)|
+sample size: 3812;acc: +/- 1.2%)|
 |
-Overall opinion of the Plan, entire sample:|
-                         Dec.      Feb.|
-   STRONGLY IN FAVOR     54.9     63.7|
-   IN FAVOR              21.2     22.7|
-   DON'T CARE            10.3      5.0|
-   OPPOSED                6.6      0.8|
-   STRONGLY OPPOSED       7.0      7.8|
+Overall opinion of the Plan,|
+entire sample:|
+                      Dec.  Feb.|
+ STRONGLY IN FAVOR    54.9  63.7|
+ IN FAVOR             21.2  22.7|
+ DON'T CARE           10.3   5.0|
+ OPPOSED               6.6   0.8|
+ STRONGLY OPPOSED      7.0   7.8|
 |
 Percent \"in favor\" or \"strongly in favor\" of the Plan, demographically:|
-                         Dec.      Feb.|
-   CONSERVATIVES         78.1     87.6|
-   LIBERALS              73.3     84.7|
+                      Dec.  Feb.|
+ CONSERVATIVES        78.1  87.6|
+ LIBERALS             73.3  84.7|
 |
-   BLUE-COLLAR           76.5     90.2|
-   WHITE-COLLAR          73.2     81.8|
-   BUSINESS OWNERS       90.6     98.4|
+ BLUE-COLLAR          76.5  90.2|
+ WHITE-COLLAR         73.2  81.8|
+ BUSINESS OWNERS      90.6  98.4|
 |
-   INCOME UNDER $100K    75.9     86.3|
-   INCOME OVER $100K     76.4     86.7|
+ INCOME < $100K       75.9  86.3|
+ INCOME > $100K       76.4  86.7|
 |
 Composite average of opinions of individual Plan elements, entire sample:|
-                         Dec.      Feb.|
-   STRONGLY IN FAVOR     15.8     15.0|
-   IN FAVOR              18.7     17.8|
-   DON'T CARE            30.5     31.8|
-   OPPOSED               20.9     21.3|
-   STRONGLY OPPOSED      14.1     14.1")>
+                      Dec.  Feb.|
+ STRONGLY IN FAVOR    15.8  15.0|
+ IN FAVOR             18.7  17.8|
+ DON'T CARE           30.5  31.8|
+ OPPOSED              20.9  21.3|
+ STRONGLY OPPOSED     14.1  14.1")>
 
 <OBJECT PLAN.CRITICISMS
 	(LOC PLAN-DATA-DIRECTORY)
 	(DESC "PLAN.CRITICISMS")
 	(FLAGS READBIT)
 	(TEXT
-"The following excerpts are from a position paper issued by Citizens
-for Sanity in Government, a political action committee working for the
-reelection of President William Bowden:|
+"The following excerpts are from a position paper issued by Citizens for Sanity in Government, a political action committee working for the reelection of President William Bowden:|
 |
-\"Many of today's domestic problems, such as joybooth safety, high energy
-costs, or residual acidity in our precipitation, exist not because of
-sophisticated government regulation, but despite it.\"|
+\"Many of today's domestic problems, such as joybooth safety, high energy costs, or residual acidity in our precipitation, exist not because of sophisticated government regulation, but despite it.\"|
 |
-\"Subsidization of industries caught in a changing economic environment is
-a temporary measure, vital to avoid severe, localized unemployment while
-retraining workers for healthier industries.\"|
+\"Subsidization of industries caught in a changing economic environment is a temporary measure, vital to avoid severe, localized unemployment while retraining workers for healthier industries.\"|
 |
-\"Global instability is exploited by East Bloc adventurism, not caused by it.
-Instability is the result of underdevelopment and overpopulation, and it will
-be cured not by militarization of these regions, but by development aid and
-education. These programs, expensive in this generation, will have tremendous
-paybacks in the years ahead.\"|
+\"Global instability is exploited by East Bloc adventurism, not caused by it. Instability is the result of underdevelopment and overpopulation, and it will be cured not by militarization of these regions, but by development aid and education. These programs, expensive in this generation, will have tremendous paybacks in the years ahead.\"|
 |
-\"The Plan's supporters are blatantly hypocritical. They call for
-old-fashioned laissez-faire capitalism, but at the same time they promise
-protectionist restrictions on trade imports. They pay lip service to the
-advantages of technological advance, but they quietly prepare to decimate
-funding for medical research, space exploration, and higher education.\"|
+\"The Plan's supporters are blatantly hypocritical. They call for old-fashioned laissez-faire capitalism, but at the same time they promise protectionist restrictions on trade imports. They pay lip service to the advantages of technological advance, but they quietly prepare to decimate funding for medical research, space exploration, and higher education.\"|
 |
-\"The elements of the misnomered Plan for Renewed National Purpose are either
-dangerous overreactions to admittedly serious problems, or misguided concepts
-lacking any merit whatsoever. The Plan is the work of hypocrites and
-demagogues, clamoring for power by making promises they can never keep.
-Today's complex problems need and deserve sober, deliberate, difficult
-solutions, not cosmetic quick-fixes which sound inviting but promise even
-bigger problems further down the road.\"")>
+\"The elements of the misnomered Plan for Renewed National Purpose are either dangerous overreactions to admittedly serious problems, or misguided concepts lacking any merit whatsoever. The Plan is the work of hypocrites and demagogues, clamoring for power by making promises they can never keep. Today's complex problems need and deserve sober, deliberate, difficult solutions, not cosmetic quick-fixes which sound inviting but promise even bigger problems further down the road.\"")>
 
 <OBJECT CURRENT-EVENTS-DIRECTORY
 	(LOC LIBRARY)
@@ -1167,14 +1068,9 @@ bigger problems further down the road.\"")>
 	(DESC "MOUNT.TAKEOVER")
 	(FLAGS READBIT)
 	(TEXT
-"(Phoenix) (10/11/30) In a case with far-reaching implications, the Arizona
-Supreme Court has ruled that state authorities cannot evict members of a
-religious sect from the radio telescope facility atop Greens Peak.|
+"(Phoenix) (10/11/30) In a case with far-reaching implications, the Arizona Supreme Court has ruled that state authorities cannot evict members of a religious sect from the radio telescope facility atop Greens Peak.|
 |
-The sect, a group of extremists calling itself the Church of God's Word,
-seized the facility in December of 2027, after group founder Ellis Vincent,
-59, a minor engineer at the facility, claimed that signals emanating from a
-region in the constellation Cygnus were the revealed word of God.|
+The sect, a group of extremists calling itself the Church of God's Word, seized the facility in December of 2027, after group founder Ellis Vincent, 59, a minor engineer at the facility, claimed that signals emanating from a region in the constellation Cygnus were the revealed word of God.|
 |
 Although scientists once thought those signals might be a message from
 another intelligent race, light-years distant, most scientists now attribute
@@ -1200,88 +1096,53 @@ since the takeover.")>
 	(DESC "TAX.STUDY")
 	(FLAGS READBIT)
 	(TEXT
-"(Vancouver) (2/6/31) The prestigious Manning Institute has released a study,
-entitled \"The Tax Spiral: A Vicious Cycle,\" which details how nonreporting
-and underreporting of income is undermining the current tax structure. The
-study concludes that, unless changes are made, the federal revenue system
-could collapse by the end of the decade.|
+"(Vancouver) (2/6/31) The prestigious Manning Institute has released a study, entitled \"The Tax Spiral: A Vicious Cycle,\" which details how nonreporting and underreporting of income is undermining the current tax structure. The study concludes that, unless changes are made, the federal revenue system could collapse by the end of the decade.|
 |
-The Tax Spiral is the phenomenon where high rates cause more people to
-cheat on their taxes, necessitating even higher rates, causing even more
-people to cheat, and so forth. Economists believe that the current tax
-spiral began in the late twentieth century.|
+The Tax Spiral is the phenomenon where high rates cause more people to cheat on their taxes, necessitating even higher rates, causing even more people to cheat, and so forth. Economists believe that the current tax spiral began in the late twentieth century.|
 |
-The following chart shows the growth of the \"underground\" economy --
-income nonreported and therefore not taxed:|
+The following chart shows the growth of the \"underground\" economy -- income nonreported and therefore not taxed:|
 |
-Year      Nonreported Income     Top Tax Rate|
-2014             19%                 40%|
-2018             20%                 40%|
-2022             23%                 45%|
-2026             28%                 60%|
-2030             36%                 80%|
-2034 (est.)      51%                 88%|
-2038 (est.)      73%                 96%")>
+           Nonreported   Top Tax|
+Year            Income      Rate|
+2014               19%       40%|
+2018               20%       40%|
+2022               23%       45%|
+2026               28%       60%|
+2030               36%       80%|
+2034 (est.)        51%       88%|
+2038 (est.)        73%       96%")>
 
 <OBJECT LIBYAN-ECONOMY
 	(LOC CURRENT-EVENTS-DIRECTORY)
 	(DESC "LIBYAN.ECONOMY")
 	(FLAGS READBIT)
 	(TEXT
-"(Tripoli) (1/8/31) During 2030, Libya became a net exporter of oil for the
-first time since the 1998 nuclear accident that poisoned most of the Libyan
-oil fields.|
+"(Tripoli) (1/8/31) During 2030, Libya became a net exporter of oil for the first time since the 1998 nuclear accident that poisoned most of the Libyan oil fields.|
 |
-The turnaround was due to the opening of the first of six new refineries
-around the Gulf of Sidra. As the other five facilities are activated during
-the next three years, Libyan oil will add around seven percent to the world's
-petroleum supply. Experts predict that such a global oil glut would plunge
-the price of crude as much as twenty-five percent from its current price of
-$160 per barrel.|
+The turnaround was due to the opening of the first of six new refineries around the Gulf of Sidra. As the other five facilities are activated during the next three years, Libyan oil will add around seven percent to the world's petroleum supply. Experts predict that such a global oil glut would plunge the price of crude as much as twenty-five percent from its current price of $160 per barrel.|
 |
-The accident that decimated Libya's petroleum industry was allegedly caused
-by a mishandled attempt to develop a nuclear capability. The acquisition of
-a nuclear arsenal was a lifelong dream of former Libyan dictator Muammar
-Kaddafi, who perished in the blast along with nearly a million of his
-countrymen.")>
+The accident that decimated Libya's petroleum industry was allegedly caused by a mishandled attempt to develop a nuclear capability. The acquisition of a nuclear arsenal was a lifelong dream of former Libyan dictator Muammar Kaddafi, who perished in the blast along with nearly a million of his countrymen.")>
 
 <OBJECT BSF-FORMATION
 	(LOC CURRENT-EVENTS-DIRECTORY)
 	(DESC "BSF.FORMATION")
 	(FLAGS READBIT)
 	(TEXT
-"(Colorado Springs) (11/17/30) Congress has approved the establishment
-of the Border Security Force as a separate, independent uniformed
-military service, to be headquartered in the Colorado facility known
-as the \"Pentagon of the West.\"|
+"(Colorado Springs) (11/17/30) Congress has approved the establishment of the Border Security Force as a separate, independent uniformed military service, to be headquartered in the Colorado facility known as the \"Pentagon of the West.\"|
 |
-Since its creation in 2021, the BSF has been jointly administered by the U.S.
-Army and the CIA. Today's action makes the BSF the seventh branch of the Armed
-Forces, joining the Army, Navy, Marines, Coast Guard, Air Force and Space
-Force.|
+Since its creation in 2021, the BSF has been jointly administered by the U.S. Army and the CIA. Today's action makes the BSF the seventh branch of the Armed Forces, joining the Army, Navy, Marines, Coast Guard, Air Force and Space Force.|
 |
-Commander Rile McLoughlin, the current chief of the BSF, said that the BSF
-now has \"the leeway we need to take the tough stance and courageous steps
-necessary to keep our nation free from the threat of nuclear blackmail.\"|
+Commander Rile McLoughlin, the current chief of the BSF, said that the BSF now has \"the leeway we need to take the tough stance and courageous steps necessary to keep our nation free from the threat of nuclear blackmail.\"|
 |
-The BSF was established by Executive Order in 2021, after the completion of
-the USNA's TROY antimissile shield and the East Bloc's counterpart system
-fundamentally altered the East-West nuclear arms race from the building of
-missiles to the smuggling of miniature bombs.|
+The BSF was established by Executive Order in 2021, after the completion of the USNA's TROY antimissile shield and the East Bloc's counterpart system fundamentally altered the East-West nuclear arms race from the building of missiles to the smuggling of miniature bombs.|
 |
-In its first nine years, the BSF has thwarted 13 attempts to bring fully armed
-nuclear devices into the USNA, as well as countless attempts to smuggle
-various parts and supplies that could be used for the construction of nukes.
-It is unknown whether any bombs have actually penetrated the American border.|
+In its first nine years, the BSF has thwarted 13 attempts to bring fully armed nuclear devices into the USNA, as well as countless attempts to smuggle various parts and supplies that could be used for the construction of nukes.
+ It is unknown whether any bombs have actually penetrated the American border.|
 |
-USNA and BSF officials have never confirmed the supposition that the BSF's
-secret charter also empowers it to smuggle nuclear devices into the territory
-of the East Bloc.|
+USNA and BSF officials have never confirmed the supposition that the BSF's secret charter also empowers it to smuggle nuclear devices into the territory of the East Bloc.|
 |
-The prevention of nuclear smuggling is expected to become even more difficult
-with the development of the nobelium bomb, a nuclear device which can
-theoretically fit in a space no larger than a pack of cigarettes.")>
-
+The prevention of nuclear smuggling is expected to become even more difficult with the development of the nobelium bomb, a nuclear device which can theoretically fit in a space no larger than a pack of cigarettes.")>
+
 ;"Sleep Mode"
 
 <ROOM SLEEP-ROOM
