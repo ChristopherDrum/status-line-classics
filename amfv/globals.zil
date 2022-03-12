@@ -2726,8 +2726,8 @@ to the Devil's Tower region of Wyoming. ">
 	 <TELL "Mode:">
 	 ;<CURSET 1 60>
 	 ;<TELL "Time:">
-	 <CURSET 2 2>
-	 <TELL "Loc:">
+	 ;<CURSET 2 2>
+	 ;<TELL "Loc:">
 	 ;<CURSET 2 60>
 	 ;<TELL "Date:">
 	 <HLIGHT 0>
@@ -2819,9 +2819,9 @@ to the Devil's Tower region of Wyoming. ">
 			 <NOT <EQUAL? ,L-HERE ,CURRENT-DIRECTORY>>>
 		    <AND <NOT ,CURRENT-FILE>
 			 <NOT <EQUAL? ,L-HERE ,HERE>>>>
-		<CURSET 2 6>
-	 	<PRINT-SPACES 18>
-		<CURSET 2 6>
+		<CURSET 2 2>
+	 	<PRINT-SPACES 22>
+		<CURSET 2 2>
 		 	;<DIROUT ,D-SCREEN-OFF> ;"stop printing to screen"
 		;<DIROUT ,D-TABLE-ON ,SL-BUFFER> ;"start printing to buffer"
 	 	<COND (,CURRENT-FILE

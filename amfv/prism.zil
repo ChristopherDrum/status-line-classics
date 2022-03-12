@@ -7,9 +7,7 @@
 		<TELL CR "A ">
 		<PRINTD ,CC-STAFFER>
 		<TELL
-" dashes in and hands Perelman a note before leaving. Glancing at the note,
-Perelman walks to a point beyond your field of vision. A moment later, you
-hear a click, as of a switch being turned." CR>)>>
+" dashes in and hands Perelman a note before leaving. Glancing at the note, Perelman walks to a point beyond your field of vision. A moment later, you hear a click, as of a switch being turned." CR>)>>
 
 <ROUTINE PERELMAN-RETURNS-TO-VIEW ()
 	 <COND (<VISIBLE? ,PERELMAN>
@@ -38,8 +36,7 @@ hear a click, as of a switch being turned." CR>)>>
 		<SETG REVIEWING-RECORDINGS T>
 		<PERELMAN-LEAVES-VIEW>
 		<TELL CR ,MESSAGE-LINE ,PRIVATE-LINE
-"We're getting ready to review your new recordings. I hope
-everything's there this time.\"" CR>
+"We're getting ready to review your new recordings. I hope everything's there this time.\"" CR>
 		<PERELMAN-RETURNS-TO-VIEW>)
 	       (T
 		<SETG REVIEWING-RECORDINGS T>
@@ -110,9 +107,7 @@ everything's there this time.\"" CR>
 		<QUEUE I-MESSAGE-M 131>
 		<PERELMAN-LEAVES-VIEW>
 		<TELL CR ,MESSAGE-LINE ,PRIVATE-LINE
-"PRISM, what's the matter? You haven't started the simulation yet! For
-heaven's sake, don't you know the whole country's impatient? Vera is hopping
-mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
+"PRISM, what's the matter? You haven't started the simulation yet! For heaven's sake, don't you know the whole country's impatient? Vera is hopping mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
 		<PERELMAN-RETURNS-TO-VIEW>)
 	       (T
 		<PERELMAN-LEAVES-VIEW>
@@ -502,17 +497,17 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
 		 <- <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT> 1>>
 	 ;"the -1 above keeps the cursor from overprinting the 1st character"
 	 <TELL ">">
-	 <CURSET 9 2>
+	 <CURSET 9 1>
 	 <COND (,CURRENT-FILE
-		<TELL "C=Close current directory, R=Read current file">
-		<CURSET 10 2>
-		<TELL "N=Next file, P=Previous file">)
+		<TELL "(C)lose current directory">
+		<CURSET 10 1>
+		<TELL "(R)ead (N)ext (P)rev      (E)xit">)
 	       (T
-		<TELL "O=Open current directory">
-		<CURSET 10 2>
-		<TELL "N=Next directory, P=Previous directory">)>
-	 <TELL ", E=Exit to ">
-	 <PRINTD ,COMM-MODE>
+		;<TELL "DIR:(O)pen   (N)ext   (P)rev">
+		<CURSET 10 1>
+		<TELL "(O)pen dir (N)ext (P)rev  (E)xit">)>
+	; <TELL "  (E)xit">
+	 ;<PRINTD ,COMM-MODE>
 	 <SCREEN ,S-TEXT>
 	 <HLIGHT 0>
 	 <BUFOUT T>>
@@ -696,7 +691,8 @@ D ,CURRENT-DIRECTORY " opened. Current file is " D ,CURRENT-FILE "." CR>)
 	(DESC "PRISM.NAME")
 	(FLAGS READBIT)
 	(TEXT
-"Pursuing you in your transitions,|
+"Pursuing you in your|
+  transitions,|
 In other Motes -|
 Of other Myths|
 Your requisition be.|
@@ -722,7 +718,7 @@ if that prism were two-way?|
 	(DESC "RESIGNATION.LETTER")
 	(FLAGS READBIT)
 	(TEXT
-"                                        February 21, 2031|
+"               February 21, 2031|
 Ms. Vera Gold|
 Project Coordinator's Office|
 PRISM Project Facility|
@@ -730,15 +726,9 @@ Rockvil, SD 848-1345-78|
 |
 Dear Ms. Gold:|
 |
-As you know, I have been unhappy for quite some time with your management
-of the PRISM Project. However, until now, I have always been able to live
-with your meddling incompetence.|
+As you know, I have been unhappy for quite some time with your management of the PRISM Project. However, until now, I have always been able to live with your meddling incompetence.|
 |
-Your inept, disgraceful and insulting handling of the Phase III Funding
-Request has exceeded the generous boundaries of my patience. This was more
-than just another in a long series of Vera Gold fiascoes; this episode
-has seriously undermined the morale of my team and endangered the Project's
-long-range chances for")>  
+Your inept, disgraceful and insulting handling of the Phase III Funding Request has exceeded the generous boundaries of my patience. This was more than just another in a long series of Vera Gold fiascoes; this episode has seriously undermined the morale of my team and endangered the Project's long-range chances for")>  
 
 <OBJECT LOTTD
 	(LOC PERELMAN-PERSONAL-DIRECTORY)
@@ -749,7 +739,7 @@ long-range chances for")>
 |
 1. WNN interview, 11:00|
 2. 2nd quarter budget to Gold|
-3. Lunch with Jeff and Beth, 12:45|
+3. Lunch w/Jeff and Beth, 12:45|
 4. Review Maint Techn resumes|
 5. Call \"Dakota\" Editor|
 6.")> 
@@ -3436,9 +3426,9 @@ replacement, FRI-kitchens" CR>)
 	 <COND (<EQUAL? ,SIMULATION-CONTROLLER ,WINNER>
 		<COND (<VERB? STATUS>
 		       <TELL
-"Current simulation demands:   0.00%|
-Record buffer is currently at "
-N </ <* <GETP ,RECORD-BUFFER ,P?SIZE> 100> 90> "% of capacity." CR CR>
+"Current simulation demands:0.00%|
+Record buffer at "
+N </ <* <GETP ,RECORD-BUFFER ,P?SIZE> 100> 90> "% of capacity" CR CR>
 		       <COND (<EQUAL? <GET ,SIM-LEVEL-TABLE 0> -1>
 			      <SIM-STATUS 2041 0>)
 			     (T
@@ -3452,7 +3442,7 @@ N </ <* <GETP ,RECORD-BUFFER ,P?SIZE> 100> 90> "% of capacity." CR CR>
 		       <COND (<G? <GET ,SIM-LEVEL-TABLE 4> 0>
 			      <SIM-STATUS 2081 <GET ,SIM-LEVEL-TABLE 4>>)>
 		       <TELL
-"    (time in minutes.seconds.tenths-of-seconds)" CR>
+" (time in min.sec.tenths-of-sec)" CR>
 		       <COND (,COMPLETED-TASKS
 			      <TELL CR
 "Based on the data accumulated during previous simulations, s">
