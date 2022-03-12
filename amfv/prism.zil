@@ -424,7 +424,8 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
       (SYNONYM MODE)
       (ADJECTIVE LIBRARY)
       (FLAGS NARTICLEBIT UNSEENBIT)
-      (ACTION LIBRARY-MODE-F)>
+      (ACTION LIBRARY-MODE-F)
+      (MICRO-DESC "library")>
 
 <ROUTINE LIBRARY-MODE-F ()
 	 <COND (<VERB? THROUGH WALK-TO>
@@ -992,7 +993,7 @@ HVAC CONTROLLER, STATUS orders the device to give a report on the systems, by se
      not pro-USNA|
  * cutbacks on all bureaucracy,|
      e.g. registering cars, guns|
-  * termination of government|
+ * termination of government|
      subsidies to outmoded|
      industries|
 |
@@ -1013,32 +1014,32 @@ sample size: 3812;acc: +/- 1.2%)|
 |
 Overall opinion of the Plan,|
 entire sample:|
-                      Dec.  Feb.|
- STRONGLY IN FAVOR    54.9  63.7|
- IN FAVOR             21.2  22.7|
- DON'T CARE           10.3   5.0|
- OPPOSED               6.6   0.8|
- STRONGLY OPPOSED      7.0   7.8|
+                     Dec.  Feb.|
+ STRONGLY IN FAVOR   54.9  63.7|
+ IN FAVOR            21.2  22.7|
+ DON'T CARE          10.3   5.0|
+ OPPOSED              6.6   0.8|
+ STRONGLY OPPOSED     7.0   7.8|
 |
 Percent \"in favor\" or \"strongly in favor\" of the Plan, demographically:|
-                      Dec.  Feb.|
- CONSERVATIVES        78.1  87.6|
- LIBERALS             73.3  84.7|
+                     Dec.  Feb.|
+ CONSERVATIVES       78.1  87.6|
+ LIBERALS            73.3  84.7|
 |
- BLUE-COLLAR          76.5  90.2|
- WHITE-COLLAR         73.2  81.8|
- BUSINESS OWNERS      90.6  98.4|
+ BLUE-COLLAR         76.5  90.2|
+ WHITE-COLLAR        73.2  81.8|
+ BUSINESS OWNERS     90.6  98.4|
 |
- INCOME < $100K       75.9  86.3|
- INCOME > $100K       76.4  86.7|
+ INCOME < $100K      75.9  86.3|
+ INCOME > $100K      76.4  86.7|
 |
 Composite average of opinions of individual Plan elements, entire sample:|
-                      Dec.  Feb.|
- STRONGLY IN FAVOR    15.8  15.0|
- IN FAVOR             18.7  17.8|
- DON'T CARE           30.5  31.8|
- OPPOSED              20.9  21.3|
- STRONGLY OPPOSED     14.1  14.1")>
+                     Dec.  Feb.|
+ STRONGLY IN FAVOR   15.8  15.0|
+ IN FAVOR            18.7  17.8|
+ DON'T CARE          30.5  31.8|
+ OPPOSED             20.9  21.3|
+ STRONGLY OPPOSED    14.1  14.1")>
 
 <OBJECT PLAN.CRITICISMS
 	(LOC PLAN-DATA-DIRECTORY)
@@ -1102,15 +1103,15 @@ The Tax Spiral is the phenomenon where high rates cause more people to cheat on 
 |
 The following chart shows the growth of the \"underground\" economy -- income nonreported and therefore not taxed:|
 |
-           Nonreported   Top Tax|
-Year            Income      Rate|
-2014               19%       40%|
-2018               20%       40%|
-2022               23%       45%|
-2026               28%       60%|
-2030               36%       80%|
-2034 (est.)        51%       88%|
-2038 (est.)        73%       96%")>
+          Nonreported   Top Tax|
+ Year          Income      Rate|
+ 2014             19%       40%|
+ 2018             20%       40%|
+ 2022             23%       45%|
+ 2026             28%       60%|
+ 2030             36%       80%|
+ 2034 (est.)      51%       88%|
+ 2038 (est.)      73%       96%")>
 
 <OBJECT LIBYAN-ECONOMY
 	(LOC CURRENT-EVENTS-DIRECTORY)
@@ -1157,7 +1158,8 @@ The prevention of nuclear smuggling is expected to become even more difficult wi
       (SYNONYM MODE)
       (ADJECTIVE SLEEP)
       (FLAGS NARTICLEBIT UNSEENBIT)
-      (ACTION SLEEP-MODE-F)>
+      (ACTION SLEEP-MODE-F)
+      (MICRO-DESC "sleep")>
 
 <ROUTINE SLEEP-MODE-F ()
 	 <COND (<VERB? THROUGH WALK-TO>
@@ -1266,7 +1268,8 @@ To activate a specific outlet, submit the associated code." CR>)>)>>
       (SYNONYM MODE)
       (ADJECTIVE COMMUNICA COMM)
       (FLAGS NARTICLEBIT UNSEENBIT)
-      (ACTION COMM-MODE-F)>
+      (ACTION COMM-MODE-F)
+      (MICRO-DESC "comm")>
 
 <ROUTINE COMM-MODE-F ()
 	 <COND (<VERB? THROUGH WALK-TO>
@@ -2929,7 +2932,8 @@ April first. From Eagle Studios.\"" CR>>
 	(SYNONYM MODE)
 	(ADJECTIVE INTERFACE)
 	(FLAGS NARTICLEBIT UNSEENBIT)
-	(ACTION INTERFACE-MODE-F)>
+	(ACTION INTERFACE-MODE-F)
+    (MICRO-DESC "interface")>
 
 <ROUTINE INTERFACE-MODE-F ()
 	 <COND (<VERB? THROUGH WALK-TO>
@@ -2974,23 +2978,23 @@ April first. From Eagle Studios.\"" CR>>
 		<RTRUE>)>
 	 <COND (<VERB? READ DISPLAY WHAT EXAMINE>
 		<PRINTD ,PORT-LIST>
-		<TELL ":" CR "   ">
+		<TELL ":" CR "  ">
 		<PRINTD ,SIMULATION-CONTROLLER>
-		<TELL CR "   ">
+		<TELL CR "  ">
 		<PRINTD ,HVAC-CONTROLLER>
-		<TELL CR "   ">
+		<TELL CR "  ">
 		<PRINTD ,JANITORIAL-CONTROLLER>
-		<TELL CR "   ">
+		<TELL CR "  ">
 		<PRINTD ,TRAFFIC-COMPUTER>
-		<TELL CR "   ">
+		<TELL CR "  ">
 		<PRINTD ,WEATHER-COMPUTER>
 		<CRLF>
 		<COND (<IN? ,WNN-FEEDER ,INTERFACE-ROOM>
-		       <TELL "   ">
+		       <TELL "  ">
 		       <PRINTD ,WNN-FEEDER>
 		       <CRLF>)>
 		<COND (<IN? ,AUDITING-SYSTEM ,INTERFACE-ROOM>
-		       <TELL "   ">
+		       <TELL "  ">
 		       <PRINTD ,AUDITING-SYSTEM>
 		       <CRLF>)>
 		<RTRUE>)>>
@@ -3508,7 +3512,7 @@ N </ <* <GETP ,RECORD-BUFFER ,P?SIZE> 100> 90> "% of capacity." CR CR>
 
 <OBJECT WEATHER-COMPUTER
 	(LOC INTERFACE-ROOM)
-	(DESC "National Weather Center Computer")
+	(DESC "NATL Weather Center Computer")
 	(SYNONYM COMPUTER)
 	(ADJECTIVE NATIONAL NATL WEATHER CENTER)
 	(FLAGS NDESCBIT ACTORBIT UNSEENBIT)
@@ -3520,14 +3524,12 @@ N </ <* <GETP ,RECORD-BUFFER ,P?SIZE> 100> 90> "% of capacity." CR CR>
 		       <SET X <+ <* ,DATE 2> </ ,TIME 100>>>
 		       <SET X <+ .X <RANDOM 3>>>
 		       <TELL
-"WeatherNet operating at " N .X "% of capacity. Satellites
-currently off-line for maintenance: G-14, S-17.|
+"WeatherNet operating at " N .X "% of capacity. Satellites currently off-line for maintenance: G-14, S-17.|
 |
 All weather data destinations are confirming transmission">
 		       <COND (<EQUAL? ,DATE 17>
 			      <TELL
-". CynaMoore Cable Systems has just been added to the
-weather data destinations list">)>
+". CynaMoore Cable Systems has just been added to the weather data destinations list">)>
 		       <TELL "." CR>
 		       <RTRUE>)
 		      (<VERB? HELLO>
@@ -3654,7 +3656,7 @@ D ,PRSO " is empty. Most recent Special Report was \"">
 
 <OBJECT TRANSMITTER
 	(LOC LOCAL-GLOBALS)
-	(DESC "WNN Feeder transmitter")
+	(DESC "WNN Feeder Transmitter")
 	(SYNONYM TRANSMITT)
 	(ADJECTIVE WORLD NEWS NETWORK FEEDER WNN)
 	(FLAGS NDESCBIT LIGHTBIT ONBIT UNSEENBIT)>
@@ -3816,7 +3818,8 @@ hadn't been caught in time.">)>
       (SYNONYM MODE)
       (ADJECTIVE SIMULATIO SIM)
       (FLAGS NARTICLEBIT UNSEENBIT)
-      (ACTION SIMULATION-MODE-F)>
+      (ACTION SIMULATION-MODE-F)
+      (MICRO-DESC "sim")>
 
 <ROUTINE SIMULATION-MODE-F ()
 	 <COND (<VERB? THROUGH WALK-TO>
@@ -3878,7 +3881,7 @@ N <GET ,INNER-NUMBERS-TABLE .INNERNUM> " >">
 			<TELL
 "[It thinks you typed in something other than a number.]">)>)>
 	  <COND (<AND <EQUAL? <NUMBER? ,P-LEXSTART> ,W?INTNUM>
-		      <EQUAL? ,P-NUMBER <GET ,OUTER-NUMBERS-TABLE .OUTERNUM>>>
+		      <L=? ,P-NUMBER 100>>
 		 <SET X T>
 		 <RETURN>)
 		(T

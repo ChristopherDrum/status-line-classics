@@ -2721,13 +2721,13 @@ to the Devil's Tower region of Wyoming. ">
 		<RTRUE>)>
 	 <INVERSE-LINE 1>
 	 <INVERSE-LINE 2>
-	 ;<HLIGHT 1>
-	 ;<CURSET 1 2>
-	 ;<TELL "Mode:">
+	 <HLIGHT 1>
+	 <CURSET 1 2>
+	 <TELL "Mode:">
 	 ;<CURSET 1 60>
 	 ;<TELL "Time:">
-	 ;<CURSET 2 2>
-	 ;<TELL "Location:">
+	 <CURSET 2 2>
+	 <TELL "Loc:">
 	 ;<CURSET 2 60>
 	 ;<TELL "Date:">
 	 <HLIGHT 0>
@@ -2777,13 +2777,11 @@ to the Devil's Tower region of Wyoming. ">
 
 <GLOBAL SL-BUFFER <ITABLE NONE 80>>
 
-<ROUTINE STATUS-LINE ("AUX" LEN LOCATION SY Y)
+<ROUTINE STATUS-LINE ("AUX" LEN LOCATION Y)
 	 <BUFOUT <>>
 	 <SCREEN ,S-WINDOW>
-	 <SET SY 0>
-	 <SET Y 0>
-	 <INVERSE-LINE 1> ; "set the status line to blank so we don't have to do weird spacing tricks later"
-	 <INVERSE-LINE 2>
+	 ;[" <INVERSE-LINE 1> ; "set the status line to blank so we don't have to do weird spacing tricks later" "]
+	 ;[" <INVERSE-LINE 2> "]
 	 <HLIGHT 1>
 	 <COND (<OR <NOT <EQUAL? ,MODE ,L-MODE>>
 		    <AND ,RECORDING
@@ -2798,8 +2796,10 @@ to the Devil's Tower region of Wyoming. ">
 	 	;<DIROUT ,D-TABLE-OFF> ;"stop, put length in 1st slot"
 		;<DIROUT ,D-SCREEN-ON> ;"resume printing to screen"
 	 	;<SET LEN <GET ,SL-BUFFER 0>>
-	 	<CURSET 1 2>
-	 	<TELL D ,MODE>
+		 <CURSET 1 7>
+		 <PRINT-SPACES 19 >
+		 <CURSET 1 7>
+	 	<TELL <GETP .MODE, P?MICRO-DESC>>
 		<COND (,RECORDING
 		       <SETG L-RECORDING T>
 		       <TELL "(rec)">)
@@ -2807,8 +2807,10 @@ to the Devil's Tower region of Wyoming. ">
 		       <SETG L-RECORDING <>>)>
 		<SETG L-MODE ,MODE>
 	 	;<PRINT-SPACES <- 33 .LEN>>)>
-	 <CURSET 1 27>
-	 <COND (,SIMULATING
+	 <CURSET 1 24>
+	 <PRINT-SPACES 8>
+	<CURSET 1 24>
+	<COND (,SIMULATING
 		<TIME-PRINT ,STIME>)
 	       (T
 		<TIME-PRINT ,TIME>)>
@@ -2817,8 +2819,10 @@ to the Devil's Tower region of Wyoming. ">
 			 <NOT <EQUAL? ,L-HERE ,CURRENT-DIRECTORY>>>
 		    <AND <NOT ,CURRENT-FILE>
 			 <NOT <EQUAL? ,L-HERE ,HERE>>>>
-		<CURSET 2 2>
-	 	;<DIROUT ,D-SCREEN-OFF> ;"stop printing to screen"
+		<CURSET 2 6>
+	 	<PRINT-SPACES 18>
+		<CURSET 2 6>
+		 	;<DIROUT ,D-SCREEN-OFF> ;"stop printing to screen"
 		;<DIROUT ,D-TABLE-ON ,SL-BUFFER> ;"start printing to buffer"
 	 	<COND (,CURRENT-FILE
 		       <SET LOCATION ,CURRENT-DIRECTORY>)
@@ -2832,20 +2836,24 @@ to the Devil's Tower region of Wyoming. ">
 	 	<TELL D .LOCATION>
 	 	;<PRINT-SPACES <- 29 .LEN>>
 		 )>
-	 <COND (<AND ,SIMULATING
+
+	<COND (<AND ,SIMULATING
 		     <NOT <EQUAL? ,SDATE ,L-DATE>>>
-		<CURSET 2 23>
-		<SET SY <-, SYEAR 2000>>
-		<TELL N ,SMONTH "/" N ,SDATE "/" N , SY>
+		<SET Y <-, SYEAR 2000>>
+	 <CURSET 2 24>
+	 <PRINT-SPACES 8>
+	<CURSET 2 24>
+			<TELL N ,SMONTH "/" N ,SDATE "/" N , Y>
 		<SETG L-DATE ,SDATE>
-		;<PRINT-SPACES 3>)
+		)
 	       (<AND <NOT ,SIMULATING>
 		     <NOT <EQUAL? ,DATE ,L-DATE>>>
-		<CURSET 2 25>
 		<SET Y <-, YEAR 2000>>
-		<TELL N ,MONTH "/" N ,DATE "/" N , Y>
+	 <CURSET 2 24>
+	 <PRINT-SPACES 8>
+	<CURSET 2 24>
+			<TELL N ,MONTH "/" N ,DATE "/" N , Y>
 		<SETG L-DATE ,DATE>
-		;<PRINT-SPACES 3>
 		)>
 	 <SCREEN ,S-TEXT>
 	 <HLIGHT 0>
