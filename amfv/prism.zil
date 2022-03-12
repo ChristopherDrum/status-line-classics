@@ -501,11 +501,11 @@
 	 <COND (,CURRENT-FILE
 		<TELL "(C)lose current directory">
 		<CURSET 10 1>
-		<TELL "(R)ead (N)ext (P)rev      (E)xit">)
+		<TELL "(N)ext (P)rev (R)ead      (E)xit">)
 	       (T
 		;<TELL "DIR:(O)pen   (N)ext   (P)rev">
 		<CURSET 10 1>
-		<TELL "(O)pen dir (N)ext (P)rev  (E)xit">)>
+		<TELL "(N)ext (P)rev (O)pen dir  (E)xit">)>
 	; <TELL "  (E)xit">
 	 ;<PRINTD ,COMM-MODE>
 	 <SCREEN ,S-TEXT>
@@ -2151,24 +2151,13 @@ for the inconvenience.\"" CR>)>
 		<NOMACOLD-COMMERCIAL>)
 	       (<EQUAL? .X 3>
 		<TELL
-"The anchorman reappears. \"Food riots in Sri Lanka worsened today, as army
-details were removed from relief distribution to protect the Presidential
-Palace and other government buildings.\" A grainy visual, showing armed troops
-firing into a crowd, accompanies the story." CR>)
+"The anchorman reappears. \"Food riots in Sri Lanka worsened today, as army details were removed from relief distribution to protect the Presidential Palace and other government buildings.\" A grainy visual, showing armed troops firing into a crowd, accompanies the story." CR>)
 	       (<EQUAL? .X 4>
 		<TELL
-"\"The continuing drought in India threatens that country with its fifth
-food shortage in the last six years. A government spokesman called the
-outlook 'optimistic' but said that rations might be cut ten percent as a
-precautionary measure.\"" CR>)
+"\"The continuing drought in India threatens that country with its fifth food shortage in the last six years. A government spokesman called the outlook 'optimistic' but said that rations might be cut ten percent as a precautionary measure.\"" CR>)
 	       (<EQUAL? .X 5>
 		<TELL
-"\"At least forty people were killed yesterday when a bomb demolished a
-bank in downtown Pretoria.\" The picture shows South African soldiers
-combing through rubble, then an image of a woman crying. \"Responsibility
-for the bombing was quickly claimed by WIZO, the radical white terrorist
-group responsible for last summer's shooting of Prime Minister Menetu.
-Next: excerpts from ">
+"\"At least forty people were killed yesterday when a bomb demolished a bank in downtown Pretoria.\" The picture shows South African soldiers combing through rubble, then an image of a woman crying. \"Responsibility for the bombing was quickly claimed by WIZO, the radical white terrorist group responsible for last summer's shooting of Prime Minister Menetu. Next: excerpts from ">
 		<PRINTD ,RYDER>
 		<TELL
 "'s blistering attack on the Administration, after this.\"" CR>)
@@ -2179,81 +2168,41 @@ Next: excerpts from ">
 "\"In a speech before the National Council of Educators, ">
 		<PRINTD ,RYDER>
 		<TELL
-" blasted the Bowden Administration's educational policies.\" An excerpt
-from the speech is shown. Ryder is a keen-eyed man with coiffed hair and
-a telegenic charisma. \"Must we continue treating our schools as prisons,
-and our prisons as schools? Let's give our sons and daughters the education
-they deserve.\"" CR>)
+" blasted the Bowden Administration's educational policies.\" An excerpt from the speech is shown. Ryder is a keen-eyed man with coiffed hair and a telegenic charisma. \"Must we continue treating our schools as prisons, and our prisons as schools? Let's give our sons and daughters the education they deserve.\"" CR>)
 	       (<EQUAL? .X 8>
 		<TELL
-"\"An Administration spokesperson called Ryder's criticisms 'simplistic' and
-'demagogic.' A WNN poll, released this morning, showed that 64% of the public
-thinks the Administration's educational policies have failed, and for the first
-time, a majority of people agree our school system is 'out of control.'\"" CR>)
+"\"An Administration spokesperson called Ryder's criticisms 'simplistic' and 'demagogic.' A WNN poll, released this morning, showed that 64% of the public thinks the Administration's educational policies have failed, and for the first time, a majority of people agree our school system is 'out of control.'\"" CR>)
 	       (<EQUAL? .X 9>
 		<TELL
-"\"In Rockvil, South Dakota, scientists at the PRISM Project are scheduled to
-end an eleven-year phase of the project by activating what they hope will be
-the world's first intelligent computer. If successful, PRISM's first task would
-be to study the effectiveness of the Plan for Renewed National Purpose.\"" CR>)
+"\"In Rockvil, South Dakota, scientists at the PRISM Project are scheduled to end an eleven-year phase of the project by activating what they hope will be the world's first intelligent computer. If successful, PRISM's first task would be to study the effectiveness of the Plan for Renewed National Purpose.\"" CR>)
 	       (<EQUAL? .X 10>
 		<TELL
-"\"Stock prices fell sharply again today, following Monday's proposed tax
-hike. Prices for manufacturers dropped an average of three and one eighth,
-and service industries plummeted twelve and seven eighths. O'Neill Systems
-led the decliners with a drop of nineteen and a half.\"" CR>)
+"\"Stock prices fell sharply again today, following Monday's proposed tax hike. Prices for manufacturers dropped an average of three and one eighth, and service industries plummeted twelve and seven eighths. O'Neill Systems led the decliners with a drop of nineteen and a half.\"" CR>)
 	       (<EQUAL? .X 11>
 		<SUDO-SHRIMP-COMMERCIAL>)
 	       (<EQUAL? .X 12>
 		<TELL
-,NEWSMAKER-NOOK "Dr. Abraham Perelman, a Chief Scientist for the PRISM Project
-and one of its founders. Dr. Perelman, welcome. I think the question
-foremost on people's minds is: When will PRISM be ready to begin studying the
-Plan?\" Perelman shrugs. \"If everything goes okay, almost immediately after
-his awakening.\"" CR>)
+,NEWSMAKER-NOOK "Dr. Abraham Perelman, a Chief Scientist for the PRISM Project and one of its founders. Dr. Perelman, welcome. I think the question foremost on people's minds is: When will PRISM be ready to begin studying the Plan?\" Perelman shrugs. \"If everything goes okay, almost immediately after his awakening.\"" CR>)
 	       (<EQUAL? .X 13>
 		<TELL
-"\"Dr. Perelman,\" the interviewer continues, \"Exactly how smart will PRISM
-be?\" The camera cuts to the scientist. \"He'll have a tremendous memory
-capacity, and a number of extraordinary capabilities, but for most intents
-and purposes, PRISM will be on about the same level as an average adult of
-reasonable intelligence.\"" CR>)
+"\"Dr. Perelman,\" the interviewer continues, \"Exactly how smart will PRISM be?\" The camera cuts to the scientist. \"He'll have a tremendous memory capacity, and a number of extraordinary capabilities, but for most intents and purposes, PRISM will be on about the same level as an average adult of reasonable intelligence.\"" CR>)
 	       (<EQUAL? .X 14>
 		<TELL
-"\"One final question, Doctor. How can you be sure that PRISM will do what he's
-told? What guarantees that he'll obey your orders?\" Perelman chuckles. \"Bob,
-the best reply is another question -- why wouldn't he do what we ask? Would a
-human being turn down the opportunity to utilize his or her talents to perform
-a tremendously useful service for society? PRISM will have those same
-motivations.\" The anchorman thanks Perelman before turning toward the camera.
-\"That was Dr. Abraham Perelman of the PRISM Project.\"" CR>)
+"\"One final question, Doctor. How can you be sure that PRISM will do what he's told? What guarantees that he'll obey your orders?\" Perelman chuckles. \"Bob, the best reply is another question -- why wouldn't he do what we ask? Would a human being turn down the opportunity to utilize his or her talents to perform a tremendously useful service for society? PRISM will have those same motivations.\" The anchorman thanks Perelman before turning toward the camera. \"That was Dr. Abraham Perelman of the PRISM Project.\"" CR>)
 	       (<EQUAL? .X 15>
 		<MIRACLE-WARE-COMMERCIAL>)
 	       (<EQUAL? .X 16>
 		<TELL
-,TOM-SLAYTON "The San Francisco Gazelles clinched a spot in the southwest
-division soccer quarterfinals last night, with this fourth quarter shot by
-Walt Griswood, knocking Austin out for the season. Final score: 5 to 4.\"" CR>)
+,TOM-SLAYTON "The San Francisco Gazelles clinched a spot in the southwest division soccer quarterfinals last night, with this fourth quarter shot by Walt Griswood, knocking Austin out for the season. Final score: 5 to 4.\"" CR>)
 	       (<EQUAL? .X 17>
 		<TELL
-"\"In other soccer news, a spokesperson for the Vancouver Kings said that star
-fullback Alex Masterson would be ready for the first game of the northwest
-division quarterfinals on Sunday. He strained a ligament in his ankle during
-the last game of the regular season.\"" CR>)
+"\"In other soccer news, a spokesperson for the Vancouver Kings said that star fullback Alex Masterson would be ready for the first game of the northwest division quarterfinals on Sunday. He strained a ligament in his ankle during the last game of the regular season.\"" CR>)
 	       (<EQUAL? .X 18>
 		<TELL
-"\"Yesterday featured a light schedule for exhibition baseball. The Dodgers
-skinned the Bobcats 7 to 3, the Mets ransacked the Pirates 10 to 1, and Miami
-edged St. Louis, 3 to 2. The players are still without a contract and are
-vowing to strike on opening day.\"" CR>)
+"\"Yesterday featured a light schedule for exhibition baseball. The Dodgers skinned the Bobcats 7 to 3, the Mets ransacked the Pirates 10 to 1, and Miami edged St. Louis, 3 to 2. The players are still without a contract and are vowing to strike on opening day.\"" CR>)
 	       (<EQUAL? .X 19>
 		<TELL
-"\"The World Boxing Commission has ruled that former middleweight champion
-Charley Robbins will be barred from the sport for a period of one year,
-following his January conviction for violating the Drug Abuse Reduction Act.
-This means that Robbins will be unable to meet challenger Jeff Jefferson in
-a thirty-million-dollar bout planned for July in Oslo. Robbins declined to
-comment on the decision.\"" CR>)
+"\"The World Boxing Commission has ruled that former middleweight champion Charley Robbins will be barred from the sport for a period of one year, following his January conviction for violating the Drug Abuse Reduction Act. This means that Robbins will be unable to meet challenger Jeff Jefferson in a thirty-million-dollar bout planned for July in Oslo. Robbins declined to comment on the decision.\"" CR>)
 	       (<EQUAL? .X 20>
 		<TELL
 "\"The Denver Sports Commission filed a two-hundred-million-dollar countersuit
@@ -3684,15 +3633,13 @@ Audits order" ,CURRENT-FISCAL>
 		       T)
 		      (T
 		       <TELL
-"Not only was it a dumb thing to do, but you got me woken up
-in the middle of the night. ">)>
+"Not only was it a dumb thing to do, but you got me woken up in the middle of the night. ">)>
 		<TELL
 "I'll assume you did this through ignorance, but please don't do it again.">
 		<COND (<EQUAL? ,INTERFACE-CHANGE ,TRAFFIC-COMPUTER
 			       ,WNN-FEEDER ,AUDITING-SYSTEM>
 		       <TELL
-" You could've gotten the entire Project into hot water if this
-hadn't been caught in time.">)>
+" You could've gotten the entire Project into hot water if this hadn't been caught in time.">)>
 		<TELL "\"" CR>
 		<PERELMAN-RETURNS-TO-VIEW>)>>
 
@@ -3773,7 +3720,7 @@ N <GET ,INNER-NUMBERS-TABLE .INNERNUM> " >">
 			<TELL
 "[It thinks you typed in something other than a number.]">)>)>
 	  <COND (<AND <EQUAL? <NUMBER? ,P-LEXSTART> ,W?INTNUM>
-		      <L=? ,P-NUMBER 100>>
+		      <L=? ,P-NUMBER 100>> ;"CRACKED! - by Team 1337HaXoR! (by me, actually, it was me"
 		 <SET X T>
 		 <RETURN>)
 		(T
@@ -4017,7 +3964,7 @@ and so on. Here's a list of the minimum times before advancement is possible:
 	       0 "Talking to a church official"
    	       0 "Going to a movie"
    	       0 "Visiting your own home or living quarters">>
-
+
 ;"Rorschach Test"
 
 <GLOBAL GRIMWOLD-COUNTER 0>
@@ -4052,11 +3999,7 @@ and so on. Here's a list of the minimum times before advancement is possible:
 	        <CLEAR-BUF>)
 	       (<VERB? EXAMINE>
 		<TELL
-"Standing behind Perelman is Dr. Ernest Grimwold, a bespectacled man with a
-dark, closely-trimmed beard. He looks so much like the classic stereotype of
-a psychiatrist that you almost chuckle out loud. You experience a strange
-sensation, which you eventually recognize as an attempt to prevent your
-nonexistent mouth from turning up at the sides." CR>)>>
+"Standing behind Perelman is Dr. Ernest Grimwold, a bespectacled man with a dark, closely-trimmed beard. He looks so much like the classic stereotype of a psychiatrist that you almost chuckle out loud. You experience a strange sensation, which you eventually recognize as an attempt to prevent your nonexistent mouth from turning up at the sides." CR>)>>
 
 <ROUTINE I-MESSAGE-X ()
 	 <COND (<G? ,PART-FLAG 2>
@@ -4092,9 +4035,8 @@ nonexistent mouth from turning up at the sides." CR>)>>
 	(FLAGS READBIT)
 	(SIZE 0) ;"actually, message number in chronological order"
 	(TEXT
-"\"PRISM? Abe Perelman. We have just one more quick series of psych
-tests we want to run. Please come to my office in about ten minutes.\"")>
-
+"\"PRISM? Abe Perelman. We have just one more quick series of psych tests we want to run. Please come to my office in about ten minutes.\"")>
+
 <GLOBAL PART-FLAG 0>
 
 <ROUTINE CHAPTER-PRINT (NUM "AUX" WIDTH C)
@@ -4433,18 +4375,12 @@ tests we want to run. Please come to my office in about ten minutes.\"")>
 		<MOVE ,PLAYER ,COMM-ROOM>
 		<DISABLE <INT I-PERELMAN>>
 		<TELL ,FINISHED-VIEWING
-"everyone agreed that your findings were valid; that the Plan must be
-cancelled.\" His face is furrowed with worry. \"In fact, I'm flying to
-Washington immediately -- flight's in forty minutes.\"|
+"everyone agreed that your findings were valid; that the Plan must be cancelled.\" His face is furrowed with worry. \"In fact, I'm flying to Washington immediately -- flight's in forty minutes.\"|
 |
-His face brightens a bit. \"You know, I've been so concerned about your
-recordings, I haven't had time to think about your role in this. What
-initiative! You've really done something wonderful, here. I feel...\" Perelman
-hesitates. \"I feel ">
+His face brightens a bit. \"You know, I've been so concerned about your recordings, I haven't had time to think about your role in this. What initiative! You've really done something wonderful, here. I feel...\" Perelman hesitates. \"I feel ">
 		<ITALICIZE "proud" T>
 		<TELL
-" of you right now.\" He grabs his jacket and briefcase. \"Well, keep your
-fingers crossed!\" He dashes out of the office.">
+" of you right now.\" He grabs his jacket and briefcase. \"Well, keep your fingers crossed!\" He dashes out of the office.">
 		<CONTINUE>
 		<CHAPTER-PRINT 3>
 		<TELL CR CR CR CR>
@@ -4461,15 +4397,10 @@ fingers crossed!\" He dashes out of the office.">
 		<TELL ,FINISHED-VIEWING>
 		<COND (<OR .W .X .Y .Z>
 		       <TELL
-"while we saw some things that concerned us, we'd really need to see
-quite a bit more from a number of different years before drawing any
-conclusions" ,MAYBE-MORE CR>)
+"while we saw some things that concerned us, we'd really need to see quite a bit more from a number of different years before drawing any conclusions" ,MAYBE-MORE CR>)
 		      (T
 		       <TELL
-"frankly, no one really saw anything in them to be concerned about. I'm glad
-you're keeping busy, though. If you find anything else interesting in the
-simulations, please let me know. I've got to go -- late for a meeting. Bye!\"
-Perelman dashes out." CR>)>)
+"frankly, no one really saw anything in them to be concerned about. I'm glad you're keeping busy, though. If you find anything else interesting in the simulations, please let me know. I've got to go -- late for a meeting. Bye!\" Perelman dashes out." CR>)>)
 	       (<EQUAL? .TOTAL 3>
 		<TELL ,FINISHED-VIEWING "everyone ">
 		<COND (<NOT .D>
@@ -4479,8 +4410,7 @@ Perelman dashes out." CR>)>)
 		       <TELL "81. Perhaps things turn around" ,MAYBE-MORE CR>)
 		      (T
 		       <TELL
-"there was incredibly disturbed by them, especially the scenes from 2081.
-However, there was general agreement that you didn't show us">
+"there was incredibly disturbed by them, especially the scenes from 2081. However, there was general agreement that you didn't show us">
 		       <COND (<AND .A .B>
 			      <PARTIAL ,2071-SCORE>
 			      <TELL "71">)
@@ -4491,8 +4421,7 @@ However, there was general agreement that you didn't show us">
 			      <PARTIAL ,2051-SCORE>
 			      <TELL "51">)>
 		       <TELL
-". We'd like to see a progression; the sentiment was that without the
-missing link, it's difficult to tell if the simulations are really valid"
+". We'd like to see a progression; the sentiment was that without the missing link, it's difficult to tell if the simulations are really valid"
 ,MAYBE-MORE CR>)>)
 	       (<EQUAL? .TOTAL 2>
 		<TELL ,FINISHED-VIEWING
@@ -4586,8 +4515,7 @@ missing link, it's difficult to tell if the simulations are really valid"
 		      (.D
 		       <TELL "2081 were horrifying">)>
 		<TELL
-". However, everyone also agreed that there weren't enough recordings
-from other years to show any sort of significant pattern" ,MAYBE-MORE CR>)>
+". However, everyone also agreed that there weren't enough recordings from other years to show any sort of significant pattern" ,MAYBE-MORE CR>)>
 	 <QUEUE I-PERELMAN 60>
 	 <SETG LAST-ABE-TIME <+ ,TIME 55>>
 	 <PUTP ,RECORD-BUFFER ,P?SIZE 0>
@@ -4645,12 +4573,7 @@ from other years to show any sort of significant pattern" ,MAYBE-MORE CR>)>
 <ROUTINE I-PERELMAN-RETURNS ()
 	 <PERELMAN-LEAVES-VIEW>
 	 <TELL CR ,MESSAGE-LINE ,PRIVATE-LINE
-"PRISM, I'm just back from Washington. I met with the new Plan Authority for
-several hours. We viewed all the tapes.\" A deep breath. \"They rejected the
-contents outright. They called the recordings fakes. They refused to act on
-them. Several members even questioned my patriotism, made vague threats. I
-don't know what to do next. I'm going to meet with some of my colleagues here
-to discuss things. I'll keep you posted.\"" CR>
+"PRISM, I'm just back from Washington. I met with the new Plan Authority for several hours. We viewed all the tapes.\" A deep breath. \"They rejected the contents outright. They called the recordings fakes. They refused to act on them. Several members even questioned my patriotism, made vague threats. I don't know what to do next. I'm going to meet with some of my colleagues here to discuss things. I'll keep you posted.\"" CR>
 	 <PERELMAN-RETURNS-TO-VIEW>>
 
 <GLOBAL SEIGE <>>
@@ -4659,15 +4582,10 @@ to discuss things. I'll keep you posted.\"" CR>
 	 <SETG SEIGE T>
 	 <MOVE ,NATIONAL-GUARDSMAN ,CONTROL-CENTER>
 	 <TELL CR
-"\"Announcement, announcement. All lines, priority interrupt. This is Major
-General Dirk Peters of the Dakota/Manitoba National Guard Division. A security
-leak that could threaten our national security has been discovered here at the
-PRISM Facility. The entire complex has been sealed off; no one will be
-permitted to enter or leave until further notice.\"" CR>
+"\"Announcement, announcement. All lines, priority interrupt. This is Major General Dirk Peters of the Dakota/Manitoba National Guard Division. A security leak that could threaten our national security has been discovered here at the PRISM Facility. The entire complex has been sealed off; no one will be permitted to enter or leave until further notice.\"" CR>
 	 <COND (<EQUAL? ,HERE ,CONTROL-CENTER>
 		<TELL CR
-"You see a couple of rifle-bearing Guardsmen take up positions at the
-Control Center doorway." CR>)>
+"You see a couple of rifle-bearing Guardsmen take up positions at the Control Center doorway." CR>)>
 	 <RTRUE>>
 
 <GLOBAL SABOTAGE-COUNTER 0>
@@ -4678,13 +4596,10 @@ Control Center doorway." CR>)>
 		<QUEUE I-SABOTAGE 16>
 		<COND (<EQUAL? ,HERE ,ROOFTOP>
 		       <TELL CR
-"A tiny skyvan, swathed in radar-deflecting foil, approaches from the south
-and settles quietly onto the rooftop nearby. Four people, dressed in the same
-white smocks as worn by PRISM Facility ">
+"A tiny skyvan, swathed in radar-deflecting foil, approaches from the south and settles quietly onto the rooftop nearby. Four people, dressed in the same white smocks as worn by PRISM Facility ">
 		       <PRINTD ,SABOTEURS>
 		       <TELL
-", alight from the van. They are carrying weapons and small tote bags, and as
-they disappear into the stairwell door, the van lifts away." CR>
+", alight from the van. They are carrying weapons and small tote bags, and as they disappear into the stairwell door, the van lifts away." CR>
 		       <RTRUE>)>)
 	       (<EQUAL? ,SABOTAGE-COUNTER 1>
 		<SETG SABOTAGE-COUNTER 2>
@@ -4712,17 +4627,13 @@ One of the men is holding some sort of weapon." CR>
 		<QUEUE I-AIR-CONDITIONING -1>
 		<COND (<EQUAL? ,HERE ,CORE>
 		       <TELL CR
-"One of the saboteurs snaps a panel into place on the air-conditioning unit
-and says, \"Okay, that should do it. Call Joe and have him meet us on the
-roof!\" They trot out of the room." CR>
+"One of the saboteurs snaps a panel into place on the air-conditioning unit and says, \"Okay, that should do it. Call Joe and have him meet us on the roof!\" They trot out of the room." CR>
 		       <RTRUE>)>)
 	       (<EQUAL? ,SABOTAGE-COUNTER 3>
 		<SETG SABOTAGE-COUNTER 4>
 		<COND (<EQUAL? ,HERE ,ROOFTOP>
 		       <TELL CR
-"A skyvan with anti-radar foil lands on the roof, and four men rush
-out of the stairwell to meet it. They clamber aboard, and the van
-glides quietly away, unnoticed by anyone but you." CR>
+"A skyvan with anti-radar foil lands on the roof, and four men rush out of the stairwell to meet it. They clamber aboard, and the van glides quietly away, unnoticed by anyone but you." CR>
 		       <RTRUE>)>)>
 	 <RFALSE>>
 
@@ -4731,10 +4642,7 @@ glides quietly away, unnoticed by anyone but you." CR>
 	(DESC "maintenance workers")
 	(LDESC
 "|
-Four men, wearing the white jumpsuits of PRISM Complex maintenance workers,
-are tinkering with one of the units that air-conditions your \"body.\" Their
-motions are furtive, and one of the men is holding a poorly-concealed weapon
-of some type.")
+Four men, wearing the white jumpsuits of PRISM Complex maintenance workers, are tinkering with one of the units that air-conditions your \"body.\" Their motions are furtive, and one of the men is holding a poorly-concealed weapon of some type.")
 	(SYNONYM WORKERS SABOTEURS WORKER SABOTEUR MAN MEN)
 	(ADJECTIVE MAINTENAN FURTIVE)
 	(FLAGS ACTORBIT NARTICLEBIT PLURALBIT)
@@ -4747,15 +4655,9 @@ of some type.")
 		       <CLEAR-BUF>)
 		      (T
 		       <TELL
-"At the sound of your voice, the men spin around, guns blazing. A projectile
-strikes the screen of your communications outlet, and you feel a brief pain,
-as though someone had stabbed you in the eye. Your sound pickup is still
-functioning, and amidst the shots you hear a powerful explosion. \"Fire!\"
-a voice cries out. \"Let's split!\"|
+"At the sound of your voice, the men spin around, guns blazing. A projectile strikes the screen of your communications outlet, and you feel a brief pain, as though someone had stabbed you in the eye. Your sound pickup is still functioning, and amidst the shots you hear a powerful explosion. \"Fire!\" a voice cries out. \"Let's split!\"|
 |
-A numbness passes over you, numbness and also a pain that you can't locate.
-In a last lucid moment, you connect these feelings with the awful explosions
-you're hearing in the maintenance core..." CR CR>
+A numbness passes over you, numbness and also a pain that you can't locate. In a last lucid moment, you connect these feelings with the awful explosions you're hearing in the maintenance core..." CR CR>
 		       <FINISH>)>)
 	       (<AND <VERB? TELL-ABOUT ASK-ABOUT ASK-FOR>
 		     <PRSO? ,SABOTEURS>>
@@ -4778,10 +4680,7 @@ you're hearing in the maintenance core..." CR CR>
 <ROUTINE I-OPEN-WINDOW ()
 	 <COND (<EQUAL? ,HERE ,CONTROL-CENTER>
 		<TELL CR
-"One technician, fanning herself with a sheaf of papers, says, \"It's
-getting stuffy in here. Anyone mind if I open a window?\" Hearing no
-objections, she walks beyond the edge of your viewing area, and a
-moment later you hear a grunt and a sliding noise." CR>)
+"One technician, fanning herself with a sheaf of papers, says, \"It's getting stuffy in here. Anyone mind if I open a window?\" Hearing no objections, she walks beyond the edge of your viewing area, and a moment later you hear a grunt and a sliding noise." CR>)
 	       (T
 		<QUEUE I-OPEN-WINDOW 4>
 		<RFALSE>)>>
@@ -4790,9 +4689,7 @@ moment later you hear a grunt and a sliding noise." CR>)
 	(LOC LOCAL-GLOBALS)
 	(DESC "Senator Richard Ryder")
 	(LDESC
-"An angry man, unmistakably Senator Richard Ryder, whose face you've seen so
-often in the news, is angrily storming around the room, speaking harshly to
-an equally angry Doctor Perelman.")
+"An angry man, unmistakably Senator Richard Ryder, whose face you've seen so often in the news, is angrily storming around the room, speaking harshly to an equally angry Doctor Perelman.")
 	(SYNONYM RYDER SENATOR)
 	(ADJECTIVE SENATOR RICHARD)
 	(FLAGS NARTICLEBIT ACTORBIT)
@@ -4810,21 +4707,14 @@ an equally angry Doctor Perelman.")
 		<FCLEAR ,PERELMAN ,NDESCBIT>
 		<DISABLE <INT I-RYDER>>
 		<TELL
-"Ryder whirls around, looking shocked. \"Who the hell...\" His head darts back
-and forth, then locates the source of your voice. \"Jesus!\" He yells, and
-then, \"Let's go someplace where we can have a little more privacy -- like my
-car!\" He yanks open the door and snaps a finger at one of the Guardsmen,
-ending the snap by pointing at Perelman. Ryder stomps away as the guard drags
-Perelman out of the office." CR>
+"Ryder whirls around, looking shocked. \"Who the hell...\" His head darts back and forth, then locates the source of your voice. \"Jesus!\" He yells, and then, \"Let's go someplace where we can have a little more privacy -- like my car!\" He yanks open the door and snaps a finger at one of the Guardsmen, ending the snap by pointing at Perelman. Ryder stomps away as the guard drags Perelman out of the office." CR>
 		<CLEAR-BUF>)
 	       (<VERB? CALL>
 		<PERFORM ,V?TELL ,RYDER>
 		<RTRUE>)
 	       (<VERB? EXAMINE>
 		<TELL
-"Ryder's most striking features are his sharp eyes, his thick blown-dry
-hair, and his energetic charisma. Although he is red-faced, barking mad, the
-presence that has given him such wide public appeal is readily apparent." CR>)
+"Ryder's most striking features are his sharp eyes, his thick blown-dry hair, and his energetic charisma. Although he is red-faced, barking mad, the presence that has given him such wide public appeal is readily apparent." CR>)
 	       (<VERB? LISTEN>
 		<RTRUE>)>>
 
@@ -5048,6 +4938,6 @@ Ralph King.|
 |
 Finally, I'm extremely grateful to Jon Palace for immeasurable advice and
 support throughout this project." CR CR>
-	 <PRINT-SPACES 55>
+	 <PRINT-SPACES 21>
 	 <TELL "-- SEM 9/85" CR CR CR>
 	 <QUIT>>

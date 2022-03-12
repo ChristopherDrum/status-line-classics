@@ -2906,9 +2906,9 @@ to the Devil's Tower region of Wyoming. ">
 <ROUTINE AM-PM-PRINT (NUM)
 	 <COND (<OR <L? .NUM 720>
 		    <EQUAL? .NUM 1440>>
-		<TELL "a">)
+		<TELL "am">)
 	       (T
-		<TELL "p">)>>
+		<TELL "pm">)>>
 
 ;"shared stuff"
 
