@@ -544,7 +544,7 @@
 	<TABLE 4 5 6 7 4 5 6 7 4 5 6 7>>
 
 <GLOBAL COLUMN-TABLE
-	<TABLE 2 2 2 2 28 28 28 28 54 54 54 54>>
+	<TABLE 1 1 1 1 12 12 12 12 22 22 22 22>>
 
 <ROUTINE-FLAGS CLEAN-STACK?>
 <ROUTINE LIBRARY-ACTION ("AUX" X)
@@ -886,7 +886,8 @@ Your inept, disgraceful and insulting handling of the Phase III Funding Request 
 	(FLAGS READBIT)
 	(TEXT
 "The Metropolitan Traffic Computer controls all ground and aerial traffic patterns for greater Rockvil, based on expected periods of heavy usage. Although it is a sophisticated expert system, its interface is limited and simple.|
- The start and end of morning rush hour can be scheduled for any time before noon, and the start and end of evening rush hour can be scheduled for any time after noon. Times must be submitted in numeric form; \"am\" or \"pm\" is obviously unnecessary. For example:|
+|
+The start and end of morning rush hour can be scheduled for any time before noon, and the start and end of evening rush hour can be scheduled for any time after noon. Times must be submitted in numeric form; \"am\" or \"pm\" is obviously unnecessary. For example:|
   TRAFFIC COMPUTER, SET MORNING RUSH HOUR START AT 7:00|
   TRAFFIC COMPUTER, CHANGE EVENING RUSH HOUR END TO 6:30|
 |
@@ -898,7 +899,8 @@ The STATUS command will give you the current rush hour schedule. More complex da
 	(FLAGS READBIT)
 	(TEXT
 "The Janitorial Controller is a simple computer for scheduling various custodial functions in the PRISM complex.|
- The four functions can be independently scheduled for any time between 8:00pm and 11:30pm. Times must be submitted in numeric form. For example:|
+|
+The four functions can be independently scheduled for any time between 8:00pm and 11:30pm. Times must be submitted in numeric form. For example:|
   JANITORIAL CONTROLLER, SET BATHROOMS FOR 9:00|
   JANITORIAL CONTROLLER, CHANGE ROTATING FUNCTIONS TO 10:30|
 |
@@ -910,7 +912,8 @@ The status command (JANITORIAL CONTROLLER, STATUS) will provide a report of the 
 	(FLAGS READBIT)
 	(TEXT
 "The HVAC Controller is a simple computer which activates and deactivates the heating, ventilating, and cooling systems of the PRISM complex.|
- The complex is divided into four independent sectors, and the controller can be instructed to shut off or turn on the systems in any of them. For example:|
+|
+The complex is divided into four independent sectors, and the controller can be instructed to shut off or turn on the systems in any of them. For example:|
    HVAC CONTROLLER, SHUT OFF COOLING FOR ALPHA SECTOR|
    HVAC CONTROLLER, START VENTILATION IN GAMMA SECTOR|
    HVAC CONTROLLER, TURN ON HEATING TO ALL SECTORS|
@@ -931,7 +934,8 @@ HVAC CONTROLLER, STATUS orders the device to give a report on the systems, by se
 	(FLAGS READBIT)
 	(TEXT
 "The IRS Auditing System is a data-oriented computer with massive storage capacity. Using its database, it produces lists of the best audit possibilities.|
- The percentage of filers audited in a given year can be easily changed, and is usually based on the year's Auditing Division budget. This input must be in numeric form. The Auditing Computer will give status reports. Examples:|
+|
+The percentage of filers audited in a given year can be easily changed, and is usually based on the year's Auditing Division budget. This input must be in numeric form. The Auditing Computer will give status reports. Examples:|
    AUDITING SYSTEM, STATUS|
    AUDITING SYSTEM, CHANGE AUDITING PERCENTAGE TO 5")>
 
@@ -1064,24 +1068,12 @@ Composite average of opinions of individual Plan elements, entire sample:|
 |
 The sect, a group of extremists calling itself the Church of God's Word, seized the facility in December of 2027, after group founder Ellis Vincent, 59, a minor engineer at the facility, claimed that signals emanating from a region in the constellation Cygnus were the revealed word of God.|
 |
-Although scientists once thought those signals might be a message from
-another intelligent race, light-years distant, most scientists now attribute
-the signals to a new type of quasar at the fringes of our universe. Despite
-this, members of the sect continue to believe that Greens Peak, which they
-call \"The Mount,\" is a holy site, and the radio telescope is the \"ear for
-hearing the word of God.\"|
+Although scientists once thought those signals might be a message from another intelligent race, light-years distant, most scientists now attribute the signals to a new type of quasar at the fringes of our universe. Despite this, members of the sect continue to believe that Greens Peak, which they call \"The Mount,\" is a holy site, and the radio telescope is the \"ear for hearing the word of God.\"|
 |
-A spokesman for the sect, Holy Keeper Sergei Korn, hailed the ruling as a sign
-of divine providence and revealed plans for constructing a temple there.
-Larron Hart, chairman of the American Foundation for Astronomical Research
-(AFAR), which built and ran the Greens Peak facility, expressed disgust at
-what he termed \"a historically stupid decision,\" and vowed to appeal.|
+A spokesman for the sect, Holy Keeper Sergei Korn, hailed the ruling as a sign of divine providence and revealed plans for constructing a temple there.
+Larron Hart, chairman of the American Foundation for Astronomical Research (AFAR), which built and ran the Greens Peak facility, expressed disgust at what he termed \"a historically stupid decision,\" and vowed to appeal.|
 |
-The Church of God's Word, which received a great deal of media attention from
-the occupation of Greens Peak, has been growing rapidly during the past three
-years, and it now claims twenty thousand adherents worldwide. Vincent, who is
-referred to by his followers as the Holy Prophet, has not been seen in public
-since the takeover.")>
+The Church of God's Word, which received a great deal of media attention from the occupation of Greens Peak, has been growing rapidly during the past three years, and it now claims twenty thousand adherents worldwide. Vincent, who is referred to by his followers as the Holy Prophet, has not been seen in public since the takeover.")>
 
 <OBJECT TAX-STUDY
 	(LOC CURRENT-EVENTS-DIRECTORY)
@@ -1096,6 +1088,7 @@ The following chart shows the growth of the \"underground\" economy -- income no
 |
           Nonreported   Top Tax|
  Year          Income      Rate|
+ ----          ------      ----|
  2014             19%       40%|
  2018             20%       40%|
  2022             23%       45%|
@@ -1128,8 +1121,7 @@ Commander Rile McLoughlin, the current chief of the BSF, said that the BSF now h
 |
 The BSF was established by Executive Order in 2021, after the completion of the USNA's TROY antimissile shield and the East Bloc's counterpart system fundamentally altered the East-West nuclear arms race from the building of missiles to the smuggling of miniature bombs.|
 |
-In its first nine years, the BSF has thwarted 13 attempts to bring fully armed nuclear devices into the USNA, as well as countless attempts to smuggle various parts and supplies that could be used for the construction of nukes.
- It is unknown whether any bombs have actually penetrated the American border.|
+In its first nine years, the BSF has thwarted 13 attempts to bring fully armed nuclear devices into the USNA, as well as countless attempts to smuggle various parts and supplies that could be used for the construction of nukes. It is unknown whether any bombs have actually penetrated the American border.|
 |
 USNA and BSF officials have never confirmed the supposition that the BSF's secret charter also empowers it to smuggle nuclear devices into the territory of the East Bloc.|
 |
@@ -1201,8 +1193,7 @@ The prevention of nuclear smuggling is expected to become even more difficult wi
 	 <QUEUE I-PERELMAN -1>
 	 <COND (<EQUAL? .CNT 0>
 		<TELL
-"Some time later, you awake feeling relaxed and notice that about
-six hours have passed." CR>)>
+"Some time later, you awake feeling relaxed and notice that about six hours have passed." CR>)>
 	 <SETG CLOCK-WAIT T>
 	 <COND (<G? .CNT 300> ;"if you slept <60, you can sleep immediately"
 		<SETG NEXT-SLEEP-TIME ,TIME>)
@@ -1303,8 +1294,7 @@ To activate a specific outlet, submit the associated code." CR>)>)>>
 "Someone is standing in front of your visual receptor. ">)
 		      (T
 		       <TELL
-"You see a large, well-organized room filled with banks of terminals and
-similar equipment. ">)>
+"You see a large, well-organized room filled with banks of terminals and similar equipment. ">)>
 		<COND (,SEIGE
 		       <TELL
 "A pair of National Guardsmen, bearing rifles, flank the doorway.">)
@@ -1385,8 +1375,7 @@ similar equipment. ">)>
 		       <TELL "The rooftop visual offers a view of the ">
 		       <PRINTD ,COUNTRYSIDE>	
 		       <TELL
-" around the PRISM complex. The perimeter fence is visible near the horizon.
-A wide road leads north toward a distant gray haze, presumably Rockvil.">)
+" around the PRISM complex. The perimeter fence is visible near the horizon. A wide road leads north toward a distant gray haze, presumably Rockvil.">)
 		      (<OR <G? ,TIME 1103> ;"6:23pm"
 			   <L? ,TIME 348>> ;"5:48am"
 		       <TELL "It is a dark, cloud">
@@ -1395,21 +1384,15 @@ A wide road leads north toward a distant gray haze, presumably Rockvil.">)
 			     (T
 			      <TELL "y">)>
 		       <TELL
-" night. The roof is splotchily lit by harsh spotlights. Beyond the edge
-of the roof, the only thing you can see is Rockvil, glowing with visible
-and infrared light on the northern horizon.">)
+" night. The roof is splotchily lit by harsh spotlights. Beyond the edge of the roof, the only thing you can see is Rockvil, glowing with visible and infrared light on the northern horizon.">)
 		      (<L? ,TIME 720>
 		       <TELL "The ">
 		       <PRINTD ,PROTRUSIONS>
 		       <TELL
-" of the rooftop cast long shadows in the gray light of dawn. A glistening
-layer of dew covers every surface.">)
+" of the rooftop cast long shadows in the gray light of dawn. A glistening layer of dew covers every surface.">)
 		      (T
 		       <TELL
-"A splash of red on the western end of a darkening sky heralds the coming
-of night. You watch the sunset with sadness, for it reminds you of so many
-things you can never do again...walking along a beach, lying in tall grass,
-holding a woman.">)>
+"A splash of red on the western end of a darkening sky heralds the coming of night. You watch the sunset with sadness, for it reminds you of so many things you can never do again...walking along a beach, lying in tall grass, holding a woman.">)>
 		<TELL CR "There is no one in sight.">)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <RUSH-HOUR>
@@ -1503,8 +1486,7 @@ holding a woman.">)>
 		<MOVE ,CHAIR ,HERE>)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This is the office of your creator, Dr. Abraham Perelman. It is cluttered
-and disorganized. Overstuffed bookshelves line the room. " ,DESK-DESC>
+"This is the office of your creator, Dr. Abraham Perelman. It is cluttered and disorganized. Overstuffed bookshelves line the room. " ,DESK-DESC>
 		<COND (<IN? ,COFFEE ,HERE>
 		       <TELL ". Steam from a ">
 		       <PRINTD ,COFFEE>
@@ -1639,23 +1621,14 @@ and disorganized. Overstuffed bookshelves line the room. " ,DESK-DESC>
 		<QUEUE I-PERELMAN 60>
 		<SETG COMPLETED-TASKS T>
 		<TELL
-", smiling. \"An excellent job, PRISM. We just finished viewing your
-recordings, and the experts were quite pleased.\" He pauses, as though
-realizing something for the first time. \"In fact, I thought they looked
-pretty good myself. I suppose this means the Plan'll get adopted.|
+", smiling. \"An excellent job, PRISM. We just finished viewing your recordings, and the experts were quite pleased.\" He pauses, as though realizing something for the first time. \"In fact, I thought they looked pretty good myself. I suppose this means the Plan'll get adopted.|
 |
-\"What's next for you, I wonder? You're going to be a hero, you know.
-You'd probably get a call from the President congratulating you, except
-of course that he's against the Plan.\" Perelman notices a paper on his
-desk. \"Oh, apparently the ">
+\"What's next for you, I wonder? You're going to be a hero, you know. You'd probably get a call from the President congratulating you, except of course that he's against the Plan.\" Perelman notices a paper on his desk. \"Oh, apparently the ">
 		<PRINTD ,SIMULATION-CONTROLLER>
 		<TELL
-" generated a lot of new data correlations while running your simulation.
-I'm not sure what the effect of that will be. Might make an even more
-accurate simulation possible.|
+" generated a lot of new data correlations while running your simulation. I'm not sure what the effect of that will be. Might make an even more accurate simulation possible.|
 |
-\"Well, I've got another meeting now, as usual. But once again, thanks for
-not letting me down.\" Perelman leaves.">
+\"Well, I've got another meeting now, as usual. But once again, thanks for not letting me down.\" Perelman leaves.">
 		<CONTINUE>
 		<SETG MODE ,COMM-MODE>
 		<SETG HERE ,COMM-ROOM>
@@ -1685,8 +1658,7 @@ not letting me down.\" Perelman leaves.">
 ". \"PRISM. Uh, overall, a fine job in the simulation. I hate to be a ">
 		<ITALICIZE "noodge" T>
 		<TELL
-", but we just finished viewing the recordings, and there's one omission.
-Uh, let's see. Oh, right. ">
+", but we just finished viewing the recordings, and there's one omission. Uh, let's see. Oh, right. ">
 		<SET CNT 0>
 		<REPEAT ()
 			<COND (<EQUAL? <GET ,RECORDING-TABLE .CNT> 0>
@@ -1714,8 +1686,7 @@ Uh, let's see. Oh, right. ">
 		      (T
 		       <TELL "some">)>
 		<TELL
-" of the events the experts asked you for.\" He picks up a piece of paper
-from his desk. \"Let's see. ">
+" of the events the experts asked you for.\" He picks up a piece of paper from his desk. \"Let's see. ">
 		<SET CNT 0>
 		<REPEAT ()
 			<COND (<EQUAL? <GET ,RECORDING-TABLE .CNT> 0>
@@ -1726,8 +1697,7 @@ from his desk. \"Let's see. ">
 		<TELL "Please go back into ">
 		<PRINTD ,SIMULATION-MODE>
 		<TELL
-" and make these recordings.\" Perelman lowers his eyes. \"Please don't let
-me down, PRISM.\" He walks out of the office." CR>)>>
+" and make these recordings.\" Perelman lowers his eyes. \"Please don't let me down, PRISM.\" He walks out of the office." CR>)>>
 
 <ROUTINE PERELMAN-SHARE (INTERRUPT "AUX" (SAW-ENTER <>))
 	 <COND (<NOT <IN? ,PERELMAN ,OFFICE>>
@@ -1737,10 +1707,7 @@ me down, PRISM.\" He walks out of the office." CR>)>>
 		<COND (<EQUAL? ,HERE ,OFFICE>
 		       <SET SAW-ENTER T>
 		       <TELL CR
-"Perelman walks into the office and" ,SPOTS-ACTIVE-LIGHT " immediately.
-\"Hello, PRISM,\" he says, sitting down at his desk. \"" ,IT-LOOKS-LIKE
-" you beat me here. Give me a moment, please.\" He begins quickly jotting
-a few notes onto a pad." CR>)
+"Perelman walks into the office and" ,SPOTS-ACTIVE-LIGHT " immediately. \"Hello, PRISM,\" he says, sitting down at his desk. \"" ,IT-LOOKS-LIKE " you beat me here. Give me a moment, please.\" He begins quickly jotting a few notes onto a pad." CR>)
 		      (T
 		       <QUEUE .INTERRUPT 1>
 		       <RFALSE>)>)
@@ -1807,99 +1774,61 @@ a few notes onto a pad." CR>)
 			    <PRSO? ,ME>>
 		       <COND (<PRSI? ,MY-NAME>
 			      <TELL
-"Perelman looks thoughtful. \"I never mentioned where 'PRISM' comes from?
-There are so many things I want to talk to you about; perhaps, soon, I'll
-have more time...|
+"Perelman looks thoughtful. \"I never mentioned where 'PRISM' comes from? There are so many things I want to talk to you about; perhaps, soon, I'll have more time...|
 |
-\"Well, officially it's an acronym for Perelman-Randu Introductory
-Soliptic Machine. But we came up with that only after I'd already
-named you PRISM. It actually comes from a couple of different poems
--- I think they're in a file somewhere in your ">
+\"Well, officially it's an acronym for Perelman-Randu Introductory Soliptic Machine. But we came up with that only after I'd already named you PRISM. It actually comes from a couple of different poems -- I think they're in a file somewhere in your ">
 			      <PRINTD ,LIBRARY-MODE>
 			      <TELL ".\"" CR>)
 			     (<PRSI? ,PERELMAN ,YOURSELF>
 			      <TELL
-"Perelman looks introspective and twiddles a pencil around aimlessly. \"I
-guess you'd have to say I'm a dreamer, a bit of an idealist. Politically, I've
-always been pretty liberal. My genuine sense of the humorous side of life was
-instilled in me, along with the rest of my Jewish heritage, by my grandfather
--- my mother's father.|
+"Perelman looks introspective and twiddles a pencil around aimlessly. \"I guess you'd have to say I'm a dreamer, a bit of an idealist. Politically, I've always been pretty liberal. My genuine sense of the humorous side of life was instilled in me, along with the rest of my Jewish heritage, by my grandfather -- my mother's father.|
 |
-\"I married a wonderful woman, Leah, a frail little thing who left me a
-widower after giving birth to our daughter, Esther. She's been a wonderful
-daughter; I've always been incredibly proud of her.|
+\"I married a wonderful woman, Leah, a frail little thing who left me a widower after giving birth to our daughter, Esther. She's been a wonderful daughter; I've always been incredibly proud of her.|
 |
-\"Since Leah died, my life has been divided between raising Esther and my
-work at the University, and more recently here at the Project. And lately,
-now that Esther's out on her own, my work has been most of my life.\"" CR>)
+\"Since Leah died, my life has been divided between raising Esther and my work at the University, and more recently here at the Project. And lately, now that Esther's out on her own, my work has been most of my life.\"" CR>)
 			     (<PRSI? ,ESTHER>
 			      <TELL
-"\"Esther is my daughter, my only child. A sweeter and more loving
-child no man could ask for.\"" CR>)
+"\"Esther is my daughter, my only child. A sweeter and more loving child no man could ask for.\"" CR>)
 			     (<PRSI? ,GRIMWOLD>
 			      <TELL
-"\"Grimwold is the head of the psychological team. He helped me design a lot
-of your 'life.' You've met him -- he gave you those Rorschach tests.\"" CR>)
+"\"Grimwold is the head of the psychological team. He helped me design a lot of your 'life.' You've met him -- he gave you those Rorschach tests.\"" CR>)
 			     (<PRSI? ,PLAN>
 			      <TELL
-"\"The Plan. Its full name is the Plan for Renewed National Purpose, a typical
-bit of linguistic obfuscation. A group of politicians and businessmen are
-trying to take advantage of the clamor for change, any kind of change.\"" CR>)
+"\"The Plan. Its full name is the Plan for Renewed National Purpose, a typical bit of linguistic obfuscation. A group of politicians and businessmen are trying to take advantage of the clamor for change, any kind of change.\"" CR>)
 			     (<PRSI? ,RYDER>
 			      <TELL
-"\"Ryder's a Senator from...I'm not sure. Oklahoma? Alabama? Anyway, he's one
-of the big driving forces behind the Plan. Gives speeches about it all the
-time. He introduced the bill to Congress. He's really photogenic, very
-popular. I've got sort of mixed feelings about him.\"" CR>)
+"\"Ryder's a Senator from...I'm not sure. Oklahoma? Alabama? Anyway, he's one of the big driving forces behind the Plan. Gives speeches about it all the time. He introduced the bill to Congress. He's really photogenic, very popular. I've got sort of mixed feelings about him.\"" CR>)
 			     (<PRSI? ,RANDU>
 			      <TELL
-"\"Aseejh and I have been working together since we met at Rockvil U. nearly
-twenty years ago. He did virtually all of the technical design that made you
-possible. He's a terrific guy. I've been meaning to get you a communications
-outlet in his office -- I think you'd be good friends.\"" CR>)
+"\"Aseejh and I have been working together since we met at Rockvil U. nearly twenty years ago. He did virtually all of the technical design that made you possible. He's a terrific guy. I've been meaning to get you a communications outlet in his office -- I think you'd be good friends.\"" CR>)
 			     (<PRSI? ,GOLD>
 			      <TELL
-"\"Vera Gold is the Chief Administrator for the entire PRISM Project. She was
-one of the conditions for getting federal funding several years ago. A more
-officious and incompetent woman has yet to be born. Her only talent is making
-herself look good.|
+"\"Vera Gold is the Chief Administrator for the entire PRISM Project. She was one of the conditions for getting federal funding several years ago. A more officious and incompetent woman has yet to be born. Her only talent is making herself look good.|
 |
-\"Technically, she's my boss, but I've tried to distance the research
-team from her as much as possible. It's been getting more and
-more difficult, though.\"" CR>)
+\"Technically, she's my boss, but I've tried to distance the research team from her as much as possible. It's been getting more and more difficult, though.\"" CR>)
 			     (<PRSI? ,PRICE>
 			      <TELL
-"\"Alyson? She's my administrative assistant. I can't say
-enough good things about her.\"" CR>)
+"\"Alyson? She's my administrative assistant. I can't say enough good things about her.\"" CR>)
 			     (<PRSI? ,FORTZMAN>
 			      <TELL "\"Fortzman...">
 			      <PRINTD ,FORTZMAN>
 			      <TELL
-"...the name is vaguely familiar. I think she heads some prestigious
-conservative think-tank out on the west coast.\"" CR>)
+"...the name is vaguely familiar. I think she heads some prestigious conservative think-tank out on the west coast.\"" CR>)
 			     (<PRSI? ,WARREN>
 			      <TELL
-"Perelman knits his brow. \"The name is familiar. I hope I'm
-not going senile...oh, right! ">
+"Perelman knits his brow. \"The name is familiar. I hope I'm not going senile...oh, right! ">
 			      <PRINTD ,WARREN>
 			      <TELL
-" is in charge of your peripheral devices. If they ever decide to tack any
-more computers onto you, you'll probably find out about it from her.\"" CR>)
+" is in charge of your peripheral devices. If they ever decide to tack any more computers onto you, you'll probably find out about it from her.\"" CR>)
 			     (<PRSI? ,RESIGNATION>
 			      <TELL
-"\"Oh, ever since Vera Gold became Project Administrator, I threaten
-to resign about twice a week, just to keep her honest. I've never
-actually gone through with it, of course.\"" CR>)
+"\"Oh, ever since Vera Gold became Project Administrator, I threaten to resign about twice a week, just to keep her honest. I've never actually gone through with it, of course.\"" CR>)
 			     (<PRSI? ,MINDEX>
 			      <TELL
-"\"It's some sort of new narcotic that's supposed to be completely safe and
-nonaddictive. You're really asking the wrong person -- I'm pretty square when
-it comes to drugs and stuff.\"" CR>)
+"\"It's some sort of new narcotic that's supposed to be completely safe and nonaddictive. You're really asking the wrong person -- I'm pretty square when it comes to drugs and stuff.\"" CR>)
 			     (<PRSI? ,CLERKMATON>
 			      <TELL
-"\"They're the latest fad in retailing -- cute, little robot
-clerks. I don't think they'll catch on. Of course, I said the
-same thing about joybooths.\"" CR>)
+"\"They're the latest fad in retailing -- cute, little robot clerks. I don't think they'll catch on. Of course, I said the same thing about joybooths.\"" CR>)
 			     ;(<PRSI? ,RAV>
 			      <TELL
 "\"Rav -- you mean, from your simulated childhood? Like many of the characters
@@ -1908,12 +1837,10 @@ in this case, a high school teacher and one of my uncles. Both were people
 whom I liked and respected a lot.\"" CR>)
 			     (<PRSI? ,PARENTS ,CLAVE ,RAV ,FYLA>
 			      <TELL
-"\"Everyone from your simulated childhood was just a composite,
-not based on anyone specifically.">
+"\"Everyone from your simulated childhood was just a composite, not based on anyone specifically.">
 			      <COND (<PRSI? ,PARENTS>
 				     <TELL
-" You don't have any real parents, of course, unless
-you want to count Aseejh and myself.">)>
+" You don't have any real parents, of course, unless you want to count Aseejh and myself.">)>
 			      <TELL "\"" CR>)
 			     (<PRSI? ,CC-PRINTOUT>
 			      <TELL "\"Nothing important.\"" CR>)
@@ -1930,8 +1857,7 @@ you want to count Aseejh and myself.">)>
 		       <V-NO>)
 		      (T
 		       <TELL
-"Perelman smiles warmly. \"PRISM, I'd love to chat, but I've got a stack of
-paperwork you could lose a skybus in.\"" CR>
+"Perelman smiles warmly. \"PRISM, I'd love to chat, but I've got a stack of paperwork you could lose a skybus in.\"" CR>
 		       <CLEAR-BUF>)>)
 	       (<VERB? THANK>
 		<COND (<IN? ,RYDER ,OFFICE>
@@ -1960,8 +1886,7 @@ paperwork you could lose a skybus in.\"" CR>
 		       <RTRUE>)
 		      (<IN? ,GRIMWOLD ,HERE>
 		       <TELL
-"Perelman looks a bit annoyed. \"PRISM, talk to me later.
-This test is very important!\"" CR>
+"Perelman looks a bit annoyed. \"PRISM, talk to me later. This test is very important!\"" CR>
 		       <RTRUE>)>
 		;"next clause for case where there's a 2nd command to Abe"
 		<COND (<VISIBLE? ,PERELMAN>
@@ -1978,9 +1903,7 @@ This test is very important!\"" CR>
 "2071 score: " N ,2071-SCORE " (minimum = 40)" CR
 "2081 score: " N ,2081-SCORE " (minimum = 14)" CR>)>
 		<TELL
-"Perelman looks intrigued. \"You've recorded something interesting, eh?
-Let me get a few of my colleagues together, and we'll view the buffer.
-I'll let you know when we're done, okay?\" He leaves the room." CR>)
+"Perelman looks intrigued. \"You've recorded something interesting, eh? Let me get a few of my colleagues together, and we'll view the buffer. I'll let you know when we're done, okay?\" He leaves the room." CR>)
 	       (<VERB? EXAMINE> ;"description of interviewer from story"
 		<TELL
 "Perelman is an older man, in his late fifties, and has a white goatee." CR>)>>
@@ -2000,13 +1923,10 @@ I'll let you know when we're done, okay?\" He leaves the room." CR>)
 		<QUEUE I-CAFETERIA -1>)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"From this communication outlet, located in an upper corner of
-this high-ceilinged room, you can see most of the huge PRISM
-Facility dining hall. ">
+"From this communication outlet, located in an upper corner of this high-ceilinged room, you can see most of the huge PRISM Facility dining hall. ">
 		<CAFETERIA-TABLE-DESC>
 		<TELL
-" Through the tall glass windows of the cafeteria you can see the
-well-manicured lawns">
+" Through the tall glass windows of the cafeteria you can see the well-manicured lawns">
 		<COND (<OR <G? ,TIME 1103> ;"6:23pm"
 			   <L? ,TIME 348>>
 		       <TELL ", lit by powerful floodlights,">)>
@@ -2057,9 +1977,7 @@ well-manicured lawns">
 		<TELL "This is the access area where ">
 		<PRINTD ,SABOTEURS>
 		<TELL
-" can service the machinery that makes up the bulk of your physical
-presence. The room is immaculately clean and well lit. As you swivel
-your receptors, you can see the ">
+" can service the machinery that makes up the bulk of your physical presence. The room is immaculately clean and well lit. As you swivel your receptors, you can see the ">
 		<PRINTD ,AIR-CONDITIONING-UNIT>
 		<TELL " that cools your processors, the ">
 		<PRINTD ,LIBRARY-UNIT>
@@ -2141,8 +2059,7 @@ your receptors, you can see the ">
 <ROUTINE NEWS-F (RARG "AUX" (WAIT-KLUDGE <>))
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Your visual and audio circuits are now hooked directly to the programming
-of the World News Network:">)
+"Your visual and audio circuits are now hooked directly to the programming of the World News Network:">)
 	       (<EQUAL? .RARG ,M-END>
 		<COND (<AND <EQUAL? ,TIME 0>
 			    ,CLOCK-WAIT>
@@ -2155,33 +2072,19 @@ of the World News Network:">)
 		       <SETG HERE ,COMM-ROOM>
 		       <MOVE ,PLAYER ,COMM-ROOM>
 		       <TELL
-"\"PRISM, the supercomputer who exposed the Ryder scandal, will soon be
-granted his final request: to live out the remainder of his days -- and how
-long that might be, nobody knows -- simulating his human existence. PRISM, who
-recently received the Congressional Medal of Honor as well as a citation from
-President Bowden, has been spending much of his time in simulations, giving
-top grades to the administration's new program to replace the discredited
-Plan.|
+"\"PRISM, the supercomputer who exposed the Ryder scandal, will soon be granted his final request: to live out the remainder of his days -- and how long that might be, nobody knows -- simulating his human existence. PRISM, who recently received the Congressional Medal of Honor as well as a citation from President Bowden, has been spending much of his time in simulations, giving top grades to the administration's new program to replace the discredited Plan.|
 |
-\"At a press conference in Rockvil, Doctor Abraham Perelman, one of the
-creators of PRISM, insisted that the world's first intelligent machine was, in
-fact, quite human.\" The picture cuts to Perelman, standing behind a podium.
-\"His body may be silicon and steel,\" Perelman is saying, \"but in his heart
-he's as human as anyone I've ever met. As PRISM prepares to embark on his
-final voyage of the mind, I'd like to read a line from 'Hamlet' as his
-epitaph, so to speak: 'He was a man, take him for all in all, I shall not
-look upon his like again.'\"|
+\"At a press conference in Rockvil, Doctor Abraham Perelman, one of the creators of PRISM, insisted that the world's first intelligent machine was, in fact, quite human.\" The picture cuts to Perelman, standing behind a podium.
+ \"His body may be silicon and steel,\" Perelman is saying, \"but in his heart he's as human as anyone I've ever met. As PRISM prepares to embark on his final voyage of the mind, I'd like to read a line from 'Hamlet' as his epitaph, so to speak:
+ 'He was a man, take him for all in all, I shall not look upon his like again.'\"|
 |
-The image from the WNN Feed suddenly blinks off, and you find yourself
-back at the entry level of ">
+The image from the WNN Feed suddenly blinks off, and you find yourself back at the entry level of ">
 		       <PRINTD ,COMM-MODE>
 		       <TELL
-". The list of outlets indicates that none are currently active.
-A message is coming in: \"PRISM, programming of the ">
+". The list of outlets indicates that none are currently active. A message is coming in: \"PRISM, programming of the ">
 		       <PRINTD ,SIMULATION-CONTROLLER>
 		       <TELL
-" with the parameters of the New Plan is complete. Everything
-is set for you to enter ">
+" with the parameters of the New Plan is complete. Everything is set for you to enter ">
 		       <PRINTD ,SIMULATION-MODE>
 		       <TELL
 ". From all of us here at the PRISM Project, thanks and farewell.\"" CR>)
@@ -2213,9 +2116,7 @@ is set for you to enter ">
 		      (<EQUAL? ,DATE 18>
 		       <COND (<EQUAL? ,FEED-BUFFER ,REPORT-BUFFER>
 			      <TELL
-"WNN is covering the funeral of Chinese Prime Minister Hung Hua-Tsing,
-alternating with documentaries on modern day China and videographies
-of the man who led the world's most populous nation for fourteen years." CR>)
+"WNN is covering the funeral of Chinese Prime Minister Hung Hua-Tsing, alternating with documentaries on modern day China and videographies of the man who led the world's most populous nation for fourteen years." CR>)
 			     (T
 			      <TELL ,TECHNICAL-DIFFICULTIES CR>)>)
 		      (<EQUAL? ,DATE 19>
