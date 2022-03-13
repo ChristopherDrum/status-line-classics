@@ -310,7 +310,7 @@ Release " N .V " for Status Line on the Pico-8 / Serial number ">
 	 <DIROUT ,D-RECORD-OFF>
 	 <RTRUE>>
 
-;<ROUTINE V-$CHEAT ()
+<ROUTINE V-$CHEAT ()
 	 <COND (<NOT <PRSO? ,INTNUM>>
 		<TELL "Try $CHEAT 1, 2 or 3." CR>)
 	       (<EQUAL? ,P-NUMBER 1>
@@ -363,7 +363,7 @@ Release " N .V " for Status Line on the Pico-8 / Serial number ">
 	       (T
 		<SETG DEBUG T>
 		<TELL "Debugging on." CR>)>>
-
+
 ;"subtitle real verbs"
 
 <ROUTINE V-ABORT ()

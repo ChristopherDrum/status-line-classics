@@ -501,8 +501,10 @@
 	 <CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT> 1>
 	 ;"the -1 above keeps the cursor from overprinting the 1st character"
 	 <TELL ">">
-	 <CURSET 7 27>
-	 <TELL "pg" N <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT> "/" N <GET ,COLUMN-TABLE .CNT>>
+	 <CURSET 6 28>
+	 <TELL "page">
+	 <CURSET 7 29>
+	 <TELL N <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT> "/" N <GET ,COLUMN-TABLE .CNT>>
 	
 	<COND (.FULL-REFRESH
 	 <CURSET 9 1>
@@ -596,7 +598,7 @@ D ,CURRENT-DIRECTORY " opened. Current file is " D ,CURRENT-FILE "." CR>)
 			     ,CURRENT-FILE>
 			<CRLF>
 			<PERFORM ,V?READ ,CURRENT-FILE>
-			<TELL "-END OF FILE-" CR CR>)
+			<TELL "---------- end of file ---------" CR CR>)
 		       (T
 			;<COND (,DEBUG
 			       <TELL "[CHARACTER VALUE = " N .X "]" CR>)>
@@ -1021,7 +1023,7 @@ sample size: 3812;acc: +/- 1.2%)|
 |
 Overall opinion of the Plan,|
 entire sample:|
-                     Dec.  Feb.|
+                     Dec.   Feb.|
  STRONGLY IN FAVOR   54.9  63.7|
  IN FAVOR            21.2  22.7|
  DON'T CARE          10.3   5.0|
@@ -1029,7 +1031,7 @@ entire sample:|
  STRONGLY OPPOSED     7.0   7.8|
 |
 Percent \"in favor\" or \"strongly in favor\" of the Plan, demographically:|
-                     Dec.  Feb.|
+                     Dec.   Feb.|
  CONSERVATIVES       78.1  87.6|
  LIBERALS            73.3  84.7|
 |
@@ -1041,7 +1043,7 @@ Percent \"in favor\" or \"strongly in favor\" of the Plan, demographically:|
  INCOME > $100K      76.4  86.7|
 |
 Composite average of opinions of individual Plan elements, entire sample:|
-                     Dec.  Feb.|
+                     Dec.   Feb.|
  STRONGLY IN FAVOR   15.8  15.0|
  IN FAVOR            18.7  17.8|
  DON'T CARE          30.5  31.8|
