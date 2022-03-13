@@ -211,8 +211,7 @@
 	 <COND (<AND <EQUAL? ,HERE ,ROCKVIL-REFORMATORY>
 		     <VERB? EXAMINE>>
 		<TELL
-"Huge monolithic walls, topped with guardposts and barbed wire,
-separate this entrance area from the prison proper." CR>)>>
+"Huge monolithic walls, topped with guardposts and barbed wire, separate this entrance area from the prison proper." CR>)>>
 
 <OBJECT CEILING
 	(LOC GLOBAL-OBJECTS)
@@ -654,16 +653,13 @@ separate this entrance area from the prison proper." CR>)>>
 	       (<VERB? EXAMINE>
 		<COND (<NOT ,SIMULATING>
 		       <TELL
-"How can you look at yourself? You're spread out through many rooms in
-several buildings, most of which don't have communication outlets!" CR>)
+"How can you look at yourself? You're spread out through many rooms in several buildings, most of which don't have communication outlets!" CR>)
 		      (<EQUAL? ,SYEAR 2081>
 		       <TELL
-"Through your torn clothes you can see malnutrition sores
-on your thin, bony arms." CR>)
+"Through your torn clothes you can see malnutrition sores on your thin, bony arms." CR>)
 		      (<EQUAL? ,SYEAR 2071>
 		       <TELL
-"Your clothes are frayed, and your skin is beginning to show
-the wrinkles of your sixty years." CR>)
+"Your clothes are frayed, and your skin is beginning to show the wrinkles of your sixty years." CR>)
 		      (T
 		       <TELL
 "You look much as you always have: a normal, middle-aged male">
@@ -709,8 +705,7 @@ the wrinkles of your sixty years." CR>)
 	       (<VERB? LISTEN>
 		<COND (<EQUAL? ,HERE ,CONTROL-CENTER>
 		       <TELL
-"Even at maximum sensitivity, your aural receptors can't quite
-make out the words of the ">
+"Even at maximum sensitivity, your aural receptors can't quite make out the words of the ">
 		       <PRINTD ,CONVERSATION>
 		       <TELL "." CR>)
 		      (T
@@ -787,8 +782,7 @@ make out the words of the ">
 		<DO-WALK ,P?OUT>)
 	       (<VERB? WALK-AROUND>
 		<TELL
-"Walking around the room reveals nothing new. To move elsewhere, just type
-the desired direction." CR>)
+"Walking around the room reveals nothing new. To move elsewhere, just type the desired direction." CR>)
 	       (<VERB? WASH>
 		<COND (<IN-APARTMENT?>
 		       <COND (,APARTMENT-RAID-FLAG
@@ -844,8 +838,7 @@ the desired direction." CR>)
 		<CANT-SEE ,STREET>)
 	       (<VERB? CROSS>
 		<TELL
-"That's not useful; anything you could do or see
-there, you can do or see here." CR>)
+"That's not useful; anything you could do or see there, you can do or see here." CR>)
 	       (<VERB? FOLLOW>
 		<V-WALK-AROUND>)>>
 
@@ -1028,8 +1021,8 @@ there, you can do or see here." CR>)
 	(DESC "Silver Dove")
 	(SYNONYM DOVE)
 	(ADJECTIVE SILVER)>
-
-"generic routines"
+
+;"generic routines"
 
 <ROUTINE GENERIC-APARTMENT-F ()
 	 ,APARTMENT-OBJECT>
@@ -1130,7 +1123,7 @@ there, you can do or see here." CR>)
 		,CHURCH-OFFICIAL)
 	       (T
 		,GOVERNMENT-OFFICIAL)>>
-
+
 ;"Rockvil local-globals and shared stuff"
 
 <OBJECT ROCKVIL-OBJECT
@@ -1184,8 +1177,7 @@ there, you can do or see here." CR>)
 		      (<EQUAL? ,SYEAR 2071>
 		       <TELL " almost abusively">)>
 		<TELL
-" informs you that you don't have enough funds in your account to cover the $"
-N .AMOUNT " cost of">
+" informs you that you don't have enough funds in your account to cover the $" N .AMOUNT " cost of">
 		<ARTICLE .ITEM T>
 		<TELL "." CR>
 		<RTRUE>)
@@ -1197,8 +1189,7 @@ N .AMOUNT " cost of">
 	 <TELL ". After a moment,">
 	 <ARTICLE ,SPEAR-CARRIER T>
 	 <TELL
-" returns your card, informing you that your account has been debited for $"
-N .AMOUNT " and that your new balance is $" N ,CREDIT>>
+" returns your card, informing you that your account has been debited for $" N .AMOUNT " and that your new balance is $" N ,CREDIT>>
 
 <ROUTINE VENDING (VENDOR ITEM AMOUNT)
 	 <TELL "You insert your card into the ">
@@ -1219,8 +1210,7 @@ N .AMOUNT " and that your new balance is $" N ,CREDIT>>
 <ROUTINE CLOSING-TIME (TIME LOC-STRING ACTOR-STRING NEW-LOC)
 	 <COND (<G? ,STIME .TIME>
 		<TELL CR
-"An announcement heralds the closing of " .LOC-STRING
-" for the evening, and " .ACTOR-STRING " shows you to the exit." CR CR>
+"An announcement heralds the closing of " .LOC-STRING " for the evening, and " .ACTOR-STRING " shows you to the exit." CR CR>
 		<COND (<EQUAL? ,HERE ,JOYBOOTH>
 		       <MOVE ,HEADSET ,HERE>
 		       <FSET ,HEADSET ,NDESCBIT>
@@ -1234,8 +1224,7 @@ N .AMOUNT " and that your new balance is $" N ,CREDIT>>
 	 <COND (<AND <G? ,STIME 1200>
 		     <NOT <EQUAL? ,SYEAR 2041>>>
 		<TELL CR
-"Someone calls out something about \"getting late\" and \"we gotta
-close up.\" You follow everyone out." CR CR>
+"Someone calls out something about \"getting late\" and \"we gotta close up.\" You follow everyone out." CR CR>
 		<MOVE ,BEER ,LOCAL-GLOBALS>
 		<GOTO .NEW-LOC>
 		<RTRUE>)
@@ -1291,9 +1280,7 @@ close up.\" You follow everyone out." CR CR>
 		<SETG BRUISED T>
 		<SCORE 98> ;"3 points"
 		<TELL
-"As soon as you enter, two thugs in security uniforms beat you up and drag
-you out to the gutter. They laugh with mindless glee before returning to
-the building." CR>)
+"As soon as you enter, two thugs in security uniforms beat you up and drag you out to the gutter. They laugh with mindless glee before returning to the building." CR>)
 	       (T
 		<PUTP ,SPEAR-CARRIER ,P?SDESC "security guard">
 		<SETG FOLLOW-FLAG 9>
@@ -1315,8 +1302,7 @@ the building." CR>)
 	 <COND (<EQUAL? ,SYEAR 2071>
 		<SCORE 98> ;"3 points"
 		<TELL
-"As soon as you enter, a guard clubs you and tosses you out onto the
-sidewalk. Passersby look away, giving you a wide berth." CR>)
+"As soon as you enter, a guard clubs you and tosses you out onto the sidewalk. Passersby look away, giving you a wide berth." CR>)
 	       (T
 		<PUTP ,SPEAR-CARRIER ,P?SDESC "doorman">
 		<SETG FOLLOW-FLAG 9>
@@ -1335,13 +1321,11 @@ sidewalk. Passersby look away, giving you a wide berth." CR>)
 
 <ROUTINE DESCRIBE-APARTMENT-VESTIBULE (IN-DIR OUT-DIR)
 	 <TELL
-"You are in the vestibule of a typical high-rise city apartment building.
-A wide expanse of labelled buzzers and tiny mailboxes fills one wall. ">
+"You are in the vestibule of a typical high-rise city apartment building. A wide expanse of labelled buzzers and tiny mailboxes fills one wall. ">
 	 <COND (<EQUAL? ,SYEAR 2061 2071>
 		<SCORE 0> ;"2 points"
 		<TELL
-"The mailboxes have been extensively vandalized, and graffiti is
-sprayed across every surface. ">)>
+"The mailboxes have been extensively vandalized, and graffiti is sprayed across every surface. ">)>
 	 <COND (<EQUAL? ,SYEAR 2071>
 		<TELL
 "Shattered glass doors, held together by cheap wooden boards,">)
@@ -1486,8 +1470,7 @@ and an occasional neatly-typed slip.">
 			   <AND <EQUAL? ,HERE ,RED-TUBECAR ,BROWN-TUBECAR>
 				<EQUAL? ,SYEAR 2051>>>
 		       <TELL
-"The graffiti is ugly but inoffensive, mostly various
-names and initials." CR>)
+"The graffiti is ugly but inoffensive, mostly various names and initials." CR>)
 		      (<EQUAL? ,HERE ,ELM-UNDERPASS>
 		       <TELL "\"Chinks Get Lost.\"" CR>)
 		      (T
@@ -1544,7 +1527,7 @@ names and initials." CR>)
 	       (<EQUAL? ,HERE ,CONSTRUCTION-SITE-1>
 		<TELL
 "  \"First Continent Bank Building|
-   6,000 sq. meters of office space|
+   6,000 m2 of office space|
    Opening September 1, 2042\"" CR>)
 	       (<EQUAL? ,HERE ,CONSTRUCTION-SITE-2>
 		<TELL "    ">
@@ -1556,8 +1539,7 @@ names and initials." CR>)
 	             <EQUAL? ,SYEAR 2081>>
 	        <SCORE 38> ;"6 points"
 		<TELL
-"\"Buxton/Briggs territory begins here. Outsiders will be
-killed on sight.\"" CR>)
+"\"Buxton/Briggs territory begins here. Outsiders will be killed on sight.\"" CR>)
 	       (<EQUAL? ,HERE ,SOUTHWAY-AND-PARK ,MAIN-AND-WICKER>
 		<TELL "\"Rations for ">
 		<COND (<EQUAL? <MOD ,SDATE 3> 0>
@@ -1655,8 +1637,7 @@ killed on sight.\"" CR>)
 	       (<AND <EQUAL? ,HERE ,MASTER-BEDROOM>
 		     <VERB? LOOK-INSIDE>>
 		<TELL
-"The windows are set into the upper part of the wall; all you can see
-is a sunny sky." CR>)
+"The windows are set into the upper part of the wall; all you can see is a sunny sky." CR>)
 	       (<AND <EQUAL? ,HERE ,SKYCAB>
 		     <VERB? LOOK-INSIDE>>
 		<TELL "Rockvil continues to glide by below you:" CR>)>>
@@ -1762,8 +1743,7 @@ is a sunny sky." CR>)
 	       (<AND <VERB? PUT PUT-ON>
 		     <PRSI? ,GLOBAL-TABLE>>
 		<TELL
-"It's a bad idea to leave things around in a place like this -- they're
-liable to disappear." CR>)>>
+"It's a bad idea to leave things around in a place like this -- they're liable to disappear." CR>)>>
 
 <OBJECT PARK-OBJECT
 	(LOC LOCAL-GLOBALS)
@@ -1790,9 +1770,7 @@ liable to disappear." CR>)>>
 	       (<EQUAL? ,HERE ,SKYCAB>
 		<COND (<VERB? EXAMINE>
 		       <TELL
-"You can see a festival of some sort in Halley Park. The gold and crimson
-tents of the festival form a multicolored patchwork against the green
-background of the city's oldest park." CR>)
+"You can see a festival of some sort in Halley Park. The gold and crimson tents of the festival form a multicolored patchwork against the green background of the city's oldest park." CR>)
 		      (T
 		       <MILE-AWAY ,PARK-OBJECT>)>)
 	       (<VERB? EXAMINE>
@@ -2392,8 +2370,7 @@ background of the city's oldest park." CR>)
 	       (<AND <VERB? COUNT>
 		     <EQUAL? ,HERE ,SKYCAR-FACTORY>>
 		<TELL
-"There are too many cars to count, but you can easily see
-that this huge parking lot is ">
+"There are too many cars to count, but you can easily see that this huge parking lot is ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL "nearly full">)
 		      (<EQUAL? ,SYEAR 2051>
@@ -2479,8 +2456,7 @@ that this huge parking lot is ">
 		       <CANT-SEE ,CHILDREN>)
 		      (<VERB? EXAMINE>
 		       <TELL
-"The children are all uniformed and are wearing pendants with the symbol
-of the Church." CR>)>)>>
+"The children are all uniformed and are wearing pendants with the symbol of the Church." CR>)>)>>
 
 <OBJECT WOMAN
 	(LOC LOCAL-GLOBALS)
@@ -2524,8 +2500,7 @@ of the Church." CR>)>)>>
 	       (<VERB? BUY>
 		<COND (<EQUAL? ,HERE ,SIMONS ,THE-COACHMAN ,ROYS-PAGODA>
 		       <TELL
-"The waiter brings a glass of cold water. After drinking it,
-the glass is cleared away." CR>)
+"The waiter brings a glass of cold water. After drinking it, the glass is cleared away." CR>)
 		      (<EQUAL? ,HERE ,BAR ,EZZIS-BAR>
 		       <TELL
 "The bartender snorts. \"You want water, find a lake!\"" CR>)
@@ -2583,8 +2558,7 @@ the glass is cleared away." CR>)
 		<TELL "An unclimbable fence surrounds the reservoir." CR>)
 	       (<VERB? EXAMINE>
 		<TELL
-"The tall fence prevents you from approaching the reservoir. All you can see
-is a wide expanse of calm water." CR>)>>
+"The tall fence prevents you from approaching the reservoir. All you can see is a wide expanse of calm water." CR>)>>
 
 <ROUTINE RIVER-ENTER-F ()
 	 <PERFORM ,V?BOARD ,RIVER>
@@ -2604,9 +2578,7 @@ is a wide expanse of calm water." CR>)>>
 		       	      <TELL "T" ,RIVER-DESC CR>)
 			     (T
 			      <TELL
-"The river is dotted with sailboats, and a tourboat is just
-pulling away from the pier for a daytrip upriver, through Montana
-to the Devil's Tower region of Wyoming. ">
+"The river is dotted with sailboats, and a tourboat is just pulling away from the pier for a daytrip upriver, through Montana to the Devil's Tower region of Wyoming. ">
 			      <PERFORM ,V?EXAMINE ,CULTURAL-CENTER>
 			      <RTRUE>)>)
 		      (T
@@ -2802,7 +2774,7 @@ to the Devil's Tower region of Wyoming. ">
 	 	<TELL <GETP .MODE, P?MICRO-DESC>>
 		<COND (,RECORDING
 		       <SETG L-RECORDING T>
-		       <TELL "(rec)">)
+		       <TELL "(REC)">)
 		      (T
 		       <SETG L-RECORDING <>>)>
 		<SETG L-MODE ,MODE>
@@ -2977,9 +2949,7 @@ to the Devil's Tower region of Wyoming. ">
 
 <ROUTINE DISCONNECTED ()
 	 <TELL
-"? Per Project regulations, I have no choice but to shut down your
-conscious-level processors while we reevaluate your psychological makeup.
-I...I don't know what else to say.\" You feel your senses begin to ebb..." CR>
+"? Per Project regulations, I have no choice but to shut down your conscious-level processors while we reevaluate your psychological makeup. I...I don't know what else to say.\" You feel your senses begin to ebb..." CR>
 	 <FINISH>>
 
 <ROUTINE MILE-AWAY (OBJ)
@@ -3014,8 +2984,7 @@ I...I don't know what else to say.\" You feel your senses begin to ebb..." CR>
 
 <ROUTINE CLOTHES-BUDGET ()
 	 <TELL
-"You've already strained your clothes budget; Jill would have your hide
-if you spent more." CR>>
+"You've already strained your clothes budget; Jill would have your hide if you spent more." CR>>
 
 <ROUTINE FURNITURE-REMOVED ()
 	 <TELL "All the furniture has been removed!" CR>>
@@ -3047,9 +3016,7 @@ if you spent more." CR>>
 "The bartender yells out, \"Hey buster, you can't leave with that mug!\"">
 
 <GLOBAL SHOT-ON-SIGHT
-"The gates of the estate are all locked; besides, the grounds are certainly
-thoroughly guarded, and you'd be shot on sight if you were found within
-the walls.">
+"The gates of the estate are all locked; besides, the grounds are certainly thoroughly guarded, and you'd be shot on sight if you were found within the walls.">
 
 <GLOBAL MESSAGE-LINE "A message begins coming over the message line: ">
 
@@ -3066,8 +3033,7 @@ the walls.">
 "our head throbs from the blow you took during the mugging.">
 
 <GLOBAL RIVER-DESC
-"o the south, the river bends around Rockvil before flowing
-upcountry toward North Dakota and the Garrison Lakes.">
+"o the south, the river bends around Rockvil before flowing upcountry toward North Dakota and the Garrison Lakes.">
 
 <GLOBAL NO-TICKET "You don't have a ticket.">
 
@@ -3077,24 +3043,19 @@ upcountry toward North Dakota and the Garrison Lakes.">
 <GLOBAL PRIVATE-LINE "\"Perelman to PRISM, private line, no storage: ">
 
 <GLOBAL FINISHED-VIEWING
-". \"PRISM, several of my colleagues and I have finished viewing the
-recordings that you made, and ">
+". \"PRISM, several of my colleagues and I have finished viewing the recordings that you made, and ">
 
 <GLOBAL MAYBE-MORE
-". Maybe you could collect some more data, make some more recordings,
-and then report back to us. Well, I've got to run, but I'll talk to
-you later.\" He leaves the room.">
+". Maybe you could collect some more data, make some more recordings, and then report back to us. Well, I've got to run, but I'll talk to you later.\" He leaves the room.">
 
 <GLOBAL CHUN-DESC
 "On the northeast corner is the Chun Building, a small office building.">
 
 <GLOBAL OFFICIAL-LEAVES
-". Suddenly he glances at his watch, mumbles a polite parting
-message, and hurries away.">
+". Suddenly he glances at his watch, mumbles a polite parting message, and hurries away.">
 
 <GLOBAL TECHNICAL-DIFFICULTIES
-"All you see is a static test pattern, with the message \"We are experiencing
-technical difficulties -- please stand by.\"">
+"All you see is a static test pattern, with the message \"We are experiencing technical difficulties -- please stand by.\"">
 
 <GLOBAL AQUARIUM-SMELL
 "A rotten odor, possibly of dead fish, hangs in the air.">
@@ -3102,15 +3063,12 @@ technical difficulties -- please stand by.\"">
 <GLOBAL STOOL-DESC ". Battered wooden stools are the only seating. ">
 
 <GLOBAL PRACTICAL-JOKE
-". If this is your idea of a practical joke, it isn't very funny. We're pretty
-overworked around here as it is.\" He stalks out of the room.">
+". If this is your idea of a practical joke, it isn't very funny. We're pretty overworked around here as it is.\" He stalks out of the room.">
 
 <ROUTINE PERELMAN-WALKS-IN-WITH-COFFEE ()
 	 <COND (<EQUAL? ,HERE ,OFFICE>
 		<TELL CR
-"Doctor Perelman walks into the office carrying a cup of coffee. He sits down
-at his desk, places the coffee mug almost out of sight below your monitor, and
-begins working." CR>
+"Doctor Perelman walks into the office carrying a cup of coffee. He sits down at his desk, places the coffee mug almost out of sight below your monitor, and begins working." CR>
 		<RTRUE>)>
 	 <RFALSE>>
 
@@ -3125,9 +3083,7 @@ begins working." CR>
 "Please meet me at the communications outlet in my office right away.\"">
 
 <GLOBAL RS-DESC
-"ou can make out the gleaming surface of the receiver station, nestled among
-the forests west of the city, where orbiting solar collectors beam their
-precious energy.">
+"ou can make out the gleaming surface of the receiver station, nestled among the forests west of the city, where orbiting solar collectors beam their precious energy.">
 
 <GLOBAL CURRENT-FISCAL "ed during current fiscal year:  ">
 
@@ -3136,36 +3092,27 @@ precious energy.">
 <GLOBAL CHANGE-AGENTS ". I don't know why you don't change agents.\"">
 
 <GLOBAL BOB-WILLIAMS
-"\"This is the World News Network. I'm Bob Williams, and here are some
-of the top stories we're covering today: ">
+"\"This is the World News Network. I'm Bob Williams, and here are some of the top stories we're covering today: ">
 
 <GLOBAL NEWSMAKER-NOOK
-"\"You're watching the World News Network, and today our guest on the
-Newsmaker Nook is ">
+"\"You're watching the World News Network, and today our guest on the Newsmaker Nook is ">
 
 <GLOBAL WALLY-THE-WEATHERMAN
-"\"Here's Wally the Weatherman with the national forecast. Wally?\" The
-camera pans to a cheery, rotund man standing before a huge weather map of
-North America. \"Thanks, Bob. ">
+"\"Here's Wally the Weatherman with the national forecast. Wally?\" The camera pans to a cheery, rotund man standing before a huge weather map of North America. \"Thanks, Bob. ">
 
 <GLOBAL TOM-SLAYTON
-"\"Here's Tom Slayton with the Sports Roundup. Tom?\" A massively-built man,
-obviously an ex-jock, appears in front of a graphic of a foot kicking a soccer
-ball. His voice has a friendly, midwestern drawl. \"Howdy, sports fans. ">
+"\"Here's Tom Slayton with the Sports Roundup. Tom?\" A massively-built man, obviously an ex-jock, appears in front of a graphic of a foot kicking a soccer ball. His voice has a friendly, midwestern drawl. \"Howdy, sports fans. ">
 
 <GLOBAL FOUNTAIN-DESC
-"The ornate fountain in the center of the park is dry and covered
-with graffiti.">
+"The ornate fountain in the center of the park is dry and covered with graffiti.">
 
 <GLOBAL MOVIE-TITLE " THE MAN WHO COULDN'T BE KILLED. ">
 
 <GLOBAL MY-WEEK
-"\"You don't have to help,\" says Jill, blowing you a kiss.
-\"It's my week.\"">
+"\"You don't have to help,\" says Jill, blowing you a kiss. \"It's my week.\"">
 
 <GLOBAL DESK-DESC
-"Perelman's desk is covered with a number of items, including a decoder,
-a map of the city, a ball-point pen, and a printout of a magazine article">
+"Perelman's desk is covered with a number of items, including a decoder, a map of the city, a ball-point pen, and a printout of a magazine article">
 
 <GLOBAL BOARDED-OVER "The entrance is boarded over.">
 
