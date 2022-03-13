@@ -173,7 +173,7 @@
 <ROUTINE UPDATE-LIBRARY-BOX () ;"update message directory if it's on screen"
 	 <COND (<AND <EQUAL? ,CURRENT-DIRECTORY ,PRISM-MESSAGES-DIRECTORY>
 		     ,CURRENT-FILE>
-		<LIBRARY-BOX>)>
+		<LIBRARY-BOX 0>)>
 	 <RTRUE>>
 
 <ROUTINE SIMULATION-CHECK ()
@@ -453,13 +453,16 @@
 	(SYNONYM ZZMGCK) ;"so RECORD file won't print a NO-PROPERTIES warning"
 	(FLAGS NDESCBIT)>
 
-<ROUTINE LIBRARY-BOX ("AUX" (CNT 4) DIR)
+<ROUTINE LIBRARY-BOX ("OPT" (FULL-REFRESH 1) "AUX" (CNT 4) DIR LC)
 	 <SCREEN ,S-WINDOW>
 	 <BUFOUT <>>
+	 <SET LC 9>
+	 <COND (.FULL-REFRESH
+	 	<SET LC 11>)>
 	 <REPEAT ()
 		 <INVERSE-LINE .CNT>
 		 <SET CNT <+ .CNT 1>>
-		 <COND (<EQUAL? .CNT 11>
+		 <COND (<EQUAL? .CNT .LC>
 			<RETURN>)>>
 	 <HLIGHT 1>
 	 <SET CNT 0>
@@ -470,11 +473,12 @@
 	 <COND (<AND <EQUAL? ,CURRENT-DIRECTORY ,PRISM-MESSAGES-DIRECTORY>
 		     ,CURRENT-FILE>
 		<REPEAT () ;"this kludge puts messages in chronological order"
-		       <CURSET <GET ,LINE-TABLE .CNT> <GET ,COLUMN-TABLE .CNT>>
+		       <CURSET <GET ,LINE-TABLE .CNT> 2>
 		       <REPEAT ()
 			       <COND (<EQUAL? .CNT <GETP .DIR ,P?SIZE>>
-			       	      <TELL D .DIR>
-				      <RETURN>)
+						<COND (<EQUAL? <GET ,COLUMN-TABLE .CNT> <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT>>
+							<TELL D .DIR>)>
+					<RETURN>)
 				     (T
 				      <SET DIR <NEXT? .DIR>>)>>
 		       ;"next clause corrects default for CURRENT-FILE"
@@ -486,28 +490,31 @@
 			      <RETURN>)>>)
 	       (T
 		<REPEAT () ;"this prints the current directories (or files)"
-		       <CURSET <GET ,LINE-TABLE .CNT> <GET ,COLUMN-TABLE .CNT>>
-		 <TELL D .DIR>
-		 <COND (<NEXT? .DIR>
+			<CURSET <GET ,LINE-TABLE .CNT> 2>
+			<COND (<EQUAL? <GET ,COLUMN-TABLE .CNT> <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT>>
+				<TELL D .DIR>)>
+			<COND (<NEXT? .DIR>
 			<SET DIR <NEXT? .DIR>>
 			<SET CNT <+ .CNT 1>>)
-		       (T
+				(T
 			<RETURN>)>>)>
-	 <CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT>
-		 <- <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT> 1>>
+	 <CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT> 1>
 	 ;"the -1 above keeps the cursor from overprinting the 1st character"
 	 <TELL ">">
+	 <CURSET 7 27>
+	 <TELL "pg" N <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT> "/" N <GET ,COLUMN-TABLE .CNT>>
+	
+	<COND (.FULL-REFRESH
 	 <CURSET 9 1>
 	 <COND (,CURRENT-FILE
-		<TELL "(C)lose current directory">
+		<TELL " (C)lose current directory">
 		<CURSET 10 1>
-		<TELL "(N)ext (P)rev (R)ead      (E)xit">)
-	       (T
-		;<TELL "DIR:(O)pen   (N)ext   (P)rev">
+		<TELL " (N)ext (P)rev (R)ead    (E)xit">)
+			(T
+		<TELL " (O)pen selected directory">
 		<CURSET 10 1>
-		<TELL "(N)ext (P)rev (O)pen dir  (E)xit">)>
-	; <TELL "  (E)xit">
-	 ;<PRINTD ,COMM-MODE>
+		<TELL " (N)ext (P)rev           (E)xit">)>)>
+
 	 <SCREEN ,S-TEXT>
 	 <HLIGHT 0>
 	 <BUFOUT T>>
@@ -516,13 +523,13 @@
 	 <SCREEN ,S-WINDOW>
 	 <BUFOUT <>>
 	 <HLIGHT 1>
-	 <CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT>
-		 <- <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT> 1>>
+	 <CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT> 1>
 	 <TELL " "> ;"erase previous highlight cursor">
 
 <ROUTINE NEW-CURSOR ()
-	 <CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT>
-		 <- <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT> 1>>
+	<COND (<N==? <GET ,COLUMN-TABLE ,PREVIOUS-CNT> <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT>>
+			<LIBRARY-BOX 0>)>
+	 <CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT> 1>
 	 <TELL ">"> ;"print the new cursor"
 	 <BUFOUT T>
 	 <SCREEN ,S-TEXT>
@@ -532,6 +539,7 @@
 
 <GLOBAL CURRENT-FILE <>>
 
+<GLOBAL PREVIOUS-CNT 0>
 <GLOBAL HIGHLIGHT-CNT 0> ;"determines where to place the highlight cursor"
 
 <GLOBAL DIRECTORY-CNT <>> ;"preserves information on current directory so that
@@ -543,8 +551,10 @@
 <GLOBAL LINE-TABLE
 	<TABLE 4 5 6 7 4 5 6 7 4 5 6 7>>
 
-<GLOBAL COLUMN-TABLE
+;<GLOBAL COLUMN-TABLE
 	<TABLE 1 1 1 1 12 12 12 12 22 22 22 22>>
+<GLOBAL COLUMN-TABLE
+	<TABLE 1 1 1 1 2 2 2 2 3 3 3 3>>
 
 <ROUTINE-FLAGS CLEAN-STACK?>
 <ROUTINE LIBRARY-ACTION ("AUX" X)
@@ -597,8 +607,9 @@ D ,CURRENT-DIRECTORY " opened. Current file is " D ,CURRENT-FILE "." CR>)
 		 <AGAIN>>
 	 <RTRUE>>
 
-<ROUTINE NEXT-ITEM ("AUX" NEW-MESSAGE)
+<ROUTINE NEXT-ITEM ("AUX" NEW-MESSAGE PREV-CNT)
 	 <ERASE-CURSOR>
+	 <SETG ,PREVIOUS-CNT ,HIGHLIGHT-CNT>
 	 <COND (,CURRENT-FILE
 		<COND (<EQUAL? ,CURRENT-DIRECTORY ,PRISM-MESSAGES-DIRECTORY>
 		       ;"first COND figures out message number of next message"
@@ -634,7 +645,8 @@ D ,CURRENT-DIRECTORY " opened. Current file is " D ,CURRENT-FILE "." CR>)
 
 <ROUTINE PREVIOUS-ITEM ("AUX" ITEM CNT)
 	 <ERASE-CURSOR>
-	 <COND (,CURRENT-FILE
+	 <SETG ,PREVIOUS-CNT ,HIGHLIGHT-CNT>
+ 	 <COND (,CURRENT-FILE
 		<SET ITEM ,CURRENT-FILE>)
 	       (T
 		<SET ITEM ,CURRENT-DIRECTORY>)>
