@@ -1021,18 +1021,26 @@ Grimwold reaches below your viewing area and picks up a sheaf of placards. \"Rea
 "[returning a REVISED-COUNT value of " N .REVISED-COUNT "]" CR>)>
 	 .REVISED-COUNT>
 
+<ROUTINE TEST-INK-BLOT ()
+	<INIT-STATUS-LINE 16>
+	<INK-BLOT>
+>
+
 <ROUTINE INK-BLOT ("AUX" (X 12) (Y 5) (CNT 4) SIDE-OFFSET CENTER-OFFSET CHAR)
 	 <BUFOUT <>>
 	 <SCREEN ,S-WINDOW>
 	 <SET CENTER-OFFSET <RANDOM 4>>
 	 <SET SIDE-OFFSET <RANDOM <- 11 .CENTER-OFFSET>>>
-	 <SET X <+ 0 .SIDE-OFFSET>>
+	 <SET X <+ 5 .SIDE-OFFSET>>
 	 <SET CHAR <RANDOM 3>> ;"1 = blanks, 2 = x's, 3 = angle brackets"
+	 <HLIGHT 1>
 	 <REPEAT ()
-		 <INVERSE-LINE .CNT T>
+		 <CURSET .CNT 4>
+		 <PRINT-SPACES 26>
 		 <SET CNT <+ .CNT 1>>
 		 <COND (<EQUAL? .CNT 17>
 			<RETURN>)>>
+	 <HLIGHT 0>
 	 <COND (<EQUAL? .CHAR 2 3> ;"not blanks"
 		<HLIGHT 1>)>
 	 <REPEAT ()
@@ -1044,7 +1052,7 @@ Grimwold reaches below your viewing area and picks up a sheaf of placards. \"Rea
 				<TELL "X">)
 			       (T
 				<TELL ">">)>
-			 <CURSET .Y <- 32 .X>>
+			 <CURSET .Y <- 33 .X>>
 			 <COND (<EQUAL? .CHAR 1>
 			 	<TELL " ">)
 			       (<EQUAL? .CHAR 2>
@@ -1055,7 +1063,7 @@ Grimwold reaches below your viewing area and picks up a sheaf of placards. \"Rea
 				<RETURN>)
 			       (T
 				<SET X <+ .X 1>>)>>
-		 <COND (<EQUAL? .Y 17>
+		 <COND (<EQUAL? .Y 15>
 			<RETURN>)
 		       (T
 			<COND (<PROB 40>
@@ -1072,10 +1080,10 @@ Grimwold reaches below your viewing area and picks up a sheaf of placards. \"Rea
 			       <SET SIDE-OFFSET 1>)>
 			<COND (<L? .CENTER-OFFSET 0>
 			       <SET CENTER-OFFSET 0>)>
-			<COND (<G? <+ .SIDE-OFFSET .CENTER-OFFSET> 18>
+			<COND (<G? <+ .SIDE-OFFSET .CENTER-OFFSET> 10>
 			       <SET CENTER-OFFSET <- .CENTER-OFFSET 1>>
-			       <SET SIDE-OFFSET <- 18 .CENTER-OFFSET>>)>
-			<SET X <+ 0 .SIDE-OFFSET>>
+			       <SET SIDE-OFFSET <- 10 .CENTER-OFFSET>>)>
+			<SET X <+ 5 .SIDE-OFFSET>>
 			<SET Y <+ .Y 1>>)>>
 	 <COND (<EQUAL? .CHAR 2 3> ;"blanks"
 		<HLIGHT 0>)>
