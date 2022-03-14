@@ -410,8 +410,8 @@
 <ROUTINE LIBRARY-ROOM-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"You have entered Library Mode. Current directory is " D ,CURRENT-DIRECTORY
-". Consult menu for data retrieval." CR>)>>
+"You have entered Library Mode." CR "Current dir: " D ,CURRENT-DIRECTORY CR
+"Consult menu for data retrieval." CR>)>>
 
 <OBJECT LIBRARY-MODE
       (LOC GLOBAL-OBJECTS)
@@ -529,10 +529,13 @@
 	 <TELL " "> ;"erase previous highlight cursor">
 
 <ROUTINE NEW-CURSOR ()
-	<COND (<N==? <GET ,COLUMN-TABLE ,PREVIOUS-CNT> <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT>>
-			<LIBRARY-BOX 0>)>
-	 <CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT> 1>
-	 <TELL ">"> ;"print the new cursor"
+	<COND (<NOT <=? 
+		<GET ,COLUMN-TABLE ,PREVIOUS-CNT> 
+		<GET ,COLUMN-TABLE ,HIGHLIGHT-CNT>>>
+			<LIBRARY-BOX 0>)
+		(ELSE
+			<CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT> 1>
+			<TELL ">"> ;"print the new cursor")>
 	 <BUFOUT T>
 	 <SCREEN ,S-TEXT>
 	 <HLIGHT 0>>
@@ -576,7 +579,7 @@
 			<SETG CURRENT-FILE <>>
 			<SETG HIGHLIGHT-CNT ,DIRECTORY-CNT>
 			<LIBRARY-BOX>
-			<TELL D ,CURRENT-DIRECTORY " is now closed." CR>)
+			<TELL D ,CURRENT-DIRECTORY " closed." CR>)
 		       (<OR <EQUAL? .X 78 110> ;"ASCII values of N and n"
 			    <EQUAL? .X 206 238>>
 			<NEXT-ITEM>)
@@ -592,7 +595,7 @@
 			<SETG CURRENT-FILE <FIRST? ,CURRENT-DIRECTORY>>
 			<LIBRARY-BOX>
 			<TELL
-D ,CURRENT-DIRECTORY " opened. Current file is " D ,CURRENT-FILE "." CR>)
+D ,CURRENT-DIRECTORY " opened.|Current file: " D ,CURRENT-FILE CR>)
 		       (<AND <OR <EQUAL? .X 82 114> ;"ASCII values of R and r"
 				 <EQUAL? .X 210 242>>
 			     ,CURRENT-FILE>
@@ -602,7 +605,7 @@ D ,CURRENT-DIRECTORY " opened. Current file is " D ,CURRENT-FILE "." CR>)
 		       (T
 			;<COND (,DEBUG
 			       <TELL "[CHARACTER VALUE = " N .X "]" CR>)>
-			<ERR "Undefined command; consult menu.">)>
+			<ERR "undefined library command; consult menu above">)>
 		 <INCREMENT-TIME 1>
 		 <CLOCKER>
 		 <STATUS-LINE>
@@ -681,19 +684,19 @@ D ,CURRENT-DIRECTORY " opened. Current file is " D ,CURRENT-FILE "." CR>)
 			      (T
 			       <SET ITEM <NEXT? .ITEM>>
 			       <SET CNT <+ .CNT 1>>)>>)>
-	 <COND (,CURRENT-FILE
+	<COND (,CURRENT-FILE
 		<SETG CURRENT-FILE .ITEM>)
 	       (T
 		<SETG CURRENT-DIRECTORY .ITEM>)>
-	 <NEW-CURSOR>
-	 <TELL-CURRENT>>
+	<NEW-CURSOR>
+	<TELL-CURRENT>>
 
 <ROUTINE TELL-CURRENT ()
 	 <COND (,CURRENT-FILE
-		<TELL "Current file is now " D ,CURRENT-FILE "." CR>)
+		<TELL "Current file: " D ,CURRENT-FILE CR>)
 	       (T
 		<TELL
-"Current directory is now " D ,CURRENT-DIRECTORY "." CR>)>>
+"Current dir: " D ,CURRENT-DIRECTORY CR>)>>
 
 <OBJECT PERELMAN-PERSONAL-DIRECTORY
 	(LOC LIBRARY)
@@ -795,7 +798,7 @@ Your inept, disgraceful and insulting handling of the Phase III Funding Request 
 		<TELL
 " at any time. The Social Science group has come up with a list of things to record:" CR>
 		<REPEAT ()
-			<TELL "   " <GET ,RECORDING-TABLE .CNT> CR>
+			<TELL "  -" <GET ,RECORDING-TABLE-LIST .CNT> CR>
 			<SET CNT <+ .CNT 2>>
 			<COND (<G? .CNT 17>
 			       <RETURN>)>>
@@ -1102,7 +1105,6 @@ The following chart shows the growth of the \"underground\" economy -- income no
 |
           Nonreported   Top Tax|
  Year          Income      Rate|
- ----          ------      ----|
  2014             19%       40%|
  2018             20%       40%|
  2022             23%       45%|
@@ -3978,6 +3980,17 @@ and so on. Here's a list of the minimum times before advancement is possible:
 	       0 "Talking to a church official"
    	       0 "Going to a movie"
    	       0 "Visiting your own home or living quarters">>
+
+<GLOBAL RECORDING-TABLE-LIST
+	<TABLE 0 "Eating a meal in a restaurant"
+	       0 "Talking to a|      government official"
+	       0 "Visiting a power-generating|      facility"
+   	       0 "Reading a newspaper"
+   	       0 "Riding some form of|      public transportation"
+   	       0 "Attending a court in session"
+	       0 "Talking to a church official"
+   	       0 "Going to a movie"
+   	       0 "Visiting your own home or|      living quarters">>
 
 ;"Rorschach Test"
 

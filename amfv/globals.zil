@@ -2907,7 +2907,7 @@ and an occasional neatly-typed slip.">
 
 <ROUTINE ERR (STR "OPTIONAL" (NO-CR <>))
 	 <SOUND 2>
-	 <TELL "ERROR: " .STR>
+	 <TELL "ERR:" .STR>
 	 <COND (<NOT .NO-CR>
 		<CRLF>)>
 	 <RTRUE>>
