@@ -60,7 +60,7 @@
 			      <TELL "You've got no horse to drive it." CR>)
 			     (<EQUAL? ,REAL-FARM ,ROAD ,MARKET>
 			      <MOVE ,HORSE ,REAL-FARM>
-			      <MOVE ,CART ,REAL-FARM>			      
+			      <MOVE ,CART ,REAL-FARM>
 			      <TELL 
 "With the horse pushing rather than pulling the cart, you follow a crooked and bumpy road for some time">
 			      <COND (<OR <EQUAL? ,REAL-FARM ,ROAD>
@@ -71,9 +71,7 @@
 				     <SETG HERE ,MARKET>
 				     <SETG OLD-HERE <>>
 				     <FSET ,MARKET ,TOUCHBIT>
-				     <TELL ". You faintly hear sweet music from a woodwind drifting toward you, and sure enough, around the next bend you come upon a man playing music on a flute. You pull the cart to a rumbling halt, and the horse gives a snort.|
-					 |
-					 Seeing you, the piper plays a short flat note, draws the pipe from his mouth, and takes quick inventory of the wares he is peddling: a cart full of apples, a rumpled canvas bag, and some strong-smelling peppers." CR>
+				     <TELL ". You faintly hear sweet music from a woodwind drifting toward you, and sure enough, around the next bend you come upon a man playing music on a flute. You pull the cart to a rumbling halt, and the horse gives a snort.||Seeing you, the piper plays a short flat note, draws the pipe from his mouth, and takes quick inventory of the wares he is peddling: a cart full of apples, a rumpled canvas bag, and some strong-smelling peppers." CR>
 				     <RTRUE>)>)
 			     (T
 			      <TELL 
@@ -1356,11 +1354,7 @@ The old dog lets out a long, wolfish howl which echoes thoughout the valley." CR
 			      <COND (<HELD? ,CAT>
 				     <TELL " in your arms. You feel
 keenly its needle claws emerge from hitherto cottony paws, and the cat shoots out of your arms">)>
-			      <TELL ". Now the feline makes a beeline toward the grain. Like a fiery pin ball, the cat ricochets around the barn until the place is rocked into full tilt.|
-				  |
-				  As the excitement dies down, you see the grainfall slow to a trickle and then the last bits of grain hit the pile with a \"tick... tick.\"|
-				  |
-				  The mice are no longer to be seen." CR>
+			      <TELL ". Now the feline makes a beeline toward the grain. Like a fiery pin ball, the cat ricochets around the barn until the place is rocked into full tilt.||As the excitement dies down, you see the grainfall slow to a trickle and then the last bits of grain hit the pile with a \"tick... tick.\"||The mice are no longer to be seen." CR>
 			      <REMOVE ,CAT>)
 			     (T
 			      <TELL 
