@@ -1248,8 +1248,7 @@
 <ROUTINE SHOP-CLOSES (TIME LOC-STRING ACTOR-STRING NEW-LOC)
 	 <COND (<G? ,STIME .TIME>
 		<TELL CR
-.ACTOR-STRING " informs you that the " .LOC-STRING
-" is closing and ushers you to the door." CR CR>
+.ACTOR-STRING " informs you that the " .LOC-STRING " is closing and ushers you to the door." CR CR>
 		<GOTO .NEW-LOC>
 		<RTRUE>)
 	       (T
@@ -2901,7 +2900,7 @@ and an occasional neatly-typed slip.">
 		<SETG RECORDING <>>
 		<COND (.SIM
 		       <CRLF>)>
-	        <TELL "WARNING: Deactivating record feature." CR>
+	        <TELL "WARNING:|  Deactivating record feature." CR>
 		<COND (<NOT .SIM>
 		       <CRLF>)>)>>
 
