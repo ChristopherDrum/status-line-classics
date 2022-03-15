@@ -475,7 +475,7 @@
 			      <RTRUE>)>)>)
 	       (T
 		<RFALSE>)>>
-
+
 <ROUTINE FAKE-ORPHAN ("AUX" TMP)
 	 <ORPHAN ,P-SYNTAX <>>
 	 <TELL "[Be specific: what object do you want to ">
@@ -578,7 +578,7 @@
 			    (T
 			     <TELL "Handled" CR>)>)>
 	       .RES)>>
-
+
 ;"former CLOCK.ZIL stuff"
 
 <GLOBAL C-TABLE %<COND (<GASSIGNED? PREDGEN>
@@ -737,8 +737,7 @@
 				   ;"already told during wait">
 			      <SETG INCREMENT-WAIT T>
 			      <TELL CR
-"As the day's executions wind to a conclusion, the people in the stands
-begin heading toward the exits." CR>)
+"As the day's executions wind to a conclusion, the people in the stands begin heading toward the exits." CR>)
 			     (<EQUAL? ,STIME 480> ;"already told during wait"
 			      <SETG STOP-WAIT T>
 			      <TELL CR
@@ -751,8 +750,7 @@ begin heading toward the exits." CR>)
 			      <SETG STOP-WAIT T>
 			      <SCORE 116> ;"2 points"
 			      <TELL CR
-"A surge of adrenal fear passes through you as sirens all around begin
-wailing, an audio sine wave announcing the beginning of curfew." CR>)
+"A surge of adrenal fear passes through you as sirens all around begin wailing, an audio sine wave announcing the beginning of curfew." CR>)
 			     (<AND <G? ,STIME 420>
 				   <NOT <G? .TMP 420>>
 				   <NOT <VERB? SLEEP>>>
