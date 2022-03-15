@@ -245,8 +245,8 @@ that you've taken a total of " N ,TURNS " turns." CR>>
 	 <SETG ELAPSED-TIME 0>
 	 <TITLE-PRINT>
 	 <TELL CR
-"Infocom interactive fiction - a science fiction story|
-Copyright (c) 1985 by Infocom, Inc. All rights reserved." CR>
+"Infocom interactive fiction -|a science fiction story|
+Copyright (c) 1985 by|Infocom, Inc. All rights reserved." CR>
 	 <TITLE-PRINT>
 	 <TELL " is a trademark of Infocom, Inc.|
 Release " N .V " for Status Line on the Pico-8 / Serial number ">

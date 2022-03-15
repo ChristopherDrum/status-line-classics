@@ -601,7 +601,7 @@ D ,CURRENT-DIRECTORY " opened.|Current file: " D ,CURRENT-FILE CR>)
 			     ,CURRENT-FILE>
 			<CRLF>
 			<PERFORM ,V?READ ,CURRENT-FILE>
-			<TELL "---------- end of file ---------" CR CR>)
+			<TELL "---------- end of file ---------" CR>)
 		       (T
 			;<COND (,DEBUG
 			       <TELL "[CHARACTER VALUE = " N .X "]" CR>)>
