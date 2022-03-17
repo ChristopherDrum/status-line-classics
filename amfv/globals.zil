@@ -3084,7 +3084,7 @@ and an occasional neatly-typed slip.">
 <GLOBAL RS-DESC
 "ou can make out the gleaming surface of the receiver station, nestled among the forests west of the city, where orbiting solar collectors beam their precious energy.">
 
-<GLOBAL CURRENT-FISCAL "ed during current fiscal year:  ">
+<GLOBAL CURRENT-FISCAL "ed during current|  fiscal year:  ">
 
 <GLOBAL SYMPHONY-CLOSED "\"Symphony closed until further notice.\"">
 

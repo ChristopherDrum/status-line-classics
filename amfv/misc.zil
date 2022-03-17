@@ -240,7 +240,7 @@
 	 <PRINT-SPACES 6>
 	 <TELL "On any human being" CR>
 	 <PRINT-SPACES 6>
-	 <TELL "rose or set.\"" CR>
+	 <TELL "   rose or set.\"" CR>
 	 <PRINT-SPACES 8>
 	 <TELL "- William Marsden" CR CR CR CR>
 	 <CONTINUE>
