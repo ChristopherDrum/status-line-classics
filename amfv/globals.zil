@@ -2804,7 +2804,10 @@ and an occasional neatly-typed slip.">
 		;<DIROUT ,D-TABLE-OFF> ;"stop, put length in 1st slot"
 	 	;<DIROUT ,D-SCREEN-ON> ;"resume printing to screen"
 	 	;<SET LEN <GET ,SL-BUFFER 0>>
-	 	<TELL D .LOCATION>
+	 	<COND (<GETP .LOCATION ,P?SL-DESC>
+		       <TELL <GETP .LOCATION ,P?SL-DESC>>)
+	       	      (T
+		       <TELL D .LOCATION>)>
 	 	;<PRINT-SPACES <- 29 .LEN>>
 		 )>
 

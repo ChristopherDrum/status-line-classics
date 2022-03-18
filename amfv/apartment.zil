@@ -323,6 +323,7 @@
 <ROOM PARKVIEW-HALL
       (LOC ROOMS)
       (DESC "Hall Near Your Apartment")
+      (SL-DESC "Hall Near Your Apt.")
       (IN TO LIVING-ROOM IF APARTMENT-DOOR IS OPEN)
       (NORTH TO LIVING-ROOM IF APARTMENT-DOOR IS OPEN)
       (EAST PER HALL-NEAR-YOUR-APARTMENT-EXIT-F)
@@ -1965,6 +1966,7 @@ As Jill is dragged, screaming and crying, through the front door, you try to fol
 <OBJECT CULTURAL-CENTER
 	(LOC SKYCAB)
 	(DESC "Riverside Cultural Center")
+	(SL-DESC "Riverside Cultural")
 	(SYNONYM CENTER)
 	(ADJECTIVE RIVERSIDE CULTURAL)
 	(FLAGS NDESCBIT)

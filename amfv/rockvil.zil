@@ -2931,6 +2931,7 @@ Critics call it an urban cocoon, creating a sterile, isolated environment and el
 <ROOM CHURCH-STREET-APARTMENTS
       (LOC ROOMS)
       (DESC "Church Street Apartments")
+      (SL-DESC "Church Street Apts.")
       (IN PER INNER-LOBBY-ENTER-F)
       (OUT TO MAIN-AND-CHURCH)
       (NW TO MAIN-AND-CHURCH)
@@ -7848,6 +7849,7 @@ A guard cautiously approaches the dead man with a Rad-Detector. He scans the bod
 <ROOM INDUSTRIAL-PARK-ENTRANCE
       (LOC ROOMS)
       (DESC "Industrial Park Entrance")
+      (SL-DESC "Industrial Park Ent.")
       (LDESC
 "You are on Wicker Drive, which leads northeast and southwest. A road leads northwest into Rockvil Industrial Park. An old, gray warehouse stands on the northern corner, and an ugly tenement is just east of here.")
       (NORTH TO WAREHOUSE-2)
@@ -8053,6 +8055,7 @@ A guard cautiously approaches the dead man with a Rad-Detector. He scans the bod
 <ROOM POWER-STATION-ENTRANCE
       (LOC ROOMS)
       (DESC "Power Station Entrance")
+      (SL-DESC "Power Station Ent.")
       (LDESC
 "You are on River Street at the entrance of a utility station which lies to the south. The street continues southeast towards the River Street Bridge. Northeast of here is the entrance to a huge factory complex, and tenements line the street to the west and southwest.")
       (NORTH SORRY "There's no entrance to the complex in that direction.")

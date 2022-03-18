@@ -1295,6 +1295,7 @@ The prevention of nuclear smuggling is expected to become even more difficult wi
 <ROOM CONTROL-CENTER
       (LOC ROOMS)
       (DESC "PRISM Project Control Center")
+      (SL-DESC "PRISM Project Control")
       (FLAGS ONBIT)
       (GLOBAL CONVERSATION GUN OUTLETS PEOPLE)
       (ACTION CONTROL-CENTER-F)>
@@ -1378,6 +1379,7 @@ The prevention of nuclear smuggling is expected to become even more difficult wi
 <ROOM ROOFTOP
       (LOC ROOMS)
       (DESC "Research Center Rooftop")
+      (SL-DESC "Research Center Roof")
       (FLAGS OUTSIDEBIT)
       (GLOBAL FENCE STAIRS OUTLETS FLOODLIGHT)
       (ACTION ROOFTOP-F)>
@@ -1485,6 +1487,7 @@ The prevention of nuclear smuggling is expected to become even more difficult wi
 <ROOM OFFICE
       (LOC ROOMS)
       (DESC "Dr. Perelman's Office")
+      (SL-DESC "Perelman's Office")
       (FLAGS ONBIT NARTICLEBIT)
       (GLOBAL SHELVES OUTLETS PEOPLE)
       (ACTION OFFICE-F)>
@@ -1925,6 +1928,7 @@ whom I liked and respected a lot.\"" CR>)
 <ROOM CAFETERIA
       (LOC ROOMS)
       (DESC "PRISM Facility Cafeteria")
+      (SL-DESC "PRISM Facility Cafe")
       (FLAGS ONBIT)
       (GLOBAL GLOBAL-WINDOW GLOBAL-TABLE OUTLETS FLOODLIGHT PEOPLE)
       (ACTION CAFETERIA-F)>
@@ -2064,6 +2068,7 @@ whom I liked and respected a lot.\"" CR>)
 <ROOM NEWS
       (LOC ROOMS)
       (DESC "World News Network Feed")
+      (SL-DESC "World News Net. Feed")
       (FLAGS ONBIT)
       (GLOBAL OUTLETS)
       (ACTION NEWS-F)>
