@@ -522,7 +522,8 @@
 
 <DEFINE RELEASE ("AUX" V)
 	 <SET V <BAND <LOWCORE ZORKID> *3777*>>
-	 <TELL "Release " N .V " for Status Line on the Pico-8">
+	 <TELL "Release " N .V>
+	 <DEBUGGING-CODE <TELL  "(r160) for Status Line on the Pico-8">>
 	 T>
 
 <DEFINE COPYRIGHT ()
