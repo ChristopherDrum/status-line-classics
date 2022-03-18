@@ -4584,12 +4584,12 @@ some papers across his desk, as though to cover something." CR>)>>
 	 <CHAPTER-PRINT 4>
 	 <TELL CR CR CR CR>
 	 ;<PRINT-SPACES 22>
-	 <TELL "    \"A mind forever voyaging" CR>
+	 <TELL "   \"A mind forever voyaging" CR>
 	 ;<PRINT-SPACES 23>
-	 <TELL "     through strange seas" CR>
-	 <TELL "     of thought, alone.\"" CR>
+	 <TELL "    through strange seas" CR>
+	 <TELL "    of thought, alone.\"" CR>
 	 ;<PRINT-SPACES 40>
-	 <TELL "       -- William Wordsworth" CR CR CR CR>
+	 <TELL "      -- William Wordsworth" CR CR CR CR>
 	 <CONTINUE>
 	 <INIT-STATUS-LINE 2>
 	 <V-LOOK>>
