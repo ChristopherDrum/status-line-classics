@@ -171,7 +171,7 @@ Copyright (c) 1987 by Infocom, Inc. All rights reserved.|">
 	 <ITALICIZE "Nord and Bert Couldn't Make|Head or Tail of It|">
 	 <TELL "is a trademark of Infocom, Inc. ">
 	 <V-$ID>
-	 <TELL "Release " N .V " for Status Line on the Pico-8 / Serial number ">
+	 <TELL "Release " N .V "(r19) for Status Line on the Pico-8 / Serial number ">
 	 <REPEAT ()
 		 <COND (<G? <SET CNT <+ .CNT 1>> 23>
 			<RETURN>)
