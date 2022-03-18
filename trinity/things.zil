@@ -18544,7 +18544,7 @@ D ,MIKE " in the " D ,SCHOOL " to some remote part of the " D ,LAGOON ,PERIOD>
 	 <SCREEN ,S-WINDOW>
 	 <BUFOUT <>>
 
-	 <CURSET 2 4>
+	 <CURSET 2 5>
 	 <BIG-TRINITY> ; "95px wide"
 	 <HLIGHT ,H-NORMAL>
 	 <CURSET 3 8>
