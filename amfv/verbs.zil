@@ -2489,11 +2489,11 @@ object, LOOK INSIDE it, LOOK UNDER it, etc." CR>>
 
 <GLOBAL INDENTS
 	<PTABLE ""
-	        "   "
+	        "  "
+	        "    "
 	        "      "
-	        "         "
-	        "            "
-	        "               ">>
+	        "        "
+	        "          ">>
 
 <ROUTINE DESCRIBE-ROOM ("OPTIONAL" (LOOK? <>) "AUX" (PRINT-DESC <>) STR AV)
 	 <COND (<OR .LOOK?
