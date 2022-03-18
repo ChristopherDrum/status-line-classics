@@ -3562,17 +3562,22 @@ D ,PARASOL ", you bravely close your eyes and pinch your nose shut" ,PCR>
 		<ST-QUOTE>)>
 	 <CARRIAGE-RETURNS>
 	 <CLEAR -1>
-	 <SPLIT 14>
+	 <SPLIT 16>
 	 <SCREEN ,S-WINDOW>
 	 <BUFOUT <>>
-	 <CURSET 10 25>
-	 <BIG-TRINITY>
-	 <CURSET 12 29>
+	 <CURSET 3 5>
+	 <BIG-TRINITY> ; "95px wide"
+	 <CURSET 12 6>
 	 <FANTASY>
-	 <CURSET 13 15>
-	 <COPYRIGHT>
-	 <CURSET 14 21>
-	 <TRADEMARK>
+	 <CURSET 13 2>
+	 <TELL "Copyright (C)1986 Infocom, Inc.">
+	 <CURSET 14 8>
+	 <TELL "All rights reserved.">
+	 <CURSET 15 6>
+	 <ITALICIZE "Trinity">
+	 <TELL " is a trademark">
+	 <CURSET 16 9>
+	 <TELL "of Infocom, Inc.">
 	 <SCREEN ,S-TEXT>
 	 <SET X <INPUT 1>>
          <V-$REFRESH>

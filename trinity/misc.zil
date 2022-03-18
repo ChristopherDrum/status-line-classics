@@ -440,7 +440,7 @@
 		<COND (<T? ,SUITED?>
 		       <TELL ", in a soap bubble">)
 		      (<T? ,IN-PRAM?>
-		       <TELL ", in the " D ,PRAM>)
+		       <TELL ", in the pram">)
 		      (<T? ,IN-DISH?>
 		       <TELL ", in the dish">)
 		      (<T? ,IN-DORY?>
