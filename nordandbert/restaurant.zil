@@ -570,7 +570,8 @@ with a raw swath of rouge, and the heavy lip blush is indeed embarrassing.||You 
 		       <TELL "Next to the stairway, ">)
 		      (T
 		       <TELL "The ">)>
-		<TELL "glowing blue neon letters read \"">
+		<TELL "glowing blue neon letters read" CR>
+		<TELL "\"">
 		<HLIGHT ,H-BOLD>
 		<TELL "Comeuppance">
 		<HLIGHT ,H-NORMAL>
@@ -737,9 +738,9 @@ with a raw swath of rouge, and the heavy lip blush is indeed embarrassing.||You 
 		<TELL 
 "\"It is unlawful for this room to be occupied by more than 350 angry persons." CR>
 		<TELL
-"               -- Section 204D,"
-"                  paragraph 7-6"
-"                  The Riot Act\"|">)
+"                -- Section 204D,|"
+"                  paragraph 7-6|"
+"                   The Riot Act\"|">)
 	       (<AND <VERB? READ-TO>
 		     <PRSI? ,WAITRESS>>
 		<OFFENCE>)		

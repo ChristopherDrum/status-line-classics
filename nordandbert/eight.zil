@@ -417,7 +417,7 @@ You fall still further into deep and luxurious sleep." CR>
 		<TELL
 "On brittle, yellowing paper you read the following:||  ">
 		<HLIGHT ,H-BOLD>
-		<TELL "P R E T E N S E S">
+		<TELL "   P R E T E N S E S">
 		<HLIGHT ,H-NORMAL>
 		<CRLF> <CRLF>
 		<TELL
@@ -552,7 +552,7 @@ deep-six, the bones sink beneath the filmy surface of the water, slowly twisting
 		<FSET ,JAR ,PHRASEBIT>
 		<FSET ,JAR ,DOORBIT>
 		<FSET ,JAR ,OPENBIT>
-		<TELL  "From inside the big jar there comes a flash of light which intensifies in several quick, increasingly brighter pulses. Prismatically, the large surface  of the jar glows with the colors of the rainbow. Then in a blink of your eyes, the light show is over and in the place of the jar you observe a quite ordinary closet door, which is now open." CR>
+		<TELL  "From inside the big jar there comes a flash of light which intensifies in several quick, increasingly brighter pulses. Prismatically, the large surface of the jar glows with the colors of the rainbow. Then in a blink of your eyes, the light show is over and in the place of the jar you observe a quite ordinary closet door, which is now open." CR>
 		;<STOP>
 		<RTRUE>)
 	       (<AND <NOUN-USED ,JAR ,W?LID>
