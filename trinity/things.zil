@@ -17146,7 +17146,7 @@ D ,HOPENING "s, " D ,WINDOWS
 
 <ROUTINE RELEASE ("AUX" V)
 	 <SET V <BAND <GET 0 1> *3777*>>
-	 <TELL "Release " N .V ; " for Internal Testing" >
+	 <TELL "Release " N .V  "(r15) for Status Line on the Pico-8" >
 	 <RTRUE>>
 
 <OBJECT BIKES
