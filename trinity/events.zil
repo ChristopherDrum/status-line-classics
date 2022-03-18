@@ -203,15 +203,16 @@ A gentle voice whispers in your ear. ">
 	 <FINISH>
 	 <RTRUE>>
 
-
 <ROUTINE V-$PRAMS ("AUX" X)
 	 <CLEAR -1>
 	 <SPLIT 13>
 	 <SCREEN ,S-WINDOW>
 	 <BUFOUT <>>
-	 <CURSET 11 <- ,MIDSCREEN 21>>
 	 <HLIGHT ,H-BOLD>
-	 <TELL ,ALLPRAMS>
+	 <CURSET 11 4>
+	 <TELL "All prams lead to the">
+	 <CURSET 12 4>
+	 <TELL " Kensington Gardens.">
 	 <HLIGHT ,H-NORMAL>
 	 <SCREEN ,S-TEXT>
 	 <SET X <INPUT 1>>
