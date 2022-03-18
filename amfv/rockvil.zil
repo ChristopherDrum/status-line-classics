@@ -7271,11 +7271,11 @@ A guard cautiously approaches the dead man with a Rad-Detector. He scans the bod
 		<COND (<EQUAL? ,SYEAR 2041 2051>
 		       <CRLF>
 		       <PRINT-SPACES 10>
-			   <HLIGHT, H-BOLD>
+			   <HLIGHT ,H-BOLD>
 		       <TELL "Remember!">
-			   <HLIGHT, 0>
+			   <HLIGHT 0>
 			   <PRINT-SPACES 5>
-			   <Tell "Our security procedures" CR>
+			   <TELL "Our security procedures" CR>
 		       <PRINT-SPACES 9>
 		       <TELL "exist to protect" CR>
 		       <PRINT-SPACES 9>
