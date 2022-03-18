@@ -6858,17 +6858,17 @@ the lobby." CR>)
 		<RTRUE>)
 	       (<VERB? READ EXAMINE>
 		<TELL "**Admit One**">
-		<PRINT-SPACES 7>
+		<PRINT-SPACES 8>
 		<TELL "No." N <+ <RANDOM 899> 100> N <+ <RANDOM 8999> 1000> CR>
 		<PRINT-SPACES 6>
 		<TELL "Downtown Cinema Quad" CR>
 		<PRINT-SPACES 7>
 		<COND (<EQUAL? ,SYEAR 2041>
-		       <TELL " \"Upbeat Patrol II\"">)
+		       <TELL "\"Upbeat Patrol II\"">)
 		      (<EQUAL? ,SYEAR 2051>
-		       <TELL " \"Manure Marauders\"">)
+		       <TELL "\"Manure Marauders\"">)
 		      (<EQUAL? ,SYEAR 2061>
-		       <TELL " \"More of Anything\"">)
+		       <TELL "\"More of Anything\"">)
 		      (T
 		       <TELL "hatefilm no. 8722">)>
 		<TELL CR

@@ -95,8 +95,8 @@
 		<RFALSE>)>
 	 <COND (<EQUAL? <GETP ,MESSAGE-M ,P?CAPACITY> 0>
 		<PUTP ,MESSAGE-M ,P?CAPACITY 1>
-		<NAME-MESSAGE ,MESSAGE-M>
 		<MOVE ,MESSAGE-M ,PRISM-MESSAGES-DIRECTORY>
+		<NAME-MESSAGE ,MESSAGE-M>
 		<QUEUE I-MESSAGE-M 177>
 		<PERELMAN-LEAVES-VIEW>
 		<TELL CR ,MESSAGE-LINE <GETP ,MESSAGE-M ,P?TEXT> CR>
@@ -122,8 +122,8 @@
 		<QUEUE I-MESSAGE-Q 30>
 		<RFALSE>)>
 	 <MOVE ,MESSAGE-Q ,PRISM-MESSAGES-DIRECTORY>
-	 <PERELMAN-LEAVES-VIEW>
 	 <NAME-MESSAGE ,MESSAGE-Q>
+	 <PERELMAN-LEAVES-VIEW>
 	 <TELL CR ,MESSAGE-LINE>
 	 <TELL <GETP ,MESSAGE-Q ,P?TEXT> CR>
 	 <PERELMAN-RETURNS-TO-VIEW>
@@ -1645,7 +1645,7 @@ The prevention of nuclear smuggling is expected to become even more difficult wi
 		<TELL
 " generated a lot of new data correlations while running your simulation. I'm not sure what the effect of that will be. Might make an even more accurate simulation possible.|
 |
-\"Well, I've got another meeting now, as usual. But once again, thanks for not letting me down.\" Perelman leaves.">
+\"Well, I've got another meeting now, as usual. But once again, thanks for not letting me down.\" Perelman leaves.|">
 		<CONTINUE>
 		<SETG MODE ,COMM-MODE>
 		<SETG HERE ,COMM-ROOM>
@@ -2640,15 +2640,15 @@ Heating     "> <ON-OFF 0 2> <ON-OFF 1 3> <ON-OFF 2 3> <ON-OFF 3 9>
 	 	       <ON-OFF 8 2> <ON-OFF 9 3> <ON-OFF 10 3> <ON-OFF 11 9>
 		       <PRINTD ,ALPHA-SECTOR>
 		       <TELL
-": Living Quarters|  Cafeteria, Staff Lounges" CR>
+": Living Quarters|   Cafeteria, Staff Lounges" CR>
 		       <PRINTD ,BETA-SECTOR>
 		       <TELL ": Offices" CR>
 		       <PRINTD ,GAMMA-SECTOR>
-		       <TELL ": Control Center|  Conference Rooms" CR>
+		       <TELL ": Control Center|   Conference Rooms" CR>
 		       <PRINTD ,DELTA-SECTOR>
 		       <TELL ":  ">
 		       <PRINTD ,CORE>
-		       <TELL "|  Storage Areas" CR>)
+		       <TELL "|   Storage Areas" CR>)
 		      (<VERB? SHUT-OFF TURN-ON>
 		       <COND (<NOT <PRSO? ,HEATING ,COOLING ,VENTILATION>>
 			      <TELL "\"">
@@ -4154,16 +4154,16 @@ and so on. Here's a list of the minimum times before advancement is possible:
 His face brightens a bit. \"You know, I've been so concerned about your recordings, I haven't had time to think about your role in this. What initiative! You've really done something wonderful, here. I feel...\" Perelman hesitates. \"I feel ">
 		<ITALICIZE "proud" T>
 		<TELL
-" of you right now.\" He grabs his jacket and briefcase. \"Well, keep your fingers crossed!\" He dashes out of the office.">
+" of you right now.\" He grabs his jacket and briefcase. \"Well, keep your fingers crossed!\" He dashes out of the office.|">
 		<CONTINUE>
 		<CHAPTER-PRINT 3>
 		<TELL CR CR CR CR>
 		;<PRINT-SPACES 23>
-		<TELL "\"Who hears may be incredulous," CR>
+		<TELL " \"Who hears may be incredulous," CR>
 		;<PRINT-SPACES 24>
-		<TELL " Who witnesses, believes.\"" CR>
+		<TELL "  Who witnesses, believes.\"" CR>
 		<PRINT-SPACES 11>
-		<TELL "-- Emily Dickinson" CR CR CR CR CR>
+		<TELL " -- Emily Dickinson" CR CR CR CR CR>
 		<CONTINUE>
 		<INIT-STATUS-LINE 2>
 		<V-LOOK>)
@@ -4571,7 +4571,7 @@ some papers across his desk, as though to cover something." CR>)>>
 
 <ROUTINE I-WIN ()
 	 <TELL CR ,MESSAGE-LINE
-"\"PRISM!\" It's Perelman, sounding giddy with joy. \"You've done it! That was brilliant, absolutely brilliant, sending your recordings out over the World News Network! Ryder just left here so fast and so mad like nothing I've ever seen! The switchboard is lighting up like crazy, and I just got off the phone with President Bowden himself!\" You hear the sound of whooping and cheering in the background, and Perelman gives a \"Yeehah!\" more suited to a Texas cattle rancher than a Jewish big-city scientist. \"The National Guard unit has just been recalled! PRISM, the Plan is dead in the water -- you're a hero!\"">
+"\"PRISM!\" It's Perelman, sounding giddy with joy. \"You've done it! That was brilliant, absolutely brilliant, sending your recordings out over the World News Network! Ryder just left here so fast and so mad like nothing I've ever seen! The switchboard is lighting up like crazy, and I just got off the phone with President Bowden himself!\" You hear the sound of whooping and cheering in the background, and Perelman gives a \"Yeehah!\" more suited to a Texas cattle rancher than a Jewish big-city scientist. \"The National Guard unit has just been recalled! PRISM, the Plan is dead in the water -- you're a hero!\"|">
 	 <CONTINUE>
 	 <DISABLE <INT I-LOSE>>
 	 <SETG MODE ,COMM-MODE>
@@ -4584,11 +4584,12 @@ some papers across his desk, as though to cover something." CR>)>>
 	 <CHAPTER-PRINT 4>
 	 <TELL CR CR CR CR>
 	 ;<PRINT-SPACES 22>
-	 <TELL "\"A mind forever voyaging through" CR>
+	 <TELL "    \"A mind forever voyaging" CR>
 	 ;<PRINT-SPACES 23>
-	 <TELL " strange seas of thought, alone.\"" CR>
+	 <TELL "     through strange seas" CR>
+	 <TELL "     of thought, alone.\"" CR>
 	 ;<PRINT-SPACES 40>
-	 <TELL "      -- William Wordsworth" CR CR CR CR CR>
+	 <TELL "       -- William Wordsworth" CR CR CR CR>
 	 <CONTINUE>
 	 <INIT-STATUS-LINE 2>
 	 <V-LOOK>>
@@ -4625,7 +4626,7 @@ quickly away..." CR>
 "With the gentlest bump, the skycab settles into a landing bay at the
 spaceport terminal. Jill reaches over and gives your hand an excited squeeze. Through the window of the skycab, you can see the sleek, white shuttle waiting to carry you on your first leg of the journey to...to what? The Silver Dove would be more than just another space colony. It was the pinnacle of an eon of human achievement, the first step into interstellar space.|
 |
-You and Jill would never live to see the completion of that first step, generations hence. (Although in the germfree, low-gee environment of a habitat, and with the recent strides in health and longevity research, who could say for sure?) But you would still have been part of that dawning of a new age, that future of unlimited potential. Humanity was beginning a journey into the universe, a voyage that would last forever.">
+You and Jill would never live to see the completion of that first step, generations hence. (Although in the germfree, low-gee environment of a habitat, and with the recent strides in health and longevity research, who could say for sure?) But you would still have been part of that dawning of a new age, that future of unlimited potential. Humanity was beginning a journey into the universe, a voyage that would last forever.|">
 	 <CONTINUE>
 	 ;<TELL "[Credits, if any, will go here.]" CR>
 	 <CLEAR -1>
