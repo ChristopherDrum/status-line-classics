@@ -74,32 +74,32 @@
 
 ; "Messages should be 27 characters max"
 <BUILD-FORM LICENSE-FORM
-            (LAST-NAME "Last name" 17 "Chomper" FF-NAME
+            (LAST-NAME "Last name" 19 "Chomper" FF-NAME
 	     <PLTABLE "how embarrassing for you"
 		      "well-known criminal family">)
-	    (FIRST-NAME "First name" 17 "Random" FF-NAME
+	    (FIRST-NAME "First name" 18 "Random" FF-NAME
 	     <PLTABLE "parents had the last laugh">)
 	    (MIDDLE-INITIAL "Middle initial" 1 "Q" FF-MIDDLE-INITIAL)
 	    (YOUR-SEX "Your sex (M/F)" 1 "M" FF-SEX)
 	    (STREET-NUMBER "House number" 4 "69"
 			   FF-STREET-NUMBER
 			   <PLTABLE "due to be condemned">)
-	    (STREET-NAME "street name" 16 "Mandalay"
+	    (STREET-NAME "street name" 17 "Mandalay"
 	     <PLTABLE "the bad part of town"
 		      "wext to the dump">)
-	    (CITY-NAME "City" 15 "Newton" <PLTABLE "what a dump"
+	    (CITY-NAME "City" 18 "Newton" <PLTABLE "what a dump"
 						    "what a pit"
 						    "you'd better move again">)
-	    (STATE-NAME "State" 14 "MA" FF-STATE)
+	    (STATE-NAME "State" 5 "MA" FF-STATE)
 	    (ZIP-CODE "Zip" 6 "02174")
 	    (PHONE-NUMBER "Phone" 12 "646 9105" FF-PHONE-NUMBER)
-	    (EMPLOYER-NAME "2nd-to-last employer" 9 "Infocom"
+	    (EMPLOYER-NAME "2nd-to-last employer" 8 "Infocom"
 			   <PLTABLE "now in Chapter 11"
 				    "now in liquidation"
 				    "a sweatshop"
 				    "run by Bozo the Clown"
 				    "much happier without you">)
-	    (LEAST-FAVORITE-COLOR "Least liked colour" 6 "red"
+	    (LEAST-FAVORITE-COLOR "Least liked colour" 10 "red"
 	     FF-LEAST-FAVORITE-COLOR)
 	    (FRIEND "Girl/boy friend" 11 "Dunbar"
 		    <PLTABLE "what a dog"
@@ -129,7 +129,7 @@
 	 <COND (<T? .NOTE?>
 		<TELL "* ">)
 	       (T
-		<TELL "err: ">)>
+		<TELL "err:">)>
 	 <TELL .STR >  ; "no extraneous characters; keep it terse"
 	 <HLIGHT ,H-NORMAL>
 	 <COND (,FORM-COMPUTER? <HLIGHT ,H-INVERSE>)>
