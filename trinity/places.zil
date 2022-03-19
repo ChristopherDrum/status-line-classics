@@ -6689,116 +6689,86 @@ D ,OPSHORE ,PERIOD>
 
 <GLOBAL QUOTES:TABLE
 	<PTABLE
-	<PLTABLE 24
-		"Time isn't holding us."
-		"Time isn't after us.   "
-		"Same as it ever was,  "
-		"Same as it ever was.   "
-		0
-		"         - David Byrne">
-
-	<PLTABLE 24
-		"They are of sick and  "
-		"diseased imaginations "
-		"who would toll the    "
-		"world's knell so soon."
-		0
-		" - Henry David Thoreau">
-
-	<PLTABLE 25
-		"Atoms or systems       "
-		"   into ruin hurl'd,   "
-		"And now a bubble burst,"
-		"   and now a world.     "
-		0
-		"       - Alexander Pope">
-
-	<PLTABLE 26
-		"\"And 'the wabe' is the  "
-		"grass-plot round a sun- "
-		"dial, I suppose?\" said  "
-		"Alice, surprised at her "
-		"own ingenuity.           "
-		0
-		"\"Of course it is. It's  "
-		"called 'wabe,' you know,"
-		"because it goes a long  "
-		"way before it, and a    "
-		"long way behind it --\"  "
-		0
-		"         - Lewis Carroll">
-
-	<PLTABLE 22
-		"Any sufficiently    "
-		"advanced technology "
-		"is indistinguishable"
-		"from magic.          "
-		0
-		"  - Arthur C. Clarke">
-	
-	<PLTABLE 22
-		"Any sufficiently    "
-		"arcane magic is     "
-		"indistinguishable   "
-		"from technology.     "
-		0
-		"  - P. David Lebling">
-
-	<PLTABLE 28
-		"The love of posterity is a"
-		"consequence of the neces- "
-		"sity of death. If a man   "
-		"were sure of living       "
-		"forever, he would not     "
-		"care about his offspring.  "
-		0
-		"     - Nathaniel Hawthorne">
-
-	<PLTABLE 26
-		"Could annihilation occur"
-		"in matter, this were the"
-		"thing to do it.          "
-		0
-		"       - Herman Melville">
-
-	<PLTABLE 26
-		"From this crude lab that"
-		"spawned a dud,          "
-		"Their necks to Truman's "
-		"axe uncurled,           "
-		"Lo, the embattled       "
-		"savants stood           "
-		"And fired the flop      "
-		"heard 'round the world.  "
-		0
-		"      - Los Alamos ditty"
-		"              circa 1945">
-
-	<PLTABLE 25
-		"Can ye not discern the "
-		"signs of the times?    "
-		0
-		"         - Matthew 16:3">
-
-	<PLTABLE 20
-		"Il y a une horloge"
-		"qui ne sonne pas.  "
-		0
-		"  - Arthur Rimbaud">
-
-	<PLTABLE 32
-		"'Twere better Charity           "
-		"To leave me in the Atom's Tomb -"
-		"Merry, and Nought,              "
-		"   and gay, and numb -          "
-		"Than this smart Misery.          "
-		0
-		"             - Emily Dickinson">
-
-	<PLTABLE 32
-		"Distant and dead resuscitate, "
-		"They show me as the dial or   "
-		"move as the hands of me,      "
-		"I am the clock myself.         "
-		0
-		"                - Walt Whitman">>>
+	 <PLTABLE 24
+		  "Time isn't holding us."
+	 	  "Time isn't after us.   "
+	 	  "Same as it ever was,  "
+	 	  "Same as it ever was.   "
+	 	  0
+	 	  "        -- David Byrne">
+	 <PLTABLE 44
+		  "They are of sick and diseased imaginations"
+	 	  "who would toll the world's knell so soon. "
+	 	  0
+	 	  "                    -- Henry David Thoreau">
+	 <PLTABLE 42
+	 	  "Atoms or systems into ruin hurled,      "
+	 	  "And now a bubble burst, and now a world."
+	 	  0
+	 	  "                       -- Alexander Pope">
+	 <PLTABLE 42
+	 	  "\"And 'the wabe' is the grass-plot round "
+	 	  " a sun-dial, I suppose?\" said Alice,    "
+		  " surprised at her own ingenuity.         "
+	 	  0
+	 	  "\"Of course it is. It's called 'wabe,'   "
+	 	  " you know, because it goes a long way   "
+	 	  " before it, and a long way behind it --\""
+	 	  0
+	 	  "                        -- Lewis Carroll">
+	 <PLTABLE 22
+	 	  "Any sufficiently    "
+	 	  "advanced technology "
+	 	  "is indistinguishable"
+	 	  "from magic.          "
+	 	  0
+	 	  " -- Arthur C. Clarke">
+	 <PLTABLE 22
+		  " Any sufficiently   "
+		  " arcane magic is    "
+		  " indistinguishable  "
+		  " from technology.    "
+		  0
+		  " -- P. David Lebling">
+	 <PLTABLE 40
+		  "The love of posterity is a consequence"
+	 	  "of the necessity of death. If a man   "
+	 	  "were sure of living forever, he would "
+	 	  "not care about his offspring.          "
+	 	  0
+	 	  "                -- Nathaniel Hawthorne">
+	 <PLTABLE 37
+	 	  "Could annihilation occur in matter,"
+	 	  "this were the thing to do it.       "
+	 	  0
+	 	  "                 -- Herman Melville">
+	 <PLTABLE 44
+	 	  "From this crude lab that spawned a dud,   "
+	 	  "Their necks to Truman's axe uncurled,     "
+	 	  "Lo, the embattled savants stood           "
+	 	  "And fired the flop heard 'round the world."
+	 	  0
+	 	  "           -- Los Alamos ditty, circa 1945">
+	 <PLTABLE 26
+	  	  " Can ye not discern the "
+		  " signs of the times?    "
+		  0
+		  "        -- Matthew 16:3 ">
+	 <PLTABLE 20
+	  	  "Il y a une horloge"
+		  "qui ne sonne pas. "
+		  0
+		  " -- Arthur Rimbaud">
+	 <PLTABLE 40
+		  "'Twere better Charity                 "
+		  "To leave me in the Atom's Tomb -      "
+		  "Merry, and Nought, and gay, and numb -"
+		  "Than this smart Misery.                "
+		  0
+		  "                    -- Emily Dickinson">
+	 <PLTABLE 54
+		  "Distant and dead resuscitate,                       "
+		  "They show me as the dial or move as the hands of me,"
+		  "I am the clock myself.                               "
+		  0
+		  "                                     -- Walt Whitman">>>

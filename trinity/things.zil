@@ -18531,94 +18531,73 @@ D ,MIKE " in the " D ,SCHOOL " to some remote part of the " D ,LAGOON ,PERIOD>
 	 <RTRUE>>
 
 <ROUTINE V-$CREDITS ("AUX" X)
-	 <COND (<L? <GETB 0 33> 32>
+	 <COND (<L? <GETB 0 33> 79>
 		<TOO-NARROW>
 		<RTRUE>)>
 	 <CLEAR -1>
-	 <SPLIT 21>
+	 <SPLIT 23>
 	 <SCREEN ,S-WINDOW>
 	 <BUFOUT <>>
 
-	 <CURSET 2 4>
-	 <BIG-TRINITY> ; "95px wide"
+	 <CURSET 2 25>
+	 <BIG-TRINITY>
 	 <HLIGHT ,H-NORMAL>
-	 <CURSET 3 8>
-	 <TELL "by brian moriarty">
+	 <CURSET 3 32>
+	 <TELL "by Brian Moriarty">
 
-	 <CURSET 5 4>
-	 <TELL "        Testing">
+	 <CURSET 5 37>
+	 <TELL "Testing">
 	 <CURSET 6 4>
-	 <TELL "Gary Brennan   Amy Briggs">
-	 <CURSET 7 4>
-	 <TELL "Suzanne Frank  Max Buxton">
-	 <CURSET 8 4>
-	 <TELL "      Liz Cyr-Jones">
-	 <CURSET 10 11>
+	 <TELL
+"Gary Brennan    Amy Briggs    Suzanne Frank    Max Buxton    Liz Cyr-Jones">
+
+	 <CURSET 8 13>
 	 <TELL "Packaging">
-	 <CURSET 11 8>
-	 <TELL "Carl Genatossio">
-	 <CURSET 13 8>
+	 <CURSET 8 33>
 	 <TELL "Project Manager">
-	 <CURSET 14 11>
-	 <TELL "Jon Palace">
-	 <CURSET 16 11>
+	 <CURSET 8 58>
 	 <TELL "Copywriter">
-	 <CURSET 17 8>
+
+	 <CURSET 9 10>
+	 <TELL "Carl Genatossio">
+	 <CURSET 9 35>
+	 <TELL "Jon Palace">
+	 <CURSET 9 55>
 	 <TELL "Elizabeth Langosy">
-	 <CURSET 21 4>
-	 <TELL "~ any key for next page ~">
 
-	 ; "page the credits"
-	 <SET X <INPUT 1>>
-	 <CLEAR 1>
-
-	 <CURSET 2 10>
+	 <CURSET 11 12>
 	 <TELL "Illustrator">
-	 <CURSET 3 9>
+	 <CURSET 11 35>
+	 <TELL "Photography">
+	 <CURSET 11 58>
+	 <TELL "Inner Cover">
+
+	 <CURSET 12 11>
 	 <TELL "Richard Howell">
-	 <CURSET 5 2>
-	 <TELL "Photography      Inner Cover">
-	 <CURSET 6 2>
-	 <TELL "Steve Grohe    Charles Freeman">
-	 <CURSET 8 12>
+	 <CURSET 12 35>
+	 <TELL "Steve Grohe">
+	 <CURSET 12 56>
+	 <TELL "Charles Freeman">
+
+	 <CURSET 14 14>
 	 <TELL "Sundial">
-	 <CURSET 9 8>
-	 <TELL "Geoff Hodgkinson">
-	 <CURSET 11 10>
+	 <CURSET 14 35>
 	 <TELL "Map & Crane">
-	 <CURSET 12 7>
-	 <TELL "Meredith Lightbown">
-	 <CURSET 14 5>
+	 <CURSET 14 53>
 	 <TELL "Production Coordinator">
-	 <CURSET 15 10>
-	 <TELL "Angela Raup">
-	 <CURSET 21 4>
-	 <TELL "~ any key for next page ~">
 
-	 ; "page the credits"
-	 <SET X <INPUT 1>>
-	 <CLEAR 1>
-
-	 <CURSET 2 3>
+	 <CURSET 15 9>
+	 <TELL "Geoff Hodgkinson       Meredith Lightbown        Angela Raup">
+	 <CURSET 17 28>
 	 <TELL "Microcomputer Interpreters">
-	 <CURSET 3 3>
-	 <TELL "Duncan Blanchard  Ed Black">
-	 <CURSET 4 1>
-	 <TELL "Linde Simpson  Duncan Blanchard">
-	 <CURSET 5 2>
-	 <TELL "Andy Kaluzniacki  Paul Gross">
-	 <CURSET 6 4>
-	 <TELL "Mike Morton  Richard Lay">
-	 <CURSET 8 2>
-	 <TELL " Interactive Fiction Plus(TM)">
-	 <CURSET 9 2>
-	 <TELL "     Development System">
-	 <CURSET 10 2>
-	 <TELL "  Marc Blank  Dave Lebling">
-	 <CURSET 11 2>
-	 <TELL "         Stu Galley">
-	 <CURSET 21 2>
-	 <TELL "~ any key to return to game ~">
+	 <CURSET 18 19>
+	 <TELL "Duncan Blanchard    Ed Black    Linde Simpson">
+	 <CURSET 19 12>
+	 <TELL "Andy Kaluzniacki    Paul Gross    Mike Morton    Richard Lay">
+	 <CURSET 21 18>
+	 <TELL "Interactive Fiction Plus(TM) Development System">
+	 <CURSET 22 21>
+	 <TELL "Marc Blank    Dave Lebling    Stu Galley">
 	 <SCREEN ,S-TEXT>
 	 <SET X <INPUT 1>>
          <V-$REFRESH>
@@ -18627,7 +18606,7 @@ D ,MIKE " in the " D ,SCHOOL " to some remote part of the " D ,LAGOON ,PERIOD>
 
 <ROUTINE BIG-TRINITY ()
 	 <HLIGHT ,H-BOLD>
-	 <TELL "T  R  I  N  I  T  Y">
+	 <TELL "T    R    I    N    I    T    Y">
 	 <RTRUE>>
 
 <OBJECT PLUTONIUM
