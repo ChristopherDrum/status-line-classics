@@ -220,7 +220,6 @@ around here a lot,\" one of them says." CR>)
 	      (ELSE
 	       <TELL CTHE ,NATIVES " ignore you." CR>)>>
 
-
 
 <OBJECT IN-CLEARING
 	(LOC ROOMS)
@@ -485,7 +484,6 @@ Attachment of Third Arm, before you can do that." CR>
   <PUTB ,HANDLE-STATE 1 1>
   <PUTB ,HANDLE-STATE 2 0>>
 
-
 
 <OBJECT CARD-ROOM
 	(LOC ROOMS)
@@ -534,7 +532,7 @@ Attachment of Third Arm, before you can do that." CR>
   <COND (<VERB? EXAMINE READ>
 	 <TELL "It's a standard sort of plastic key-card with a magnetic stripe. It's embossed with the letters \"R.Q.H.\""
 	       CR>)>>
-
+
 <OBJECT RANDOM-CARTRIDGE
 	(DESC "unlabelled cartridge")
 	(FLAGS TAKEABLE PROGRAM VOWEL)

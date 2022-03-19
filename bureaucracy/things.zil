@@ -492,12 +492,13 @@ At the moment, " THEO " is ">
 		       <>)>)>>
 
 <CONSTANT BOYSENBERRY-WINDOW
-	  <PLTABLE 31
-		  "The word \"Boysenberry,\" and  "
-		  "the symbol of a partially    "
-		  "digested purple berry, are   "
-		  "trademarks of the Boysenberry"
-		  "Business Engines Corporation.">>
+	  <PLTABLE 27
+		  "The word \"Boysenberry,\"  "
+		  "and the symbol of a      "
+		  "partially digested purple"
+		  "berry, are trademarks of "
+		  "Boysenberry Business     "
+		  "Engines Corp.            ">>
 
 <DEFINE SCREEN-F ()
 	<COND (<THIS-PRSI?>
@@ -619,38 +620,53 @@ the jack like a little rat from a tiny drainpipe." CR>
 		   "Whoopsie. Context parser snafu."
 		   "Sorry, girls.">
 <CONSTANT ADVENTURE-TABLE
-	  <PLTABLE "BBE ADVENTURES PRESENT \"DORK I\""
-		   <>	; "CAN'T BE EMPTY STRING BECAUSE ZILCH LOSES..."
-		   "West of House"
-		   "You are standing in an open field "
-		   "west of a white house, with a"
-		   "boarded front door."
-		   "There is a mailbox here."
-		   "INTERNAL ERROR 69105.....">>
+	  <PLTABLE 
+		<>
+		"   bbe adventures present  "
+		"          \"DORK I\""
+		<>	; "CAN'T BE EMPTY STRING BECAUSE ZILCH LOSES..."
+		" West of House"
+		" You are standing in an open"
+		" field west of a white house"
+		" with a boarded front door."
+		" There is a mailbox here."
+		<>
+		" >_"
+		<>
+		" INTERNAL ERROR 69105 ......">>
 
 <CONSTANT ECLIPSE-TABLE
-	  <PLTABLE "Boysenberry Eclipse Predictor V6.9"
-		   <>
-		   "Nearest eclipse:  Yesterday"
-		   "Totality at:  12:37PM"
-		   "Prime viewing location:  Zalagasa"
-		   <>
-		   "Next eclipse:  2/7/98">>
+	  <PLTABLE 
+		<>
+		" Boysenberry Eclipse"
+		" Predictor V6.9"
+		" --------------------------"
+		<>
+		" Nearest eclipse: Yesterday"
+		" Totality at:  12:37PM"
+		" Prime viewing location:"
+		" Zalagasa"
+		<>
+		" Next eclipse:  2/7/98">>
 
 <CONSTANT RECIPE-TABLE
-	  <PLTABLE "Midnight Recipe Projekt"
-		   <>
-		   "RAGOUT \"REINE DE L'AFRIQUE\""
-		   <>
-		   "Take one medium llama, peeled, 8"
-		   "pecks garlic, 15 bushels STALE celery,"
-		   "2 pounds shallots, 10 bushels carrots,"
-		   "onions, turnips, snails, worms, lard,"
-		   "helium, nematodes, gristle and earth"
-		   "to taste. Boil llama till bored, add"
-		   "other stuff and stir until congealed."
-		   "Decorate with greenish milk curds."
-		   "Serves one small aeroplane.">>
+	  <PLTABLE 
+		" Midnight Recipe Projekt"
+		<>
+		" RAGOUT \"REINE DE L'AFRIQUE\""
+		<>
+		" Take one medium llama,"
+		" peeled, 8 pecks garlic, 15"
+		" bushels STALE celery, 2"
+		" pounds shallots, 10 bushels"
+		" carrots, onions, turnips,"
+		" snails, worms, lard, helium,"
+		" nematodes, gristle and earth"
+		" to taste. Boil llama till"
+		" bored, add other stuff, stir"
+		" until congealed. Decorate"
+		" with greenish milk curds."
+		" Serves one small aeroplane.">>
 
 <OBJECT ECLIPSE
 	(LOC ROMCASE)
@@ -2377,7 +2393,7 @@ back." CR>)
 				    (ELSE
 				     <ZCRLF>
 				     <ZBUFOUT <>>
-				     <TELL "--- Type any character for next msg ---">
+				     <TELL "-- any character for next msg --">
 				     <ZBUFOUT T>
 				     <INPUT 1>
 				     <ZCRLF>)>
@@ -4242,16 +4258,18 @@ the balance.">)>)
 	(ACTION CNOTICE-F)>
 
 <CONSTANT CAB-NOTICE-TXT
-	  <PLTABLE 33
-		  "WARNING! Please leave personal "
-		  "items in this taxi (we need the"
-		  "extra revenue).                "
-		  "                               "
-		  "NOTICE: Passengers NOT going   "
-		  "to the airport will be charged "
-		  "an extra 50 cents.             "
-		  "                               "
-		  "           Getlost Airport Taxi">>
+	  <PLTABLE 27
+		  "WARNING! Please leave    "
+		  "personal items in this   "
+		  "taxi (we need the        "
+		  "extra revenue).          "
+		  "                         "
+		  "NOTICE: Passengers NOT   "
+		  "going to the airport will"
+		  "be charged an extra      "
+		  "50 cents.                "
+		  "                         "
+		  "     Getlost Airport Taxi">>
 
 <DEFINE CNOTICE-F ()
 	<COND (<VERB? READ EXAMINE LOOK-ON>

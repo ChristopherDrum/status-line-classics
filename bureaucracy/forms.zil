@@ -28,7 +28,7 @@
 	<TELL .NAME>
 	<BLANK-LINE 2>
 	<OPEN-LINE 3>
-	<TELL "Type ^ to back up a field. Thank you.">
+	<ITALICIZE "Type ^ to back up a field.">
 	<CLOSE-LINE 3>
 	<BLANK-LINE 4>
 	<REPEAT ((RLINE ,FIRST-FORM-LINE)
@@ -64,7 +64,7 @@
 	<SET-FORM-CURS .N 0>
 	<TELL " ">
 	<HLIGHT ,H-NORMAL>
-	<HLIGHT ,H-BOLD>>
+	<HLIGHT ,H-INVERSE>>
 
 <DEFINE CLOSE-LINE (N)
 	<SET-FORM-CURS .N <- ,FORM-WIDTH 1>>
@@ -72,44 +72,45 @@
 	<HLIGHT ,H-INVERSE>
 	<TELL " ">>
 
+; "Messages should be 27 characters max"
 <BUILD-FORM LICENSE-FORM
-            (LAST-NAME "Last name:" 21 "Chomper" FF-NAME
-	     <PLTABLE "How embarrassing for you"
-		      "A well-known criminal family">)
-	    (FIRST-NAME "First name:" 25 "Random" FF-NAME
-	     <PLTABLE "Your parents had the last laugh">)
-	    (MIDDLE-INITIAL "Middle initial:" 1 "Q" FF-MIDDLE-INITIAL)
-	    (YOUR-SEX "Your sex (M/F):" 1 "M" FF-SEX)
-	    (STREET-NUMBER "House number:" 4 "69"
+            (LAST-NAME "Last name" 19 "Chomper" FF-NAME
+	     <PLTABLE "how embarrassing for you"
+		      "well-known criminal family">)
+	    (FIRST-NAME "First name" 18 "Random" FF-NAME
+	     <PLTABLE "parents had the last laugh">)
+	    (MIDDLE-INITIAL "Middle initial" 1 "Q" FF-MIDDLE-INITIAL)
+	    (YOUR-SEX "Your sex (M/F)" 1 "M" FF-SEX)
+	    (STREET-NUMBER "House number" 4 "69"
 			   FF-STREET-NUMBER
-			   <PLTABLE "Due to be condemned">)
-	    (STREET-NAME "Street name:" 24 "Mandalay"
-	     <PLTABLE "The bad part of town"
-		      "Next to the dump">)
-	    (CITY-NAME "City:" 18 "Newton" <PLTABLE "What a dump"
-						    "What a pit"
-						    "You'd better move again">)
-	    (STATE-NAME "State:" 5 "MA" FF-STATE)
-	    (ZIP-CODE "Zip:" 6 "02174")
-	    (PHONE-NUMBER "Phone:" 17 "646 9105" FF-PHONE-NUMBER)
-	    (EMPLOYER-NAME "Last employer but one:" 14 "Infocom"
-			   <PLTABLE "Now in Chapter 11"
-				    "Now in liquidation"
-				    "A sweatshop"
-				    "Run by Bozo the Clown"
-				    "Much happier without you">)
-	    (LEAST-FAVORITE-COLOR "Least favourite colour:" 12 "red"
+			   <PLTABLE "due to be condemned">)
+	    (STREET-NAME "street name" 17 "Mandalay"
+	     <PLTABLE "the bad part of town"
+		      "wext to the dump">)
+	    (CITY-NAME "City" 18 "Newton" <PLTABLE "what a dump"
+						    "what a pit"
+						    "you'd better move again">)
+	    (STATE-NAME "State" 5 "MA" FF-STATE)
+	    (ZIP-CODE "Zip" 6 "02174")
+	    (PHONE-NUMBER "Phone" 12 "646 9105" FF-PHONE-NUMBER)
+	    (EMPLOYER-NAME "2nd-to-last employer" 8 "Infocom"
+			   <PLTABLE "now in Chapter 11"
+				    "now in liquidation"
+				    "a sweatshop"
+				    "run by Bozo the Clown"
+				    "much happier without you">)
+	    (LEAST-FAVORITE-COLOR "Least liked colour" 10 "red"
 	     FF-LEAST-FAVORITE-COLOR)
-	    (FRIEND "Name of girl/boy friend:" 11 "Dunbar"
-		    <PLTABLE "What a dog"
-			     "Still? You should have learned"
-			     "Surely you can do better"
-			     "One of a long line of losers">)
-	    (LAST-FRIEND "Previous girl/boy friend:" 10 "None"
-			 <PLTABLE "You were better off then"
-				  "One of a long line of losers"
-				  "Now a millionaire"
-				  "Now a famous porno star">)>
+	    (FRIEND "Girl/boy friend" 11 "Dunbar"
+		    <PLTABLE "what a dog"
+			     "still? You should've learned"
+			     "surely you can do better"
+			     "from a long line of losers">)
+	    (LAST-FRIEND "  Previous g/bf" 10 "None"
+			 <PLTABLE "you were better off then"
+				  "from a long line of losers"
+				  "now a millionaire"
+				  "now a famous porno star">)>
 
 <SETG SEX <>>	; "True--> female"
 <SETG FX 0>
@@ -124,12 +125,12 @@
 		<HLIGHT ,H-NORMAL>)
 	       (T
 		<SET-FORM-CURS ,ERROR-LINE 1>
-		<HLIGHT ,H-BOLD>)>
+		<HLIGHT ,H-ITALIC>)>
 	 <COND (<T? .NOTE?>
-		<TELL "NOTE">)
+		<TELL "* ">)
 	       (T
-		<TELL "ERROR">)>
-	 <TELL ": " .STR ".">
+		<TELL "err:">)>
+	 <TELL .STR >  ; "no extraneous characters; keep it terse"
 	 <HLIGHT ,H-NORMAL>
 	 <COND (,FORM-COMPUTER? <HLIGHT ,H-INVERSE>)>
 	 <SET-FORM-CURS ,FY ,FX>
@@ -140,7 +141,7 @@
 	 <HLIGHT ,H-NORMAL>
 	 <COND (,FORM-COMPUTER?
 		<SET-FORM-CURS ,COMPUTER-ERROR-LINE 1>
-		<PRINT-SPACES ,COMPUTER-WIDTH>
+		<PRINT-SPACES 30>
 		<HLIGHT ,H-INVERSE>)
 	       (T
 		<SET-FORM-CURS ,ERROR-LINE 1>
@@ -177,9 +178,9 @@
 			       <RETURN T .FF>)>
 			<SET ERR? T>
 			<COND (<T? <TELECOM?>>
-			       <FERROR "INCOMPLETE-FIELD-ENTRY">)
+			       <FERROR "incomplete-field-entry">)
 			      (T
-			       <FERROR "Incomplete field entry">)>
+			       <FERROR "incomplete field entry">)>
 			<AGAIN>)
 		       (T
 			<COND (.ERR?
@@ -198,7 +199,7 @@
 		 <COND (<0? .CNT>
 			<SET ERR? T>
 			<COND (<T? <TELECOM?>>
-			       <FERROR "1ST-CHAR-IN-FIELD">)
+			       <FERROR "1st-char-in-field">)
 			      (T
 			       <FERROR "1st char in field">)>
 			<AGAIN>)>
@@ -215,7 +216,7 @@
 		 <AGAIN>)
 		(<==? .CNT .MAX>
 		 <SET ERR? T>
-		 <FERROR "End of field">
+		 <FERROR "end of field">
 		 <AGAIN>)
 		(<OR <F? <FIELD-FCN .TBL>>
 		     <ZAPPLY <FIELD-FCN .TBL> ,FORM-ADD-CHAR .TBL .CHAR>>
@@ -235,8 +236,8 @@
 	  <COND (.ERR?
 		 <SET ERR? <>>
 		 <CLEAR-FERROR>)>>>
-
-"Functions for individual fields"
+
+; "Functions for individual fields"
 
 <DEFINE FF-STATE (CONTEXT TBL "OPT" CHAR)
   <COND (<AND <==? .CONTEXT ,FORM-UPPERCASE?>
@@ -259,7 +260,7 @@
 	 <SET X <TEXT-TO-VALUE
 		 <SET TBL <ZREST .TBL <- ,FIELD-DATA-OFFSET 1>>>>>
 	 <COND (<L? .X 10>
-		<FERROR "We know it's actually 15">
+		<FERROR "we know it's actually 15">
 		<PUTB .TBL 0 2>
 		<PUTB .TBL 1 %<ASCII !\1>>
 		<PUTB .TBL 2 %<ASCII !\5>>
@@ -275,7 +276,7 @@
 	(<==? .CONTEXT ,FORM-ADD-CHAR>
 	 <COND (<CHECK-NUMBER .CHAR> T)
 	       (T
-		<FERROR "Not a number">
+		<FERROR "not a number">
 		<>)>)
 	(T T)>>
 
@@ -286,7 +287,7 @@
 		    <EQUAL? .CHAR %<ASCII !\(> %<ASCII !\)>>>
 		T)
 	       (T
-		<FERROR "Invalid character">
+		<FERROR "invalid character">
 		<>)>)
 	(T T)>>
 
@@ -308,7 +309,7 @@
 		    <EQUAL? .CHAR %<ASCII !\F> %<ASCII !\f>>>
 		T)
 	       (T
-		<FERROR "Entry not M or F">
+		<FERROR "entry not m or f">
 		<>)>)
 	(T T)>>
 
@@ -320,7 +321,7 @@
 			 <L=? .CHAR %<ASCII !\z>>>>
 		T)
 	       (T
-		<FERROR "Invalid character">
+		<FERROR "invalid character">
 		<>)>)
 	(T T)>>
 
@@ -328,18 +329,18 @@
   <COND (<==? .CONTEXT ,FORM-ADD-CHAR>
 	 <COND (<EQUAL? .CHAR 32 %<ASCII !\'> %<ASCII !\->>
 		<COND (<0? <FIELD-CURLEN .TBL>>
-		       <FERROR "Illegal 1st character">
+		       <FERROR "illegal 1st character">
 		       <>)
 		      (T
 		       <REPEAT ((PTR ,FIELD-DATA-OFFSET)
 				(CNT <FIELD-CURLEN .TBL>))
 			 <COND (<==? <CHTYPE <GETB .TBL .PTR> FIX> .CHAR>
 				<COND (<==? .CHAR 32>
-				       <FERROR "Too many spaces">)
+				       <FERROR "too many spaces">)
 				      (<==? .CHAR %<ASCII !\'>>
-				       <FERROR "Too many apostrophes">)
+				       <FERROR "too many apostrophes">)
 				      (T
-				       <FERROR "Too many hyphens">)>
+				       <FERROR "too many hyphens">)>
 				<RETURN <> .FF-NAME>)>
 			 <COND (<0? <SET CNT <- .CNT 1>>>
 				<RETURN>)>
@@ -407,7 +408,7 @@ Luckily, for your convenience, we have, at the last minute and at great expense,
 	<DEBUGGING-CODE
 	 <COND (<N==? <SET X <INPUT 1>> 127>
 		<FILL-FORM ,LICENSE-FORM
-			   "      SOFTWARE LICENCE APPLICATION      ">)
+			   "  SOFTWARE LICENCE APPLICATION  ">)
 	       (T
 		<CLEAR -1>
 		<INIT-STATUS-LINE>
@@ -415,7 +416,7 @@ Luckily, for your convenience, we have, at the last minute and at great expense,
 	 <BIND ()
 	   <INPUT 1>
 	   <FILL-FORM ,LICENSE-FORM
-		      "      SOFTWARE LICENCE APPLICATION      ">>>>
+		      "  SOFTWARE LICENCE APPLICATION  ">>>>
 	 
 <DEFINE PICK-FIELD (WHICH LEN:FIX HISTVEC:TABLE HISTLEN:FIX "AUX" N F)
   <REPEAT ((PASSES 0) (M 0))
@@ -461,7 +462,7 @@ Luckily, for your convenience, we have, at the last minute and at great expense,
 	  <SET TBL <ZGET .WHICH .N>>
 	  <COND (<NOT .X>
 		 <COND (<0? .HISTLEN>
-			<FERROR "Top of form">
+			<FERROR "top of form">
 			<SET ERR? T>
 			<AGAIN>)>
 		 <SET X <+ <FIELD-X .TBL>

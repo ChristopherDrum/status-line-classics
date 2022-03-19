@@ -103,11 +103,11 @@
 		      <COND (.DEP
 			     <FILL-FORM 
 			      ,BANK-FORM-DEPOSIT
-			      "              DEPOSIT SLIP              ">)
+			      "          DEPOSIT SLIP          ">)
 			    (ELSE
 			     <FILL-FORM
 			      ,BANK-FORM-WITHDRAW
-			      "            WITHDRAWAL SLIP             ">)>
+			      "         WITHDRAWAL SLIP        ">)>
 		      <TELL "You have now filled out the slip." CR>
 		      T)
 		     (<VERB? EXAMINE READ>
@@ -159,13 +159,13 @@
 	       <SET X <TEXT-TO-VALUE <ZREST .TBL <- ,FIELD-DATA-OFFSET 1>>
 				     T>>
 	       <COND (<==? .X -2>
-		      <FERROR "Not a legal number">
+		      <FERROR "not a legal number">
 		      <>)
 		     (<==? .X -1>
-		      <FERROR "Much too much">
+		      <FERROR "much too much">
 		      <>) 
 		     (<==? .X 0>
-		      <FERROR "Not the old $0 trick">
+		      <FERROR "not the old $0 trick">
 		      <>)
 		     (<==? ,PRSO ,WFORM>
 		      <TELLER-AMOUNT-ON-WITHDRAWAL-FORM .X>
@@ -177,10 +177,10 @@
 	       <COND (<CHECK-NUMBER .CHAR> T)
 		     (<==? .CHAR %<ASCII !\.>> T)
 		     (<==? .CHAR %<ASCII !\- >>
-		      <FERROR "- is OK for us not you">
+		      <FERROR "- is ok for us not you">
 		      <>)
 		     (T
-		      <FERROR "Not a number">
+		      <FERROR "not a number">
 		      <>)>)
 	      (T T)>>
 
@@ -189,22 +189,22 @@
 	       <COND (<EQUAL? <FIELD-DATA .TBL> %<ASCII !\Y> %<ASCII !\y>>
 		      <TELLER-DRUGS 1>
 		      <COND (<==? ,PRSO ,WFORM>
-			     <FERROR "You look like a sleazebag" T>)
+			     <FERROR "you look like a sleazebag" T>)
 			    (ELSE
-			     <FERROR "You'll get caught" T>)>)
+			     <FERROR "you'll get caught" T>)>)
 		     (T
 		      <TELLER-DRUGS 2>
 		      <COND (<==? ,PRSO ,WFORM>
-			     <FERROR "Not what our spies say" T>)
+			     <FERROR "not what our spies say" T>)
 			    (ELSE
-			     <FERROR "Must have mugged an old lady" T>)>)>
+			     <FERROR "must have mugged an old lady" T>)>)>
 	       3)
 	      (<==? .CONTEXT ,FORM-ADD-CHAR>
 	       <COND (<OR <EQUAL? .CHAR %<ASCII !\Y> %<ASCII !\y>>
 			  <EQUAL? .CHAR %<ASCII !\N> %<ASCII !\n>>>
 		      T)
 		     (T
-		      <FERROR "Entry not Y or N">
+		      <FERROR "entry not y or n">
 		      <>)>)
 	      (<==? .CONTEXT ,FORM-FIELD-RESET>
 	       <TELLER-DRUGS 0>)

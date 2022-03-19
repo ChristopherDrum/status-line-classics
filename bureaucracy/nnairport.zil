@@ -944,12 +944,13 @@ a departing Deep Thought Corporation repairman in ">
     <SET TBL <ZREST .TBL 2>>>>
 
 <CONSTANT OMNIA-SIGN-TEXT
-	  <PLTABLE 33
-		   "Omnia Gallia airlines has been "
-		   "sold; we no longer fly out of  "
-		   "this airport. For further      "
-		   "information, contact the Air   "
-		   "Zalagasa desk.                 ">>
+	  <PLTABLE 27
+		   "Omnia Gallia airlines has"
+		   "been sold; we no longer  "
+		   "fly out of this airport. "
+		   "For further information, "
+		   "contact the Air Zalagasa "
+		   "desk.                    ">>
 
 <DEFINE I-TERMINAL IT ("OPT" (CR T) "AUX" P)
   <COND (<HERE? IN-TOWER> <>)

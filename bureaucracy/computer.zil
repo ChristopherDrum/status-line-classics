@@ -8,7 +8,7 @@
   ;<CLEAR-BIT-TABLE>
   <DO-PROG -1>
   <DRAW-COMPUTER-SCREEN>
-  <FERROR-MSG "Press ? for help, or enter a command.">
+  <FERROR-MSG "? for help, or enter command">
   <LAST-LINE-USED 0>
   <COMPUTER-LOOP .DIRTBL>
   <EXIT-HACK>
@@ -25,8 +25,20 @@
   <REPEAT ((N <- <LAST-LINE-USED> 1>))
     <COND (<L? .N 0> <RETURN>)>
     <SET-COMPUTER-CURS .N 0>
-    <TELL  "                                      ">
+;"Why is the below a fixed-length string and not a call to PRINT-SPACES>?"
+;"To use PRINT-SPACES, I have to set COMPUTER-WIDTH to 29 and our"
+;"COMPUTER-REAL-WIDTH is set to 32. This combination causes a strange"
+;"crash on the Boysenberry when loading the unlabelled cart. "
+;"Setting COMPUTER-WIDTH to 28 solves this crash :shrug_emoji:"
+;"but alas, is now one character short of erasing a line completely"
+;"so, whatever, we'll just do it like the implementors did. Maybe they"
+;"had run into a similar conundrum and this was the easiest fix."
+    <TELL  "                             "> ;"29 chars"
     <SET N <- .N 1>>>
+  <HLIGHT ,H-NORMAL>
+  <HLIGHT ,H-INVERSE>
+  <BLANK-LINE ,COMPUTER-REAL-HEIGHT>
+  <HLIGHT ,H-NORMAL>
   <LAST-LINE-USED 0>
   <SET-COMPUTER-CURS 0 0>>
 
@@ -93,10 +105,10 @@ Press any key to boot..." CR>
   <ZBUFOUT <>>
   <INPUT 1>
   <CLEAR -1>
-  <SPLIT <- ,HEIGHT:FIX 1>>
+  <SPLIT HEIGHT>
   ; "So we can use form cursor addressing"
-  <SETG FLINE </ <- ,HEIGHT:FIX ,COMPUTER-REAL-HEIGHT:FIX> 2>>
-  <SETG FLINE <+ ,FLINE:FIX 1>>
+  <SETG FLINE 1>
+  ;[" <SETG FLINE <+ ,FLINE:FIX 1>> "]
   <SETG MARGIN </ <- ,WIDTH:FIX ,COMPUTER-REAL-WIDTH:FIX> 2>>
   <SETG MARGIN <+ ,MARGIN:FIX 1>>
   <SCREEN ,S-WINDOW>
@@ -112,8 +124,7 @@ Press any key to boot..." CR>
     <CLOSE-LINE .N>
     <COND (<G=? <SET N <+ .N 1>> ,COMPUTER-REAL-HEIGHT:FIX>
 	   <RETURN>)>>
-  <COND (<G? ,HEIGHT:FIX <+ ,FLINE:FIX ,COMPUTER-REAL-HEIGHT>>
-	 <BLANK-LINE ,COMPUTER-REAL-HEIGHT>)>>
+  <BLANK-LINE ,COMPUTER-REAL-HEIGHT>>
 
 ;<DEFINE WRITE-CHAR (CHAR X:FIX Y:FIX)
   <COND (<TEST-BIT-AND-SET .X .Y>
@@ -141,14 +152,14 @@ Press any key to boot..." CR>
 	 <PUTB .BT .X <ORB .NUM .BIT>>
 	 T)
 	(T <>)>>
-
+
 <CONSTANT REAL-COMMAND-WINDOW <PTABLE
 			       <MAKE-FIELD 'FIELD
 					   <CHTYPE <ITABLE
 						    <+ ,FIELD-DATA-OFFSET 38>
 						    (BYTE)>
 						   FIELD>
-					   'FIELD-PROMPT "Command:"
+					   'FIELD-PROMPT "COMMAND:"
 					   'FIELD-FCN COMMAND-FIELD
 					   'FIELD-PROMPTLEN 8
 					   'FIELD-X 1
@@ -168,14 +179,14 @@ Press any key to boot..." CR>
 	 <>)
 	(<AND <==? .CONTEXT ,FORM-ADD-CHAR>
 	      <L=? <CHTYPE .CHAR FIX> !\ >>
-	 <FERROR "ILLEGAL-CHARACTER">
+	 <FERROR "illegal-character">
 	 <>)
 	(T T)>>
 
 <DEFINE LOGIN-COMMAND-FIELD (CONTEXT TBL "OPT" CHAR)
   <COND (<AND <==? .CONTEXT ,FORM-ADD-CHAR>
 	      <L=? <CHTYPE .CHAR FIX> !\ >>
-	 <FERROR "ILLEGAL-CHARACTER">
+	 <FERROR "illegal-character">
 	 <>)
 	(T T)>>
 
@@ -232,9 +243,9 @@ Press any key to boot..." CR>
     <COND (<AND <NOT .ERR?>
 		<NOT .1ST?>>
 	   <COND (<T? <TELECOM?>>
-		  <FERROR-MSG "ENTER-COMMAND">)
+		  <FERROR-MSG "enter-command">)
 		 (T
-		  <FERROR-MSG "Enter a command">)>)>
+		  <FERROR-MSG "enter a command">)>)>
     <GET-COMMAND .ERR?>
     <SET ERR? <>>
     <COND (<T? .TC>
@@ -247,7 +258,7 @@ Press any key to boot..." CR>
 			 <COND (<F? <FIND-FILE <REAL-TARGET-NAME>>>
 				<DIE-ON-NEXT-COMMAND 4>)
 			       (T
-				<INT-MESSAGE "USER RQH ACCESSING "
+				<INT-MESSAGE "rqh accessing "
 				      <CURRENT-TARGET-NAME>>)>)>)>
 	   <COMMANDS-SINCE-START .CSS>)>
     <SET CVAL <PROCESS-COMMAND .FLD .DIRTBL>>
@@ -270,14 +281,19 @@ Press any key to boot..." CR>
     <COND (<T? <EXITED-ALREADY?>> <RETURN>)>>>
 
 <DEFINE INT-MESSAGE (STR1 STR2 "OPT" (STR3 <>) "AUX" (OX ,FORM-X) (OY ,FORM-Y))
+  <SOUND ,S-BOOP>
+  <DELAY>
+  <SOUND ,S-BOOP>
+  <DELAY>
+  <SOUND ,S-BOOP>
+  <DELAY 3>
   <CLEAR-FERROR>
   <SET-FORM-CURS ,COMPUTER-ERROR-LINE 1>
-  <SOUND ,S-BOOP>
   <HLIGHT ,H-NORMAL>
   <TELL .STR1>
   <TELL .STR2>
+  <DELAY 8>
   <COND (<T? .STR3> <TELL .STR3>)>
-  <DELAY 2>
   <SET-FORM-CURS .OY .OX>>
 
 <CONSTANT TARGETS <TABLE FIDUC-FILE MENU-FILE AIRPLANE-FILE
@@ -343,7 +359,7 @@ Press any key to boot..." CR>
 		<LINES-TO-NEXT-TARGET 0>
 		<SETUP-NEXT-TARGET>
 		<COND (<F? <DIE-ON-NEXT-COMMAND>>
-		       <INT-MESSAGE "USER RQH ABOUT TO USE "
+		       <INT-MESSAGE "rqh about to use "
 			     <CURRENT-TARGET-NAME>>)>)
 	       (T
 		<LINES-TO-NEXT-TARGET .LC>
@@ -356,7 +372,7 @@ Press any key to boot..." CR>
 	 <TERMINATE-CURRENT .TC>
 	 <FERROR-ACTIVE? T>
 	 <COND (<T? <CURRENT-TARGET-NAME>>
-		<INT-MESSAGE "USER RQH THROUGH WITH " <CURRENT-TARGET-NAME>>)>
+		<INT-MESSAGE "rqh done with " <CURRENT-TARGET-NAME>>)>
 	 <CURRENT-TARGET-NAME <>>
 	 <REAL-TARGET-NAME <>>
 	 <LINES-TO-NEXT-TARGET <ZRANDOM 5>>
@@ -385,24 +401,30 @@ Press any key to boot..." CR>
 		  <RETURN>)>
 	   <SET DT <ZREST .DT 2>>>
 	 <COND (<T? <TELECOM?>>
-		<FERROR "CMD-NOT-FOUND">)
+		<FERROR "cmd-not-found">)
 	       (T
-		<FERROR "Command not found">)>
+		<FERROR "command not found">)>
 	 ,FATAL-VALUE)
 	(T <>)>>
-
-<CONSTANT HELP-TABLE <PLTABLE "Type the name of a command, followed"
-			      "by a carriage return. ? or HELP gets"
-			      "this listing; DIR lists other"
-			      "commands. QUIT turns computer off."
-			      "DIR listing follows.">>
 
-<CONSTANT TELECOM-HELP-TABLE
-	  <PLTABLE "TYPE THE NAME OF A COMMAND, FOLLOWED"
-		   "BY A CARRIAGE RETURN. ? OR HELP GETS"
-		   "THIS LISTING. QUIT OR LOGOUT"
-		   "DISCONNECTS FROM MAINFRAME AND TURNS"
-		   "TERMINAL OFF. COMMAND LISTING FOLLOWS.">>
+<CONSTANT HELP-TABLE <PLTABLE 
+			" Type the name of a command,"
+			" followed by carriage return."
+			" ? or HELP gets this listing."
+			" DIR lists other commands."
+			" QUIT turns computer off."
+			" DIR listing follows."
+			<>	; "CAN'T BE EMPTY STRING BECAUSE ZILCH LOSES..."
+			>>
+
+<CONSTANT TELECOM-HELP-TABLE <PLTABLE 
+			" TYPE THE NAME OF A COMMAND,"
+			" FOLLOWED BY CARRIAGE RETURN."
+			" ? OR HELP GETS THIS LISTING."
+			" QUIT OR LOGOUT DISCONNECTS"
+			" FROM MAINFRAME"
+			" AND TURNS TERMINAL OFF."
+			" COMMAND LISTING FOLLOWS.">>
 
 <DEFINE HELP-CMD (ARG1 ARG2 ARG3 "AUX" CTBL)
   <CLEAR-SCREEN>
@@ -416,17 +438,17 @@ Press any key to boot..." CR>
 
 <DEFINE WHO-CMD (FLD ENTRY DIR)
   <CLEAR-SCREEN>
-  <DUMP-STRING "USER    DATA                PROGRAM" T>
+  <DUMP-STRING " USER  DATA         PROGRAM" T>
   <SET-COMPUTER-CURS 1 0>
-  <DUMP-STRING "RQH     DVH2                CHA/OS" T>
+  <DUMP-STRING " RQH   DVH2         CHA/OS" T>
   <SET-COMPUTER-CURS 2 0>
-  <DUMP-STRING "RQH     " T>
-  <SET-COMPUTER-CURS 2 8>
+  <DUMP-STRING " RQH" T>
+  <SET-COMPUTER-CURS 2 7>
   <COND (<F? <CURRENT-TARGET-NAME>>
-	 <DUMP-STRING "DVH2                CHA/OS" T>)
+	 <DUMP-STRING "DVH2          CHA/OS" T>)
 	(T
 	 <DUMP-STRING <CURRENT-TARGET-NAME> T>
-	 <SET-COMPUTER-CURS 2 28>
+	 <SET-COMPUTER-CURS 2 20>
 	 <DUMP-STRING "HAK" T>)>
   <>>
 
@@ -436,9 +458,9 @@ Press any key to boot..." CR>
   <COND (<0? .FLINE?> <CLEAR-SCREEN>)>
   <SET-COMPUTER-CURS .FLINE? 0>
   <COND (<TELECOM?>
-	 <DUMP-STRING "COMMAND LIST:" T>)
+	 <DUMP-STRING " CMD LIST:" T>)
 	(T
-	 <DUMP-STRING "Command list:" T>)>
+	 <DUMP-STRING " Command list:" T>)>
   <SET FLINE? <+ .FLINE? 1>>
   <SET DIR <ZREST .DIR 2>>
   <REPEAT (DE)
@@ -506,7 +528,7 @@ Press any key to boot..." CR>
     <COND (<G? .REMAIN 0>
 	   <COND (<G? <SET DLINE <+ <- .N .REMAIN> ,COMPUTER-HEIGHT>> .N>
 		  <SET DLINE .N>)>
-	   <FERROR-MSG "Strike any key to see next page">
+	   <FERROR-MSG "hit any key for next page">
 	   <INPUT 1>
 	   <HLIGHT ,H-NORMAL>
 	   <CLEAR-SCREEN>
@@ -537,6 +559,9 @@ Press any key to boot..." CR>
   <CLEAR-FERROR>
   <COND (.STR
 	 <HLIGHT ,H-NORMAL>
+	 ; "blank out any previous error before printing a new one"
+	 <SET-FORM-CURS ,COMPUTER-ERROR-LINE 1>
+	 <PRINT-SPACES, COMPUTER-WIDTH>
 	 <SET-FORM-CURS ,COMPUTER-ERROR-LINE 1>
 	 <TELL .STR>
 	 <HLIGHT ,H-INVERSE>)>>
@@ -546,12 +571,12 @@ Press any key to boot..." CR>
 	 <RETURN T .EH>)>
   <COND (<NOT .QUIET?>
 	 <COND (<T? <TELECOM?>>
-		<FERROR-MSG "Disconnect requested. Strike any key.">
+		<FERROR-MSG "disconnecting... hit any key">
 		<COND (<T? <WILL-WIN?>>
 		       <COMPUTER-DEAD? T>
 		       <QUEUE I-COMPUTER-DIES 1>)>)
 	       (T
-		<FERROR-MSG "Shutdown requested. Strike any key.">)>
+		<FERROR-MSG "shutting down... hit any key">)>
 	 <BLANK-LINE ,COMPUTER-COMMAND-LINE>
 	 <SET-FORM-CURS ,COMPUTER-COMMAND-LINE 1>
 	 <INPUT 1>)>
@@ -575,68 +600,92 @@ Press any key to boot..." CR>
   <>>
 
 <CONSTANT HACK-TABLE
-	  <PLTABLE
-	   " The Strange and Terrible History of"
-	   "             Bureaucracy"
-	   <>
-	   "Once upon a time Douglas Adams and"
-	   "Steve Meretzky collaborated on a game"
-	   "called \"The Hitchhikers Guide to the"
-	   "Galaxy.\" Everyone wanted a sequel, but"
-	   "Douglas thought it might be fun to do"
-	   "something different first. He called"
-	   "that something \"Bureaucracy,\" and"
-	   "wanted Marc Blank to work on it with"
-	   "him. Of course, Marc was busy, and"
-	   "Douglas was busy, and by the time they"
-	   "could both work on it, they were too"
-	   "busy to work on it. So, Jerry Wolper"
-	   "got a free trip to Las Vegas to talk"
-	   "to Douglas about it before it was"
-	   "decided to let it rest for a while"
-	   "instead. Jerry decided to go back to"
-	   "school, so Marc and Douglas spent some"
-	   "time on Nantucket looking at llamas,"
-	   "drinking Chateau d'Yquem, and arguing"
-	   "about puzzles. Nothing much happened"
-	   "for a while, except that Marc and"
-	   "Douglas got distracted again. Paul"
-	   "DiLascia decided to give it a try, but"
-	   "changed his mind and kept working on"
-	   "Cornerstone. Marc went to work for"
-	   "Simon and Schuster, and Paul went to"
-	   "work for Interleaf. Jeff O'Neill"
-	   "finished Ballyhoo, and, casting about"
-	   "for a new project, decided to take it"
-	   "on, about the time Jerry graduated."
-	   "Jeff got a trip to London out of it."
-	   "Douglas was enthusiastic, but busy"
-	   "with a movie. Progress was slow, and"
-	   "then Douglas was very busy with"
-	   "something named \"Dirk Gently.\" Jeff"
-	   "decided it was time to work on"
-	   "something else, and Brian Moriarty"
-	   "took it over. He visited England, and"
-	   "marvelled at Douglas's CD collection,"
-	   "but progress was slow. Eventually he"
-	   "decided it was time to work on"
-	   "something else. Paul made a cameo"
-	   "appearance, but decided to stay at"
-	   "Interleaf instead. So Chris Reeve and"
-	   "Tim Anderson took it over, and mucked"
-	   "around a lot. Finally, back in Las"
-	   "Vegas, Michael Bywater jumped (or was"
-	   "pushed) in and came to Boston for some"
-	   "serious script-doctoring, which made"
-	   "what was there into what is here. In"
-	   "addition, there were significant"
-	   "contributions from Liz Cyr-Jones,"
-	   "Suzanne Frank, Gary Brennan, Tomas"
-	   "Bok, Max Buxton, Jon Palace, Dave"
-	   "Lebling, Stu Galley, Linde Dynneson,"
-	   "and others too numerous to mention."
-	   "Most of these people are not dead yet,"
-	   "and apologise for the inconvenience.">>
+	<PLTABLE
+		" The Strange and Terrible "
+		" History of Bureaucracy"
+		<>
+		" Once upon a time"
+		" Douglas Adams and"
+		" Steve Meretzky collaborated"
+		" on a game called"
+		" \"The Hitchhikers Guide to"
+		" the Galaxy.\" Everyone "
+		" wanted a sequel, but Douglas"
+		" thought it might be fun to"
+		" do something different"
+		" first. He called that"
+		" something \"Bureaucracy,\""
+		" and wanted Marc Blank to"
+		" work on it with him. Of"
+		" course, Marc was busy, and"
+		" Douglas was busy, and by the"
+		" time they could both work on"
+		" it, they were too busy to"
+		" work on it. So, Jerry Wolper"
+		" got a free trip to Las Vegas"
+		" to talk to Douglas about it"
+		" before it was decided to let"
+		" it rest for a while"
+		" instead. Jerry decided to go"
+		" back to school, so Marc and"
+		" Douglas spent some time on"
+		" Nantucket looking at llamas,"
+		" drinking Chateau d'Yquem,"
+		" and arguing about puzzles."
+		" Nothing much happened for"
+		" awhile, except that Marc and"
+		" Douglas got distracted"
+		" again. Paul DiLascia decided"
+		" to give it a try, but"
+		" changed his mind and kept"
+		" working on Cornerstone. Marc"
+		" went to work for Simon and"
+		" Schuster, and Paul went to"
+		" work for Interleaf. Jeff"
+		" O'Neill finished Ballyhoo,"
+		" and, casting about for a new"
+		" project, decided to take it"
+		" on, about the time Jerry"
+		" graduated. Jeff got a trip"
+		" to London out of it."
+		" Douglas was enthusiastic,"
+		" but busy with a movie."
+		" Progress was slow, and"
+		" then Douglas was very busy"
+		" with something named \"Dirk"
+		" Gently.\" Jeff decided it"
+		" was time to work on some-"
+		" thing else, and Brian"
+		" Moriarty took it over. He"
+		" visited England, and mar-"
+		" velled at Douglas's CD"
+		" collection, but progress was"
+		" slow. Eventually he decided"
+		" it was time to work on"
+		" something else. Paul made a"
+		" cameo appearance, but de-"
+		" cided to stay at Interleaf"
+		" instead. So Chris Reeve and"
+		" Tim Anderson took it over,"
+		" and mucked around a lot."
+		" Finally, back in Las Vegas,"
+		" Michael Bywater jumped (or"
+		" was pushed) in and came to"
+		" Boston for some serious"
+		" script-doctoring, which made"
+		" what was there into what is"
+		" here. In addition, there"
+		" were significant"
+		" contributions from Liz"
+		" Cyr-Jones, Suzanne Frank,"
+		" Gary Brennan, Tomas Bok,"
+		" Max Buxton, Jon Palace,"
+		" Dave Lebling, Stu Galley,"
+		" Linde Dynneson, and others"
+		" too numerous to mention."
+		" Most of these people are not"
+		" dead yet, and apologise for"
+		" the inconvenience.">>
 
 <DEFINE HACK-CMD (ARG1 ARG2 ARG3)
   <CLEAR-SCREEN>
@@ -650,7 +699,7 @@ Press any key to boot..." CR>
 <CONSTANT CLEAR-DIR <DIR-ENTRY CLEAR-CMD "CLEAR" ": Clear the screen">>
 <CONSTANT TCLEAR-DIR <DIR-ENTRY CLEAR-CMD "CLR" ": CLEAR THE SCREEN">>
 
-
+
 <DEFINE RUN-TELE-COMM ("AUX" (F 0))
   <COND (<T? <COMPUTER-DEAD?>>
 	 <TELL CR "The mainframe doesn't seem to be responding, so your Boysenberry rejects the modular plug. Have you messed up the computer system?" CR>)
@@ -666,23 +715,23 @@ Press any key to boot..." CR>
 	 <DRAW-COMPUTER-SCREEN>
 	 <SET-COMPUTER-CURS 0 0>
 	 <HLIGHT ,H-NORMAL>
-	 <DUMP-STRING "CONNECTION IN PROGRESS...." T>
-	 <DELAY 1>
+	 <DUMP-STRING " CONNECTION IN PROGRESS...." T>
+	 <DELAY 3>
 	 <SET-COMPUTER-CURS 2 0>
-	 <DUMP-STRING "CONNECTED TO DVH2 NODE 0106. WAITING." T>
-	 <DELAY 1>
+	 <DUMP-STRING " CONNECTED TO DVH2 NODE 0106" T>
+	 <DELAY 2>
 	 <COND (<DO-LOGIN>
 		<SET-COMPUTER-CURS 4 0>
-		<DUMP-STRING "LOGON AT ">
+		<DUMP-STRING " LOGON AT ">
 		<TELL N ,HOURS ":">
 		<COND (<L? ,MINUTES:FIX 10> <TELL "0">)>
 		<TELL N ,MINUTES>
 		<SET-COMPUTER-CURS 6 0>
-		<DUMP-STRING "DVH2 CHA/OS: ? OR HELP FOR HELP" T>
+		<DUMP-STRING " DVH2 CHA/OS: ?/HELP FOR HELP" T>
 		<TELECOM? T>
 		<SETUP-NEXT-TARGET>
 		<REMAINING-TARGET-TURNS 2>
-		<FERROR-MSG "ENTER-COMMAND">
+		<FERROR-MSG "enter-command">
 		<COND (<F? <DIE-ON-NEXT-COMMAND>>
 		       <COMPUTER-LOOP ,TELECOM-TABLE>)
 		      (<F? <EXITED-ALREADY?>>
@@ -693,31 +742,31 @@ Press any key to boot..." CR>
 
 <CONSTANT PASSWORD <TABLE (PURE LENGTH STRING) "RAINBOW-TURTLE">>
 
-
+
 <CONSTANT DELAYS <PTABLE (BYTE) 1 ; "ZIL"
 			 10	; "ZIP20"
 			 1	; "APPLE II"
 			 4	; "MAC"
-			 4	; "AMIGA"
+			 1	; "PICO8 (was Amiga)"
 			 4	; "ST"
 			 1	; "COMPAQ/PC"
 			 1	; "128"
 			 1	; "64...">>
 
-;[" <DEFINE DELAY ("OPT" (SEC:FIX 1) "AUX" (N:FIX <GETB ,DELAYS <LOWCORE INTID>>))
+<DEFINE DELAY ("OPT" (SEC:FIX 1) "AUX" (N:FIX <GETB ,DELAYS <LOWCORE INTID>>))
   ; "N is number of 1000s to count down to get 1-sec. delay"
   <SET N <* 1000 .N .SEC>>
   <REPEAT ()
-    <COND (<L=? <SET N <- .N 1>> 0> <RETURN>)>>> "]
-<DEFINE DELAY ("OPT" (SEC:FIX 1))
+    <COND (<L=? <SET N <- .N 1>> 0> <RETURN>)>>>
+;[" <DEFINE DELAY ("OPT" (SEC:FIX 1))
 	;"Wait for input SEC s ((SEC x 10) x 0.1 s) then call a routine that 
 	  returns true and aborts the input."
 	<INPUT 1 <* .SEC 10> ABORT-WAIT>		
-	<RETURN>>
+	<RETURN>> "]
 
 <ROUTINE ABORT-WAIT () <RTRUE>>
 
-"Login stuff"
+; "Login stuff"
 <ROUTINE-FLAGS CLEAN-STACK?>
 <DEFINE DO-LOGIN DL ("AUX" (CT 8)
 		     (FLD <ZREST <ZGET ,REAL-COMMAND-WINDOW 0>
@@ -725,9 +774,9 @@ Press any key to boot..." CR>
 		     (GOOD-NAME? <>) (GOOD-PASSWORD? <>))
   <REPEAT ()
     <COND (<==? .CT 1>
-	   <FERROR-MSG "ABSOLUTELY-YOUR-LAST-CHANCE,-BOZO">)
+	   <FERROR-MSG "100%-your-last-chance, bozo">)
 	  (T
-	   <FERROR-MSG "ENTER-YOUR-ID,-OR-QUIT-TO-DISCONNECT">)>
+	   <FERROR-MSG "enter-your-id,-or-quit">)>
     <SETUP-COMMAND-LINE "ID:" 3 LOGIN-COMMAND-FIELD>
     <GET-COMMAND>
     <COND (<NOT <NEQ-TBL .FLD ,QUIT-TABLE>>
@@ -736,7 +785,7 @@ Press any key to boot..." CR>
 	   <SET GOOD-NAME? <>>)
 	  (T
 	   <SET GOOD-NAME? T>)>
-    <FERROR-MSG "ENTER-YOUR-PASSWORD">
+    <FERROR-MSG "enter-your-password">
     <SETUP-COMMAND-LINE "PSSWD:" 6 COMMAND-PASSWORD>
     <GET-COMMAND>
     <COND (<AND .GOOD-NAME? <NEQ-TBL .FLD ,PASSWORD>>
@@ -797,7 +846,7 @@ saying \"">
 <DEFINE COMMAND-PASSWORD (CONTEXT TBL "OPT" CHAR:FIX)
   <COND (<==? .CONTEXT ,FORM-DO-ECHO?> <>)
 	(T T)>>
-
+
 ; "Actual mainframe simulation here..."
 <CONSTANT LOGOUT-DIR <DIR-ENTRY QUIT-CMD "LOGOUT" <> DIR-ENTRY-INVISIBLE>>
 
@@ -857,110 +906,119 @@ saying \"">
 
 <CONSTANT FIDUC-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; FILLMORE FIDUCIARY TRUST       ;;;"
-		   ";;; CENTRAL COMPUTER ACCESS        ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;; FILLMORE FIDUCIARY     ;;"
+		   " ;; TRUST CENTRAL          ;;"
+		   " ;; COMPUTER ACCESS        ;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
-		   ".RUN"
-		   "LOGON SLARTIBARTFAST"
+		   " ; .RUN"
+		   " ; LOGON SLARTIBARTFAST"
 		   <>
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   " [NON-P8SCII CHARS FOUND]">>
 
 <CONSTANT MENU-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; GENERAL RESTAURANT ACCESS CODE ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;; GENERAL RESTAURANT     ;;"
+		   " ;; ACCESS CODE            ;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
-		   "; THIS CAN HACK ANY RESTAURANT WITH"
-		   "; COMPUTERISED INVENTORY, ORDER ENTRY,"
-		   "; OR BOOKKEEPING."
+		   " ; THIS CAN HACK ANY"
+		   " ; RESTAURANT WITH COMPUTER-"
+		   " ; ISED INVENTORY, ORDER"
+		   " ; ENTRY, OR BOOKKEEPING."
 		   <>
-		   ".RUN"
+		   " .RUN"
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   " [NON-P8SCII CHARS FOUND]">>
 
 <CONSTANT AIRPLANE-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; FAA TRAFFIC CONTROL COMPUTER   ;;;"
-		   ";;; AND NATIONAL WEATHER SERVICE   ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;; FAA TRAFFIC CONTROL    ;;"
+		   " ;; COMPUTER AND NATIONAL  ;;"
+		   " ;; WEATHER SERVICE        ;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
-		   "; USE THIS TO CAUSE THE WEATHER"
-		   "; SERVICE TO ISSUE BOGUS FORECASTS,"
-		   "; AND TO CAUSE ANY ARBITRARY AIRCRAFT"
-		   "; TO BE ROUTED TO ANY ARBITRARY"
-		   "; LOCATION."
+		   " ; USE THIS TO CAUSE THE"
+		   " ; WEATHER SERVICE TO ISSUE"
+		   " ; BOGUS FORECASTS, AND TO "
+		   " ; CAUSE ANY ARBITRARY "
+		   " ; AIRCRAFT TO BE ROUTED TO "
+		   " ; ANY ARBITRARY LOCATION."
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   " [NON-P8SCII CHARS FOUND]">>
 
 <CONSTANT POST-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; POSTAL MISDIRECTION HACK       ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;; POSTAL MISDIRECTION    ;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
-		   "; IN ADVANCED COUNTRIES, THIS CAN"
-		   "; CAUSE MAIL TO ANY SPECIFIED ADDRESS"
-		   "; TO BE DELIVERED TO ANY OTHER ADDRESS"
-		   "; WITHOUT USING TELL-TALE FORWARDING"
-		   "; STICKERS"
+		   " ; CAN CAUSE MAIL TO ANY"
+		   " ; ADDRESS TO BE DELIVERED TO"
+		   " ; ANY OTHER ADDRESS WITHOUT"
+		   " ; USING FORWARDING STICKERS"
 		   <>
-		   ".READ COUNTRY"
-		   ".READ STATE OR PROVINCE"
-		   ".READ CITY"
-		   ".READ STREET"
-		   ".READ NUMBER"
-		   ".READ APARTMENT"
-		   ".RUN"
+		   " .READ COUNTRY"
+		   " .READ STATE OR PROVINCE"
+		   " .READ CITY"
+		   " .READ STREET"
+		   " .READ NUMBER"
+		   " .READ APARTMENT"
+		   " .RUN"
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   " [NON-P8SCII CHARS FOUND]">>
 
 <CONSTANT ZBUG-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; NATIVES                        ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;; NATIVES                ;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
-		   "; CONNECT TO ZALAGASA BOYSENBERRY"
-		   "; USERS' GROUP COMPUTERS, JUST TO MAKE"
-		   "; SURE THEY AREN'T GETTING ANYWHERE"
-		   "; THEY DON'T BELONG"
+		   " ; CONNECT TO ZALAGASA"
+		   " ; BOYSENBERRY USERS' GROUP"
+		   " ; COMPUTERS, JUST TO MAKE"
+		   " ; SURE THEY AREN'T GETTING"
+		   " ; ANYWHERE THEY DON'T BELONG"
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   " [NON-P8SCII CHARS FOUND]">>
 
 <CONSTANT TRAVEL-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; TRAVEL AGENCY AND AIRLINE      ;;;"
-		   ";;; RESERVATIONS MANIPULATION      ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;; TRAVEL AGENCY AND      ;;"
+		   " ;; AIRLINE RESERVATIONS   ;;"
+		   " ;; MANIPULATION           ;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
-		   "; MANIPULATE AIRLINE RESERVATIONS --"
-		   "; ROUTE SELECTED TRAVELLER TO ANY"
-		   "; DESIRED DESTINATION, WITH ANY"
-		   "; DESIRED INTERMEDIATE STOPS. CAN"
-		   "; ALSO CAUSE AIRLINES TO AUTOMATICALLY"
-		   "; ROUTE GROUPS OF TRAVELLERS"
-		   "; INCORRECTLY."
+		   " ; ALTER AIRLINE RESERVATIONS"
+		   " ; ROUTE SELECTED TRAVELLER"
+		   " ; TO ANY DESIRED DESTINATION"
+		   " ; WITH ANY DESIRED INTERME-"
+		   " ; DIATE STOPS. CAN ALSO "
+		   " ; CAUSE AIRLINES TO AUTO-"
+		   " ; MATICALLY ROUTE GROUPS OF"
+		   " ; TRAVELLERS INCORRECTLY."
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   " [NON-P8SCII CHARS FOUND]">>
 
 <CONSTANT DVH2-FILE
 	  <PLTABLE <>
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
-		   ";;; EMERGENCY DVH2 CHA/OS ACCESS   ;;;"
-		   ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		   " ;; EMERGENCY              ;;"
+		   " ;; DVH2 CHA/OS ACCESS     ;;"
+		   " ;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 		   <>
-		   ";;===>>>WARNING<<<==="
-		   ";; MAKE SURE THIS ISN'T DIRECTED AT A"
-		   ";; FRIENDLY COMPUTER!!! IT WILL NEVER"
-		   ";; WORK AGAIN!!!"
+		   " ;;===>>>WARNING<<<==="
+		   " ;; MAKE SURE THIS ISN'T"
+		   " ;; DIRECTED AT A"
+		   " ;; FRIENDLY COMPUTER!!!"
+		   " ;; IT WILL NEVER WORK AGAIN!"
 		   <>
-		   "[NON-ASCII CHARACTERS ENCOUNTERED]">>
+		   " [NON-P8SCII CHARS FOUND]">>
 
 <CONSTANT EXE-FILES <PLTABLE PLANE-FILE HAK-FILE>>
 <CONSTANT HAK-FILES <PLTABLE FIDUC-FILE MENU-FILE AIRPLANE-FILE POST-FILE
@@ -968,27 +1026,26 @@ saying \"">
 
 <DEFINE HAK-FILE (DIRPTR "AUX" ND)
   <COND (<==? <FIND-FILE ,HAK-PROG-NAME> .DIRPTR>
-	 <FERROR "HAK-BUSY-USER-RQH">)
+	 <FERROR "hak-busy-user-rqh">)
 	(T
-	 <FERROR "HAK-CANT-RUN-WITH-WRONG-NAME">)>
+	 <FERROR "hak-cant-run-with-wrong-name">)>
   ,FATAL-VALUE>
 
 <SETG PLANE-SUMMONED? <>>
 
 <DEFINE PLANE-FILE (DIRPTR)
-  <DUMP-STRING "AIRPLANE REQUEST" T>
+  <DUMP-STRING " AIRPLANE REQUEST" T>
   <SET-COMPUTER-CURS 1 0>
-  <DUMP-STRING "TRANSMITTING..." T>
-  <DELAY>
+  <DUMP-STRING " TRANSMITTING..." T>
+  <DELAY 2>
   <SET-COMPUTER-CURS 3 0>
-  <DUMP-STRING "RECEIVED..." T>
-  <DELAY>
+  <DUMP-STRING " RECEIVED..." T>
+  <DELAY 2>
   <SET-COMPUTER-CURS 5 0>
-  <DELAY>
-  <DUMP-STRING "CONFIRMED..." T>
-  <DELAY>
+  <DUMP-STRING " CONFIRMED..." T>
+  <DELAY 2>
   <SET-COMPUTER-CURS 7 0>
-  <DUMP-STRING "ACKNOWLEDGED..." T>
+  <DUMP-STRING " ACKNOWLEDGED..." T>
   <SETG PLANE-SUMMONED? T>
   <>>
 
@@ -1027,9 +1084,9 @@ saying \"">
   <SET-COMPUTER-CURS .LINE 0>
   <FILES-ON-SCREEN? T>
   <COND (.CMD?
-	 <DUMP-STRING "DIR DVH2<CHA/OS.OP>*.*" T>)
+	 <DUMP-STRING " DIR DVH2<CHA/OS.OP>*.*" T>)
 	(T
-	 <DUMP-STRING "FILES:" T>)>
+	 <DUMP-STRING " FILES:" T>)>
   <SET LINE <+ .LINE 1>>
   <SET DIR <ZREST .DIR 2>>
   <REPEAT (DE)
@@ -1047,69 +1104,69 @@ saying \"">
   <>>
 
 <DEFINE RUN-CMD (FLD ENTRY DIR "AUX" FNT)
-  <SET FNT <GET-FILE-NAME "ENTER-NAME-OF-FILE-TO-RUN">>
+  <SET FNT <GET-FILE-NAME "enter-name-of-file-to-run">>
   <COND (<SET ENTRY <FIND-FILE .FNT>>
 	 <CLEAR-SCREEN>
 	 <SET DIR <ZGET <ZGET .ENTRY 0> 1>>
 	 <COND (<NOT <INTBL? .DIR <ZREST ,EXE-FILES 2>
 			     <ZGET ,EXE-FILES 0>>>
-		<FERROR "INVALID-FILE-FORMAT">
+		<FERROR "invalid-file-format">
 		,FATAL-VALUE)
 	       (T
 		<ZAPPLY .DIR .ENTRY>)>)
 	(T
-	 <FERROR "FILE-NOT-FOUND">
+	 <FERROR "file-not-found">
 	 ,FATAL-VALUE)>>
 
 <DEFINE TYPE-CMD (FLD ENTRY DIR "AUX" FNT)
-  <SET FNT <GET-FILE-NAME "ENTER-NAME-OF-FILE-TO-SHOW">>
+  <SET FNT <GET-FILE-NAME "enter-name-of-file-to-show">>
   <COND (<SET DIR <FIND-FILE .FNT>>
 	 <CLEAR-SCREEN>
 	 <SET DIR <ZGET <ZGET .DIR 0> 1>>
 	 <COND (<INTBL? .DIR <ZREST ,EXE-FILES 2> <ZGET ,EXE-FILES 0>>
-		<FERROR "INVALID-FILE-FORMAT">
+		<FERROR "invalid-file-format">
 		,FATAL-VALUE)
 	       (T
 		<DUMP-TABLE .DIR 0>
 		<>)>)
 	(T
-	 <FERROR "FILE-NOT-FOUND">
+	 <FERROR "file-not-found">
 	 ,FATAL-VALUE)>>
 
 <DEFINE RENAME-CMD (FLD ENTRY DIR "AUX" FNT ND)
-  <SET FNT <GET-FILE-NAME "ENTER-NAME-OF-FILE-TO-RENAME">>
+  <SET FNT <GET-FILE-NAME "enter-name-of-file-to-rename">>
   <COND (<SET DIR <FIND-FILE .FNT>>
 	 ;"Pointer to old file"
-	 <SET FNT <GET-FILE-NAME "ENTER-NEW-FILE-NAME" <>>>
+	 <SET FNT <GET-FILE-NAME "enter-new-file-name" <>>>
 	 <FILES-ON-SCREEN? <>>
 	 <COND (<SET ND <FIND-FILE .FNT>>
 		; "Existing file will go away, permanently, maybe"
 		<COND (<==? .ND .DIR> T)
 		      (<==? .ND <FIND-FILE ,HAK-PROG-NAME>>
 		       <FILES-ON-SCREEN? T>
-		       <FERROR "FILE-PROTECTION-VIOLATION">)
+		       <FERROR "file-protection-violation">)
 		      (<CONFIRM-OVERWRITE>
 		       <DO-COPY .DIR .ND>
 		       <ZPUT <ZGET .DIR 0> 1 <>>)
 		      (T
 		       <FILES-ON-SCREEN? T>
-		       <FERROR "RENAME-ABORTED">)>)
+		       <FERROR "rename-aborted">)>)
 	       (T
 		<COPY-NAME .FNT .DIR>)>
 	 <CHECK-WINNING?>
 	 <>)
 	(T
-	 <FERROR "FILE-NOT-FOUND">
+	 <FERROR "file-not-found">
 	 ,FATAL-VALUE)>>
 
 <DEFINE CONFIRM-OVERWRITE ("AUX" (FLD <ZREST <ZGET ,REAL-COMMAND-WINDOW 0>
 					     <- ,FIELD-DATA-OFFSET 1>>))
-  <FERROR "TARGET-FILE-ALREADY-EXISTS">
+  <FERROR "target-file-already-exists">
   <SETUP-COMMAND-LINE "Y-TO-OVERWRITE:" 15 <>>
   <GET-COMMAND>
   <COND (<AND <G=? <GETB .FLD 0>:FIX 1>
 	      <==? <GETB .FLD 1>:FIX !\Y>>
-	 <FERROR-MSG "OVERWRITTEN">
+	 <FERROR-MSG "overwritten">
 	 T)
 	(T <>)>>
 
@@ -1130,18 +1187,18 @@ saying \"">
 	   <RETURN>)>>>
 
 <DEFINE COPY-CMD (FLD ENTRY DIR "AUX" FNT ND)
-  <SET FNT <GET-FILE-NAME "ENTER-NAME-OF-FILE-TO-COPY">>
+  <SET FNT <GET-FILE-NAME "enter-name-of-file-to-copy">>
   <COND (<SET DIR <FIND-FILE .FNT>>
 	 ;"Pointer to old file"
-	 <SET FNT <GET-FILE-NAME "ENTER-NAME-OF-NEW-FILE" <>>>
+	 <SET FNT <GET-FILE-NAME "enter-name-of-new-file" <>>>
 	 <COND (<SET ND <FIND-FILE .FNT>>
 		<COND (<==? .ND <FIND-FILE ,HAK-PROG-NAME>>
-		       <FERROR "FILE-PROTECTION-VIOLATION">)
+		       <FERROR "file-protection-violation">)
 		      (<CONFIRM-OVERWRITE>
 		       ; "Existing file will go away, permanently"
 		       <DO-COPY .DIR .ND>)
 		      (T
-		       <FERROR "COPY-ABORTED">)>
+		       <FERROR "copy-aborted">)>
 		<CHECK-WINNING?>
 		,FATAL-VALUE)
 	       (<SET ND <FIND-FREE-FILE>>
@@ -1151,10 +1208,10 @@ saying \"">
 		<CHECK-WINNING?>
 		<>)
 	       (T
-		<FERROR "DIRECTORY-IS-FULL">
+		<FERROR "directory-is-full">
 		,FATAL-VALUE)>)
 	(T
-	 <FERROR "FILE-NOT-FOUND">
+	 <FERROR "file-not-found">
 	 ,FATAL-VALUE)>>
 
 <DEFINE CHECK-WINNING? ("AUX" DIR)
@@ -1175,13 +1232,13 @@ saying \"">
   .TBL>
 
 <DEFINE DELETE-CMD (FOO BAR BLETCH "AUX" FNT DIR)
-  <SET FNT <GET-FILE-NAME "ENTER-NAME-OF-FILE-TO-ERASE">>
+  <SET FNT <GET-FILE-NAME "enter-name-of-file-to-erase">>
   <COND (<SET DIR <FIND-FILE .FNT>>
 	 <ZPUT <ZGET .DIR 0> 1 <>>
 	 <FILES-ON-SCREEN? <>>
 	 <>)
 	(T
-	 <FERROR "FILE-NOT-FOUND">
+	 <FERROR "file-not-found">
 	 ,FATAL-VALUE)>>
 
 <DEFINE COMPUTER-WIN ()

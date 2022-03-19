@@ -6,20 +6,20 @@
 <INCLUDE "FORMDEFS">
 
 <BUILD-FORM BANK-FORM-DEPOSIT
-	    (BANK-LAST-NAME "Last name:" 21 "Chomper" IBANK-LAST-NAME)
-	    (BANK-FIRST-NAME "First name:" 25 "Random" IBANK-FIRST-NAME)
-	    (BANK-MIDDLE-INITIAL "Middle initial:" 1 "Q" IBANK-MIDDLE-INITIAL)
-	    (BANK-AMOUNT "Amount of deposit: $" 6 "50" BANK-CHECK-AMOUNT)
-	    (BANK-REASON "From illegal activity? (y/n):" 1 "Y" BANK-CHECK-DEAL)
-	    (BANK-DRUG "If yes, which one:" 17 BANK-DRUGS)>
+	    (BANK-LAST-NAME "Last name" 15 "Chomper" IBANK-LAST-NAME)
+	    (BANK-FIRST-NAME "First name" 15 "Random" IBANK-FIRST-NAME)
+	    (BANK-MIDDLE-INITIAL "Middle initial" 1 "Q" IBANK-MIDDLE-INITIAL)
+	    (BANK-AMOUNT "Amount: $" 6 "50" BANK-CHECK-AMOUNT)
+	    (BANK-REASON "Illegal activity? y/n" 1 "Y" BANK-CHECK-DEAL)
+	    (BANK-DRUG "If yes, which" 12 BANK-DRUGS)>
 
 <BUILD-FORM BANK-FORM-WITHDRAW
-	    (BANK-LAST-NAME "Last name:" 21 "Chomper" IBANK-LAST-NAME)
-	    (BANK-FIRST-NAME "First name:" 25 "Random" IBANK-FIRST-NAME)
-	    (BANK-MIDDLE-INITIAL "Middle initial:" 1 "Q" IBANK-MIDDLE-INITIAL)
-	    (BANK-AMOUNT "Amount of withdrawal: $" 6 "50" BANK-CHECK-AMOUNT)
-	    (BANK-REASON "For illegal activity? (y/n):" 1 "Y" BANK-CHECK-DEAL)
-	    (BANK-DRUG "If yes, which one:" 17 BANK-DRUGS)>
+	    (BANK-LAST-NAME "Last name" 15 "Chomper" IBANK-LAST-NAME)
+	    (BANK-FIRST-NAME "First name" 15 "Random" IBANK-FIRST-NAME)
+	    (BANK-MIDDLE-INITIAL "Middle initial" 1 "Q" IBANK-MIDDLE-INITIAL)
+	    (BANK-AMOUNT "Amount: $" 6 "50" BANK-CHECK-AMOUNT)
+	    (BANK-REASON "Illegal activity? y/n" 1 "Y" BANK-CHECK-DEAL)
+	    (BANK-DRUG "If yes, which" 12 BANK-DRUGS)>
 
 <DEFINE-GLOBALS BANK-GLOBALS
 		(BANKTALK 0)>

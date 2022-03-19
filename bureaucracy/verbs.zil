@@ -379,7 +379,7 @@
 	 <TELL "[Your " .WHICH " just went ">
 	 <COND (<T? .DOWN?> <TELL "down">)
 	       (T <TELL "up">)>
-	 <TELL ".]">
+	 <TELL "]">
 	 <HLIGHT ,H-NORMAL>
 	 <ZCRLF>
 	 <SOUND 1>
@@ -523,7 +523,7 @@
 <DEFINE RELEASE ("AUX" V)
 	 <SET V <BAND <LOWCORE ZORKID> *3777*>>
 	 <TELL "Release " N .V>
-	 <DEBUGGING-CODE <TELL  " for Status Line on the Pico-8">>
+	 <DEBUGGING-CODE <TELL  "(r160) for Status Line on the Pico-8">>
 	 T>
 
 <DEFINE COPYRIGHT ()

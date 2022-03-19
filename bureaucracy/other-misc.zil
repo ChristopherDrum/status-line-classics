@@ -31,7 +31,7 @@
 	    T>)>>>
 
 <DEFINE GO () 
-       	 <SETG HEIGHT <LOWCORE SCRV>>
+	 <SETG HEIGHT <LOWCORE SCRV>>
 	 <SETG WIDTH <LOWCORE SCRH>>
 	 <CLEAR -1>
 	 <COPYRIGHT>
@@ -128,8 +128,8 @@ Of course you know the sort of thing. It's exactly what has happened to you. But
 	 <CURSET 1 1>
 	 <HLIGHT ,H-INVERSE>
 	 <PRINT-SPACES ,WIDTH>
-	 <COND (<L? ,WIDTH:FIX 64>
-		<CURSET 1 <- ,WIDTH:FIX 11>>
+	 <COND (<L? ,WIDTH:FIX 64> ; "Note this for conditional formatting example"
+		<CURSET 1 <- ,WIDTH:FIX 10>>
 		<TELL "BP:">)
 	       (T
 		<CURSET 1 <- ,WIDTH:FIX 23>>
@@ -567,7 +567,7 @@ Of course you know the sort of thing. It's exactly what has happened to you. But
 	 <SET LINES <ZGET .TABLE 0>>
 	 <SET PLINES .LINES>
 	 <SET W <ZGET .TABLE 1>>
-	 <SET MARGIN </ <- ,WIDTH:FIX .W> 2>>	; "Center"
+	 <SET MARGIN <+ </ <- ,WIDTH:FIX .W> 2> 1>> 	; "Center"
 	 <SPLIT <+ .LINES .STLINE>> ; "Set up the window."
 	 <SCREEN ,S-WINDOW>
 	 <ZBUFOUT <>>
