@@ -4,7 +4,7 @@ Classic text adventures, reformatted to look beautiful in [Status Line on the Pi
 ### TL;DR
 There are a handful of Infocom classics which have hard-coded formatting values which prevent them from being played on narrow screens under 40-characters wide (sometimes even under 60-characters), even if the target machine has enough processing power to play the game. This repo attempts to remove those layout restrictions to adapt a certain class of games to look and play great on small screens.
 
-## Some examples
+## Examples of primary changes
 
 ### Bureaucracy
 There is an entire, interesting story behind getting this game to work. Here we see the "computer" being used as well as the start game "registration form" formatted nicely for a 32-character/21 line screen.
