@@ -69,8 +69,7 @@
 <ROUTINE CORP-NOTICE (STRING)
 	 <DIROUT ,D-SCREEN-OFF>
 	 <TELL
-"Here " .STRING " a transcript of interaction with Nord and Bert Couldn't
-Make Head or Tail of It" ,PERIOD>
+"Here " .STRING " a transcript of interaction with Nord and Bert Couldn't Make Head or Tail of It" ,PERIOD>
 	 <DIROUT ,D-SCREEN-ON>
 	 <RTRUE>>
 
@@ -81,15 +80,13 @@ Make Head or Tail of It" ,PERIOD>
 <ROUTINE V-INVENTORY ()
 	 <COND (<EQUAL? ,SCENE ,RESTAURANT>
 		<TELL
-"You're cross-eyed with anger, which means a jaundiced eye points this way,
-and an evil eye points that way. ">
+"You're cross-eyed with anger, which means a jaundiced eye points this way, and an evil eye points that way. ">
 		<COND (<FSET? ,SPLEEN ,PHRASEBIT>
 		       <TELL 
 "But you feel some justification in having vented your spleen. ">)
 		      (T
 		       <TELL
-"You can trace a strong burning sensation to the area of your
-spleen." CR CR>)>)>
+"You can trace a strong burning sensation to the area of your spleen." CR CR>)>)>
 	 <COND (<NOT <FIRST? ,PROTAGONIST>>
 		<TELL "You're empty-handed." CR>
 		<RTRUE>)>
@@ -168,13 +165,13 @@ Infocom interactive fiction|
 Copyright (c) 1987 by Infocom, Inc. All rights reserved.|
 Nord and Bert... is a trademark of Infocom, Inc.|
 Beta Release for Donald Abernathie (IBM) / Serial number ">
-	 <ITALICIZE "Nord and Bert Couldn't Make Head or Tail of It|">
+	 <ITALICIZE "Nord and Bert Couldn't Make|Head or Tail of It|">
 	 <TELL "Infocom interactive fiction|
 Copyright (c) 1987 by Infocom, Inc. All rights reserved.|">
-	 <ITALICIZE "Nord and Bert Couldn't Make Head or Tail of It|">
+	 <ITALICIZE "Nord and Bert Couldn't Make|Head or Tail of It|">
 	 <TELL "is a trademark of Infocom, Inc. ">
 	 <V-$ID>
-	 <TELL "Release " N .V " for Status Line on the Pico-8 / Serial number ">
+	 <TELL "Release " N .V "(r19) for Status Line on the Pico-8 / Serial number ">
 	 <REPEAT ()
 		 <COND (<G? <SET CNT <+ .CNT 1>> 23>
 			<RETURN>)
@@ -2127,12 +2124,7 @@ when you have your " .STRING ". In fact, you have your "
 		<FSET ,ATTIC ,PHRASEBIT>
 		<QUEUE I-END-SCENE 1>
 		<TELL 
-"You get that long, drawn-out sudden feeling of movement in the pit of your
-stomach as the attic begins tilting straight up to one side, and it continues
-tilting until you're in a figurative sense literally climbing the walls
-and fall...|
-|
-\"CRUNCH!\" Your shoulders slam softly against the hardwood floor">
+"You get that long, drawn-out sudden feeling of movement in the pit of your stomach as the attic begins tilting straight up to one side, and it continues tilting until you're in a figurative sense literally climbing the walls and fall...||\"CRUNCH!\" Your shoulders slam softly against the hardwood floor">
 		<ROB ,PROTAGONIST ,HERE>
 		<COND (<G? <CCOUNT ,PROTAGONIST> 1>
 		       <TELL 
@@ -2141,13 +2133,10 @@ and fall...|
 		       <TELL 
 ", and" T .X " breaks its fall by landing on you">)>
 		<TELL 
-". Wobbly but with steadiness, you regain your feet. Wait! You can hear the
-screeching voices of disembodied spirits converge in a fright and then
-around the entrance to the manor, and then grow faint in the distance." CR>)
+". Wobbly but with steadiness, you regain your feet. Wait! You can hear the screeching voices of disembodied spirits converge in a fright and then around the entrance to the manor, and then grow faint in the distance." CR>)
 	       (T
 		<TELL
-"What goes around comes around, and so it goes with" T ,PRSO ", which ends
-up in exactly the same spot as it was before." CR>)>>
+"What goes around comes around, and so it goes with" T ,PRSO ", which ends up in exactly the same spot as it was before." CR>)>>
 
 <ROUTINE V-RETURN ("AUX" ACTOR)
 	 <COND (<NOT ,PRSI>
@@ -2601,8 +2590,7 @@ up in exactly the same spot as it was before." CR>)>>
 	       (<EQUAL? ,P-PRSA-WORD ,W?SHAKE>
 		<COND (<FSET? ,PRSO ,PARTBIT>
 		       <TELL 
-"You shake it just about until you break it, but" T ,PRSO ", though numbed,
-stays attached." CR>)
+"You shake it just about until you break it, but" T ,PRSO ", though numbed, stays attached." CR>)
 		      (T
 		       <IMPOSSIBLES>)>)
 	       (<FSET? ,PRSO ,VEHBIT>
@@ -2619,8 +2607,7 @@ stays attached." CR>)
 		<TELL ,YNH TR ,PRSO>)
 	       (<PRSI? ,GRAIN-OF-SALT ,SALT-SHAKER>
 		<TELL 
-"Taking" T ,PRSO " lightly is par for the course, but it doesn't seem
-to affect" T ,PRSI " one iota." CR>)
+"Taking" T ,PRSO " lightly is par for the course, but it doesn't seem to affect" T ,PRSI " one iota." CR>)
 	       (T
 		<TELL "Sorry," T-IS-ARE ,PRSI "no help in getting" TR ,PRSO>)>>
 
@@ -2661,8 +2648,7 @@ to affect" T ,PRSI " one iota." CR>)
 		       <RTRUE>)
 		      (T
 		       <TELL
-"Hmmm..." T ,PRSO " looks at you expectantly,
-as if you seemed to be about to talk." CR>)>)
+"Hmmm..." T ,PRSO " looks at you expectantly, as if you seemed to be about to talk." CR>)>)
 	       (T
 	        <CANT-VERB-A-PRSO "talk to">
 	        <STOP>)>>
@@ -3020,11 +3006,8 @@ as if you seemed to be about to talk." CR>)>)
 			      <TELL 
 "\"Ba ba ba, ba ba ba-ran....\"|
 |
-The door swings open and in walks your
-irrepressible, long-lost (\"but not long enough\") brother-in-law Bob.
-\"Howdy, Sammy! Just flew in from Pittsburgh. Boy are my arms tired,\"
-he says, flapping and smiling goonily. Bob extends his hand to you in
-greeting..." CR>)
+The door swings open and in walks your irrepressible, long-lost (\"but not long enough\") brother-in-law Bob.|
+ \"Howdy, Sammy! Just flew in from Pittsburgh. Boy are my arms tired,\" he says, flapping and smiling goonily. Bob extends his hand to you in greeting..." CR>)
 			     (T
 			      <V-WHAT>)>)
 		      (<EQUAL? ,KNOCK-JOKE ,W?DWAYNE>
@@ -3050,10 +3033,7 @@ greeting..." CR>)
 				    (T
 				     <TELL "You">)>
 			      <TELL
-" hear a suppressed cackle from behind the
-bathroom door, which slowly opens to reveal the figure of your Bob,
-looking sheepish but with his hurt feelings mended. He shuts the door
-and slides back into your chair." CR>)
+" hear a suppressed cackle from behind the bathroom door, which slowly opens to reveal the figure of your Bob, looking sheepish but with his hurt feelings mended. He shuts the door and slides back into your chair." CR>)
 			     (T
 			      <V-WHAT>)>)
 		      (<EQUAL? ,KNOCK-JOKE ,W?GORILLA>
@@ -3073,8 +3053,7 @@ and slides back into your chair." CR>)
 			      <TELL
 "\"Girl of your dreams!\"|
 |
-A lady enters the living room and, narrowing her eyes, begins sizing up the
-situation." CR>)
+A lady enters the living room and, narrowing her eyes, begins sizing up the situation." CR>)
 			     (T
 			      <V-WHAT>)>)
 		      (T
@@ -3102,8 +3081,7 @@ situation." CR>)
 		       <MOVE ,OLD-BOTTLE ,MANTEL>
 		       <UPDATE-SCORE>
 		       <TELL 
-"Mmmmm. You know I really think you might be right. Yes, yes, the cherished
-memento look.|
+"Mmmmm. You know I really think you might be right. Yes, yes, the cherished memento look.|
 |
 You carefully place the antique bottle upon the mantel.|
 |
@@ -3550,8 +3528,7 @@ are responsible for doing the beginning-of-paragraph indentation."
 		<COND (<AND <IN? ,MERMAID ,HOT-TUB>
 			    <NOT <EQUAL? <GET ,P-NAMW 0> ,W?PLUG>>>
 		       <TELL 
-"The mermaid is swimming circles around you in the well-insulated hot
-tub, her long silken blond hair streaming through the steamy water. ">)
+"The mermaid is swimming circles around you in the well-insulated hot tub, her long silken blond hair streaming through the steamy water. ">)
 		      (<NOT <EQUAL? <GET ,P-NAMW 0> ,W?PLUG>>
 		       <TELL 
 "The well-insulated tub's full of hot steamy water and you. ">)>
@@ -3647,8 +3624,10 @@ followed almost immediately by the rest of ">
 
 <ROUTINE JIGS-UP (DESC)
 	 <TELL .DESC>
+	 <HLIGHT ,H-BOLD>
 	 <TELL CR CR
-"   ****  You have died  ****" CR>
+"  *** You have died ***  " CR>
+	 <HLIGHT ,H-NORMAL>
 	 <FINISH>>
 
 ;"subtitle useful utility routines"
@@ -3877,7 +3856,7 @@ you're the type who goes both ways, eh? Nudge, nudge, wink, wink!]">)>
 	<LTABLE
 	 0 
 	 "What a concept."
-         "Nice try."
+	 "Nice try."
 	 "You've gotta be kidding."
 	 "Never in a thousand years.">>
 
