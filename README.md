@@ -45,7 +45,10 @@ So, I decided to suck it up and do the hard work to make those games work well o
 * Last, propose changes to the upstream source repos to make the originals more generically flexible to a wide range of screens.
 
 ## Build Notes
-I'm using ZILF v0.9.0. Inside each game folder, I have a `\build` folder that is excluded in the `.gitignore` file. From the root folder for a game I run this composite command (Bureaucracy shown; swap for the game you want to build)
+You will need ZILF and ZAPF compiler tools to build from source code.
+https://foss.heptapod.net/zilf/zilf/
+
+I'm currently on ZILF v0.9.0. Inside each game folder, I have a `\build` folder that is excluded in the `.gitignore` file. From the root folder for a game I run this composite command (Bureaucracy shown; swap for the game you want to build)
 ```
 del *.zap *.xzap \build\bureaucracy.z4 && zilf .\build\bureaucracy.zil && zapf -ab .\build\bureaucracy.zap > .\build\bureaucracy_freq.xzap & del .\build\bureaucracy_freq.zap && zapf .\build\bureaucracy.zap
 ```
