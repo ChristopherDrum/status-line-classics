@@ -1,5 +1,5 @@
 # Status Line Classics
-Classic text adventures, reformatted to look beautiful in Status Line on the Pico-8
+Classic text adventures, reformatted to look beautiful in ![Status Line on the Pico-8](https://christopherdrum.itch.io/statusline)
 
 ### TL;DR
 There are a handful of Infocom classics which have hard-coded formatting values which prevent them from being played on narrow screens under 40-characters wide (sometimes ven under 60-characters), even if the target machine has enough processing power to play the game. This repo alters those layout restrictions to adapt a certain class of games to run on small screens.
