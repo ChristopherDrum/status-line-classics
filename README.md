@@ -44,12 +44,6 @@ So, I decided to suck it up and do the hard work to make those games work well o
 * Next, feed the refactored routines with dynamic values from the z-code header and verify the original experience is unaltered while providing smaller screens an equivalent play experience.
 * Last, propose changes to the upstream source repos to make the originals more generically flexible to a wide range of screens.
 
-### Things I Know Need to Be Done to the Infocom Classics
-* Some status line information will need a "small screen terse" version. This will mean the removal of unneeded or redundant text. For example, in A Mind Forever Voyaging, the status bar says, "Mode: Communications Mode". Well, we don't really need to say "mode" twice. And the time says, "Time: 7:04pm" which could truncate to "7:04p" and convey the exact same info (at the expense of removing a little PRISM-y aesthetic, perhaps)
-* Trinity's interstitial quotations are hard-formatted in the code itself. Not yet sure how to make that flexible to screen sizes, but for the Pico-8 I will likely start with just putting in new hard-coded line breaks to format properly for a 32-character wide screen.
-* Bureaucracy's "registration form" and "computer interface" is a bit of a nightmare on a small screen. It "works" but is not such a pleasant experience. May be able to reformat this to be one form entry per-line?
-* This is a small thing, but I have seen times when line breaks are introduced which, on a small screen, causes ugly orphans and widows. I may remove some of these, as they do not manifestly affect the aesthetic of the game
-
 ## Build Notes
 I'm using ZILF v0.9.0. Inside each game folder, I have a `\build` folder that is excluded in the `.gitignore` file. From the root folder for a game I run this composite command (Bureaucracy shown; swap for the game you want to build)
 ```
