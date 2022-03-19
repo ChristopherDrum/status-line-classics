@@ -349,5 +349,6 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-# Status Line Classics Workspace Temp Files
-.candidate_releases/
+# Status Line Classics Workspace Files
+.distributions/
+*/build
