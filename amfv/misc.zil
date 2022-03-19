@@ -204,7 +204,7 @@
 		<PRINTD .OBJ>)>>
 
 <ZSTR-ON>
-
+
 ;"former MAIN.ZIL stuff"
 
 <GLOBAL P-WON <>>
@@ -235,12 +235,14 @@
 	 <NAME-MESSAGE ,MESSAGE-B>
 	 <CHAPTER-PRINT 1>
 	 <TELL CR CR CR CR>
-	 <PRINT-SPACES 22>
+	 <PRINT-SPACES 6>
 	 <TELL "\"Tomorrow never yet" CR>
-	 <PRINT-SPACES 23>
-	 <TELL "On any human being rose or set.\"" CR>
-	 <PRINT-SPACES 39>
-	 <TELL "-- William Marsden" CR CR CR CR CR>
+	 <PRINT-SPACES 6>
+	 <TELL "On any human being" CR>
+	 <PRINT-SPACES 6>
+	 <TELL "   rose or set.\"" CR>
+	 <PRINT-SPACES 8>
+	 <TELL "- William Marsden" CR CR CR CR>
 	 <CONTINUE>
 	 <INIT-STATUS-LINE 2>
 	 <STATUS-LINE>
@@ -473,7 +475,7 @@
 			      <RTRUE>)>)>)
 	       (T
 		<RFALSE>)>>
-
+
 <ROUTINE FAKE-ORPHAN ("AUX" TMP)
 	 <ORPHAN ,P-SYNTAX <>>
 	 <TELL "[Be specific: what object do you want to ">
@@ -576,7 +578,7 @@
 			    (T
 			     <TELL "Handled" CR>)>)>
 	       .RES)>>
-
+
 ;"former CLOCK.ZIL stuff"
 
 <GLOBAL C-TABLE %<COND (<GASSIGNED? PREDGEN>
@@ -735,8 +737,7 @@
 				   ;"already told during wait">
 			      <SETG INCREMENT-WAIT T>
 			      <TELL CR
-"As the day's executions wind to a conclusion, the people in the stands
-begin heading toward the exits." CR>)
+"As the day's executions wind to a conclusion, the people in the stands begin heading toward the exits." CR>)
 			     (<EQUAL? ,STIME 480> ;"already told during wait"
 			      <SETG STOP-WAIT T>
 			      <TELL CR
@@ -749,8 +750,7 @@ begin heading toward the exits." CR>)
 			      <SETG STOP-WAIT T>
 			      <SCORE 116> ;"2 points"
 			      <TELL CR
-"A surge of adrenal fear passes through you as sirens all around begin
-wailing, an audio sine wave announcing the beginning of curfew." CR>)
+"A surge of adrenal fear passes through you as sirens all around begin wailing, an audio sine wave announcing the beginning of curfew." CR>)
 			     (<AND <G? ,STIME 420>
 				   <NOT <G? .TMP 420>>
 				   <NOT <VERB? SLEEP>>>

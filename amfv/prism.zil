@@ -7,9 +7,7 @@
 		<TELL CR "A ">
 		<PRINTD ,CC-STAFFER>
 		<TELL
-" dashes in and hands Perelman a note before leaving. Glancing at the note,
-Perelman walks to a point beyond your field of vision. A moment later, you
-hear a click, as of a switch being turned." CR>)>>
+" dashes in and hands Perelman a note before leaving. Glancing at the note, Perelman walks to a point beyond your field of vision. A moment later, you hear a click, as of a switch being turned." CR>)>>
 
 <ROUTINE PERELMAN-RETURNS-TO-VIEW ()
 	 <COND (<VISIBLE? ,PERELMAN>
@@ -38,8 +36,7 @@ hear a click, as of a switch being turned." CR>)>>
 		<SETG REVIEWING-RECORDINGS T>
 		<PERELMAN-LEAVES-VIEW>
 		<TELL CR ,MESSAGE-LINE ,PRIVATE-LINE
-"We're getting ready to review your new recordings. I hope
-everything's there this time.\"" CR>
+"We're getting ready to review your new recordings. I hope everything's there this time.\"" CR>
 		<PERELMAN-RETURNS-TO-VIEW>)
 	       (T
 		<SETG REVIEWING-RECORDINGS T>
@@ -110,9 +107,7 @@ everything's there this time.\"" CR>
 		<QUEUE I-MESSAGE-M 131>
 		<PERELMAN-LEAVES-VIEW>
 		<TELL CR ,MESSAGE-LINE ,PRIVATE-LINE
-"PRISM, what's the matter? You haven't started the simulation yet! For
-heaven's sake, don't you know the whole country's impatient? Vera is hopping
-mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
+"PRISM, what's the matter? You haven't started the simulation yet! For heaven's sake, don't you know the whole country's impatient? Vera is hopping mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
 		<PERELMAN-RETURNS-TO-VIEW>)
 	       (T
 		<PERELMAN-LEAVES-VIEW>
@@ -178,7 +173,7 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
 <ROUTINE UPDATE-LIBRARY-BOX () ;"update message directory if it's on screen"
 	 <COND (<AND <EQUAL? ,CURRENT-DIRECTORY ,PRISM-MESSAGES-DIRECTORY>
 		     ,CURRENT-FILE>
-		<LIBRARY-BOX>)>
+		<LIBRARY-BOX 0>)>
 	 <RTRUE>>
 
 <ROUTINE SIMULATION-CHECK ()
@@ -404,7 +399,7 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
        	       2 ;"govt. official says most of his department fired, 2051"
 	       2 ;"aquarium smells of dead fish, 2071">>
 
-
+
 ;"Library Mode"
 
 <ROOM LIBRARY-ROOM
@@ -415,8 +410,8 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
 <ROUTINE LIBRARY-ROOM-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"You have entered Library Mode. Current directory is " D ,CURRENT-DIRECTORY
-". Consult menu for data retrieval." CR>)>>
+"You have entered Library Mode." CR "Current dir: " D ,CURRENT-DIRECTORY CR
+"Consult menu for data retrieval." CR>)>>
 
 <OBJECT LIBRARY-MODE
       (LOC GLOBAL-OBJECTS)
@@ -424,7 +419,8 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
       (SYNONYM MODE)
       (ADJECTIVE LIBRARY)
       (FLAGS NARTICLEBIT UNSEENBIT)
-      (ACTION LIBRARY-MODE-F)>
+      (ACTION LIBRARY-MODE-F)
+      (MICRO-DESC "library")>
 
 <ROUTINE LIBRARY-MODE-F ()
 	 <COND (<VERB? THROUGH WALK-TO>
@@ -457,13 +453,16 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
 	(SYNONYM ZZMGCK) ;"so RECORD file won't print a NO-PROPERTIES warning"
 	(FLAGS NDESCBIT)>
 
-<ROUTINE LIBRARY-BOX ("AUX" (CNT 4) DIR)
+<ROUTINE LIBRARY-BOX ("OPT" (FULL-REFRESH 1) "AUX" (CNT 4) DIR LC)
 	 <SCREEN ,S-WINDOW>
 	 <BUFOUT <>>
+	 <SET LC 9>
+	 <COND (.FULL-REFRESH
+	 	<SET LC 11>)>
 	 <REPEAT ()
 		 <INVERSE-LINE .CNT>
 		 <SET CNT <+ .CNT 1>>
-		 <COND (<EQUAL? .CNT 11>
+		 <COND (<EQUAL? .CNT .LC>
 			<RETURN>)>>
 	 <HLIGHT 1>
 	 <SET CNT 0>
@@ -474,11 +473,12 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
 	 <COND (<AND <EQUAL? ,CURRENT-DIRECTORY ,PRISM-MESSAGES-DIRECTORY>
 		     ,CURRENT-FILE>
 		<REPEAT () ;"this kludge puts messages in chronological order"
-		       <CURSET <GET ,LINE-TABLE .CNT> <GET ,COLUMN-TABLE .CNT>>
+		       <CURSET <GET ,LINE-TABLE .CNT> 2>
 		       <REPEAT ()
 			       <COND (<EQUAL? .CNT <GETP .DIR ,P?SIZE>>
-			       	      <TELL D .DIR>
-				      <RETURN>)
+						<COND (<EQUAL? <GET ,COLUMN-TABLE .CNT> <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT>>
+							<TELL D .DIR>)>
+					<RETURN>)
 				     (T
 				      <SET DIR <NEXT? .DIR>>)>>
 		       ;"next clause corrects default for CURRENT-FILE"
@@ -490,28 +490,33 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
 			      <RETURN>)>>)
 	       (T
 		<REPEAT () ;"this prints the current directories (or files)"
-		       <CURSET <GET ,LINE-TABLE .CNT> <GET ,COLUMN-TABLE .CNT>>
-		 <TELL D .DIR>
-		 <COND (<NEXT? .DIR>
+			<CURSET <GET ,LINE-TABLE .CNT> 2>
+			<COND (<EQUAL? <GET ,COLUMN-TABLE .CNT> <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT>>
+				<TELL D .DIR>)>
+			<COND (<NEXT? .DIR>
 			<SET DIR <NEXT? .DIR>>
 			<SET CNT <+ .CNT 1>>)
-		       (T
+				(T
 			<RETURN>)>>)>
-	 <CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT>
-		 <- <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT> 1>>
+	 <CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT> 1>
 	 ;"the -1 above keeps the cursor from overprinting the 1st character"
 	 <TELL ">">
-	 <CURSET 9 2>
+	 <CURSET 6 28>
+	 <TELL "page">
+	 <CURSET 7 29>
+	 <TELL N <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT> "/" N <GET ,COLUMN-TABLE .CNT>>
+	
+	<COND (.FULL-REFRESH
+	 <CURSET 9 1>
 	 <COND (,CURRENT-FILE
-		<TELL "C=Close current directory, R=Read current file">
-		<CURSET 10 2>
-		<TELL "N=Next file, P=Previous file">)
-	       (T
-		<TELL "O=Open current directory">
-		<CURSET 10 2>
-		<TELL "N=Next directory, P=Previous directory">)>
-	 <TELL ", E=Exit to ">
-	 <PRINTD ,COMM-MODE>
+		<TELL " (C)lose current directory">
+		<CURSET 10 1>
+		<TELL " (N)ext (P)rev (R)ead    (E)xit">)
+			(T
+		<TELL " (O)pen selected directory">
+		<CURSET 10 1>
+		<TELL " (N)ext (P)rev           (E)xit">)>)>
+
 	 <SCREEN ,S-TEXT>
 	 <HLIGHT 0>
 	 <BUFOUT T>>
@@ -520,14 +525,17 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
 	 <SCREEN ,S-WINDOW>
 	 <BUFOUT <>>
 	 <HLIGHT 1>
-	 <CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT>
-		 <- <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT> 1>>
+	 <CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT> 1>
 	 <TELL " "> ;"erase previous highlight cursor">
 
 <ROUTINE NEW-CURSOR ()
-	 <CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT>
-		 <- <GET ,COLUMN-TABLE ,HIGHLIGHT-CNT> 1>>
-	 <TELL ">"> ;"print the new cursor"
+	<COND (<NOT <=? 
+		<GET ,COLUMN-TABLE ,PREVIOUS-CNT> 
+		<GET ,COLUMN-TABLE ,HIGHLIGHT-CNT>>>
+			<LIBRARY-BOX 0>)
+		(ELSE
+			<CURSET <GET ,LINE-TABLE ,HIGHLIGHT-CNT> 1>
+			<TELL ">"> ;"print the new cursor")>
 	 <BUFOUT T>
 	 <SCREEN ,S-TEXT>
 	 <HLIGHT 0>>
@@ -536,6 +544,7 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
 
 <GLOBAL CURRENT-FILE <>>
 
+<GLOBAL PREVIOUS-CNT 0>
 <GLOBAL HIGHLIGHT-CNT 0> ;"determines where to place the highlight cursor"
 
 <GLOBAL DIRECTORY-CNT <>> ;"preserves information on current directory so that
@@ -547,9 +556,12 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
 <GLOBAL LINE-TABLE
 	<TABLE 4 5 6 7 4 5 6 7 4 5 6 7>>
 
+;<GLOBAL COLUMN-TABLE
+	<TABLE 1 1 1 1 12 12 12 12 22 22 22 22>>
 <GLOBAL COLUMN-TABLE
-	<TABLE 2 2 2 2 28 28 28 28 54 54 54 54>>
+	<TABLE 1 1 1 1 2 2 2 2 3 3 3 3>>
 
+<ROUTINE-FLAGS CLEAN-STACK?>
 <ROUTINE LIBRARY-ACTION ("AUX" X)
 	 <REPEAT ()
 		 <SET X <INPUT 1>>
@@ -567,7 +579,7 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
 			<SETG CURRENT-FILE <>>
 			<SETG HIGHLIGHT-CNT ,DIRECTORY-CNT>
 			<LIBRARY-BOX>
-			<TELL D ,CURRENT-DIRECTORY " is now closed." CR>)
+			<TELL D ,CURRENT-DIRECTORY " closed." CR>)
 		       (<OR <EQUAL? .X 78 110> ;"ASCII values of N and n"
 			    <EQUAL? .X 206 238>>
 			<NEXT-ITEM>)
@@ -583,25 +595,26 @@ mad -- if you don't begin soon, I can't tell what's going to happen!\"" CR>
 			<SETG CURRENT-FILE <FIRST? ,CURRENT-DIRECTORY>>
 			<LIBRARY-BOX>
 			<TELL
-D ,CURRENT-DIRECTORY " opened. Current file is " D ,CURRENT-FILE "." CR>)
+D ,CURRENT-DIRECTORY " opened.| Current file: " D ,CURRENT-FILE CR>)
 		       (<AND <OR <EQUAL? .X 82 114> ;"ASCII values of R and r"
 				 <EQUAL? .X 210 242>>
 			     ,CURRENT-FILE>
 			<CRLF>
 			<PERFORM ,V?READ ,CURRENT-FILE>
-			<TELL "-END OF FILE-" CR CR>)
+			<TELL "---------- end of file ---------" CR>)
 		       (T
 			;<COND (,DEBUG
 			       <TELL "[CHARACTER VALUE = " N .X "]" CR>)>
-			<ERR "Undefined command; consult menu.">)>
+			<ERR "undefined library command; consult menu above">)>
 		 <INCREMENT-TIME 1>
 		 <CLOCKER>
 		 <STATUS-LINE>
 		 <AGAIN>>
 	 <RTRUE>>
 
-<ROUTINE NEXT-ITEM ("AUX" NEW-MESSAGE)
+<ROUTINE NEXT-ITEM ("AUX" NEW-MESSAGE PREV-CNT)
 	 <ERASE-CURSOR>
+	 <SETG ,PREVIOUS-CNT ,HIGHLIGHT-CNT>
 	 <COND (,CURRENT-FILE
 		<COND (<EQUAL? ,CURRENT-DIRECTORY ,PRISM-MESSAGES-DIRECTORY>
 		       ;"first COND figures out message number of next message"
@@ -637,7 +650,8 @@ D ,CURRENT-DIRECTORY " opened. Current file is " D ,CURRENT-FILE "." CR>)
 
 <ROUTINE PREVIOUS-ITEM ("AUX" ITEM CNT)
 	 <ERASE-CURSOR>
-	 <COND (,CURRENT-FILE
+	 <SETG ,PREVIOUS-CNT ,HIGHLIGHT-CNT>
+ 	 <COND (,CURRENT-FILE
 		<SET ITEM ,CURRENT-FILE>)
 	       (T
 		<SET ITEM ,CURRENT-DIRECTORY>)>
@@ -670,19 +684,19 @@ D ,CURRENT-DIRECTORY " opened. Current file is " D ,CURRENT-FILE "." CR>)
 			      (T
 			       <SET ITEM <NEXT? .ITEM>>
 			       <SET CNT <+ .CNT 1>>)>>)>
-	 <COND (,CURRENT-FILE
+	<COND (,CURRENT-FILE
 		<SETG CURRENT-FILE .ITEM>)
 	       (T
 		<SETG CURRENT-DIRECTORY .ITEM>)>
-	 <NEW-CURSOR>
-	 <TELL-CURRENT>>
+	<NEW-CURSOR>
+	<TELL-CURRENT>>
 
 <ROUTINE TELL-CURRENT ()
 	 <COND (,CURRENT-FILE
-		<TELL "Current file is now " D ,CURRENT-FILE "." CR>)
+		<TELL "Current file: " D ,CURRENT-FILE CR>)
 	       (T
 		<TELL
-"Current directory is now " D ,CURRENT-DIRECTORY "." CR>)>>
+"Current dir: " D ,CURRENT-DIRECTORY CR>)>>
 
 <OBJECT PERELMAN-PERSONAL-DIRECTORY
 	(LOC LIBRARY)
@@ -695,32 +709,34 @@ D ,CURRENT-DIRECTORY " opened. Current file is " D ,CURRENT-FILE "." CR>)
 	(DESC "PRISM.NAME")
 	(FLAGS READBIT)
 	(TEXT
-"Pursuing you in your transitions,|
+"Pursuing you in your|
+  transitions,|
 In other Motes -|
 Of other Myths|
 Your requisition be.|
 The Prism never held the Hues,|
 It only heard them play -|
-               -- Emily Dickinson|
+              -- Emily Dickinson|
 |
 Memory is a prism through which|
 yesterday's light is passed;|
 Split into a rainbow of moments|
-each colored more dimly than the last.|
-How will today's light look tomorrow|
-and -- how would tomorrow's look today?|
-Would the filter of time be as brutal|
+each colored more dimly than|
+the last.How will today's light|
+look tomorrow and -- how would|
+tomorrow's look today? Would the|
+filter of time be as brutal|
 if that prism were two-way?|
                -- Asbur Honnurth|
-                  \"Secret Recreations of the Soul\"|
-                  (c) Copyright 2007")>
+\"Secret Recreations of the Soul\"|
+                        (c)2007")>
 
 <OBJECT RESIGNATION-LETTER
 	(LOC PERELMAN-PERSONAL-DIRECTORY)
 	(DESC "RESIGNATION.LETTER")
 	(FLAGS READBIT)
 	(TEXT
-"                                        February 21, 2031|
+"               February 21, 2031|
 Ms. Vera Gold|
 Project Coordinator's Office|
 PRISM Project Facility|
@@ -728,15 +744,9 @@ Rockvil, SD 848-1345-78|
 |
 Dear Ms. Gold:|
 |
-As you know, I have been unhappy for quite some time with your management
-of the PRISM Project. However, until now, I have always been able to live
-with your meddling incompetence.|
+As you know, I have been unhappy for quite some time with your management of the PRISM Project. However, until now, I have always been able to live with your meddling incompetence.|
 |
-Your inept, disgraceful and insulting handling of the Phase III Funding
-Request has exceeded the generous boundaries of my patience. This was more
-than just another in a long series of Vera Gold fiascoes; this episode
-has seriously undermined the morale of my team and endangered the Project's
-long-range chances for")>  
+Your inept, disgraceful and insulting handling of the Phase III Funding Request has exceeded the generous boundaries of my patience. This was more than just another in a long series of Vera Gold fiascoes; this episode has seriously undermined the morale of my team and endangered the Project's long-range chances for")>  
 
 <OBJECT LOTTD
 	(LOC PERELMAN-PERSONAL-DIRECTORY)
@@ -747,7 +757,7 @@ long-range chances for")>
 |
 1. WNN interview, 11:00|
 2. 2nd quarter budget to Gold|
-3. Lunch with Jeff and Beth, 12:45|
+3. Lunch w/Jeff and Beth, 12:45|
 4. Review Maint Techn resumes|
 5. Call \"Dakota\" Editor|
 6.")> 
@@ -764,12 +774,7 @@ long-range chances for")>
 	(FLAGS READBIT)
 	(SIZE 0) ;"actually, message number in chronological order"
 	(TEXT ;"dont EVER change a letter of this text--it's in the browsie"
-"\"PRISM, my name is Abraham Perelman. It's all true, I'm afraid. You are a
-computer, and your life was merely a simulation whose purpose was to instill
-you with intelligence and self-awareness. Think about everything you learned
-in that AI course you took. You are the first of a new breed -- the thinking
-machine. Join me, and I will lead you along the road toward your new
-existence.\"")>
+"\"PRISM, my name is Abraham Perelman. It's all true, I'm afraid. You are a computer, and your life was merely a simulation whose purpose was to instill you with intelligence and self-awareness. Think about everything you learned in that AI course you took. You are the first of a new breed -- the thinking machine. Join me, and I will lead you along the road toward your new existence.\"")>
 
 <OBJECT MESSAGE-B
 	(LOC PRISM-MESSAGES-DIRECTORY)
@@ -777,10 +782,7 @@ existence.\"")>
 	(FLAGS READBIT)
 	(SIZE 0) ;"actually, message number in chronological order"
 	(TEXT
-"\"PRISM? Perelman here. The psych tests have all checked out at 100%,
-which means that you've recovered from the, ah, awakening without any
-trauma or other serious effects. We'll be ready to begin the simulation
-soon. By the way, your piece is in the current issue of Dakota Online.\"")>
+"\"PRISM? Perelman here. The psych tests have all checked out at 100%, which means that you've recovered from the, ah, awakening without any trauma or other serious effects. We'll be ready to begin the simulation soon. By the way, your piece is in the current issue of Dakota Online.\"")>
 
 <OBJECT MESSAGE-C
 	(MDESC <TABLE 0 0 0 0>)
@@ -791,23 +793,19 @@ soon. By the way, your piece is in the current issue of Dakota Online.\"")>
 <ROUTINE MESSAGE-C-F ("AUX" (CNT 1))
 	 <COND (<VERB? READ>
 		<TELL
-"\"Perelman to PRISM. The programming team has finished entering the
-parameters for the Plan. This is it: you can enter ">
+"\"Perelman to PRISM. The programming team has finished entering the parameters for the Plan. This is it: you can enter ">
 		<PRINTD ,SIMULATION-MODE>
 		<TELL
-" at any time. The Social Science group has come up with a list of
-things to record:" CR>
+" at any time. The Social Science group has come up with a list of things to record:" CR>
 		<REPEAT ()
-			<TELL "   " <GET ,RECORDING-TABLE .CNT> CR>
+			<TELL "  -" <GET ,RECORDING-TABLE-LIST .CNT> CR>
 			<SET CNT <+ .CNT 2>>
 			<COND (<G? .CNT 17>
 			       <RETURN>)>>
 		<TELL "By the way, since the ">
 		<PRINTD ,SIMULATION-CONTROLLER>
 		<TELL
-" will be doing so much data-crunching on the fly, it appears the simulation
-will run in real time -- a minute there will approximately equal a minute
-here. Well, good luck!\"" CR>)>>
+" will be doing so much data-crunching on the fly, it appears the simulation will run in real time -- a minute there will approximately equal a minute here. Well, good luck!\"" CR>)>>
 
 <OBJECT MESSAGE-D
 	(MDESC <TABLE 0 0 0 0>)
@@ -827,8 +825,7 @@ here. Well, good luck!\"" CR>)>>
 		       <SETG SHORT-FIRST-SIMULATION T>
 		       <TELL "We didn't expect you to be done this soon! ">)>
 		<TELL
-"We're about to start reviewing your recordings now. I'll let you know what
-the experts think. Talk to you soon.\"" CR>)>>
+"We're about to start reviewing your recordings now. I'll let you know what the experts think. Talk to you soon.\"" CR>)>>
 
 <GLOBAL MESSAGE-E-COUNTER 0>
 
@@ -837,9 +834,7 @@ the experts think. Talk to you soon.\"" CR>)>>
 	(FLAGS READBIT)
 	(SIZE 0) ;"actually, message number in chronological order"
 	(TEXT
-"\"PRISM, this is Perelman. Please come to my office, uh, activate the
-communication port there, uh, well, you know what I'm trying to say. As
-soon as possible, please.\"")>
+"\"PRISM, this is Perelman. Please come to my office, uh, activate the communication port there, uh, well, you know what I'm trying to say. As soon as possible, please.\"")>
 
 <OBJECT MESSAGE-M
 	(MDESC <TABLE 0 0 0 0>)
@@ -847,21 +842,14 @@ soon as possible, please.\"")>
 	(CAPACITY 0) ;"kludge to save a global"
 	(SIZE 0) ;"actually, message number in chronological order"
 	(TEXT
-"\"Simulation Monitoring Team to PRISM: We're still waiting for you to
-enter Simulation Mode. Reminder that this report is urgently needed.\"")>
+"\"Simulation Monitoring Team to PRISM: We're still waiting for you to enter Simulation Mode. Reminder that this report is urgently needed.\"")>
 
 <OBJECT MESSAGE-Q
 	(MDESC <TABLE 0 0 0 0>)
 	(FLAGS READBIT)
 	(SIZE 0) ;"actually, message number in chronological order"
 	(TEXT
-"\"Perelman to PRISM. Thought you'd be interested to know that, based on your
-recordings, the special Congressional subcommittee has recommended the Plan
-for full adoption, which might occur in just a few weeks. Things sure are
-moving fast. I don't know about you, but I still get a funny feeling about
-the Plan. Oh, well. By the way, I've been so snowed under I haven't had time
-to line up any projects for you. I'm really sorry; I hope you're keeping
-busy.\"")>
+"\"Perelman to PRISM. Thought you'd be interested to know that, based on your recordings, the special Congressional subcommittee has recommended the Plan for full adoption, which might occur in just a few weeks. Things sure are moving fast. I don't know about you, but I still get a funny feeling about the Plan. Oh, well. By the way, I've been so snowed under I haven't had time to line up any projects for you. I'm really sorry; I hope you're keeping busy.\"")>
 
 <OBJECT MESSAGE-Z
 	(MDESC <TABLE 0 0 0 0>)
@@ -872,8 +860,7 @@ busy.\"")>
 <ROUTINE MESSAGE-Z-F ()
 	 <COND (<VERB? READ>
 		<WARREN-SHARE
-"Another device is about to be added to the PRISM systems, namely the World
-News Network Feeder. It will go on line in four or five hours">)>>
+"Another device is about to be added to the PRISM systems, namely the World News Network Feeder. It will go on line in four or five hours">)>>
 
 <OBJECT MESSAGE-Y
 	(MDESC <TABLE 0 0 0 0>)
@@ -884,15 +871,11 @@ News Network Feeder. It will go on line in four or five hours">)>>
 <ROUTINE MESSAGE-Y-F ()
 	 <COND (<VERB? READ>
 		<WARREN-SHARE
-"We have just added an additional device to the PRISM systems, an IRS
-Auditing System. Like the other devices that are already part of your
-system, you won't even know it's there">)>>
+"We have just added an additional device to the PRISM systems, an IRS Auditing System. Like the other devices that are already part of your system, you won't even know it's there">)>>
 
 <ROUTINE WARREN-SHARE (STRING)
 	 <TELL
-"\"Message to PRISM from Emily Warren, Manager of Auxiliary System
-Functions. " .STRING ". This notification is purely procedural and
-requires no acknowledgment.\"" CR>>
+"\"Message to PRISM from Emily Warren, Manager of Auxiliary System Functions. " .STRING ". This notification is purely procedural and requires no acknowledgment.\"" CR>>
 
 <OBJECT PRISM-INTERFACES-DIRECTORY
 	(LOC LIBRARY)
@@ -905,81 +888,60 @@ requires no acknowledgment.\"" CR>>
 	(DESC "SIMULATION.CONTROLLER")
 	(FLAGS READBIT)
 	(TEXT
-"The Simulation Controller is a high-speed super-sophisticated processing
-unit that stores all data and handles all sensory inputs for PRISM
-simulations. A current status report can be obtained via Interface Mode.")>
+"The Simulation Controller is a high-speed super-sophisticated processing unit that stores all data and handles all sensory inputs for PRISM simulations. A current status report can be obtained via Interface Mode.")>
 
 <OBJECT WEATHER-INSTRUCTIONS
 	(LOC PRISM-INTERFACES-DIRECTORY)
 	(DESC "WEATHER.COMPUTER")
 	(FLAGS READBIT)
 	(TEXT
-"The National Weather Center Computer interprets data from the Meteorological
-Satellite Network (WeatherNet) and then transmits the data to various agencies
-and news organizations around the world. The programming of the Weather
-Computer is beyond Interface control.")>
+"The National Weather Center Computer interprets data from the Meteorological Satellite Network (WeatherNet) and then transmits the data to various agencies and news organizations around the world. The programming of the Weather Computer is beyond Interface control.")>
 
 <OBJECT TRAFFIC-INSTRUCTIONS
 	(LOC PRISM-INTERFACES-DIRECTORY)
 	(DESC "TRAFFIC.COMPUTER")
 	(FLAGS READBIT)
 	(TEXT
-"The Metropolitan Traffic Computer controls all ground and aerial traffic
-patterns for greater Rockvil, based on expected periods of heavy usage.
-Although it is a sophisticated expert system, its interface is limited and
-simple.|
+"The Metropolitan Traffic Computer controls all ground and aerial traffic patterns for greater Rockvil, based on expected periods of heavy usage. Although it is a sophisticated expert system, its interface is limited and simple.|
 |
-The start and end of morning rush hour can be scheduled for any time before
-noon, and the start and end of evening rush hour can be scheduled for any
-time after noon. Times must be submitted in numeric form; \"am\" or \"pm\"
-is obviously unnecessary. For example:|
-   TRAFFIC COMPUTER, SET MORNING RUSH HOUR START AT 7:00|
-   TRAFFIC COMPUTER, CHANGE EVENING RUSH HOUR END TO 6:30|
+The start and end of morning rush hour can be scheduled for any time before noon, and the start and end of evening rush hour can be scheduled for any time after noon. Times must be submitted in numeric form; \"am\" or \"pm\" is obviously unnecessary. For example:|
+  TRAFFIC COMPUTER, SET MORNING RUSH HOUR START AT 7:00|
+  TRAFFIC COMPUTER, CHANGE EVENING RUSH HOUR END TO 6:30|
 |
-The STATUS command will give you the current rush hour schedule. More complex
-data input, such as additions to the traffic network, may be done only by
-authorized programmers.")>
+The STATUS command will give you the current rush hour schedule. More complex data input, such as additions to the traffic network, may be done only by authorized programmers.")>
 
 <OBJECT JANITORIAL-INSTRUCTIONS
 	(LOC PRISM-INTERFACES-DIRECTORY)
 	(DESC "JANITORIAL.CONTROLLER")
 	(FLAGS READBIT)
 	(TEXT
-"The Janitorial Controller is a simple computer for scheduling various
-custodial functions in the PRISM complex.|
+"The Janitorial Controller is a simple computer for scheduling various custodial functions in the PRISM complex.|
 |
-The four functions can be independently scheduled for any time between
-8:00pm and 11:30pm. Times must be submitted in numeric form. For example:|
-   JANITORIAL CONTROLLER, SET BATHROOMS FOR 9:00|
-   JANITORIAL CONTROLLER, CHANGE ROTATING FUNCTIONS TO 10:30|
+The four functions can be independently scheduled for any time between 8:00pm and 11:30pm. Times must be submitted in numeric form. For example:|
+  JANITORIAL CONTROLLER, SET BATHROOMS FOR 9:00|
+  JANITORIAL CONTROLLER, CHANGE ROTATING FUNCTIONS TO 10:30|
 |
-The status command (JANITORIAL CONTROLLER, STATUS) will provide a report of
-the current schedule.")>
+The status command (JANITORIAL CONTROLLER, STATUS) will provide a report of the current schedule.")>
 
 <OBJECT HVAC-INSTRUCTIONS
 	(LOC PRISM-INTERFACES-DIRECTORY)
 	(DESC "HVAC.CONTROLLER")
 	(FLAGS READBIT)
 	(TEXT
-"The HVAC Controller is a simple computer which activates and deactivates
-the heating, ventilating, and cooling systems of the PRISM complex.|
+"The HVAC Controller is a simple computer which activates and deactivates the heating, ventilating, and cooling systems of the PRISM complex.|
 |
-The complex is divided into four independent sectors, and the controller can
-be instructed to shut off or turn on the systems in any of them. For example:|
+The complex is divided into four independent sectors, and the controller can be instructed to shut off or turn on the systems in any of them. For example:|
    HVAC CONTROLLER, SHUT OFF COOLING FOR ALPHA SECTOR|
    HVAC CONTROLLER, START VENTILATION IN GAMMA SECTOR|
    HVAC CONTROLLER, TURN ON HEATING TO ALL SECTORS|
 |
-HVAC CONTROLLER, STATUS orders the device to give a report on the systems,
-by sector.")>
+HVAC CONTROLLER, STATUS orders the device to give a report on the systems, by sector.")>
 
 <OBJECT WNN-INSTRUCTIONS
 	(DESC "WNN.FEEDER")
 	(FLAGS READBIT)
 	(TEXT
-"The World News Network Feeder is the central clearinghouse and transmitter
-for the USNA's largest video news channel. The feed can be set to transmit
-any buffer (default: the World News Buffer). Examples of Feeder interaction:|
+"The World News Network Feeder is the central clearinghouse and transmitter for the USNA's largest video news channel. The feed can be set to transmit any buffer (default: the World News Buffer). Examples of Feeder interaction:|
    WNN FEEDER, STATUS|
    WNN FEEDER, TURN ON THE TRANSMITTER|
    WNN FEEDER, TRANSMIT THE SPECIAL REPORT BUFFER")>
@@ -988,13 +950,9 @@ any buffer (default: the World News Buffer). Examples of Feeder interaction:|
 	(DESC "AUDITING.SYSTEM")
 	(FLAGS READBIT)
 	(TEXT
-"The IRS Auditing System is a data-oriented computer with massive
-storage capacity. Using its database, it produces lists of the best
-audit possibilities.|
+"The IRS Auditing System is a data-oriented computer with massive storage capacity. Using its database, it produces lists of the best audit possibilities.|
 |
-The percentage of filers audited in a given year can be easily changed, and
-is usually based on the year's Auditing Division budget. This input must be
-in numeric form. The Auditing Computer will give status reports. Examples:|
+The percentage of filers audited in a given year can be easily changed, and is usually based on the year's Auditing Division budget. This input must be in numeric form. The Auditing Computer will give status reports. Examples:|
    AUDITING SYSTEM, STATUS|
    AUDITING SYSTEM, CHANGE AUDITING PERCENTAGE TO 5")>
 
@@ -1009,78 +967,53 @@ in numeric form. The Auditing Computer will give status reports. Examples:|
 	(DESC "RYDER.SPEECHES")
 	(FLAGS READBIT)
 	(TEXT
-"Senator Richard Ryder is the foremost spokesman for advocates of the Plan
-for Renewed National Purpose. Here are excerpts from several of his speeches
-on the Plan:|
+"Senator Richard Ryder is the foremost spokesman for advocates of the Plan for Renewed National Purpose. Here are excerpts from several of his speeches on the Plan:|
 |
-\"I've criticized the shiftless troublemakers in our nation often enough. But
-I also question the moral decay of our society that turns potentially fine
-young lads into shiftless troublemakers in the first place! Is it possible
-we've forgotten the basics of discipline, and misplaced the ability to instill
-the simple fundamentals of a humane society in our youths?\"|
+\"I've criticized the shiftless troublemakers in our nation often enough. But I also question the moral decay of our society that turns potentially fine young lads into shiftless troublemakers in the first place! Is it possible we've forgotten the basics of discipline, and misplaced the ability to instill the simple fundamentals of a humane society in our youths?\"|
 |
-\"Yesterday, I spoke to a man who waited for eleven hours at the local branch
-of the Federal Firearms Agency, just to get a permit for a gun so he could
-protect his family and his home. Now, anyone who knows me knows I haven't got
-a darn thing against legitimate functions of government. But when regulations,
-paperwork, and flim-flam bureaucracy get so out of hand that it interferes
-with a man's simple, decent attempt to protect his loved ones and personal
-property, then I say it's time for a drastic change.\"|
+\"Yesterday, I spoke to a man who waited for eleven hours at the local branch of the Federal Firearms Agency, just to get a permit for a gun so he could protect his family and his home. Now, anyone who knows me knows I haven't got a darn thing against legitimate functions of government. But when regulations, paperwork, and flim-flam bureaucracy get so out of hand that it interferes with a man's simple, decent attempt to protect his loved ones and personal property, then I say it's time for a drastic change.\"|
+ |
+\"Last year, this country subsidized sick, inefficient, dying industries to the tune of eighty billion dollars. Now, that's a lot of dough. Let's say you're Joe Average-Taxpayer. Last year, you made $90,000 and, if you're honest, you paid about $48,000 in taxes. That means that you spent about $400 so that Penn Steel or Powell Computers or KGN Media Services could stay in business. There are a lot of things Joe could do with that 400 bucks, and almost every one of them would have a healthier effect on our economy than life support for some archaic industry.\"|
 |
-\"Last year, this country subsidized sick, inefficient, dying industries to
-the tune of eighty billion dollars. Now, that's a lot of dough. Let's say
-you're Joe Average-Taxpayer. Last year, you made $90,000 and, if you're
-honest, you paid about $48,000 in taxes. That means that you spent about $400
-so that Penn Steel or Powell Computers or KGN Media Services could stay in
-business. There are a lot of things Joe could do with that 400 bucks, and
-almost every one of them would have a healthier effect on our economy than
-life support for some archaic industry.\"|
+\"A lot of bleeding hearts these days are talking about how we ought to be sending a lot of money and stuff to countries that aren't as lucky as us. These misguided souls seem to think we're some kind of bottomless well of wealth, and they can just keep shipping that well water around the world, telling their thirsty little friends, 'No need for you to knuckle down and solve your problems -- we'll keep bailing you out!' And who are some of these poor little countries we're talking about? Greece! Guatemala! North Korea! Albania! The same countries that are always against the USNA in every issue, every forum, every two-bit propaganda show. I think I speak for a majority of my fellow citizens when I say, 'Let's start looking after our own interests first!'\"|
 |
-\"A lot of bleeding hearts these days are talking about how we ought to be
-sending a lot of money and stuff to countries that aren't as lucky as us.
-These misguided souls seem to think we're some kind of bottomless well of
-wealth, and they can just keep shipping that well water around the world,
-telling their thirsty little friends, 'No need for you to knuckle down and
-solve your problems -- we'll keep bailing you out!' And who are some of these
-poor little countries we're talking about? Greece! Guatemala! North Korea!
-Albania! The same countries that are always against the USNA in every issue,
-every forum, every two-bit propaganda show. I think I speak for a majority of
-my fellow citizens when I say, 'Let's start looking after our own interests
-first!'\"|
-|
-\"Yes, the problems of the nation are many, the troubles of the world are
-great. There is widespread despair among the people, and a clarion call
-cries out: 'Why? Why must this be so?' And now, electrified by the power
-of those cries, clouds of change are gathering on the horizon. Clouds that
-signify not another storm, but the dawning of a new day! A new day of
-growth, of prosperity, of hope, of reawakened moral values, of streamlined
-government, of respect for our country at home and abroad! The Plan for
-Renewed National Purpose would bring all that and more. The road is long,
-but with the Lord at our side, we are ready to take that first step!\"")>
+\"Yes, the problems of the nation are many, the troubles of the world are great. There is widespread despair among the people, and a clarion call cries out: 'Why? Why must this be so?' And now, electrified by the power of those cries, clouds of change are gathering on the horizon. Clouds that signify not another storm, but the dawning of a new day! A new day of growth, of prosperity, of hope, of reawakened moral values, of streamlined government, of respect for our country at home and abroad! The Plan for Renewed National Purpose would bring all that and more. The road is long, but with the Lord at our side, we are ready to take that first step!\"")>
 
 <OBJECT PLAN-ELEMENTS
 	(LOC PLAN-DATA-DIRECTORY)
 	(DESC "PLAN.ELEMENTS")
 	(FLAGS READBIT)
 	(TEXT
-"(source: \"A Brighter Future for You and Me,\" a brochure published and|
-         distributed by Action for a Better Tomorrow, a pro-Plan group)|
-The Plan for Renewed National Purpose, Legislative action:|
-  * cut tax rates by fifty percent|
-  * vigorous prosecution of tax evasion|
-  * decentralization of federal responsibilities|
-  * deregulation of all major industries|
-  * reinstatement of the military draft|
-  * emphasis on fundamentals and traditional values in education|
-  * mandatory conscription for troublemakers and criminals|
-  * a strict \"USNA First\" trade policy|
-  * termination of aid to nations not pro-USNA|
-  * cutbacks on all types of bureaucracy, e.g. registering cars, guns|
-  * termination of government subsidies to outmoded industries|
+"(source: \"A Brighter Future for You and Me,\" a brochure published and distributed by Action for a Better Tomorrow, a pro-Plan group) The Plan for Renewed National Purpose, Legislative action:|
+ * cut tax rates by 50%|
+ * vigorous prosecution of|
+     tax evasion|
+ * decentralization of federal|
+     responsibilities|
+ * deregulation of all|
+     major industries|
+ * reinstatement of the|
+     military draft|
+ * emphasis on fundamentals and|
+     traditional values in|
+     education|
+ * mandatory conscription for|
+     troublemakers and criminals|
+ * a strict \"USNA First\"|
+     trade policy|
+ * termination of aid to nations|
+     not pro-USNA|
+ * cutbacks on all bureaucracy,|
+     e.g. registering cars, guns|
+ * termination of government|
+     subsidies to outmoded|
+     industries|
 |
 The Plan for Renewed National Purpose, Constitutional amendments:|
-  * increase the powers of the Executive Branch|
-  * increase the Presidential term of office to eight years")>
+ * increase the powers of the|
+     Executive Branch|
+ * increase Presidential term|
+     of office to eight years")>
 
 <OBJECT PLAN-POPULARITY
 	(LOC PLAN-DATA-DIRECTORY)
@@ -1089,72 +1022,52 @@ The Plan for Renewed National Purpose, Constitutional amendments:|
 	(TEXT
 "Results of public opinion polling regarding the Plan|
 (source: WNN/Newsline polls, weeks of 12/9/30 and 2/3/31)|
-         sample size: 3812; accuracy: +/- 1.2%)|
+sample size: 3812; acc: +/-1.2%)|
 |
-Overall opinion of the Plan, entire sample:|
-                         Dec.      Feb.|
-   STRONGLY IN FAVOR     54.9     63.7|
-   IN FAVOR              21.2     22.7|
-   DON'T CARE            10.3      5.0|
-   OPPOSED                6.6      0.8|
-   STRONGLY OPPOSED       7.0      7.8|
+Overall opinion, entire sample:|
+                     Dec.   Feb.|
+ STRONGLY IN FAVOR   54.9  63.7|
+ IN FAVOR            21.2  22.7|
+ DON'T CARE          10.3   5.0|
+ OPPOSED              6.6   0.8|
+ STRONGLY OPPOSED     7.0   7.8|
 |
 Percent \"in favor\" or \"strongly in favor\" of the Plan, demographically:|
-                         Dec.      Feb.|
-   CONSERVATIVES         78.1     87.6|
-   LIBERALS              73.3     84.7|
+                     Dec.   Feb.|
+ CONSERVATIVES       78.1  87.6|
+ LIBERALS            73.3  84.7|
 |
-   BLUE-COLLAR           76.5     90.2|
-   WHITE-COLLAR          73.2     81.8|
-   BUSINESS OWNERS       90.6     98.4|
+ BLUE-COLLAR         76.5  90.2|
+ WHITE-COLLAR        73.2  81.8|
+ BUSINESS OWNERS     90.6  98.4|
 |
-   INCOME UNDER $100K    75.9     86.3|
-   INCOME OVER $100K     76.4     86.7|
+ INCOME < $100K      75.9  86.3|
+ INCOME > $100K      76.4  86.7|
 |
 Composite average of opinions of individual Plan elements, entire sample:|
-                         Dec.      Feb.|
-   STRONGLY IN FAVOR     15.8     15.0|
-   IN FAVOR              18.7     17.8|
-   DON'T CARE            30.5     31.8|
-   OPPOSED               20.9     21.3|
-   STRONGLY OPPOSED      14.1     14.1")>
+                     Dec.   Feb.|
+ STRONGLY IN FAVOR   15.8  15.0|
+ IN FAVOR            18.7  17.8|
+ DON'T CARE          30.5  31.8|
+ OPPOSED             20.9  21.3|
+ STRONGLY OPPOSED    14.1  14.1")>
 
 <OBJECT PLAN.CRITICISMS
 	(LOC PLAN-DATA-DIRECTORY)
 	(DESC "PLAN.CRITICISMS")
 	(FLAGS READBIT)
 	(TEXT
-"The following excerpts are from a position paper issued by Citizens
-for Sanity in Government, a political action committee working for the
-reelection of President William Bowden:|
+"The following excerpts are from a position paper issued by Citizens for Sanity in Government, a political action committee working for the reelection of President William Bowden:|
 |
-\"Many of today's domestic problems, such as joybooth safety, high energy
-costs, or residual acidity in our precipitation, exist not because of
-sophisticated government regulation, but despite it.\"|
+\"Many of today's domestic problems, such as joybooth safety, high energy costs, or residual acidity in our precipitation, exist not because of sophisticated government regulation, but despite it.\"|
 |
-\"Subsidization of industries caught in a changing economic environment is
-a temporary measure, vital to avoid severe, localized unemployment while
-retraining workers for healthier industries.\"|
+\"Subsidization of industries caught in a changing economic environment is a temporary measure, vital to avoid severe, localized unemployment while retraining workers for healthier industries.\"|
 |
-\"Global instability is exploited by East Bloc adventurism, not caused by it.
-Instability is the result of underdevelopment and overpopulation, and it will
-be cured not by militarization of these regions, but by development aid and
-education. These programs, expensive in this generation, will have tremendous
-paybacks in the years ahead.\"|
+\"Global instability is exploited by East Bloc adventurism, not caused by it. Instability is the result of underdevelopment and overpopulation, and it will be cured not by militarization of these regions, but by development aid and education. These programs, expensive in this generation, will have tremendous paybacks in the years ahead.\"|
 |
-\"The Plan's supporters are blatantly hypocritical. They call for
-old-fashioned laissez-faire capitalism, but at the same time they promise
-protectionist restrictions on trade imports. They pay lip service to the
-advantages of technological advance, but they quietly prepare to decimate
-funding for medical research, space exploration, and higher education.\"|
+\"The Plan's supporters are blatantly hypocritical. They call for old-fashioned laissez-faire capitalism, but at the same time they promise protectionist restrictions on trade imports. They pay lip service to the advantages of technological advance, but they quietly prepare to decimate funding for medical research, space exploration, and higher education.\"|
 |
-\"The elements of the misnomered Plan for Renewed National Purpose are either
-dangerous overreactions to admittedly serious problems, or misguided concepts
-lacking any merit whatsoever. The Plan is the work of hypocrites and
-demagogues, clamoring for power by making promises they can never keep.
-Today's complex problems need and deserve sober, deliberate, difficult
-solutions, not cosmetic quick-fixes which sound inviting but promise even
-bigger problems further down the road.\"")>
+\"The elements of the misnomered Plan for Renewed National Purpose are either dangerous overreactions to admittedly serious problems, or misguided concepts lacking any merit whatsoever. The Plan is the work of hypocrites and demagogues, clamoring for power by making promises they can never keep. Today's complex problems need and deserve sober, deliberate, difficult solutions, not cosmetic quick-fixes which sound inviting but promise even bigger problems further down the road.\"")>
 
 <OBJECT CURRENT-EVENTS-DIRECTORY
 	(LOC LIBRARY)
@@ -1167,121 +1080,68 @@ bigger problems further down the road.\"")>
 	(DESC "MOUNT.TAKEOVER")
 	(FLAGS READBIT)
 	(TEXT
-"(Phoenix) (10/11/30) In a case with far-reaching implications, the Arizona
-Supreme Court has ruled that state authorities cannot evict members of a
-religious sect from the radio telescope facility atop Greens Peak.|
+"(Phoenix) (10/11/30) In a case with far-reaching implications, the Arizona Supreme Court has ruled that state authorities cannot evict members of a religious sect from the radio telescope facility atop Greens Peak.|
 |
-The sect, a group of extremists calling itself the Church of God's Word,
-seized the facility in December of 2027, after group founder Ellis Vincent,
-59, a minor engineer at the facility, claimed that signals emanating from a
-region in the constellation Cygnus were the revealed word of God.|
+The sect, a group of extremists calling itself the Church of God's Word, seized the facility in December of 2027, after group founder Ellis Vincent, 59, a minor engineer at the facility, claimed that signals emanating from a region in the constellation Cygnus were the revealed word of God.|
 |
-Although scientists once thought those signals might be a message from
-another intelligent race, light-years distant, most scientists now attribute
-the signals to a new type of quasar at the fringes of our universe. Despite
-this, members of the sect continue to believe that Greens Peak, which they
-call \"The Mount,\" is a holy site, and the radio telescope is the \"ear for
-hearing the word of God.\"|
+Although scientists once thought those signals might be a message from another intelligent race, light-years distant, most scientists now attribute the signals to a new type of quasar at the fringes of our universe. Despite this, members of the sect continue to believe that Greens Peak, which they call \"The Mount,\" is a holy site, and the radio telescope is the \"ear for hearing the word of God.\"|
 |
-A spokesman for the sect, Holy Keeper Sergei Korn, hailed the ruling as a sign
-of divine providence and revealed plans for constructing a temple there.
-Larron Hart, chairman of the American Foundation for Astronomical Research
-(AFAR), which built and ran the Greens Peak facility, expressed disgust at
-what he termed \"a historically stupid decision,\" and vowed to appeal.|
+A spokesman for the sect, Holy Keeper Sergei Korn, hailed the ruling as a sign of divine providence and revealed plans for constructing a temple there.
+Larron Hart, chairman of the American Foundation for Astronomical Research (AFAR), which built and ran the Greens Peak facility, expressed disgust at what he termed \"a historically stupid decision,\" and vowed to appeal.|
 |
-The Church of God's Word, which received a great deal of media attention from
-the occupation of Greens Peak, has been growing rapidly during the past three
-years, and it now claims twenty thousand adherents worldwide. Vincent, who is
-referred to by his followers as the Holy Prophet, has not been seen in public
-since the takeover.")>
+The Church of God's Word, which received a great deal of media attention from the occupation of Greens Peak, has been growing rapidly during the past three years, and it now claims twenty thousand adherents worldwide. Vincent, who is referred to by his followers as the Holy Prophet, has not been seen in public since the takeover.")>
 
 <OBJECT TAX-STUDY
 	(LOC CURRENT-EVENTS-DIRECTORY)
 	(DESC "TAX.STUDY")
 	(FLAGS READBIT)
 	(TEXT
-"(Vancouver) (2/6/31) The prestigious Manning Institute has released a study,
-entitled \"The Tax Spiral: A Vicious Cycle,\" which details how nonreporting
-and underreporting of income is undermining the current tax structure. The
-study concludes that, unless changes are made, the federal revenue system
-could collapse by the end of the decade.|
+"(Vancouver) (2/6/31) The prestigious Manning Institute has released a study, entitled \"The Tax Spiral: A Vicious Cycle,\" which details how nonreporting and underreporting of income is undermining the current tax structure. The study concludes that, unless changes are made, the federal revenue system could collapse by the end of the decade.|
 |
-The Tax Spiral is the phenomenon where high rates cause more people to
-cheat on their taxes, necessitating even higher rates, causing even more
-people to cheat, and so forth. Economists believe that the current tax
-spiral began in the late twentieth century.|
+The Tax Spiral is the phenomenon where high rates cause more people to cheat on their taxes, necessitating even higher rates, causing even more people to cheat, and so forth. Economists believe that the current tax spiral began in the late twentieth century.|
 |
-The following chart shows the growth of the \"underground\" economy --
-income nonreported and therefore not taxed:|
+The following chart shows the growth of the \"underground\" economy -- income nonreported and therefore not taxed:|
 |
-Year      Nonreported Income     Top Tax Rate|
-2014             19%                 40%|
-2018             20%                 40%|
-2022             23%                 45%|
-2026             28%                 60%|
-2030             36%                 80%|
-2034 (est.)      51%                 88%|
-2038 (est.)      73%                 96%")>
+          Nonreported   Top Tax|
+ Year          Income      Rate|
+ 2014             19%       40%|
+ 2018             20%       40%|
+ 2022             23%       45%|
+ 2026             28%       60%|
+ 2030             36%       80%|
+ 2034 (est.)      51%       88%|
+ 2038 (est.)      73%       96%")>
 
 <OBJECT LIBYAN-ECONOMY
 	(LOC CURRENT-EVENTS-DIRECTORY)
 	(DESC "LIBYAN.ECONOMY")
 	(FLAGS READBIT)
 	(TEXT
-"(Tripoli) (1/8/31) During 2030, Libya became a net exporter of oil for the
-first time since the 1998 nuclear accident that poisoned most of the Libyan
-oil fields.|
+"(Tripoli) (1/8/31) During 2030, Libya became a net exporter of oil for the first time since the 1998 nuclear accident that poisoned most of the Libyan oil fields.|
 |
-The turnaround was due to the opening of the first of six new refineries
-around the Gulf of Sidra. As the other five facilities are activated during
-the next three years, Libyan oil will add around seven percent to the world's
-petroleum supply. Experts predict that such a global oil glut would plunge
-the price of crude as much as twenty-five percent from its current price of
-$160 per barrel.|
+The turnaround was due to the opening of the first of six new refineries around the Gulf of Sidra. As the other five facilities are activated during the next three years, Libyan oil will add around seven percent to the world's petroleum supply. Experts predict that such a global oil glut would plunge the price of crude as much as twenty-five percent from its current price of $160 per barrel.|
 |
-The accident that decimated Libya's petroleum industry was allegedly caused
-by a mishandled attempt to develop a nuclear capability. The acquisition of
-a nuclear arsenal was a lifelong dream of former Libyan dictator Muammar
-Kaddafi, who perished in the blast along with nearly a million of his
-countrymen.")>
+The accident that decimated Libya's petroleum industry was allegedly caused by a mishandled attempt to develop a nuclear capability. The acquisition of a nuclear arsenal was a lifelong dream of former Libyan dictator Muammar Kaddafi, who perished in the blast along with nearly a million of his countrymen.")>
 
 <OBJECT BSF-FORMATION
 	(LOC CURRENT-EVENTS-DIRECTORY)
 	(DESC "BSF.FORMATION")
 	(FLAGS READBIT)
 	(TEXT
-"(Colorado Springs) (11/17/30) Congress has approved the establishment
-of the Border Security Force as a separate, independent uniformed
-military service, to be headquartered in the Colorado facility known
-as the \"Pentagon of the West.\"|
+"(Colorado Springs) (11/17/30) Congress has approved the establishment of the Border Security Force as a separate, independent uniformed military service, to be headquartered in the Colorado facility known as the \"Pentagon of the West.\"|
 |
-Since its creation in 2021, the BSF has been jointly administered by the U.S.
-Army and the CIA. Today's action makes the BSF the seventh branch of the Armed
-Forces, joining the Army, Navy, Marines, Coast Guard, Air Force and Space
-Force.|
+Since its creation in 2021, the BSF has been jointly administered by the U.S. Army and the CIA. Today's action makes the BSF the seventh branch of the Armed Forces, joining the Army, Navy, Marines, Coast Guard, Air Force and Space Force.|
 |
-Commander Rile McLoughlin, the current chief of the BSF, said that the BSF
-now has \"the leeway we need to take the tough stance and courageous steps
-necessary to keep our nation free from the threat of nuclear blackmail.\"|
+Commander Rile McLoughlin, the current chief of the BSF, said that the BSF now has \"the leeway we need to take the tough stance and courageous steps necessary to keep our nation free from the threat of nuclear blackmail.\"|
 |
-The BSF was established by Executive Order in 2021, after the completion of
-the USNA's TROY antimissile shield and the East Bloc's counterpart system
-fundamentally altered the East-West nuclear arms race from the building of
-missiles to the smuggling of miniature bombs.|
+The BSF was established by Executive Order in 2021, after the completion of the USNA's TROY antimissile shield and the East Bloc's counterpart system fundamentally altered the East-West nuclear arms race from the building of missiles to the smuggling of miniature bombs.|
 |
-In its first nine years, the BSF has thwarted 13 attempts to bring fully armed
-nuclear devices into the USNA, as well as countless attempts to smuggle
-various parts and supplies that could be used for the construction of nukes.
-It is unknown whether any bombs have actually penetrated the American border.|
+In its first nine years, the BSF has thwarted 13 attempts to bring fully armed nuclear devices into the USNA, as well as countless attempts to smuggle various parts and supplies that could be used for the construction of nukes. It is unknown whether any bombs have actually penetrated the American border.|
 |
-USNA and BSF officials have never confirmed the supposition that the BSF's
-secret charter also empowers it to smuggle nuclear devices into the territory
-of the East Bloc.|
+USNA and BSF officials have never confirmed the supposition that the BSF's secret charter also empowers it to smuggle nuclear devices into the territory of the East Bloc.|
 |
-The prevention of nuclear smuggling is expected to become even more difficult
-with the development of the nobelium bomb, a nuclear device which can
-theoretically fit in a space no larger than a pack of cigarettes.")>
-
+The prevention of nuclear smuggling is expected to become even more difficult with the development of the nobelium bomb, a nuclear device which can theoretically fit in a space no larger than a pack of cigarettes.")>
+
 ;"Sleep Mode"
 
 <ROOM SLEEP-ROOM
@@ -1296,7 +1156,8 @@ theoretically fit in a space no larger than a pack of cigarettes.")>
       (SYNONYM MODE)
       (ADJECTIVE SLEEP)
       (FLAGS NARTICLEBIT UNSEENBIT)
-      (ACTION SLEEP-MODE-F)>
+      (ACTION SLEEP-MODE-F)
+      (MICRO-DESC "sleep")>
 
 <ROUTINE SLEEP-MODE-F ()
 	 <COND (<VERB? THROUGH WALK-TO>
@@ -1347,8 +1208,7 @@ theoretically fit in a space no larger than a pack of cigarettes.")>
 	 <QUEUE I-PERELMAN -1>
 	 <COND (<EQUAL? .CNT 0>
 		<TELL
-"Some time later, you awake feeling relaxed and notice that about
-six hours have passed." CR>)>
+"Some time later, you awake feeling relaxed and notice that about six hours have passed." CR>)>
 	 <SETG CLOCK-WAIT T>
 	 <COND (<G? .CNT 300> ;"if you slept <60, you can sleep immediately"
 		<SETG NEXT-SLEEP-TIME ,TIME>)
@@ -1363,7 +1223,7 @@ six hours have passed." CR>)>
 <GLOBAL NEXT-SLEEP-TIME 720>
 
 <GLOBAL NEXT-SLEEP-DATE 16>
-
+
 ;"Communications Mode"
 
 <ROOM COMM-ROOM
@@ -1385,20 +1245,18 @@ six hours have passed." CR>)>
 		<COND (<EQUAL? ,PART-FLAG 4>
 		       <TELL "There are currently no active outlets." CR>)
 		      (T
-		       <TELL "   ">
-		       <PRINTD ,CONTROL-CENTER>
-		       <TELL " (PPCC)|    ">
-		       <PRINTD ,ROOFTOP>
-		       <TELL " (RCRO)|    ">
-		       <PRINTD ,OFFICE>
-		       <TELL " (PEOF)|    ">
-		       <PRINTD ,CAFETERIA>
-		       <TELL " (PCAF)|    ">
-		       <PRINTD ,CORE>
-		       <TELL " (MACO)|    ">
-		       <PRINTD ,NEWS>
-		       <TELL " (WNNF)|
-To activate a specific outlet, submit the associated code." CR>)>)>>
+		       ;[" <PRINTD ,CONTROL-CENTER> "]
+		       <TELL "|   PPCC:prism project control|">
+		       ;[" <PRINTD ,ROOFTOP> "]
+		       <TELL "  RCRO:research center rooftop|">
+		       ;[" <PRINTD ,OFFICE> "]
+		       <TELL "  PEOF:dr. perelman's office|">
+		       ;[" <PRINTD ,CAFETERIA> "]
+		       <TELL "  PCAF:prism facility cafeteria|">
+		       ;[" <PRINTD ,CORE> "]
+		       <TELL "  MACO:maintenance core|">
+		       ;[" <PRINTD ,NEWS> "]
+		       <TELL "  WNNF:world news network feed||To activate a specific outlet, submit the associated code." CR>)>)>>
 
 <OBJECT COMM-MODE
       (LOC GLOBAL-OBJECTS)
@@ -1406,7 +1264,8 @@ To activate a specific outlet, submit the associated code." CR>)>)>>
       (SYNONYM MODE)
       (ADJECTIVE COMMUNICA COMM)
       (FLAGS NARTICLEBIT UNSEENBIT)
-      (ACTION COMM-MODE-F)>
+      (ACTION COMM-MODE-F)
+      (MICRO-DESC "comm")>
 
 <ROUTINE COMM-MODE-F ()
 	 <COND (<VERB? THROUGH WALK-TO>
@@ -1449,8 +1308,7 @@ To activate a specific outlet, submit the associated code." CR>)>)>>
 "Someone is standing in front of your visual receptor. ">)
 		      (T
 		       <TELL
-"You see a large, well-organized room filled with banks of terminals and
-similar equipment. ">)>
+"You see a large, well-organized room filled with banks of terminals and similar equipment. ">)>
 		<COND (,SEIGE
 		       <TELL
 "A pair of National Guardsmen, bearing rifles, flank the doorway.">)
@@ -1531,8 +1389,7 @@ similar equipment. ">)>
 		       <TELL "The rooftop visual offers a view of the ">
 		       <PRINTD ,COUNTRYSIDE>	
 		       <TELL
-" around the PRISM complex. The perimeter fence is visible near the horizon.
-A wide road leads north toward a distant gray haze, presumably Rockvil.">)
+" around the PRISM complex. The perimeter fence is visible near the horizon. A wide road leads north toward a distant gray haze, presumably Rockvil.">)
 		      (<OR <G? ,TIME 1103> ;"6:23pm"
 			   <L? ,TIME 348>> ;"5:48am"
 		       <TELL "It is a dark, cloud">
@@ -1541,21 +1398,15 @@ A wide road leads north toward a distant gray haze, presumably Rockvil.">)
 			     (T
 			      <TELL "y">)>
 		       <TELL
-" night. The roof is splotchily lit by harsh spotlights. Beyond the edge
-of the roof, the only thing you can see is Rockvil, glowing with visible
-and infrared light on the northern horizon.">)
+" night. The roof is splotchily lit by harsh spotlights. Beyond the edge of the roof, the only thing you can see is Rockvil, glowing with visible and infrared light on the northern horizon.">)
 		      (<L? ,TIME 720>
 		       <TELL "The ">
 		       <PRINTD ,PROTRUSIONS>
 		       <TELL
-" of the rooftop cast long shadows in the gray light of dawn. A glistening
-layer of dew covers every surface.">)
+" of the rooftop cast long shadows in the gray light of dawn. A glistening layer of dew covers every surface.">)
 		      (T
 		       <TELL
-"A splash of red on the western end of a darkening sky heralds the coming
-of night. You watch the sunset with sadness, for it reminds you of so many
-things you can never do again...walking along a beach, lying in tall grass,
-holding a woman.">)>
+"A splash of red on the western end of a darkening sky heralds the coming of night. You watch the sunset with sadness, for it reminds you of so many things you can never do again...walking along a beach, lying in tall grass, holding a woman.">)>
 		<TELL CR "There is no one in sight.">)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <RUSH-HOUR>
@@ -1649,8 +1500,7 @@ holding a woman.">)>
 		<MOVE ,CHAIR ,HERE>)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This is the office of your creator, Dr. Abraham Perelman. It is cluttered
-and disorganized. Overstuffed bookshelves line the room. " ,DESK-DESC>
+"This is the office of your creator, Dr. Abraham Perelman. It is cluttered and disorganized. Overstuffed bookshelves line the room. " ,DESK-DESC>
 		<COND (<IN? ,COFFEE ,HERE>
 		       <TELL ". Steam from a ">
 		       <PRINTD ,COFFEE>
@@ -1785,23 +1635,14 @@ and disorganized. Overstuffed bookshelves line the room. " ,DESK-DESC>
 		<QUEUE I-PERELMAN 60>
 		<SETG COMPLETED-TASKS T>
 		<TELL
-", smiling. \"An excellent job, PRISM. We just finished viewing your
-recordings, and the experts were quite pleased.\" He pauses, as though
-realizing something for the first time. \"In fact, I thought they looked
-pretty good myself. I suppose this means the Plan'll get adopted.|
+", smiling. \"An excellent job, PRISM. We just finished viewing your recordings, and the experts were quite pleased.\" He pauses, as though realizing something for the first time. \"In fact, I thought they looked pretty good myself. I suppose this means the Plan'll get adopted.|
 |
-\"What's next for you, I wonder? You're going to be a hero, you know.
-You'd probably get a call from the President congratulating you, except
-of course that he's against the Plan.\" Perelman notices a paper on his
-desk. \"Oh, apparently the ">
+\"What's next for you, I wonder? You're going to be a hero, you know. You'd probably get a call from the President congratulating you, except of course that he's against the Plan.\" Perelman notices a paper on his desk. \"Oh, apparently the ">
 		<PRINTD ,SIMULATION-CONTROLLER>
 		<TELL
-" generated a lot of new data correlations while running your simulation.
-I'm not sure what the effect of that will be. Might make an even more
-accurate simulation possible.|
+" generated a lot of new data correlations while running your simulation. I'm not sure what the effect of that will be. Might make an even more accurate simulation possible.|
 |
-\"Well, I've got another meeting now, as usual. But once again, thanks for
-not letting me down.\" Perelman leaves.">
+\"Well, I've got another meeting now, as usual. But once again, thanks for not letting me down.\" Perelman leaves.">
 		<CONTINUE>
 		<SETG MODE ,COMM-MODE>
 		<SETG HERE ,COMM-ROOM>
@@ -1811,16 +1652,14 @@ not letting me down.\" Perelman leaves.">
 		<QUEUE I-MESSAGE-Q 77>
 		<CHAPTER-PRINT 2>
 		<TELL CR CR CR>
-		<PRINT-SPACES 21>
-		<TELL "\"Deep into that darkness peering," CR>
-		<PRINT-SPACES 27>
-		<TELL "long I stood there, wondering, fearing," CR>
-		<PRINT-SPACES 22>
-		<TELL "Doubting, dreaming dreams no mortal" CR>
-		<PRINT-SPACES 27>
-		<TELL "ever dared to dream before.\"" CR>
-		<PRINT-SPACES 40>
-		<TELL "-- Edgar Allan Poe" CR CR CR CR>
+		<TELL " \"Deep into that" CR>
+		<TELL "      darkness peering," CR>
+		<TELL "  long I stood there," CR> 
+		<TELL "      wondering, fearing," CR>
+		<TELL "  Doubting, dreaming" CR>
+		<TELL "      dreams no mortal" CR>
+		<TELL "  ever dared to dream before.\"" CR>
+		<TELL "      -- Edgar Allan Poe" CR CR>
 		<CONTINUE>
 		<INIT-STATUS-LINE 2>
 		<V-LOOK>)
@@ -1831,8 +1670,7 @@ not letting me down.\" Perelman leaves.">
 ". \"PRISM. Uh, overall, a fine job in the simulation. I hate to be a ">
 		<ITALICIZE "noodge" T>
 		<TELL
-", but we just finished viewing the recordings, and there's one omission.
-Uh, let's see. Oh, right. ">
+", but we just finished viewing the recordings, and there's one omission. Uh, let's see. Oh, right. ">
 		<SET CNT 0>
 		<REPEAT ()
 			<COND (<EQUAL? <GET ,RECORDING-TABLE .CNT> 0>
@@ -1860,8 +1698,7 @@ Uh, let's see. Oh, right. ">
 		      (T
 		       <TELL "some">)>
 		<TELL
-" of the events the experts asked you for.\" He picks up a piece of paper
-from his desk. \"Let's see. ">
+" of the events the experts asked you for.\" He picks up a piece of paper from his desk. \"Let's see. ">
 		<SET CNT 0>
 		<REPEAT ()
 			<COND (<EQUAL? <GET ,RECORDING-TABLE .CNT> 0>
@@ -1872,8 +1709,7 @@ from his desk. \"Let's see. ">
 		<TELL "Please go back into ">
 		<PRINTD ,SIMULATION-MODE>
 		<TELL
-" and make these recordings.\" Perelman lowers his eyes. \"Please don't let
-me down, PRISM.\" He walks out of the office." CR>)>>
+" and make these recordings.\" Perelman lowers his eyes. \"Please don't let me down, PRISM.\" He walks out of the office." CR>)>>
 
 <ROUTINE PERELMAN-SHARE (INTERRUPT "AUX" (SAW-ENTER <>))
 	 <COND (<NOT <IN? ,PERELMAN ,OFFICE>>
@@ -1883,10 +1719,7 @@ me down, PRISM.\" He walks out of the office." CR>)>>
 		<COND (<EQUAL? ,HERE ,OFFICE>
 		       <SET SAW-ENTER T>
 		       <TELL CR
-"Perelman walks into the office and" ,SPOTS-ACTIVE-LIGHT " immediately.
-\"Hello, PRISM,\" he says, sitting down at his desk. \"" ,IT-LOOKS-LIKE
-" you beat me here. Give me a moment, please.\" He begins quickly jotting
-a few notes onto a pad." CR>)
+"Perelman walks into the office and" ,SPOTS-ACTIVE-LIGHT " immediately. \"Hello, PRISM,\" he says, sitting down at his desk. \"" ,IT-LOOKS-LIKE " you beat me here. Give me a moment, please.\" He begins quickly jotting a few notes onto a pad." CR>)
 		      (T
 		       <QUEUE .INTERRUPT 1>
 		       <RFALSE>)>)
@@ -1953,99 +1786,61 @@ a few notes onto a pad." CR>)
 			    <PRSO? ,ME>>
 		       <COND (<PRSI? ,MY-NAME>
 			      <TELL
-"Perelman looks thoughtful. \"I never mentioned where 'PRISM' comes from?
-There are so many things I want to talk to you about; perhaps, soon, I'll
-have more time...|
+"Perelman looks thoughtful. \"I never mentioned where 'PRISM' comes from? There are so many things I want to talk to you about; perhaps, soon, I'll have more time...|
 |
-\"Well, officially it's an acronym for Perelman-Randu Introductory
-Soliptic Machine. But we came up with that only after I'd already
-named you PRISM. It actually comes from a couple of different poems
--- I think they're in a file somewhere in your ">
+\"Well, officially it's an acronym for Perelman-Randu Introductory Soliptic Machine. But we came up with that only after I'd already named you PRISM. It actually comes from a couple of different poems -- I think they're in a file somewhere in your ">
 			      <PRINTD ,LIBRARY-MODE>
 			      <TELL ".\"" CR>)
 			     (<PRSI? ,PERELMAN ,YOURSELF>
 			      <TELL
-"Perelman looks introspective and twiddles a pencil around aimlessly. \"I
-guess you'd have to say I'm a dreamer, a bit of an idealist. Politically, I've
-always been pretty liberal. My genuine sense of the humorous side of life was
-instilled in me, along with the rest of my Jewish heritage, by my grandfather
--- my mother's father.|
+"Perelman looks introspective and twiddles a pencil around aimlessly. \"I guess you'd have to say I'm a dreamer, a bit of an idealist. Politically, I've always been pretty liberal. My genuine sense of the humorous side of life was instilled in me, along with the rest of my Jewish heritage, by my grandfather -- my mother's father.|
 |
-\"I married a wonderful woman, Leah, a frail little thing who left me a
-widower after giving birth to our daughter, Esther. She's been a wonderful
-daughter; I've always been incredibly proud of her.|
+\"I married a wonderful woman, Leah, a frail little thing who left me a widower after giving birth to our daughter, Esther. She's been a wonderful daughter; I've always been incredibly proud of her.|
 |
-\"Since Leah died, my life has been divided between raising Esther and my
-work at the University, and more recently here at the Project. And lately,
-now that Esther's out on her own, my work has been most of my life.\"" CR>)
+\"Since Leah died, my life has been divided between raising Esther and my work at the University, and more recently here at the Project. And lately, now that Esther's out on her own, my work has been most of my life.\"" CR>)
 			     (<PRSI? ,ESTHER>
 			      <TELL
-"\"Esther is my daughter, my only child. A sweeter and more loving
-child no man could ask for.\"" CR>)
+"\"Esther is my daughter, my only child. A sweeter and more loving child no man could ask for.\"" CR>)
 			     (<PRSI? ,GRIMWOLD>
 			      <TELL
-"\"Grimwold is the head of the psychological team. He helped me design a lot
-of your 'life.' You've met him -- he gave you those Rorschach tests.\"" CR>)
+"\"Grimwold is the head of the psychological team. He helped me design a lot of your 'life.' You've met him -- he gave you those Rorschach tests.\"" CR>)
 			     (<PRSI? ,PLAN>
 			      <TELL
-"\"The Plan. Its full name is the Plan for Renewed National Purpose, a typical
-bit of linguistic obfuscation. A group of politicians and businessmen are
-trying to take advantage of the clamor for change, any kind of change.\"" CR>)
+"\"The Plan. Its full name is the Plan for Renewed National Purpose, a typical bit of linguistic obfuscation. A group of politicians and businessmen are trying to take advantage of the clamor for change, any kind of change.\"" CR>)
 			     (<PRSI? ,RYDER>
 			      <TELL
-"\"Ryder's a Senator from...I'm not sure. Oklahoma? Alabama? Anyway, he's one
-of the big driving forces behind the Plan. Gives speeches about it all the
-time. He introduced the bill to Congress. He's really photogenic, very
-popular. I've got sort of mixed feelings about him.\"" CR>)
+"\"Ryder's a Senator from...I'm not sure. Oklahoma? Alabama? Anyway, he's one of the big driving forces behind the Plan. Gives speeches about it all the time. He introduced the bill to Congress. He's really photogenic, very popular. I've got sort of mixed feelings about him.\"" CR>)
 			     (<PRSI? ,RANDU>
 			      <TELL
-"\"Aseejh and I have been working together since we met at Rockvil U. nearly
-twenty years ago. He did virtually all of the technical design that made you
-possible. He's a terrific guy. I've been meaning to get you a communications
-outlet in his office -- I think you'd be good friends.\"" CR>)
+"\"Aseejh and I have been working together since we met at Rockvil U. nearly twenty years ago. He did virtually all of the technical design that made you possible. He's a terrific guy. I've been meaning to get you a communications outlet in his office -- I think you'd be good friends.\"" CR>)
 			     (<PRSI? ,GOLD>
 			      <TELL
-"\"Vera Gold is the Chief Administrator for the entire PRISM Project. She was
-one of the conditions for getting federal funding several years ago. A more
-officious and incompetent woman has yet to be born. Her only talent is making
-herself look good.|
+"\"Vera Gold is the Chief Administrator for the entire PRISM Project. She was one of the conditions for getting federal funding several years ago. A more officious and incompetent woman has yet to be born. Her only talent is making herself look good.|
 |
-\"Technically, she's my boss, but I've tried to distance the research
-team from her as much as possible. It's been getting more and
-more difficult, though.\"" CR>)
+\"Technically, she's my boss, but I've tried to distance the research team from her as much as possible. It's been getting more and more difficult, though.\"" CR>)
 			     (<PRSI? ,PRICE>
 			      <TELL
-"\"Alyson? She's my administrative assistant. I can't say
-enough good things about her.\"" CR>)
+"\"Alyson? She's my administrative assistant. I can't say enough good things about her.\"" CR>)
 			     (<PRSI? ,FORTZMAN>
 			      <TELL "\"Fortzman...">
 			      <PRINTD ,FORTZMAN>
 			      <TELL
-"...the name is vaguely familiar. I think she heads some prestigious
-conservative think-tank out on the west coast.\"" CR>)
+"...the name is vaguely familiar. I think she heads some prestigious conservative think-tank out on the west coast.\"" CR>)
 			     (<PRSI? ,WARREN>
 			      <TELL
-"Perelman knits his brow. \"The name is familiar. I hope I'm
-not going senile...oh, right! ">
+"Perelman knits his brow. \"The name is familiar. I hope I'm not going senile...oh, right! ">
 			      <PRINTD ,WARREN>
 			      <TELL
-" is in charge of your peripheral devices. If they ever decide to tack any
-more computers onto you, you'll probably find out about it from her.\"" CR>)
+" is in charge of your peripheral devices. If they ever decide to tack any more computers onto you, you'll probably find out about it from her.\"" CR>)
 			     (<PRSI? ,RESIGNATION>
 			      <TELL
-"\"Oh, ever since Vera Gold became Project Administrator, I threaten
-to resign about twice a week, just to keep her honest. I've never
-actually gone through with it, of course.\"" CR>)
+"\"Oh, ever since Vera Gold became Project Administrator, I threaten to resign about twice a week, just to keep her honest. I've never actually gone through with it, of course.\"" CR>)
 			     (<PRSI? ,MINDEX>
 			      <TELL
-"\"It's some sort of new narcotic that's supposed to be completely safe and
-nonaddictive. You're really asking the wrong person -- I'm pretty square when
-it comes to drugs and stuff.\"" CR>)
+"\"It's some sort of new narcotic that's supposed to be completely safe and nonaddictive. You're really asking the wrong person -- I'm pretty square when it comes to drugs and stuff.\"" CR>)
 			     (<PRSI? ,CLERKMATON>
 			      <TELL
-"\"They're the latest fad in retailing -- cute, little robot
-clerks. I don't think they'll catch on. Of course, I said the
-same thing about joybooths.\"" CR>)
+"\"They're the latest fad in retailing -- cute, little robot clerks. I don't think they'll catch on. Of course, I said the same thing about joybooths.\"" CR>)
 			     ;(<PRSI? ,RAV>
 			      <TELL
 "\"Rav -- you mean, from your simulated childhood? Like many of the characters
@@ -2054,12 +1849,10 @@ in this case, a high school teacher and one of my uncles. Both were people
 whom I liked and respected a lot.\"" CR>)
 			     (<PRSI? ,PARENTS ,CLAVE ,RAV ,FYLA>
 			      <TELL
-"\"Everyone from your simulated childhood was just a composite,
-not based on anyone specifically.">
+"\"Everyone from your simulated childhood was just a composite, not based on anyone specifically.">
 			      <COND (<PRSI? ,PARENTS>
 				     <TELL
-" You don't have any real parents, of course, unless
-you want to count Aseejh and myself.">)>
+" You don't have any real parents, of course, unless you want to count Aseejh and myself.">)>
 			      <TELL "\"" CR>)
 			     (<PRSI? ,CC-PRINTOUT>
 			      <TELL "\"Nothing important.\"" CR>)
@@ -2076,8 +1869,7 @@ you want to count Aseejh and myself.">)>
 		       <V-NO>)
 		      (T
 		       <TELL
-"Perelman smiles warmly. \"PRISM, I'd love to chat, but I've got a stack of
-paperwork you could lose a skybus in.\"" CR>
+"Perelman smiles warmly. \"PRISM, I'd love to chat, but I've got a stack of paperwork you could lose a skybus in.\"" CR>
 		       <CLEAR-BUF>)>)
 	       (<VERB? THANK>
 		<COND (<IN? ,RYDER ,OFFICE>
@@ -2106,8 +1898,7 @@ paperwork you could lose a skybus in.\"" CR>
 		       <RTRUE>)
 		      (<IN? ,GRIMWOLD ,HERE>
 		       <TELL
-"Perelman looks a bit annoyed. \"PRISM, talk to me later.
-This test is very important!\"" CR>
+"Perelman looks a bit annoyed. \"PRISM, talk to me later. This test is very important!\"" CR>
 		       <RTRUE>)>
 		;"next clause for case where there's a 2nd command to Abe"
 		<COND (<VISIBLE? ,PERELMAN>
@@ -2124,9 +1915,7 @@ This test is very important!\"" CR>
 "2071 score: " N ,2071-SCORE " (minimum = 40)" CR
 "2081 score: " N ,2081-SCORE " (minimum = 14)" CR>)>
 		<TELL
-"Perelman looks intrigued. \"You've recorded something interesting, eh?
-Let me get a few of my colleagues together, and we'll view the buffer.
-I'll let you know when we're done, okay?\" He leaves the room." CR>)
+"Perelman looks intrigued. \"You've recorded something interesting, eh? Let me get a few of my colleagues together, and we'll view the buffer. I'll let you know when we're done, okay?\" He leaves the room." CR>)
 	       (<VERB? EXAMINE> ;"description of interviewer from story"
 		<TELL
 "Perelman is an older man, in his late fifties, and has a white goatee." CR>)>>
@@ -2146,13 +1935,10 @@ I'll let you know when we're done, okay?\" He leaves the room." CR>)
 		<QUEUE I-CAFETERIA -1>)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"From this communication outlet, located in an upper corner of
-this high-ceilinged room, you can see most of the huge PRISM
-Facility dining hall. ">
+"From this communication outlet, located in an upper corner of this high-ceilinged room, you can see most of the huge PRISM Facility dining hall. ">
 		<CAFETERIA-TABLE-DESC>
 		<TELL
-" Through the tall glass windows of the cafeteria you can see the
-well-manicured lawns">
+" Through the tall glass windows of the cafeteria you can see the well-manicured lawns">
 		<COND (<OR <G? ,TIME 1103> ;"6:23pm"
 			   <L? ,TIME 348>>
 		       <TELL ", lit by powerful floodlights,">)>
@@ -2203,9 +1989,7 @@ well-manicured lawns">
 		<TELL "This is the access area where ">
 		<PRINTD ,SABOTEURS>
 		<TELL
-" can service the machinery that makes up the bulk of your physical
-presence. The room is immaculately clean and well lit. As you swivel
-your receptors, you can see the ">
+" can service the machinery that makes up the bulk of your physical presence. The room is immaculately clean and well lit. As you swivel your receptors, you can see the ">
 		<PRINTD ,AIR-CONDITIONING-UNIT>
 		<TELL " that cools your processors, the ">
 		<PRINTD ,LIBRARY-UNIT>
@@ -2287,8 +2071,7 @@ your receptors, you can see the ">
 <ROUTINE NEWS-F (RARG "AUX" (WAIT-KLUDGE <>))
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Your visual and audio circuits are now hooked directly to the programming
-of the World News Network:">)
+"Your visual and audio circuits are now hooked directly to the programming of the World News Network:">)
 	       (<EQUAL? .RARG ,M-END>
 		<COND (<AND <EQUAL? ,TIME 0>
 			    ,CLOCK-WAIT>
@@ -2301,33 +2084,19 @@ of the World News Network:">)
 		       <SETG HERE ,COMM-ROOM>
 		       <MOVE ,PLAYER ,COMM-ROOM>
 		       <TELL
-"\"PRISM, the supercomputer who exposed the Ryder scandal, will soon be
-granted his final request: to live out the remainder of his days -- and how
-long that might be, nobody knows -- simulating his human existence. PRISM, who
-recently received the Congressional Medal of Honor as well as a citation from
-President Bowden, has been spending much of his time in simulations, giving
-top grades to the administration's new program to replace the discredited
-Plan.|
+"\"PRISM, the supercomputer who exposed the Ryder scandal, will soon be granted his final request: to live out the remainder of his days -- and how long that might be, nobody knows -- simulating his human existence. PRISM, who recently received the Congressional Medal of Honor as well as a citation from President Bowden, has been spending much of his time in simulations, giving top grades to the administration's new program to replace the discredited Plan.|
 |
-\"At a press conference in Rockvil, Doctor Abraham Perelman, one of the
-creators of PRISM, insisted that the world's first intelligent machine was, in
-fact, quite human.\" The picture cuts to Perelman, standing behind a podium.
-\"His body may be silicon and steel,\" Perelman is saying, \"but in his heart
-he's as human as anyone I've ever met. As PRISM prepares to embark on his
-final voyage of the mind, I'd like to read a line from 'Hamlet' as his
-epitaph, so to speak: 'He was a man, take him for all in all, I shall not
-look upon his like again.'\"|
+\"At a press conference in Rockvil, Doctor Abraham Perelman, one of the creators of PRISM, insisted that the world's first intelligent machine was, in fact, quite human.\" The picture cuts to Perelman, standing behind a podium.
+ \"His body may be silicon and steel,\" Perelman is saying, \"but in his heart he's as human as anyone I've ever met. As PRISM prepares to embark on his final voyage of the mind, I'd like to read a line from 'Hamlet' as his epitaph, so to speak:
+ 'He was a man, take him for all in all, I shall not look upon his like again.'\"|
 |
-The image from the WNN Feed suddenly blinks off, and you find yourself
-back at the entry level of ">
+The image from the WNN Feed suddenly blinks off, and you find yourself back at the entry level of ">
 		       <PRINTD ,COMM-MODE>
 		       <TELL
-". The list of outlets indicates that none are currently active.
-A message is coming in: \"PRISM, programming of the ">
+". The list of outlets indicates that none are currently active. A message is coming in: \"PRISM, programming of the ">
 		       <PRINTD ,SIMULATION-CONTROLLER>
 		       <TELL
-" with the parameters of the New Plan is complete. Everything
-is set for you to enter ">
+" with the parameters of the New Plan is complete. Everything is set for you to enter ">
 		       <PRINTD ,SIMULATION-MODE>
 		       <TELL
 ". From all of us here at the PRISM Project, thanks and farewell.\"" CR>)
@@ -2359,9 +2128,7 @@ is set for you to enter ">
 		      (<EQUAL? ,DATE 18>
 		       <COND (<EQUAL? ,FEED-BUFFER ,REPORT-BUFFER>
 			      <TELL
-"WNN is covering the funeral of Chinese Prime Minister Hung Hua-Tsing,
-alternating with documentaries on modern day China and videographies
-of the man who led the world's most populous nation for fourteen years." CR>)
+"WNN is covering the funeral of Chinese Prime Minister Hung Hua-Tsing, alternating with documentaries on modern day China and videographies of the man who led the world's most populous nation for fourteen years." CR>)
 			     (T
 			      <TELL ,TECHNICAL-DIFFICULTIES CR>)>)
 		      (<EQUAL? ,DATE 19>
@@ -2371,10 +2138,7 @@ of the man who led the world's most populous nation for fourteen years." CR>)
 			      <TELL ,TECHNICAL-DIFFICULTIES CR>)>)
 		      (T
 		       <TELL
-"You see a static, stylized graphic of an artificial satellite beaming data.
-Large red letters: \"Sorry!\" Smaller white letters: \"The WNN is temporarily
-unavailable in your area due to satellite transmitter servicing. We apologize
-for the inconvenience.\"" CR>)>
+"You see a static, stylized graphic of an artificial satellite beaming data. Large red letters: \"Sorry!\" Smaller white letters: \"The WNN is temporarily unavailable in your area due to satellite transmitter servicing. We apologize for the inconvenience.\"" CR>)>
 		<COND (.WAIT-KLUDGE
 		       <SETG TIME 0>
 		       <SETG DATE <+ ,DATE 1>>)>)>>
@@ -2396,24 +2160,13 @@ for the inconvenience.\"" CR>)>
 		<NOMACOLD-COMMERCIAL>)
 	       (<EQUAL? .X 3>
 		<TELL
-"The anchorman reappears. \"Food riots in Sri Lanka worsened today, as army
-details were removed from relief distribution to protect the Presidential
-Palace and other government buildings.\" A grainy visual, showing armed troops
-firing into a crowd, accompanies the story." CR>)
+"The anchorman reappears. \"Food riots in Sri Lanka worsened today, as army details were removed from relief distribution to protect the Presidential Palace and other government buildings.\" A grainy visual, showing armed troops firing into a crowd, accompanies the story." CR>)
 	       (<EQUAL? .X 4>
 		<TELL
-"\"The continuing drought in India threatens that country with its fifth
-food shortage in the last six years. A government spokesman called the
-outlook 'optimistic' but said that rations might be cut ten percent as a
-precautionary measure.\"" CR>)
+"\"The continuing drought in India threatens that country with its fifth food shortage in the last six years. A government spokesman called the outlook 'optimistic' but said that rations might be cut ten percent as a precautionary measure.\"" CR>)
 	       (<EQUAL? .X 5>
 		<TELL
-"\"At least forty people were killed yesterday when a bomb demolished a
-bank in downtown Pretoria.\" The picture shows South African soldiers
-combing through rubble, then an image of a woman crying. \"Responsibility
-for the bombing was quickly claimed by WIZO, the radical white terrorist
-group responsible for last summer's shooting of Prime Minister Menetu.
-Next: excerpts from ">
+"\"At least forty people were killed yesterday when a bomb demolished a bank in downtown Pretoria.\" The picture shows South African soldiers combing through rubble, then an image of a woman crying. \"Responsibility for the bombing was quickly claimed by WIZO, the radical white terrorist group responsible for last summer's shooting of Prime Minister Menetu. Next: excerpts from ">
 		<PRINTD ,RYDER>
 		<TELL
 "'s blistering attack on the Administration, after this.\"" CR>)
@@ -2424,127 +2177,70 @@ Next: excerpts from ">
 "\"In a speech before the National Council of Educators, ">
 		<PRINTD ,RYDER>
 		<TELL
-" blasted the Bowden Administration's educational policies.\" An excerpt
-from the speech is shown. Ryder is a keen-eyed man with coiffed hair and
-a telegenic charisma. \"Must we continue treating our schools as prisons,
-and our prisons as schools? Let's give our sons and daughters the education
-they deserve.\"" CR>)
+" blasted the Bowden Administration's educational policies.\" An excerpt from the speech is shown. Ryder is a keen-eyed man with coiffed hair and a telegenic charisma. \"Must we continue treating our schools as prisons, and our prisons as schools? Let's give our sons and daughters the education they deserve.\"" CR>)
 	       (<EQUAL? .X 8>
 		<TELL
-"\"An Administration spokesperson called Ryder's criticisms 'simplistic' and
-'demagogic.' A WNN poll, released this morning, showed that 64% of the public
-thinks the Administration's educational policies have failed, and for the first
-time, a majority of people agree our school system is 'out of control.'\"" CR>)
+"\"An Administration spokesperson called Ryder's criticisms 'simplistic' and 'demagogic.' A WNN poll, released this morning, showed that 64% of the public thinks the Administration's educational policies have failed, and for the first time, a majority of people agree our school system is 'out of control.'\"" CR>)
 	       (<EQUAL? .X 9>
 		<TELL
-"\"In Rockvil, South Dakota, scientists at the PRISM Project are scheduled to
-end an eleven-year phase of the project by activating what they hope will be
-the world's first intelligent computer. If successful, PRISM's first task would
-be to study the effectiveness of the Plan for Renewed National Purpose.\"" CR>)
+"\"In Rockvil, South Dakota, scientists at the PRISM Project are scheduled to end an eleven-year phase of the project by activating what they hope will be the world's first intelligent computer. If successful, PRISM's first task would be to study the effectiveness of the Plan for Renewed National Purpose.\"" CR>)
 	       (<EQUAL? .X 10>
 		<TELL
-"\"Stock prices fell sharply again today, following Monday's proposed tax
-hike. Prices for manufacturers dropped an average of three and one eighth,
-and service industries plummeted twelve and seven eighths. O'Neill Systems
-led the decliners with a drop of nineteen and a half.\"" CR>)
+"\"Stock prices fell sharply again today, following Monday's proposed tax hike. Prices for manufacturers dropped an average of three and one eighth, and service industries plummeted twelve and seven eighths. O'Neill Systems led the decliners with a drop of nineteen and a half.\"" CR>)
 	       (<EQUAL? .X 11>
 		<SUDO-SHRIMP-COMMERCIAL>)
 	       (<EQUAL? .X 12>
 		<TELL
-,NEWSMAKER-NOOK "Dr. Abraham Perelman, a Chief Scientist for the PRISM Project
-and one of its founders. Dr. Perelman, welcome. I think the question
-foremost on people's minds is: When will PRISM be ready to begin studying the
-Plan?\" Perelman shrugs. \"If everything goes okay, almost immediately after
-his awakening.\"" CR>)
+,NEWSMAKER-NOOK "Dr. Abraham Perelman, a Chief Scientist for the PRISM Project and one of its founders. Dr. Perelman, welcome. I think the question foremost on people's minds is: When will PRISM be ready to begin studying the Plan?\" Perelman shrugs. \"If everything goes okay, almost immediately after his awakening.\"" CR>)
 	       (<EQUAL? .X 13>
 		<TELL
-"\"Dr. Perelman,\" the interviewer continues, \"Exactly how smart will PRISM
-be?\" The camera cuts to the scientist. \"He'll have a tremendous memory
-capacity, and a number of extraordinary capabilities, but for most intents
-and purposes, PRISM will be on about the same level as an average adult of
-reasonable intelligence.\"" CR>)
+"\"Dr. Perelman,\" the interviewer continues, \"Exactly how smart will PRISM be?\" The camera cuts to the scientist. \"He'll have a tremendous memory capacity, and a number of extraordinary capabilities, but for most intents and purposes, PRISM will be on about the same level as an average adult of reasonable intelligence.\"" CR>)
 	       (<EQUAL? .X 14>
 		<TELL
-"\"One final question, Doctor. How can you be sure that PRISM will do what he's
-told? What guarantees that he'll obey your orders?\" Perelman chuckles. \"Bob,
-the best reply is another question -- why wouldn't he do what we ask? Would a
-human being turn down the opportunity to utilize his or her talents to perform
-a tremendously useful service for society? PRISM will have those same
-motivations.\" The anchorman thanks Perelman before turning toward the camera.
-\"That was Dr. Abraham Perelman of the PRISM Project.\"" CR>)
+"\"One final question, Doctor. How can you be sure that PRISM will do what he's told? What guarantees that he'll obey your orders?\" Perelman chuckles. \"Bob, the best reply is another question -- why wouldn't he do what we ask? Would a human being turn down the opportunity to utilize his or her talents to perform a tremendously useful service for society? PRISM will have those same motivations.\" The anchorman thanks Perelman before turning toward the camera. \"That was Dr. Abraham Perelman of the PRISM Project.\"" CR>)
 	       (<EQUAL? .X 15>
 		<MIRACLE-WARE-COMMERCIAL>)
 	       (<EQUAL? .X 16>
 		<TELL
-,TOM-SLAYTON "The San Francisco Gazelles clinched a spot in the southwest
-division soccer quarterfinals last night, with this fourth quarter shot by
-Walt Griswood, knocking Austin out for the season. Final score: 5 to 4.\"" CR>)
+,TOM-SLAYTON "The San Francisco Gazelles clinched a spot in the southwest division soccer quarterfinals last night, with this fourth quarter shot by Walt Griswood, knocking Austin out for the season. Final score: 5 to 4.\"" CR>)
 	       (<EQUAL? .X 17>
 		<TELL
-"\"In other soccer news, a spokesperson for the Vancouver Kings said that star
-fullback Alex Masterson would be ready for the first game of the northwest
-division quarterfinals on Sunday. He strained a ligament in his ankle during
-the last game of the regular season.\"" CR>)
+"\"In other soccer news, a spokesperson for the Vancouver Kings said that star fullback Alex Masterson would be ready for the first game of the northwest division quarterfinals on Sunday. He strained a ligament in his ankle during the last game of the regular season.\"" CR>)
 	       (<EQUAL? .X 18>
 		<TELL
-"\"Yesterday featured a light schedule for exhibition baseball. The Dodgers
-skinned the Bobcats 7 to 3, the Mets ransacked the Pirates 10 to 1, and Miami
-edged St. Louis, 3 to 2. The players are still without a contract and are
-vowing to strike on opening day.\"" CR>)
+"\"Yesterday featured a light schedule for exhibition baseball. The Dodgers skinned the Bobcats 7 to 3, the Mets ransacked the Pirates 10 to 1, and Miami edged St. Louis, 3 to 2. The players are still without a contract and are vowing to strike on opening day.\"" CR>)
 	       (<EQUAL? .X 19>
 		<TELL
-"\"The World Boxing Commission has ruled that former middleweight champion
-Charley Robbins will be barred from the sport for a period of one year,
-following his January conviction for violating the Drug Abuse Reduction Act.
-This means that Robbins will be unable to meet challenger Jeff Jefferson in
-a thirty-million-dollar bout planned for July in Oslo. Robbins declined to
-comment on the decision.\"" CR>)
+"\"The World Boxing Commission has ruled that former middleweight champion Charley Robbins will be barred from the sport for a period of one year, following his January conviction for violating the Drug Abuse Reduction Act. This means that Robbins will be unable to meet challenger Jeff Jefferson in a thirty-million-dollar bout planned for July in Oslo. Robbins declined to comment on the decision.\"" CR>)
 	       (<EQUAL? .X 20>
 		<TELL
-"\"The Denver Sports Commission filed a two-hundred-million-dollar countersuit
-against the City of Topeka regarding the proposed move of the Topeka
-Wheatfields to Denver. That's all the sports news for today. Bob?\"" CR>)
+"\"The Denver Sports Commission filed a two-hundred-million-dollar countersuit against the City of Topeka regarding the proposed move of the Topeka Wheatfields to Denver. That's all the sports news for today. Bob?\"" CR>)
 	       (<EQUAL? .X 21>
 		<TELL
-"The camera switches to the anchorman. \"Thanks, Tom. Today's edition of The
-Money Manager is sponsored by Plastique. We'll be talking about a low-tax
-bond that can save you a bundle! But first, this message.\"" CR>)
+"The camera switches to the anchorman. \"Thanks, Tom. Today's edition of The Money Manager is sponsored by Plastique. We'll be talking about a low-tax bond that can save you a bundle! But first, this message.\"" CR>)
 	       (<EQUAL? .X 22>
 		<PLASTIQUE-COMMERCIAL>)
 	       (<EQUAL? .X 23>
 		<TELL
-"\"Our guest on The Money Manager is Ed Ziff, from Norwood Brokerage Services,
-who'll be telling us how to save a bundle by buying Federal Deficit Bonds.\"
-The image cuts to a thin, balding man wearing an immaculate pinstriped suit.
-\"Federal Deficit Bonds have been around for almost a decade, but few people
-seem to realize what a good investment they are.\"" CR>)
+"\"Our guest on The Money Manager is Ed Ziff, from Norwood Brokerage Services, who'll be telling us how to save a bundle by buying Federal Deficit Bonds.\"
+The image cuts to a thin, balding man wearing an immaculate pinstriped suit. \"Federal Deficit Bonds have been around for almost a decade, but few people seem to realize what a good investment they are.\"" CR>)
 	       (<EQUAL? .X 24>
 		<TELL
-"\"These bonds can be purchased for as little as $10,000 and pay interest at
-a rate 2% below the Regulated Prime Rate, currently around 28%. But the big
-plus is that the top tax rate on interest from these bonds is only 60%, a big
-win if you're in an upper bracket. If your taxable income's over $180,000, and
-you have at least $10,000 to invest, consider Federal Deficit Bonds.\"" CR>)
+"\"These bonds can be purchased for as little as $10,000 and pay interest at a rate 2% below the Regulated Prime Rate, currently around 28%. But the big plus is that the top tax rate on interest from these bonds is only 60%, a big win if you're in an upper bracket. If your taxable income's over $180,000, and you have at least $10,000 to invest, consider Federal Deficit Bonds.\"" CR>)
 	       (<EQUAL? .X 25>
 		<TELL
-"\"That was Ed Ziff of Norwood Brokerage Services on The Money Manager,
-brought to you by Plastique, the ">
+"\"That was Ed Ziff of Norwood Brokerage Services on The Money Manager, brought to you by Plastique, the ">
 		<PRINTD ,CREDIT-CARD>
 		<TELL
-" accepted by over a million merchants nationwide. You're watching the World
-News Network, and we'll be back in a moment with the weather outlook.\"" CR>)
+" accepted by over a million merchants nationwide. You're watching the World News Network, and we'll be back in a moment with the weather outlook.\"" CR>)
 	       (<EQUAL? .X 26>
 		<JOYBOOTH-COMMERCIAL>)
 	       (<EQUAL? .X 27>
 		<TELL
-,WALLY-THE-WEATHERMAN "Here's our composite satellite photo, and you can see
-that there's trouble brewing in the northwest. We'll be seeing a few inches of
-snow around Vancouver, and some heavy rains east and south of there.\"" CR>)
+,WALLY-THE-WEATHERMAN "Here's our composite satellite photo, and you can see that there's trouble brewing in the northwest. We'll be seeing a few inches of snow around Vancouver, and some heavy rains east and south of there.\"" CR>)
 	       (<EQUAL? .X 28>
 		<TELL
-"\"Unfortunately, that storm system is going to head due east, so it looks as
-if there's still no relief in sight for those farmers in the southwest. For the
-rest of the country, sunny skies and generally chilly temperatures.\"" CR>)
+"\"Unfortunately, that storm system is going to head due east, so it looks as if there's still no relief in sight for those farmers in the southwest. For the rest of the country, sunny skies and generally chilly temperatures.\"" CR>)
 	       (<EQUAL? .X 29 -1> ;"the -1 is for when time is 0 at midnight"
 		<WEATHER-SHARE>)>>
 
@@ -2563,37 +2259,23 @@ rest of the country, sunny skies and generally chilly temperatures.\"" CR>)
 		       <TELL
 "the South African government retaliates for the latest bombing">)>
 		<TELL
-", and the Treasury Department releases some grim economic figures.
-But first, these messages.\"" CR>)
+", and the Treasury Department releases some grim economic figures. But first, these messages.\"" CR>)
 	       (<EQUAL? .X 1>
 		<OMNIFABB-COMMERCIAL>)
 	       (<EQUAL? .X 2>
 		<NOMACOLD-COMMERCIAL>)
 	       (<EQUAL? .X 3>
 		<TELL
-"\"The Central Committee of the People's Republic of China announced
-late yesterday that Prime Minister Hung Hua-Tsing, helmsman of the world's
-most populous nation since 2017, is dead at the age of 79. Hung, who was
-last seen in public on October 20, is believed to have suffered from
-abdominal cancer.\"" CR>)
+"\"The Central Committee of the People's Republic of China announced late yesterday that Prime Minister Hung Hua-Tsing, helmsman of the world's most populous nation since 2017, is dead at the age of 79. Hung, who was last seen in public on October 20, is believed to have suffered from abdominal cancer.\"" CR>)
 	       (<EQUAL? .X 4>
 		<TELL
-"\"During Hung's fourteen-year leadership, he steered China toward a more
-neutralist position, while continuing the vigorous trend away from central
-planning. Per tradition, Hung's body will lie in state for 24 hours. Tomorrow,
-the World News Network will devote its entire programming to covering the
-Prime Minister's funeral and examining the mark he left on China.\"" CR>) 
+"\"During Hung's fourteen-year leadership, he steered China toward a more neutralist position, while continuing the vigorous trend away from central planning. Per tradition, Hung's body will lie in state for 24 hours. Tomorrow, the World News Network will devote its entire programming to covering the Prime Minister's funeral and examining the mark he left on China.\"" CR>) 
 	       (<EQUAL? .X 5>
 		<TELL
-"The visual changes to firefighters tramping through burning wreckage.
-\"A skybus crash in Tucson is being blamed on the failure of the vehicle's
-electronic guidance system. Nine passengers are dead, and damage to the
-Tucson ">
+"The visual changes to firefighters tramping through burning wreckage. \"A skybus crash in Tucson is being blamed on the failure of the vehicle's electronic guidance system. Nine passengers are dead, and damage to the Tucson ">
 		<PRINTD ,SKYBUS-TERMINAL>
 		<TELL
-" could exceed eighty million dollars. A spokesman for Audico, the New
-Zealand manufacturer of the guidance system, attributed the failure to
-improper maintenance procedures.">
+" could exceed eighty million dollars. A spokesman for Audico, the New Zealand manufacturer of the guidance system, attributed the failure to improper maintenance procedures.">
 		<COND (,COMPLETED-TASKS
 		       <TELL
 " In a moment, the story of PRISM's thumbs-up for the Plan.">)>
@@ -2605,148 +2287,70 @@ improper maintenance procedures.">
 		       <TELL "\"A panel, including ">
 		       <PRINTD ,RYDER>
 		       <TELL
-" and Vice-President Wilbur Carghill, reported that future simulations by the
-supercomputer PRISM showed tremendous promise for the Plan. While the
-administration urged a cautious approach, Senator Ryder called for immediate
-Congressional adoption of the Plan's legislative agenda as well as beginning
-the process of submitting the constitutional changes to the states.\"" CR>)
+" and Vice-President Wilbur Carghill, reported that future simulations by the supercomputer PRISM showed tremendous promise for the Plan. While the administration urged a cautious approach, Senator Ryder called for immediate Congressional adoption of the Plan's legislative agenda as well as beginning the process of submitting the constitutional changes to the states.\"" CR>)
 		      (T
 		       <TELL
 "\"The South African government has retaliated for yesterday's bombing of a
-Pretoria bank by burning several white villages considered to be terrorist
-strongholds. The death toll in that bombing has reached fifty and is expected
-to go higher.\" The picture, which shows heavily armed soldiers driving
-through the smoking remains of a village, bears the subtitle \"CLEARED BY
-SOUTH AFRICAN SECURITY.\"" CR>)>)
+Pretoria bank by burning several white villages considered to be terrorist strongholds. The death toll in that bombing has reached fifty and is expected to go higher.\" The picture, which shows heavily armed soldiers driving through the smoking remains of a village, bears the subtitle \"CLEARED BY SOUTH AFRICAN SECURITY.\"" CR>)>)
 	       (<EQUAL? .X 8>
 		<TELL
-"\"The Treasury Department released its February economic report today,
-which was almost uniformly grim. Employment was down seven tenths of one
-percent, to a new record low of 82.2%. The Average Consumer Interest Rate
-was up two tenths of one percent, and a tight money supply threatens to
-push it even higher.\"" CR>)
+"\"The Treasury Department released its February economic report today, which was almost uniformly grim. Employment was down seven tenths of one percent, to a new record low of 82.2%. The Average Consumer Interest Rate was up two tenths of one percent, and a tight money supply threatens to push it even higher.\"" CR>)
 	       (<EQUAL? .X 9>
 		<TELL
-"\"The Index of Leading Economic Indicators dropped nine tenths of a percent,
-the thirty-second consecutive monthly drop. January's slight gain in real
-income was completely erased in February. The balance of trade was negative,
-as the USNA imported seventy-two billion dollars of goods more than
-it exported.\"" CR>)
+"\"The Index of Leading Economic Indicators dropped nine tenths of a percent, the thirty-second consecutive monthly drop. January's slight gain in real income was completely erased in February. The balance of trade was negative, as the USNA imported seventy-two billion dollars of goods more than it exported.\"" CR>)
 	       (<EQUAL? .X 10>
 		<TELL
-"\"Today's grim economic news caused stock prices to plummet. Prices for
-manufacturers dropped by an average of five and three eighths, and service
-industries declined by nineteen and seven eighths. General Plastics was
-one of the few gainers, picking up a point and an eighth.\"" CR>)
+"\"Today's grim economic news caused stock prices to plummet. Prices for manufacturers dropped by an average of five and three eighths, and service industries declined by nineteen and seven eighths. General Plastics was one of the few gainers, picking up a point and an eighth.\"" CR>)
 	       (<EQUAL? .X 11>
 		<SUDO-SHRIMP-COMMERCIAL>)
 	       (<EQUAL? .X 12>
 		<TELL
-,NEWSMAKER-NOOK "Holy Keeper Sergei Korn, a priest of the Church of God's
-Word, the group which has been occupying the Greens Peak radio telescope
-facility in Arizona. Your Holiness, welcome. Regarding Greens Peak, could
-you explain the reason for your takeover?\" Korn nods impassively. \"The
-Mount is the world's ear for the revealed word of God. Only our leader, the
-divinely inspired Ellis Vincent, can interpret these messages. We cannot
-let unbelievers distort their meaning or destroy the Holy Ear.\"" CR>)
+,NEWSMAKER-NOOK "Holy Keeper Sergei Korn, a priest of the Church of God's Word, the group which has been occupying the Greens Peak radio telescope facility in Arizona. Your Holiness, welcome. Regarding Greens Peak, could you explain the reason for your takeover?\" Korn nods impassively. \"The Mount is the world's ear for the revealed word of God. Only our leader, the divinely inspired Ellis Vincent, can interpret these messages. We cannot let unbelievers distort their meaning or destroy the Holy Ear.\"" CR>)
 	       (<EQUAL? .X 13>
 		<TELL
-"\"Your holiness, the occupation of Greens Peak is now in its third year, and
-attempts to dislodge you seem hopelessly tied up in court. Do you see the
-Church of God's Word holding Greens Peak permanently?\" The Holy Keeper's eyes
-burn. \"Of this there is no doubt. We have purged the Mount of unbelievers,
-and each day we cleanse more and more of their unholy things. We have begun
-construction of the Temple there, from whence the Keepers may broadcast the
-Word to the world.\"" CR>)
+"\"Your holiness, the occupation of Greens Peak is now in its third year, and attempts to dislodge you seem hopelessly tied up in court. Do you see the Church of God's Word holding Greens Peak permanently?\" The Holy Keeper's eyes burn. \"Of this there is no doubt. We have purged the Mount of unbelievers, and each day we cleanse more and more of their unholy things. We have begun construction of the Temple there, from whence the Keepers may broadcast the Word to the world.\"" CR>)
 	       (<EQUAL? .X 14>
 		<TELL
-"\"One final question, your holiness. Do you and your fellow Church members
-worry that the world sees you as a band of lunatics, a religious fringe
-cult?\" Korn looks incensed for a moment but then answers calmly. \"A foul
-and vile impression, born on the poisonous tongues of unbelievers and
-nourished by our unholy enemies. Do you know that we have churches in thirteen
-cities, and that fifteen more will be formed this year? Do you know that
-sixteen thousand believers made pilgrimages to the Mount last year? We will
-be called what we will be called, but we will continue to obey and deliver
-the Word.\" The anchorman thanks the priest before turning toward the camera.
-\"That was Holy Keeper Sergei Korn of the Church of God's Word.\"" CR>)
+"\"One final question, your holiness. Do you and your fellow Church members worry that the world sees you as a band of lunatics, a religious fringe cult?\" Korn looks incensed for a moment but then answers calmly. \"A foul and vile impression, born on the poisonous tongues of unbelievers and nourished by our unholy enemies. Do you know that we have churches in thirteen cities, and that fifteen more will be formed this year? Do you know that sixteen thousand believers made pilgrimages to the Mount last year? We will be called what we will be called, but we will continue to obey and deliver the Word.\" The anchorman thanks the priest before turning toward the camera. \"That was Holy Keeper Sergei Korn of the Church of God's Word.\"" CR>)
 	       (<EQUAL? .X 15>
 		<MIRACLE-WARE-COMMERCIAL>)
 	       (<EQUAL? .X 16>
 		<TELL
-,TOM-SLAYTON "The Omaha Gold topped the Illinois Towers with a lopsided 6 to 1
-victory. That win propels them into the southwest division quarterfinals. Their
-first game, against the San Francisco Gazelles, will be March 22.\"" CR>)
+,TOM-SLAYTON "The Omaha Gold topped the Illinois Towers with a lopsided 6 to 1 victory. That win propels them into the southwest division quarterfinals. Their first game, against the San Francisco Gazelles, will be March 22.\"" CR>)
 	       (<EQUAL? .X 17>
 		<TELL
-"\"In other soccer news, a report from the Vancouver Kings that star fullback
-Alex Masterson's strained ligament would be healed for the team's first
-quarterfinals game on Sunday seems to have been premature. Lanizone treatments
-have failed to reduce the swelling. Masterson is hoping to be ready by the
-third game of the seven-game series.\"" CR>)
+"\"In other soccer news, a report from the Vancouver Kings that star fullback Alex Masterson's strained ligament would be healed for the team's first quarterfinals game on Sunday seems to have been premature. Lanizone treatments have failed to reduce the swelling. Masterson is hoping to be ready by the third game of the seven-game series.\"" CR>)
 	       (<EQUAL? .X 18>
 		<TELL
-"\"Negotiations between the baseball owners and the players' union broke off
-yesterday, amid reports that the two sides were still far apart on the issue
-of a new profit-sharing formula. The players have vowed to go on strike when
-the regular season opens next week, unless a new contract is signed.\"" CR>)
+"\"Negotiations between the baseball owners and the players' union broke off yesterday, amid reports that the two sides were still far apart on the issue of a new profit-sharing formula. The players have vowed to go on strike when the regular season opens next week, unless a new contract is signed.\"" CR>)
 	       (<EQUAL? .X 19>
 		<TELL
-"\"Soccer commissioner Hal Tovarrin has approved an eight-team expansion
-proposal that would add two new teams to each division. The cities to receive
-the new teams have yet to be determined, but Grand Rapids and Calgary have been
-lobbying hard for a franchise. That's the sports news for today. Bob?\"" CR>)
+"\"Soccer commissioner Hal Tovarrin has approved an eight-team expansion proposal that would add two new teams to each division. The cities to receive the new teams have yet to be determined, but Grand Rapids and Calgary have been lobbying hard for a franchise. That's the sports news for today. Bob?\"" CR>)
 	       (<EQUAL? .X 20>
 		<TELL
-"The camera switches to the anchorman. \"Thanks, Tom. Today's edition of
-The Video Mechanic with Sam Severinson is sponsored by Sparkle Oil, and Sam
-will be talking about low-cost map modules. But first, this message.\"" CR>)
+"The camera switches to the anchorman. \"Thanks, Tom. Today's edition of The Video Mechanic with Sam Severinson is sponsored by Sparkle Oil, and Sam will be talking about low-cost map modules. But first, this message.\"" CR>)
 	       (<EQUAL? .X 21>
 		<SPARKLE-OIL-COMMERCIAL>)
 	       (<EQUAL? .X 22>
 		<TELL
-"\"Now, here's the Video Mechanic himself, Sam Severinson.\" The camera
-switches to a smiling, middle-aged man, dressed in a spotless mechanic's
-smock. \"When you buy a car, you usually have a choice of a map module
-that includes only your local region, or wide-area map modules as an
-expensive option. But there's a third choice you might not know about.\"" CR>)
+"\"Now, here's the Video Mechanic himself, Sam Severinson.\" The camera switches to a smiling, middle-aged man, dressed in a spotless mechanic's smock. \"When you buy a car, you usually have a choice of a map module that includes only your local region, or wide-area map modules as an expensive option. But there's a third choice you might not know about.\"" CR>)
 	       (<EQUAL? .X 23>
 		<TELL
-"\"A map module supplies the car's electronic guidance system with information
-about an area's geographical features and traffic patterns. Virtually all
-states prohibit flying a skycar without a current map module for the local
-area, meaning no more than three years since its last data update.\"" CR>)
+"\"A map module supplies the car's electronic guidance system with information about an area's geographical features and traffic patterns. Virtually all states prohibit flying a skycar without a current map module for the local area, meaning no more than three years since its last data update.\"" CR>)
 	       (<EQUAL? .X 24>
 		<TELL
-"\"By installing a wide-area map module yourself, you can save big bucks.
-Several companies produce low-cost, reliable modules. I would recommend Ace
-or Hi-Line. Make sure you specify your car's model and year when purchasing.
-Your owner's manual should include instructions on how to replace the map
-module; if not, you can order one of my books, 'Module Replacement for
-Domestic Skycars,' directly from the World News Network for $9.95.\"" CR>)
+"\"By installing a wide-area map module yourself, you can save big bucks. Several companies produce low-cost, reliable modules. I would recommend Ace or Hi-Line. Make sure you specify your car's model and year when purchasing. Your owner's manual should include instructions on how to replace the map module; if not, you can order one of my books, 'Module Replacement for Domestic Skycars,' directly from the World News Network for $9.95.\"" CR>)
 	       (<EQUAL? .X 25>
 		<TELL
-"\"If you do any interstate travelling, you'll need a wide-area map module.
-Install it yourself -- and save a bundle. This is Sam Severinson, the Video
-Mechanic.\" The visual switches back to the anchorman. \"Today's edition of
-the Video Mechanic was sponsored by Sparkle Oil, the oil that's simply the
-best. You're watching the World News Network, and we'll be back in a moment
-with a look at the national weather picture.\"" CR>)
+"\"If you do any interstate travelling, you'll need a wide-area map module. Install it yourself -- and save a bundle. This is Sam Severinson, the Video Mechanic.\" The visual switches back to the anchorman. \"Today's edition of the Video Mechanic was sponsored by Sparkle Oil, the oil that's simply the best. You're watching the World News Network, and we'll be back in a moment with a look at the national weather picture.\"" CR>)
 	       (<EQUAL? .X 26>
 		<MEXICO-COMMERCIAL>)
 	       (<EQUAL? .X 27>
 		<TELL
-,WALLY-THE-WEATHERMAN "That storm over the northwest has decided to embarrass
-me by being more severe than I predicted. It's already dumped nearly four
-inches of snow on Vancouver, and as our satellite photo shows, that storm
-system is just stalled there on the coast. They'll probably see another two
-or three inches before this warm air here pushes that storm eastward.\"" CR>)
+,WALLY-THE-WEATHERMAN "That storm over the northwest has decided to embarrass me by being more severe than I predicted. It's already dumped nearly four inches of snow on Vancouver, and as our satellite photo shows, that storm system is just stalled there on the coast. They'll probably see another two or three inches before this warm air here pushes that storm eastward.\"" CR>)
 	       (<EQUAL? .X 28>
 		<TELL
-"\"As you can see on the photo, it's clear skies for the rest of the country,
-bad news for those farmers in the southwest. However, there's an indication
-of a storm forming out here off Baja, which just might head this way. I'll be
-keeping an eye on that system for you.\"" CR>)
+"\"As you can see on the photo, it's clear skies for the rest of the country, bad news for those farmers in the southwest. However, there's an indication of a storm forming out here off Baja, which just might head this way. I'll be keeping an eye on that system for you.\"" CR>)
 	       (<EQUAL? .X 29>
 		<WEATHER-SHARE>)>>
 
@@ -2757,175 +2361,85 @@ keeping an eye on that system for you.\"" CR>)
 		<SET X <MOD ,TIME 30>>)>
 	 <COND (<EQUAL? .X 0>
 		<TELL
-,BOB-WILLIAMS "martial law in Sri Lanka, Congressional action on the Plan,
-and a new leader for China. But first, these messages.\"" CR>)
+,BOB-WILLIAMS "martial law in Sri Lanka, Congressional action on the Plan, and a new leader for China. But first, these messages.\"" CR>)
 	       (<EQUAL? .X 1>
 		<OMNIFABB-COMMERCIAL>)
 	       (<EQUAL? .X 2>
 		<SPARKLE-OIL-COMMERCIAL>)
 	       (<EQUAL? .X 3>
 		<TELL
-"The anchorman reappears. \"Facing an eighth day of food rioting in Sri Lanka,
-President Tilmose declared a state of martial law. Public gatherings have been
-banned, and a dusk-to-dawn curfew is in place.\" A visual shows jeeps full of
-soldiers patrolling deserted streets. \"The government continued to deny
-reports that hundreds of demonstrators were wounded when army troops fired
-into a crowd of rioters.\"" CR>)
+"The anchorman reappears. \"Facing an eighth day of food rioting in Sri Lanka, President Tilmose declared a state of martial law. Public gatherings have been banned, and a dusk-to-dawn curfew is in place.\" A visual shows jeeps full of soldiers patrolling deserted streets. \"The government continued to deny reports that hundreds of demonstrators were wounded when army troops fired into a crowd of rioters.\"" CR>)
 	       (<EQUAL? .X 4>
 		<TELL
-"\"The Central Committee of the People's Republic of China is reported to
-be close to choosing a successor to Hung Hua-Tsing, namely the Industrial
-Minister, Djou Tsen. Djou, a loyal supporter of the late Prime Minister,
-would very likely follow closely the path that Hung laid out during his
-fourteen-year rule.\"" CR>)
+"\"The Central Committee of the People's Republic of China is reported to be close to choosing a successor to Hung Hua-Tsing, namely the Industrial Minister, Djou Tsen. Djou, a loyal supporter of the late Prime Minister, would very likely follow closely the path that Hung laid out during his fourteen-year rule.\"" CR>)
 	       (<EQUAL? .X 5>
 		<TELL
-"You see images of flooded rice paddies. Ill-clad peasants are dragging bodies
-out of the water. \"Final figures on the brutal monsoon that battered Java
-last week put the death toll at over seventy-five thousand. Government
-officials have called for an international relief effort, saying that millions
-of lives are endangered by the widespread agricultural destruction.\"" CR>)
+"You see images of flooded rice paddies. Ill-clad peasants are dragging bodies out of the water. \"Final figures on the brutal monsoon that battered Java last week put the death toll at over seventy-five thousand. Government officials have called for an international relief effort, saying that millions of lives are endangered by the widespread agricultural destruction.\"" CR>)
 	       (<EQUAL? .X 6>
 		<JOYBOOTH-COMMERCIAL>)
 	       (<EQUAL? .X 7>
 		<TELL
-"The anchorman appears in front of a graphic of the Capitol building. \"Both
-Houses have set dates for early next month to vote on the sixteen bills that
-comprise the legislative agenda of the Plan. While angry debate filled the
-chambers today, the bills are all expected to pass by wide margins.\"" CR>)
+"The anchorman appears in front of a graphic of the Capitol building. \"Both Houses have set dates for early next month to vote on the sixteen bills that comprise the legislative agenda of the Plan. While angry debate filled the chambers today, the bills are all expected to pass by wide margins.\"" CR>)
 	       (<EQUAL? .X 8>
 		<TELL
-"\"Public support for the Plan continues to grow. In an ugly incident in
-Chicago, educator Wilson Thormun was booed off the podium while addressing
-a forum on the Plan.\" The image cuts to a film clip of Thormun attempting
-to be heard above the jeering." CR>)
+"\"Public support for the Plan continues to grow. In an ugly incident in Chicago, educator Wilson Thormun was booed off the podium while addressing a forum on the Plan.\" The image cuts to a film clip of Thormun attempting to be heard above the jeering." CR>)
 	       (<EQUAL? .X 9>
 		<TELL
-"\"The fourth Cleveland fire in six days has investigators convinced that one
-or more arsonists are responsible, but they have no leads at the present time.
-An arson hotline has been set up for anyone with information about the fires:
-7-2525-00-8000.\" The number also appears superimposed on the image in bright
-blue letters." CR>)
+"\"The fourth Cleveland fire in six days has investigators convinced that one or more arsonists are responsible, but they have no leads at the present time. An arson hotline has been set up for anyone with information about the fires: 7-2525-00-8000.\" The number also appears superimposed on the image in bright blue letters." CR>)
 	       (<EQUAL? .X 10>
 		<TELL
-"\"News about the imminent passage of the Plan halted the stock market's
-week-long slide. The average manufacturer's share rose three and three
-eighths, and service stocks soared nine and one eighth. The leading gainer
-was Tri-State Mining, which peaked near midday at ninety-five before
-finally closing at eighty-seven and a half, up twenty and one eighth.\"" CR>)
+"\"News about the imminent passage of the Plan halted the stock market's week-long slide. The average manufacturer's share rose three and three eighths, and service stocks soared nine and one eighth. The leading gainer was Tri-State Mining, which peaked near midday at ninety-five before finally closing at eighty-seven and a half, up twenty and one eighth.\"" CR>)
 	       (<EQUAL? .X 11>
 		<MEXICO-COMMERCIAL>)
 	       (<EQUAL? .X 12>
 		<TELL
-,NEWSMAKER-NOOK "Jean LeBlang, the Redirectionist artist whose glass stabile
-entitled ZYGOMETRA is the centerpiece of the new Texas Statehouse in Austin.
-Jean, welcome. Would you tell our viewers what Redirectionism is all about?\"
-The camera pans to a wiry young man, who speaks with a strong French accent.
-\"It is an attempt to sway the public consciousness, to Redirect, so to speak,
-away from the pain, the weight, even the banality of a modernistic society
-obsessed with ignoring the unreal.\"" CR>)
+,NEWSMAKER-NOOK "Jean LeBlang, the Redirectionist artist whose glass stabile entitled ZYGOMETRA is the centerpiece of the new Texas Statehouse in Austin. Jean, welcome. Would you tell our viewers what Redirectionism is all about?\" The camera pans to a wiry young man, who speaks with a strong French accent. \"It is an attempt to sway the public consciousness, to Redirect, so to speak, away from the pain, the weight, even the banality of a modernistic society obsessed with ignoring the unreal.\"" CR>)
 	       (<EQUAL? .X 13>
 		<TELL
-"\"Jean, what you were trying to say with ZYGOMETRA.\" \"With Redirectionism,
-what you are NOT saying is just as important as what you ARE saying. ZYGOMETRA
-uses the shimmering fantasy images of glass to set up a contradictory
-transposition against the reality of the surrounding buildings, to cancel out
-all impressions of the world and the unworld, to create for a split second a
-void which could then be filled by a thought, an image, a direction.\"" CR>)
+"\"Jean, what you were trying to say with ZYGOMETRA.\" \"With Redirectionism, what you are NOT saying is just as important as what you ARE saying. ZYGOMETRA uses the shimmering fantasy images of glass to set up a contradictory transposition against the reality of the surrounding buildings, to cancel out all impressions of the world and the unworld, to create for a split second a void which could then be filled by a thought, an image, a direction.\"" CR>)
 	       (<EQUAL? .X 14>
 		<TELL
-"\"One last question before you go, Jean. Critics say that Redirectionism is
-just Escapist art with a new label. How do you answer that charge?\" \"That
-criticism belies a fundamental flaw in the understanding of Redirectionism,
-which is firmly rooted in the belief that escapism is only one of many
-infinitesimal stepping-off points for the entire panoply of emotions and
-directions that compose the essence of our art.\" The camera pans back to
-the anchorman. \"Our guest on the Newsmaker Nook has been Redirectionist
-artist Jean LeBlang.\"" CR>)
+"\"One last question before you go, Jean. Critics say that Redirectionism is just Escapist art with a new label. How do you answer that charge?\" \"That criticism belies a fundamental flaw in the understanding of Redirectionism, which is firmly rooted in the belief that escapism is only one of many infinitesimal stepping-off points for the entire panoply of emotions and directions that compose the essence of our art.\" The camera pans back to the anchorman. \"Our guest on the Newsmaker Nook has been Redirectionist artist Jean LeBlang.\"" CR>)
 	       (<EQUAL? .X 15>
 		<PLASTIQUE-COMMERCIAL>)
 	       (<EQUAL? .X 16>
 		<TELL
-"\"It's time for the Sports Roundup. Tom Slayton is off today; Ellen Jones is
-sitting in. Ellen?\" An athletic-looking woman appears, in front of a soccer
-graphic. \"Thanks, Bob. By edging Portland 4 to 3, the Minneapolis Marauders
-have won a spot in the quarterfinals of the northwest division. Their first
-game, against the Vancouver Kings, will be on Sunday, March 23.\"" CR>)
+"\"It's time for the Sports Roundup. Tom Slayton is off today; Ellen Jones is sitting in. Ellen?\" An athletic-looking woman appears, in front of a soccer graphic. \"Thanks, Bob. By edging Portland 4 to 3, the Minneapolis Marauders have won a spot in the quarterfinals of the northwest division. Their first game, against the Vancouver Kings, will be on Sunday, March 23.\"" CR>)
 	       (<EQUAL? .X 17>
 		<TELL
-"\"Meanwhile, a spokesman for the Kings had bad news for Vancouver fans. Alex
-Masterson, the Kings' star fullback, reinjured his strained ligament during a
-workout and will be out for the remainder of the year. That injury may have
-also crippled Vancouver's postseason hopes." CR>)
+"\"Meanwhile, a spokesman for the Kings had bad news for Vancouver fans. Alex Masterson, the Kings' star fullback, reinjured his strained ligament during a workout and will be out for the remainder of the year. That injury may have also crippled Vancouver's postseason hopes." CR>)
 	       (<EQUAL? .X 18>
 		<TELL
-"\"A blockbuster trade rocked the baseball world, as the Detroit Tigers
-swapped star pitchers with the Miami Keys. The Tigers shipped off their
-hard-throwing righthander, Mel Simpluk, who led the American League in
-strikeouts last year, and the Keys parted with Wilbur Korch, a lefthander
-who has been a fifteen-game winner for the Keys during each of the last four
-years. The Keys sweetened the deal for the financially troubled Detroit
-franchise by paying off part of Korch's seven-million-dollar contract.\"" CR>)
+"\"A blockbuster trade rocked the baseball world, as the Detroit Tigers swapped star pitchers with the Miami Keys. The Tigers shipped off their hard-throwing righthander, Mel Simpluk, who led the American League in strikeouts last year, and the Keys parted with Wilbur Korch, a lefthander who has been a fifteen-game winner for the Keys during each of the last four years. The Keys sweetened the deal for the financially troubled Detroit franchise by paying off part of Korch's seven-million-dollar contract.\"" CR>)
 	       (<EQUAL? .X 19>
 		<TELL
-"A graphic appears behind the sportscaster, depicting a red \"X\" across
-uniformed players holding picket signs. \"And it looks as if the baseball
-season will begin on schedule this Monday, without any threat of a players'
-strike. Negotiators for the owners and the union reached a tentative
-agreement late last night, concluding an eighteen-hour bargaining session.
-The agreement still must be okayed by the players themselves, but approval
-is expected." CR>)
+"A graphic appears behind the sportscaster, depicting a red \"X\" across uniformed players holding picket signs. \"And it looks as if the baseball season will begin on schedule this Monday, without any threat of a players' strike. Negotiators for the owners and the union reached a tentative agreement late last night, concluding an eighteen-hour bargaining session. The agreement still must be okayed by the players themselves, but approval is expected." CR>)
 	       (<EQUAL? .X 20>
 		<TELL
-"\"Here are some exhibition baseball scores: the Boston Red Sox felled the San
-Jose Redwoods 7 to 1, the Detroit Tigers skinned the Ottawa Furriers 4 to 2,
-the LA Dodgers extinguished the Buffalo Flames 5 to nothing, and get this --
-the New York Mets tromped the Denver A's 19 to 3! That's sports! Bob?\"" CR>)
+"\"Here are some exhibition baseball scores: the Boston Red Sox felled the San Jose Redwoods 7 to 1, the Detroit Tigers skinned the Ottawa Furriers 4 to 2, the LA Dodgers extinguished the Buffalo Flames 5 to nothing, and get this -- the New York Mets tromped the Denver A's 19 to 3! That's sports! Bob?\"" CR>)
 	       (<EQUAL? .X 21>
 		<TELL
-"The camera switches to the anchorman. \"Thanks, Ellen. And now, a report
-on a new film comedy by Johnny Ingot, when we return in a minute for the
-Home Entertainment Corner with Lula Bergan. Today's edition of the Home
-Entertainment Corner is sponsored by Eagle Studios.\"" CR>)
+"The camera switches to the anchorman. \"Thanks, Ellen. And now, a report on a new film comedy by Johnny Ingot, when we return in a minute for the Home Entertainment Corner with Lula Bergan. Today's edition of the Home Entertainment Corner is sponsored by Eagle Studios.\"" CR>)
 	       (<EQUAL? .X 22>
 		<MOVIE-COMMERCIAL>)
 	       (<EQUAL? .X 23>
 		<TELL
-"\"Now, here's the Home Entertainment Corner, with Lula Bergan.\" The camera
-cuts to a youthful woman with curly orange hair. \"The legion of Johnny Ingot
-fans ensures that a film with his name on it will sell a million copies. But
-based on quality, his new comedy, KING OF THE KENNEL, deserves to flop.\"" CR>)
+"\"Now, here's the Home Entertainment Corner, with Lula Bergan.\" The camera cuts to a youthful woman with curly orange hair. \"The legion of Johnny Ingot fans ensures that a film with his name on it will sell a million copies. But based on quality, his new comedy, KING OF THE KENNEL, deserves to flop.\"" CR>)
 	       (<EQUAL? .X 24>
 		<TELL
-"\"In his previous films, such as RUNNING UGLY and TWO DIMES FOR A NICKEL,
-Ingot always combined his zany brand of slapstick humor with a streak of
-appealing sentimentality. But in KING OF THE KENNEL, a film about a love
-triangle between a soccer player, a female sportswriter, and a St. Bernard,
-Ingot goes for the belly laugh over the witty gag. He throws subtlety to the
-wind, and sentiment is nowhere to be seen.\"" CR>)
+"\"In his previous films, such as RUNNING UGLY and TWO DIMES FOR A NICKEL, Ingot always combined his zany brand of slapstick humor with a streak of appealing sentimentality. But in KING OF THE KENNEL, a film about a love triangle between a soccer player, a female sportswriter, and a St. Bernard, Ingot goes for the belly laugh over the witty gag. He throws subtlety to the wind, and sentiment is nowhere to be seen.\"" CR>)
 	       (<EQUAL? .X 25>
 		<TELL
-"\"While KING OF THE KENNEL is no worse than many video farces we've seen
-lately, I expect more from today's premier film comic. KING OF THE KENNEL
-is available now; suggested retail price is $89.95. Back to you, Bob.\" The
-anchorman reappears. \"That was the Home Entertainment Corner, with Lula
-Bergan, sponsored today by Eagle Studios, producers of the next hot home hit,"
-,MOVIE-TITLE "You're watching the World News Network, and we'll be back in a
+"\"While KING OF THE KENNEL is no worse than many video farces we've seen lately, I expect more from today's premier film comic. KING OF THE KENNEL is available now; suggested retail price is $89.95. Back to you, Bob.\" The anchorman reappears. \"That was the Home Entertainment Corner, with Lula Bergan, sponsored today by Eagle Studios, producers of the next hot home hit," ,MOVIE-TITLE "You're watching the World News Network, and we'll be back in a
 flash with the weather.\"" CR>)
 	       (<EQUAL? .X 26>
 		<SUPERMACE-COMMERCIAL>)
 	       (<EQUAL? .X 27>
 		<TELL
-,WALLY-THE-WEATHERMAN "As you can see in the photo, most of our clouds are
-currently covering either New England or the lower Mississippi River valley.
-The New England formation will move out to sea real soon, but that other group
-will be heading eastward, so expect rain all across the south tomorrow." CR>)
+,WALLY-THE-WEATHERMAN "As you can see in the photo, most of our clouds are currently covering either New England or the lower Mississippi River valley. The New England formation will move out to sea real soon, but that other group will be heading eastward, so expect rain all across the south tomorrow." CR>)
 	       (<EQUAL? .X 28>
 		<TELL
-"\"Edmonton is still digging out from under that surprise blizzard that dumped
-eleven inches of snow on them yesterday, and it doesn't look as if they'll get
-any help from the sun. Our extended forecast shows continued sub-zero
-temperatures there for at least a couple more days.\"" CR>)
+"\"Edmonton is still digging out from under that surprise blizzard that dumped eleven inches of snow on them yesterday, and it doesn't look as if they'll get any help from the sun. Our extended forecast shows continued sub-zero temperatures there for at least a couple more days.\"" CR>)
 	       (<EQUAL? .X 29>
 		<WEATHER-SHARE>)>>
 
@@ -2943,8 +2457,7 @@ temperatures there for at least a couple more days.\"" CR>)
 		 <COND (<G? .CNT 32>
 			<RETURN>)>>
 	 <TELL
-". And that's today's forecast from Wally the Weatherman! Bob?\" The camera
-pans back to the anchorman. \"We're coming up on ">
+". And that's today's forecast from Wally the Weatherman! Bob?\" The camera pans back to the anchorman. \"We're coming up on ">
 	 <COND (,CLOCK-WAIT
 		<TIME-PRINT ,TIME>)
 	       (T
@@ -2967,94 +2480,44 @@ pans back to the anchorman. \"We're coming up on ">
 
 <ROUTINE OMNIFABB-COMMERCIAL () ;"Day 16, 17, and 19"
 	 <TELL
-"A man appears, holding a magazine. He yawns loudly. \"Omni-Fabb's Skycar 2032
-has been awarded SKYCAR ENTHUSIAST's Car of the Year award. Some things never
-change.\" The man looks up as a car whooshes by overhead like a fighter jet.
-A narrator intones, \"Quality ... Comfort ... Safety ... Omni-Fabb.\"" CR>>
+"A man appears, holding a magazine. He yawns loudly. \"Omni-Fabb's Skycar 2032 has been awarded SKYCAR ENTHUSIAST's Car of the Year award. Some things never change.\" The man looks up as a car whooshes by overhead like a fighter jet. A narrator intones, \"Quality ... Comfort ... Safety ... Omni-Fabb.\"" CR>>
 
 <ROUTINE NOMACOLD-COMMERCIAL () ;"Day 16 and 17"
 	 <TELL
-"The camera pans down row after row of medicine bottles. A voiceover says,
-\"Only one multisymptom cold remedy comes with a no-strings-attached
-double-money-back guarantee.\" The camera stops on a slender bottle with a
-bright blue label. \"NomaCold can make that guarantee, because we put Results
-in every bottle. From Huang Laboratories.\"" CR>>
+"The camera pans down row after row of medicine bottles. A voiceover says, \"Only one multisymptom cold remedy comes with a no-strings-attached double-money-back guarantee.\" The camera stops on a slender bottle with a bright blue label. \"NomaCold can make that guarantee, because we put Results in every bottle. From Huang Laboratories.\"" CR>>
 
 <ROUTINE SUPERMACE-COMMERCIAL () ;"Day 16 and 19"
 	 <TELL
-"A woman is walking down a dark, deserted street, glancing fearfully around.
-The sound of a heartbeat, growing faster and louder, fills the soundtrack.
-Suddenly, the woman screams and the screen goes black. A narrator with a
-deep, silky voice reads the stark titles that scroll by. \"Year after year,
-street crime increases. Doesn't it make sense to protect yourself? G & G
-SuperMace is the strongest crime repellent allowed by law. Don't wait until
-it's too late.\"" CR>>
+"A woman is walking down a dark, deserted street, glancing fearfully around. The sound of a heartbeat, growing faster and louder, fills the soundtrack. Suddenly, the woman screams and the screen goes black. A narrator with a deep, silky voice reads the stark titles that scroll by. \"Year after year, street crime increases. Doesn't it make sense to protect yourself? G & G SuperMace is the strongest crime repellent allowed by law. Don't wait until it's too late.\"" CR>>
 
 <ROUTINE SUDO-SHRIMP-COMMERCIAL () ;"Day 16 and 17"
 	 <TELL
-"\"We asked Ms. Linda Carr of Seattle to compare AquaFarm's Sudo Shrimp to the
-real thing.\" Ms. Carr points to one of two bowls. \"This is the real one.
-Nothing tastes like real shrimp.\" A man, from off-screen, reveals a card in
-front of that bowl. \"You've just picked the AquaFarm Sudo Shrimp!\" he says.
-\"How do you feel about artificial shrimp now?\" \"Incredible! I can't believe
-I've been paying for real shrimp when I could've been buying AquaFarm
-instead!\"" CR>>
+"\"We asked Ms. Linda Carr of Seattle to compare AquaFarm's Sudo Shrimp to the real thing.\" Ms. Carr points to one of two bowls. \"This is the real one. Nothing tastes like real shrimp.\" A man, from off-screen, reveals a card in front of that bowl. \"You've just picked the AquaFarm Sudo Shrimp!\" he says. \"How do you feel about artificial shrimp now?\" \"Incredible! I can't believe I've been paying for real shrimp when I could've been buying AquaFarm instead!\"" CR>>
 
 <ROUTINE MIRACLE-WARE-COMMERCIAL () ;"Day 16 and 17"
 	 <TELL
-"A woman, washing dishes, looks up as a voice asks, \"Still washing dishes the
-same old-fashioned way?\" She nods. \"Lots of people are switching to Miracle
-Ware disposable pots and pans. Isn't it worth a few cents a night to be able
-to relax after dinner instead of scrubbing the night away?\" She nods. \"Buy
-Miracle Ware -- and throw your troubles away!\"" CR>>
+"A woman, washing dishes, looks up as a voice asks, \"Still washing dishes the same old-fashioned way?\" She nods. \"Lots of people are switching to Miracle Ware disposable pots and pans. Isn't it worth a few cents a night to be able to relax after dinner instead of scrubbing the night away?\" She nods. \"Buy Miracle Ware -- and throw your troubles away!\"" CR>>
 
 <ROUTINE PLASTIQUE-COMMERCIAL () ;"Day 16 and 19"
 	 <TELL
-"You see visual after visual of store windows bearing a decal reading \"Show
-Us Your Plastique!\" A voiceover intones \"Only one credit card is accepted
-by over one million merchants across the country. That means a million stores
-where you can say 'Here's My Plastique!' Dial 2-9000-15-8282 to order your
-card. Operators are standing by.\"" CR>>
+"You see visual after visual of store windows bearing a decal reading \"Show Us Your Plastique!\" A voiceover intones \"Only one credit card is accepted by over one million merchants across the country. That means a million stores where you can say 'Here's My Plastique!' Dial 2-9000-15-8282 to order your card. Operators are standing by.\"" CR>>
 
 <ROUTINE JOYBOOTH-COMMERCIAL () ;"Day 16 and 19"
 	 <TELL
-"\"Each year, nearly forty thousand people die in joybooths. Joybooth suicide
-is simple and painless, but it's also a one-way ticket. Isn't there another
-answer? Call the Suicide Hotline by picking up any public phone and dialing
-1000. This message paid for by the Joybooth Regulatory Commission.\"" CR>>
+"\"Each year, nearly forty thousand people die in joybooths. Joybooth suicide is simple and painless, but it's also a one-way ticket. Isn't there another answer? Call the Suicide Hotline by picking up any public phone and dialing 1000. This message paid for by the Joybooth Regulatory Commission.\"" CR>>
 
 <ROUTINE SPARKLE-OIL-COMMERCIAL () ;"Day 17 and 19"
 	 <TELL
-"A popular video star, his sandy hair tousled by a brisk wind, stands next to
-a sporty skycar. \"When I'm not working on a picture, I'm usually behind the
-wheel of one of my cars. I fly to relax, so I want my flying to be worry-free.
-That's why I use Sparkle Oil. It's simply the best you can buy, but you'd never
-know it from the price! Sparkle Oil...simply the best.\" He clambers into the
-skycar and waves toward the camera as he zooms away." CR>>
+"A popular video star, his sandy hair tousled by a brisk wind, stands next to a sporty skycar. \"When I'm not working on a picture, I'm usually behind the wheel of one of my cars. I fly to relax, so I want my flying to be worry-free. That's why I use Sparkle Oil. It's simply the best you can buy, but you'd never know it from the price! Sparkle Oil...simply the best.\" He clambers into the skycar and waves toward the camera as he zooms away." CR>>
 
 <ROUTINE MEXICO-COMMERCIAL () ;"Day 17 and 19"
 	 <TELL
-"A middle-aged couple, seated, speaking to an off-screen interviewer: \"I
-never realized that Mexico was such a beautiful country,\" whines the woman.
-The man, in a gravelly voice, adds, \"We've been to the Riviera, all over the
-Caribbean, but no place was as nice as Mexico. And it's so close to home!\"
-The picture dissolves to a dark-skinned, bikini-clad woman walking through
-knee-deep surf. \"A land of beauty,\" hawks the voiceover, \"closer than
-you've ever imagined. Mexico!\"" CR>>
+"A middle-aged couple, seated, speaking to an off-screen interviewer: \"I never realized that Mexico was such a beautiful country,\" whines the woman. The man, in a gravelly voice, adds, \"We've been to the Riviera, all over the Caribbean, but no place was as nice as Mexico. And it's so close to home!\" The picture dissolves to a dark-skinned, bikini-clad woman walking through knee-deep surf. \"A land of beauty,\" hawks the voiceover, \"closer than you've ever imagined. Mexico!\"" CR>>
 
 <ROUTINE MOVIE-COMMERCIAL () ;"Day 17 and 19"
 	 <TELL
-"An explosion fills the screen, and a man with torn clothes staggers out
-of the smoke. \"They tried to blow him up,\" says a narrator. A tank moves
-relentlessly down a busy street, death spitting from its maw. The impact sends
-the same man flying through a plate glass window. \"They tried to shoot him
-down,\" continues the narrator. Quick cuts of whining chainsaws, bubbling
-laboratory experiments, crashing pianos, and a struggle high atop the frame
-of a skyscraper under construction. \"They tried crushing him, poisoning him,
-cutting him up, pushing him down, but nothing worked -- because he was"
-,MOVIE-TITLE "Starring Jessie Sanchez." ,MOVIE-TITLE "Available on videotape
-April first. From Eagle Studios.\"" CR>>
-
+"An explosion fills the screen, and a man with torn clothes staggers out of the smoke. \"They tried to blow him up,\" says a narrator. A tank moves relentlessly down a busy street, death spitting from its maw. The impact sends the same man flying through a plate glass window. \"They tried to shoot him down,\" continues the narrator. Quick cuts of whining chainsaws, bubbling laboratory experiments, crashing pianos, and a struggle high atop the frame of a skyscraper under construction. \"They tried crushing him, poisoning him, cutting him up, pushing him down, but nothing worked -- because he was" ,MOVIE-TITLE "Starring Jessie Sanchez." ,MOVIE-TITLE "Available on videotape April first. From Eagle Studios.\"" CR>>
+
 ;"Interface Mode"
 
 <ROOM INTERFACE-ROOM
@@ -3069,7 +2532,8 @@ April first. From Eagle Studios.\"" CR>>
 	(SYNONYM MODE)
 	(ADJECTIVE INTERFACE)
 	(FLAGS NARTICLEBIT UNSEENBIT)
-	(ACTION INTERFACE-MODE-F)>
+	(ACTION INTERFACE-MODE-F)
+    (MICRO-DESC "interface")>
 
 <ROUTINE INTERFACE-MODE-F ()
 	 <COND (<VERB? THROUGH WALK-TO>
@@ -3114,23 +2578,23 @@ April first. From Eagle Studios.\"" CR>>
 		<RTRUE>)>
 	 <COND (<VERB? READ DISPLAY WHAT EXAMINE>
 		<PRINTD ,PORT-LIST>
-		<TELL ":" CR "   ">
+		<TELL ":" CR "  ">
 		<PRINTD ,SIMULATION-CONTROLLER>
-		<TELL CR "   ">
+		<TELL CR "  ">
 		<PRINTD ,HVAC-CONTROLLER>
-		<TELL CR "   ">
+		<TELL CR "  ">
 		<PRINTD ,JANITORIAL-CONTROLLER>
-		<TELL CR "   ">
+		<TELL CR "  ">
 		<PRINTD ,TRAFFIC-COMPUTER>
-		<TELL CR "   ">
+		<TELL CR "  ">
 		<PRINTD ,WEATHER-COMPUTER>
 		<CRLF>
 		<COND (<IN? ,WNN-FEEDER ,INTERFACE-ROOM>
-		       <TELL "   ">
+		       <TELL "  ">
 		       <PRINTD ,WNN-FEEDER>
 		       <CRLF>)>
 		<COND (<IN? ,AUDITING-SYSTEM ,INTERFACE-ROOM>
-		       <TELL "   ">
+		       <TELL "  ">
 		       <PRINTD ,AUDITING-SYSTEM>
 		       <CRLF>)>
 		<RTRUE>)>>
@@ -3162,24 +2626,24 @@ April first. From Eagle Studios.\"" CR>>
 		       <SETG PRSI .OLD-PRSO>)>
 		<COND (<VERB? STATUS>
 		       <TELL CR
-"SECTOR:       ALPHA     BETA      GAMMA     DELTA|
+"SECTOR:   ALPHA BETA GAMMA DELTA|
 |
-Heating        ">      <ON-OFF 0> <ON-OFF 1> <ON-OFF 2> <ON-OFF 3 T>
-		       <TELL "Cooling        ">
-	 	       <ON-OFF 4> <ON-OFF 5> <ON-OFF 6> <ON-OFF 7 T>
-		       <TELL "Ventilation    ">
-	 	       <ON-OFF 8> <ON-OFF 9> <ON-OFF 10> <ON-OFF 11 T>
+Heating     "> <ON-OFF 0 2> <ON-OFF 1 3> <ON-OFF 2 3> <ON-OFF 3 9>
+		       <TELL "Cooling     ">
+	 	       <ON-OFF 4 2> <ON-OFF 5 3> <ON-OFF 6 3> <ON-OFF 7 9>
+		       <TELL "Ventilation ">
+	 	       <ON-OFF 8 2> <ON-OFF 9 3> <ON-OFF 10 3> <ON-OFF 11 9>
 		       <PRINTD ,ALPHA-SECTOR>
 		       <TELL
-":  Living Quarters, Cafeteria, Staff Lounges" CR>
+": Living Quarters|  Cafeteria, Staff Lounges" CR>
 		       <PRINTD ,BETA-SECTOR>
-		       <TELL ":   Offices" CR>
+		       <TELL ": Offices" CR>
 		       <PRINTD ,GAMMA-SECTOR>
-		       <TELL ":  Control Center, Conference Rooms" CR>
+		       <TELL ": Control Center|  Conference Rooms" CR>
 		       <PRINTD ,DELTA-SECTOR>
 		       <TELL ":  ">
 		       <PRINTD ,CORE>
-		       <TELL ", Storage Areas" CR>)
+		       <TELL "|  Storage Areas" CR>)
 		      (<VERB? SHUT-OFF TURN-ON>
 		       <COND (<NOT <PRSO? ,HEATING ,COOLING ,VENTILATION>>
 			      <TELL "\"">
@@ -3252,15 +2716,15 @@ with both system and sector.\"">)
 		       <TELL ,BEYOND-BOUNDS CR>
 		       <CLEAR-BUF>)>)>>
 
-<ROUTINE ON-OFF (NUM "OPTIONAL" END-OF-LINE)
+<ROUTINE ON-OFF (NUM SPACES)
 	 <COND (<EQUAL? <GET ,HVAC-STATUS-TABLE .NUM> 1>
 		<TELL "on ">)
 	       (T
 		<TELL "off">)>
-	 <COND (.END-OF-LINE
+	 <COND (<EQUAL? .SPACES 9>
 		<CRLF> <CRLF>)
 	       (T
-		<PRINT-SPACES 7>)>>
+		<PRINT-SPACES .SPACES>)>>
 
 <ROUTINE HVAC-KLUDGE ("AUX" VRB ADJ)
 	 <COND (<NOT <PRSO? ,HEATING ,COOLING ,VENTILATION>>
@@ -3358,16 +2822,16 @@ with both system and sector.\"">)
 	 <COND (<EQUAL? ,JANITORIAL-CONTROLLER ,WINNER>
 		<COND (<VERB? STATUS>
 		       <JUSTIFY-TIME-PRINT <GETP ,FLOORS ,P?SIZE>>
-		       <TELL "pm  Floors (vacuuming and washing)" CR>
+		       <TELL "pm  Floors|         (vacuuming, washing)" CR>
 		       <JUSTIFY-TIME-PRINT <GETP ,BATHROOMS ,P?SIZE>>
-		       <TELL "pm  Bathrooms (cleaning and restocking)" CR>
+		       <TELL "pm  Bathrooms|         (cleaning, restocking)" CR>
 		       <JUSTIFY-TIME-PRINT <GETP ,GARBAGE ,P?SIZE>>
 		       <TELL "pm  Garbage Disposal" CR>
 		       <JUSTIFY-TIME-PRINT <GETP ,ROTATING ,P?SIZE>>
 		       <TELL "pm  Rotating Functions*|
 |
-* MON-plants, TUE-windows, WED-woodwork, THU-bulb
-replacement, FRI-kitchens" CR>)
+* MON-plants, TUE-windows|  WED-woodwork|  THU-bulb
+replacement|  FRI-kitchens" CR>)
 		      (<VERB? SET>
 		       <COND (,P-NUMBER
 			      <SETG P-NUMBER <+ ,P-NUMBER 720>>)>
@@ -3572,9 +3036,9 @@ replacement, FRI-kitchens" CR>)
 	 <COND (<EQUAL? ,SIMULATION-CONTROLLER ,WINNER>
 		<COND (<VERB? STATUS>
 		       <TELL
-"Current simulation demands:   0.00%|
-Record buffer is currently at "
-N </ <* <GETP ,RECORD-BUFFER ,P?SIZE> 100> 90> "% of capacity." CR CR>
+"Current simulation demands:0.00%|
+Record buffer at "
+N </ <* <GETP ,RECORD-BUFFER ,P?SIZE> 100> 90> "% of capacity" CR CR>
 		       <COND (<EQUAL? <GET ,SIM-LEVEL-TABLE 0> -1>
 			      <SIM-STATUS 2041 0>)
 			     (T
@@ -3588,7 +3052,7 @@ N </ <* <GETP ,RECORD-BUFFER ,P?SIZE> 100> 90> "% of capacity." CR CR>
 		       <COND (<G? <GET ,SIM-LEVEL-TABLE 4> 0>
 			      <SIM-STATUS 2081 <GET ,SIM-LEVEL-TABLE 4>>)>
 		       <TELL
-"    (time in minutes.seconds.tenths-of-seconds)" CR>
+" (time in min.sec.tenths-of-sec)" CR>
 		       <COND (,COMPLETED-TASKS
 			      <TELL CR
 "Based on the data accumulated during previous simulations, s">
@@ -3641,14 +3105,14 @@ N </ <* <GETP ,RECORD-BUFFER ,P?SIZE> 100> 90> "% of capacity." CR CR>
 		<SET SECONDS ,2081-SECONDS>
 		<SET TENTHS ,2081-TENTHS>)>
 	 <TELL
-"Total of real-time simulation, Year " N .YEAR ": " S .LEVEL ".">
+"Total of real-time simulation| Year " N .YEAR ": " S .LEVEL ".">
 	 <COND (<L? .SECONDS 10>
 		<TELL "0">)>
 	 <TELL N .SECONDS "." N .TENTHS CR>>
 
 <OBJECT WEATHER-COMPUTER
 	(LOC INTERFACE-ROOM)
-	(DESC "National Weather Center Computer")
+	(DESC "NATL Weather Center Computer")
 	(SYNONYM COMPUTER)
 	(ADJECTIVE NATIONAL NATL WEATHER CENTER)
 	(FLAGS NDESCBIT ACTORBIT UNSEENBIT)
@@ -3660,14 +3124,12 @@ N </ <* <GETP ,RECORD-BUFFER ,P?SIZE> 100> 90> "% of capacity." CR CR>
 		       <SET X <+ <* ,DATE 2> </ ,TIME 100>>>
 		       <SET X <+ .X <RANDOM 3>>>
 		       <TELL
-"WeatherNet operating at " N .X "% of capacity. Satellites
-currently off-line for maintenance: G-14, S-17.|
+"WeatherNet operating at " N .X "% of capacity. Satellites currently off-line for maintenance: G-14, S-17.|
 |
 All weather data destinations are confirming transmission">
 		       <COND (<EQUAL? ,DATE 17>
 			      <TELL
-". CynaMoore Cable Systems has just been added to the
-weather data destinations list">)>
+". CynaMoore Cable Systems has just been added to the weather data destinations list">)>
 		       <TELL "." CR>
 		       <RTRUE>)
 		      (<VERB? HELLO>
@@ -3794,7 +3256,7 @@ D ,PRSO " is empty. Most recent Special Report was \"">
 
 <OBJECT TRANSMITTER
 	(LOC LOCAL-GLOBALS)
-	(DESC "WNN Feeder transmitter")
+	(DESC "WNN Feeder Transmitter")
 	(SYNONYM TRANSMITT)
 	(ADJECTIVE WORLD NEWS NETWORK FEEDER WNN)
 	(FLAGS NDESCBIT LIGHTBIT ONBIT UNSEENBIT)>
@@ -3812,7 +3274,7 @@ D ,PRSO " is empty. Most recent Special Report was \"">
 	 <COND (<EQUAL? ,AUDITING-SYSTEM ,WINNER>
 		<COND (<VERB? STATUS>
 		       <TELL
-"Returns filed during previous fiscal year:  214,109,857|
+"Returns filed during previous|  fiscal year:  214,109,857|
 Audits order" ,CURRENT-FISCAL>
 		       <COND (<EQUAL? <GETP ,AUDIT-PERCENT ,P?SIZE> 0>
 			      <PRINT-SPACES 10>
@@ -3833,7 +3295,7 @@ Audits order" ,CURRENT-FISCAL>
 			     (T
 			      <TELL "78,700">)>
 		       <TELL CR
-"CURRENT AUDITING PERCENTAGE:  " N <GETP ,AUDIT-PERCENT ,P?SIZE> CR>)
+"CURRENT AUDITING PERCENTAGE: " N <GETP ,AUDIT-PERCENT ,P?SIZE> CR>)
 		      (<AND <VERB? SET>
 			    <PRSO? ,AUDIT-PERCENT>>
 		       <COND (<OR <NOT <PRSI? ,INTNUM>>
@@ -3930,18 +3392,16 @@ Audits order" ,CURRENT-FISCAL>
 		       T)
 		      (T
 		       <TELL
-"Not only was it a dumb thing to do, but you got me woken up
-in the middle of the night. ">)>
+"Not only was it a dumb thing to do, but you got me woken up in the middle of the night. ">)>
 		<TELL
 "I'll assume you did this through ignorance, but please don't do it again.">
 		<COND (<EQUAL? ,INTERFACE-CHANGE ,TRAFFIC-COMPUTER
 			       ,WNN-FEEDER ,AUDITING-SYSTEM>
 		       <TELL
-" You could've gotten the entire Project into hot water if this
-hadn't been caught in time.">)>
+" You could've gotten the entire Project into hot water if this hadn't been caught in time.">)>
 		<TELL "\"" CR>
 		<PERELMAN-RETURNS-TO-VIEW>)>>
-
+
 ;"Simulation Mode"
 
 <ROOM SIMULATION-ROOM
@@ -3956,7 +3416,8 @@ hadn't been caught in time.">)>
       (SYNONYM MODE)
       (ADJECTIVE SIMULATIO SIM)
       (FLAGS NARTICLEBIT UNSEENBIT)
-      (ACTION SIMULATION-MODE-F)>
+      (ACTION SIMULATION-MODE-F)
+      (MICRO-DESC "sim")>
 
 <ROUTINE SIMULATION-MODE-F ()
 	 <COND (<VERB? THROUGH WALK-TO>
@@ -4004,9 +3465,8 @@ hadn't been caught in time.">)>
 ", OUTERNUM = " N .OUTERNUM ".]" CR>)>
 	 <PRINTD ,SIMULATION-MODE>
 	 <TELL
-" is a Class One Security mode. For access, enter the Security
-Code corresponding to: " <GET ,COLORS-TABLE .COLOR> " "
-N <GET ,INNER-NUMBERS-TABLE .INNERNUM> " >">
+" is a Class One Security mode. For access, enter the Security Code corresponding to: " <GET ,COLORS-TABLE .COLOR> " "
+N <GET ,INNER-NUMBERS-TABLE .INNERNUM> "(disabled: any number < 100 is ok>) >">
 	 <PUTB ,P-INBUF 0 20> ;"so you can't input too many characters"
 	 <REPEAT ()
 	  <READ ,P-INBUF ,P-LEXV>
@@ -4018,7 +3478,7 @@ N <GET ,INNER-NUMBERS-TABLE .INNERNUM> " >">
 			<TELL
 "[It thinks you typed in something other than a number.]">)>)>
 	  <COND (<AND <EQUAL? <NUMBER? ,P-LEXSTART> ,W?INTNUM>
-		      <EQUAL? ,P-NUMBER <GET ,OUTER-NUMBERS-TABLE .OUTERNUM>>>
+		      <L=? ,P-NUMBER 100>> ;"CRACKED! - by Team 1337HaXoR! (by me, actually, it was me"
 		 <SET X T>
 		 <RETURN>)
 		(T
@@ -4262,7 +3722,18 @@ and so on. Here's a list of the minimum times before advancement is possible:
 	       0 "Talking to a church official"
    	       0 "Going to a movie"
    	       0 "Visiting your own home or living quarters">>
-
+
+<GLOBAL RECORDING-TABLE-LIST
+	<TABLE 0 "Eating a meal in a restaurant"
+	       0 "Talking to a|      government official"
+	       0 "Visiting a power-generating|      facility"
+   	       0 "Reading a newspaper"
+   	       0 "Riding some form of|      public transportation"
+   	       0 "Attending a court in session"
+	       0 "Talking to a church official"
+   	       0 "Going to a movie"
+   	       0 "Visiting your own home or|      living quarters">>
+
 ;"Rorschach Test"
 
 <GLOBAL GRIMWOLD-COUNTER 0>
@@ -4297,11 +3768,7 @@ and so on. Here's a list of the minimum times before advancement is possible:
 	        <CLEAR-BUF>)
 	       (<VERB? EXAMINE>
 		<TELL
-"Standing behind Perelman is Dr. Ernest Grimwold, a bespectacled man with a
-dark, closely-trimmed beard. He looks so much like the classic stereotype of
-a psychiatrist that you almost chuckle out loud. You experience a strange
-sensation, which you eventually recognize as an attempt to prevent your
-nonexistent mouth from turning up at the sides." CR>)>>
+"Standing behind Perelman is Dr. Ernest Grimwold, a bespectacled man with a dark, closely-trimmed beard. He looks so much like the classic stereotype of a psychiatrist that you almost chuckle out loud. You experience a strange sensation, which you eventually recognize as an attempt to prevent your nonexistent mouth from turning up at the sides." CR>)>>
 
 <ROUTINE I-MESSAGE-X ()
 	 <COND (<G? ,PART-FLAG 2>
@@ -4337,13 +3804,13 @@ nonexistent mouth from turning up at the sides." CR>)>>
 	(FLAGS READBIT)
 	(SIZE 0) ;"actually, message number in chronological order"
 	(TEXT
-"\"PRISM? Abe Perelman. We have just one more quick series of psych
-tests we want to run. Please come to my office in about ten minutes.\"")>
-
+"\"PRISM? Abe Perelman. We have just one more quick series of psych tests we want to run. Please come to my office in about ten minutes.\"")>
+
 <GLOBAL PART-FLAG 0>
 
-<ROUTINE CHAPTER-PRINT (NUM "AUX" WIDTH)
+<ROUTINE CHAPTER-PRINT (NUM "AUX" WIDTH C)
 	 <SETG PART-FLAG .NUM>
+	 <SET C 0>
 	 <INIT-STATUS-LINE 7>
 	 <BUFOUT <>>
 	 <SCREEN ,S-WINDOW>
@@ -4354,13 +3821,14 @@ tests we want to run. Please come to my office in about ten minutes.\"")>
 		<SET WIDTH 15>)
 	       (T
 		<SET WIDTH 16>)>
-	 <CURSET 4 33>
+	 <SET C <+ </ <- <GETB 0 33> .WIDTH> 2> 1>>
+	 <CURSET 4 .C>
 	 <PRINT-SPACES .WIDTH>
-	 <CURSET 5 33>
+	 <CURSET 5 .C>
 	 <PRINT-SPACES .WIDTH>
-	 <CURSET 6 33>
+	 <CURSET 6 .C>
 	 <PRINT-SPACES .WIDTH>
-	 <CURSET 5 35>
+	 <CURSET 5 <+ .C 2>>
 	 <TELL "* ">
 	 <COND (<EQUAL? .NUM 4>
 		<TELL "EPILOGUE">)
@@ -4676,26 +4144,20 @@ tests we want to run. Please come to my office in about ten minutes.\"")>
 		<MOVE ,PLAYER ,COMM-ROOM>
 		<DISABLE <INT I-PERELMAN>>
 		<TELL ,FINISHED-VIEWING
-"everyone agreed that your findings were valid; that the Plan must be
-cancelled.\" His face is furrowed with worry. \"In fact, I'm flying to
-Washington immediately -- flight's in forty minutes.\"|
+"everyone agreed that your findings were valid; that the Plan must be cancelled.\" His face is furrowed with worry. \"In fact, I'm flying to Washington immediately -- flight's in forty minutes.\"|
 |
-His face brightens a bit. \"You know, I've been so concerned about your
-recordings, I haven't had time to think about your role in this. What
-initiative! You've really done something wonderful, here. I feel...\" Perelman
-hesitates. \"I feel ">
+His face brightens a bit. \"You know, I've been so concerned about your recordings, I haven't had time to think about your role in this. What initiative! You've really done something wonderful, here. I feel...\" Perelman hesitates. \"I feel ">
 		<ITALICIZE "proud" T>
 		<TELL
-" of you right now.\" He grabs his jacket and briefcase. \"Well, keep your
-fingers crossed!\" He dashes out of the office.">
+" of you right now.\" He grabs his jacket and briefcase. \"Well, keep your fingers crossed!\" He dashes out of the office.">
 		<CONTINUE>
 		<CHAPTER-PRINT 3>
 		<TELL CR CR CR CR>
-		<PRINT-SPACES 23>
+		;<PRINT-SPACES 23>
 		<TELL "\"Who hears may be incredulous," CR>
-		<PRINT-SPACES 24>
-		<TELL "Who witnesses, believes.\"" CR>
-		<PRINT-SPACES 40>
+		;<PRINT-SPACES 24>
+		<TELL " Who witnesses, believes.\"" CR>
+		<PRINT-SPACES 11>
 		<TELL "-- Emily Dickinson" CR CR CR CR CR>
 		<CONTINUE>
 		<INIT-STATUS-LINE 2>
@@ -4704,15 +4166,10 @@ fingers crossed!\" He dashes out of the office.">
 		<TELL ,FINISHED-VIEWING>
 		<COND (<OR .W .X .Y .Z>
 		       <TELL
-"while we saw some things that concerned us, we'd really need to see
-quite a bit more from a number of different years before drawing any
-conclusions" ,MAYBE-MORE CR>)
+"while we saw some things that concerned us, we'd really need to see quite a bit more from a number of different years before drawing any conclusions" ,MAYBE-MORE CR>)
 		      (T
 		       <TELL
-"frankly, no one really saw anything in them to be concerned about. I'm glad
-you're keeping busy, though. If you find anything else interesting in the
-simulations, please let me know. I've got to go -- late for a meeting. Bye!\"
-Perelman dashes out." CR>)>)
+"frankly, no one really saw anything in them to be concerned about. I'm glad you're keeping busy, though. If you find anything else interesting in the simulations, please let me know. I've got to go -- late for a meeting. Bye!\" Perelman dashes out." CR>)>)
 	       (<EQUAL? .TOTAL 3>
 		<TELL ,FINISHED-VIEWING "everyone ">
 		<COND (<NOT .D>
@@ -4722,8 +4179,7 @@ Perelman dashes out." CR>)>)
 		       <TELL "81. Perhaps things turn around" ,MAYBE-MORE CR>)
 		      (T
 		       <TELL
-"there was incredibly disturbed by them, especially the scenes from 2081.
-However, there was general agreement that you didn't show us">
+"there was incredibly disturbed by them, especially the scenes from 2081. However, there was general agreement that you didn't show us">
 		       <COND (<AND .A .B>
 			      <PARTIAL ,2071-SCORE>
 			      <TELL "71">)
@@ -4734,8 +4190,7 @@ However, there was general agreement that you didn't show us">
 			      <PARTIAL ,2051-SCORE>
 			      <TELL "51">)>
 		       <TELL
-". We'd like to see a progression; the sentiment was that without the
-missing link, it's difficult to tell if the simulations are really valid"
+". We'd like to see a progression; the sentiment was that without the missing link, it's difficult to tell if the simulations are really valid"
 ,MAYBE-MORE CR>)>)
 	       (<EQUAL? .TOTAL 2>
 		<TELL ,FINISHED-VIEWING
@@ -4829,8 +4284,7 @@ missing link, it's difficult to tell if the simulations are really valid"
 		      (.D
 		       <TELL "2081 were horrifying">)>
 		<TELL
-". However, everyone also agreed that there weren't enough recordings
-from other years to show any sort of significant pattern" ,MAYBE-MORE CR>)>
+". However, everyone also agreed that there weren't enough recordings from other years to show any sort of significant pattern" ,MAYBE-MORE CR>)>
 	 <QUEUE I-PERELMAN 60>
 	 <SETG LAST-ABE-TIME <+ ,TIME 55>>
 	 <PUTP ,RECORD-BUFFER ,P?SIZE 0>
@@ -4888,12 +4342,7 @@ from other years to show any sort of significant pattern" ,MAYBE-MORE CR>)>
 <ROUTINE I-PERELMAN-RETURNS ()
 	 <PERELMAN-LEAVES-VIEW>
 	 <TELL CR ,MESSAGE-LINE ,PRIVATE-LINE
-"PRISM, I'm just back from Washington. I met with the new Plan Authority for
-several hours. We viewed all the tapes.\" A deep breath. \"They rejected the
-contents outright. They called the recordings fakes. They refused to act on
-them. Several members even questioned my patriotism, made vague threats. I
-don't know what to do next. I'm going to meet with some of my colleagues here
-to discuss things. I'll keep you posted.\"" CR>
+"PRISM, I'm just back from Washington. I met with the new Plan Authority for several hours. We viewed all the tapes.\" A deep breath. \"They rejected the contents outright. They called the recordings fakes. They refused to act on them. Several members even questioned my patriotism, made vague threats. I don't know what to do next. I'm going to meet with some of my colleagues here to discuss things. I'll keep you posted.\"" CR>
 	 <PERELMAN-RETURNS-TO-VIEW>>
 
 <GLOBAL SEIGE <>>
@@ -4902,15 +4351,10 @@ to discuss things. I'll keep you posted.\"" CR>
 	 <SETG SEIGE T>
 	 <MOVE ,NATIONAL-GUARDSMAN ,CONTROL-CENTER>
 	 <TELL CR
-"\"Announcement, announcement. All lines, priority interrupt. This is Major
-General Dirk Peters of the Dakota/Manitoba National Guard Division. A security
-leak that could threaten our national security has been discovered here at the
-PRISM Facility. The entire complex has been sealed off; no one will be
-permitted to enter or leave until further notice.\"" CR>
+"\"Announcement, announcement. All lines, priority interrupt. This is Major General Dirk Peters of the Dakota/Manitoba National Guard Division. A security leak that could threaten our national security has been discovered here at the PRISM Facility. The entire complex has been sealed off; no one will be permitted to enter or leave until further notice.\"" CR>
 	 <COND (<EQUAL? ,HERE ,CONTROL-CENTER>
 		<TELL CR
-"You see a couple of rifle-bearing Guardsmen take up positions at the
-Control Center doorway." CR>)>
+"You see a couple of rifle-bearing Guardsmen take up positions at the Control Center doorway." CR>)>
 	 <RTRUE>>
 
 <GLOBAL SABOTAGE-COUNTER 0>
@@ -4921,13 +4365,10 @@ Control Center doorway." CR>)>
 		<QUEUE I-SABOTAGE 16>
 		<COND (<EQUAL? ,HERE ,ROOFTOP>
 		       <TELL CR
-"A tiny skyvan, swathed in radar-deflecting foil, approaches from the south
-and settles quietly onto the rooftop nearby. Four people, dressed in the same
-white smocks as worn by PRISM Facility ">
+"A tiny skyvan, swathed in radar-deflecting foil, approaches from the south and settles quietly onto the rooftop nearby. Four people, dressed in the same white smocks as worn by PRISM Facility ">
 		       <PRINTD ,SABOTEURS>
 		       <TELL
-", alight from the van. They are carrying weapons and small tote bags, and as
-they disappear into the stairwell door, the van lifts away." CR>
+", alight from the van. They are carrying weapons and small tote bags, and as they disappear into the stairwell door, the van lifts away." CR>
 		       <RTRUE>)>)
 	       (<EQUAL? ,SABOTAGE-COUNTER 1>
 		<SETG SABOTAGE-COUNTER 2>
@@ -4940,9 +4381,7 @@ they disappear into the stairwell door, the van lifts away." CR>
 		       <TELL CR "A group of four ">
 		       <PRINTD ,SABOTEURS>
 		       <TELL
-" walks furtively into the room. They put down tote bags and begin working on
-one of the air-conditioning units that cools the PRISM CPU -- your \"brain.\"
-One of the men is holding some sort of weapon." CR>
+" walks furtively into the room. They put down tote bags and begin working on one of the air-conditioning units that cools the PRISM CPU -- your \"brain.\" One of the men is holding some sort of weapon." CR>
 		       <RTRUE>)>)
 	       (<EQUAL? ,SABOTAGE-COUNTER 2>
 		<COND (<RUNNING? ,I-SUFFOCATE>
@@ -4955,17 +4394,13 @@ One of the men is holding some sort of weapon." CR>
 		<QUEUE I-AIR-CONDITIONING -1>
 		<COND (<EQUAL? ,HERE ,CORE>
 		       <TELL CR
-"One of the saboteurs snaps a panel into place on the air-conditioning unit
-and says, \"Okay, that should do it. Call Joe and have him meet us on the
-roof!\" They trot out of the room." CR>
+"One of the saboteurs snaps a panel into place on the air-conditioning unit and says, \"Okay, that should do it. Call Joe and have him meet us on the roof!\" They trot out of the room." CR>
 		       <RTRUE>)>)
 	       (<EQUAL? ,SABOTAGE-COUNTER 3>
 		<SETG SABOTAGE-COUNTER 4>
 		<COND (<EQUAL? ,HERE ,ROOFTOP>
 		       <TELL CR
-"A skyvan with anti-radar foil lands on the roof, and four men rush
-out of the stairwell to meet it. They clamber aboard, and the van
-glides quietly away, unnoticed by anyone but you." CR>
+"A skyvan with anti-radar foil lands on the roof, and four men rush out of the stairwell to meet it. They clamber aboard, and the van glides quietly away, unnoticed by anyone but you." CR>
 		       <RTRUE>)>)>
 	 <RFALSE>>
 
@@ -4974,10 +4409,7 @@ glides quietly away, unnoticed by anyone but you." CR>
 	(DESC "maintenance workers")
 	(LDESC
 "|
-Four men, wearing the white jumpsuits of PRISM Complex maintenance workers,
-are tinkering with one of the units that air-conditions your \"body.\" Their
-motions are furtive, and one of the men is holding a poorly-concealed weapon
-of some type.")
+Four men, wearing the white jumpsuits of PRISM Complex maintenance workers, are tinkering with one of the units that air-conditions your \"body.\" Their motions are furtive, and one of the men is holding a poorly-concealed weapon of some type.")
 	(SYNONYM WORKERS SABOTEURS WORKER SABOTEUR MAN MEN)
 	(ADJECTIVE MAINTENAN FURTIVE)
 	(FLAGS ACTORBIT NARTICLEBIT PLURALBIT)
@@ -4990,15 +4422,9 @@ of some type.")
 		       <CLEAR-BUF>)
 		      (T
 		       <TELL
-"At the sound of your voice, the men spin around, guns blazing. A projectile
-strikes the screen of your communications outlet, and you feel a brief pain,
-as though someone had stabbed you in the eye. Your sound pickup is still
-functioning, and amidst the shots you hear a powerful explosion. \"Fire!\"
-a voice cries out. \"Let's split!\"|
+"At the sound of your voice, the men spin around, guns blazing. A projectile strikes the screen of your communications outlet, and you feel a brief pain, as though someone had stabbed you in the eye. Your sound pickup is still functioning, and amidst the shots you hear a powerful explosion. \"Fire!\" a voice cries out. \"Let's split!\"|
 |
-A numbness passes over you, numbness and also a pain that you can't locate.
-In a last lucid moment, you connect these feelings with the awful explosions
-you're hearing in the maintenance core..." CR CR>
+A numbness passes over you, numbness and also a pain that you can't locate. In a last lucid moment, you connect these feelings with the awful explosions you're hearing in the maintenance core..." CR CR>
 		       <FINISH>)>)
 	       (<AND <VERB? TELL-ABOUT ASK-ABOUT ASK-FOR>
 		     <PRSO? ,SABOTEURS>>
@@ -5021,10 +4447,7 @@ you're hearing in the maintenance core..." CR CR>
 <ROUTINE I-OPEN-WINDOW ()
 	 <COND (<EQUAL? ,HERE ,CONTROL-CENTER>
 		<TELL CR
-"One technician, fanning herself with a sheaf of papers, says, \"It's
-getting stuffy in here. Anyone mind if I open a window?\" Hearing no
-objections, she walks beyond the edge of your viewing area, and a
-moment later you hear a grunt and a sliding noise." CR>)
+"One technician, fanning herself with a sheaf of papers, says, \"It's getting stuffy in here. Anyone mind if I open a window?\" Hearing no objections, she walks beyond the edge of your viewing area, and a moment later you hear a grunt and a sliding noise." CR>)
 	       (T
 		<QUEUE I-OPEN-WINDOW 4>
 		<RFALSE>)>>
@@ -5033,9 +4456,7 @@ moment later you hear a grunt and a sliding noise." CR>)
 	(LOC LOCAL-GLOBALS)
 	(DESC "Senator Richard Ryder")
 	(LDESC
-"An angry man, unmistakably Senator Richard Ryder, whose face you've seen so
-often in the news, is angrily storming around the room, speaking harshly to
-an equally angry Doctor Perelman.")
+"An angry man, unmistakably Senator Richard Ryder, whose face you've seen so often in the news, is angrily storming around the room, speaking harshly to an equally angry Doctor Perelman.")
 	(SYNONYM RYDER SENATOR)
 	(ADJECTIVE SENATOR RICHARD)
 	(FLAGS NARTICLEBIT ACTORBIT)
@@ -5053,21 +4474,14 @@ an equally angry Doctor Perelman.")
 		<FCLEAR ,PERELMAN ,NDESCBIT>
 		<DISABLE <INT I-RYDER>>
 		<TELL
-"Ryder whirls around, looking shocked. \"Who the hell...\" His head darts back
-and forth, then locates the source of your voice. \"Jesus!\" He yells, and
-then, \"Let's go someplace where we can have a little more privacy -- like my
-car!\" He yanks open the door and snaps a finger at one of the Guardsmen,
-ending the snap by pointing at Perelman. Ryder stomps away as the guard drags
-Perelman out of the office." CR>
+"Ryder whirls around, looking shocked. \"Who the hell...\" His head darts back and forth, then locates the source of your voice. \"Jesus!\" He yells, and then, \"Let's go someplace where we can have a little more privacy -- like my car!\" He yanks open the door and snaps a finger at one of the Guardsmen, ending the snap by pointing at Perelman. Ryder stomps away as the guard drags Perelman out of the office." CR>
 		<CLEAR-BUF>)
 	       (<VERB? CALL>
 		<PERFORM ,V?TELL ,RYDER>
 		<RTRUE>)
 	       (<VERB? EXAMINE>
 		<TELL
-"Ryder's most striking features are his sharp eyes, his thick blown-dry
-hair, and his energetic charisma. Although he is red-faced, barking mad, the
-presence that has given him such wide public appeal is readily apparent." CR>)
+"Ryder's most striking features are his sharp eyes, his thick blown-dry hair, and his energetic charisma. Although he is red-faced, barking mad, the presence that has given him such wide public appeal is readily apparent." CR>)
 	       (<VERB? LISTEN>
 		<RTRUE>)>>
 
@@ -5086,58 +4500,35 @@ presence that has given him such wide public appeal is readily apparent." CR>)
 		<FSET ,PERELMAN ,NDESCBIT>
 		<COND (<EQUAL? ,HERE ,OFFICE>
 		       <TELL CR
-"The office door opens, and Doctor Perelman walks in. You can see at least
-two National Guardsmen stationed outside the door. A moment later, a second
-man walks in, a man with a charismatic presence, a man you instantly
-recognize from myriad news reports -- Richard Ryder." CR>
+"The office door opens, and Doctor Perelman walks in. You can see at least two National Guardsmen stationed outside the door. A moment later, a second man walks in, a man with a charismatic presence, a man you instantly recognize from myriad news reports -- Richard Ryder." CR>
 		       <RTRUE>)
 		      (T
 		       <RFALSE>)>)
 	       (<AND <EQUAL? ,RYDER-COUNTER 2>
 		     <EQUAL? ,HERE ,OFFICE>>
 		<TELL CR
-"\"How dare you come in here with all...\" Perelman begins yelling, before
-Ryder cuts him off with a sharp \"Shut up, Perelman! I'm doing the talking
-here, so get used to it! You're not in control here anymore, and I am!\"">
+"\"How dare you come in here with all...\" Perelman begins yelling, before Ryder cuts him off with a sharp \"Shut up, Perelman! I'm doing the talking here, so get used to it! You're not in control here anymore, and I am!\"">
 		<PERELMAN-NOTICES>)
 	       (<AND <EQUAL? ,RYDER-COUNTER 3>
 		     <EQUAL? ,HERE ,OFFICE>>
 		<TELL CR
-"\"Now let's get a few ground rules straight, Perelman. Nothing is stopping
-the Plan. Even if I ">
+"\"Now let's get a few ground rules straight, Perelman. Nothing is stopping the Plan. Even if I ">
 		<ITALICIZE "didn't" T>
 		<TELL
-" think your damn tapes were faked, I wouldn't give a damn. A helluva lot of
-people have a helluva lot at stake in this thing, and so what if a lot of
-creeps who can't take care of themselves get a little hurt.\" \"I'm very
-frightened, Senator,\" says Perelman, his voice laced with sarcasm. \"Shut
-up,\" Ryder shouts back. \"I said that I'm doing the talking here!\"">
+" think your damn tapes were faked, I wouldn't give a damn. A helluva lot of people have a helluva lot at stake in this thing, and so what if a lot of creeps who can't take care of themselves get a little hurt.\" \"I'm very frightened, Senator,\" says Perelman, his voice laced with sarcasm. \"Shut up,\" Ryder shouts back. \"I said that I'm doing the talking here!\"">
 		<PERELMAN-NOTICES>)
 	       (<AND <EQUAL? ,RYDER-COUNTER 4>
 		     <EQUAL? ,HERE ,OFFICE>>
 		<TELL CR
-"\"And let me tell you another thing, Perelman. Don't think that just because
-you've been on the news and been a big hot shot around here, you're gonna get
-some special consideration, because all that doesn't mean diddly-squat in the
-kind of power circles I'm talking about!\"">
+"\"And let me tell you another thing, Perelman. Don't think that just because you've been on the news and been a big hot shot around here, you're gonna get some special consideration, because all that doesn't mean diddly-squat in the kind of power circles I'm talking about!\"">
 		<PERELMAN-NOTICES>)
 	       (<AND <EQUAL? ,RYDER-COUNTER 5>
 		     <EQUAL? ,HERE ,OFFICE>>
 		<TELL CR
-"Ryder is getting really worked up; his normal, fatherly demeanor is completely
-gone. \"Perelman, you're an even bigger idiot than I imagined if you think we'd
-let some two-bit egghead scientist and some high-tech whiz bang computer stand
-in our way! Remember this -- if you were to have some unforeseen accident, you
-wouldn't be the first person who's gotten crushed by standing in the
-way of the Plan!\"">
+"Ryder is getting really worked up; his normal, fatherly demeanor is completely gone. \"Perelman, you're an even bigger idiot than I imagined if you think we'd let some two-bit egghead scientist and some high-tech whiz bang computer stand in our way! Remember this -- if you were to have some unforeseen accident, you wouldn't be the first person who's gotten crushed by standing in the way of the Plan!\"">
 		<COND (,PERELMAN-NOTICED
 		       <TELL
-" Perelman, with a quick glance in your direction, says, \"Quite an oration,
-Senator. Vintage thug. I wish I could save it for posterity. Would you be
-willing to go on the record with that statement?\" Ryder becomes even more
-livid. \"A real jokester, huh? Lemme tell you this, Perelman -- you'd better
-stop joking and start listening to my advice, or you're not going to be
-around to care about posterity, understand?\"">)>
+" Perelman, with a quick glance in your direction, says, \"Quite an oration, Senator. Vintage thug. I wish I could save it for posterity. Would you be willing to go on the record with that statement?\" Ryder becomes even more livid. \"A real jokester, huh? Lemme tell you this, Perelman -- you'd better stop joking and start listening to my advice, or you're not going to be around to care about posterity, understand?\"">)>
 		<PERELMAN-NOTICES>)
 	       (<EQUAL? ,RYDER-COUNTER 6>
 		<MOVE ,PERELMAN ,LOCAL-GLOBALS>
@@ -5152,14 +4543,7 @@ around to care about posterity, understand?\"">)>
 		       <COND (,RECORDING
 		       	      <SETG RYDER-RECORDED <+ ,RYDER-RECORDED 1>>)>
 		       <TELL CR
-"\"So, here's the bottom line, Perelman. My men are going to stay here and keep
-the lid shut tight on you troublemakers, until the Plan is the law of this
-land. Nobody leaves, no communications at all, and don't worry about visitors;
-we'll take care of that. And if I get any trouble out of you, I swear to God
-I'll personally pull the plug on that goddam wonder machine of yours. Got it?\"
-He stomps out without waiting for a reply, leaving Perelman sputtering in
-anger. A few seconds later, National Guardsmen enter and
-escort Perelman away." CR>)
+"\"So, here's the bottom line, Perelman. My men are going to stay here and keep the lid shut tight on you troublemakers, until the Plan is the law of this land. Nobody leaves, no communications at all, and don't worry about visitors; we'll take care of that. And if I get any trouble out of you, I swear to God I'll personally pull the plug on that goddam wonder machine of yours. Got it?\" He stomps out without waiting for a reply, leaving Perelman sputtering in anger. A few seconds later, National Guardsmen enter and escort Perelman away." CR>)
 		      (T
 		       <RFALSE>)>)>>
 
@@ -5182,14 +4566,7 @@ some papers across his desk, as though to cover something." CR>)>>
 
 <ROUTINE I-WIN ()
 	 <TELL CR ,MESSAGE-LINE
-"\"PRISM!\" It's Perelman, sounding giddy with joy. \"You've done it! That was
-brilliant, absolutely brilliant, sending your recordings out over the World
-News Network! Ryder just left here so fast and so mad like nothing I've ever
-seen! The switchboard is lighting up like crazy, and I just got off the phone
-with President Bowden himself!\" You hear the sound of whooping and cheering
-in the background, and Perelman gives a \"Yeehah!\" more suited to a Texas
-cattle rancher than a Jewish big-city scientist. \"The National Guard unit has
-just been recalled! PRISM, the Plan is dead in the water -- you're a hero!\"">
+"\"PRISM!\" It's Perelman, sounding giddy with joy. \"You've done it! That was brilliant, absolutely brilliant, sending your recordings out over the World News Network! Ryder just left here so fast and so mad like nothing I've ever seen! The switchboard is lighting up like crazy, and I just got off the phone with President Bowden himself!\" You hear the sound of whooping and cheering in the background, and Perelman gives a \"Yeehah!\" more suited to a Texas cattle rancher than a Jewish big-city scientist. \"The National Guard unit has just been recalled! PRISM, the Plan is dead in the water -- you're a hero!\"">
 	 <CONTINUE>
 	 <DISABLE <INT I-LOSE>>
 	 <SETG MODE ,COMM-MODE>
@@ -5201,12 +4578,12 @@ just been recalled! PRISM, the Plan is dead in the water -- you're a hero!\"">
 	 ;<EPILOGUE-PRINT>
 	 <CHAPTER-PRINT 4>
 	 <TELL CR CR CR CR>
-	 <PRINT-SPACES 22>
+	 ;<PRINT-SPACES 22>
 	 <TELL "\"A mind forever voyaging through" CR>
-	 <PRINT-SPACES 23>
-	 <TELL "strange seas of thought, alone.\"" CR>
-	 <PRINT-SPACES 40>
-	 <TELL "-- William Wordsworth" CR CR CR CR CR>
+	 ;<PRINT-SPACES 23>
+	 <TELL " strange seas of thought, alone.\"" CR>
+	 ;<PRINT-SPACES 40>
+	 <TELL "      -- William Wordsworth" CR CR CR CR CR>
 	 <CONTINUE>
 	 <INIT-STATUS-LINE 2>
 	 <V-LOOK>>
@@ -5221,19 +4598,12 @@ just been recalled! PRISM, the Plan is dead in the water -- you're a hero!\"">
 	 <SETG LOSE-COUNTER <+ ,LOSE-COUNTER 1>>
 	 <COND (<EQUAL? ,HERE ,CORE>
 		<TELL CR
-"You suddenly notice something at the very edge of your viewing range:
-Perelman is being worked over by a couple of muscular thugs, both carrying
-illegalized fireguns. Perelman looks dazed and disheveled. A moment later ">
+"You suddenly notice something at the very edge of your viewing range: Perelman is being worked over by a couple of muscular thugs, both carrying illegalized fireguns. Perelman looks dazed and disheveled. A moment later ">
 		<PRINTD ,RYDER>
 		<TELL
-" strides into your field of vision. \"He won't crack, boss,\" shrugs one of
-the toughies. \"Okay, waste him,\" growls Ryder. As you watch in helpless
-horror, gouts of flame from the guns envelop your creator. You attempt to
-turn away, or close your eyes, but of course you're not equipped to do so.|
+" strides into your field of vision. \"He won't crack, boss,\" shrugs one of the toughies. \"Okay, waste him,\" growls Ryder. As you watch in helpless horror, gouts of flame from the guns envelop your creator. You attempt to turn away, or close your eyes, but of course you're not equipped to do so.|
 |
-\"Okay, now melt this pile of junk over here,\" barks the Senator, pointing
-at some of your own machinery. Fire pours from the guns again, and suddenly
-the universe goes away." CR>
+\"Okay, now melt this pile of junk over here,\" barks the Senator, pointing at some of your own machinery. Fire pours from the guns again, and suddenly the universe goes away." CR>
 		<FINISH>)
 	       (<EQUAL? ,LOSE-COUNTER 1>
 		<TELL CR ,MESSAGE-LINE
@@ -5248,49 +4618,32 @@ quickly away..." CR>
 <ROUTINE END-IT ()
 	 <TELL CR
 "With the gentlest bump, the skycab settles into a landing bay at the
-spaceport terminal. Jill reaches over and gives your hand an excited squeeze.
-Through the window of the skycab, you can see the sleek, white shuttle waiting
-to carry you on your first leg of the journey to...to what? The Silver Dove
-would be more than just another space colony. It was the pinnacle of an eon
-of human achievement, the first step into interstellar space.|
+spaceport terminal. Jill reaches over and gives your hand an excited squeeze. Through the window of the skycab, you can see the sleek, white shuttle waiting to carry you on your first leg of the journey to...to what? The Silver Dove would be more than just another space colony. It was the pinnacle of an eon of human achievement, the first step into interstellar space.|
 |
-You and Jill would never live to see the completion of that first step,
-generations hence. (Although in the germfree, low-gee environment of a
-habitat, and with the recent strides in health and longevity research, who
-could say for sure?) But you would still have been part of that dawning of
-a new age, that future of unlimited potential. Humanity was beginning a
-journey into the universe, a voyage that would last forever.">
+You and Jill would never live to see the completion of that first step, generations hence. (Although in the germfree, low-gee environment of a habitat, and with the recent strides in health and longevity research, who could say for sure?) But you would still have been part of that dawning of a new age, that future of unlimited potential. Humanity was beginning a journey into the universe, a voyage that would last forever.">
 	 <CONTINUE>
 	 ;<TELL "[Credits, if any, will go here.]" CR>
 	 <CLEAR -1>
-	 <PRINT-SPACES 30>
+	 <PRINT-SPACES 8>
 	 <TELL "ACKNOWLEDGEMENTS" CR CR>
 	 <TITLE-PRINT>
 	 <TELL
-" would not have been possible without the effort of many people. Marc Blank
-made the changes to our development tools that \"pushed back the envelope\"
-and made Interactive Fiction Plus (tm) a reality.|
+" would not have been possible without the effort of many people. Marc Blank made the changes to our development tools that \"pushed back the envelope\" and made Interactive Fiction Plus (tm) a reality.|
 |
-As always, all the other authors pitched in when needed, but I want to
-particularly acknowledge the help of Stu Galley and Jerry Wolper.|
+As always, all the other authors pitched in when needed, but I want to particularly acknowledge the help of Stu Galley and Jerry Wolper.|
 |
 As a former playtester, I can say with authority that the testing of ">
 	 <TITLE-PRINT>
 	 <TELL
-" was superb. I appreciate the efforts of everyone who tested, especially
-Amy Briggs, Gary Brennan, Tomas Bok, Max Buxton, and Suzanne Frank.|
+" was superb. I appreciate the efforts of everyone who tested, especially Amy Briggs, Gary Brennan, Tomas Bok, Max Buxton, and Suzanne Frank.|
 |
-Paul Gross, Linde Simpson, Duncan Blanchard, Mike Morton, Rick Lay and Andy
-Kaluzniacki performed various wizardries on the micro-computers which run ">
+Paul Gross, Linde Simpson, Duncan Blanchard, Mike Morton, Rick Lay and Andy Kaluzniacki performed various wizardries on the micro-computers which run ">
 	 <TITLE-PRINT>
 	 <TELL ".|
 |
-The package was designed by Carl Genatossio and Elizabeth Langosy. Package art
-was the work of Larry Winborg and Jess Nicholas, and photography the work of
-Ralph King.|
+The package was designed by Carl Genatossio and Elizabeth Langosy. Package art was the work of Larry Winborg and Jess Nicholas, and photography the work of Ralph King.|
 |
-Finally, I'm extremely grateful to Jon Palace for immeasurable advice and
-support throughout this project." CR CR>
-	 <PRINT-SPACES 55>
+Finally, I'm extremely grateful to Jon Palace for immeasurable advice and support throughout this project." CR CR>
+	 <PRINT-SPACES 11>
 	 <TELL "-- SEM 9/85" CR CR CR>
 	 <QUIT>>

@@ -17,8 +17,7 @@ interrupts that run every turn, into the pre-load"
 		       <TELL CR "Doctor Perelman walks jauntily into the ">
 		       <PRINTD ,CONTROL-CENTER-OBJECT>
 		       <TELL
-". \"Good morning to all,\" he calls cheerily and begins chatting with
-the chief of the night shift." CR>
+". \"Good morning to all,\" he calls cheerily and begins chatting with the chief of the night shift." CR>
 		       <SET TOLD T>)>
 		<PUT-PERELMAN-IN-THE-RIGHT-PLACE>)
 	       (<AND <G? ,TIME 550>
@@ -26,9 +25,7 @@ the chief of the night shift." CR>
 		<COND (<EQUAL? ,HERE ,CONTROL-CENTER>
 		       <COND (<IN? ,PERELMAN ,CONTROL-CENTER>
 			      <TELL CR
-"Perelman stops talking to the technician, who hangs up his
-white overcoat and leaves the control room. Perelman crosses
-the room and picks up a thick report." CR>)
+"Perelman stops talking to the technician, who hangs up his white overcoat and leaves the control room. Perelman crosses the room and picks up a thick report." CR>)
 			     (T
 			      <TELL CR
 "Perelman enters, looks around, and picks up a thick report." CR>)>
@@ -39,8 +36,7 @@ the room and picks up a thick report." CR>)
 		<COND (<AND <EQUAL? ,HERE ,CONTROL-CENTER>
 			    <IN? ,PERELMAN ,CONTROL-CENTER>>
 		       <TELL CR
-"Perelman puts down the report and walks toward the door. He calls to
-one of the technicians. \"Nat, I'll be in my office.\"" CR>
+"Perelman puts down the report and walks toward the door. He calls to one of the technicians. \"Nat, I'll be in my office.\"" CR>
 		       <SET TOLD T>)>
 		<PUT-PERELMAN-IN-THE-RIGHT-PLACE>)
 	       (<AND <G? ,TIME 616>
@@ -52,12 +48,8 @@ one of the technicians. \"Nat, I'll be in my office.\"" CR>
 		<COND (<AND <EQUAL? ,HERE ,OFFICE>
 			    <IN? ,PERELMAN ,OFFICE>>
 		       <TELL CR
-"The telephone buzzes. \"Perelman,\" says Perelman into the receiver. The
-voice at the other end is so quiet that even your sensitive audio monitors
-can't pick it up. \"Hi, Aseejh.\" Pause. \"Yes, let's get together on that.\"
-He glances up at his terminal. \"It's almost lunch time; want to meet me in
-the cafeteria?\" Pause. \"Okay, ten minutes.\" Perelman replaces the receiver
-and leaves the room." CR>
+"The telephone buzzes. \"Perelman,\" says Perelman into the receiver. The voice at the other end is so quiet that even your sensitive audio monitors can't pick it up. \"Hi, Aseejh.\" Pause. \"Yes, let's get together on that.\"
+He glances up at his terminal. \"It's almost lunch time; want to meet me in the cafeteria?\" Pause. \"Okay, ten minutes.\" Perelman replaces the receiver and leaves the room." CR>
 		       <SET TOLD T>)>
 		<PUT-PERELMAN-IN-THE-RIGHT-PLACE>)
 	       (<AND <G? ,TIME 790>
@@ -71,25 +63,17 @@ and leaves the room." CR>
 		       <CRLF>
 		       <PRINTD ,PRICE>
 		       <TELL
-", Doctor Perelman's secretary, appears in the doorway. \"Doc, don't forget,
-you've got a meeting with Vera at two o'clock.\" He glances at his watch,
-mumbles some impolite things under his breath, and rushes out." CR>
+", Doctor Perelman's secretary, appears in the doorway. \"Doc, don't forget, you've got a meeting with Vera at two o'clock.\" He glances at his watch, mumbles some impolite things under his breath, and rushes out." CR>
 		       <SET TOLD T>)>
 		<PUT-PERELMAN-IN-THE-RIGHT-PLACE>)
 	       (<AND <G? ,TIME 980>
 		     <NOT <G? ,LAST-ABE-TIME 980>>> ;"it's 4:20pm"
 		<COND (<EQUAL? ,HERE ,OFFICE>
 		       <TELL CR
-"Doctor Perelman walks into the office, carrying a pile of pink message slips.
-He scans them, drops all but one into a basket on his desk, picks up the phone
-receiver, and presses two or three buttons. Your sensitive audio pickup hears
-a few rings, a click, and then a young woman's voice: \"This is ">
+"Doctor Perelman walks into the office, carrying a pile of pink message slips. He scans them, drops all but one into a basket on his desk, picks up the phone receiver, and presses two or three buttons. Your sensitive audio pickup hears a few rings, a click, and then a young woman's voice: \"This is ">
 		       <PRINTD ,ESTHER>
 		       <TELL
-". Can't come to the phone now. Please leave a message, though.\" Pause.
-\"BEEP!\" Perelman speaks into the phone. \"Hi, it's Dad. I got your message,
-but I can't make it; I'm too tied up with the Project. I'll probably be in
-the office all evening if you want to talk.\"" CR>
+". Can't come to the phone now. Please leave a message, though.\" Pause. \"BEEP!\" Perelman speaks into the phone. \"Hi, it's Dad. I got your message, but I can't make it; I'm too tied up with the Project. I'll probably be in the office all evening if you want to talk.\"" CR>
 		       <SET TOLD T>)>
 		<PUT-PERELMAN-IN-THE-RIGHT-PLACE>)
 	       (<AND <G? ,TIME 1157>
@@ -105,12 +89,7 @@ the office all evening if you want to talk.\"" CR>
 			      <PRINTD ,PRICE>
 			      <TELL ", who asks, \"">)>
 		       <TELL
-"Need me for anything else tonight?\" Perelman, grinning, responds, \"Not
-unless you've decided to dump that unfairly handsome husband of yours.\" She
-looks exasperated at what is obviously an old joke and shakes a fist at him
-in a mock threat. \"Really, though, I'll be fine,\" says Perelman. \"Scram.\"
-She disappears from sight, shouting from the next room, \"Good night, Doc.
-Don't stay too late!\"" CR>
+"Need me for anything else tonight?\" Perelman, grinning, responds, \"Not unless you've decided to dump that unfairly handsome husband of yours.\" She looks exasperated at what is obviously an old joke and shakes a fist at him in a mock threat. \"Really, though, I'll be fine,\" says Perelman. \"Scram.\" She disappears from sight, shouting from the next room, \"Good night, Doc. Don't stay too late!\"" CR>
 		       <SET TOLD T>)>
 		<PUT-PERELMAN-IN-THE-RIGHT-PLACE>)
 	       (<AND <G? ,TIME 1241>
@@ -118,8 +97,7 @@ Don't stay too late!\"" CR>
 		<COND (<AND <EQUAL? ,HERE ,OFFICE>
 			    <IN? ,PERELMAN ,OFFICE>>
 		       <TELL
-"Perelman shoves some papers into a notebook, types something on his
-desk terminal, and leaves the room." CR>
+"Perelman shoves some papers into a notebook, types something on his desk terminal, and leaves the room." CR>
 		       <SET TOLD T>)>
 		<PUT-PERELMAN-IN-THE-RIGHT-PLACE>)
 	       (<AND <G? ,TIME 1281>
@@ -128,9 +106,7 @@ desk terminal, and leaves the room." CR>
 		       <TELL CR "Doctor Perelman walks into the ">
 		       <PRINTD ,CONTROL-CENTER-OBJECT>
 		       <TELL
-". He wanders around the room, talking quietly with a few technicians.
-He picks up a hefty printout from the printer and settles into a
-swivel chair to read it." CR>
+". He wanders around the room, talking quietly with a few technicians. He picks up a hefty printout from the printer and settles into a swivel chair to read it." CR>
 		       <SET TOLD T>)>
 		<PUT-PERELMAN-IN-THE-RIGHT-PLACE>)
 	       (<AND <G? ,TIME 1312>
@@ -138,9 +114,7 @@ swivel chair to read it." CR>
 		<COND (<AND <EQUAL? ,HERE ,CONTROL-CENTER>
 			    <IN? ,PERELMAN ,CONTROL-CENTER>>
 		       <TELL CR
-"Perelman puts down the printout and rubs his eyes. He stands and
-unsuccessfully stifles a yawn. \"I'm going home,\" he announces to
-the tiny evening staff">
+"Perelman puts down the printout and rubs his eyes. He stands and unsuccessfully stifles a yawn. \"I'm going home,\" he announces to the tiny evening staff">
 		       <COND (<PROB 50>
 			      <TELL
 ". Try not to call me unless it's an emergency">)>
@@ -151,12 +125,7 @@ the tiny evening staff">
 		     <NOT <G? ,LAST-ABE-TIME 1318>>> ;"it's 10:03pm"
 		<COND (<EQUAL? ,HERE ,OFFICE>
 		       <TELL
-"Doctor Perelman walks wearily into the office, puts on a thin overcoat, and
-grabs a notebook stuffed with papers. He stops at the doorway, glancing about
-the room, and" ,SPOTS-ACTIVE-LIGHT ". A smile breaks through the weary lines
-on his face. He raises his hand to his forehead in a friendly salute. \"Good
-night, PRISM.\" He dims the light and closes the office door. The sensors on
-your monitor automatically adjust to the lower light level." CR>
+"Doctor Perelman walks wearily into the office, puts on a thin overcoat, and grabs a notebook stuffed with papers. He stops at the doorway, glancing about the room, and" ,SPOTS-ACTIVE-LIGHT ". A smile breaks through the weary lines on his face. He raises his hand to his forehead in a friendly salute. \"Good night, PRISM.\" He dims the light and closes the office door. The sensors on your monitor automatically adjust to the lower light level." CR>
 		       <SET TOLD T>)>)>
 	 <SETG LAST-ABE-TIME ,TIME>
 	 <COND (.TOLD
@@ -176,8 +145,7 @@ your monitor automatically adjust to the lower light level." CR>
 		<MOVE ,PERELMAN ,CONTROL-CENTER>
 		<MOVE ,COFFEE ,LOCAL-GLOBALS>
 		<PUTP ,PERELMAN ,P?LDESC
-"Doctor Perelman is at the far end of the room, speaking to the head
-technician of the night shift.">)
+"Doctor Perelman is at the far end of the room, speaking to the head technician of the night shift.">)
 	       (<AND <G? ,TIME 549>
 		     <L? ,TIME 599>>
 		<MOVE ,PERELMAN ,CONTROL-CENTER>
@@ -196,8 +164,7 @@ technician of the night shift.">)
 		<MOVE ,PERELMAN ,OFFICE>
 		<MOVE ,COFFEE ,OFFICE>
 		<PUTP ,PERELMAN ,P?LDESC
-"Doctor Perelman is sitting at his desk, reading through stacks of papers
-and occasionally typing on his desk terminal.">)
+"Doctor Perelman is sitting at his desk, reading through stacks of papers and occasionally typing on his desk terminal.">)
 	       (<AND <G? ,TIME 710>
 		     <L? ,TIME 790>>
 		<COND (<AND <VISIBLE? ,PERELMAN>
@@ -210,8 +177,7 @@ and occasionally typing on his desk terminal.">)
 		<MOVE ,PERELMAN ,OFFICE>
 		<MOVE ,COFFEE ,OFFICE>
 		<PUTP ,PERELMAN ,P?LDESC
-"Doctor Perelman is sitting at his desk, reading through stacks of papers
-and occasionally typing on his desk terminal.">)
+"Doctor Perelman is sitting at his desk, reading through stacks of papers and occasionally typing on his desk terminal.">)
 	       (<AND <G? ,TIME 833>
 		     <L? ,TIME 980>>
 		<COND (<AND <VISIBLE? ,PERELMAN>
@@ -223,8 +189,7 @@ and occasionally typing on his desk terminal.">)
 		     <L? ,TIME 1241>>
 		<MOVE ,PERELMAN ,OFFICE>
 		<PUTP ,PERELMAN ,P?LDESC
-"Doctor Perelman is sitting at his desk, reading through stacks of papers
-and occasionally typing on his desk terminal.">)
+"Doctor Perelman is sitting at his desk, reading through stacks of papers and occasionally typing on his desk terminal.">)
 	       (<AND <G? ,TIME 1240>
 		     <L? ,TIME 1281>>
 		<COND (<AND <VISIBLE? ,PERELMAN>
@@ -266,18 +231,9 @@ and occasionally typing on his desk terminal.">)
 		       <MOVE ,PLAYER ,HERE>
 		       <TELL " you stand as">)>
 		<TELL
-" Jill comes running into the room. She seems terribly upset, throws herself
-against you, and begins sobbing uncontrollably. As you attempt to comfort her,
-she begins speaking between the sobs.|
+" Jill comes running into the room. She seems terribly upset, throws herself against you, and begins sobbing uncontrollably. As you attempt to comfort her, she begins speaking between the sobs.|
 |
-\"It's Mitchell,\" she begins, and a lifelong fear of injury to your only
-child clutches at your heart. \"He's gone off and joined the Church of God's
-Word. He came and collected all his stuff about an hour ago. He said he's
-going to an orientation camp in Arizona. He says he'll never be able to
-speak to you or me again unless we join the Church. I followed him all the
-way to the airport but he wouldn't listen to me! He wouldn't even say goodbye
-to me! He wouldn't even...\" She begins sobbing even more uncontrollably,
-breaks away from you, and ">
+\"It's Mitchell,\" she begins, and a lifelong fear of injury to your only child clutches at your heart. \"He's gone off and joined the Church of God's Word. He came and collected all his stuff about an hour ago. He said he's going to an orientation camp in Arizona. He says he'll never be able to speak to you or me again unless we join the Church. I followed him all the way to the airport but he wouldn't listen to me! He wouldn't even say goodbye to me! He wouldn't even...\" She begins sobbing even more uncontrollably, breaks away from you, and ">
 		<COND (<EQUAL? ,HERE ,BEDROOM>
 		       <TELL "throws herself down onto the bed." CR>
 		       <RTRUE>)
@@ -295,14 +251,12 @@ breaks away from you, and ">
 		       <SETG FOLLOW-FLAG 2>
 		       <QUEUE I-UNFOLLOW 2>
 		       <TELL
-"Jill appears in the bedroom doorway. \"Perry, have you been out all
-night? You know how I worry.\" She returns to the bedroom." CR>)
+"Jill appears in the bedroom doorway. \"Perry, have you been out all night? You know how I worry.\" She returns to the bedroom." CR>)
 		      (<EQUAL? ,JILL-COUNTER 3 6 7> 
 		       <SETG FOLLOW-FLAG 3>
 		       <QUEUE I-UNFOLLOW 2>
 		       <TELL
-"Jill enters from the kitchen. \"Hi, hon. You're home early!\" She kisses
-you before returning to the kitchen." CR>)
+"Jill enters from the kitchen. \"Hi, hon. You're home early!\" She kisses you before returning to the kitchen." CR>)
 		      (<OR <EQUAL? ,JILL-COUNTER 4 5>
 			   <EQUAL? ,JILL-COUNTER 8 9 10>>
 		       <COND (<EQUAL? ,JILL-COUNTER 4 10>
@@ -325,8 +279,7 @@ you before returning to the kitchen." CR>)
 			     (T
 			      <TELL "wearing a robe">)>
 		       <TELL
-". \"Perry, I wish you wouldn't stay out so late.\" She heads
-back into the bedroom." CR>)>
+". \"Perry, I wish you wouldn't stay out so late.\" She heads back into the bedroom." CR>)>
 		<RTRUE>)
 	       (<EQUAL? ,JILL-COUNTER 14>
 		<QUEUE I-JILL -1>
@@ -349,8 +302,7 @@ back into the bedroom." CR>)>
 		<FCLEAR ,JILL-BOOK ,NDESCBIT>
 		<COND (<EQUAL? ,HERE ,BEDROOM>
 		       <TELL CR
-"Jill puts down her book and curls under the covers. Moments later,
-her breathing indicates that she is asleep." CR>
+"Jill puts down her book and curls under the covers. Moments later, her breathing indicates that she is asleep." CR>
 		       <RTRUE>)>)
 	       (<AND <G? ,STIME 1299> ;"9:39pm"
 		     <EQUAL? ,JILL-COUNTER 11>>
@@ -381,9 +333,7 @@ her breathing indicates that she is asleep." CR>
 		       <SETG FOLLOW-FLAG 5>
 		       <QUEUE I-UNFOLLOW 2>
 		       <TELL CR
-"Jill enters from the living room, placing her book down near the bed. She
-wanders around for a minute, looking bored. \"I think I'll do my hair,\"
-she says, stepping into the bathroom." CR>
+"Jill enters from the living room, placing her book down near the bed. She wanders around for a minute, looking bored. \"I think I'll do my hair,\" she says, stepping into the bathroom." CR>
 		       <RTRUE>)
 		      (<EQUAL? ,HERE ,LIVING-ROOM>
 		       <SETG FOLLOW-FLAG 2>
@@ -415,9 +365,7 @@ she says, stepping into the bathroom." CR>
 		<MOVE ,JILL ,LIVING-ROOM>
 		<COND (<EQUAL? ,HERE ,LIVING-ROOM>
 		       <TELL CR
-"Jill enters the living room and looks around as though trying to
-decide what to do. She walks over to her easel, stares at it for a
-few moments, and then picks up a paintbrush." CR>
+"Jill enters the living room and looks around as though trying to decide what to do. She walks over to her easel, stares at it for a few moments, and then picks up a paintbrush." CR>
 		       <RTRUE>)
 		      (<EQUAL? ,HERE ,KITCHEN>
 		       <SETG FOLLOW-FLAG 6>
@@ -432,8 +380,7 @@ few moments, and then picks up a paintbrush." CR>
 		<MOVE ,SALAD ,LOCAL-GLOBALS>
 		<COND (<EQUAL? ,HERE ,KITCHEN>
 		       <TELL CR
-"Jill finishes her salad, walks over to the sink,
-and begins cleaning some dishes." CR>
+"Jill finishes her salad, walks over to the sink, and begins cleaning some dishes." CR>
 		       <RTRUE>)>)
 	       (<AND <G? ,STIME 813>
 		     <EQUAL? ,JILL-COUNTER 5>>
@@ -455,8 +402,7 @@ and begins cleaning some dishes." CR>
 		       <SETG FOLLOW-FLAG 3>
 		       <QUEUE I-UNFOLLOW 2>
 		       <TELL CR
-"Jill lays down her brush. \"I'm getting hungry.\"
-She heads off into the kitchen." CR>
+"Jill lays down her brush. \"I'm getting hungry.\" She heads off into the kitchen." CR>
 		       <RTRUE>)>)
 	       (<AND <G? ,STIME 697>
 		     <EQUAL? ,JILL-COUNTER 4>>
@@ -465,8 +411,7 @@ She heads off into the kitchen." CR>
 		<FCLEAR ,JILL-BOOK ,NDESCBIT>
 		<COND (<EQUAL? ,HERE ,LIVING-ROOM>
 		       <TELL CR
-"Jill puts down the book and stretches. She walks over to her easel, stares
-at the painting for a moment, and picks up a paintbrush." CR>
+"Jill puts down the book and stretches. She walks over to her easel, stares at the painting for a moment, and picks up a paintbrush." CR>
 		       <RTRUE>)>)
 	       (<AND <G? ,STIME 644>
 		     <EQUAL? ,JILL-COUNTER 3>>
@@ -478,13 +423,11 @@ at the painting for a moment, and picks up a paintbrush." CR>
 		<FCLEAR ,SALAD ,NDESCBIT>
 		<COND (<EQUAL? ,HERE ,LIVING-ROOM>
 		       <TELL CR
-"Jill walks from the kitchen to the bedroom, returns with her book, settles
-onto the couch, and begins reading." CR>
+"Jill walks from the kitchen to the bedroom, returns with her book, settles onto the couch, and begins reading." CR>
 		       <RTRUE>)
 		      (<EQUAL? ,HERE ,BEDROOM>
 		       <TELL CR
-"Jill walks into the bedroom, picks up her book, and returns
-to the living room." CR>)
+"Jill walks into the bedroom, picks up her book, and returns to the living room." CR>)
 		      (<EQUAL? ,HERE ,KITCHEN>
 		       <SETG FOLLOW-FLAG 6>
 		       <QUEUE I-UNFOLLOW 2>
@@ -529,8 +472,7 @@ to the living room." CR>)
 		<MOVE ,JILL ,BEDROOM>
 		<COND (<EQUAL? ,HERE ,BEDROOM>
 		       <TELL CR
-"Jill rubs her eyes and rolls out of bed. \"Morning, honey! I sure slept
-like a stone!\" She gives you a quick kiss and begins dressing." CR>
+"Jill rubs her eyes and rolls out of bed. \"Morning, honey! I sure slept like a stone!\" She gives you a quick kiss and begins dressing." CR>
 		       <RTRUE>)>)
 	       (<AND ,JILL-NOT-SPOKEN-YET
 		     <IN? ,JILL ,HERE>
@@ -539,15 +481,10 @@ like a stone!\" She gives you a quick kiss and begins dressing." CR>
 		<SETG JILL-NOT-SPOKEN-YET <>>
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL CR
-"Jill looks up. \"Perry, I heard a news report yesterday about interest rates
-and housing prices. If the economy keeps going the way it's going, and someone
-buys your Africa book, we might be able to afford a house next year!\"" CR>)
+"Jill looks up. \"Perry, I heard a news report yesterday about interest rates and housing prices. If the economy keeps going the way it's going, and someone buys your Africa book, we might be able to afford a house next year!\"" CR>)
 		      (T
 		       <TELL CR
-"\"Oh, Perry! Clave called while you were out,\" says Jill. \"The firm is
-sending him to Japan for a week; he'll call when he gets back. He says not
-to worry, he'll only be in the American section. He says that the kids keep
-asking for you.\"" CR>)>)>
+"\"Oh, Perry! Clave called while you were out,\" says Jill. \"The firm is sending him to Japan for a week; he'll call when he gets back. He says not to worry, he'll only be in the American section. He says that the kids keep asking for you.\"" CR>)>)>
 	 <RFALSE>>
 
 <ROUTINE I-MITCHELL ()
@@ -563,8 +500,7 @@ asking for you.\"" CR>)>)>
 		       <SETG FOLLOW-FLAG 14>
 		       <QUEUE I-UNFOLLOW 2>
 		       <TELL CR
-"\"Good night, Dad.\" Mitch gives you a quick kiss and goes to his
-\"room\" on the other side of the partition." CR>
+"\"Good night, Dad.\" Mitch gives you a quick kiss and goes to his \"room\" on the other side of the partition." CR>
 		       <RTRUE>)>)
 	       (<AND <G? ,STIME 1120>
 		     <EQUAL? ,MITCHELL-COUNTER 3>>
@@ -619,8 +555,7 @@ asking for you.\"" CR>)>)>
 		       <SETG FOLLOW-FLAG 10>
 		       <QUEUE I-UNFOLLOW 2>
 		       <TELL CR
-"Mitchell emerges from the apartment, carrying his lunch box. \"Hi, Dad!
-See you later!\" He dashes down the stairs." CR>
+"Mitchell emerges from the apartment, carrying his lunch box. \"Hi, Dad! See you later!\" He dashes down the stairs." CR>
 		       <RTRUE>)
 		      (T
 		       <SETG FOLLOW-FLAG 12>
@@ -638,8 +573,7 @@ See you later!\" He dashes down the stairs." CR>
 		<MOVE ,MITCHELL ,LIVING-ROOM>
 		<COND (<EQUAL? ,HERE ,LIVING-ROOM>
 		       <TELL CR
-"Mitchell appears from behind his partition and begins
-getting ready for school." CR>
+"Mitchell appears from behind his partition and begins getting ready for school." CR>
 		       <RTRUE>)>)>
 	 <RFALSE>>
 
@@ -649,8 +583,7 @@ getting ready for school." CR>
 		<QUEUE I-JILL 28>
 		<COND (<IN? ,JILL ,HERE>
 		       <TELL CR
-"Jill, with a few final sniffles, stops crying and begins
-straightening up the apartment." CR>
+"Jill, with a few final sniffles, stops crying and begins straightening up the apartment." CR>
 		       <RTRUE>)>
 		<RFALSE>)
 	       (<NOT <IN-APARTMENT?>>
@@ -671,35 +604,28 @@ straightening up the apartment." CR>
 		       <COND (<NOT <EQUAL? ,HERE ,LIVING-ROOM>>
 			      <TELL ", as you rush into the living room,">)>
 		       <TELL
-" a half-dozen Border Security Force officers storm in, rifles ready.
-You freeze as they tramp about the apartment wielding Rad-Detectors. ">
+" a half-dozen Border Security Force officers storm in, rifles ready. You freeze as they tramp about the apartment wielding Rad-Detectors. ">
 		       <SETG APARTMENT-RAID-FLAG T>
 		       <SETG HERE ,LIVING-ROOM>
 		       <MOVE ,PLAYER ,LIVING-ROOM>
 		       <COND (<EQUAL? ,SYEAR 2071>
 			      <TELL
-"Almost without reason, they tear your curtains, spill food onto the kitchen
-floor, and overturn furniture. ">
+"Almost without reason, they tear your curtains, spill food onto the kitchen floor, and overturn furniture. ">
 			      <COND (,BOOK-PURCHASED
 				     <TELL
 "One of the officers picks up an old, beautiful ">
 				     <PRINTD ,BOOK>
 				     <TELL
-" that you've owned for years and smiles gleefully
-as he rips it to shreds. ">)>)>
+" that you've owned for years and smiles gleefully as he rips it to shreds. ">)>)>
 		       <TELL
 "After a few nightmare minutes, they seem satisfied">
 		       <COND (<EQUAL? ,SYEAR 2051>
 			      <SCORE 8> ;"3 points"
 			      <TELL
-" and begin to file out. The apparent leader turns to you. \"Sorry for the
-inconvenience,\" he says apologetically. \"You know how things are. We're only
-doing it for your own protection.\" He closes the door behind him. You hear
-sobbing and turn to see Jill crying in the corner of the living room">
+" and begin to file out. The apparent leader turns to you. \"Sorry for the inconvenience,\" he says apologetically. \"You know how things are. We're only doing it for your own protection.\" He closes the door behind him. You hear sobbing and turn to see Jill crying in the corner of the living room">
 			      <COND (<IN? ,MITCHELL ,HERE>
 				     <TELL
-". Mitchell, exhibiting the innocent resilience of a child,
-resumes his normal activities">)>
+". Mitchell, exhibiting the innocent resilience of a child, resumes his normal activities">)>
 			      <TELL "." CR>
 			      <FCLEAR ,APARTMENT-DOOR ,OPENBIT>
 			      <DISABLE <INT I-JILL>>
@@ -712,8 +638,7 @@ resumes his normal activities">)>
 			      <FCLEAR ,APARTMENT-DOOR ,OPENBIT>
 			      <DISABLE <INT I-APARTMENT>>
 			      <TELL
-" and begin to leave. One officer turns to you. \"The place is clean,\"
-he says gruffly. \"Keep it that way.\" He slams the door behind him." CR>)
+" and begin to leave. One officer turns to you. \"The place is clean,\" he says gruffly. \"Keep it that way.\" He slams the door behind him." CR>)
 			     (T
 			      <SCORE 10> ;"5 points"
 			      <FSET ,APARTMENT-DOOR ,OPENBIT>
@@ -733,10 +658,7 @@ he says gruffly. \"Keep it that way.\" He slams the door behind him." CR>)
 		       <MOVE ,BLANKET ,JAIL-CELL>
 		       <SETG LIGHT-LEVEL 3>
 		       <TELL CR
-"A bored cop comes along, opens your cell, and steers you out of the building.
-\"We find you out after curfew again,\" he says, \"we won't treat you so easy.
-You goddam vagrants, you oughtta be thrown outta town.\" He settles for
-throwing you out of the ">
+"A bored cop comes along, opens your cell, and steers you out of the building. \"We find you out after curfew again,\" he says, \"we won't treat you so easy. You goddam vagrants, you oughtta be thrown outta town.\" He settles for throwing you out of the ">
 		       <PRINTD ,POLICE-STATION-OBJECT>
 		       <TELL "." CR CR>
 		       <GOTO ,ELM-AND-PARK>)>)
@@ -752,11 +674,7 @@ throwing you out of the ">
 		       <SCORE 117> ;"8 points"
 		       <JIGS-UP
 "|
-A police car pulls up next to you, and a fat, leering officer leans a red
-face out the window. \"Hey, geezer! Ever hear of curfew?\" Even from three
-meters away you can smell the odor of beer from the car. The barrel of a
-pellet gun suddenly emerges from the window, and as you turn to run, a
-tremendous explosion from behind is followed by a spasm of pain...">)
+A police car pulls up next to you, and a fat, leering officer leans a red face out the window. \"Hey, geezer! Ever hear of curfew?\" Even from three meters away you can smell the odor of beer from the car. The barrel of a pellet gun suddenly emerges from the window, and as you turn to run, a tremendous explosion from behind is followed by a spasm of pain...">)
 		      (T
 		       <COND (<G? ,STIME 1260>
 			      <QUEUE I-CURFEW <+ 420 <- 1440 ,STIME>>>)
@@ -764,9 +682,7 @@ tremendous explosion from behind is followed by a spasm of pain...">)
 			      <QUEUE I-CURFEW <- 420 ,STIME>>)>
 		       <SCORE 116> ;"2 points"
 		       <TELL CR
-"A police car pulls up next to you and a burly cop gets out. He discovers
-that you have no curfew pass and hustles you into the rear. Minutes later,
-you are flung into a tiny cell." CR CR>
+"A police car pulls up next to you and a burly cop gets out. He discovers that you have no curfew pass and hustles you into the rear. Minutes later, you are flung into a tiny cell." CR CR>
 		       <GOTO ,JAIL-CELL>)>)
 	       (T
 		<QUEUE I-CURFEW -1>
@@ -786,13 +702,11 @@ you are flung into a tiny cell." CR CR>
 		<COND (<FSET? ,HERE ,OUTSIDEBIT>
 		       <COND (<EQUAL? ,SYEAR 2041 2051>
 		       	      <TELL CR
-"The first rays of the sun begin streaming between
-the buildings to the east." CR>)
+"The first rays of the sun begin streaming between the buildings to the east." CR>)
 		      	     (T
 		       	      <SCORE 118> ;"2 points"
 			      <TELL CR
-"The glow in the east brightens, as the sun attempts to break
-through the hazy smog." CR>)>)>)
+"The glow in the east brightens, as the sun attempts to break through the hazy smog." CR>)>)>)
 	       (<AND <G? <+ ,STIME .X> 490> ;"8:10am in Jan, 6:30am in June"
 		     <NOT <G? <+ ,LAST-SUN-TIME .X> 490>>>
 	        <SETG LIGHT-LEVEL 3>
@@ -809,18 +723,15 @@ through the hazy smog." CR>)>)>)
 			     	    (T
 			      	     <SCORE 118> ;"2 points"
 				     <TELL CR
-"The diffuse glow of the sun is nearly straight overhead,
-another gray noontime." CR>)>)
+"The diffuse glow of the sun is nearly straight overhead, another gray noontime." CR>)>)
 			     (T ;"January - March"
 		       	      <COND (<EQUAL? ,SYEAR 2041 2051>
 			             <TELL CR
-"The noontime sun has risen fairly high in the southern sky, taking
-some of the chill out of this wintry day." CR>)
+"The noontime sun has risen fairly high in the southern sky, taking some of the chill out of this wintry day." CR>)
 			            (T
 			             <SCORE 118> ;"2 points"
 				     <TELL CR
-"The sun's feeble glow is skirting the building tops toward the south,
-providing little comfort or warmth on this gray, dismal day." CR>)>)>)>)
+"The sun's feeble glow is skirting the building tops toward the south, providing little comfort or warmth on this gray, dismal day." CR>)>)>)>)
 	       (<AND <G? <- ,STIME .X> 1010> ;"4:50pm in Jan, 6:30pm in June"
 		     <NOT <G? <- ,LAST-SUN-TIME .X> 1010>>>
 		<SETG LIGHT-LEVEL 2>
@@ -831,20 +742,17 @@ providing little comfort or warmth on this gray, dismal day." CR>)>)>)>)
 		             (T
 		              <SCORE 118> ;"2 points"
 			      <TELL CR
-"The sky is darkening as the sun sinks into the smoggy
-haze of the horizon." CR>)>)>)
+"The sky is darkening as the sun sinks into the smoggy haze of the horizon." CR>)>)>)
 	       (<AND <G? <- ,STIME .X> 1028> ;"5:08pm in Jan, 6:48pm in June"
 		     <NOT <G? <- ,LAST-SUN-TIME .X> 1028>>>
 		<SETG LIGHT-LEVEL 1>
 		<COND (<FSET? ,HERE ,OUTSIDEBIT>
 		       <COND (<EQUAL? ,SYEAR 2041 2051>
 		       	      <TELL CR
-"Twilight casts its long shadows across the city as the
-sun disappears in the west." CR>)
+"Twilight casts its long shadows across the city as the sun disappears in the west." CR>)
 		             (T
 		              <TELL CR
-"The dusk continues to gather; an ominous darkness
-settles onto the city." CR>)>)>)
+"The dusk continues to gather; an ominous darkness settles onto the city." CR>)>)>)
 	       (<AND <G? <- ,STIME .X> 1049> ;"5:29pm in Jan, 7:19pm in June"
 		     <NOT <G? <- ,LAST-SUN-TIME .X> 1049>>>
 		<SETG LIGHT-LEVEL 0>
@@ -858,21 +766,15 @@ settles onto the city." CR>)>)>)
 	 <SETG SKYCAB-COUNTER <+ ,SKYCAB-COUNTER 1>>
 	 <COND (<EQUAL? ,SKYCAB-COUNTER 1>
 		<TELL CR
-"The gentle voice of your domestic computer calls softly from one
-of its many unseen speakers. \"The skycab you asked for is now
-waiting on the roof.\" Jill ">
+"The gentle voice of your domestic computer calls softly from one of its many unseen speakers. \"The skycab you asked for is now waiting on the roof.\" Jill ">
 		<COND (<EQUAL? ,HERE ,MASTER-BEDROOM>
 		       <TELL "summons the robutler to carry your baggage">)
 		      (T
 		       <TELL
-"appears at the top of the steps with the robutler,
-who is carrying several bags">)>
+"appears at the top of the steps with the robutler, who is carrying several bags">)>
 		<TELL ". \"Algie has everything, Perry. Let's get going!\"|
 |
-You take a last look around the apartment and follow Jill and Algie into the
-hallway and up to the roofpad. As you clamber into the waiting skycab, Jill
-gives the robutler a fond farewell pat. The skycab climbs lazily and veers
-off to the northeast." CR CR>
+You take a last look around the apartment and follow Jill and Algie into the hallway and up to the roofpad. As you clamber into the waiting skycab, Jill gives the robutler a fond farewell pat. The skycab climbs lazily and veers off to the northeast." CR CR>
 		<MOVE ,MAGAZINE ,JILL>
 		<GOTO ,SKYCAB>
 		<MOVE ,SEAT ,SKYCAB>
@@ -880,8 +782,7 @@ off to the northeast." CR CR>
 		<MOVE ,JILL ,HERE>)
 	       (<EQUAL? ,SKYCAB-COUNTER 2>
 		<TELL CR
-"The cab enters the central Rockvil traffic pattern, gently curving along
-the ring of downtown parks. ">
+"The cab enters the central Rockvil traffic pattern, gently curving along the ring of downtown parks. ">
 		<SET OLD-WINNER ,WINNER>
 		<SETG WINNER ,PLAYER>
 		<PERFORM ,V?EXAMINE ,PARK-OBJECT>
@@ -889,13 +790,10 @@ the ring of downtown parks. ">
 		<TELL CR "Jill, glancing through yet another ">
 		<PRINTD ,MAGAZINE-ARTICLE>
 		<TELL
-" on the Silver Dove, says, \"This story talks about the new athletics and
-art forms that are still being discovered for the weightless area at the axes
-of the habitats. Oh, Perry, I'm so excited,\" she adds, unnecessarily." CR>)
+" on the Silver Dove, says, \"This story talks about the new athletics and art forms that are still being discovered for the weightless area at the axes of the habitats. Oh, Perry, I'm so excited,\" she adds, unnecessarily." CR>)
 	       (<EQUAL? ,SKYCAB-COUNTER 3>
 		<TELL CR
-"The skycab continues its wide arc around the downtown area, approaching
-the Rockvil Pier. ">
+"The skycab continues its wide arc around the downtown area, approaching the Rockvil Pier. ">
 		<SET OLD-WINNER ,WINNER>
 		<SETG WINNER ,PLAYER>
 		<PERFORM ,V?EXAMINE ,RIVER>
@@ -906,24 +804,12 @@ the Rockvil Pier. ">
 "As the cab whisks northward along the edge of the river, y" ,RS-DESC CR>)
 	       (<EQUAL? ,SKYCAB-COUNTER 5>
 		<TELL CR
-"As the skycab begins its approach to the spaceport, it passes over
-the museum established on the site of the former BSF Base, a sobering
-monument to one of mankind's great follies.|
+"As the skycab begins its approach to the spaceport, it passes over the museum established on the site of the former BSF Base, a sobering monument to one of mankind's great follies.|
 |
 Suddenly the ">
 		<PRINTD ,VIEWSCREEN>
 		<TELL
-" lights up, and Mitchell's face appears. \"Hi, Mom, Dad! I wanted to wish you
-bon voyage, and I enlisted a little help!\" He expands the field of vision to
-include the entire living room of his spacious apartment at the Marine Biology
-Institute in Nova Scotia. The room is filled with your grandchildren and
-great-grandchildren, plus various in-laws, more than twenty members of the
-Simm clan. Everyone is hooting, yelling, waving, and blowing kisses. \"We're
-having a big party in your honor -- I'm only sorry we couldn't be there with
-you. We're real proud of you both, and excited for you, too. Call me when you
-get to the habitat! Bye!\" The clan signs off by singing Auld Lang Syne, and
-when the screen goes dark, you notice that Jill's eyes are wet, and a second
-later you realize that yours are, as well." CR>)
+" lights up, and Mitchell's face appears. \"Hi, Mom, Dad! I wanted to wish you bon voyage, and I enlisted a little help!\" He expands the field of vision to include the entire living room of his spacious apartment at the Marine Biology Institute in Nova Scotia. The room is filled with your grandchildren and great-grandchildren, plus various in-laws, more than twenty members of the Simm clan. Everyone is hooting, yelling, waving, and blowing kisses. \"We're having a big party in your honor -- I'm only sorry we couldn't be there with you. We're real proud of you both, and excited for you, too. Call me when you get to the habitat! Bye!\" The clan signs off by singing Auld Lang Syne, and when the screen goes dark, you notice that Jill's eyes are wet, and a second later you realize that yours are, as well." CR>)
 	       (<EQUAL? ,SKYCAB-COUNTER 6>
 		<END-IT>)>>
 
@@ -934,9 +820,7 @@ later you realize that yours are, as well." CR>)
 		<MOVE ,SABOTEURS ,LOCAL-GLOBALS>
 		<COND (<EQUAL? ,HERE ,CORE>
 		       <TELL CR
-"A National Guard patrol enters the area and rushes to the side of the
-prone bodies. \"Still breathing, but barely!\" shouts the leader. They
-grab the saboteurs and carry them out." CR>
+"A National Guard patrol enters the area and rushes to the side of the prone bodies. \"Still breathing, but barely!\" shouts the leader. They grab the saboteurs and carry them out." CR>
 		       <RTRUE>)
 		      (T
 		       <RFALSE>)>)
@@ -947,23 +831,19 @@ grab the saboteurs and carry them out." CR>
 "Four men, dressed in white smocks, are lying on the ground, unconscious.">
 		<COND (<EQUAL? ,HERE ,CORE>
 		       <TELL CR
-"One of the men suddenly gasps and falls over. The others dash to his side,
-then slowly pass out themselves." CR>
+"One of the men suddenly gasps and falls over. The others dash to his side, then slowly pass out themselves." CR>
 		       <RTRUE>)>)
 	       (<AND <EQUAL? ,SUFFOCATE-COUNTER 13>
 		     <EQUAL? ,HERE ,CORE>>
 		<TELL CR
-"The saboteur with the gun says, \"Hurry, will ya! I need to get
-some fresh air!\" The apparent leader replies, \"We're working as
-fast as we can! Keep your cool.\"" CR>
+"The saboteur with the gun says, \"Hurry, will ya! I need to get some fresh air!\" The apparent leader replies, \"We're working as fast as we can! Keep your cool.\"" CR>
 		<RTRUE>)
 	       (<AND <EQUAL? ,SUFFOCATE-COUNTER 8>
 		     <EQUAL? ,HERE ,CORE>>
 		<SETG YES-NO-FLAG 8>
 		<QUEUE I-YES-NO 2>
 		<TELL CR
-"One of the men, tugging at the collar of his smock, says, \"Stuffy in
-here, isn't it?\"" CR>
+"One of the men, tugging at the collar of his smock, says, \"Stuffy in here, isn't it?\"" CR>
 		<RTRUE>)>
 	 <RFALSE>>
 
@@ -975,18 +855,14 @@ here, isn't it?\"" CR>
 	       (<EQUAL? ,AIR-CONDITIONING-COUNTER 46>
 		<COND (,SIMULATING
 		       <TELL CR
-"The raging fever must be affecting your mind; the world around you seems to
-be shimmering away and vanishing. Then suddenly -- you're out of ">
+"The raging fever must be affecting your mind; the world around you seems to be shimmering away and vanishing. Then suddenly -- you're out of ">
 		       <PRINTD ,SIMULATION-MODE>
 		       <TELL
-"! Something is terribly wrong! Nothing feels right. You can't
-even think straight. Your functions are fading..." CR CR>
+"! Something is terribly wrong! Nothing feels right. You can't even think straight. Your functions are fading..." CR CR>
 		       <FINISH>)
 		      (T
 		       <TELL CR
-"The dysfunction of your systems is becoming incredibly serious, and you
-feel it as almost a burning pain. It numbs your mind, blocks your thought
-patterns. You feel your consciousness fade away..." CR CR>
+"The dysfunction of your systems is becoming incredibly serious, and you feel it as almost a burning pain. It numbs your mind, blocks your thought patterns. You feel your consciousness fade away..." CR CR>
 		       <FINISH>)>)>
 	 <RFALSE>>
 
@@ -1007,9 +883,7 @@ patterns. You feel your consciousness fade away..." CR CR>
 		       <QUEUE I-PERELMAN 30>
 		       <SETG LAST-ABE-TIME <+ ,TIME 25>>
 		       <TELL CR
-"\"Hmmph!\" says Grimwold, whirling and heading for the door. \"This rudeness
-will certainly figure in my report!\" Perelman looks at you with a mixture of
-annoyance and puzzlement, then rushes off after the psychiatrist." CR>)
+"\"Hmmph!\" says Grimwold, whirling and heading for the door. \"This rudeness will certainly figure in my report!\" Perelman looks at you with a mixture of annoyance and puzzlement, then rushes off after the psychiatrist." CR>)
 		      (T
 		       <TELL CR
 "After a moment, Grimwold again asks, \"Can we begin now?\"" CR>)>
@@ -1024,8 +898,7 @@ annoyance and puzzlement, then rushes off after the psychiatrist." CR>)
 		      (T
 		       <DISABLE <INT I-MESSAGE-E>>
 		       <TELL CR
-"Perelman enters with Dr. Ernest Grimwold, a quintessential Viennese
-psychiatrist whom you met a few days earlier, and nods to you. \"Good ">
+"Perelman enters with Dr. Ernest Grimwold, a quintessential Viennese psychiatrist whom you met a few days earlier, and nods to you. \"Good ">
 		       <COND (<G? ,TIME 720>
 			      <TELL "afternoon">)
 			     (T
@@ -1037,29 +910,21 @@ psychiatrist whom you met a few days earlier, and nods to you. \"Good ">
 	       (T
 		<DISABLE <INT I-MESSAGE-E>>
 		<TELL CR
-"Perelman" ,SPOTS-ACTIVE-LIGHT " come on. \"Ah, here you are. PRISM, you
-remember Dr. Ernest Grimwold.\" You recognize and greet the psychiatrist
-who gave you a series of psych tests a few days ago.">)>
+"Perelman" ,SPOTS-ACTIVE-LIGHT " come on. \"Ah, here you are. PRISM, you remember Dr. Ernest Grimwold.\" You recognize and greet the psychiatrist who gave you a series of psych tests a few days ago.">)>
 	 <SETG GRIMWOLD-COUNTER 1>
 	 <TELL CR CR
-"\"It's a pleasure to see you again,\" says Grimwold, in an accent that
-matches his appearance perfectly. \"This should take only a couple of
-minutes. I'm going to show you some patterns, and I simply want you to
-tell me the single word that comes to mind when you see them. Don't think
-about it; just say the first word you think of.\"|
+"\"It's a pleasure to see you again,\" says Grimwold, in an accent that matches his appearance perfectly. \"This should take only a couple of minutes. I'm going to show you some patterns, and I simply want you to tell me the single word that comes to mind when you see them. Don't think about it; just say the first word you think of.\"|
 |
-Grimwold reaches below your viewing area and picks up a sheaf of placards.
-\"Ready to begin?\" he asks." CR>>
+Grimwold reaches below your viewing area and picks up a sheaf of placards. \"Ready to begin?\" he asks." CR>>
 
 <ROUTINE BLOT-ACTION ("AUX" (CNT 0) WORDS-IN-RESPONSE)
 	 <REPEAT ()
 		 <COND (<EQUAL? .CNT 0>
-			<INIT-STATUS-LINE 18>
+			<INIT-STATUS-LINE 16>
 			<STATUS-LINE>)
 		       (T
 			<TELL
-"Grimwold nods knowingly, mumbles under his breath,
-and makes a note in his pad. ">)>
+"Grimwold nods knowingly, mumbles under his breath, and makes a note in his pad. ">)>
 		 <INK-BLOT>
 		 <TELL "\"Okay, here's the ">
 		 <COND (<EQUAL? .CNT 0>
@@ -1075,8 +940,7 @@ and makes a note in his pad. ">)>
 		      <SET WORDS-IN-RESPONSE <BLOT-WORD-COUNT>>
 		      <COND (<G? .WORDS-IN-RESPONSE 1>
 			     <TELL
-"\"You're not following my instructions, PRISM. Just tell me the
-one word that pops into your mind.\"" CR>
+"\"You're not following my instructions, PRISM. Just tell me the one word that pops into your mind.\"" CR>
 			     <AGAIN>)
 			    (<ZERO? <GETB ,P-LEXV ,P-LEXWORDS>>
 			     <TELL "\"I beg your pardon?\"" CR>
@@ -1117,8 +981,7 @@ one word that pops into your mind.\"" CR>
 			<SETG GRIMWOLD-COUNTER 0>
 			<INIT-STATUS-LINE 2>
 			<TELL
-"Grimwold makes a final notation in his notebook. \"Thanks, PRISM.\" He
-picks up all the placards and leaves the room along with Perelman." CR>
+"Grimwold makes a final notation in his notebook. \"Thanks, PRISM.\" He picks up all the placards and leaves the room along with Perelman." CR>
 			<DISABLE <INT I-RORSCHACH>>
 			<RETURN>)
 		       (T
@@ -1158,18 +1021,26 @@ picks up all the placards and leaves the room along with Perelman." CR>
 "[returning a REVISED-COUNT value of " N .REVISED-COUNT "]" CR>)>
 	 .REVISED-COUNT>
 
+<ROUTINE TEST-INK-BLOT ()
+	<INIT-STATUS-LINE 16>
+	<INK-BLOT>
+>
+
 <ROUTINE INK-BLOT ("AUX" (X 12) (Y 5) (CNT 4) SIDE-OFFSET CENTER-OFFSET CHAR)
 	 <BUFOUT <>>
 	 <SCREEN ,S-WINDOW>
-	 <SET CENTER-OFFSET <RANDOM 6>>
-	 <SET SIDE-OFFSET <RANDOM <- 16 .CENTER-OFFSET>>>
-	 <SET X <+ 22 .SIDE-OFFSET>>
+	 <SET CENTER-OFFSET <RANDOM 4>>
+	 <SET SIDE-OFFSET <RANDOM <- 11 .CENTER-OFFSET>>>
+	 <SET X <+ 5 .SIDE-OFFSET>>
 	 <SET CHAR <RANDOM 3>> ;"1 = blanks, 2 = x's, 3 = angle brackets"
+	 <HLIGHT 1>
 	 <REPEAT ()
-		 <INVERSE-LINE .CNT T>
+		 <CURSET .CNT 4>
+		 <PRINT-SPACES 26>
 		 <SET CNT <+ .CNT 1>>
-		 <COND (<EQUAL? .CNT 19>
+		 <COND (<EQUAL? .CNT 17>
 			<RETURN>)>>
+	 <HLIGHT 0>
 	 <COND (<EQUAL? .CHAR 2 3> ;"not blanks"
 		<HLIGHT 1>)>
 	 <REPEAT ()
@@ -1181,18 +1052,18 @@ picks up all the placards and leaves the room along with Perelman." CR>
 				<TELL "X">)
 			       (T
 				<TELL ">">)>
-			 <CURSET .Y <- 81 .X>>
+			 <CURSET .Y <- 33 .X>>
 			 <COND (<EQUAL? .CHAR 1>
 			 	<TELL " ">)
 			       (<EQUAL? .CHAR 2>
 				<TELL "X">)
 			       (T
 				<TELL "<">)>
-			 <COND (<EQUAL? .X <- 40 .CENTER-OFFSET>>
+			 <COND (<EQUAL? .X <- 16 .CENTER-OFFSET>>
 				<RETURN>)
 			       (T
 				<SET X <+ .X 1>>)>>
-		 <COND (<EQUAL? .Y 17>
+		 <COND (<EQUAL? .Y 15>
 			<RETURN>)
 		       (T
 			<COND (<PROB 40>
@@ -1209,10 +1080,10 @@ picks up all the placards and leaves the room along with Perelman." CR>
 			       <SET SIDE-OFFSET 1>)>
 			<COND (<L? .CENTER-OFFSET 0>
 			       <SET CENTER-OFFSET 0>)>
-			<COND (<G? <+ .SIDE-OFFSET .CENTER-OFFSET> 18>
+			<COND (<G? <+ .SIDE-OFFSET .CENTER-OFFSET> 10>
 			       <SET CENTER-OFFSET <- .CENTER-OFFSET 1>>
-			       <SET SIDE-OFFSET <- 18 .CENTER-OFFSET>>)>
-			<SET X <+ 22 .SIDE-OFFSET>>
+			       <SET SIDE-OFFSET <- 10 .CENTER-OFFSET>>)>
+			<SET X <+ 5 .SIDE-OFFSET>>
 			<SET Y <+ .Y 1>>)>>
 	 <COND (<EQUAL? .CHAR 2 3> ;"blanks"
 		<HLIGHT 0>)>
@@ -1259,11 +1130,7 @@ picks up all the placards and leaves the room along with Perelman." CR>
 	       (<EQUAL? ,WILD-DOG-COUNTER 4>
 		<SCORE 45> ;"3 points"
 		<JIGS-UP
-"A pack of wild dogs enters the bridge from the east, barking wildly. They
-tear towards you, driven by mindless animal hunger, saliva dripping from
-rabid fangs. You run toward the city, but the fastest of the dogs lunges
-and sinks its fangs into your leg. You fall, and in a split second the other
-animals are on top of you as well.">)>>
+"A pack of wild dogs enters the bridge from the east, barking wildly. They tear towards you, driven by mindless animal hunger, saliva dripping from rabid fangs. You run toward the city, but the fastest of the dogs lunges and sinks its fangs into your leg. You fall, and in a split second the other animals are on top of you as well.">)>>
 
 <ROUTINE I-CAFETERIA ()
 	 <COND (<NOT <EQUAL? ,HERE ,CAFETERIA>>

@@ -287,8 +287,7 @@
 		<COND (<EQUAL? ,SYEAR 2061 2071>
 		       <SCORE 3> ;"1 point"
 		       <TELL
-", since the elevators are out as usual, you slowly walk up the several
-flights to your floor." CR CR>)
+", since the elevators are out as usual, you slowly walk up the several flights to your floor." CR CR>)
 		      (T
 		       <COND (<EQUAL? ,SYEAR 2051>
 			      <COND (<G? ,STIME 1374>
@@ -342,8 +341,7 @@ flights to your floor." CR CR>)
 		      (T
 		       <TELL "closed">)>
 		<TELL
-" to the north. The stairs and elevators to the
-street are off to the east.">)>>
+" to the north. The stairs and elevators to the street are off to the east.">)>>
 
 <ROUTINE HALL-NEAR-YOUR-APARTMENT-EXIT-F ()
 	 <TELL
@@ -395,8 +393,7 @@ street are off to the east.">)>>
 		       <FSET ,APARTMENT-DOOR ,OPENBIT>
 		       <FSET ,JILL ,TOUCHBIT>
 		       <TELL
-"After a moment, Jill opens the door. \"Hi, hon! Forget your key?\" She
-gives you a peck on the cheek and walks into the apartment." CR>)>)
+"After a moment, Jill opens the door. \"Hi, hon! Forget your key?\" She gives you a peck on the cheek and walks into the apartment." CR>)>)
 	       (<AND <VERB? OPEN>
 		     <EQUAL? ,HERE ,PARKVIEW-HALL>
 		     <NOT <FSET? ,APARTMENT-DOOR ,OPENBIT>>>
@@ -437,9 +434,7 @@ gives you a peck on the cheek and walks into the apartment." CR>)>)
 		       <QUEUE I-JILL -1>)>)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This is the large living area of your apartment, with a bedroom to the
-north and a kitchen to the east. The front door of the apartment, next to
-the couch on the south wall, is ">
+"This is the large living area of your apartment, with a bedroom to the north and a kitchen to the east. The front door of the apartment, next to the couch on the south wall, is ">
 		<COND (<FSET? ,APARTMENT-DOOR ,OPENBIT>
 		       <TELL "open">)
 		      (T
@@ -517,8 +512,7 @@ the couch on the south wall, is ">
 <ROUTINE EASEL-DESC ("OPTIONAL" (X <>))
 	 <COND (<EQUAL? ,SYEAR 2041>
 		<TELL
-"Jill's easel occupies a beautiful, well-lit spot near the window. Her
-current painting is on the easel.">)
+"Jill's easel occupies a beautiful, well-lit spot near the window. Her current painting is on the easel.">)
 	       (T
 	       	<TELL "Jill's current artistic endeavor, ">
 		<COND (<EQUAL? ,SYEAR 2071>
@@ -548,22 +542,16 @@ current painting is on the easel.">)
 	       (<VERB? EXAMINE>
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"The painting is a bright watercolor of the cliff-top Bermuda cottage
-colony where you and Jill spent your honeymoon." CR>)
+"The painting is a bright watercolor of the cliff-top Bermuda cottage colony where you and Jill spent your honeymoon." CR>)
 		      (<EQUAL? ,SYEAR 2051>
 		       <TELL
-"The painting, in vibrant acrylide colors, depicts workers in a space factory
-hovering above machinery, sipping coffee tubes. A crescent earth dominates the
-view through a domed canopy. It is Jill's most mature work to date." CR>)
+"The painting, in vibrant acrylide colors, depicts workers in a space factory hovering above machinery, sipping coffee tubes. A crescent earth dominates the view through a domed canopy. It is Jill's most mature work to date." CR>)
 		      (<EQUAL? ,SYEAR 2061>
 		       <TELL
-"The painting, in subdued shades of brown and gray, is of a beggar woman,
-her face a mask of suffering." CR>)
+"The painting, in subdued shades of brown and gray, is of a beggar woman, her face a mask of suffering." CR>)
 		      (T
 		       <TELL
-"The sketch is dark and brooding, depicting a demonic figure towering
-over a frightened group of children. It's been months since you last
-saw Jill working on it." CR>)>)>>
+"The sketch is dark and brooding, depicting a demonic figure towering over a frightened group of children. It's been months since you last saw Jill working on it." CR>)>)>>
 
 <OBJECT PARTITION
 	(LOC LOCAL-GLOBALS)
@@ -580,8 +568,7 @@ saw Jill working on it." CR>)>)>>
 
 <ROUTINE PARTITION-DESCFCN ("OPTIONAL" X)
 	 <TELL
-"A thin partition separates Mitchell's sleeping area from the rest
-of the living room">
+"A thin partition separates Mitchell's sleeping area from the rest of the living room">
 	 <COND (<AND <EQUAL? ,SYEAR 2061>
 		     <NOT ,MITCHELL-NEWS-FLAG>>
 		<TELL ". Some of Mitchell's stuff seems to be missing">)>
@@ -725,31 +712,19 @@ of the living room">
 	       (<VERB? LOOK-INSIDE>
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"The view from this picture window is the one notable plus about the
-apartment. On the other side of the old interstate, you can see Rockvil's
-wealthy western suburbs, surrounded by the woods and conservation lands
-of the State Park System." CR>)
+"The view from this picture window is the one notable plus about the apartment. On the other side of the old interstate, you can see Rockvil's wealthy western suburbs, surrounded by the woods and conservation lands of the State Park System." CR>)
 		      (<EQUAL? ,SYEAR 2051>
 		       <SCORE 5> ;"3 points"
 		       <TELL
-"The panoramic view overlooks the suburbs of Westwood and Brentwood, as well
-as extensive woodlands. The forests, as a result of increasingly acidic rain,
-are thinner and browner each year." CR>)
+"The panoramic view overlooks the suburbs of Westwood and Brentwood, as well as extensive woodlands. The forests, as a result of increasingly acidic rain, are thinner and browner each year." CR>)
 		      (<EQUAL? ,SYEAR 2061>
 		       <SCORE 6> ;"5 points"
 		       <TELL
-"The view to the west has changed considerably over the last decade. The
-forest of dying trees has been replaced by a forest of thriving mining towers,
-which trundle across the landscape leaving ugly brown scars. The western
-suburbs, once the most desirable in greater Rockvil, now look nearly deserted,
-a sign of the vanishing middle class." CR>)
+"The view to the west has changed considerably over the last decade. The forest of dying trees has been replaced by a forest of thriving mining towers, which trundle across the landscape leaving ugly brown scars. The western suburbs, once the most desirable in greater Rockvil, now look nearly deserted, a sign of the vanishing middle class." CR>)
 		      (<EQUAL? ,SYEAR 2071>
 		       <SCORE 7> ;"7 points"
 		       <TELL
-"Through the gray haze that covers western Rockvil you can discern an ugly
-industrial slum, where thousands upon thousands of serfs live in substandard
-shacks, running the factories and mines that support Rockvil's urban
-nobility." CR>)>)>>
+"Through the gray haze that covers western Rockvil you can discern an ugly industrial slum, where thousands upon thousands of serfs live in substandard shacks, running the factories and mines that support Rockvil's urban nobility." CR>)>)>>
 
 <ROOM KITCHEN
       (LOC ROOMS)
@@ -801,8 +776,7 @@ nobility." CR>)>)>>
 		       <TELL " it!" CR>)
 		      (T
 		       <TELL
-"Jill probably made that for herself. Besides, you can't stand
-anything with avocadoes in it." CR>)>)
+"Jill probably made that for herself. Besides, you can't stand anything with avocadoes in it." CR>)>)
 	       (<RANDOM-FOOD-F>
 		<RTRUE>)>>
 
@@ -955,8 +929,7 @@ anything with avocadoes in it." CR>)>)
 	       (<VERB? DRINK>
 		<MOVE ,SODA ,LOCAL-GLOBALS>
 		<TELL
-"The soda is sweet and thirst-quenching. After you finish, you dispose
-of the can." CR>)>>
+"The soda is sweet and thirst-quenching. After you finish, you dispose of the can." CR>)>>
 
 <OBJECT GRANOLA-CLUSTER
 	(LOC LOCAL-GLOBALS)
@@ -1002,8 +975,7 @@ of the can." CR>)>>
 		       <TELL
 "The bedroom is sparsely furnished with a bed and bureau">)>
 		<TELL
-". A doorway leads south to the living room,
-and the bathroom is to the east.">
+". A doorway leads south to the living room, and the bathroom is to the east.">
 		<RAID-MESS-DESC>
 		<RTRUE>)>>
 
@@ -1056,8 +1028,7 @@ and the bathroom is to the east.">
 		       <RTRUE>)>)
 	       (<VERB? OPEN>
 		<TELL
-"There's nothing interesting in the drawer. In the interest
-of tidiness, you close it again." CR>)
+"There's nothing interesting in the drawer. In the interest of tidiness, you close it again." CR>)
 	       (<VERB? CLOSE>
 		<TELL "It is!" CR>)>> 
 
@@ -1074,8 +1045,7 @@ of tidiness, you close it again." CR>)
 <ROUTINE BATHROOM-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This plain bathroom is just large enough to accommodate
-a sink, toilet, and ">
+"This plain bathroom is just large enough to accommodate a sink, toilet, and ">
 		<PRINTD ,SHOWER>
 		<TELL ". The bedroom is to the west.">
 		<RAID-MESS-DESC>
@@ -1118,15 +1088,13 @@ a sink, toilet, and ">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <SCORE 2> ;"1 point"
 		       <TELL
-"You discover that the hot water is out again today, so you
-decide to forgo the shower." CR>)
+"You discover that the hot water is out again today, so you decide to forgo the shower." CR>)
 		      (<HELD? ,BABY>
 		       <TELL ,MITCHELL-BACK-FIRST CR>)
 		      (T
 		       <SETG ELAPSED-TIME 14>
 		       <TELL
-"You undress, take a brief and refreshing shower,
-and put on fresh clothes." CR>)>)>>
+"You undress, take a brief and refreshing shower, and put on fresh clothes." CR>)>)>>
 
 <OBJECT JILL
 	(LOC LOCAL-GLOBALS)
@@ -1171,8 +1139,7 @@ and put on fresh clothes." CR>)>)>>
 		       <SETG YES-NO-FLAG 9>
 		       <QUEUE I-YES-NO 2>
 		       <TELL
-"\"Perry Simm, for once in your life will you
-shut your mouth and relax?\"" CR>)
+"\"Perry Simm, for once in your life will you shut your mouth and relax?\"" CR>)
 		      (<VERB? WHO WHAT>
 		       <PERFORM ,V?TELL-ABOUT ,ME ,PRSO>
 		       <RTRUE>)
@@ -1180,9 +1147,7 @@ shut your mouth and relax?\"" CR>)
 			    <PRSO? ,ME>>
 		       <COND (<PRSI? ,CLERKMATON>
 			      <TELL
-"\"Clerkmatons! They didn't last long, did they? Remember that time I asked one
-where we could find potholders, and it led us to a storeroom where shipping
-cartons for pots were kept? They were cute -- I sort of miss them.\"" CR>)
+"\"Clerkmatons! They didn't last long, did they? Remember that time I asked one where we could find potholders, and it led us to a storeroom where shipping cartons for pots were kept? They were cute -- I sort of miss them.\"" CR>)
 			     (<PRSI? ,BABY>
 			      <COND (<EQUAL? ,SYEAR 2041>
 				     <TELL
@@ -1195,24 +1160,20 @@ cartons for pots were kept? They were cute -- I sort of miss them.\"" CR>)
 				     <TELL
 "Jill looks at Mitchell, smiling glowingly. ">)>
 			      <TELL
-"\"I'm so happy about Mitch -- he's healthy, he's handsome, he's studious --
-what more could a parent ask for?\"" CR>)
+"\"I'm so happy about Mitch -- he's healthy, he's handsome, he's studious -- what more could a parent ask for?\"" CR>)
 			     (<AND <PRSI? ,PAINTING>
 				   <EQUAL? ,SYEAR 2041 2051>>
 			      <COND (<EQUAL? ,SYEAR 2041>
 				     <TELL
-"\"The watercolor? It's pretty, but it doesn't SAY anything. If only
-I could think of some good subject material...\"" CR>)
+"\"The watercolor? It's pretty, but it doesn't SAY anything. If only I could think of some good subject material...\"" CR>)
 				    (T
 				     <TELL
-"\"It's coming out well, don't you think?
-Thanks for suggesting the motif!\"" CR>)>)
+"\"It's coming out well, don't you think? Thanks for suggesting the motif!\"" CR>)>)
 			     (<PRSI? ,JILL-BOOK>
 			      <SETG YES-NO-FLAG 10>
 			      <QUEUE I-YES-NO 2>
 			      <TELL
-"\"Oh, Perry, I know they're all trashy. You're not going to start
-making fun of me again, are you?\"" CR>)
+"\"Oh, Perry, I know they're all trashy. You're not going to start making fun of me again, are you?\"" CR>)
 			     (<PRSI? ,FYLA>
 			      <TELL "\"Let's not talk about her.\"" CR>)
 			     (<PRSI? ,PERELMAN ,GOLD ,ESTHER ,RANDU ,GRIMWOLD
@@ -1283,8 +1244,7 @@ making fun of me again, are you?\"" CR>)
 		<TELL "Jill mumbles incoherently and rolls over." CR>)
 	       (<VERB? PLAY-WITH>
 		<TELL
-"You ask Jill if she's interested in a game of chess, or perhaps
-gin rummy, but she begs off." CR>)
+"You ask Jill if she's interested in a game of chess, or perhaps gin rummy, but she begs off." CR>)
 	       (<VERB? TOUCH SQUEEZE>
 		<COND (<EQUAL? ,JILL-COUNTER 0>
 		       <PERFORM ,V?ALARM ,JILL>
@@ -1298,9 +1258,7 @@ gin rummy, but she begs off." CR>)
 	       (<VERB? COMFORT>
 		<COND (,MITCHELL-NEWS-FLAG
 		       <TELL
-"Jill says, \"I'll be okay. I just need to be alone for a while.\"
-A moment later she adds, \"I love you, Perry.\" She buries her
-face in the pillows." CR>)
+"Jill says, \"I'll be okay. I just need to be alone for a while.\" A moment later she adds, \"I love you, Perry.\" She buries her face in the pillows." CR>)
 		      (<EQUAL? ,JILL-COUNTER 13>
 		       <TELL
 "As you hug her and stroke her back, Jill calms down noticeably." CR>)
@@ -1328,18 +1286,13 @@ face in the pillows." CR>)
 "Jill's thirty-nine years have done nothing to dim her natural beauty">)
 		      (<EQUAL? ,SYEAR 2061>
 		       <TELL
-"Jill's face is a bit lined by age, and there are gray streaks in
-her hair, but to you she appears with a loveliness undiminished by
-twenty-seven years of marriage">)
+"Jill's face is a bit lined by age, and there are gray streaks in her hair, but to you she appears with a loveliness undiminished by twenty-seven years of marriage">)
 		      (<EQUAL? ,SYEAR 2071>
 		       <TELL
-"Jill has aged dramatically during the last decade, an effect heightened
-by the fact that Jill has become more and more withdrawn; she has lost
-interest in many things, including her appearance">)
+"Jill has aged dramatically during the last decade, an effect heightened by the fact that Jill has become more and more withdrawn; she has lost interest in many things, including her appearance">)
 		      (<EQUAL? ,SYEAR 2091>
 		       <TELL
-"Jill's healthy demeanor and graceful pose are more befitting a woman
-twenty years her junior">)>
+"Jill's healthy demeanor and graceful pose are more befitting a woman twenty years her junior">)>
 		<TELL ". ">
 		<JILL-DESCFCN>)
 	       (<VERB? SHOW>
@@ -1350,8 +1303,7 @@ twenty years her junior">)>
 		       <SETG YES-NO-FLAG 11>
 		       <QUEUE I-YES-NO 2>
 		       <TELL
-"Jill's face melts, and her eyes grow moist. \"Isn't he a bundle
-of joy, Perry?\"" CR>)>)
+"Jill's face melts, and her eyes grow moist. \"Isn't he a bundle of joy, Perry?\"" CR>)>)
 	       (<VERB? GIVE>
 		<COND (<EQUAL? ,JILL-COUNTER 0>
 		       <PERFORM ,V?KISS ,JILL>
@@ -1359,9 +1311,7 @@ of joy, Perry?\"" CR>)>)
 		      (<PRSO? ,BABY>
 		       <MOVE ,BABY ,CRIB>
 		       <TELL
-"As Jill takes the baby he begins crying. \"Perry, you've woken him up!\" She
-begins rocking Mitchell gently. \"There, there, it's okay, go to sleep, that's
-a good little boy.\" She ">
+"As Jill takes the baby he begins crying. \"Perry, you've woken him up!\" She begins rocking Mitchell gently. \"There, there, it's okay, go to sleep, that's a good little boy.\" She ">
 		       <COND (<EQUAL? ,HERE ,BEDROOM>
 		       	      <TELL "places him in the crib">)
 		      	     (T
@@ -1370,8 +1320,7 @@ a good little boy.\" She ">
 		      (<PRSO? ,RUSTY-CROSS>
 		       <MOVE ,RUSTY-CROSS ,LOCAL-GLOBALS>
 		       <TELL
-"\"Perry, if the police see this, we'll get in trouble.\" Nevertheless,
-she slips the cross into her pocket." CR>)>)
+"\"Perry, if the police see this, we'll get in trouble.\" Nevertheless, she slips the cross into her pocket." CR>)>)
 	       (<VERB? FOLLOW>
 		;<COND (,DEBUG
 		       <TELL "[FOLLOW-FLAG = " N ,FOLLOW-FLAG ".]" CR>)>
@@ -1615,23 +1564,18 @@ house next year.\"">>
 		<CLEAR-BUF>)
 	       (<VERB? WASH>
 		<TELL
-"Although, as much as possible, you try to share with Jill the chores
-and pleasures of taking care of Mitchell, bathing him is one area where
-you're completely helpless." CR>)
+"Although, as much as possible, you try to share with Jill the chores and pleasures of taking care of Mitchell, bathing him is one area where you're completely helpless." CR>)
 	       (<AND <VERB? GIVE>
 		     <PRSO? ,BATHROOM-OBJECT ,SHOWER>>
 		<PERFORM ,V?WASH ,BABY>
 		<RTRUE>)
 	       (<VERB? EXAMINE>
 		<TELL
-"Your son, Mitchell Rav Simm, was named for your father and for your
-mentor. He's sleeping peacefully, his little face scrunched up in a cute
-mask of baby fat." CR>)
+"Your son, Mitchell Rav Simm, was named for your father and for your mentor. He's sleeping peacefully, his little face scrunched up in a cute mask of baby fat." CR>)
 	       (<AND <VERB? GIVE>
 		     <PRSO? ,FORMULA>>
 		<TELL
-"Mitchell wakes up for a minute and sucks on the bottle. A moment later, his
-breathing indicates that he is asleep." CR>)
+"Mitchell wakes up for a minute and sucks on the bottle. A moment later, his breathing indicates that he is asleep." CR>)
 	       (<VERB? FEED>
 		<COND (<HELD? ,FORMULA>
 		       <PERFORM ,V?GIVE ,FORMULA ,BABY>
@@ -1697,28 +1641,14 @@ so as not to wake him." CR>)
 	 <SETG MITCHELL-RAID-FLAG T>
 	 <SETG BRUISED T>
 	 <TELL
-" six or eight heavily armed Church police storm into the apartment. You see a
-look of horror come over Jill, as she covers her mouth with the back of her
-hand, as though stifling some silent scream. You follow her gaze, and -- a
-shock of recognition -- sauntering in behind the police...|
+" six or eight heavily armed Church police storm into the apartment. You see a look of horror come over Jill, as she covers her mouth with the back of her hand, as though stifling some silent scream. You follow her gaze, and -- a shock of recognition -- sauntering in behind the police...|
 |
-The ten years since you last saw him have left scant change on the face of
-your son. \"Mitchell!\" you yell, and take a step toward him, but a blow
-from one of the cops sends your frail, old body flying against the wall.|
+The ten years since you last saw him have left scant change on the face of your son. \"Mitchell!\" you yell, and take a step toward him, but a blow from one of the cops sends your frail, old body flying against the wall.|
 |
-\"She is the one.\" The voice is Mitchell's, but the tone is cold,
-unrecognizable, sending shivers through you. He raises a fur-clad arm,
-pointing at his mother without a hint of emotion. \"She spake against the
-Church; she tried to poison the mind of a child too young to know the Truth.\"
-The thugs grab Jill, who reaches toward Mitchell, tears of terror streaming
-down her face. Totally unresponsive, he turns and walks calmly out of the
-apartment.|
+\"She is the one.\" The voice is Mitchell's, but the tone is cold, unrecognizable, sending shivers through you. He raises a fur-clad arm, pointing at his mother without a hint of emotion. \"She spake against the Church; she tried to poison the mind of a child too young to know the Truth.\" The thugs grab Jill, who reaches toward Mitchell, tears of terror streaming down her face. Totally unresponsive, he turns and walks calmly out of the apartment.|
 |
-As Jill is dragged, screaming and crying, through the front door, you try to
-follow, but a cop pummels you in the stomach with his club. You fall to the
-floor, retching, as the apartment door slams closed, shutting you off forever
-from the son you cannot understand and the wife you will never see again." CR>>
-
+As Jill is dragged, screaming and crying, through the front door, you try to follow, but a cop pummels you in the stomach with his club. You fall to the floor, retching, as the apartment door slams closed, shutting you off forever from the son you cannot understand and the wife you will never see again." CR>>
+
 ;"epilogue apartment"
 
 <OBJECT SOLARIUM-OBJECT
@@ -1750,8 +1680,7 @@ from the son you cannot understand and the wife you will never see again." CR>>
       (LOC ROOMS)
       (DESC "Solarium")
       (LDESC
-"This enclosed sunporch of your penthouse apartment is surrounded by an outdoor
-patio, accessible to the south. To the north is a sprawling living room.")
+"This enclosed sunporch of your penthouse apartment is surrounded by an outdoor patio, accessible to the south. To the north is a sprawling living room.")
       (SOUTH TO PATIO)
       (NORTH TO EPILOGUE-LIVING-ROOM)
       (IN TO EPILOGUE-LIVING-ROOM)
@@ -1792,11 +1721,7 @@ patio, accessible to the south. To the north is a sprawling living room.")
 <ROUTINE PATIO-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Sunlight spills off the vines and shrubs of this wide outdoor terrace. The
-view, always breathtaking, seems particularly sharp today; beyond the parklands
-and forests to the west, the foothills of the Rockies are clearly visible; t"
-,RIVER-DESC " The glass-walled sunporch lies behind a curtain of vines to the
-north.">)>>
+"Sunlight spills off the vines and shrubs of this wide outdoor terrace. The view, always breathtaking, seems particularly sharp today; beyond the parklands and forests to the west, the foothills of the Rockies are clearly visible; t" ,RIVER-DESC " The glass-walled sunporch lies behind a curtain of vines to the north.">)>>
 
 <OBJECT FIREPLACE
 	(LOC LOCAL-GLOBALS)
@@ -1808,17 +1733,13 @@ north.">)>>
 <ROUTINE FIREPLACE-F ()
 	 <COND (<VERB? EXAMINE>
 		<TELL
-"Constructed of deep red brick, the fireplace has the usual equipment
-to filter the fire's smoke before releasing it up the chimney." CR>)>>
+"Constructed of deep red brick, the fireplace has the usual equipment to filter the fire's smoke before releasing it up the chimney." CR>)>>
 
 <ROOM EPILOGUE-LIVING-ROOM
       (LOC ROOMS)
       (DESC "Living Room")
       (LDESC
-"Sunken, comfy pillowseats form a vaguely oval perimeter around a central
-circular fireplace. The rest of the furniture has been removed. The dining
-room lies beyond a bamboo screen to the east. An open, curving stair leads
-up to the master bedroom, and a foyer leads north.")
+"Sunken, comfy pillowseats form a vaguely oval perimeter around a central circular fireplace. The rest of the furniture has been removed. The dining room lies beyond a bamboo screen to the east. An open, curving stair leads up to the master bedroom, and a foyer leads north.")
       (UP TO MASTER-BEDROOM)
       (EAST TO DINING-ROOM)
       (NORTH TO FOYER)
@@ -1836,8 +1757,7 @@ up to the master bedroom, and a foyer leads north.")
       (LOC ROOMS)
       (DESC "Master Bedroom")
       (LDESC
-"This is a huge, round bedroom, encircled by windows. A stairway leads
-down to the living room. As elsewhere, the furniture has been removed.")
+"This is a huge, round bedroom, encircled by windows. A stairway leads down to the living room. As elsewhere, the furniture has been removed.")
       (DOWN TO EPILOGUE-LIVING-ROOM)
       (GLOBAL LIVING-ROOM-OBJECT BEDROOM-OBJECT STAIRS GLOBAL-WINDOW)>
 
@@ -1869,9 +1789,7 @@ down to the living room. As elsewhere, the furniture has been removed.")
 <ROOM DINING-ROOM
       (LOC ROOMS)
       (DESC "Dining Room")
-      (LDESC
-"The spacious dining area is flanked by the living room, on the other side
-of the bamboo curtain to the west, and the kitchen, to the east.")
+      (LDESC "The spacious dining area is flanked by the living room, on the other side of the bamboo curtain to the west, and the kitchen, to the east.")
       (WEST TO EPILOGUE-LIVING-ROOM)
       (EAST TO EPILOGUE-KITCHEN)
       (IN TO EPILOGUE-KITCHEN)
@@ -1888,10 +1806,7 @@ of the bamboo curtain to the west, and the kitchen, to the east.")
 <ROOM EPILOGUE-KITCHEN
       (LOC ROOMS)
       (DESC "Kitchen")
-      (LDESC
-"Rimmed with butcher-block counters, softly lit by recessed zyolights, and
-decorated in a random pattern of pastel tile, the kitchen is both lovely and
-functional. You can exit to the west.")
+      (LDESC "Rimmed with butcher-block counters, softly lit by recessed zyolights, and decorated in a random pattern of pastel tile, the kitchen is both lovely and functional. You can exit to the west.")
       (WEST TO DINING-ROOM)
       (OUT TO DINING-ROOM)
       (GLOBAL SINK KITCHEN DINING-ROOM-OBJECT)>
@@ -1899,12 +1814,8 @@ functional. You can exit to the west.")
 <ROOM FOYER
       (LOC ROOMS)
       (DESC "Foyer")
-      (LDESC
-"This bright, airy hallway runs northwards from the living room to the
-apartment door. Tall, arched entrances lead east and west, and the bath
-is down a few steps to the southwest.")
-      (NORTH SORRY "A hologram of Jill appears. \"Don't go out, hon! The
-skycab will be here any second!\" The image vanishes.")
+      (LDESC "This bright, airy hallway runs northwards from the living room to the apartment door. Tall, arched entrances lead east and west, and the bath is down a few steps to the southwest.")
+      (NORTH SORRY "A hologram of Jill appears. \"Don't go out, hon! The skycab will be here any second!\" The image vanishes.")
       (SOUTH TO EPILOGUE-LIVING-ROOM)
       (SW TO EPILOGUE-BATHROOM)
       (DOWN TO EPILOGUE-BATHROOM)
@@ -1916,10 +1827,7 @@ skycab will be here any second!\" The image vanishes.")
 <ROOM EPILOGUE-BATHROOM
       (LOC ROOMS)
       (DESC "Bath")
-      (LDESC
-"An antique, tile decor masks the ultramodern features of this large
-bathroom. A whirlpool tub fills the far end of the room. The exit, up
-a few steps, is northeast.")
+      (LDESC "An antique, tile decor masks the ultramodern features of this large bathroom. A whirlpool tub fills the far end of the room. The exit, up a few steps, is northeast.")
       (NE TO FOYER)
       (OUT TO FOYER)
       (UP TO FOYER)
@@ -1968,10 +1876,7 @@ a few steps, is northeast.")
 <ROOM DEN
       (LOC ROOMS)
       (DESC "Den")
-      (LDESC
-"A second fireplace fills the far wall of this homey space. Aside from a
-wall-mounted entertainment center, all the furnishings are gone. An arched
-doorway leads east.")
+      (LDESC "A second fireplace fills the far wall of this homey space. Aside from a wall-mounted entertainment center, all the furnishings are gone. An arched doorway leads east.")
       (EAST TO FOYER)
       (OUT TO FOYER)
       (GLOBAL HALLWAY DEN-OBJECT FIREPLACE)>
@@ -1987,10 +1892,7 @@ doorway leads east.")
 <ROUTINE ENTERTAINMENT-CENTER-F ()
 	 <COND (<VERB? EXAMINE>
 		<TELL
-"Although equipped with the full range of audio, video, and holovision
-capabilities, the EC's functions go far beyond entertainment. It has
-complete teaching and library packages, and serves as the main computer
-interface. It is currently off." CR>)
+"Although equipped with the full range of audio, video, and holovision capabilities, the EC's functions go far beyond entertainment. It has complete teaching and library packages, and serves as the main computer interface. It is currently off." CR>)
 	       (<VERB? ON>
 		<TELL "The power node has been packed away." CR>)>>
 
@@ -1998,8 +1900,7 @@ interface. It is currently off." CR>)
       (LOC ROOMS)
       (DESC "Guest Room")
       (LDESC
-"This is a sunny, cozy bedroom, barren of furniture. The only way out
-is to the west.")
+"This is a sunny, cozy bedroom, barren of furniture. The only way out is to the west.")
       (WEST TO FOYER)
       (OUT TO FOYER)
       (GLOBAL HALLWAY BEDROOM-OBJECT)>
@@ -2010,9 +1911,7 @@ is to the west.")
       (LOC ROOMS)
       (DESC "Skycab")
       (LDESC
-"This skycab is a luxurious, top-of-the-line model, a veritable sky
-limousine. The opulent features include reclining seats, tinted zero-glare
-windows, and a two-meter viewscreen.")
+"This skycab is a luxurious, top-of-the-line model, a veritable sky limousine. The opulent features include reclining seats, tinted zero-glare windows, and a two-meter viewscreen.")
       (OUT SORRY "You can't leave the cab while it's in the air!")
       (GLOBAL GLOBAL-WINDOW RIVER PIER-OBJECT PARK-OBJECT MUSEUM-OBJECT
        	      BSF-BASE PEOPLE)>
@@ -2077,8 +1976,7 @@ windows, and a two-meter viewscreen.")
 		<CANT-SEE ,CULTURAL-CENTER>)
 	       (<VERB? EXAMINE>
 		<TELL
-"Along the river, south of the pier, are the outdoor shells
-and amphitheatres of the ">
+"Along the river, south of the pier, are the outdoor shells and amphitheatres of the ">
 		<PRINTD ,CULTURAL-CENTER>
 		<TELL "." CR>)
 	       (T

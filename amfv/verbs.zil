@@ -30,18 +30,15 @@
 "You feel as if you're burning up with fever: weak, hot, and sweaty." CR>)
 		      (T
 		       <TELL
-"You detect a throbbing feeling, almost like a dull pain or a wave of heat,
-which is severely impairing your functioning." CR>)>)
+"You detect a throbbing feeling, almost like a dull pain or a wave of heat, which is severely impairing your functioning." CR>)>)
 	       (<G? ,AIR-CONDITIONING-COUNTER 19>
 		<CRLF>
 		<COND (,SIMULATING
 		       <TELL
-"Despite the coolness of the air, you feel hot and flushed, almost as
-though you were running a slight fever." CR>)
+"Despite the coolness of the air, you feel hot and flushed, almost as though you were running a slight fever." CR>)
 		      (T
 		       <TELL
-"You feel a strange sensation, a physical disturbance, which you
-cannot seem to pin down." CR>)>)
+"You feel a strange sensation, a physical disturbance, which you cannot seem to pin down." CR>)>)
 	       (<NOT ,SIMULATING>
 		<TELL "All your systems seem to be functioning properly." CR>)
 	       (,BRUISED
@@ -55,9 +52,7 @@ cannot seem to pin down." CR>)>)
 	       (<EQUAL? ,SYEAR 2081>
 		<SCORE 40> ;"2 points"
 		<TELL
-"You are weak from hunger, a dangerous condition at your age. Your last meal
-was... you can't even remember. You remember picking at the remains of a
-squirrel, but that might have been weeks ago. Your memories are jumbled.">
+"You are weak from hunger, a dangerous condition at your age. Your last meal was... you can't even remember. You remember picking at the remains of a squirrel, but that might have been weeks ago. Your memories are jumbled.">
 		<COND (<FSET? ,CEMETERY ,ONBIT>
 		       <TELL
 " In addition, your jaw is throbbing from that attack in the cemetery.">)>
@@ -99,8 +94,7 @@ squirrel, but that might have been weeks ago. Your memories are jumbled.">
 <ROUTINE FINISH ()
 	 <PUTB ,P-INBUF 0 20> ;"so you can't input too many characters"
 	 <TELL CR
-"Would you like to start over, restore a saved position, or end this session?|
-(Type RESTART, RESTORE, or QUIT): >">
+"Would you like to RESTART from the beginning, RESTORE a saved position, or QUIT this session?|>">
 	 <READ ,P-INBUF ,P-LEXV>
 	 <PUTB ,P-INBUF 0 60>
 	 <COND (<EQUAL? <GET ,P-LEXV 1> ,W?RESTART>
@@ -245,11 +239,11 @@ that you've taken a total of " N ,TURNS " turns." CR>>
 	 <SETG ELAPSED-TIME 0>
 	 <TITLE-PRINT>
 	 <TELL CR
-"Infocom interactive fiction - a science fiction story|
-Copyright (c) 1985 by Infocom, Inc. All rights reserved." CR>
+"Infocom interactive fiction -|a science fiction story|
+Copyright (c) 1985 by|Infocom, Inc. All rights reserved." CR>
 	 <TITLE-PRINT>
 	 <TELL " is a trademark of Infocom, Inc.|
-Release " N .V " / Serial number ">
+Release " N .V "(r79) for Status Line on the Pico-8 / Serial number ">
 	 <REPEAT ()
 	   <COND (<G? <SET CNT <+ .CNT 1>> 23>
 		  <RETURN>)
@@ -310,7 +304,7 @@ Release " N .V " / Serial number ">
 	 <DIROUT ,D-RECORD-OFF>
 	 <RTRUE>>
 
-;<ROUTINE V-$CHEAT ()
+<ROUTINE V-$CHEAT ()
 	 <COND (<NOT <PRSO? ,INTNUM>>
 		<TELL "Try $CHEAT 1, 2 or 3." CR>)
 	       (<EQUAL? ,P-NUMBER 1>
@@ -363,7 +357,7 @@ Release " N .V " / Serial number ">
 	       (T
 		<SETG DEBUG T>
 		<TELL "Debugging on." CR>)>>
-
+
 ;"subtitle real verbs"
 
 <ROUTINE V-ABORT ()
@@ -711,8 +705,7 @@ object, LOOK INSIDE it, LOOK UNDER it, etc." CR>>
 		<FCLEAR ,PRSO ,ONBIT>
 		<MOVE ,PLAYER ,HERE>
 		<TELL
-"You stand slowly, still feeling a little shaky from
-your joybooth experience." CR>)
+"You stand slowly, still feeling a little shaky from your joybooth experience." CR>)
 	       (T
 		<MOVE ,PLAYER ,HERE>
 		<TELL "You are no longer ">
@@ -908,8 +901,7 @@ your joybooth experience." CR>)
 	 <COND (,PRSO
 		<COND (<FSET? ,PRSO ,ACTORBIT>
 		       <TELL
-"[That's not the correct way to speak to people.
-Try \"" D ,PRSO ", hello.\"]" CR>)
+"[That's not the correct way to speak to people. Try \"" D ,PRSO ", hello.\"]" CR>)
 		      (T
 		       <V-COUNT>)>)
 	       (<SET ACTOR <FIND-IN ,HERE ,ACTORBIT>>
@@ -921,8 +913,7 @@ Try \"" D ,PRSO ", hello.\"]" CR>)
 <ROUTINE V-HELP ()
 	 <SETG ELAPSED-TIME 0>
 	 <TELL
-"[If you're really stuck, you can order an InvisiClues Hint Booklet from your
-dealer, or via mail order using the form that came in your package.]" CR>>
+"[If you're really stuck, you can order an InvisiClues Hint Booklet from your dealer, or via mail order using the form that came in your package.]" CR>>
 
 <ROUTINE V-HIDE ()
 	 <TELL "There's no place to hide here." CR>>
@@ -1046,7 +1037,7 @@ dealer, or via mail order using the form that came in your package.]" CR>>
 		<TELL ". ">
 		<COND (<NOT <EQUAL? ,PART-FLAG 4>>
 		       <TELL
-"The following locations are equipped with communication outlets:" CR>)>
+"The following locations are equipped with comm outlets:" CR>)>
 		<PERFORM ,V?DISPLAY ,OUTLETS>
 		<RTRUE>)
 	       (T
@@ -1193,8 +1184,7 @@ dealer, or via mail order using the form that came in your package.]" CR>>
 		     <EQUAL? ,MEAL-STATUS 1>>
 		<SETG MEAL-STATUS 2>
 		<TELL
-"\"Fine,\" says the maitre d'. \"I'll come back when the rest of your
-party arrives.\" He walks away." CR>)
+"\"Fine,\" says the maitre d'. \"I'll come back when the rest of your party arrives.\" He walks away." CR>)
 	       (<G? ,GRIMWOLD-COUNTER 0>
 		<TELL "Grimwold fidgets impatiently." CR>)
 	       (<OR <EQUAL? ,YES-NO-FLAG 1 2 3>
@@ -1217,8 +1207,7 @@ party arrives.\" He walks away." CR>)
 	       (<EQUAL? ,YES-NO-FLAG 12>
 		<COND (<EQUAL? ,HERE ,HOSPITAL>
 		       <TELL
-"The nurse replies, \"Well, then, there's no loitering here.\" She summons
-an orderly to escort you away." CR CR>
+"The nurse replies, \"Well, then, there's no loitering here.\" She summons an orderly to escort you away." CR CR>
 		       <GOTO ,ELM-AND-KENNEDY>
 		       <SETG FOLLOW-FLAG 13>
 		       <QUEUE I-UNFOLLOW <+ ,ELAPSED-TIME 2>>
@@ -1353,13 +1342,10 @@ an orderly to escort you away." CR CR>
 	 <COND (,SIMULATING
 		<SETG ELAPSED-TIME 3>
 		<TELL
-"Although you've never been particularly religious, you pray for
-several minutes." CR>)
+"Although you've never been particularly religious, you pray for several minutes." CR>)
 	       (T
 		<TELL
-"You do so. The Creator of the Universe, if He exists, is likely to listen
-with compassion to your prayers, as much as He would to the prayers of any
-man." CR>)>>
+"You do so. The Creator of the Universe, if He exists, is likely to listen with compassion to your prayers, as much as He would to the prayers of any man." CR>)>>
 
 <ROUTINE V-PUSH ()
 	 <HACK-HACK "Pushing">>
@@ -1739,8 +1725,7 @@ man." CR>)>>
 			      <MOVE ,JILL ,HERE>
 			      <SETG JILL-COUNTER 1>
 			      <TELL
-"Jill is shaking you gently, cooing, \"Perry, hon, wake
-up.\" Diffuse sunlight seeps">)
+"Jill is shaking you gently, cooing, \"Perry, hon, wake up.\" Diffuse sunlight seeps">)
 			     (T
 			      <COND (,MITCHELL-RAID-FLAG
 			      	     <TELL
@@ -2388,8 +2373,7 @@ up.\" Diffuse sunlight seeps">)
 	       (<EQUAL? ,YES-NO-FLAG 12>
 		<COND (<EQUAL? ,HERE ,HOSPITAL>
 		       <TELL
-"A few quick questions by the nurse reveal that you need no hospital
-attention. She tells you so, ">
+"A few quick questions by the nurse reveal that you need no hospital attention. She tells you so, ">
 		       <COND (<EQUAL? ,SYEAR 2061 2071>
 		       	      <TELL
 "adding haughtily that you couldn't afford their services anyway, ">)>
@@ -2409,8 +2393,7 @@ attention. She tells you so, ">
 "\"I'll need your credit card if you want to make a transaction...\"" CR>)
 		      (<EQUAL? ,HERE ,BASE-GATE>
 		       <TELL
-"\"Well you can't go on, and you can't stay here, so you might as well
-turn around and get lost.\"" CR>)
+"\"Well you can't go on, and you can't stay here, so you might as well turn around and get lost.\"" CR>)
 		      (T
 		       <COND (<EQUAL? ,SYEAR 2041>
 			      <TELL "\"Feel free to look around...\"" CR>)
@@ -2421,7 +2404,7 @@ turn around and get lost.\"" CR>)
 "\"If you wanna buy something, say so.\"" CR>)>)>)
 	       (T
 		<TELL "You sound rather positive." CR>)>>
-
+
 ;"subtitle object manipulation"
 
 <ROUTINE ITAKE ("OPTIONAL" (VB T) "AUX" CNT OBJ)
@@ -2501,16 +2484,16 @@ turn around and get lost.\"" CR>)
 			       <SET WT <+ .WT <WEIGHT .CONT>>>)>
 			<COND (<NOT <SET CONT <NEXT? .CONT>>> <RETURN>)>>)>
 	 <+ .WT <GETP .OBJ ,P?SIZE>>>
-
+
 ;"subtitle describers"
 
 <GLOBAL INDENTS
 	<PTABLE ""
-	        "   "
+	        "  "
+	        "    "
 	        "      "
-	        "         "
-	        "            "
-	        "               ">>
+	        "        "
+	        "          ">>
 
 <ROUTINE DESCRIBE-ROOM ("OPTIONAL" (LOOK? <>) "AUX" (PRINT-DESC <>) STR AV)
 	 <COND (<OR .LOOK?
@@ -2575,18 +2558,15 @@ turn around and get lost.\"" CR>)
 		      (<EQUAL? ,LIGHT-LEVEL 1>
 		       <COND (<L? ,STIME 720>
 			      <TELL
-" The city is still fairly quiet, but there are more people around now
-than during the dead of night.">)
+" The city is still fairly quiet, but there are more people around now than during the dead of night.">)
 			     (T
 			      <TELL
-" The midday crowds have almost completely dispersed;
-the street is much less busy now.">)>)
+" The midday crowds have almost completely dispersed; the street is much less busy now.">)>)
 		      (<OR <EQUAL? ,SYEAR 2041>
 			   <AND <G? ,STIME 720>
 				<L? ,STIME 1260>>>
 		       <TELL
-" The street is dark and almost completely deserted. Only a few people are
-visible, hurrying to destinations unknown to you.">)
+" The street is dark and almost completely deserted. Only a few people are visible, hurrying to destinations unknown to you.">)
 		      (T ;"curfew"
 		       <TELL " The street is totally deserted.">)>)>>
 
@@ -2737,7 +2717,7 @@ long description (fdesc or ldesc), otherwise will print short."
 	       (T
 		<TELL "It's empty (not counting you)." CR>)>
 	 <MOVE ,PLAYER ,PRSO>>
-
+
 ;"subtitle movement and death"
 
 <DIRECTIONS ;"Do not change the order of the first 8 without consulting MARC!"
@@ -2919,8 +2899,7 @@ long description (fdesc or ldesc), otherwise will print short."
 	 <CRLF> <CRLF>
 	 ;<BUFOUT <>>
 	 <HLIGHT ,H-BOLD>
-	 <TELL "  -- SIMULATION TERMINATED --">
-	 
+	 <TELL "- SIMULATION TERMINATED -">
 	 <HLIGHT 0>
 	 ;<BUFOUT T>
 	 <CRLF>
@@ -2944,7 +2923,7 @@ long description (fdesc or ldesc), otherwise will print short."
 	 <SETG SIMULATING <>>
 	 <SETG MODE ,COMM-MODE>
 	 <GOTO ,COMM-ROOM>>
-
+
 ;"subtitle useful utility routines"
 
 <ROUTINE MOBY-VERB? ()
@@ -3145,7 +3124,7 @@ long description (fdesc or ldesc), otherwise will print short."
 	<LTABLE
 	 0
 	 "What a concept."
-         "Nice try."
+	 "Nice try."
 	 "You can't be serious."
 	 "Not bloody likely.">>
 

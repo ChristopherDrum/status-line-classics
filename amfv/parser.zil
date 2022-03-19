@@ -100,7 +100,7 @@ with 'P-'. Local variables are not restricted in any way."
    If the input is <direction> or <walk> <direction>, fall out immediately
    setting PRSA to ,V?WALK and PRSO to <direction>. Otherwise, perform
    all required orphaning, syntax checking, and noun clause lookup."   
-
+
 <ROUTINE PARSER ("AUX" (PTR ,P-LEXSTART) WRD (VAL 0) (VERB <>) OMERGED
 		       OWINNER LEN (DIR <>) (NW 0) (LW 0)(CNT -1)(OF-FLAG <>))
 	<REPEAT ()
@@ -593,7 +593,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 		<SET SUM <+ .SUM <* .TIM 60>>>)>
 	 <SETG P-NUMBER .SUM>
 	 ,W?INTNUM>
-
+
 <ROUTINE ORPHAN-MERGE ("AUX" (CNT -1) TEMP VERB BEG END (ADJ <>) WRD) 
    <SETG P-OFLAG <>>
    <SET WRD <GET <GET ,P-ITBL ,P-VERBN> 0>>
@@ -699,7 +699,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 	<AND <NOT <==? <GET ,P-OTBL ,P-NC2> 0>> <SETG P-NCN 2>>
 	<SETG P-ACLAUSE <>>
 	<RTRUE>>
-
+
 ;"Print undefined word in input. PTR points to the unknown word in P-LEXV"   
 
 <ROUTINE WORD-PRINT (CNT BUF)
@@ -751,7 +751,7 @@ it's own orphaning. If return is true, the syntax is saved in P-SYNTAX."
 <CONSTANT P-SACTION 7>
 
 <CONSTANT P-SONUMS 3>
-
+
 <ROUTINE SYNTAX-CHECK
 	("AUX" SYN LEN NUM OBJ (DRIVE1 <>) (DRIVE2 <>) PREP VERB TMP)
 	<COND (<0? <SET VERB <GET ,P-ITBL ,P-VERB>>>
@@ -862,7 +862,7 @@ it's own orphaning. If return is true, the syntax is saved in P-SYNTAX."
 ;<ROUTINE CANT-ORPHAN ()
 	 <TELL "\"I don't understand! What are you referring to?\"" CR>
 	 <RFALSE>>
-
+
 <ROUTINE ORPHAN (D1 D2 "AUX" (CNT -1))
 	<COND (<NOT ,P-MERGED>
 	       <PUT ,P-OCLAUSE ,P-MATCHLEN 0>)>
@@ -976,7 +976,7 @@ it's own orphaning. If return is true, the syntax is saved in P-SYNTAX."
 			      <CLAUSE-ADD .INSRT>)>
 		       <CLAUSE-ADD <GET .BEG 0>>)>
 		<SET BEG <REST .BEG ,P-WORDLEN>>>>
-
+
 <ROUTINE CLAUSE-ADD (WRD "AUX" PTR)
 	<SET PTR <+ <GET ,P-OCLAUSE ,P-MATCHLEN> 2>>
 	<PUT ,P-OCLAUSE <- .PTR 1> .WRD>
@@ -1048,7 +1048,7 @@ it's own orphaning. If return is true, the syntax is saved in P-SYNTAX."
 			     <SETG P-PRSO <BUT-MERGE ,P-PRSO>>)
 			    (T <SETG P-PRSI <BUT-MERGE ,P-PRSI>>)>)>)>
 	<RTRUE>>  
-
+
 <ROUTINE BUT-MERGE (TBL "AUX" LEN BUTLEN (CNT 1) (MATCHES 0) OBJ NTBL)
 	<SET LEN <GET .TBL ,P-MATCHLEN>>
 	<PUT ,P-MERGE ,P-MATCHLEN 0>
@@ -1096,7 +1096,7 @@ it's own orphaning. If return is true, the syntax is saved in P-SYNTAX."
 <CONSTANT P-ONE 2>  
  
 <CONSTANT P-INHIBIT 4>   
-
+
 <ROUTINE SNARFEM
 	 (PTR EPTR TBL "AUX" (BUT <>) LEN TMP WRD NW ONEOBJ (WAS-ALL <>))
    <SETG P-AND <>>
@@ -1368,7 +1368,7 @@ the words in the last clause"
 		<TELL ".\"" CR>)
 	       (T
 		<TELL "?]" CR>)>>
-
+
 <ROUTINE GLOBAL-CHECK (TBL "AUX" LEN RMG RMGL (CNT 0) OBJ OBITS FOO)
 	<SET LEN <GET .TBL ,P-MATCHLEN>>
 	<SET OBITS ,P-SLOCBITS>

@@ -28,10 +28,7 @@
 		       <SCORE 11> ;"1 point"
 		       <TELL "crumbling">)>
 		<TELL
-" portico of City Hall stretches along the west side of the plaza, and
-Dunbar's lies on the southeast corner. Park Street leads north and south.
-Main Street and Centre Street both begin here, leading eastward and
-northeastward, respectively.">)>>
+" portico of City Hall stretches along the west side of the plaza, and Dunbar's lies on the southeast corner. Park Street leads north and south. Main Street and Centre Street both begin here, leading eastward and northeastward, respectively.">)>>
 
 <ROUTINE DUNBARS-ENTER-F ()
 	 <COND (<OR <G? ,STIME 1260>
@@ -41,8 +38,7 @@ northeastward, respectively.">)>>
 	       (<EQUAL? ,SYEAR 2071>
 		<SCORE 122> ;"1 point"
 		<TELL
-"A security guard stops you at the doorway, scrutinizing you with a haughty
-sneer. \"Do you have an appointment?\"">
+"A security guard stops you at the doorway, scrutinizing you with a haughty sneer. \"Do you have an appointment?\"">
 		<COND (<YES?>
 		       <TELL CR "\"">
 		       <REPEAT ()
@@ -143,14 +139,10 @@ sneer. \"Do you have an appointment?\"">
 "The clothes are diverse and fashionable, and quite steeply priced." CR>)
 		      (<EQUAL? ,SYEAR 2051>
 		       <TELL
-"The clothes are quite stylish, and virtually all
-out of your price range." CR>)
+"The clothes are quite stylish, and virtually all out of your price range." CR>)
 		      (T
 		       <TELL
-"The clothes in the few racks near you are mostly in the drab browns and
-olives worn by the lower classes. Over in the restricted areas of the store,
-you can spot racks laden with stylish clothes in the violets and golds
-favored by Churchmen and other landowners." CR>)>)>> 
+"The clothes in the few racks near you are mostly in the drab browns and olives worn by the lower classes. Over in the restricted areas of the store, you can spot racks laden with stylish clothes in the violets and golds favored by Churchmen and other landowners." CR>)>)>> 
 
 <OBJECT CLOTHES
 	(LOC GLOBAL-OBJECTS)
@@ -171,8 +163,7 @@ favored by Churchmen and other landowners." CR>)>)>>
 			      <COND (<EQUAL? ,SYEAR 2041>
 				     <SET GARMENT ,SWEATER>
 				     <TELL
-"You look through many racks, finding nothing you like, and finally select
-a brightly colored myalon sweater that fits you perfectly">)
+"You look through many racks, finding nothing you like, and finally select a brightly colored myalon sweater that fits you perfectly">)
 				    (T
 				     <SET GARMENT ,VEST>
 				     <TELL
@@ -203,8 +194,7 @@ a brightly colored myalon sweater that fits you perfectly">)
 			      <RTRUE>)>
 		       <PUTP ,SPEAR-CARRIER ,P?SDESC "clerk">
 		       <TELL
-"You enter a clothing store, but they have little that suits your taste. You
-finally pick out a conservative male scarf">
+"You enter a clothing store, but they have little that suits your taste. You finally pick out a conservative male scarf">
 		       <COND (<TOO-POOR 39 ,SCARF>
 			      <TELL CR "You meekly leave the store." CR>
 			      <RTRUE>)>
@@ -222,8 +212,7 @@ finally pick out a conservative male scarf">
 	       (<VERB? REMOVE TAKE-OFF ;DROP> ;"DROP is handled by IDROP"
 		<COND (<IN-APARTMENT?>
 		       <TELL
-"You remove your clothes for a minute, but there's a bit of a chill in
-the air, so you decide to put them back on." CR>)
+"You remove your clothes for a minute, but there's a bit of a chill in the air, so you decide to put them back on." CR>)
 		      (T
 		       <TELL
 "You'd be arrested if you removed your clothes in public!" CR>)>)
@@ -305,13 +294,11 @@ the air, so you decide to put them back on." CR>)
 <ROUTINE CITY-HALL-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"The city's seat of government is an old concrete-slab building dating back to
-the late twentieth century. ">
+"The city's seat of government is an old concrete-slab building dating back to the late twentieth century. ">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <SCORE 11> ;"1 point"
 		       <TELL
-"The interior is decrepit; it looks as though no maintenance has
-been performed here for years. ">)>
+"The interior is decrepit; it looks as though no maintenance has been performed here for years. ">)>
 		<TELL "The only exit is east.">)
 	       (<EQUAL? .RARG ,M-END>
 		<CLOSING-TIME 1080 "the building" "a guard" ,ROCKVIL-CENTRE>)>>
@@ -366,8 +353,7 @@ been performed here for years. ">)>
 	(LOC LOCAL-GLOBALS)
 	(DESC "government official")
 	(LDESC
-"A government official is sitting on a bench in the center of the lobby,
-eating a snack.")
+"A government official is sitting on a bench in the center of the lobby, eating a snack.")
 	(SYNONYM OFFICIAL)
 	(ADJECTIVE GOVERNMENT GOVT)
 	(FLAGS ACTORBIT)
@@ -384,14 +370,11 @@ eating a snack.")
 		       <COND (,RECORDING
 		       	      <PUT ,RECORDING-TABLE 2 1>)>
 		       <TELL
-"cheerily comments on how well things in the city are running, and how
-rewarding his job has been lately" ,OFFICIAL-LEAVES CR>)
+"cheerily comments on how well things in the city are running, and how rewarding his job has been lately" ,OFFICIAL-LEAVES CR>)
 		      (T
 		       <SCORE 136> ;"2 points"
 		       <TELL
-"grumpily complains that most of his department has been laid off as city
-services are cut back. Suddenly he notices the time, looks frightened,
-and rushes away." CR>)> 
+"grumpily complains that most of his department has been laid off as city services are cut back. Suddenly he notices the time, looks frightened, and rushes away." CR>)> 
 		<CLEAR-BUF>)
 	       ;(<AND <VERB? ASK-ABOUT>
 		     <PRSO? ,GOVERNMENT-OFFICIAL>>
@@ -435,13 +418,11 @@ and rushes away." CR>)>
 <ROUTINE MAIN-AND-KENNEDY-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This is the heart of the downtown area, flanked by classical glass-and-steel
-skyscrapers. The skybus terminal ">
+"This is the heart of the downtown area, flanked by classical glass-and-steel skyscrapers. The skybus terminal ">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <SCORE 12> ;"2 points"
 		       <TELL
-"on the northwest corner has been closed for several years, following an
-unprofitable experiment to sell the skybus system to a private company">)
+"on the northwest corner has been closed for several years, following an unprofitable experiment to sell the skybus system to a private company">)
 		      (T
 		       <TELL "is on the northwest corner">)>
 		<TELL ". To the southwest is an entrance to ">
@@ -455,12 +436,10 @@ unprofitable experiment to sell the skybus system to a private company">)
 		<TELL "." CR CR>
 		<PERFORM ,V?EXAMINE ,INFOTECH-BUILDING>
 		<TELL CR ,SILICORP-DESCRIPTION
-" From this intersection, Main Street runs east and west, and Kennedy
-Street can take you north or south.">)>>
+" From this intersection, Main Street runs east and west, and Kennedy Street can take you north or south.">)>>
 
 <GLOBAL SILICORP-DESCRIPTION
-"The high-rise building on the southeast corner is the Silicorp Building,
-a tall office tower.">
+"The high-rise building on the southeast corner is the Silicorp Building, a tall office tower.">
 
 <OBJECT SILICORP-BUILDING
 	(LOC MAIN-AND-KENNEDY)
@@ -495,8 +474,7 @@ a tall office tower.">
 		<TELL ,LOOK-AROUND CR>)
 	       (<VERB? EXAMINE>
 		<TELL
-"The skyscraper on the northeast corner is one of Rockvil's most famous
-landmarks, the ">
+"The skyscraper on the northeast corner is one of Rockvil's most famous landmarks, the ">
 		<PRINTD ,INFOTECH-BUILDING>
 		<TELL
 ". This 130-story office tower is the tallest building in the city and the ">
@@ -532,19 +510,16 @@ landmarks, the ">
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"This is part of the Commuter Skybus System (CSS), built during the 2010's by
-the now-defunct Federal Energy Independence Agency. ">)
+"This is part of the Commuter Skybus System (CSS), built during the 2010's by the now-defunct Federal Energy Independence Agency. ">)
 		      (<EQUAL? ,SYEAR 2061>
 		       <SCORE 123> ;"1 point"
 		       <TELL
-"This station, built long ago by government funds, looks run-down
-and in need of repair. ">)>
+"This station, built long ago by government funds, looks run-down and in need of repair. ">)>
 		<TELL
 "Skybuses depart from this terminal for many suburban points. The ">
 		<PRINTD ,BOARDING-PLATFORM>
 		<TELL
-"s lie to the northwest, and the exit to the street is southeast. A stairway
-leads downward.">)>>
+"s lie to the northwest, and the exit to the street is southeast. A stairway leads downward.">)>>
 
 <OBJECT BOARDING-PLATFORM
 	(LOC LOCAL-GLOBALS)
@@ -658,13 +633,10 @@ leads downward.">)>>
 "There is a construction project in progress here:" CR>
 		       <PERFORM ,V?READ ,GLOBAL-SIGN>
 		       <TELL
-"The project is still in the early stages, with trees being torn up on one end
-of the site, and digging for the foundation going on at the other end.">)
+"The project is still in the early stages, with trees being torn up on one end of the site, and digging for the foundation going on at the other end.">)
 		      (T
 		       <TELL
-"This is a small, downtown park with gates leading northeast, southeast, and
-southwest. There is a sprawling, free-form waterpool surrounding a statue
-of John F. Kennedy in the center of the park.">)>)>>
+"This is a small, downtown park with gates leading northeast, southeast, and southwest. There is a sprawling, free-form waterpool surrounding a statue of John F. Kennedy in the center of the park.">)>)>>
 
 <OBJECT WATERPOOL
 	(LOC LOCAL-GLOBALS)
@@ -679,8 +651,7 @@ of John F. Kennedy in the center of the park.">)>)>>
 		<TELL "Swimming in public fountains is illegal." CR>)
 	       (<VERB? LOOK-INSIDE EXAMINE>
 		<TELL
-"You look into the waters of the pool, hoping to find some coins, or
-perhaps an unusual fish. However, you discover nothing of interest." CR>)>>
+"You look into the waters of the pool, hoping to find some coins, or perhaps an unusual fish. However, you discover nothing of interest." CR>)>>
 
 <OBJECT STATUE
 	(LOC LOCAL-GLOBALS)
@@ -705,8 +676,8 @@ perhaps an unusual fish. However, you discover nothing of interest." CR>)>>
 	(ADJECTIVE SMALL BRONZE)
 	(FLAGS NDESCBIT READBIT)
 	(TEXT
-"       John Fitzgerald Kennedy|
-              1917-1963")>
+"     John Fitzgerald Kennedy|
+             1917-1963")>
 
 <ROOM ELM-AND-PARK
       (LOC ROOMS)
@@ -727,8 +698,7 @@ perhaps an unusual fish. However, you discover nothing of interest." CR>)>>
 <ROUTINE ELM-AND-PARK-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This is the intersection of the north-south Park Street and the
-east-west Elm Street. A ">
+"This is the intersection of the north-south Park Street and the east-west Elm Street. A ">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <TELL "cluster of townhouses">)
 		      (<EQUAL? ,SYEAR 2061>
@@ -736,8 +706,7 @@ east-west Elm Street. A ">
 		      (T
 		       <TELL "park entrance">)>
 		<TELL
-" is on the northeast corner, and large, old-fashioned edifices occupy
-the other three corners of the intersection.">)>>
+" is on the northeast corner, and large, old-fashioned edifices occupy the other three corners of the intersection.">)>>
 
 <ROUTINE COURTHOUSE-ENTER-F ()
 	 <COND (<OR <G? ,STIME 990>
@@ -761,8 +730,7 @@ the other three corners of the intersection.">)>>
 		<TELL "The ">
 		<PRINTD ,COURTHOUSE-OBJECT>
 		<TELL
-" is of the same vintage as the other governmental buildings in the area,
-dating from around 1990 or so. An exit leads southeast.">
+" is of the same vintage as the other governmental buildings in the area, dating from around 1990 or so. An exit leads southeast.">
 		<COND (<AND <G? ,STIME 570>
 			   <L? ,STIME 1080>>
 		       <TELL CR CR "The court is in session. ">
@@ -775,13 +743,11 @@ dating from around 1990 or so. An exit leads southeast.">
 			     (<EQUAL? ,SYEAR 2061>
 			      <SCORE 15> ;"5 points"
 			      <TELL
-"An Asian-American juvenile has just been handed a life sentence for
-violating the Uniform Morality Code">)
+"An Asian-American juvenile has just been handed a life sentence for violating the Uniform Morality Code">)
 			     (<EQUAL? ,SYEAR 2071>
 			      <SCORE 16> ;"8 points"
 			      <TELL
-"Twenty pathetic, emaciated people are being tattooed for upcoming Execution
-Matches for cheating on their Food Allowance">)>
+"Twenty pathetic, emaciated people are being tattooed for upcoming Execution Matches for cheating on their Food Allowance">)>
 		       <TELL ".">)>)
 	       (<EQUAL? .RARG ,M-END>
 		<SHOP-CLOSES 990 "courthouse" "A bailiff" ,ELM-AND-PARK>)>>
@@ -847,8 +813,7 @@ Matches for cheating on their Food Allowance">)>
 		<RFALSE>)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This is the headquarters for all the city's precinct stations. The building
-is at least " N <- ,SYEAR 1966> " years old">
+"This is the headquarters for all the city's precinct stations. The building is at least " N <- ,SYEAR 1966> " years old">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL ", but has obviously been recently renovated">)
 		      (<EQUAL? ,SYEAR 2061 2071>
@@ -862,8 +827,7 @@ is at least " N <- ,SYEAR 1966> " years old">
 		      (<EQUAL? ,SYEAR 2071>
 		       <TELL "empty ">)>
 		<TELL
-"jail cells are visible. The desk officer looks at you expectantly.
-The only exit is northeast.">)>>
+"jail cells are visible. The desk officer looks at you expectantly. The only exit is northeast.">)>>
 
 <OBJECT POLICEMAN
 	(LOC POLICE-STATION)
@@ -880,32 +844,21 @@ The only exit is northeast.">)>>
 	       (<AND <VERB? TELL-ABOUT>
 		     <PRSI? ,CRIME ,CRIMINAL>>
 		<TELL
-"The officer recites a rapid sing-song about the various forms and
-official channels and procedures and personnel required for the
-reporting of a crime." CR>)>>
+"The officer recites a rapid sing-song about the various forms and official channels and procedures and personnel required for the reporting of a crime." CR>)>>
 
 <ROUTINE I-JAIL ()
 	 <SCORE 17> ;"10 points!"
 	 <JIGS-UP
-"After many anxious minutes, the door is yanked open, and you are dragged
-before a judge, his bench draped with the banner of a Church Holyman. Your
-head spins as the proceedings speed past around you. Suddenly you realize
-that the judge is addressing you.|
+"After many anxious minutes, the door is yanked open, and you are dragged before a judge, his bench draped with the banner of a Church Holyman. Your head spins as the proceedings speed past around you. Suddenly you realize that the judge is addressing you.|
 |
-\"...a sin against God, Churchmen, and your fellow animals.\" He addresses the
-arresting officers. \"He's too old for the Matches. Just take him out back.\"
-Seconds later you are in an alley, your face grinding into broken glass as one
-of the policemen pounds you again and again and again and again with his
-massive club. Finally, bleeding and barely conscious, you hear the second cop,
-speaking from a great distance, say \"enough fun -- let's finish it.\" He
-draws his biogun.">>
+\"...a sin against God, Churchmen, and your fellow animals.\" He addresses the arresting officers. \"He's too old for the Matches. Just take him out back.\" Seconds later you are in an alley, your face grinding into broken glass as one of the policemen pounds you again and again and again and again with his massive club. Finally, bleeding and barely conscious, you hear the second cop,
+speaking from a great distance, say \"enough fun -- let's finish it.\" He draws his biogun.">>
 
 <ROOM JAIL-CELL
       (LOC ROOMS)
       (DESC "Jail Cell")
       (LDESC
-"You are in a featureless, grimy jail cell. A heavy metal door forms
-the eastern wall of the cell.")
+"You are in a featureless, grimy jail cell. A heavy metal door forms the eastern wall of the cell.")
       (EAST SORRY "The metal door is locked, of course.")
       (OUT SORRY "The metal door is locked, of course.")
       (FLAGS ONBIT)
@@ -930,8 +883,7 @@ the eastern wall of the cell.")
 		<TELL "The blanket is torn and crawling with bugs." CR>)
 	       (<VERB? BOARD LIE-DOWN CLIMB-ON WEAR>
 		<TELL
-"You change your mind when some particularly wiggly
-bugs crawl onto you." CR>)>>
+"You change your mind when some particularly wiggly bugs crawl onto you." CR>)>>
 
 <ROOM POST-OFFICE
       (LOC ROOMS)
@@ -950,8 +902,7 @@ bugs crawl onto you." CR>)>>
 		<TELL "This is an old ">
 		<PRINTD ,POST-OFFICE-OBJECT>
 		<TELL
-", probably built back in the days when \"mail\" usually meant letters
-and packages delivered by human messengers. ">
+", probably built back in the days when \"mail\" usually meant letters and packages delivered by human messengers. ">
 		<COND (<EQUAL? ,SYEAR 2041 2051>
 		       <COND (<AND <G? ,STIME 480>
 				   <L? ,STIME 1020>>
@@ -972,12 +923,10 @@ and packages delivered by human messengers. ">
 				<L? ,STIME 960>>>
 		       <SCORE 124> ;"1 point"
 		       <TELL
-"A long queue of people with resigned expressions are waiting at
-the solitary open window">)
+"A long queue of people with resigned expressions are waiting at the solitary open window">)
 		      (T
 		       <TELL
-"The windows along the counter are all closed. One bears a crude,
-handwritten sign that reads \"Open daily, ">
+"The windows along the counter are all closed. One bears a crude, handwritten sign that reads \"Open daily, ">
 		       <COND (<EQUAL? ,SYEAR 2061>
 			      <TELL "10a">)
 			     (T
@@ -1029,8 +978,7 @@ handwritten sign that reads \"Open daily, ">
 		<FCLEAR ,PARKVIEW-DOOR ,OPENBIT>)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Southway bends sharply at this intersection, leading east and southwest.
-Park Street begins here and heads north. There are ">
+"Southway bends sharply at this intersection, leading east and southwest. Park Street begins here and heads north. There are ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL "new ">)
 		      (T
@@ -1055,8 +1003,7 @@ Park Street begins here and heads north. There are ">
 	       (T
 		<SCORE 19> ;"4 points"
 		<TELL
-"grimy windows barely transparent enough to reveal a large sign
-reading \"Rations for ">
+"grimy windows barely transparent enough to reveal a large sign reading \"Rations for ">
 		<COND (<EQUAL? <MOD ,SDATE 3> 0>
 		       <TELL "1's, 2's and 3's">)
 		      (<EQUAL? <MOD ,SDATE 3> 1>
@@ -1134,9 +1081,7 @@ reading \"Rations for ">
 		       <TELL "not too crowded and very quiet">)
 		      (T
 		       <TELL
-"deserted, dusty, and silent as a tomb. The smell of decaying, rotting
-books is overpowering. The only thing in sight that doesn't seem hoary
-with age is a list hanging on one wall">)>
+"deserted, dusty, and silent as a tomb. The smell of decaying, rotting books is overpowering. The only thing in sight that doesn't seem hoary with age is a list hanging on one wall">)>
 		<TELL ". The librarian is standing near the ">
 		<PRINTD ,CARD-CATALOG>
 		<TELL ". The only exit is southeast.">)
@@ -1162,13 +1107,7 @@ with age is a list hanging on one wall">)>
 	 <COND (<VERB? READ EXAMINE>
 		<SCORE 121> ;"6 points"
 		<TELL
-"It's the latest comprehensive list of banned books, tapes, and programs,
-issued by the Morality Bureau of the government. The list is huge but some
-of the titles jump out at you: Thoreau's \"Walden,\" Kafka's \"The Trial,\"
-Orwell's \"Animal Farm,\" Kennedy's \"Profiles in Courage,\" Bernstein's
-\"Mass,\" Schell's \"Fate of the Earth,\" Maribendu's \"Weep, My Child,\"
-and Hathaway's \"Inner Workings of the Church.\" Even Rav's book, \"A Child's
-Vision,\" is on the list." CR>)>>
+"It's the latest comprehensive list of banned books, tapes, and programs, issued by the Morality Bureau of the government. The list is huge but some of the titles jump out at you: Thoreau's \"Walden,\" Kafka's \"The Trial,\" Orwell's \"Animal Farm,\" Kennedy's \"Profiles in Courage,\" Bernstein's \"Mass,\" Schell's \"Fate of the Earth,\" Maribendu's \"Weep, My Child,\" and Hathaway's \"Inner Workings of the Church.\" Even Rav's book, \"A Child's Vision,\" is on the list." CR>)>>
 
 <OBJECT CARD-CATALOG
 	(LOC MAIN-LIBRARY)
@@ -1181,8 +1120,7 @@ Vision,\" is on the list." CR>)>>
 <ROUTINE CARD-CATALOG-F ()
 	 <COND (<VERB? OPEN>
 		<TELL
-"\"Card catalog\" is an anachronistic term -- this isn't an old-fashioned
-catalog with drawers of cards; it's computerized." CR>)
+"\"Card catalog\" is an anachronistic term -- this isn't an old-fashioned catalog with drawers of cards; it's computerized." CR>)
 	       (<VERB? EXAMINE>
 		<TELL "Pretty typical computerized ">
 		<PRINTD ,CARD-CATALOG>
@@ -1213,8 +1151,7 @@ catalog with drawers of cards; it's computerized." CR>)
 		     <PRSO? ,SPEAR-CARRIER>
 		     <EQUAL? ,HERE ,MAIN-LIBRARY>>
 		<TELL
-"The librarian has you fill out several forms. After filing them, she whispers
-that your card should arrive in the mail within ">
+"The librarian has you fill out several forms. After filing them, she whispers that your card should arrive in the mail within ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL "a month">)
 		      (<EQUAL? ,SYEAR 2071>
@@ -1265,8 +1202,7 @@ that your card should arrive in the mail within ">
 		       ,FOODVILLE-1)>)
 	       (<EQUAL? ,SYEAR 2071>
 		<TELL
-"According to a note on the door, the Foodville is only open from 11:30am
-until 4:00 in the afternoon." CR>
+"According to a note on the door, the Foodville is only open from 11:30am until 4:00 in the afternoon." CR>
 		<RFALSE>)
 	       (T
 		<CLOSED-PRINT "The Foodville">
@@ -1284,13 +1220,11 @@ until 4:00 in the afternoon." CR>
 	       (<EQUAL? ,SYEAR 2061>
 	        <SCORE 18> ;"1 point"
 	        <TELL
-"and it is beginning to show its age. The shelves are sparsely filled
-with plain, badly labelled tins">)
+"and it is beginning to show its age. The shelves are sparsely filled with plain, badly labelled tins">)
 	       (T
 	        <SCORE 19> ;"4 points"
 		<TELL
-"and it is literally crumbling. The shelves are empty, and the
-interior is uniformly filthy">)>
+"and it is literally crumbling. The shelves are empty, and the interior is uniformly filthy">)>
 	 <TELL ". The exit to the street is ">>
 
 <ROUTINE FOODVILLE-CLOSES ("AUX" TIME NEW-LOC)
@@ -1376,9 +1310,7 @@ interior is uniformly filthy">)>
 	       (<VERB? EXAMINE>
 		<SCORE 126> ;"2 points"
 		<TELL
-"Dehydrated soy patties such as these are about the only things that have
-been available from ration centers for months. This one looks even more dry
-and tasteless than usual." CR>)
+"Dehydrated soy patties such as these are about the only things that have been available from ration centers for months. This one looks even more dry and tasteless than usual." CR>)
 	       (<VERB? BUY>
 		<COND (<AND <EQUAL? ,HERE ,FOODVILLE-1 ,FOODVILLE-2>
 			    <EQUAL? ,SYEAR 2071>>
@@ -1395,9 +1327,7 @@ and tasteless than usual." CR>)
 		<RFALSE>)>
 	 <COND (,CLERK-WAITING
 		<TELL CR
-"The clerk says, \"Listen, joker. I don't have all day.\" He motions to
-a bouncer, who grabs you roughly by the collar and tosses you out on
-the street." CR CR>
+"The clerk says, \"Listen, joker. I don't have all day.\" He motions to a bouncer, who grabs you roughly by the collar and tosses you out on the street." CR CR>
 		<COND (<EQUAL? ,HERE ,FOODVILLE-1>
 		       <GOTO ,SOUTHWAY-AND-PARK>)
 		      (T
@@ -1431,8 +1361,7 @@ the street." CR CR>
 		<TELL ". A ">
 		<PRINTD ,FIREHOUSE-OBJECT>
 		<TELL
-" sits off to the northwest in the shadow of the elevated highway. A car lot
-lies to the southeast. Southway continues northeast into the city">
+" sits off to the northwest in the shadow of the elevated highway. A car lot lies to the southeast. Southway continues northeast into the city">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <TELL
 ", but is blocked to the southwest by the collapse of part of the highway.">)
@@ -1520,17 +1449,14 @@ lies to the southeast. Southway continues northeast into the city">
 		<TELL "." CR>)
 	       (<VERB? BOARD THROUGH>
 		<TELL
-"A firefighter sees you and yells, \"Hey, gettaway from there,\" and escorts
-you out of the firehouse." CR CR>
+"A firefighter sees you and yells, \"Hey, gettaway from there,\" and escorts you out of the firehouse." CR CR>
 		<GOTO ,SOUTHWAY-UNDERPASS>)>>
 
 <ROOM SKYCAR-LOT-1
       (LOC ROOMS)
       (DESC "Skycar Lot")
       (LDESC
-"This is a car lot for the Foodville to the northeast. The exit is northwest.
-An industrial park is visible beyond the fence that borders the rear of
-the lot to the south and east.")
+"This is a car lot for the Foodville to the northeast. The exit is northwest. An industrial park is visible beyond the fence that borders the rear of the lot to the south and east.")
       (NORTH SORRY "There's a tall fence in the way.")
       (NE PER FOODVILLE-ENTER-F)
       (EAST SORRY "There's a tall fence in the way.")
@@ -1563,9 +1489,7 @@ the lot to the south and east.")
 <ROUTINE ELM-AND-UNIVERSITY-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"University Avenue forks off to the northwest, meandering into the campus
-which spans the north side of Elm Street here. A tall apartment complex
-is on the south side of the street. The top of some steps indicate ">
+"University Avenue forks off to the northwest, meandering into the campus which spans the north side of Elm Street here. A tall apartment complex is on the south side of the street. The top of some steps indicate ">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <TELL "a former">)
 		      (T
@@ -1636,16 +1560,13 @@ is on the south side of the street. The top of some steps indicate ">
 "Elm Street passes under an elevated roadway, a relic of the last century's ">
 		<PRINTD ,HIGHWAY>
 		<TELL
-" system. A Chinese restaurant fills the space under the highway to the
-south, and a bar is nestled under the roadway north of here. Elm leads
-eastward, to downtown, and westward toward the suburbs.">
+" system. A Chinese restaurant fills the space under the highway to the south, and a bar is nestled under the roadway north of here. Elm leads eastward, to downtown, and westward toward the suburbs.">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <SCORE 20> ;"2 points"
 		       <TELL CR CR "An ">
 		       <PRINTD ,ROY>
 		       <TELL
-", perhaps Roy himself, is scrubbing graffiti off the window of the
-restaurant. The graffiti reads \"Chinks Get Lost\".">)>)>>
+", perhaps Roy himself, is scrubbing graffiti off the window of the restaurant. The graffiti reads \"Chinks Get Lost\".">)>)>>
 
 <OBJECT ROY
 	(DESC "old Chinese man")
@@ -1658,8 +1579,7 @@ restaurant. The graffiti reads \"Chinks Get Lost\".">)>)>>
 	 <COND (<EQUAL? ,ROY ,WINNER>
 		<SCORE 20> ;"2 points"
 		<TELL
-"\"No time for talking, sorry.\" He shakes his head sadly. \"Is a dishonor.
-Three times this year already they break my window. Now this.\"" CR>
+"\"No time for talking, sorry.\" He shakes his head sadly. \"Is a dishonor. Three times this year already they break my window. Now this.\"" CR>
 		<CLEAR-BUF>)>>
 
 <ROUTINE ROYS-PAGODA-ENTER-F ()
@@ -1697,8 +1617,7 @@ Three times this year already they break my window. Now this.\"" CR>
 		     <NOT <EQUAL? ,SYEAR 2041>>
 		     <G? ,STIME 1200>>
 		<TELL CR
-"A waiter, pointing frantically at the clock, urges you politely but
-insistently through the door." CR CR>
+"A waiter, pointing frantically at the clock, urges you politely but insistently through the door." CR CR>
 		<GOTO ,ELM-UNDERPASS>)>>
 
 <ROUTINE EZZIS-BAR-ENTER-F ()
@@ -1783,17 +1702,13 @@ insistently through the door." CR CR>
 <ROUTINE DORM-ENTER-F ()
 	 <COND (<EQUAL? ,SYEAR 2071>
 		<TELL
-"Some of the boards over the entrance have been pried away, and you could
-probably squeeze through. However, you hesitate, because it's so dangerous
-to enter deserted buildings these days. Do you still want to enter?">
+"Some of the boards over the entrance have been pried away, and you could probably squeeze through. However, you hesitate, because it's so dangerous to enter deserted buildings these days. Do you still want to enter?">
 		<COND (<YES?>
 		       <SCORE 21> ;"5 points"
 		       <JIGS-UP
 "|
 Dorm|
-As you stand in the lobby, waiting for your eyes to adjust to the dim
-lighting, some pathetic squatters jump you. Taking no chances, lest you
-get away and rat to the Church Police, they slit your throat.">)>
+As you stand in the lobby, waiting for your eyes to adjust to the dim lighting, some pathetic squatters jump you. Taking no chances, lest you get away and rat to the Church Police, they slit your throat.">)>
 		<RFALSE>)
 	       (T
 		,DORM)>>
@@ -1816,8 +1731,7 @@ get away and rat to the Church Police, they slit your throat.">)>
 "Closed, boarded buildings lie to the west, northeast, and southeast">)
 		      (T
 		       <TELL
-"There is a dormitory complex on the western side of the road, and other
-buildings to the northeast and southeast">)>
+"There is a dormitory complex on the western side of the road, and other buildings to the northeast and southeast">)>
 		<TELL ". The street continues north and south.">)>>
 
 <OBJECT CAMPUS
@@ -1863,9 +1777,7 @@ buildings to the northeast and southeast">)>
 <ROUTINE DORM-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"You have entered one building in the dormitory complex, the very same
-dorm where you once lived for several terms when you were a student at
-the University. Many doors open onto a nearby lounge. ">
+"You have entered one building in the dormitory complex, the very same dorm where you once lived for several terms when you were a student at the University. Many doors open onto a nearby lounge. ">
 		<COND (<EQUAL? ,SYEAR 2061>
 		       <TELL "The building is silent as a tomb">)
 		      (T
@@ -1881,13 +1793,7 @@ the University. Many doors open onto a nearby lounge. ">
 		<SETG DORM-RAID-FLAG T>
 		<SETG ELAPSED-TIME 10>
 		<TELL CR
-"Suddenly, the front door slams open, and dozens of uniformed officers burst
-into the building. They force their way into room after room, and through the
-nearby doorways you can see the police ransacking every room. Several students
-are hustled outside into a waiting police van. A higher-ranking officer passes
-by, and you can hear him saying something about \"confiscated drugs\" and
-\"arrest will make a good example.\" A few minutes later, the raid is over,
-and the dorm is buzzing with subdued ">
+"Suddenly, the front door slams open, and dozens of uniformed officers burst into the building. They force their way into room after room, and through the nearby doorways you can see the police ransacking every room. Several students are hustled outside into a waiting police van. A higher-ranking officer passes by, and you can hear him saying something about \"confiscated drugs\" and \"arrest will make a good example.\" A few minutes later, the raid is over, and the dorm is buzzing with subdued ">
 		<PRINTD ,CONVERSATION>
 		<TELL "s." CR>)>>
 
@@ -1978,8 +1884,7 @@ and the dorm is buzzing with subdued ">
 		<COND (<EQUAL? ,SYEAR 2061>
 		       <TELL "decaying ">)>
 		<TELL
-"lecture hall with several hundred seats, surrounded by several
-smaller classrooms and professors' offices. An exit leads northwest.">)>>
+"lecture hall with several hundred seats, surrounded by several smaller classrooms and professors' offices. An exit leads northwest.">)>>
 
 <OBJECT CLASSROOMS
 	(LOC LECTURE-HALL)
@@ -2031,9 +1936,7 @@ smaller classrooms and professors' offices. An exit leads northwest.">)>>
       (LOC ROOMS)
       (DESC "Student Union")
       (LDESC
-"You are standing in the lobby of a wide sprawling building containing a
-cafeteria, a bookstore, an auditorium, and offices for student activities.
-The street is southwest of here.")
+"You are standing in the lobby of a wide sprawling building containing a cafeteria, a bookstore, an auditorium, and offices for student activities. The street is southwest of here.")
       (SW TO ROCKVIL-UNIVERSITY)
       (OUT TO ROCKVIL-UNIVERSITY)
       (FLAGS ONBIT)
@@ -2094,8 +1997,7 @@ The street is southwest of here.")
 <ROUTINE ELM-AND-KENNEDY-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This is an intersection with streets heading in the four cardinal
-directions. There is a">
+"This is an intersection with streets heading in the four cardinal directions. There is a">
 		<COND (<EQUAL? ,SYEAR 2061>
 		       <TELL "n entrance to a ">
 		       <PRINTD ,CONSTRUCTION-OBJECT>)
@@ -2104,9 +2006,7 @@ directions. There is a">
 		      (T
 		       <TELL " park entrance">)>
 		<TELL
-" on the northwest corner and a hospital on the southwest corner. To the
-southeast lies a shopping mall, and a large, old building with an impressive
-facade can be entered to the northeast.">)>>
+" on the northwest corner and a hospital on the southwest corner. To the southeast lies a shopping mall, and a large, old building with an impressive facade can be entered to the northeast.">)>>
 
 <ROOM HOSPITAL
       (LOC ROOMS)
@@ -2131,11 +2031,9 @@ facade can be entered to the northeast.">)>>
 		      (<EQUAL? ,SYEAR 2071>
 		       <SCORE 25> ;"3 points"
 		       <TELL
-", which was the center of some brief rioting last year when two injured serfs
-died at the Admitting Entrance after being refused entry for class reasons">)>
+", which was the center of some brief rioting last year when two injured serfs died at the Admitting Entrance after being refused entry for class reasons">)>
 		<TELL
-". A nurse sits at the admitting desk. The exit is northeast, and a hallway
-leads southwest to the annex.">)>>
+". A nurse sits at the admitting desk. The exit is northeast, and a hallway leads southwest to the annex.">)>>
 
 <OBJECT HOSPITAL-OBJECT
 	(LOC LOCAL-GLOBALS)
@@ -2204,8 +2102,7 @@ leads southwest to the annex.">)>>
 		      (T
 		       <TELL "well-maintained">)>
 		<TELL
-" wing of Rockvil General Hospital. The street lies to the southwest,
-and a breezeway leads northeast into the old building.">)>>
+" wing of Rockvil General Hospital. The street lies to the southwest, and a breezeway leads northeast into the old building.">)>>
 
 <ROOM SOUTHWAY-AND-KENNEDY
       (LOC ROOMS)
@@ -2225,17 +2122,14 @@ and a breezeway leads northeast into the old building.">)>>
 <ROUTINE SOUTHWAY-AND-KENNEDY-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Kennedy Street, from the north, ends here in a \"T\" with
-Southway. On the northwest corner is a">
+"Kennedy Street, from the north, ends here in a \"T\" with Southway. On the northwest corner is a">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL "n opening in a temporary wooden fence">)
 		      (T
 		       <TELL
-" tall, ugly office tower. The words \"First Continent Bank Building\"
-hang in large metal letters over the entrance">)>
+" tall, ugly office tower. The words \"First Continent Bank Building\" hang in large metal letters over the entrance">)>
 		<TELL
-", and a car lot fills the northeast corner. A row of
-old brick triple-deckers, ">
+", and a car lot fills the northeast corner. A row of old brick triple-deckers, ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL "recently">)
 		      (T
@@ -2307,9 +2201,7 @@ old brick triple-deckers, ">
       (LOC ROOMS)
       (DESC "Row Houses")
       (LDESC
-"You are standing just inside the front door of a row of renovated old brick
-three-story apartments. The inner door leads south, and Southway is just
-outside to the north.")
+"You are standing just inside the front door of a row of renovated old brick three-story apartments. The inner door leads south, and Southway is just outside to the north.")
       (NORTH TO SOUTHWAY-AND-KENNEDY)
       (NE TO SOUTHWAY-AND-RIVER)
       (SOUTH PER INNER-LOBBY-ENTER-F)
@@ -2339,10 +2231,7 @@ outside to the north.")
 <ROUTINE SOUTHWAY-AND-RIVER-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Here at River Street, Southway ends its long trip from the western suburbs.
-South of here, the street bends toward the river. To the southwest are some
-brick houses, and a car lot occupies the northwest corner. All along the east
-side of the street ">
+"Here at River Street, Southway ends its long trip from the western suburbs. South of here, the street bends toward the river. To the southwest are some brick houses, and a car lot occupies the northwest corner. All along the east side of the street ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL "is a huge ">
 		       <PRINTD ,CONSTRUCTION-OBJECT>
@@ -2354,19 +2243,14 @@ side of the street ">
 		       <COND (<EQUAL? ,SYEAR 2061 2071>
 			      <SCORE 26> ;"3 points"
 			      <TELL
-" Little, if anything, has been done to restore the top
-several floors, gutted by fire about ">
+" Little, if anything, has been done to restore the top several floors, gutted by fire about ">
 			      <COND (<EQUAL? ,SYEAR 2061>
 				     <TELL "five">)
 				    (T
 				     <TELL "fifteen">)>
 			      <TELL " years ago.|
 |
-That fire, which cost several thousand lives, revealed a severe deficiency
-of built-in fire control systems, but the courts threw out all suits since
-the building was built after the deregulation of the construction industry
-in '38, and the developer never falsely represented the building's safety
-systems.">)>)>)
+That fire, which cost several thousand lives, revealed a severe deficiency of built-in fire control systems, but the courts threw out all suits since the building was built after the deregulation of the construction industry in '38, and the developer never falsely represented the building's safety systems.">)>)>)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <EQUAL? ,SYEAR 2071>
 		     <L? <GETP ,SOUTHWAY-AND-RIVER ,P?SCENE> 101>>
@@ -2374,8 +2258,7 @@ systems.">)>)>)
 		       <PUTP ,SOUTHWAY-AND-RIVER ,P?SCENE 101>
 		       <SCORE 27> ;"7 points"
 		       <TELL CR
-"In an alley between two buildings, you spot two Church policemen shooting
-an old woman with silenced guns. They drag her out of view." CR>)
+"In an alley between two buildings, you spot two Church policemen shooting an old woman with silenced guns. They drag her out of view." CR>)
 		      (T
 		       <PUTP ,SOUTHWAY-AND-RIVER ,P?SCENE
 			     <+ <GETP ,SOUTHWAY-AND-RIVER ,P?SCENE> 33>>
@@ -2385,8 +2268,7 @@ an old woman with silenced guns. They drag her out of view." CR>)
       (LOC ROOMS)
       (DESC "Skycar Lot")
       (LDESC
-"This large car lot serves Rockvil Mall, which lies to the north. There
-are exits from the lot to the southeast and southwest.")
+"This large car lot serves Rockvil Mall, which lies to the north. There are exits from the lot to the southeast and southwest.")
       (NORTH PER ROCKVIL-MALL-ENTER-F)
       (NE SORRY "There's a tall fence in the way.")
       (EAST SORRY "There's a tall fence in the way.")
@@ -2418,31 +2300,24 @@ are exits from the lot to the southeast and southwest.")
 	      (<EQUAL? .RARG ,M-LOOK>
 	       <COND (<EQUAL? ,SYEAR 2041>
 		      <TELL
-"The work in this huge site is still in the foundation
-phase. A sign reads:" CR>
+"The work in this huge site is still in the foundation phase. A sign reads:" CR>
 		      <PERFORM ,V?READ ,GLOBAL-SIGN>
 		      <TELL
 "You can leave the site to the west or southwest.">)
 		     (<EQUAL? ,SYEAR 2051>
 		      <TELL
-"This is the second of developer Salvador Heiman's \"cities within a city.\"
-Rumors say that it wasn't built as well as the older ">
+"This is the second of developer Salvador Heiman's \"cities within a city.\" Rumors say that it wasn't built as well as the older ">
 		      <PRINTD ,HEIMAN-VILLAGE>
 		      <TELL
-" next door, and indeed, it already shows some minor cracks from settling.
-Exits from the vast lobby lead west and southwest.">)
+" next door, and indeed, it already shows some minor cracks from settling. Exits from the vast lobby lead west and southwest.">)
 		     (<EQUAL? ,SYEAR 2061>
 		      <SCORE 28> ;"1 point"
 		      <TELL
-"This is a run-down Indoor City. The second of its kind, it was completed
-in 2042. The only lighting in the lobby comes from the tall entrance doors
-to the west and southwest.">)
+"This is a run-down Indoor City. The second of its kind, it was completed in 2042. The only lighting in the lobby comes from the tall entrance doors to the west and southwest.">)
 		     (T
 		      <SCORE 29> ;"3 points"
 		      <TELL
-"This old Indoor City has become exactly what its critics predicted it would
-become: a vast indoor slum. You would be well advised to use the exits that
-lie to the west and southwest.">)>)>>		      
+"This old Indoor City has become exactly what its critics predicted it would become: a vast indoor slum. You would be well advised to use the exits that lie to the west and southwest.">)>)>>		      
 
 <ROUTINE ROCKVIL-MALL-ENTER-F ()
 	 <COND (<OR <AND <EQUAL? ,SYEAR 2041 2051 2061>
@@ -2478,8 +2353,7 @@ lie to the west and southwest.">)>)>>
 " shopping mall is a renovated computer factory. There are many stores">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <TELL
-", most of them closed, and stark joybooths marked with the symbol of the
-Church form a row along the eastern side of the mall">)
+", most of them closed, and stark joybooths marked with the symbol of the Church form a row along the eastern side of the mall">)
 		      (<EQUAL? ,SYEAR 2041>
 		       <TELL
 ", and Dizzard Joybooths line the eastern side of the mall">)>
@@ -2522,8 +2396,7 @@ Church form a row along the eastern side of the mall">)
 		<COND (<EQUAL? ,SYEAR 2051>
 		       <SCORE 30> ;"1 point"
 		       <TELL
-"You remember vaguely that the eastern side of the Mall once contained many
-joybooths, but of course they were banned years ago. ">)>
+"You remember vaguely that the eastern side of the Mall once contained many joybooths, but of course they were banned years ago. ">)>
 		<TELL "There's nothing in that direction ">
 		<COND (<EQUAL? ,SYEAR 2051>
 		       <TELL "now ">)>
@@ -2547,8 +2420,7 @@ joybooths, but of course they were banned years ago. ">)>
 	       (<EQUAL? .RARG ,M-LOOK>
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"You are in a Dizzard-brand joybooth, the most expensive but generally
-considered the most well-programmed line of booths">)
+"You are in a Dizzard-brand joybooth, the most expensive but generally considered the most well-programmed line of booths">)
 		      (T
 		       <TELL
 "You are in one of the new, free, Church-sponsored joybooths">)>
@@ -2626,32 +2498,15 @@ considered the most well-programmed line of booths">)
 		       <COND (<EQUAL? ,SEAT <LOC ,PLAYER>>
 			      <FSET ,SEAT ,ONBIT>)>
 		       <TELL
-"The walls of the joybooth recede, and you find yourself in an arena, garbed
-in magnificent gladiator's armor. In one hand you hold a long whip, in the
-other a mace. The ground around you is literally soggy with blood.|
+"The walls of the joybooth recede, and you find yourself in an arena, garbed in magnificent gladiator's armor. In one hand you hold a long whip, in the other a mace. The ground around you is literally soggy with blood.|
 |
-You barely notice as the headset probes into the recesses of your mind,
-uncovering hidden thoughts, nurturing certain emotions. An unclad, unwashed
-barbarian suddenly stumbles into the arena before you, and at once your
-mind is filled with unthinking hatred toward this...this thing, this animal.|
+You barely notice as the headset probes into the recesses of your mind, uncovering hidden thoughts, nurturing certain emotions. An unclad, unwashed barbarian suddenly stumbles into the arena before you, and at once your mind is filled with unthinking hatred toward this... this thing, this animal.|
 |
-The roar of the mob pierces your hatred, the roar of thousands, screaming
-for their hero. You can hear many things in those screams; the screams of
-women lusting for your manhood, the screams of men jealous of your power,
-the screams of everyone for the blood of the barbarian animal|
+The roar of the mob pierces your hatred, the roar of thousands, screaming for their hero. You can hear many things in those screams; the screams of women lusting for your manhood, the screams of men jealous of your power, the screams of everyone for the blood of the barbarian animal|
 |
-as adrenalin surges through your chest as the creature picks up a battered
-sword and shield from the ground. In a flash, the battle begins, and like most
-animals, the creature has amazing strength. His blows land on your armor, but
-you shake them off like a true hero. Summoning an inner strength, drawing upon
-your anger for this filthy beast, you sink the spikes of the mace deep into
-the creature's flesh. The bellowing of the crowd becomes deafening, shaking
-the ground, resounding through the arena, pounding you, pounding|
+as adrenalin surges through your chest as the creature picks up a battered sword and shield from the ground. In a flash, the battle begins, and like most animals, the creature has amazing strength. His blows land on your armor, but you shake them off like a true hero. Summoning an inner strength, drawing upon your anger for this filthy beast, you sink the spikes of the mace deep into the creature's flesh. The bellowing of the crowd becomes deafening, shaking the ground, resounding through the arena, pounding you, pounding|
 |
-the blood pounding in your ears, your breath short and excited, you slowly
-notice the tiny booth around you. Although disappointed that the fantasy has
-ended, you feel somehow refreshed, emotionally nourished; the rare taste of
-victory in a life of defeat." CR>
+the blood pounding in your ears, your breath short and excited, you slowly notice the tiny booth around you. Although disappointed that the fantasy has ended, you feel somehow refreshed, emotionally nourished; the rare taste of victory in a life of defeat." CR>
 		       <RTRUE>)
 		      (T
 		       <TELL "Nothing happens." CR>)>)>>
@@ -2696,8 +2551,7 @@ victory in a life of defeat." CR>
 <ROUTINE ELM-AND-RIVER-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Elm Street begins here and crosses the downtown area to the west. Along
-the eastern side of River Street stands the vast ">
+"Elm Street begins here and crosses the downtown area to the west. Along the eastern side of River Street stands the vast ">
 		<PRINTD ,HEIMAN-VILLAGE>
 		<TELL " building. You can enter ">
 		<PRINTD ,ROCKVIL-MALL>
@@ -2728,12 +2582,7 @@ the eastern side of River Street stands the vast ">
       (LOC ROOMS)
       (DESC "Stock Exchange")
       (LDESC
-"This aging, impressive structure was once the economic center for the
-quad-state region (the Dakotas, Wyoming and Montana). However, in this day
-and age of decentralization made possible by electronic communications, the
-activity here is reduced in both quantity and importance. Much of the building
-has been converted to office space. Wide steel portals lead southeast and
-southwest.")
+"This aging, impressive structure was once the economic center for the quad-state region (the Dakotas, Wyoming and Montana). However, in this day and age of decentralization made possible by electronic communications, the activity here is reduced in both quantity and importance. Much of the building has been converted to office space. Wide steel portals lead southeast and southwest.")
       (SE TO ELM-AND-RIVER)
       (SW TO ELM-AND-KENNEDY)
       (FLAGS ONBIT)
@@ -2789,8 +2638,7 @@ southwest.")
 <ROUTINE MAIN-AND-RIVER-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This is a typical four-way intersection between Main and River Streets. An
-entranceway through the massive walls of ">
+"This is a typical four-way intersection between Main and River Streets. An entranceway through the massive walls of ">
 		<PRINTD ,HEIMAN-VILLAGE>
 		<TELL " fills the southeast corner of the street, and a ">
 		<COND (<EQUAL? ,SYEAR 2071>
@@ -2808,11 +2656,9 @@ To the southwest is 80 River Street, a ">
 	       <PRINTD ,CHUN-BUILDING>
 	       <COND (<EQUAL? ,SYEAR 2041>
 		      <TELL
-", with many floors still unoccupied according to
-the billboard over the entrance">)>
+", with many floors still unoccupied according to the billboard over the entrance">)>
 	       <TELL
-". The fourth corner, the northwest, is the site of Perez
-Towers, a luxury apartment building.">)
+". The fourth corner, the northwest, is the site of Perez Towers, a luxury apartment building.">)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <EQUAL? ,SYEAR 2051>
 		     <L? <GETP ,MAIN-AND-RIVER ,P?SCENE> 101>>
@@ -2820,8 +2666,7 @@ Towers, a luxury apartment building.">)
 		       <PUTP ,MAIN-AND-RIVER ,P?SCENE 101>
 		       <SCORE 33> ;"1 point"
 		       <TELL CR
-"Several BSF officers trot out of a nearby building and climb
-into an unmarked BSF van which drives away." CR>)
+"Several BSF officers trot out of a nearby building and climb into an unmarked BSF van which drives away." CR>)
 		      (T
 		       <PUTP ,MAIN-AND-RIVER ,P?SCENE
 			     <+ <GETP ,MAIN-AND-RIVER ,P?SCENE> 50>>
@@ -2860,44 +2705,29 @@ into an unmarked BSF van which drives away." CR>)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"This massive complex is a revolutionary and controversial concept in urban
-development, the \"city within a city.\" Apartments of every size, schools,
-offices, stores, and city services, all can be found under this one gigantic
-roof. Exits from the Village lead northwest, west, and east.">
+"This massive complex is a revolutionary and controversial concept in urban development, the \"city within a city.\" Apartments of every size, schools, offices, stores, and city services, all can be found under this one gigantic roof. Exits from the Village lead northwest, west, and east.">
 		       <COND (<NOT ,DESCRIBE-VILLAGE>
 			      <SETG DESCRIBE-VILLAGE T>
 			      <TELL CR CR
-"Proponents of this type of city-microcosm say that it makes the desirable
-urban lifestyle available to the middle class, saves energy and commuting
-time, and shields people from the crime and pollution of the city streets.|
+"Proponents of this type of city-microcosm say that it makes the desirable urban lifestyle available to the middle class, saves energy and commuting time, and shields people from the crime and pollution of the city streets.|
 |
-Critics call it an urban cocoon, creating a sterile, isolated
-environment and eliminating the need to deal with the urban problems
-which make isolation so desirable." CR CR>
+Critics call it an urban cocoon, creating a sterile, isolated environment and eliminating the need to deal with the urban problems which make isolation so desirable." CR CR>
 			      <PRINTD ,HEIMAN-VILLAGE>
 			      <TELL
-", in the few years it has been open, has proved to be a tremendous commercial
-success, and more communities of the type are being planned.">)>)
+", in the few years it has been open, has proved to be a tremendous commercial success, and more communities of the type are being planned.">)>)
 		      (<EQUAL? ,SYEAR 2051>
 		       <TELL
-"This is a landmark in urban development, the first and most famous Indoor
-City. It has been extremely popular, allowing the middle class an opportunity
-to live in the city. Indoor Cities are being planned in many locations.
-You can leave the lobby of ">
+"This is a landmark in urban development, the first and most famous Indoor City. It has been extremely popular, allowing the middle class an opportunity to live in the city. Indoor Cities are being planned in many locations. You can leave the lobby of ">
 		       <PRINTD ,HEIMAN-VILLAGE>
 		       <TELL " to the east, west, or northwest.">)
 		      (<EQUAL? ,SYEAR 2061>
 		       <SCORE 28> ;"1 point"
 		       <TELL
-"This oldest of the Indoor Cities looks typically ill-maintained. The
-only lighting in the lobby comes from the tall entrance doors to the
-east, west and northwest.">)
+"This oldest of the Indoor Cities looks typically ill-maintained. The only lighting in the lobby comes from the tall entrance doors to the east, west and northwest.">)
 		      (T
 		       <SCORE 29> ;"3 points"
 		       <TELL
-"The oldest Indoor City has succumbed to the fate its critics foresaw: a
-roofed-in urban ghetto for masses of faceless serfs. You would be well
-advised to use the exits that lie to the east, west, or northwest.">)>)>>
+"The oldest Indoor City has succumbed to the fate its critics foresaw: a roofed-in urban ghetto for masses of faceless serfs. You would be well advised to use the exits that lie to the east, west, or northwest.">)>)>>
 
 <OBJECT HEIMAN-VILLAGE-OBJECT
 	(LOC LOCAL-GLOBALS)
@@ -3015,18 +2845,13 @@ advised to use the exits that lie to the east, west, or northwest.">)>)>>
 	    (<EQUAL? .RARG ,M-LOOK>
 	     <COND (<EQUAL? ,SYEAR 2041 2051>
 		    <TELL 
-"This is the oldest existing park in the city, and has not been well kept
-up. " ,FOUNTAIN-DESC " The park has a reputation for being very unsafe after
-dark, due to the proximity to the poor section of town just across the tracks
-to the south. Church Street begins at the entrance to the park and leads
-north, and a side entrance to ">
+"This is the oldest existing park in the city, and has not been well kept up. " ,FOUNTAIN-DESC " The park has a reputation for being very unsafe after dark, due to the proximity to the poor section of town just across the tracks to the south. Church Street begins at the entrance to the park and leads north, and a side entrance to ">
 		    <PRINTD ,HEIMAN-VILLAGE>
 		    <TELL " forms the western boundary of the park.">)
 		   (T
 		    <SCORE 34> ;"1 point"
 		    <TELL
-"This Indoor City is a fairly recent one, and almost by definition, therefore,
-a fairly low-quality structure. A tunnel leads west toward ">
+"This Indoor City is a fairly recent one, and almost by definition, therefore, a fairly low-quality structure. A tunnel leads west toward ">
 		    <PRINTD ,HEIMAN-VILLAGE>
 		    <TELL
 ", and the main entrance to this IC is from the north.">)>)>>
@@ -3063,23 +2888,19 @@ a fairly low-quality structure. A tunnel leads west toward ">
 <ROUTINE MAIN-AND-CHURCH-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"You are at the corner of bustling Main Street and quiet
-Church Street. There ">
+"You are at the corner of bustling Main Street and quiet Church Street. There ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL "is construction in progress">)
 		      (T
 		       <TELL "are nondescript buildings">)>
 		<TELL
-" on the northwestern and southwestern corners. A conventional apartment
-building occupies the southeast corner, and an entrance to Midland Cemetery
-forms the fourth corner. ">
+" on the northwestern and southwestern corners. A conventional apartment building occupies the southeast corner, and an entrance to Midland Cemetery forms the fourth corner. ">
 		<COND (<EQUAL? ,SYEAR 2041 2051>
 		       <TELL
 "Some greenery is visible down Church Street to the south.">)
 		      (T
 		       <TELL
-"A particularly blockish Indoor City towers over
-Church Street south of here.">)>)
+"A particularly blockish Indoor City towers over Church Street south of here.">)>)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <EQUAL? ,SYEAR 2071>
 		     <L? <GETP ,MAIN-AND-CHURCH ,P?SCENE> 101>>
@@ -3087,11 +2908,7 @@ Church Street south of here.">)>)
 		       <PUTP ,MAIN-AND-CHURCH ,P?SCENE 101>
 		       <SCORE 35> ;"6 points"
 		       <TELL CR
-"You hear shots from a nearby building. Seconds later, Security Police carry
-a bleeding man out of the building and into a waiting skyvan. A woman runs out
-of the building, screaming. One of the officers kicks her in the stomach and
-clubs her across the skull as she falls. Nonchalantly, the policeman climbs
-into the skyvan, which rises away." CR>)
+"You hear shots from a nearby building. Seconds later, Security Police carry a bleeding man out of the building and into a waiting skyvan. A woman runs out of the building, screaming. One of the officers kicks her in the stomach and clubs her across the skull as she falls. Nonchalantly, the policeman climbs into the skyvan, which rises away." CR>)
 		      (T
 		       <PUTP ,MAIN-AND-CHURCH ,P?SCENE
 			     <+ <GETP ,MAIN-AND-CHURCH ,P?SCENE> 50>>
@@ -3132,10 +2949,7 @@ into the skyvan, which rises away." CR>)
       (LOC ROOMS)
       (SDESC "Construction Site")
       (LDESC
-"The Johnson Federal Building, which closed last year when the offices of
-the few remaining Federal agencies were transferred to City Hall, is being
-renovated as an office building with commercial space on the ground floor.
-You can leave the site to the northeast.")
+"The Johnson Federal Building, which closed last year when the offices of the few remaining Federal agencies were transferred to City Hall, is being renovated as an office building with commercial space on the ground floor. You can leave the site to the northeast.")
       (NE TO MAIN-AND-CHURCH)
       (OUT TO MAIN-AND-CHURCH)
       (FLAGS OUTSIDEBIT)
@@ -3145,8 +2959,7 @@ You can leave the site to the northeast.")
       (LOC ROOMS)
       (SDESC "Construction Site")
       (LDESC
-"A conventional city apartment block is nearing completion here. There are
-openings in the southeast and northeast corners of the perimeter fence.")
+"A conventional city apartment block is nearing completion here. There are openings in the southeast and northeast corners of the perimeter fence.")
       (SE TO MAIN-AND-CHURCH)
       (NE TO CHURCH-ENTRANCE)
       (FLAGS OUTSIDEBIT)
@@ -3162,8 +2975,7 @@ openings in the southeast and northeast corners of the perimeter fence.")
 		<SETG HUNGER-WARNING T>
 		<QUEUE I-HUNGER 47>
 		<TELL CR
-"Hunger overwhelms you for a moment. Your head clears, but your
-stomach still aches from days without food." CR>)>>
+"Hunger overwhelms you for a moment. Your head clears, but your stomach still aches from days without food." CR>)>>
 
 <GLOBAL HUNGER-WARNING <>>
 
@@ -3195,23 +3007,13 @@ stomach still aches from days without food." CR>)>>
 		<COND (<EQUAL? ,SYEAR 2081>
 		       <SCORE 36> ;"8 points"
 		       <TELL
-"The street runs from west to east, where a bridge is visible. A crude sign is
-posted just west of here. Another road leads south into a different section of
-town, where smoke billows upward from scattered fires. Buildings all along the
-street look typically looted and deserted; a grocery store, its large plate
-glass window shattered, is on the southwest corner. On the southeast corner is
-the burnt-out shell of a building, and an overgrown cemetery lies to the north.
-As usual, all the telephone poles have been chopped down for firewood.">)
+"The street runs from west to east, where a bridge is visible. A crude sign is posted just west of here. Another road leads south into a different section of town, where smoke billows upward from scattered fires. Buildings all along the street look typically looted and deserted; a grocery store, its large plate glass window shattered, is on the southwest corner. On the southeast corner is the burnt-out shell of a building, and an overgrown cemetery lies to the north. As usual, all the telephone poles have been chopped down for firewood.">)
 		      (T
 		       <TELL
-"Wicker Drive, which begins here, heads south under a railroad
-bridge. Main Street leads west toward the center of the city and
-east across a bridge over the river">
+"Wicker Drive, which begins here, heads south under a railroad bridge. Main Street leads west toward the center of the city and east across a bridge over the river">
 		       <GROCERY-STORE-DESC>
 		       <TELL
-", occupies the southwest corner and a restaurant stands amid a
-large car lot on the southeast corner. There is an entrance to
-the cemetery to the north.">)>)
+", occupies the southwest corner and a restaurant stands amid a large car lot on the southeast corner. There is an entrance to the cemetery to the north.">)>)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <EQUAL? ,SYEAR 2051>
 		     <EQUAL? ,LIGHT-LEVEL 3>
@@ -3286,17 +3088,18 @@ the cemetery to the north.">)>)
 	       (<VERB? READ EXAMINE>
 		<SCORE 37> ;"1 point"
 		<TELL
-"   GIRLS!  GIRLS!  GIRLS!|
+"GIRLS!  GIRLS!  GIRLS!|
 |
-Mona's Pleasure Parlor has it all!!|
-   * Massage Parlor|
-   * Topless Club|
-   * Escort Agency|
-   * Bordello|
-   * XXX Videos|
-   * Accessory Shop and more!|
-In Eastbank, on the corner of River|
-and Franklin." CR>)>>
+Mona's Pleasure Parlor|
+has it all!!|
+  * Massage Parlor|
+  * Topless Club|
+  * Escort Agency|
+  * Bordello|
+  * XXX Videos|
+  * Accessory Shop and more!|
+In Eastbank, on the corner of|
+River and Franklin." CR>)>>
 
 <OBJECT RAILROAD-TRACKS
 	(LOC LOCAL-GLOBALS)
@@ -3377,9 +3180,7 @@ and Franklin." CR>)>>
 	 <COND (<EQUAL? ,SYEAR 2081>
 		<SCORE 38> ;"6 points"
 		<JIGS-UP
-"As you pass the sign, three men armed with knives leap out of a doorway
-and neatly slit your throat. As you lose consciousness, you feel them going
-through your pockets.">
+"As you pass the sign, three men armed with knives leap out of a doorway and neatly slit your throat. As you lose consciousness, you feel them going through your pockets.">
 		<RFALSE>)
 	       (T
 		,MAIN-AND-CHURCH)>>
@@ -3405,9 +3206,7 @@ through your pockets.">
 		<COND (<EQUAL? ,SYEAR 2081>
 		       <SCORE 39> ;"3 points"
 		       <TELL
-"This grocery has been thoroughly looted; the shelves are all bare. The floor
-is strewn with broken glass, and a rancid odor pervades the store. The only
-exit leads back out to the street corner northeast of here.">)
+"This grocery has been thoroughly looted; the shelves are all bare. The floor is strewn with broken glass, and a rancid odor pervades the store. The only exit leads back out to the street corner northeast of here.">)
 		      (T
 		       <FOODVILLE-DESC>
 		       <TELL "northeast.">)>)
@@ -3418,8 +3217,7 @@ exit leads back out to the street corner northeast of here.">)
 	(LOC LOCAL-GLOBALS)
 	(DESC "pile of mold")
 	(FDESC
-"A disgusting pile of mold toward the rear indicates where some
-soy patties were once stored.")
+"A disgusting pile of mold toward the rear indicates where some soy patties were once stored.")
 	(SYNONYM PILE MOLD)
 	(ADJECTIVE DISGUSTIN PUTRID PUTRID-SMELLING)
 	(FLAGS TRYTAKEBIT TAKEBIT)
@@ -3429,9 +3227,7 @@ soy patties were once stored.")
 	 <COND (<VERB? EAT>
 		<SCORE 40> ;"2 points"
 		<TELL
-"Because of your half-crazed state, perhaps brought on by several days without
-food, you seriously consider eating the mold. In a lucid moment, though, you
-realize how disgusting and dangerous that would be." CR>)
+"Because of your half-crazed state, perhaps brought on by several days without food, you seriously consider eating the mold. In a lucid moment, though, you realize how disgusting and dangerous that would be." CR>)
 	       (<VERB? SMELL>
 		<TELL
 "You have just discovered the source of the rancid odor." CR>)
@@ -3477,8 +3273,7 @@ realize how disgusting and dangerous that would be." CR>)
 		<COND (<EQUAL? ,SYEAR 2081>
 		       <SCORE 41> ;"3 points"
 		       <TELL
-"This burned-out shell of a building was once a famous restaurant back
-in the civilized days. The ">
+"This burned-out shell of a building was once a famous restaurant back in the civilized days. The ">
 		       <PRINTD ,TIMBERS>
 		       <TELL " shiver as you walk through the ashes.">)
 		      (T
@@ -3486,8 +3281,7 @@ in the civilized days. The ">
 		       <COND (<EQUAL? ,SYEAR 2071>
 			      <SCORE 42> ;"score 3"
 			      <TELL
-", opulent in the extreme, and known to be restricted to the highest
-ecclesiastics of the Church">)
+", opulent in the extreme, and known to be restricted to the highest ecclesiastics of the Church">)
 			     (<EQUAL? ,SYEAR 2061>
 			      <SCORE 43> ;"score 1"
 			      <TELL ", a favorite of wealthy Churchmen">)>
@@ -3496,10 +3290,7 @@ ecclesiastics of the Church">)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <EQUAL? ,SYEAR 2071>>
 		<TELL CR
-"The maitre d' spots you, and gestures a velvet-swathed arm toward
-a bouncer waiting in the shadows. \"Throw this animal back out on
-the street,\" he sniffs. The bouncer grabs your collar, and shoves
-you through the doorway." CR CR>
+"The maitre d' spots you, and gestures a velvet-swathed arm toward a bouncer waiting in the shadows. \"Throw this animal back out on the street,\" he sniffs. The bouncer grabs your collar, and shoves you through the doorway." CR CR>
 		<GOTO ,MAIN-AND-WICKER>)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <EQUAL? ,SYEAR 2081>
@@ -3525,8 +3316,7 @@ you through the doorway." CR CR>
 <ROUTINE TIMBERS-F ()
 	 <COND (<VERB? MOVE TOUCH>
 		<JIGS-UP
-"The entire roof suddenly shudders. Amidst screams of splintering wood and
-billows of ash and dust, it collapses upon you.">)>>
+"The entire roof suddenly shudders. Amidst screams of splintering wood and billows of ash and dust, it collapses upon you.">)>>
 
 <OBJECT RESTAURANT-TABLE
 	(LOC LOCAL-GLOBALS)
@@ -3577,8 +3367,7 @@ billows of ash and dust, it collapses upon you.">)>>
 	 <COND (<EQUAL? ,SYEAR 2061>
 		<SCORE 73> ;"2 points"
 		<TELL
-"soy and kelp burgers, a variety of algae products, and beer. All beef dishes
-on the menuboard have been crudely covered over">)
+"soy and kelp burgers, a variety of algae products, and beer. All beef dishes on the menuboard have been crudely covered over">)
 	       (T
 		<TELL
 "beef burgers, less-expensive kelp burgers and soy burgers, and beer">)>>
@@ -3619,10 +3408,7 @@ on the menuboard have been crudely covered over">)
 		       <COND (,RECORDING
 			      <PUT ,RECORDING-TABLE 0 1>)>
 		       <TELL
-"You order a bowl of Hot and Sour soup and some assorted appetizers.
-The food arrives promptly, steaming hot, delicately spiced, delicious.
-Afterward, your check arrives with a typical fortune cookie and a plate
-of lychee nuts. The fortune reads: \"">
+"You order a bowl of Hot and Sour soup and some assorted appetizers. The food arrives promptly, steaming hot, delicately spiced, delicious. Afterward, your check arrives with a typical fortune cookie and a plate of lychee nuts. The fortune reads: \"">
 		       <COND (<EQUAL? ,SYEAR 2041>
 			      <TELL "Prosperity does not equal happiness">)
 			     (<EQUAL? ,SYEAR 2051>
@@ -3635,8 +3421,7 @@ of lychee nuts. The fortune reads: \"">
 		       <PRINTD ,CREDIT-CARD>
 		       <COND (<L? ,CREDIT 30>
 			      <TELL
-", but the waiter returns a minute later with your card and says, \"Sorry,
-not enough balance to pay for meal. You pay next time you come.\"" CR>
+", but the waiter returns a minute later with your card and says, \"Sorry, not enough balance to pay for meal. You pay next time you come.\"" CR>
 			      <RTRUE>)>
 		       <DEBIT 30>
 		       <TELL "." CR>)
@@ -3647,13 +3432,10 @@ not enough balance to pay for meal. You pay next time you come.\"" CR>
 			      <PUT ,RECORDING-TABLE 0 1>)>
 		       <COND (<EQUAL? ,SYEAR 2041>
 			      <TELL
-"The line you picked moves quickly, putting you in a cheerful mood,
-and you decide to splurge and buy a beef burger.">)
+"The line you picked moves quickly, putting you in a cheerful mood, and you decide to splurge and buy a beef burger.">)
 			     (T
 			      <TELL
-"Your line moves slowly. The person in front of you orders a quarter-pound
-soyburger, and it looks halfway decent, so when you reach the counter you
-decide to order one also.">)>
+"Your line moves slowly. The person in front of you orders a quarter-pound soyburger, and it looks halfway decent, so when you reach the counter you decide to order one also.">)>
 		       <TELL " It arrives a moment later">
 		       <COND (<TOO-POOR 20 ,MEAL>
 			      <RTRUE>)
@@ -3676,8 +3458,7 @@ decide to order one also.">)>
 			      <PUTP ,SPEAR-CARRIER ,P?SDESC "cashier">
 			      <SETG ELAPSED-TIME 12>
 			      <TELL
-"You wander down the aisles, filling the small cart with various items.
-You select the shortest checkout line">
+"You wander down the aisles, filling the small cart with various items. You select the shortest checkout line">
 			      <COND (<TOO-POOR 73 ,MEAL>
 				     <RTRUE>)>
 			      <MOVE ,GROCERIES ,PLAYER>
@@ -3688,8 +3469,7 @@ You select the shortest checkout line">
 ". A clerk bags your groceries and hands you the bag." CR>)
 			     (<EQUAL? ,SYEAR 2061>
 			      <TELL
-"You wander down the aisles, but the food is so sparse and unappetizing
-that you decide not to buy anything." CR>)
+"You wander down the aisles, but the food is so sparse and unappetizing that you decide not to buy anything." CR>)
 			     (<EQUAL? ,SYEAR 2071>
 			      <TELL
 "You can only get food these days using your ration card." CR>)
@@ -3762,8 +3542,7 @@ that you decide not to buy anything." CR>)
 		<MOVE ,CREDIT-CARD ,PLAYER>
 		<COND (<L? ,CREDIT 65>
 		       <TELL CR
-"The waiter returns with your card, informing you that you have insufficient
-funds to cover the meal. He escorts you out of the restaurant." CR CR>
+"The waiter returns with your card, informing you that you have insufficient funds to cover the meal. He escorts you out of the restaurant." CR CR>
 		       <SET OLD-WINNER ,WINNER>
 		       <SETG WINNER ,PLAYER>
 		       <DO-WALK ,P?OUT>
@@ -3776,12 +3555,10 @@ funds to cover the meal. He escorts you out of the restaurant." CR CR>
 		       <TELL CR "The waiter places ">
 		       <COND (<EQUAL? ,SYEAR 2041>
 			      <TELL
-"your soybean salad on the table. A generous portion, and
-quite tasty; you quickly devour it">)
+"your soybean salad on the table. A generous portion, and quite tasty; you quickly devour it">)
 			     (T
 			      <TELL
-"your kelp fillet in front of you. You eat the entire dish, and while it
-was tasty, you still feel that it wasn't worth the price">)>
+"your kelp fillet in front of you. You eat the entire dish, and while it was tasty, you still feel that it wasn't worth the price">)>
 		       <DEBIT 65>
 		       <TELL "." CR>)>)
 	       (<EQUAL? ,MEAL-STATUS 4>
@@ -3789,12 +3566,10 @@ was tasty, you still feel that it wasn't worth the price">)>
 		<QUEUE I-MEAL 1>
 		<COND (<EQUAL? ,WAITER-COUNTER 4>
 		       <TELL CR
-"The waiter clears his throat. \"If you're unable to produce your credit
-card, I'd be glad to ask the maitre d' over here to assist you.\"" CR>)
+"The waiter clears his throat. \"If you're unable to produce your credit card, I'd be glad to ask the maitre d' over here to assist you.\"" CR>)
 		      (<EQUAL? ,WAITER-COUNTER 6>
 		       <TELL CR
-"The waiter, looking quite annoyed, leaves the tableside. A moment later,
-the maitre d' arrives and shows you out of the restaurant." CR CR>
+"The waiter, looking quite annoyed, leaves the tableside. A moment later, the maitre d' arrives and shows you out of the restaurant." CR CR>
 		       <SET OLD-WINNER ,WINNER>
 		       <SETG WINNER ,PLAYER>
 		       <DO-WALK ,P?OUT>
@@ -3824,8 +3599,7 @@ the maitre d' arrives and shows you out of the restaurant." CR CR>
 		       <TELL
 "n overpriced kelp fillet, the cheapest item on the menu">)>
 		<TELL
-". The waiter jots down your order, and reminds you of the
-restaurant's policy of payment in advance." CR>
+". The waiter jots down your order, and reminds you of the restaurant's policy of payment in advance." CR>
 		<QUEUE I-MEAL 1>)
 	       (T
 		<QUEUE I-MEAL 1>
@@ -3836,8 +3610,7 @@ restaurant's policy of payment in advance." CR>
 		<CRLF>
 		<COND (<G? ,MAITRE-COUNTER 8>
 		       <TELL
-"\"I'm afraid you'll have to leave,\" says the maitre d'. \"There's
-no loitering here.\" He escorts you to the door." CR CR>
+"\"I'm afraid you'll have to leave,\" says the maitre d'. \"There's no loitering here.\" He escorts you to the door." CR CR>
 		       <DO-WALK ,P?OUT>)
 		      (T
 		       <SETG MAITRE-COUNTER <+ ,MAITRE-COUNTER 1>>
@@ -3917,13 +3690,10 @@ no loitering here.\" He escorts you to the door." CR CR>
 		<COND (<EQUAL? ,SYEAR 2081>
 		       <SCORE 44> ;"2 points"
 		       <TELL
-"This once-proud bridge is now rusted and neglected. To the west, the road
-enters the city. An intersection is visible in that direction.">)
+"This once-proud bridge is now rusted and neglected. To the west, the road enters the city. An intersection is visible in that direction.">)
 		      (T
 		       <TELL
-"You have reached the center of the bridge which carries Main Street across
-the river. Westward brings you back into the city, and east of here are the
-wealthier suburbs of the east bank.">
+"You have reached the center of the bridge which carries Main Street across the river. Westward brings you back into the city, and east of here are the wealthier suburbs of the east bank.">
 		       <RIVER-FIRE "south">)>)>>
 
 <ROUTINE MAIN-STREET-BRIDGE-EXIT-F ()
@@ -3931,8 +3701,7 @@ wealthier suburbs of the east bank.">
 		<DISABLE <INT I-WILD-DOGS>>
 		<SCORE 45> ;"3 points"
 		<JIGS-UP
-"Within seconds, a pack of wild dogs surrounds you and begins
-tearing you to shreds!">)
+"Within seconds, a pack of wild dogs surrounds you and begins tearing you to shreds!">)
 	       (T
 		<SUBURBS-ENTER-F>)>
 	 <RFALSE>>
@@ -3951,9 +3720,7 @@ tearing you to shreds!">)
 	 <COND (<VERB? EXAMINE>
 		<SCORE 46> ;"2 points"
 		<TELL
-"The sack is soaked with blood and shows traces of the wild fruits that grow
-beyond the city. Judging by how the sack has been clawed to pieces, it would
-seem that the owner was killed by wild animals rather than humans." CR>)>>
+"The sack is soaked with blood and shows traces of the wild fruits that grow beyond the city. Judging by how the sack has been clawed to pieces, it would seem that the owner was killed by wild animals rather than humans." CR>)>>
 
 <GLOBAL WILD-DOG-COUNTER 0>
 
@@ -3994,22 +3761,14 @@ seem that the owner was killed by wild animals rather than humans." CR>)>>
 "Once a lovely old cemetery, the land is now overgrown and the ">
 		       <PRINTD ,HEADSTONES>
 		       <TELL
-" toppled and vandalized. Snarled bushes and trees provide countless hiding
-places for thieves and cutthroats.">)
+" toppled and vandalized. Snarled bushes and trees provide countless hiding places for thieves and cutthroats.">)
 		      (T
 		       <TELL
-"Midland Cemetery occupies one of the nicest pieces of land in the city,
-atop the rolling bluffs of the west bank. The cemetery dates back to the
-time of the original St. Michael's building, and some of the gravestones
-are two hundred years old. ">
+"Midland Cemetery occupies one of the nicest pieces of land in the city, atop the rolling bluffs of the west bank. The cemetery dates back to the time of the original St. Michael's building, and some of the gravestones are two hundred years old. ">
 		       <COND (<EQUAL? ,SYEAR 2071>
 			      <SCORE 48> ;"4 points"
 			      <TELL
-"Many of the stones have been etched with ugly graffiti, like \"PAP,\"
-a derogatory term for Catholics, and \"JEEBOO,\" an epithet for any
-nonmember of the Church. Near the main gate of the cemetery, to the
-west, the land has been bulldozed but is now overgrown with weeds,
-indicating a construction project that was begun but then abandoned. O">)
+"Many of the stones have been etched with ugly graffiti, like \"PAP,\" a derogatory term for Catholics, and \"JEEBOO,\" an epithet for any nonmember of the Church. Near the main gate of the cemetery, to the west, the land has been bulldozed but is now overgrown with weeds, indicating a construction project that was begun but then abandoned. O">)
 			     (T
 			      <TELL
 "The main gate of the cemetery is west of here, and o">)>
@@ -4018,10 +3777,7 @@ indicating a construction project that was begun but then abandoned. O">)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <EQUAL? ,SYEAR 2081>>
 		<TELL CR
-"With a rustle of leaves, someone leaps out of concealment. You barely
-catch a glimpse of a grizzled man wearing a torn imi-denim outfit before
-a fist cracks you across the face, and you pass out as you begin rolling
-down the hillside. ">
+"With a rustle of leaves, someone leaps out of concealment. You barely catch a glimpse of a grizzled man wearing a torn imi-denim outfit before a fist cracks you across the face, and you pass out as you begin rolling down the hillside. ">
 		<COND (<FSET? ,CEMETERY ,ONBIT>
 		       <JIGS-UP "This time, you fail to recover.">)
 		      (T
@@ -4080,8 +3836,7 @@ down the hillside. ">
 "Virtually all the stones have been broken and toppled." CR>)
 		      (T
 		       <TELL
-"The stones bear the usual epitaphs, names, and dates. Some of the stones
-are dated from the middle of the nineteenth century." CR>)>)>> 
+"The stones bear the usual epitaphs, names, and dates. Some of the stones are dated from the middle of the nineteenth century." CR>)>)>> 
 
 <ROOM CHURCH-ENTRANCE
       (LOC ROOMS)
@@ -4116,16 +3871,13 @@ are dated from the middle of the nineteenth century." CR>)>)>>
 		       <TELL "s lie to the northwest and southwest">)
 		      (<EQUAL? ,SYEAR 2051>
 		       <TELL
-". Another church building, probably a rectory, lies to the northwest, and
-an ordinary high-rise apartment is southwest of here">)
+". Another church building, probably a rectory, lies to the northwest, and an ordinary high-rise apartment is southwest of here">)
 		      (<EQUAL? ,SYEAR 2061>
 		       <TELL
-". Another church building to the northwest is also closed. Southwest of
-here is an indistinguishable apartment block">)
+". Another church building to the northwest is also closed. Southwest of here is an indistinguishable apartment block">)
 		      (T
 		       <TELL
-". To the northwest is a ruined structure of some type, and to the
-southwest is a luxury apartment tower">)>
+". To the northwest is a ruined structure of some type, and to the southwest is a luxury apartment tower">)>
 		<TELL
 ". The main entrance to Midland Cemetery is east of here.">)>>
 
@@ -4180,14 +3932,10 @@ graffiti defaces the facade.">)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <TELL
-"You are in a large, vacant lot, strewn with rubble. The only way out of the
-lot is a small opening in the rubble to the east.">)
+"You are in a large, vacant lot, strewn with rubble. The only way out of the lot is a small opening in the rubble to the east.">)
 		      (T
 		       <TELL
-"This is a large church with an obviously wealthy congregation.
-Although this building is over a century old, it is not the original
-St. Michael's, but is built on the site of the even older original
-church. The way out is to the east.">)>)
+"This is a large church with an obviously wealthy congregation. Although this building is over a century old, it is not the original St. Michael's, but is built on the site of the even older original church. The way out is to the east.">)>)
 	       (<EQUAL? .RARG ,M-END>
 		<ELDER-MOVE>)>>
 
@@ -4210,8 +3958,7 @@ church. The way out is to the east.">)>)
 "You pick up the metal object. " ,IT-LOOKS-LIKE " an old, rusting cross." CR>)
 	       (<VERB? EXAMINE>
 		<TELL
-"The cross is ornamental, of the sort once worn by priests. It has rusted
-to the point of fragility." CR>)>>
+"The cross is ornamental, of the sort once worn by priests. It has rusted to the point of fragility." CR>)>>
 
 <ROOM CONSTRUCTION-SITE-5
       (LOC ROOMS)
@@ -4233,12 +3980,10 @@ to the point of fragility." CR>)>>
 	      (<EQUAL? .RARG ,M-LOOK>
 	       <COND (<EQUAL? ,SYEAR 2041>
 		      <TELL
-"An old building, possibly a rectory owned by the church to the
-south, is being renovated">)
+"An old building, possibly a rectory owned by the church to the south, is being renovated">)
 		     (<EQUAL? ,SYEAR 2071>
 		      <TELL
-"Barely discernible through the ash and broken glass are signs that this
-was once a church building of some kind">)
+"Barely discernible through the ash and broken glass are signs that this was once a church building of some kind">)
 		     (T
 		      <TELL "This is part of the St. Michael's complex">)>
 	       <TELL
@@ -4309,8 +4054,7 @@ was once a church building of some kind">)
 		      (T
 		       <TELL "a wreck of a building">)>
 		<TELL
-" on the southwest corner, and to the southeast is an entrance to
-Midland Cemetery. Midland Avenue heads eastward into the cemetery.">)>>
+" on the southwest corner, and to the southeast is an entrance to Midland Cemetery. Midland Avenue heads eastward into the cemetery.">)>>
 
 <OBJECT HEALTH-CENTER-OBJECT
 	(LOC LOCAL-GLOBALS)
@@ -4356,28 +4100,19 @@ Midland Cemetery. Midland Avenue heads eastward into the cemetery.">)>>
 	       (<EQUAL? .RARG ,M-LOOK>
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"The Anderson Health Center is one of the country's oldest and most
-reputable private health maintenance organizations. A directory in the lobby
-directs members to various departments on the many floors of the center">)
+"The Anderson Health Center is one of the country's oldest and most reputable private health maintenance organizations. A directory in the lobby directs members to various departments on the many floors of the center">)
 		      (<EQUAL? ,SYEAR 2051>
 		       <SCORE 50> ;"1 point"
 		       <TELL
-"The Anderson Health Care center is a respected, member-owned HMO which
-has consistently refused to follow the trend of providing inferior health
-care to those unable to afford the best procedures">)
+"The Anderson Health Care center is a respected, member-owned HMO which has consistently refused to follow the trend of providing inferior health care to those unable to afford the best procedures">)
 		      (<EQUAL? ,SYEAR 2061>
 		       <SCORE 51> ;"2 points"
 		       <TELL
-"This once-superb medical facility has fallen upon hard times, as its wealthy
-members have abandoned it in favor of better facilities, and the remaining,
-poorer members were unable to maintain the previous levels of health care">)
+"This once-superb medical facility has fallen upon hard times, as its wealthy members have abandoned it in favor of better facilities, and the remaining, poorer members were unable to maintain the previous levels of health care">)
 		      (T
 		       <SCORE 52> ;"4 points"
 		       <TELL
-"This building once housed the Anderson Health Care Center, which was among
-the last facilities to continue offering medical care to serfs. After finally
-succumbing to financial realities, the structure has now become an overcrowded,
-unsanitary home-of-last-resort for the poorest of the poor">)>
+"This building once housed the Anderson Health Care Center, which was among the last facilities to continue offering medical care to serfs. After finally succumbing to financial realities, the structure has now become an overcrowded, unsanitary home-of-last-resort for the poorest of the poor">)>
 		<TELL
 ". There are exits southwest, to the street, and north, to a">
 		<COND (<EQUAL? ,SYEAR 2071>
@@ -4445,14 +4180,12 @@ unsanitary home-of-last-resort for the poorest of the poor">)>
 <ROUTINE MIDLAND-AND-RIVER-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Eastbound Midland Avenue forms a \"T\" with River Street at this
-intersection. To the northeast is a">
+"Eastbound Midland Avenue forms a \"T\" with River Street at this intersection. To the northeast is a">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL "n old but magnificently preserved structure">)
 		      (T
 		       <TELL
-" graceful structure of marble and glass, bearing the
-black radar dish symbol of the ">
+" graceful structure of marble and glass, bearing the black radar dish symbol of the ">
 		       <TELL "Church">
 		       <COND (<EQUAL? ,SYEAR 2051>
 			      <TELL " of God's Word">)>)>
@@ -4473,9 +4206,7 @@ black radar dish symbol of the ">
 		<TELL ,ALI-BUILDING-DESC "." CR>)>>
 
 <GLOBAL ALI-BUILDING-DESC
-"The ALI Building, headquarters of the American Life Insurance group and
-a fairly typical twenty-first century skyscraper, extends along the western
-side of the street">
+"The ALI Building, headquarters of the American Life Insurance group and a fairly typical twenty-first century skyscraper, extends along the western side of the street">
 
 <ROUTINE TRAIN-STATION-ENTER-F ()
 	 <COND (<OR <AND <EQUAL? ,SYEAR 2041>
@@ -4549,12 +4280,7 @@ side of the street">
 	       (<EQUAL? .RARG ,M-LOOK>
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"The former North Central Station is a magnificent building from the earliest
-part of the twentieth century. Unused for years, it has been restored as a
-national landmark. The newsstands have been converted to souvenir stands, and
-tourists stream through the station to buy tickets for a fifteen minute ride
-on an authentic electric railroad train, which can be boarded to the east. You
-can leave the station to the northwest or southwest.">)
+"The former North Central Station is a magnificent building from the earliest part of the twentieth century. Unused for years, it has been restored as a national landmark. The newsstands have been converted to souvenir stands, and tourists stream through the station to buy tickets for a fifteen minute ride on an authentic electric railroad train, which can be boarded to the east. You can leave the station to the northwest or southwest.">)
 		      (T
 		       <TELL "The regional central headquarters of the Church">
 		       <COND (<EQUAL? ,SYEAR 2051>
@@ -4564,11 +4290,7 @@ can leave the station to the northwest or southwest.">)
 			      <PRINTD ,TRAIN-STATION-OBJECT>
 			      <TELL ",">)>
 		       <TELL
-" is an architectural splendor; light spills down from above, giving the
-illusion that the countenance of God is gazing down upon a visitor in full
-force and fury. A huge image of a radar dish, symbol of the Church, hangs
-above the inner sanctums to the east, and impressively tall arched doorways
-lead out to the northwest and southwest.">)>)
+" is an architectural splendor; light spills down from above, giving the illusion that the countenance of God is gazing down upon a visitor in full force and fury. A huge image of a radar dish, symbol of the Church, hangs above the inner sanctums to the east, and impressively tall arched doorways lead out to the northwest and southwest.">)>)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <EQUAL? ,SYEAR 2041>>
 		<CLOSING-TIME
@@ -4597,8 +4319,7 @@ lead out to the northwest and southwest.">)>)
 	(LOC LOCAL-GLOBALS)
 	(DESC "glossy pamphlet")
 	(FDESC
-"A wooden rack in the lobby, for the purpose of distributing literature
-about the church, contains one pamphlet.")
+"A wooden rack in the lobby, for the purpose of distributing literature about the church, contains one pamphlet.")
 	(SYNONYM LITERATUR PAMPHLET BOOKLET LEAFLET FLYER)
 	(ADJECTIVE GLOSSY)
 	(FLAGS TAKEBIT READBIT)
@@ -4609,69 +4330,37 @@ about the church, contains one pamphlet.")
 		<COND (<EQUAL? ,SYEAR 2051>
 		       <SCORE 54> ;"1 point"
 		       <TELL
-"\"A BRIEF HISTORY OF THE CHURCH OF GOD'S WORD|
+"\"A BRIEF HISTORY OF|
+ THE CHURCH OF GOD'S WORD|
 |
-The Church of God's Word is the vision of a great man, a man named Ellis
-Vincent. He alone, of all the scientists on the Mount who heard the signals,
-recognized them for what they were, the Word of God.|
+The Church of God's Word is the vision of a great man, a man named Ellis Vincent. He alone, of all the scientists on the Mount who heard the signals, recognized them for what they were, the Word of God.|
 |
-The Holy Prophet was ridiculed and persecuted for his beliefs, but he had the
-strength that comes from knowing the Truth, and Followers began to hear those
-Truths and flock around him. They grew in numbers and in strength, and when
-the Evil Scientists of the Mount attempted to bar Vincent from the instruments
-there, he and his Followers rose up and smote the Evil Scientists.|
+The Holy Prophet was ridiculed and persecuted for his beliefs, but he had the strength that comes from knowing the Truth, and Followers began to hear those Truths and flock around him. They grew in numbers and in strength, and when the Evil Scientists of the Mount attempted to bar Vincent from the instruments there, he and his Followers rose up and smote the Evil Scientists.|
 |
-And so it came to pass, in 2025, that the Temple was founded on the Mount,
-and the Instrument of the Word was devoted entirely to listening to God's
-Word. Vincent interpreted the Words for his Followers, who broadcast the
-Message around the world, and branches of the Church appeared in many cities.|
+And so it came to pass, in 2025, that the Temple was founded on the Mount, and the Instrument of the Word was devoted entirely to listening to God's Word. Vincent interpreted the Words for his Followers, who broadcast the Message around the world, and branches of the Church appeared in many cities.|
 |
-When Vincent finally became very old, and God began to beckon his servant
-to his side, he taught the wisest of his Followers how to interpret the
-Word, so that the world would continue to understand the Word after he
-was gone. These Followers became the High Priests of the Church, who to
-this day continue to pass along God's Word.\"" CR>)
+When Vincent finally became very old, and God began to beckon his servant to his side, he taught the wisest of his Followers how to interpret the Word, so that the world would continue to understand the Word after he was gone. These Followers became the High Priests of the Church, who to this day continue to pass along God's Word.\"" CR>)
 		      (<EQUAL? ,SYEAR 2061>
 		       <SCORE 55> ;"2 points"
 		       <TELL
 "\"Hear and obey the Word of God.|
 |
-Ever since the brave crusade of the Holy Prophet Vincent against the evil
-sinners of the Mount, the priests of the Church of God's Word have been
-the sacred guardians of God's Mouth, passing along His Word as sent down
-from the heavens.|
+Ever since the brave crusade of the Holy Prophet Vincent against the evil sinners of the Mount, the priests of the Church of God's Word have been the sacred guardians of God's Mouth, passing along His Word as sent down from the heavens.|
 |
-The Lord Most High has been growing angry at His flock -- angry that there are
-some who do not heed His Word. He is sending a sign, a fiery star that will
-soon burn in our nighttime skies, to warn us that all created in His image
-must become brethren of His Church. The punishment for not doing so will be
-swift and cruel, and directed not just against the sinners but against all of
-mankind, such that all will suffer for the sins of the few.|
+The Lord Most High has been growing angry at His flock -- angry that there are some who do not heed His Word. He is sending a sign, a fiery star that will soon burn in our nighttime skies, to warn us that all created in His image must become brethren of His Church. The punishment for not doing so will be swift and cruel, and directed not just against the sinners but against all of mankind, such that all will suffer for the sins of the few.|
 |
-Our Father and Creator is demanding, but He is also generous and kind. When
-the day arrives that all men have joined His Church and heed His Word, he
-will bring down upon the Earth an epoch of such peace and beauty as the
-world has not seen since Eden. The choice He gives us is simple: Turn away
-and suffer, or Follow and live to see Heaven on Earth.\"" CR>)
+Our Father and Creator is demanding, but He is also generous and kind. When the day arrives that all men have joined His Church and heed His Word, he will bring down upon the Earth an epoch of such peace and beauty as the world has not seen since Eden. The choice He gives us is simple: Turn away and suffer, or Follow and live to see Heaven on Earth.\"" CR>)
 		      (T
 		       <SCORE 56> ;"5 points"
 		       <TELL
-"\"   --- New Pronouncements from The Mount ---|
+"\"  --- New Pronouncements ---|
+     --- from The Mount ---|
 |
-Our Father in Heaven is pleased with the progress the Church is making
-toward Purifying His flock, and assures the Faithful that the day of
-deliverance is soon.|
+Our Father in Heaven is pleased with the progress the Church is making toward Purifying His flock, and assures the Faithful that the day of deliverance is soon.|
 |
-He has instructed that new Worship Camps for the Unpure be opened in
-every part of His favorite nation. He has instructed that these be
-filled with more of the Beasts in Human Form, who have not joined the
-Church, or who are not considered fit to join the Church, so that they
-may be purified and sent to meet Him.|
+He has instructed that new Worship Camps for the Unpure be opened in every part of His favorite nation. He has instructed that these be filled with more of the Beasts in Human Form, who have not joined the Church, or who are not considered fit to join the Church, so that they may be purified and sent to meet Him.|
 |
-He has instructed that only the officials of the Church may hold
-governmental posts, in order to speed His work and facilitate the
-dawning of the new Eden. He has, in his generosity, increased the
-number of slaves a Churchman may own, from twenty-five to fifty.|
+He has instructed that only the officials of the Church may hold governmental posts, in order to speed His work and facilitate the dawning of the new Eden. He has, in his generosity, increased the number of slaves a Churchman may own, from twenty-five to fifty.|
 |
 This is the Word of God; blessed be His name.\"" CR>)>)>>
 
@@ -4705,10 +4394,7 @@ This is the Word of God; blessed be His name.\"" CR>)>)>>
       (LOC ROOMS)
       (DESC "Centre & Kennedy")
       (LDESC
-"At this intersection, Centre Street cuts across Kennedy Street from
-northeast to southwest. A tall hotel has entrances to the east and
-southeast. The austere facade of Huang Hall rises to the west. Kennedy
-Street continues north and south.")
+"At this intersection, Centre Street cuts across Kennedy Street from northeast to southwest. A tall hotel has entrances to the east and southeast. The austere facade of Huang Hall rises to the west. Kennedy Street continues north and south.")
       (NORTH TO PARK-ENTRANCE)
       (NE TO BODANSKI-SQUARE)
       (EAST TO VELDRAN-HOTEL)
@@ -4731,8 +4417,7 @@ Street continues north and south.")
 		       <PUTP ,CENTRE-AND-KENNEDY ,P?SCENE 101>
 		       <SCORE 57> ;"4 points"
 		       <TELL CR
-"Across the street, a beggar attempts to approach a wealthy couple, and
-is beaten into unconsciousness by bodyguards." CR>)
+"Across the street, a beggar attempts to approach a wealthy couple, and is beaten into unconsciousness by bodyguards." CR>)
 		      (T
 		       <PUTP ,CENTRE-AND-KENNEDY ,P?SCENE
 			     <+ <GETP ,CENTRE-AND-KENNEDY ,P?SCENE> 25>>
@@ -4742,9 +4427,7 @@ is beaten into unconsciousness by bodyguards." CR>)
       (LOC ROOMS)
       (DESC "Veldran Hotel")
       (LDESC
-"This high-rise luxury hotel is frequented by business travellers attending
-conventions at Huang Hall across the street. The exit from the lobby is to
-the northwest.")
+"This high-rise luxury hotel is frequented by business travellers attending conventions at Huang Hall across the street. The exit from the lobby is to the northwest.")
       (WEST TO CENTRE-AND-KENNEDY)
       (NW TO CENTRE-AND-KENNEDY)
       (OUT TO CENTRE-AND-KENNEDY)
@@ -4795,13 +4478,11 @@ the northwest.")
 		<TELL "This multipurpose hall ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"was built by a grant from the Huang Foundation, with the stipulation
-that it be used primarily for artistic and cultural events. It is also">)
+"was built by a grant from the Huang Foundation, with the stipulation that it be used primarily for artistic and cultural events. It is also">)
 		      (T
 		       <TELL "is">)>
 		<TELL
-" used for conventions, trade shows, and even an occasional sporting
-event. The current activity seems to be ">
+" used for conventions, trade shows, and even an occasional sporting event. The current activity seems to be ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL "a publishers' convention">)
 		      (<EQUAL? ,SYEAR 2051>
@@ -4840,8 +4521,7 @@ event. The current activity seems to be ">
 <ROUTINE HALLEY-AND-PARK-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"You are on Park Street, at the eastern terminus of Halley Drive. North
-of here, Park Street descends into a tunnel under ">
+"You are on Park Street, at the eastern terminus of Halley Drive. North of here, Park Street descends into a tunnel under ">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <SCORE 61> ;"2 points"
 		       <TELL "the estates that were once ">)> 
@@ -4855,8 +4535,7 @@ of here, Park Street descends into a tunnel under ">
 		       <TELL
 ", once the city's pride but now closed for the last several years,">)>
 		<TELL
-" fronts the intersection to the southwest, and Huang Hall can be
-entered to the east.">)>>
+" fronts the intersection to the southwest, and Huang Hall can be entered to the east.">)>>
 
 <ROUTINE HALLEY-MUSEUM-ENTER-F ()
 	 <COND (<EQUAL? ,SYEAR 2071 2061>
@@ -4888,9 +4567,7 @@ entered to the east.">)>>
 		<TELL " years old, ">
 		<PRINTD ,HALLEY-MUSEUM>
 		<TELL
-" is the pride of Rockvil. The museum specializes in classical art, but has
-exhibits on science and engineering, natural and human history, and modern
-art as well. The museum is">
+" is the pride of Rockvil. The museum specializes in classical art, but has exhibits on science and engineering, natural and human history, and modern art as well. The museum is">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL ", as usual, very">)
 		      (<EQUAL? ,SYEAR 2051>
@@ -4931,8 +4608,7 @@ art as well. The museum is">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <SCORE 62> ;"2 points"
 		       <TELL
-"a high brick wall forming the perimeter of the estates that were built when
-Halley Park was carved up a few years ago">)
+"a high brick wall forming the perimeter of the estates that were built when Halley Park was carved up a few years ago">)
 		      (T
 		       <TELL "Halley Park">)>
 		<TELL ". Just to the west is the highway entrance.">)
@@ -4944,8 +4620,7 @@ Halley Park was carved up a few years ago">)
 		<QUEUE I-CHURCH-SKYCOPTER <+ ,ELAPSED-TIME 1>>
 		<SCORE 64> ;"1 point"
 		<TELL CR
-"A skycopter, with a loudspeaker disguised as a radar dish hanging below it,
-drifts slowly by overhead, announcing some sort of prayer meeting." CR>)>>
+"A skycopter, with a loudspeaker disguised as a radar dish hanging below it, drifts slowly by overhead, announcing some sort of prayer meeting." CR>)>>
 
 <OBJECT CHURCH-SKYCOPTER
 	(LOC LOCAL-GLOBALS)
@@ -4962,12 +4637,10 @@ drifts slowly by overhead, announcing some sort of prayer meeting." CR>)>>
 		<DISABLE <INT I-CHURCH-SKYCOPTER>>
 		<SCORE 64> ;"1 point"
 		<TELL
-"\"The Church of God's Word invites you to a prayer meeting tonight at...\" The
-skycopter drifts out of range before you can hear the time or location." CR>)
+"\"The Church of God's Word invites you to a prayer meeting tonight at...\" The skycopter drifts out of range before you can hear the time or location." CR>)
 	       (<VERB? EXAMINE>
 		<TELL
-"Suspended from the skycopter is a speaker modelled to resemble the
-symbol of the Church." CR>)>>
+"Suspended from the skycopter is a speaker modelled to resemble the symbol of the Church." CR>)>>
 
 <ROUTINE I-CHURCH-SKYCOPTER ()
 	 <TELL "The skycopter, heading away, disappears from view." CR>
@@ -4978,18 +4651,13 @@ symbol of the Church." CR>)>>
       (LOC ROOMS)
       (DESC "Interchange")
       (LDESC
-"This is a huge cloverleaf interchange which once carried traffic on and off
-the interstate. The highway lies north, south and west of here, and Halley
-Drive runs off to the east.")
+"This is a huge cloverleaf interchange which once carried traffic on and off the interstate. The highway lies north, south and west of here, and Halley Drive runs off to the east.")
       (NORTH SORRY
-"The highway's not a safe place to walk. Even in this day and age, it's still
-used occasionally for ground freight.")
+"The highway's not a safe place to walk. Even in this day and age, it's still used occasionally for ground freight.")
       (WEST SORRY
-"The highway's not a safe place to walk. Even in this day and age, it's still
-used occasionally for ground freight.")
+"The highway's not a safe place to walk. Even in this day and age, it's still used occasionally for ground freight.")
       (SOUTH SORRY
-"The highway's not a safe place to walk. Even in this day and age, it's still
-used occasionally for ground freight.")
+"The highway's not a safe place to walk. Even in this day and age, it's still used occasionally for ground freight.")
       (EAST TO HALLEY-AND-UNIVERSITY)
       (FLAGS STREETBIT OUTSIDEBIT)
       (GLOBAL HIGHWAY INTERCHANGE-OBJECT)>
@@ -5064,16 +4732,14 @@ used occasionally for ground freight.")
 <ROUTINE HALLEY-PARK-WEST-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This is the western half of Halley Park, bordered on the north by a car lot,
-on the northwest and west by the zoo, and on the south by Halley Drive. A ">
+"This is the western half of Halley Park, bordered on the north by a car lot, on the northwest and west by the zoo, and on the south by Halley Drive. A ">
 		<COND (<EQUAL? ,SYEAR 2061>
 		       <SCORE 66> ;"1 point"
 		       <TELL "dried-up pond bed">)
 		      (T
 		       <TELL "small duck pond">)>
 		<TELL
-" fills the center of the park. Near the zoo entrance is an entrance
-leading down to the Tubes.">)>>
+" fills the center of the park. Near the zoo entrance is an entrance leading down to the Tubes.">)>>
 
 <OBJECT DUCKS
 	(LOC HALLEY-PARK-WEST)
@@ -5157,16 +4823,12 @@ leading down to the Tubes.">)>>
 		<COND (<EQUAL? ,SYEAR 2061>
 		       <SCORE 67> ;"1 point"
 		       <TELL
-"A pedestal in the center of the park, defaced with multicolored graffiti,
-indicates where a now-missing statue once rose">)
+"A pedestal in the center of the park, defaced with multicolored graffiti, indicates where a now-missing statue once rose">)
 		      (T
 		       <TELL
-"A statue of Francisco Halley, founder of Rockvil, rises in
-the center of the park">)>
+"A statue of Francisco Halley, founder of Rockvil, rises in the center of the park">)>
 		<TELL
-". To the north is the Aquarium and south of here is boxy Huang Hall. Other
-exits from the park lead east, northwest, and southwest. The larger section
-of Halley Park lies to the west.">)>>
+". To the north is the Aquarium and south of here is boxy Huang Hall. Other exits from the park lead east, northwest, and southwest. The larger section of Halley Park lies to the west.">)>>
 
 <OBJECT HALLEY-STATUE
 	(LOC HALLEY-PARK-EAST)
@@ -5196,8 +4858,8 @@ of Halley Park lies to the west.">)>>
 	(TEXT
 "The pedestal is inscribed:|
 |
-        Rockvil's Founding Father:|
-             Francisco Halley")>
+   Rockvil's Founding Father:|
+        Francisco Halley")>
 
 <ROOM ZOO
       (LOC ROOMS)
@@ -5232,21 +4894,17 @@ of Halley Park lies to the west.">)>>
 		       <SCORE 68> ;"5 points"
 		       <SETG P-IT-OBJECT ,BANNER>
 		       <TELL
-". Affluent estates, recently built on the site of Halley Park, form
-the southeastern boundary of the zoo.|
+". Affluent estates, recently built on the site of Halley Park, form the southeastern boundary of the zoo.|
 |
-Several of the nearby cages are empty, with cheaply-made \"EXTINCT\" signs
-bolted over the animal names and descriptions.">
+Several of the nearby cages are empty, with cheaply-made \"EXTINCT\" signs bolted over the animal names and descriptions.">
 		       <COND (<AND <G? ,STIME 840>
 				   <L? ,STIME 900>>
 			      <SCORE 69> ;"4 points"
 			      <TELL CR CR
-"You can hear squeals of pain from the Monkey Cage, where the daily
-torturing of the apes is going on for the amusement of zoo visitors.">)>)
+"You can hear squeals of pain from the Monkey Cage, where the daily torturing of the apes is going on for the amusement of zoo visitors.">)>)
 		      (T
 		       <TELL
-", with other exits leading east and southeast. You can just make out the
-old elevated interstate, forming the western border of the zoo.">)>)
+", with other exits leading east and southeast. You can just make out the old elevated interstate, forming the western border of the zoo.">)>)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <EQUAL? ,SYEAR 2061>
 		     <NOT ,ZOO-FLAG>
@@ -5254,8 +4912,7 @@ old elevated interstate, forming the western border of the zoo.">)>)
 		<SETG ZOO-FLAG T>
 		<SCORE 70> ;"2 points"
 		<TELL CR
-"At a nearby cage, a group of children are taunting, one might even
-say torturing, a small animal, using rocks and pointy sticks." CR>)>>
+"At a nearby cage, a group of children are taunting, one might even say torturing, a small animal, using rocks and pointy sticks." CR>)>>
 
 <OBJECT CAGES
 	(LOC ZOO)
@@ -5282,8 +4939,7 @@ say torturing, a small animal, using rocks and pointy sticks." CR>)>>
 		       <RTRUE>)>)
 	       (<VERB? OPEN UNLOCK>
 		<TELL
-"Surely you realize that such an action would wreak civic havoc! Fortunately,
-the cages are securely bolted." CR>)>>
+"Surely you realize that such an action would wreak civic havoc! Fortunately, the cages are securely bolted." CR>)>>
 
 <OBJECT ANIMAL
 	(LOC LOCAL-GLOBALS)
@@ -5303,15 +4959,13 @@ the cages are securely bolted." CR>)>>
 "You can't get close enough to the animals to pet them." CR>)
 	       (<VERB? FEED>
 		<TELL
-"You pick up a few stray bits of popcorn off the ground and toss it into
-several of the cages. ">
+"You pick up a few stray bits of popcorn off the ground and toss it into several of the cages. ">
 		<COND (<EQUAL? ,SYEAR 2041 2051>
 		       <TELL
 "The animals look well fed, however, and ignore the popcorn." CR>)
 		      (T
 		       <TELL
-"The animals, which look starved, greedily wolf down the pitifully
-few kernels." CR>)>)
+"The animals, which look starved, greedily wolf down the pitifully few kernels." CR>)>)
 	       (<AND <VERB? GIVE>
 		     <FSET? ,PRSO ,EATBIT>>
 		<PERFORM ,V?FEED ,ANIMAL>
@@ -5396,8 +5050,7 @@ few kernels." CR>)>)
 		<COND (<NOT <EQUAL? ,SYEAR 2071>>
 		       <TELL "Halley Park to the south and southeast, ">)>
 		<TELL
-"the Aquarium to the east and the zoo to the west. The exit to the
-street is northeast">
+"the Aquarium to the east and the zoo to the west. The exit to the street is northeast">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <TELL
 ". To the south and southeast are gates leading into ">
@@ -5430,9 +5083,7 @@ street is northeast">
 		      (T
 		       <TELL "Halley Park">)>
 		<TELL
-". The Aquarium can be entered on the southeast corner, and a skycar service
-center occupies the northwest corner. To the southwest is a large car lot, and
-to the northeast, amidst a small car lot, is a ">
+". The Aquarium can be entered on the southeast corner, and a skycar service center occupies the northwest corner. To the southwest is a large car lot, and to the northeast, amidst a small car lot, is a ">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <TELL "dingy-looking bar.">)
 		      (T
@@ -5504,8 +5155,7 @@ to the northeast, amidst a small car lot, is a ">
 <ROUTINE AQUARIUM-F (RARG "AUX" TIME)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"A ramp winds around a huge central tank, and smaller
-exhibits fill the outside walls. Exits lead ">
+"A ramp winds around a huge central tank, and smaller exhibits fill the outside walls. Exits lead ">
 		<COND (<NOT <EQUAL? ,SYEAR 2071>>
 		       <TELL "south, ">)>
 		<TELL "west, northwest, and northeast.">
@@ -5525,8 +5175,7 @@ exhibits fill the outside walls. Exits lead ">
 
 <ROUTINE RAMP-MOVEMENT-F ()
 	 <TELL
-"This brings you to a different part of the tank, although the view inside
-is pretty much the same." CR>
+"This brings you to a different part of the tank, although the view inside is pretty much the same." CR>
 	 <RFALSE>>
 
 <OBJECT TANK
@@ -5546,8 +5195,7 @@ is pretty much the same." CR>
 			     (T
 			      <TELL "artificial ">)>
 		       <TELL
-"light from the surface of the water several stories above you.
-As you peer into the tank, a ">
+"light from the surface of the water several stories above you. As you peer into the tank, a ">
 		       <COND (<PROB 25>
 			      <TELL "manta ray">)
 			     (<PROB 50>
@@ -5555,13 +5203,11 @@ As you peer into the tank, a ">
 			     (T
 			      <TELL "large, graceful fish">)>
 		       <TELL
-" swims into view and then vanishes among the rocks and greenery
-at the bottom of the tank." CR>)
+" swims into view and then vanishes among the rocks and greenery at the bottom of the tank." CR>)
 		      (T
 		       <SCORE 71> ;"1 point"
 		       <TELL
-"The water is murky and the walls of the tank need cleaning. You can only
-make out vague shapes moving about inside the tank." CR>)>)
+"The water is murky and the walls of the tank need cleaning. You can only make out vague shapes moving about inside the tank." CR>)>)
 	       (<AND <VERB? WASH>
 		     <NOT <EQUAL? ,SYEAR 2041>>>
 		<TELL "You don't have the access or the equipment." CR>)
@@ -5582,8 +5228,7 @@ make out vague shapes moving about inside the tank." CR>)>)
 		       <TELL "The fish are large and graceful." CR>)
 		      (T
 		       <TELL
-"Although the central tank is too murky to see into, you can see some fish in
-the smaller side exhibits. They are small and of average appearance." CR>)>)
+"Although the central tank is too murky to see into, you can see some fish in the smaller side exhibits. They are small and of average appearance." CR>)>)
 	       (<VERB? EAT TOUCH>
 		<TELL "The fish are inside a tank." CR>)>>
 
@@ -5643,9 +5288,7 @@ the smaller side exhibits. They are small and of average appearance." CR>)>)
       (LOC ROOMS)
       (DESC "Service Station")
       (LDESC
-"This is an unusually large skycar service center, where people can bring
-their cars for a quick battery replacement, scheduled maintenance, or minor
-repairs. The exit to the street is southeast.")
+"This is an unusually large skycar service center, where people can bring their cars for a quick battery replacement, scheduled maintenance, or minor repairs. The exit to the street is southeast.")
       (SE TO AQUARIUM-AND-PARK)
       (OUT TO AQUARIUM-AND-PARK)
       (FLAGS ONBIT)
@@ -5686,8 +5329,7 @@ repairs. The exit to the street is southeast.")
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <SCORE 72> ;"1 point"
 		       <TELL
-"You are in a seedy pub, filled with smoke and smelling of urine. A fast-food
-counter has been converted into the bar" ,STOOL-DESC "The exit is southwest.">)
+"You are in a seedy pub, filled with smoke and smelling of urine. A fast-food counter has been converted into the bar" ,STOOL-DESC "The exit is southwest.">)
 		      (T
 		       <TELL "This is a fast food restaurant serving ">
 		       <FAST-FOOD-MENU>
@@ -5707,9 +5349,7 @@ counter has been converted into the bar" ,STOOL-DESC "The exit is southwest.">)
       (LOC ROOMS)
       (DESC "Zoo Entrance")
       (LDESC
-"You are on Aquarium Drive, where a road branches off to the south into the
-zoo. To the west, the Drive passes under the old interstate. North of here is
-the entrance to a stadium skycar lot.")
+"You are on Aquarium Drive, where a road branches off to the south into the zoo. To the west, the Drive passes under the old interstate. North of here is the entrance to a stadium skycar lot.")
       (NORTH TO STADIUM-LOT-A)
       (NE SORRY "There's no entrance to the stadium lot in that direction.")
       (EAST TO AQUARIUM-AND-PARK)
@@ -5732,16 +5372,13 @@ the entrance to a stadium skycar lot.")
 		<PUTP ,ZOO-ENTRANCE ,P?SCENE 101>
 		<SCORE 74> ;"2 points"
 		<TELL CR
-"Down the block, you can see two youths, wearing Church of God's Word
-pendants, harassing a middle-aged Hassidic Jew." CR>)>>
+"Down the block, you can see two youths, wearing Church of God's Word pendants, harassing a middle-aged Hassidic Jew." CR>)>>
 
 <ROOM AQUARIUM-UNDERPASS
       (LOC ROOMS)
       (DESC "Aquarium Underpass")
       (LDESC
-"You are on Aquarium Drive where it passes under the old elevated highway
-that runs through the city. To the east is the north side of town, and to
-the west are the suburbs.")
+"You are on Aquarium Drive where it passes under the old elevated highway that runs through the city. To the east is the north side of town, and to the west are the suburbs.")
       (EAST TO ZOO-ENTRANCE)
       (WEST PER SUBURBS-ENTER-F)
       (FLAGS STREETBIT ONBIT)
@@ -5768,17 +5405,13 @@ the west are the suburbs.")
 
 <ROUTINE STADIUM-LOT-DESC (IN-DIR OUT-DIR)
 	 <TELL
-"This is a parking lot for Rockvil Municipal Stadium, which can be entered
-to the " .IN-DIR ". You can leave the lot to the " .OUT-DIR ".">>
+"This is a parking lot for Rockvil Municipal Stadium, which can be entered to the " .IN-DIR ". You can leave the lot to the " .OUT-DIR ".">>
 
 <ROOM RIVER-AND-PARK
       (LOC ROOMS)
       (DESC "River & Park")
       (LDESC
-"River Street, off to the east, ends here at Park Street, which curves from
-the south to the northwest. A stadium skycar lot is on the west side of Park,
-and some sort of athletic field is to the southeast. All along the north side
-of River Street is a vast expanse of placid water, Rockvil Reservoir.")
+"River Street, off to the east, ends here at Park Street, which curves from the south to the northwest. A stadium skycar lot is on the west side of Park, and some sort of athletic field is to the southeast. All along the north side of River Street is a vast expanse of placid water, Rockvil Reservoir.")
       (NORTH SORRY "The reservoir is fenced off.")
       (NE SORRY "The reservoir is fenced off.")
       (EAST TO RIVER-AND-KENNEDY)
@@ -5827,8 +5460,7 @@ of River Street is a vast expanse of placid water, Rockvil Reservoir.")
 <ROUTINE WATER-TOWER-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Park Street splits for a block as it climbs Lincoln Hill
-and passes around a ">
+"Park Street splits for a block as it climbs Lincoln Hill and passes around a ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL "shiny">)
 		      (<EQUAL? ,SYEAR 2061>
@@ -5840,10 +5472,7 @@ and passes around a ">
 		<TELL " plastalloy ">
 		<PRINTD ,WATER-TOWER-OBJECT>
 		<TELL
-". The road continues to curve, heading west toward the highway and southeast
-toward the city. There's a breathtaking view of the reservoir from this
-hilltop, stretching off to the east. To the southwest you can enter a stadium
-parking lot. To the north is the ">
+". The road continues to curve, heading west toward the highway and southeast toward the city. There's a breathtaking view of the reservoir from this hilltop, stretching off to the east. To the southwest you can enter a stadium parking lot. To the north is the ">
 		<PRINTD ,ROCKVIL-REFORMATORY>
 		<TELL ".">)>>
 
@@ -5875,8 +5504,7 @@ parking lot. To the north is the ">
 <ROUTINE ROCKVIL-REFORMATORY-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"The Park Street Prison was built during the twentieth century. It was
-expanded, modernized, and renamed the ">
+"The Park Street Prison was built during the twentieth century. It was expanded, modernized, and renamed the ">
 		<PRINTD ,ROCKVIL-REFORMATORY>
 		<TELL " around ">
 		<COND (<EQUAL? ,SYEAR 2041>
@@ -5892,9 +5520,7 @@ expanded, modernized, and renamed the ">
 		<TELL CR "From what you've heard, the prison is ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"overcrowded, because today's stricter law enforcement and mandatory
-sentencing regulations are putting people into the penal system even
-faster than the military draft can remove them">)
+"overcrowded, because today's stricter law enforcement and mandatory sentencing regulations are putting people into the penal system even faster than the military draft can remove them">)
 		      (<EQUAL? ,SYEAR 2051>
 		       <SCORE 75> ;"1 point"
 		       <TELL
@@ -5902,15 +5528,11 @@ faster than the military draft can remove them">)
 		      (<EQUAL? ,SYEAR 2061>
 		       <SCORE 76> ;"3 points"
 		       <TELL
-"much less crowded than it used to be, now that the death penalty has
-been extended to cover most crimes">)
+"much less crowded than it used to be, now that the death penalty has been extended to cover most crimes">)
 		      (<EQUAL? ,SYEAR 2071>
 		       <SCORE 77> ;"4 points"
 		       <TELL
-"almost completely unused these days, with most criminals going to
-the execution matches. The few remaining prisoners are just important
-Enemies of the Church, former Members who have fallen out of favor
-with the Leadership">)>
+"almost completely unused these days, with most criminals going to the execution matches. The few remaining prisoners are just important Enemies of the Church, former Members who have fallen out of favor with the Leadership">)>
 		<TELL ". Park Street is south of here.">)>>
 
 <OBJECT JAIL-OBJECT
@@ -5994,23 +5616,14 @@ with the Leadership">)>
 		      (<EQUAL? ,SYEAR 2071>
 		       <SCORE 79> ;"8 points"
 		       <TELL
-"The stadium is currently packed by crowds who've come for the weekly
-Execution Matches. Convicted criminals are matched, or rather mismatched,
-against laser-armed robotoids and various wild animals. The mobs in the
-stands roar each time a convict is gored. The field is literally soaked
-with blood, and there are numerous fistfights throughout the stands">)
+"The stadium is currently packed by crowds who've come for the weekly Execution Matches. Convicted criminals are matched, or rather mismatched, against laser-armed robotoids and various wild animals. The mobs in the stands roar each time a convict is gored. The field is literally soaked with blood, and there are numerous fistfights throughout the stands">)
 		      (<EQUAL? ,SYEAR 2061>
 		       <SCORE 78> ;"4 points"
 		       <TELL
-"Neither the Bobcats nor the Rockets are playing today; instead, the
-stadium is being used for the public execution of criminals. Prisoners
-stand in a dock while the announcer reads their crimes. They are then
-led into a screened-off area where technicians administer the fatal
-injection. The stands are sparsely filled">) 
+"Neither the Bobcats nor the Rockets are playing today; instead, the stadium is being used for the public execution of criminals. Prisoners stand in a dock while the announcer reads their crimes. They are then led into a screened-off area where technicians administer the fatal injection. The stands are sparsely filled">) 
 		      (T
 		       <TELL
-"Rockvil Municipal Stadium is a multipurpose sporting event facility, home
-of both baseball's Rockvil Bobcats and soccer's Rockvil Rockets">)>
+"Rockvil Municipal Stadium is a multipurpose sporting event facility, home of both baseball's Rockvil Bobcats and soccer's Rockvil Rockets">)>
 		<TELL
 ". Stadium exits lie to the south, east, and northeast. A ">
 		<COND (<EQUAL? ,SYEAR 2071>
@@ -6050,8 +5663,7 @@ of both baseball's Rockvil Bobcats and soccer's Rockvil Rockets">)>
 		       <TELL "You can't see the stadium from down here!" CR>)
 		      (T
 		       <TELL
-"The stadium is a monolithic plasticrete park with tall,
-narrow, arched entrances." CR>)>)
+"The stadium is a monolithic plasticrete park with tall, narrow, arched entrances." CR>)>)
 	       (<AND <VERB? BOARD SIT>
 		     <EQUAL? ,HERE ,ROCKVIL-STADIUM>>
 		<PERFORM ,V?SIT ,STADIUM-STANDS>
@@ -6068,9 +5680,7 @@ narrow, arched entrances." CR>)>)
       (LOC ROOMS)
       (DESC "Park Underpass")
       (LDESC
-"At this point, the old, rarely-used interstate crosses over Park Street.
-The northern suburbs lie to the west, and east of here the street climbs
-a hill toward a water tower.")
+"At this point, the old, rarely-used interstate crosses over Park Street. The northern suburbs lie to the west, and east of here the street climbs a hill toward a water tower.")
       (EAST TO WATER-TOWER)
       (WEST PER SUBURBS-ENTER-F)
       (FLAGS STREETBIT ONBIT)
@@ -6103,9 +5713,7 @@ a hill toward a water tower.")
 		      (T
 		       <TELL "Rockvil High School">)>
 		<TELL
-", with facilities for baseball and soccer, as well as track and field
-events. Bleachers line one side of the field, and there are exits in the
-fence to the northeast and northwest.">)>>
+", with facilities for baseball and soccer, as well as track and field events. Bleachers line one side of the field, and there are exits in the fence to the northeast and northwest.">)>>
 
 <OBJECT BLEACHERS
 	(LOC ATHLETIC-FIELD)
@@ -6134,25 +5742,18 @@ fence to the northeast and northwest.">)>>
 	       (<EQUAL? ,SYEAR 2061>
 		<SCORE 80> ;"2 points"
 		<TELL CR
-"Some of the schoolchildren notice the stranger who has wandered onto
-their field, and begin laughing at you, plucking at your ratty clothing." CR>)
+"Some of the schoolchildren notice the stranger who has wandered onto their field, and begin laughing at you, plucking at your ratty clothing." CR>)
 	       (<AND <EQUAL? ,SYEAR 2071>
 		     <NOT ,STONING-FLAG>>
 		<SETG STONING-FLAG T>
 		<QUEUE I-ATHLETIC-FIELD 1>
 		<TELL CR
-"Several of the larger children gather around you menacingly. \"We don't allow
-animals onto Church land, pops,\" one of them says, poking you sharply in the
-chest with his fingers. Some of the others begin picking up stones." CR>)
+"Several of the larger children gather around you menacingly. \"We don't allow animals onto Church land, pops,\" one of them says, poking you sharply in the chest with his fingers. Some of the others begin picking up stones." CR>)
 	       (T
 		<SCORE 81> ;"7 points"
 		<JIGS-UP
 "|
-A circle of older children closes in on you with heavy rocks. In the
-background, you can hear younger ones chanting a familiar rhyme: \"Pick
-an apple, bake a pie, animals deserve to die.\" For a moment, the entire
-field seems frozen in a tableau, then a volley of stones is unleashed.
-One strikes you in the forehead...">)>>
+A circle of older children closes in on you with heavy rocks. In the background, you can hear younger ones chanting a familiar rhyme: \"Pick an apple, bake a pie, animals deserve to die.\" For a moment, the entire field seems frozen in a tableau, then a volley of stones is unleashed. One strikes you in the forehead...">)>>
 
 <ROOM RIVER-AND-KENNEDY
       (LOC ROOMS)
@@ -6172,16 +5773,13 @@ One strikes you in the forehead...">)>>
 <ROUTINE RIVER-AND-KENNEDY-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"River Street, after paralleling Kennedy Street across the city, curves
-westward and intersects it here. Kennedy ends at this point, since the
-reservoir forms the northern border of River Street. ">
+"River Street, after paralleling Kennedy Street across the city, curves westward and intersects it here. Kennedy ends at this point, since the reservoir forms the northern border of River Street. ">
 		<COND (<EQUAL? ,SYEAR 2061 2071>
 		       <TELL "The Vincent">)
 		      (T
 		       <TELL "Rockvil High">)>
 		<TELL
-" School is on the southeast corner, and its athletic field is
-southwest of here.">)>>
+" School is on the southeast corner, and its athletic field is southwest of here.">)>>
 
 <ROUTINE ROCKVIL-HIGH-ENTER-F ()
 	 <COND (<OR <L? ,STIME 420>
@@ -6209,8 +5807,7 @@ southwest of here.">)>>
 	       (<EQUAL? .RARG ,M-LOOK>
 		<COND (<EQUAL? ,SYEAR 2041 2051>
 		       <TELL
-"The oldest secondary school in the city, Rockvil High School moved to
-its current location and building approximately ">
+"The oldest secondary school in the city, Rockvil High School moved to its current location and building approximately ">
 		       <COND (<EQUAL? ,SYEAR 2041>
 		       	      <TELL "thirty">)
 			     (T
@@ -6219,8 +5816,7 @@ its current location and building approximately ">
 		      (T
 		       <SCORE 82> ;"5 points"
 		       <TELL
-"The old Rockvil High building was purchased by the Church of God's Word
-after the public school system shut down in 2058">)>
+"The old Rockvil High building was purchased by the Church of God's Word after the public school system shut down in 2058">)>
 		<TELL
 ". The building has exits at its eastern and northwestern corners.">)
 	       (<EQUAL? .RARG ,M-END>
@@ -6245,9 +5841,7 @@ after the public school system shut down in 2058">)>
 <ROUTINE AQUARIUM-AND-KENNEDY-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"You are at a perpendicular intersection formed by the north-south Kennedy
-Street and the east-west Aquarium Drive. " ,CHUN-DESC " On the other corners,
-scanning clockwise, are a dental school, the Aquarium, and a bank.">)>>
+"You are at a perpendicular intersection formed by the north-south Kennedy Street and the east-west Aquarium Drive. " ,CHUN-DESC " On the other corners, scanning clockwise, are a dental school, the Aquarium, and a bank.">)>>
 
 <OBJECT CHUN-BUILDING
 	(LOC AQUARIUM-AND-KENNEDY)
@@ -6350,8 +5944,7 @@ scanning clockwise, are a dental school, the Aquarium, and a bank.">)>>
 ", but has been gaining an excellent reputation for dental training">)
 		      (<EQUAL? ,SYEAR 2071>
 		       <TELL
-" with a fine reputation, and has remained amazingly unchanged by the
-turmoil of the last few decades">)>
+" with a fine reputation, and has remained amazingly unchanged by the turmoil of the last few decades">)>
 		<TELL ". The way out is to the northwest.">)>>
 
 <ROOM PARK-ENTRANCE
@@ -6440,8 +6033,7 @@ turmoil of the last few decades">)>
 "unused, and weeds are beginning to poke through the asphalt. You can reach">)
 		      (T
 		       <TELL
-"owned by the First Methodist Church, although it is frequently rented to
-organizations using nearby Huang Hall. The parking lot has exits to">)>
+"owned by the First Methodist Church, although it is frequently rented to organizations using nearby Huang Hall. The parking lot has exits to">)>
 		<TELL " the street to the east and west. ">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <TELL "A vacant lot is north of here.">)
@@ -6470,24 +6062,20 @@ organizations using nearby Huang Hall. The parking lot has exits to">)>
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <SCORE 85> ;"3 points"
 		       <TELL
-"This is a vacant lot where a Protestant church once stood, until it was
-torched a few years ago by a mob of serfs aroused by a Church revival. You can
-reach an overgrown car lot to the south, or the street to the northeast.">)
+"This is a vacant lot where a Protestant church once stood, until it was torched a few years ago by a mob of serfs aroused by a Church revival. You can reach an overgrown car lot to the south, or the street to the northeast.">)
 		      (T
 		       <COND (<EQUAL? ,SYEAR 2041>
 			      <TELL "This is a new building which">)
 			     (T
 			      <TELL "This building">)>
 		       <TELL
-" exhibits both the best and worst features of twenty-first century
-neoclassical architecture. The congregation must ">
+" exhibits both the best and worst features of twenty-first century neoclassical architecture. The congregation must ">
 		       <COND (<EQUAL? ,SYEAR 2061>
 			      <TELL "have once been">)
 			     (T
 			      <TELL "be">)>
 		       <TELL
-" very large, judging by the size of the car lot to the south. The
-main entrance to the church is at the northeast.">)>)
+" very large, judging by the size of the car lot to the south. The main entrance to the church is at the northeast.">)>)
 	       (<EQUAL? .RARG ,M-END>
 		<ELDER-MOVE>)>>
 
@@ -6499,8 +6087,7 @@ main entrance to the church is at the northeast.">)>)
 		     <NOT <IN? ,CHURCH-OFFICIAL ,HERE>>>
 		<MOVE ,CHURCH-OFFICIAL ,HERE>
 		<TELL CR
-"You suddenly notice a church elder, pacing around at the other
-end of the building." CR>)
+"You suddenly notice a church elder, pacing around at the other end of the building." CR>)
 	       (<AND <IN? ,CHURCH-OFFICIAL ,HERE>
 		     <G? ,STIME 1200>>
 		<MOVE ,CHURCH-OFFICIAL ,LOCAL-GLOBALS>
@@ -6526,15 +6113,11 @@ end of the building." CR>)
 		       <COND (,RECORDING
 		       	      <PUT ,RECORDING-TABLE 12 1>)>
 		       <TELL
-"smiles and comments on how happy he is about the recent increase in
-church attendance, which he attributes to an improving national moral
-climate" ,OFFICIAL-LEAVES CR>)
+"smiles and comments on how happy he is about the recent increase in church attendance, which he attributes to an improving national moral climate" ,OFFICIAL-LEAVES CR>)
 		      (T
 		       <SCORE 136> ;"2 points"
 		       <TELL
-"looks worried and complains about the growth of the Church of God's Word,
-and a perceived erosion of religious tolerance. Suddenly he notices the time,
-mumbles something about a wedding, and rushes off." CR>)> 
+"looks worried and complains about the growth of the Church of God's Word, and a perceived erosion of religious tolerance. Suddenly he notices the time, mumbles something about a wedding, and rushes off." CR>)> 
 		<CLEAR-BUF>)
 	       ;(<AND <VERB? ASK-ABOUT>
 		     <PRSO? ,CHURCH-OFFICIAL>>
@@ -6570,14 +6153,11 @@ mumbles something about a wedding, and rushes off." CR>)>
 <ROUTINE BODANSKI-SQUARE-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This is a large plaza formed by the intersection of Bodanski Boulevard from
-the east, Centre Street from the southwest, and River Street from the north
-and south. There is a">
+"This is a large plaza formed by the intersection of Bodanski Boulevard from the east, Centre Street from the southwest, and River Street from the north and south. There is a">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <TELL "n abandoned">)>
 		<TELL
-" car lot on the western side of the square. On the northeastern
-corner is a restaurant, and the ">
+" car lot on the western side of the square. On the northeastern corner is a restaurant, and the ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL "old ">
 		       <PRINTD ,TRAIN-STATION-OBJECT>)
@@ -6630,8 +6210,7 @@ corner is a restaurant, and the ">
 		<TELL "." CR>)
 	       (<VERB? OPEN>
 		<TELL
-"The dispenser is locked. The only way to get a paper out is by
-putting your card in the slot." CR>)
+"The dispenser is locked. The only way to get a paper out is by putting your card in the slot." CR>)
 	       (<AND <VERB? PUT>
 		     <PRSO? ,CREDIT-CARD>>
 		<PERFORM ,V?PUT ,CREDIT-CARD ,SLOT>
@@ -6656,75 +6235,27 @@ putting your card in the slot." CR>)
 			      <PUT ,RECORDING-TABLE 6 1>)>
 		       <SETG ELAPSED-TIME 10>
 		       <TELL
-"The headline story in the news section is about the Index of Leading
-Economic Indicators, which are up a stunning 9.7% over last month, yet
-another indication of the economy's robust performance. Related stories
-discuss the unemployment rate, which is at the lowest level in almost
-thirty years, and commercial and housing construction, which are at an
-all-time high.|
+"The headline story in the news section is about the Index of Leading Economic Indicators, which are up a stunning 9.7% over last month, yet another indication of the economy's robust performance. Related stories discuss the unemployment rate, which is at the lowest level in almost thirty years, and commercial and housing construction, which are at an all-time high.|
 |
-Another major story covers President Ryder's speech for the Distinguished
-Lecturer Series of the Border Security Force Academy. In his address, the
-President called the '40s a \"decade of new hope,\" and attributed much of
-that new hope to the work of the BSF, sending a signal to the entire world
-that the USNA \"won't be pushed around by the biggest dictatorship or the
-smallest band of terrorist murderers.\"|
+Another major story covers President Ryder's speech for the Distinguished Lecturer Series of the Border Security Force Academy. In his address, the President called the '40s a \"decade of new hope,\" and attributed much of that new hope to the work of the BSF, sending a signal to the entire world that the USNA \"won't be pushed around by the biggest dictatorship or the smallest band of terrorist murderers.\"|
 |
-On one of the inside pages, an in-depth report on crime reveals that,
-although the overall crime rate has dropped only 4% over the last decade,
-public perception is that crime has fallen much further. The report
-attributes this perception to three points: Violent crime has decreased
-much faster than other types of crime, and is down by 15% from ten years
-ago. Crime in the schools, which has always gotten the most publicity,
-has dropped by 40%. Most importantly, offenders are getting harsher
-sentences, as opposed to the old days of getting off on technicalities,
-low bail, and easy parole.|
+On one of the inside pages, an in-depth report on crime reveals that, although the overall crime rate has dropped only 4% over the last decade, public perception is that crime has fallen much further. The report attributes this perception to three points: Violent crime has decreased much faster than other types of crime, and is down by 15% from ten years ago. Crime in the schools, which has always gotten the most publicity, has dropped by 40%. Most importantly, offenders are getting harsher sentences, as opposed to the old days of getting off on technicalities, low bail, and easy parole.|
 |
-Other stories in the news section deal with the construction of a new InfoTech
-orbiting factory, deregulation of the medicinal drug industry, the war in
-Turkey, and plans for a lunar mining operation. An editorial calls for
-lowering draft board requirements in order to ease prison overcrowding." CR>)
+Other stories in the news section deal with the construction of a new InfoTech orbiting factory, deregulation of the medicinal drug industry, the war in Turkey, and plans for a lunar mining operation. An editorial calls for lowering draft board requirements in order to ease prison overcrowding." CR>)
 		      (<EQUAL? ,SYEAR 2051>
 		       <SETG ELAPSED-TIME 5>
 		       <SCORE 87> ;"3 points"
 		       <TELL
-"The newspaper is extremely thin, and the news section is the thinnest section
-of all. The lead story deals with the drop in USNA farm output, the first drop
-in twenty years. A spokesman for the Department of Agriculture attributed the
-decline to a year of unseasonable cold and low rainfall, and predicted that the
-coming year would more than make up for it. An alternative viewpoint was
-expressed by the head of the American Association of Agribusiness, who claimed
-the drop was caused by overfarming of lands, depletion of aquifers, and an
-increase in acid rain, and called for a massive government program to save the
-country's farms.|
+"The newspaper is extremely thin, and the news section is the thinnest section of all. The lead story deals with the drop in USNA farm output, the first drop in twenty years. A spokesman for the Department of Agriculture attributed the decline to a year of unseasonable cold and low rainfall, and predicted that the coming year would more than make up for it. An alternative viewpoint was expressed by the head of the American Association of Agribusiness, who claimed the drop was caused by overfarming of lands, depletion of aquifers, and an increase in acid rain, and called for a massive government program to save the country's farms.|
 |
-Other stories cover the Ryder administration's support for a strip-mining bill;
-the announcement by Huang Laboratories that without subsidized shuttle flights
-it would be forced to close GEO-7, the last remaining space factory; committee
-hearings on euthanasia legislation; the decision by a Church of God's Word
-priest in Arizona to run for a Senate seat; and a poll showing President Ryder
-enjoying a 71% approval rating." CR>)
+Other stories cover the Ryder administration's support for a strip-mining bill; the announcement by Huang Laboratories that without subsidized shuttle flights it would be forced to close GEO-7, the last remaining space factory; committee hearings on euthanasia legislation; the decision by a Church of God's Word priest in Arizona to run for a Senate seat; and a poll showing President Ryder enjoying a 71% approval rating." CR>)
 		      (T ;"epilogue"
 		       <TELL
-"The headline story is about a newly released study which indicates that the
-average life expectancy for both sexes has now passed one hundred years, and
-success in the development of regeneratives should send that figure even
-higher. Despite the dropping mortality rate, global population remains stable
-at just under two billion, with offworlding now running at a staggering
-seven million people annually.|
+"The headline story is about a newly released study which indicates that the average life expectancy for both sexes has now passed one hundred years, and success in the development of regeneratives should send that figure even higher. Despite the dropping mortality rate, global population remains stable at just under two billion, with offworlding now running at a staggering seven million people annually.|
 |
-To celebrate next month's special twentieth anniversary Disarmament Day, the
-World Council has passed a bill authorizing fireworks displays in each of the
-former capital cities of the twenty-two former nuclear powers. The fireworks
-displays, by Aerialist designer Jean M'gomo, will feature disarmament themes,
-and will be the largest display of pyrotechnic art in this century.|
+To celebrate next month's special twentieth anniversary Disarmament Day, the World Council has passed a bill authorizing fireworks displays in each of the former capital cities of the twenty-two former nuclear powers. The fireworks displays, by Aerialist designer Jean M'gomo, will feature disarmament themes, and will be the largest display of pyrotechnic art in this century.|
 |
-A story on an inside page catches your eye: \"Perry Simm, Noted Author, To
-Join Crew of Silver Dove,\" reads the headline. \"Perry Simm, author and poet,
-recipient of the 2089 Mexicana Prize, has been selected from nearly a thousand
-applicants to be the resident author aboard the Silver Dove, the space
-colony that is currently being equipped for mankind's first interstellar
-journey, a trip expected to last a dozen generations.\"" CR>)>)
+A story on an inside page catches your eye: \"Perry Simm, Noted Author, To Join Crew of Silver Dove,\" reads the headline. \"Perry Simm, author and poet, recipient of the 2089 Mexicana Prize, has been selected from nearly a thousand applicants to be the resident author aboard the Silver Dove, the space colony that is currently being equipped for mankind's first interstellar journey, a trip expected to last a dozen generations.\"" CR>)>)
 	       (<VERB? BUY>
 		<COND (<AND <EQUAL? ,HERE ,BODANSKI-SQUARE>
 			    <EQUAL? ,SYEAR 2041 2051>>
@@ -6755,8 +6286,7 @@ journey, a trip expected to last a dozen generations.\"" CR>)>)
       (LOC ROOMS)
       (DESC "Simon's")
       (LDESC
-"This expensive four-star restaurant is a favorite after-theatre dining
-spot. You can leave to the southwest.")
+"This expensive four-star restaurant is a favorite after-theatre dining spot. You can leave to the southwest.")
       (SW TO BODANSKI-SQUARE)
       (OUT TO BODANSKI-SQUARE)
       (FLAGS NARTICLEBIT)
@@ -6800,9 +6330,7 @@ spot. You can leave to the southwest.")
 <ROUTINE AQUARIUM-AND-RIVER-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Aquarium Drive from the west ends at this \"T\" intersection with
-River Street. There's a modern theatre building to the northwest, and
-an older one to the east. On the southwest corner is a">
+"Aquarium Drive from the west ends at this \"T\" intersection with River Street. There's a modern theatre building to the northwest, and an older one to the east. On the southwest corner is a">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <TELL "n empty lot.">)
 		      (T
@@ -6836,8 +6364,7 @@ an older one to the east. On the southwest corner is a">
       (LOC ROOMS)
       (DESC "Pickford Theatre")
       (LDESC
-"This building is the last survivor of the fine old theatres of Rockvil's
-theatre district. The exit to River Street is to the west.")
+"This building is the last survivor of the fine old theatres of Rockvil's theatre district. The exit to River Street is to the west.")
       (WEST TO AQUARIUM-AND-RIVER)
       (OUT TO AQUARIUM-AND-RIVER)
       (FLAGS ONBIT)
@@ -6852,18 +6379,14 @@ theatre district. The exit to River Street is to the west.")
 		     <G? ,STIME 1160>
 		     <L? ,STIME 1200>>
 		<TELL CR
-"Skycar after skycar settles onto the sidewalk outside the theatre, and
-extravagantly dressed couples walk elegantly into the theatre for the
-evening's performance">
+"Skycar after skycar settles onto the sidewalk outside the theatre, and extravagantly dressed couples walk elegantly into the theatre for the evening's performance">
 		<COND (<AND <EQUAL? ,SYEAR 2071>
 		       	    <PROB 50>
 			    <NOT ,BEGGAR-FLAG>>
 		       <SETG BEGGAR-FLAG T>
 		       <SCORE 57> ;"4 points"
 		       <TELL
-". A beggar approaches one of the wealthy couples, but before he can even get
-close to them, some theatre guards grab him, beat him viciously, and hurl him
-bleeding and dazed into the gutter outside the theatre">)>
+". A beggar approaches one of the wealthy couples, but before he can even get close to them, some theatre guards grab him, beat him viciously, and hurl him bleeding and dazed into the gutter outside the theatre">)>
 		<TELL "." CR>)>>
 
 <ROOM AIRPORTWAY-AND-RIVER
@@ -6886,8 +6409,7 @@ bleeding and dazed into the gutter outside the theatre">)>
 <ROUTINE AIRPORTWAY-AND-RIVER-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"The road east to the airport begins here. River Street continues north
-toward the reservoir, curving around to run along its southern shore. A ">
+"The road east to the airport begins here. River Street continues north toward the reservoir, curving around to run along its southern shore. A ">
 		<COND (<EQUAL? ,SYEAR 2071>
 		       <TELL "Church">)
 		      (<EQUAL? ,SYEAR 2061>
@@ -6895,9 +6417,7 @@ toward the reservoir, curving around to run along its southern shore. A ">
 		      (T
 		       <TELL "high">)>
 		<TELL
-" school, a theatre, and a hotel can be entered to the west, southwest,
-and southeast, respectively. To the northeast is the perimeter fence of
-the Manville Border Security Force Base.">)
+" school, a theatre, and a hotel can be entered to the west, southwest, and southeast, respectively. To the northeast is the perimeter fence of the Manville Border Security Force Base.">)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <EQUAL? ,SYEAR 2061>
 		     <EQUAL? ,LIGHT-LEVEL 3>
@@ -6906,11 +6426,7 @@ the Manville Border Security Force Base.">)
 		       <PUTP ,AIRPORTWAY-AND-RIVER ,P?SCENE 101>
 		       <SCORE 88> ;"3 points"
 		       <TELL CR
-"A huge private skycar glides to a stop at the curb, nearly crushing
-an old woman. Several bodyguards leap out, and begin pushing the crowds
-back. A heavyset woman wearing thick furs steps out of the car, which
-rises and disappears from view. The woman, surrounded by her contingent
-of bodyguards, enters the hotel." CR>)
+"A huge private skycar glides to a stop at the curb, nearly crushing an old woman. Several bodyguards leap out, and begin pushing the crowds back. A heavyset woman wearing thick furs steps out of the car, which rises and disappears from view. The woman, surrounded by her contingent of bodyguards, enters the hotel." CR>)
 		      (T
 		       <PUTP ,AIRPORTWAY-AND-RIVER ,P?SCENE
 			     <+ <GETP ,AIRPORTWAY-AND-RIVER ,P?SCENE> 33>>
@@ -6961,20 +6477,16 @@ of bodyguards, enters the hotel." CR>)
 		<TELL " theatre, built on the site of the original ">
 		<PRINTD ,WELLS-THEATRE>
 		<TELL
-", which dates to the middle of the last century. According to a showcase,
-the current season includes productions of ">
+", which dates to the middle of the last century. According to a showcase, the current season includes productions of ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"Shakespeare's \"Hamlet,\" Williams' \"A Streetcar Named Desire,\" Furrough's
-\"Plastic Summer,\" and the classic musical \"Hair.\"">)
+"Shakespeare's \"Hamlet,\" Williams' \"A Streetcar Named Desire,\" Furrough's \"Plastic Summer,\" and the classic musical \"Hair.\"">)
 		      (<EQUAL? ,SYEAR 2051>
 		       <TELL
-"Wilder's \"Our Town,\" Shakespeare's \"A Midsummer Night's Dream,\" Rodgers
-and Hammerstein's \"Oklahoma\", and Grzenda and Rice's \"Prairie Song.\"">)
+"Wilder's \"Our Town,\" Shakespeare's \"A Midsummer Night's Dream,\" Rodgers and Hammerstein's \"Oklahoma\", and Grzenda and Rice's \"Prairie Song.\"">)
 		      (<EQUAL? ,SYEAR 2061>
 		       <TELL
-"Hilbert's \"Faith of our Fathers,\" Kim's \"Furs, Trees, and Beef,\" and
-Shaw's \"Man and Superman.\"">)
+"Hilbert's \"Faith of our Fathers,\" Kim's \"Furs, Trees, and Beef,\" and Shaw's \"Man and Superman.\"">)
 		      (T
 		       <SCORE 89> ;"2 points"
 		       <TELL "several recent ecumenical plays.">)>
@@ -7008,8 +6520,7 @@ Shaw's \"Man and Superman.\"">)
 		       <TELL "boarded-up ">)>
 		<PRINTD ,RAILROAD-MUSEUM>
 		<TELL
-". The street runs east toward the park and west toward the square. North of
-here is a car lot and to the northwest is a huge cinema complex.">)
+". The street runs east toward the park and west toward the square. North of here is a car lot and to the northwest is a huge cinema complex.">)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <EQUAL? ,SYEAR 2061>
 		     <EQUAL? ,LIGHT-LEVEL 3>
@@ -7017,9 +6528,7 @@ here is a car lot and to the northwest is a huge cinema complex.">)
 		<PUTP ,MUSEUM-ENTRANCE ,P?SCENE 101>
 		<SCORE 91> ;"5 points"
 		<TELL CR
-"Two policemen across the street are savagely beating a dark-skinned youth.
-A hot dog peddler catches their attention, and as they begin buying some
-food the youth slinks away." CR>)>>
+"Two policemen across the street are savagely beating a dark-skinned youth. A hot dog peddler catches their attention, and as they begin buying some food the youth slinks away." CR>)>>
 
 <ROOM SKYCAR-LOT-6
       (LOC ROOMS)
@@ -7042,17 +6551,13 @@ food the youth slinks away." CR>)>>
 		<TELL "This is a large lot ">
 		<COND (<EQUAL? ,SYEAR 2041 2051>
 		       <TELL
-"for the cinema to the west, the park to the east, the symphony to
-the north, and the museum across the street to the south.">)
+"for the cinema to the west, the park to the east, the symphony to the north, and the museum across the street to the south.">)
 		      (<EQUAL? ,SYEAR 2061>
 		       <TELL
-"for the park to the east, the symphony to the north, and
-the cinema to the west.">)
+"for the park to the east, the symphony to the north, and the cinema to the west.">)
 		      (T
 		       <TELL
-"for the park to the east and the cinema to the west, although the sort
-of people who would attend that sort of cinema are hardly the sort of
-people who could afford to own skycars.">)>)>>
+"for the park to the east and the cinema to the west, although the sort of people who would attend that sort of cinema are hardly the sort of people who could afford to own skycars.">)>)>>
 
 <ROUTINE RAILROAD-MUSEUM-ENTER-F ()
 	 <COND (<EQUAL? ,SYEAR 2041 2051>
@@ -7088,15 +6593,12 @@ people who could afford to own skycars.">)>)>>
 		<TELL "This museum is devoted to ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"the old North Central Railroad Station around the corner,
-and more generally to ">)>
+"the old North Central Railroad Station around the corner, and more generally to ">)>
 		<TELL
-"the entire history of rail travel. Through huge glass windows on the southern
-wall of the entrance lobby you can see the old ">
+"the entire history of rail travel. Through huge glass windows on the southern wall of the entrance lobby you can see the old ">
 		<PRINTD ,RAILROAD-YARD>
 		<TELL
-"s behind the station. The street is to the north and
-another exit leads east.">)
+"s behind the station. The street is to the north and another exit leads east.">)
 	       (<EQUAL? .RARG ,M-END>
 		<CLOSING-TIME 1185 "the museum" "a guard" ,MUSEUM-ENTRANCE>)>>
 
@@ -7120,9 +6622,7 @@ another exit leads east.">)
 	 <COND (<EQUAL? ,SYEAR 2071>
 		<SCORE 92> ;"2 points"
 		<TELL
-"As you enter the park, a guard stops you, staring with barely concealed
-repugnance. \"Admission to the park is restricted,\" he says, twisting your
-arm as he pushes you out of the park." CR>
+"As you enter the park, a guard stops you, staring with barely concealed repugnance. \"Admission to the park is restricted,\" he says, twisting your arm as he pushes you out of the park." CR>
 		<RFALSE>)
 	       (T
 		,RIVERSIDE-PARK)>>
@@ -7131,9 +6631,7 @@ arm as he pushes you out of the park." CR>
       (LOC ROOMS)
       (DESC "Riverside Park")
       (LDESC
-"This is the city's most popular park. From the hilltop is a beautiful
-view of the river as it bends off to the east. Paths to various exits
-lead north, northwest, west, and southwest.")
+"This is the city's most popular park. From the hilltop is a beautiful view of the river as it bends off to the east. Paths to various exits lead north, northwest, west, and southwest.")
       (NORTH PER SYMPHONY-HALL-ENTER-F)
       (NE PER RIVER-ENTER-F)
       (EAST PER RIVER-ENTER-F)
@@ -7184,12 +6682,9 @@ lead north, northwest, west, and southwest.")
 		      (<EQUAL? ,SYEAR 2071>
 		       <SCORE 128> ;"1 point"
 		       <TELL
-". The carpeting is dirty and torn, and the air is rank with a
-mixture of putrid odors">)>
+". The carpeting is dirty and torn, and the air is rank with a mixture of putrid odors">)>
 		<TELL 
-". A marquee above the ticket \"window\" announces the current features. A
-hallway leads in to the theatres, and there are exits north and east to car
-lots, and southeast to the street.">)
+". A marquee above the ticket \"window\" announces the current features. A hallway leads in to the theatres, and there are exits north and east to car lots, and southeast to the street.">)
 	       (<EQUAL? .RARG ,M-END>
 		<CURFEW-CLOSE ,MUSEUM-ENTRANCE>)>>
 
@@ -7203,16 +6698,13 @@ lots, and southeast to the street.">)
 		<COND (,RECORDING
 		       <PUT ,RECORDING-TABLE 14 1>)>
 		<TELL 
-"The usher takes your ticket and you step into the darkened theatre and find
-an empty seat.|
+"The usher takes your ticket and you step into the darkened theatre and find an empty seat.|
 |
 Movie Theatre|
 You begin watching ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"\"Upbeat Patrol II,\" which is funny and fast-moving like the prequel,
-but seems to lack some of the originality and freshness. The soundtrack,
-locations, and special effects are all top notch. A">)
+"\"Upbeat Patrol II,\" which is funny and fast-moving like the prequel, but seems to lack some of the originality and freshness. The soundtrack, locations, and special effects are all top notch. A">)
 		      (<EQUAL? ,SYEAR 2051>
 		       <SCORE 93> ;"1 point"
 		       <TELL
@@ -7220,16 +6712,11 @@ locations, and special effects are all top notch. A">)
 		      (<EQUAL? ,SYEAR 2061>
 		       <SCORE 94> ;"2 points"
 		       <TELL
-"\"More of Anything,\" and you quickly find yourself being aroused by
-the skillfully filmed and edited sex scenes. Then, during a slow moment,
-you begin to feel ashamed and guilty, and a">)
+"\"More of Anything,\" and you quickly find yourself being aroused by the skillfully filmed and edited sex scenes. Then, during a slow moment, you begin to feel ashamed and guilty, and a">)
 		      (T
 		       <SCORE 95> ;"3 points"
 		       <TELL
-"an untitled hatefilm, preceded by a five minute Church propaganda short.
-Most of the audience is much younger; many are still in their teens. When
-they begin chanting in rhythm with the mobs on the screen, you begin to
-feel very uncomfortable. A">)>
+"an untitled hatefilm, preceded by a five minute Church propaganda short. Most of the audience is much younger; many are still in their teens. When they begin chanting in rhythm with the mobs on the screen, you begin to feel very uncomfortable. A">)>
 		<TELL
 "fter about fifteen minutes, you decide you've seen enough, and head out to
 the lobby." CR>)
@@ -7304,26 +6791,19 @@ the lobby." CR>)
 "According to the marquee, the current features of the Cinema are ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"an action-romance entitled \"Let's Get Going,\" a comedy called
-\"Paulette,\" the sequel to last year's Best Picture, \"Upbeat Patrol II,\"
-and \"Freefall,\" a Korean film. " CR>)
+"an action-romance entitled \"Let's Get Going,\" a comedy called \"Paulette,\" the sequel to last year's Best Picture, \"Upbeat Patrol II,\" and \"Freefall,\" a Korean film. " CR>)
 		      (<EQUAL? ,SYEAR 2051>
 		       <SCORE 93> ;"1 point"
 		       <TELL
-"\"Manure Marauders,\" a long-running comedy, a horror-thriller called
-\"Not Until I Scream,\" and the sixth and seventh films in the popular
-Foreign Raiders series." CR>)
+"\"Manure Marauders,\" a long-running comedy, a horror-thriller called \"Not Until I Scream,\" and the sixth and seventh films in the popular Foreign Raiders series." CR>)
 		      (<EQUAL? ,SYEAR 2061>
 		       <SCORE 94> ;"2 points"
 		       <TELL
-"a slasher-comedy named \"Gutsplosion,\" a lustfilm called \"More of
-Anything,\" \"Gringo Wars,\" a cheap action film, and \"Let's Kill Some
-Slants,\" a hatefilm being billed as a \"rousing killer comedy frolic.\"" CR>)
+"a slasher-comedy named \"Gutsplosion,\" a lustfilm called \"More of Anything,\" \"Gringo Wars,\" a cheap action film, and \"Let's Kill Some Slants,\" a hatefilm being billed as a \"rousing killer comedy frolic.\"" CR>)
 		      (T
 		       <SCORE 95> ;"3 points"
 		       <TELL
-"two hatefilms, a lustfilm called \"Wild and Woolly,\" and a Church
-propaganda piece called \"Triumph of Man.\"" CR>)>)>>
+"two hatefilms, a lustfilm called \"Wild and Woolly,\" and a Church propaganda piece called \"Triumph of Man.\"" CR>)>)>>
 
 <OBJECT TICKET-SELLER
 	(LOC CINEMA)
@@ -7338,8 +6818,7 @@ propaganda piece called \"Triumph of Man.\"" CR>)>)>>
 		<TELL "The ">
 		<PRINTD ,TICKET-SELLER>
 		<TELL
-" is often called a ticket window, an anachronistic term from the last century
-when tickets were sold by humans sitting in glass booths. This typical ">
+" is often called a ticket window, an anachronistic term from the last century when tickets were sold by humans sitting in glass booths. This typical ">
 		<PRINTD ,TICKET-SELLER>
 		<TELL " has a slot for your ">
 		<PRINTD ,CREDIT-CARD>
@@ -7378,11 +6857,11 @@ when tickets were sold by humans sitting in glass booths. This typical ">
 		<RTRUE>)
 	       (<VERB? READ EXAMINE>
 		<TELL "**Admit One**">
-		<PRINT-SPACES 18>
+		<PRINT-SPACES 7>
 		<TELL "No." N <+ <RANDOM 899> 100> N <+ <RANDOM 8999> 1000> CR>
-		<PRINT-SPACES 10>
+		<PRINT-SPACES 6>
 		<TELL "Downtown Cinema Quad" CR>
-		<PRINT-SPACES 10>
+		<PRINT-SPACES 7>
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL " \"Upbeat Patrol II\"">)
 		      (<EQUAL? ,SYEAR 2051>
@@ -7390,19 +6869,16 @@ when tickets were sold by humans sitting in glass booths. This typical ">
 		      (<EQUAL? ,SYEAR 2061>
 		       <TELL " \"More of Anything\"">)
 		      (T
-		       <TELL "hatefilm number 8722">)>
+		       <TELL "hatefilm no. 8722">)>
 		<TELL CR
-"Not refundable or exchangable. Management|
-reserves the right to refuse admission by|
-refunding the price of this ticket." CR>)>>
+"Not refundable or exchangable.|Management
+reserves the right to|refuse admission by refunding|the price of this ticket." CR>)>>
 
 <ROOM COLONIAL-HOTEL
       (LOC ROOMS)
       (DESC "Colonial Hotel")
       (LDESC
-"This old hotel features many of the architectural luxuries rarely seen
-nowadays, most notably the huge, multistory atrium. There are exits leading
-northwest and east.")
+"This old hotel features many of the architectural luxuries rarely seen nowadays, most notably the huge, multistory atrium. There are exits leading northwest and east.")
       (NW TO AIRPORTWAY-AND-RIVER)
       (EAST TO SKYCAR-LOT-7)
       (FLAGS ONBIT)
@@ -7419,8 +6895,7 @@ northwest and east.")
 <ROUTINE ATRIUM-F ()
 	 <COND (<VERB? EXAMINE>
 		<TELL
-"The atrium is tremendous, rising through the center of the hotel,
-ending at roof level with a wide skylight." CR>)>>
+"The atrium is tremendous, rising through the center of the hotel, ending at roof level with a wide skylight." CR>)>>
 
 <OBJECT SKYLIGHT
 	(LOC COLONIAL-HOTEL)
@@ -7434,8 +6909,7 @@ ending at roof level with a wide skylight." CR>)>>
 	 <COND (<VERB? LOOK-INSIDE>
 		<COND (<EQUAL? ,LIGHT-LEVEL 0>
 		       <TELL
-"Because it is dark outside, the lights in the atrium prevent you from
-seeing through the skylight." CR>)
+"Because it is dark outside, the lights in the atrium prevent you from seeing through the skylight." CR>)
 		      (T
 		       <TELL "You see the sky." CR>)>)>>
 
@@ -7443,8 +6917,7 @@ seeing through the skylight." CR>)
       (LOC ROOMS)
       (DESC "Skycar Lot")
       (LDESC
-"You are in a parking lot with entrances to buildings to the east, west and
-south. The exit to the street is northeast.")
+"You are in a parking lot with entrances to buildings to the east, west and south. The exit to the street is northeast.")
       (NORTH SORRY "There's a tall fence in the way.")
       (NE TO SYMPHONY-ENTRANCE)
       (EAST PER SYMPHONY-HALL-ENTER-F)
@@ -7493,9 +6966,7 @@ south. The exit to the street is northeast.")
       (LOC ROOMS)
       (DESC "Symphony Hall")
       (LDESC
-"This is the home of the Rockvil Symphony Orchestra. An exterior balcony
-offers a fine view of the river to the east. There are exits to the southeast,
-south, west, and north.")
+"This is the home of the Rockvil Symphony Orchestra. An exterior balcony offers a fine view of the river to the east. There are exits to the southeast, south, west, and north.")
       (NORTH TO SYMPHONY-ENTRANCE)
       (SE PER RIVERSIDE-PARK-ENTER-F)
       (SOUTH TO SKYCAR-LOT-6)
@@ -7520,9 +6991,7 @@ south, west, and north.")
       (LOC ROOMS)
       (DESC "Symphony Entrance")
       (LDESC
-"Airportway curves northeast along the river toward the airport, and a road
-leads north into the military base. On the south side of the street is
-Symphony Hall, and next to it is a car lot.")
+"Airportway curves northeast along the river toward the airport, and a road leads north into the military base. On the south side of the street is Symphony Hall, and next to it is a car lot.")
       (NORTH TO BASE-GATE)
       (NE TO AIRPORT-ENTRANCE)
       (EAST PER RIVER-ENTER-F)
@@ -7540,8 +7009,7 @@ Symphony Hall, and next to it is a car lot.")
       (LOC ROOMS)
       (DESC "Base Gate")
       (LDESC
-"This is the entrance gate to the Manville Border Security Force Base. The
-base road continues northwest into the base and southeast away from it.")
+"This is the entrance gate to the Manville Border Security Force Base. The base road continues northwest into the base and southeast away from it.")
       (NORTH SORRY "The road is surrounded on all sides by a high fence.")
       (NE SORRY "The road is surrounded on all sides by a high fence.")
       (EAST SORRY "The road is surrounded on all sides by a high fence.")
@@ -7573,8 +7041,7 @@ base road continues northwest into the base and southeast away from it.")
 		<TELL
 ", jabbing you painfully with the point of his weapon,">)>
 	 <TELL
-" informs you that nonmilitary personnel are not
-allowed beyond this point." CR>
+" informs you that nonmilitary personnel are not allowed beyond this point." CR>
 	 <RFALSE>>
 
 <OBJECT BSF-BASE
@@ -7611,9 +7078,7 @@ allowed beyond this point." CR>
       (LOC ROOMS)
       (DESC "Airport Entrance")
       (LDESC
-"Airportway ends here in a huge loop past the terminal buildings of Rockvil
-International Airport. The main terminal building can be entered to the
-north, and the road leads southwest back toward the city.")
+"Airportway ends here in a huge loop past the terminal buildings of Rockvil International Airport. The main terminal building can be entered to the north, and the road leads southwest back toward the city.")
       (NORTH TO TERMINAL)
       (NE SORRY "There's no entrance to the terminal in that direction.")
       (EAST SORRY "There's no entrance to the terminal in that direction.")
@@ -7671,17 +7136,9 @@ north, and the road leads southwest back toward the city.")
 		       <PUTP ,TERMINAL ,P?SCENE 101>
 		       <SCORE 100> ;"5 points"
 		       <TELL CR
-"Nearby, a man with an Asian complexion is walking past a pair of BSF guards,
-and one of their Belt Rad-Detectors clicks. In the wink of an eye, four guns
-are pointed at the man, who looks terrified and begins to run. As the guns
-explode, people all around are screaming and throwing themselves on the ground;
-the Asian's mutilated body lies sprawled in the middle of the terminal. |
+"Nearby, a man with an Asian complexion is walking past a pair of BSF guards, and one of their Belt Rad-Detectors clicks. In the wink of an eye, four guns are pointed at the man, who looks terrified and begins to run. As the guns explode, people all around are screaming and throwing themselves on the ground; the Asian's mutilated body lies sprawled in the middle of the terminal. |
 |
-A guard cautiously approaches the dead man with a Rad-Detector. He scans
-the body until he finds the source of the signal. \"Just a nuke-powered
-wristwatch,\" he laughs, waving the other guards over. \"Can you imagine
-the gook being dumb enough to wear one of them near a border point?\" They
-shake their heads in disbelief as they drag the body away." CR>)
+A guard cautiously approaches the dead man with a Rad-Detector. He scans the body until he finds the source of the signal. \"Just a nuke-powered wristwatch,\" he laughs, waving the other guards over. \"Can you imagine the gook being dumb enough to wear one of them near a border point?\" They shake their heads in disbelief as they drag the body away." CR>)
 		      (T
 		       <PUTP ,TERMINAL ,P?SCENE
 			     <+ <GETP ,TERMINAL ,P?SCENE> 33>>
@@ -7813,24 +7270,29 @@ shake their heads in disbelief as they drag the body away." CR>)
 	 <COND (<VERB? READ>
 		<COND (<EQUAL? ,SYEAR 2041 2051>
 		       <CRLF>
-		       <PRINT-SPACES 20>
-		       <TELL "Remember! Our security procedures" CR>
-		       <PRINT-SPACES 29>
+		       <PRINT-SPACES 10>
+			   <HLIGHT ,H-BOLD>
+		       <TELL "Remember!">
+			   <HLIGHT 0>
+			   <PRINT-SPACES 5>
+			   <TELL "Our security procedures" CR>
+		       <PRINT-SPACES 9>
 		       <TELL "exist to protect" CR>
-		       <PRINT-SPACES 20>
+		       <PRINT-SPACES 9>
 		       <ITALICIZE "your">
-		       <TELL " country and ">
+		       <TELL " country and " CR>
+		       <PRINT-SPACES 9>
 		       <ITALICIZE "your">
 		       <TELL " way of life" CR>)
 		      (T
 		       <SCORE 101> ;"2 points"
 		       <CRLF>
-		       <PRINT-SPACES 24>
-		       <TELL "All international travellers" CR>
-		       <PRINT-SPACES 23>
-		       <TELL "must pass through strip-search" CR>
-		       <PRINT-SPACES 30>
-		       <ITALICIZE "no exceptions!">
+		       ;<PRINT-SPACES 2>
+		       <TELL "  All international travellers" CR>
+		       ;<PRINT-SPACES 1>
+		       <TELL " must pass through strip-search." CR>
+		       <PRINT-SPACES 9>
+		       <ITALICIZE "No Exceptions!">
 		       <CRLF>)>)>>
 
 <ROUTINE NO-ENTRY-TO-HEIMAN-WORLD-F ()
@@ -7870,16 +7332,13 @@ shake their heads in disbelief as they drag the body away." CR>)
 		      (T
 		       <TELL "entrance to a massive indoor city">)>
 		<TELL
-". A row of stores round the curve on the other side of the street:
-a laundromat to the west, a pharmacy to the southwest, and a hardware
-store to the south.">)>>
+". A row of stores round the curve on the other side of the street: a laundromat to the west, a pharmacy to the southwest, and a hardware store to the south.">)>>
 
 <ROOM LAUNDROMAT
       (LOC ROOMS)
       (DESC "Laundromat")
       (LDESC
-"This laundromat is equipped with a vibramat as well as the traditional
-washers and dryers. The exit is east.")
+"This laundromat is equipped with a vibramat as well as the traditional washers and dryers. The exit is east.")
       (EAST TO BEND)
       (OUT TO BEND)
       (FLAGS ONBIT)>
@@ -7954,8 +7413,7 @@ washers and dryers. The exit is east.")
       (LOC ROOMS)
       (DESC "Drug Store")
       (LDESC
-"This is one of those \"pharmacies\" that sells everything from milkshakes
-to magazines. There is a door leading northeast. A clerk waits nearby.")
+"This is one of those \"pharmacies\" that sells everything from milkshakes to magazines. There is a door leading northeast. A clerk waits nearby.")
       (NE TO BEND)
       (OUT TO BEND)
       (FLAGS ONBIT)
@@ -8002,8 +7460,7 @@ to magazines. There is a door leading northeast. A clerk waits nearby.")
 	 <COND (<VERB? BUY TAKE>
 		<COND (<EQUAL? ,HERE ,DRUG-STORE>
 		       <TELL
-"You approach the ice cream counter, but it's pretty crowded, so
-you decide against it." CR>)
+"You approach the ice cream counter, but it's pretty crowded, so you decide against it." CR>)
 		      (T
 		       <TELL "You can't get a milkshake here!" CR>)>)
 	       (<VERB? EXAMINE>
@@ -8020,8 +7477,7 @@ you decide against it." CR>)
 	 <COND (<VERB? BUY>
 		<COND (<EQUAL? ,HERE ,DRUG-STORE>
 		       <TELL
-"You decide that it's silly to spend your hard-earned money on
-medicine when you're feeling perfectly fine." CR>)
+"You decide that it's silly to spend your hard-earned money on medicine when you're feeling perfectly fine." CR>)
 		      (T
 		       <TELL "This isn't a drug store!" CR>)>)>>
 
@@ -8077,9 +7533,7 @@ medicine when you're feeling perfectly fine." CR>)
 		      (<EQUAL? ,SYEAR 2071>
 		       <TELL "sparsely ">)>
 		<TELL
-"stocked with various tools and hardware, as well as stuff for
-home-improvement, home entertainment facilities, skycars, and so
-forth. The front door is on the north side of the store.">)
+"stocked with various tools and hardware, as well as stuff for home-improvement, home entertainment facilities, skycars, and so forth. The front door is on the north side of the store.">)
 	       (<EQUAL? .RARG ,M-END>
 		<SHOP-CLOSES 1080 "hardware store" "A clerk" ,BEND>)>>
 
@@ -8094,8 +7548,7 @@ forth. The front door is on the north side of the store.">)
 	 <COND (<VERB? BUY>
 		<COND (<EQUAL? ,HERE ,HARDWARE-STORE>
 		       <TELL
-"You look around the store, but you don't see anything you need for the
-apartment. At least, nothing that will fit within your budget." CR>)
+"You look around the store, but you don't see anything you need for the apartment. At least, nothing that will fit within your budget." CR>)
 		      (T
 		       <CANT-BUY ,HARDWARE>)>)
 	       (<VERB? TAKE>
@@ -8148,16 +7601,14 @@ apartment. At least, nothing that will fit within your budget." CR>)
 		<TELL "You have crossed the proverbial railroad tracks. ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"The optimism and economic recovery don't seem to have spilled over into
-this run-down section of Rockvil, near the river">)
+"The optimism and economic recovery don't seem to have spilled over into this run-down section of Rockvil, near the river">)
 		      (T
 		       <TELL "This section of town, near the river, is ">
 		       <COND (<EQUAL? ,SYEAR 2071>
 			      <TELL "particularly ">)>
 		       <TELL "run-down and seedy">)>
 		<TELL
-". Wicker Drive, which runs northeast to southwest, cuts perpendicularly across
-River Street here. To the northwest, River dips under an unused rail bridge. ">
+". Wicker Drive, which runs northeast to southwest, cuts perpendicularly across River Street here. To the northwest, River dips under an unused rail bridge. ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
 "There are factories on the northern and eastern corners">)
@@ -8192,8 +7643,7 @@ River Street here. To the northwest, River dips under an unused rail bridge. ">
 		       <PUTP ,WICKER-AND-RIVER ,P?SCENE 101>
 		       <SCORE 103> ;"3 points"
 		       <TELL CR
-"A skycopter whizzes overhead, announcing a special series of
-execution matches this weekend." CR>)
+"A skycopter whizzes overhead, announcing a special series of execution matches this weekend." CR>)
 		      (T
 		       <PUTP ,WICKER-AND-RIVER ,P?SCENE
 			     <+ <GETP ,WICKER-AND-RIVER ,P?SCENE> 33>>
@@ -8223,15 +7673,10 @@ execution matches this weekend." CR>)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<COND (<EQUAL? ,SYEAR 2041 2051>
 		       <TELL
-"You are standing at the front entrance of an old warehouse whose walls
-are coated with soot from the nearby factories. The door is locked. The
-street is east of here.">)
+"You are standing at the front entrance of an old warehouse whose walls are coated with soot from the nearby factories. The door is locked. The street is east of here.">)
 		      (T
 		       <TELL
-"This lot is completely empty except for a few concrete footings that must
-have once formed the foundation for some large building. A rusting, overgrown
-set of railroad tracks borders the far side of the lot. An intersection of
-two streets lies to the east.">)>)>>
+"This lot is completely empty except for a few concrete footings that must have once formed the foundation for some large building. A rusting, overgrown set of railroad tracks borders the far side of the lot. An intersection of two streets lies to the east.">)>)>>
 
 <ROUTINE WAREHOUSE-1-EXIT-F ()
 	 <COND (<EQUAL? ,SYEAR 2041 2051>
@@ -8277,15 +7722,13 @@ two streets lies to the east.">)>)>>
 		(<EQUAL? .RARG ,M-LOOK>
 		 <COND (<EQUAL? ,SYEAR 2041>
 			<TELL
-"You have entered the crumbling buildings of a once-booming chip factory, idle
-since the invention of the IDF made chips obsolete. The exit leads south.">)
+"You have entered the crumbling buildings of a once-booming chip factory, idle since the invention of the IDF made chips obsolete. The exit leads south.">)
 		       (T
 			<SCORE 102> ;"2 points"
 			<TELL "You are in a dirty, crowded ">
 			<PRINTD ,SOUP-KITCHEN>
 			<TELL
-" run by St. Michael's Church. Dozens and dozens of dispirited people are
-sitting at old wooden tables, eating a thin stew. A door leads south.">)>)>>
+" run by St. Michael's Church. Dozens and dozens of dispirited people are sitting at old wooden tables, eating a thin stew. A door leads south.">)>)>>
 
 <OBJECT SOUP-KITCHEN
 	(LOC LOCAL-GLOBALS)
@@ -8357,9 +7800,7 @@ sitting at old wooden tables, eating a thin stew. A door leads south.">)>)>>
 <ROUTINE TENEMENT-1-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"You are in the lobby of a run-down apartment building. These apartments
-were probably considered desirable when constructed during the latter part
-of the last century, but">
+"You are in the lobby of a run-down apartment building. These apartments were probably considered desirable when constructed during the latter part of the last century, but">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
 " with the encroachment of the factories and utility stations, ">)>
@@ -8408,9 +7849,7 @@ of the last century, but">
       (LOC ROOMS)
       (DESC "Industrial Park Entrance")
       (LDESC
-"You are on Wicker Drive, which leads northeast and southwest. A road
-leads northwest into Rockvil Industrial Park. An old, gray warehouse
-stands on the northern corner, and an ugly tenement is just east of here.")
+"You are on Wicker Drive, which leads northeast and southwest. A road leads northwest into Rockvil Industrial Park. An old, gray warehouse stands on the northern corner, and an ugly tenement is just east of here.")
       (NORTH TO WAREHOUSE-2)
       (NE TO WICKER-AND-RIVER)
       (EAST TO TENEMENT-1)
@@ -8435,8 +7874,7 @@ stands on the northern corner, and an ugly tenement is just east of here.")
 <ROUTINE WAREHOUSE-2-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"You have entered a warehouse filled with dusty crates. The exit is to
-the south. An alarm ">
+"You have entered a warehouse filled with dusty crates. The exit is to the south. An alarm ">
 		<COND (<FSET? ,WAREHOUSE-2 ,ONBIT>
 		       <TELL "is ringing">)
 		      (T
@@ -8475,9 +7913,7 @@ the south. An alarm ">
       (LOC ROOMS)
       (DESC "Industrial Park Drive")
       (LDESC
-"You are on a narrow road circling through a grouping of warehouses and
-light factories. There are buildings on every side except southeast,
-where the road leads out of the park.")
+"You are on a narrow road circling through a grouping of warehouses and light factories. There are buildings on every side except southeast, where the road leads out of the park.")
       (NORTH SORRY "The door of that building is locked.")
       (NE SORRY "The door of that building is locked.")
       (EAST SORRY "The door of that building is locked.")
@@ -8519,10 +7955,7 @@ where the road leads out of the park.")
       (LOC ROOMS)
       (DESC "Dump Entrance")
       (LDESC
-"Wicker Drive turns ninety degrees here, leading northeast and northwest.
-To the southwest is an entrance to the city's primary waste disposal facility,
-which extends along the southern side of the street. A deserted tenement
-blocks movement north.")
+"Wicker Drive turns ninety degrees here, leading northeast and northwest. To the southwest is an entrance to the city's primary waste disposal facility, which extends along the southern side of the street. A deserted tenement blocks movement north.")
       (NORTH SORRY "There's no entrance to that building here.")
       (NE TO INDUSTRIAL-PARK-ENTRANCE)
       (EAST SORRY "There's no entrance to the dump in that direction.")
@@ -8547,12 +7980,10 @@ blocks movement north.")
 <ROUTINE CITY-DUMP-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This sprawling site along the river is a multiple unit disposal facility
-handling all of Rockvil's waste. Garbage ">
+"This sprawling site along the river is a multiple unit disposal facility handling all of Rockvil's waste. Garbage ">
 		<COND (<EQUAL? ,SYEAR 2041>
 		       <TELL
-"is processed and shipped downriver for landfilling. Liquid wastes
-are dechemified and then">)
+"is processed and shipped downriver for landfilling. Liquid wastes are dechemified and then">)
 		      (T
 		       <SCORE 104> ;"3 points"
 		       <TELL "and liquid wastes are">)>
@@ -8561,12 +7992,10 @@ are dechemified and then">)
 		<COND (<EQUAL? ,SYEAR 2061 2071>
 		       <TELL "high-security ">)>
 		<TELL
-"shipment to one of the national storage sites. Energy produced during
-processing is piped to the ">
+"shipment to one of the national storage sites. Energy produced during processing is piped to the ">
 		<PRINTD ,POWER-STATION-OBJECT>
 		<TELL
-" nearby. An opening in the perimeter fence leads northeast to Wicker
-Drive.">)>>
+" nearby. An opening in the perimeter fence leads northeast to Wicker Drive.">)>>
 
 <OBJECT WASTE
 	(LOC CITY-DUMP)
@@ -8609,10 +8038,7 @@ Drive.">)>>
       (LOC ROOMS)
       (DESC "Burned-out Area")
       (LDESC
-"You are in a tangle of narrow streets. All the buildings around you are
-deserted, their windows broken, their fixtures looted. Many are no more
-than burned-out shells. One street, slightly wider than the rest, leads
-southeast.")
+"You are in a tangle of narrow streets. All the buildings around you are deserted, their windows broken, their fixtures looted. Many are no more than burned-out shells. One street, slightly wider than the rest, leads southeast.")
       (NORTH TO BURNED-OUT-AREA)
       (NE TO BURNED-OUT-AREA)
       (EAST TO BURNED-OUT-AREA)
@@ -8628,10 +8054,7 @@ southeast.")
       (LOC ROOMS)
       (DESC "Power Station Entrance")
       (LDESC
-"You are on River Street at the entrance of a utility station which lies to
-the south. The street continues southeast towards the River Street Bridge.
-Northeast of here is the entrance to a huge factory complex, and tenements
-line the street to the west and southwest.")
+"You are on River Street at the entrance of a utility station which lies to the south. The street continues southeast towards the River Street Bridge. Northeast of here is the entrance to a huge factory complex, and tenements line the street to the west and southwest.")
       (NORTH SORRY "There's no entrance to the complex in that direction.")
       (NE TO SKYCAR-FACTORY)
       (EAST SORRY "There's no entrance to the complex in that direction.")
@@ -8693,17 +8116,13 @@ line the street to the west and southwest.")
 		      (<EQUAL? ,SYEAR 2061>
 		       <SCORE 106> ;"2 points"
 		       <TELL
-", as well as by more environmentally damaging
-coal-burning generators. Power is">)
+", as well as by more environmentally damaging coal-burning generators. Power is">)
 		      (T
 		       <SCORE 107> ;"3 points"
 		       <TELL
-" in addition to the less expensive coal-burners; each coal generator
-is belching tremendous pillars of black, ashy smoke into the sky.
-Power is also">)>
+" in addition to the less expensive coal-burners; each coal generator is belching tremendous pillars of black, ashy smoke into the sky. Power is also">)>
 		<TELL
-" received here from distant generators via a huge array of microwave
-receivers. The main entrance is on the north side of the plant.">)>>
+" received here from distant generators via a huge array of microwave receivers. The main entrance is on the north side of the plant.">)>>
 
 <ROOM RIVER-STREET-BRIDGE
       (LOC ROOMS)
@@ -8723,8 +8142,7 @@ receivers. The main entrance is on the north side of the plant.">)>>
 <ROUTINE RIVER-STREET-BRIDGE-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"River Street leaves Rockvil via this bridge, crossing the river into the
-older and poorer southeastern suburbs.">
+"River Street leaves Rockvil via this bridge, crossing the river into the older and poorer southeastern suburbs.">
 		<RIVER-FIRE "north">
 		<RTRUE>)>>
 
@@ -8757,12 +8175,10 @@ older and poorer southeastern suburbs.">
 		<TELL "The Omni-Fabb ">
 		<PRINTD ,SKYCAR-FACTORY>
 		<TELL
-", the last surviving smokestack industry in the area, provides jobs to many
-residents of the city and the suburbs across the river">
+", the last surviving smokestack industry in the area, provides jobs to many residents of the city and the suburbs across the river">
 		<COND (<EQUAL? ,SYEAR 2061 2071>
 		       <TELL
-", although not nearly as many as before the suspension of federal regulations
-limiting robotic job replacement">)>
+", although not nearly as many as before the suspension of federal regulations limiting robotic job replacement">)>
 		<COND (<AND <NOT <EQUAL? ,SYEAR 2041>>
 			    <L? ,STIME 480>
 			    <G? ,STIME 990>>
@@ -8771,8 +8187,7 @@ limiting robotic job replacement">)>
 ". The parking lot is empty; there must currently be only one shift per day">)
 		      (T
 		       <TELL
-". Judging by the number of cars in the workers' lot, and the general level
-of activity, the plant is running at ">
+". Judging by the number of cars in the workers' lot, and the general level of activity, the plant is running at ">
 		       <COND (<EQUAL? ,SYEAR 2041>
 			      <TELL "nearly full">)
 			     (<EQUAL? ,SYEAR 2051>
@@ -8786,17 +8201,13 @@ of activity, the plant is running at ">
 			      <TELL "a fraction of">)>
 		       <TELL " capacity">)>
 		<TELL
-". There are exits from this complex of buildings to the
-northwest and the southwest.">)>>
+". There are exits from this complex of buildings to the northwest and the southwest.">)>>
 
 <ROOM FACTORY-ENTRANCE
       (LOC ROOMS)
       (DESC "Factory Entrance")
       (LDESC
-"You are on Wicker Drive, which runs northeast to southwest. An alley
-forks off to the east. A large factory complex can be entered to the
-southeast, and a gun shop is north of here. A row of tenements stretches
-off to the northwest and west.")
+"You are on Wicker Drive, which runs northeast to southwest. An alley forks off to the east. A large factory complex can be entered to the southeast, and a gun shop is north of here. A row of tenements stretches off to the northwest and west.")
       (NORTH PER GUN-SHOP-ENTER-F)
       (NE TO WICKER-AND-PIER)
       (EAST TO ALLEY)
@@ -8852,8 +8263,7 @@ off to the northwest and west.")
       (LOC ROOMS)
       (DESC "Gun Shop")
       (LDESC
-"You are in a small armaments store, with metal bars over the counter
-separating you from the proprietor. There is an exit to the south.")
+"You are in a small armaments store, with metal bars over the counter separating you from the proprietor. There is an exit to the south.")
       (SOUTH TO FACTORY-ENTRANCE)
       (OUT TO FACTORY-ENTRANCE)
       (FLAGS ONBIT BADAREABIT)
@@ -8895,14 +8305,10 @@ separating you from the proprietor. There is an exit to the south.")
 	       (<VERB? BUY>
 		<COND (<EQUAL? ,HERE ,GUN-SHOP>
 		       <TELL
-"The proprietor shows you many different firearms, and you finally settle on
-a twenty-two caliber pellet gun. However, when you pass your ">
+"The proprietor shows you many different firearms, and you finally settle on a twenty-two caliber pellet gun. However, when you pass your ">
 		       <PRINTD ,CREDIT-CARD>
 		       <TELL
-" through the grill to the proprietor, he looks disappointed as he announces
-that you don't have enough in your account for that particular gun. \"In
-fact,\" he says, \"I doubt there's anything in the shop in your price range.
-You might try Ribeiro's Secondhand Firearms over in Yankton.\"" CR>)
+" through the grill to the proprietor, he looks disappointed as he announces that you don't have enough in your account for that particular gun. \"In fact,\" he says, \"I doubt there's anything in the shop in your price range. You might try Ribeiro's Secondhand Firearms over in Yankton.\"" CR>)
 		      (T
 		       <CANT-BUY ,GUN>)>)
 	       (<AND <EQUAL? ,HERE ,GUN-SHOP>
@@ -8921,9 +8327,7 @@ You might try Ribeiro's Secondhand Firearms over in Yankton.\"" CR>)
       (LOC ROOMS)
       (DESC "Alley")
       (LDESC
-"This long, narrow, dim alley is flanked by tall, featureless walls. The
-alley, which begins to the west, ends east of here at a back doorway, through
-which loud, raucous music can be heard.")
+"This long, narrow, dim alley is flanked by tall, featureless walls. The alley, which begins to the west, ends east of here at a back doorway, through which loud, raucous music can be heard.")
       (OUT TO FACTORY-ENTRANCE)
       (WEST TO FACTORY-ENTRANCE)
       (EAST TO BAR)
@@ -8950,8 +8354,7 @@ which loud, raucous music can be heard.")
 		<MOVE ,BAR-STOOL ,HERE>)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This is a tiny, smoke-filled bar, with exits to the west and northeast.
-Loud, distorted music comes from an old jukebox" ,STOOL-DESC>
+"This is a tiny, smoke-filled bar, with exits to the west and northeast. Loud, distorted music comes from an old jukebox" ,STOOL-DESC>
 		<PEOPLE-IN-BAR-DESC>)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <NOT <EQUAL? ,SYEAR 2041>>
@@ -8960,11 +8363,7 @@ Loud, distorted music comes from an old jukebox" ,STOOL-DESC>
 		     <NOT <FSET? ,BAR ,ONBIT>>>
 		<FSET ,BAR ,ONBIT>
 		<TELL CR
-"Someone, possibly the owner, shouts above the din, \"It's getting near curfew
-time; anyone who doesn't wanna stay 'til morning should get a move on it! Of
-course, we'll be staying open all night, as usual -- you just gotta know the
-right people!\" He rubs his fingers together, indicating that some official
-of the Curfew Board is now slightly richer. \"Well, drink up!\"" CR>)>>
+"Someone, possibly the owner, shouts above the din, \"It's getting near curfew time; anyone who doesn't wanna stay 'til morning should get a move on it! Of course, we'll be staying open all night, as usual -- you just gotta know the right people!\" He rubs his fingers together, indicating that some official of the Curfew Board is now slightly richer. \"Well, drink up!\"" CR>)>>
 
 <ROUTINE BAR-TO-ALLEY-F ()
 	 <COND (<HELD? ,BEER>
@@ -9015,8 +8414,7 @@ of the Curfew Board is now slightly richer. \"Well, drink up!\"" CR>)>>
 	       (<AND <VERB? SMELL>
 		     <EQUAL? ,HERE ,BURGER-MEISTER>>
 		<TELL
-"The air is heavy with the smells of tobacco smoke,
-urine, and spilled beer." CR>)
+"The air is heavy with the smells of tobacco smoke, urine, and spilled beer." CR>)
 	       (<AND <VERB? PUT-ON>
 		     <PRSI? ,BAR-OBJECT>
 		     <EQUAL? ,HERE ,BURGER-MEISTER ,EZZIS-BAR ,BAR>>
@@ -9122,11 +8520,9 @@ urine, and spilled beer." CR>)
 		       <TELL "extending a short way">)
 		      (T
 		       <TELL
-"ending abruptly at the river edge. Jagged, splintered wood at the end
-of the pier reveals that it once extended further">)>
+"ending abruptly at the river edge. Jagged, splintered wood at the end of the pier reveals that it once extended further">)>
 		<TELL
-" out into the river. To the northwest, the pier intersects with Wicker
-Drive. A bar opens to the southwest, and a pool hall to the northeast.">)>>
+" out into the river. To the northwest, the pier intersects with Wicker Drive. A bar opens to the southwest, and a pool hall to the northeast.">)>>
 
 <ROUTINE POOL-HALL-ENTER-F ()
 	 <COND (<AND <OR <G? ,STIME 1200>
@@ -9149,8 +8545,7 @@ Drive. A bar opens to the southwest, and a pool hall to the northeast.">)>>
 <ROUTINE POOL-HALL-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This is a classless establishment, which has clearly seen its better days. "
-,TOBACCO-ODOR " A door to the pier lies to the southwest. ">)
+"This is a classless establishment, which has clearly seen its better days. " ,TOBACCO-ODOR " A door to the pier lies to the southwest. ">)
 	       (<EQUAL? .RARG ,M-END>
 		<CURFEW-CLOSE ,PIER>)>>
 
@@ -9192,8 +8587,7 @@ Drive. A bar opens to the southwest, and a pool hall to the northeast.">)>>
 		<TELL "The ">
 		<PRINTD ,POOL-TABLE>
 		<TELL
-"s are all in poor shape, frayed in many places and scarred by cigarette
-burns." CR>)>>
+"s are all in poor shape, frayed in many places and scarred by cigarette burns." CR>)>>
 
 <OBJECT POOL
 	(LOC GLOBAL-OBJECTS)
@@ -9206,8 +8600,7 @@ burns." CR>)>>
 	 <COND (<VERB? PLAY SHOOT>
 		<COND (<EQUAL? ,HERE ,POOL-HALL>
 		       <TELL
-"You knock a few balls around, but, as usual, you have to admit that
-you're not very good at cuesmanship." CR>)
+"You knock a few balls around, but, as usual, you have to admit that you're not very good at cuesmanship." CR>)
 		      (T
 		       <TELL "You'd better find a pool hall first." CR>)>)>>
 
@@ -9232,35 +8625,23 @@ you're not very good at cuesmanship." CR>)
 		<COND (<EQUAL? ,SYEAR 2081>
 		       <SCORE 112> ;"15 points!"
 		       <TELL
-"Rats scamper among the weeds growing through the cracks in the street and
-among the ruined buildings. A pallor of smoke hangs in the air, and a distant
-sound like a drumbeat gives this area the feel of a surreal jungle.">)
+"Rats scamper among the weeds growing through the cracks in the street and among the ruined buildings. A pallor of smoke hangs in the air, and a distant sound like a drumbeat gives this area the feel of a surreal jungle.">)
 		      (T
 		       <TELL 
-"Northeast of here, Wicker curves northwards and passes under an old
-railroad trestle. An aging, wooden pier leads off to the southeast. On
-the eastern corner of the street is what appears to be a ">
+"Northeast of here, Wicker curves northwards and passes under an old railroad trestle. An aging, wooden pier leads off to the southeast. On the eastern corner of the street is what appears to be a ">
 		       <COND (<EQUAL? ,SYEAR 2071>
 			      <SCORE 113> ;"1 point"
 			      <TELL "closed ">)>
 		       <TELL "bookstore. A ">
 		       <PRINTD ,LIQUOR-STORE-OBJECT>
 		       <TELL
-" occupies the southern corner, and a row of dismal apartment buildings
-lines the northwestern side of Wicker.">)>)
+" occupies the southern corner, and a row of dismal apartment buildings lines the northwestern side of Wicker.">)>)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <EQUAL? ,SYEAR 2081>>
 		<JIGS-UP
-"Suddenly, you are surrounded by a group of men clad only in loin cloths,
-their faces marked with charcoal in an identical, tribal pattern. You are
-quickly bound and gagged, and carried to an open area where many people
-with similar facial markings are gathered.|
+"Suddenly, you are surrounded by a group of men clad only in loin cloths, their faces marked with charcoal in an identical, tribal pattern. You are quickly bound and gagged, and carried to an open area where many people with similar facial markings are gathered.|
 |
-You are tossed helplessly in the center of the clearing, amidst bones that
-are unmistakably human. Wood is quickly gathered for a bonfire, and you are
-rudely thrown upon it. Through the agonizing pain of the fire, you hear the
-tribal members chanting. Your last sight is of one of your captors, tending
-the fire and salivating like a wild animal.">)>>
+You are tossed helplessly in the center of the clearing, amidst bones that are unmistakably human. Wood is quickly gathered for a bonfire, and you are rudely thrown upon it. Through the agonizing pain of the fire, you hear the tribal members chanting. Your last sight is of one of your captors, tending the fire and salivating like a wild animal.">)>>
 
 <ROOM TENEMENT-3
       (LOC ROOMS)
@@ -9328,8 +8709,7 @@ the fire and salivating like a wild animal.">)>>
 	 <COND (<EQUAL? ,SYEAR 2071>
 		<SCORE 113> ;"1 point"
 		<TELL
-"The bookstore is locked. Through the grimy window, the bookstore looks
-empty and barren." CR>
+"The bookstore is locked. Through the grimy window, the bookstore looks empty and barren." CR>
 		<RFALSE>)
 	       (<OR <G? ,STIME 1083>
 		    <L? ,STIME 501>>
@@ -9372,10 +8752,7 @@ empty and barren." CR>
       (LOC ROOMS)
       (DESC "Bookstore")
       (LDESC
-"A less likely place for a bookstore you couldn't imagine. This one seems to
-be stocked mostly with used books. Closely-placed shelves, filled with old
-books, rise to ceiling, and a pleasant, papery odor fills the shop. The front
-door leads west.|
+"A less likely place for a bookstore you couldn't imagine. This one seems to be stocked mostly with used books. Closely-placed shelves, filled with old books, rise to ceiling, and a pleasant, papery odor fills the shop. The front door leads west.|
 The proprietor smiles at you kindly.")
       (WEST TO WICKER-AND-PIER)
       (OUT TO WICKER-AND-PIER)
@@ -9403,10 +8780,7 @@ The proprietor smiles at you kindly.")
 	(FLAGS TRYTAKEBIT TAKEBIT READBIT NDESCBIT)
 	(GENERIC GENERIC-BOOK-F)
 	(TEXT
-"The book, an aging copy of that timeless fable \"The Wizard of Oz,\"
-is in startlingly good condition, and features the original, classic
-illustrations. You skim a few chapters, remembering the joy of the
-tale from your younger days.")
+"The book, an aging copy of that timeless fable \"The Wizard of Oz,\" is in startlingly good condition, and features the original, classic illustrations. You skim a few chapters, remembering the joy of the tale from your younger days.")
 	(ACTION BOOK-F)>
 
 <ROUTINE BOOK-F ()
@@ -9451,8 +8825,7 @@ tale from your younger days.")
 			      <SETG ELAPSED-TIME 3>
 			      <SETG P-IT-OBJECT ,BOOK>
 			      <TELL
-"After browsing for several minutes, something catches your eye: a handsome
-edition of Baum's \"The Wizard of Oz.\" Eagerly, you give your ">
+"After browsing for several minutes, something catches your eye: a handsome edition of Baum's \"The Wizard of Oz.\" Eagerly, you give your ">
 			      <PRINTD ,CREDIT-CARD>
 			      <TELL " to the proprietor">
 			      <COND (<TOO-POOR 30 ,BOOK>
@@ -9480,9 +8853,7 @@ edition of Baum's \"The Wizard of Oz.\" Eagerly, you give your ">
 	       (<VERB? READ OPEN>
 		<COND (<EQUAL? ,HERE ,BOOKSTORE>
 		       <TELL
-"There are thousands of books in the store, of many different sizes
-and ages. Many are used. You continue to look for one you might be
-interested in buying." CR>)
+"There are thousands of books in the store, of many different sizes and ages. Many are used. You continue to look for one you might be interested in buying." CR>)
 		      (<EQUAL? ,HERE ,MAIN-LIBRARY>
 		       <TELL "There are many books in the library">
 		       <COND (<EQUAL? ,SYEAR 2071>
@@ -9537,8 +8908,7 @@ interested in buying." CR>)
       (LOC ROOMS)
       (DESC "Liquor Store")
       (LDESC
-"This is a small establishment stocked with cheap scotch and other liquor.
-There is an exit to the north.")
+"This is a small establishment stocked with cheap scotch and other liquor. There is an exit to the north.")
       (NORTH TO WICKER-AND-PIER)
       (OUT TO WICKER-AND-PIER)
       (FLAGS ONBIT BADAREABIT)
@@ -9656,8 +9026,7 @@ There is an exit to the north.")
 		       <RTRUE>)
 		      (<EQUAL? ,HERE ,SIMONS ,THE-COACHMAN>
 		       <TELL
-"After a quick glance at the drink prices and the prices on the wine list,
-you decide to abstain." CR>)
+"After a quick glance at the drink prices and the prices on the wine list, you decide to abstain." CR>)
 		      (<EQUAL? ,HERE ,ROYS-PAGODA>
 		       <TELL "Roy's has no liquor license." CR>)
 		      (T
@@ -9678,8 +9047,7 @@ you decide to abstain." CR>)
 		<COND (<EQUAL? ,HERE ,LIQUOR-STORE>
 		       <SETG P-IT-OBJECT ,SCOTCH>
 		       <TELL
-"You look for some, but they seem to be all out. The clerk recommends a
-cheap brand of scotch that's on sale." CR>)
+"You look for some, but they seem to be all out. The clerk recommends a cheap brand of scotch that's on sale." CR>)
 		      (<OR <EQUAL? ,HERE ,EZZIS-BAR ,BAR>
 			   <AND <EQUAL? ,HERE ,BURGER-MEISTER>
 				<EQUAL? ,SYEAR 2071>>>
@@ -9691,7 +9059,7 @@ cheap brand of scotch that's on sale." CR>)
 		      (T
 		       <CANT-BUY ,OTHER-LIQUOR>)>)>>
 
-
+
 ;"TUBE system"
 
 <OBJECT TUBE-STATION
@@ -9942,13 +9310,10 @@ cheap brand of scotch that's on sale." CR>)
 <ROUTINE TUBE-JUNCTION-F (RARG "AUX" (RED <>) (BROWN <>) (BOTH <>) (X <>))
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"You are on a central platform between four sets of tracks. On the wall
-is a sign, in brown and red:" CR>
+"You are on a central platform between four sets of tracks. On the wall is a sign, in brown and red:" CR>
 		<PERFORM ,V?READ ,TUBE-SIGN>
 		<TELL
-"Tracks for the Brownline tubecars lie to the southeast and northwest.
-Another pair of tracks, for the Redline, lie down some steps to the
-southwest and northeast. A stairway leads up out of the station.">)
+"Tracks for the Brownline tubecars lie to the southeast and northwest. Another pair of tracks, for the Redline, lie down some steps to the southwest and northeast. A stairway leads up out of the station.">)
 	       (<EQUAL? .RARG ,M-END>
 		<COND (<VERB? LOOK SAVE>
 		       <SET X T>)
@@ -10129,47 +9494,47 @@ southwest and northeast. A stairway leads up out of the station.">)
 		<SET CURRENT-STATION <>>)>
 	 <COND (<VERB? READ>
 		<COND (<EQUAL? ,TUBE-AT-STADIUM ,HERE .CURRENT-STATION>
-		       <TELL "      ">
+		       <TELL "        ">
 		       <PRINTD ,ROCKVIL-STADIUM>
-		       <TELL CR "  (Red Tubeline Terminus)" CR>)
+		       <TELL CR "    (Red Tubeline Terminus)" CR>)
 		      (<EQUAL? TUBE-AT-PARK ,HERE .CURRENT-STATION>
 		       <TELL
-"  Halley Park|
-  Rockvil Zoo" CR>)
+"          Halley Park|
+          Rockvil Zoo" CR>)
 		      (<EQUAL? ,TUBE-AT-HEIMAN ,HERE .CURRENT-STATION>
 		       <TELL
-"  Elm and River Street|
-    (">
+"      Elm and River Street|
+        (">
 		       <PRINTD ,HEIMAN-VILLAGE>
 		       <TELL ")" CR>)
 		      (<EQUAL? ,TUBE-AT-FACTORY ,HERE .CURRENT-STATION>
 		       <TELL
-"  Wicker Drive and River Street|
-     (Red Tubeline Terminus)|
-        (Omni-Fabb Plant)" CR>)
+" Wicker Drive and River Street|
+    (Red Tubeline Terminus)|
+       (Omni-Fabb Plant)" CR>)
 		      (<EQUAL? ,TUBE-AT-AIRPORT ,HERE .CURRENT-STATION>
 		       <TELL
 "      Airport Terminals|
   (Brown Tubeline Terminus)" CR>)
 		      (<EQUAL? ,TUBE-AT-BODANSKI ,HERE .CURRENT-STATION>
-		       <COND (<NOT <EQUAL? ,SYEAR 2041>>
+		       ;<COND (<NOT <EQUAL? ,SYEAR 2041>>
 			      <TELL "   ">)> ;"to keep the top line centered"
-		       <TELL "  ">
+		       <TELL "        ">
 		       <PRINTD ,BODANSKI-SQUARE>
-		       <CRLF>
+		       ;<CRLF>
 		       <COND (<EQUAL? ,SYEAR 2041>
-			      <TELL "  (Train Station)" CR>)
+			      <TELL CR "    (Train Station)" CR>)
 			     (T
-			      <TELL "  (Church of God's Word)" CR>)>)
+			      <TELL CR "     (Church of God's Word)" CR>)>)
 		      (<EQUAL? ,TUBE-AT-UNIVERSITY ,HERE .CURRENT-STATION>
-		       <TELL "  Elm Street and University Avenue" CR>
-		       <PRINT-SPACES 12>
-		       <TELL "(Rockvil U)|
-     (Brown Tubeline Terminus)" CR>)
-		      (<EQUAL? ,TUBE-JUNCTION ,HERE .CURRENT-STATION>
+		       <TELL "Elm Street and University Avenue" CR>
 		       <PRINT-SPACES 10>
+		       <TELL "(Rockvil U)|
+  (Brown Tubeline Terminus)" CR>)
+		      (<EQUAL? ,TUBE-JUNCTION ,HERE .CURRENT-STATION>
+		       <PRINT-SPACES 8>
 		       <PRINTD ,SKYBUS-TERMINAL>
-		       <TELL CR "  (Transfer Between Brown and Red)" CR>)
+		       <TELL CR "(Transfer Between Brown and Red)" CR>)
 		      (<NOT <MOBY-VERB?>>
 		       <CANT-SEE ,TUBE-SIGN>)>)>>
 
@@ -10450,7 +9815,7 @@ southwest and northeast. A stairway leads up out of the station.">)
 	       (T
 		<TELL "You can't leave the tubecar between stations!" CR>
 		<RFALSE>)>>
-
+
 ;"city background"
 
 <GLOBAL LIGHT-LEVEL 0> ;"0 = night, 3 = day"
@@ -10566,8 +9931,7 @@ the direction, it has stopped.">>
 		<SETG MUGGED T>
 		<TELL CR
 "CRACK! Something hits you from behind. As you crumple to the ground, you
-catch a glimpse of someone wielding a metal bar. Unknown minutes later,
-your head clears, and you stagger slowly to your feet">
+catch a glimpse of someone wielding a metal bar. Unknown minutes later, your head clears, and you stagger slowly to your feet">
 		<COND (<FIRST? ,PLAYER>
 		       <TELL ". Everything you were carrying is gone">
 		       <ROB ,PLAYER ,LOCAL-GLOBALS>)>
@@ -10579,7 +9943,7 @@ your head clears, and you stagger slowly to your feet">
 <GLOBAL BRUISED <>>
 
 <GLOBAL MUGGED <>>
-
+
 ;"objects"
 
 <OBJECT KEY
@@ -10656,9 +10020,7 @@ your head clears, and you stagger slowly to your feet">
 		<COND (<FSET? ,SOY-PATTY ,TOUCHBIT>
 		       <TELL
 "The clerk looks incensed and sets off a loud buzzer. \"You lousy
-cheater,\" he screams, \"you've already had your ration for this
-period!\" Two policemen, wearing patches depicting the familiar black
-radar symbol of the Church, grab you and drag you off." CR CR>
+cheater,\" he screams, \"you've already had your ration for this period!\" Two policemen, wearing patches depicting the familiar black radar symbol of the Church, grab you and drag you off." CR CR>
 		       <QUEUE I-JAIL <+ 30 <RANDOM 10>>>
 	 	       <GOTO ,JAIL-CELL>)
 		      (<EQUAL? <MOD ,SDATE 3> 2>
@@ -10666,16 +10028,12 @@ radar symbol of the Church, grab you and drag you off." CR CR>
 		       <FSET ,SOY-PATTY ,TOUCHBIT>
 		       <MOVE ,RATION-CARD ,PLAYER>
 		       <TELL
-"The clerk electronically \"punches\" your card, hands it back, then
-rudely thrusts a smelly package in your face. \"Move along, old man.
-There's others waitin' ya know.\"" CR>)
+"The clerk electronically \"punches\" your card, hands it back, then rudely thrusts a smelly package in your face. \"Move along, old man. There's others waitin' ya know.\"" CR>)
 		      (T
 		       <SCORE 135> ;"2 points"
 		       <MOVE ,RATION-CARD ,PLAYER>
 		       <TELL
-"The clerk tosses your card back at you in disgust. \"It's not your
-day, you senile idiot.\" He motions to a bouncer, who pushes you
-roughly out the door." CR CR>
+"The clerk tosses your card back at you in disgust. \"It's not your day, you senile idiot.\" He motions to a bouncer, who pushes you roughly out the door." CR CR>
 		       <COND (<EQUAL? ,HERE ,FOODVILLE-1>
 			      <GOTO ,SOUTHWAY-AND-PARK>)
 			     (T
@@ -10704,9 +10062,7 @@ roughly out the door." CR CR>
 			    <FSET? ,HEADSET ,WORNBIT>>
 		       <COND (,JOYBOOTH-USED
 			      <TELL
-"You almost succumb and put your card in the slot again, but years of
-warning messages about joybooth addiction finally prevail and prevent
-you from going ahead with it." CR>
+"You almost succumb and put your card in the slot again, but years of warning messages about joybooth addiction finally prevail and prevent you from going ahead with it." CR>
 			      <RTRUE>)
 			     (<L? ,CREDIT 12>
 			      <TELL
@@ -10716,23 +10072,11 @@ you from going ahead with it." CR>
 		       <SETG CREDIT <- ,CREDIT 12>>
 		       <SETG ELAPSED-TIME 30>
 		       <TELL
-"A wave of warm contentment washes over you as the joybooth, and the world,
-recede. You barely notice as the headset probes the pleasure and imagination
-centers of your brain, and you feel yourself moving down a tunnel of swirling
-colors and lights, a warm breeze blowing in your face.|
+"A wave of warm contentment washes over you as the joybooth, and the world, recede. You barely notice as the headset probes the pleasure and imagination centers of your brain, and you feel yourself moving down a tunnel of swirling colors and lights, a warm breeze blowing in your face.|
 |
-The roller coaster whooshes out of the tunnel, and you scream, not from fear
-but from the exhilaration of the experience. Rav, scrunched next to you in the
-seat, laughs and laughs and laughs and Frita laughs and laughs and hands you
-some cotton candy and suddenly the roller coaster is gone and the park is gone|
+The roller coaster whooshes out of the tunnel, and you scream, not from fear but from the exhilaration of the experience. Rav, scrunched next to you in the seat, laughs and laughs and laughs and Frita laughs and laughs and hands you some cotton candy and suddenly the roller coaster is gone and the park is gone|
 |
-and you're swimming in a lake of warm clear water. Birds swoop and dive
-overhead and land on your outstretched arms and sing little songs in your
-ear and dart away as Father calls from the top of the stairs that dinner's
-ready and you'd better be on time because it's your favorite cinnamon pie
-for dessert and if you're not out of the lake in five minutes we'll miss
-our bus and the vacation's almost over as a cloud passes in front of the
-sun and a chill passes over you|
+and you're swimming in a lake of warm clear water. Birds swoop and dive overhead and land on your outstretched arms and sing little songs in your ear and dart away as Father calls from the top of the stairs that dinner's ready and you'd better be on time because it's your favorite cinnamon pie for dessert and if you're not out of the lake in five minutes we'll miss our bus and the vacation's almost over as a cloud passes in front of the sun and a chill passes over you|
 |
 and you come to realize that you're ">
 		       <COND (<EQUAL? <LOC ,PLAYER> ,SEAT>
@@ -10740,9 +10084,7 @@ and you come to realize that you're ">
 			     (T
 			      <TELL "standing">)>
 		       <TELL
-" in a tiny, dim joybooth, shivering from imagined cold. You feel depressed
-that the experience has ended; an almost physical longing to return to your
-fantasy, to the lost innocence of a carefree childhood." CR>
+" in a tiny, dim joybooth, shivering from imagined cold. You feel depressed that the experience has ended; an almost physical longing to return to your fantasy, to the lost innocence of a carefree childhood." CR>
 		       <RTRUE>)
 		      (<EQUAL? ,HERE ,BODANSKI-SQUARE>
 		       <PERFORM ,V?BUY ,NEWSPAPER>
@@ -10755,7 +10097,7 @@ fantasy, to the lost innocence of a carefree childhood." CR>
 	       (<AND <VERB? PUT>
 		     <PRSO? ,DRIVERS-LICENSE ,RATION-CARD>>
 		<TELL "Nothing happens." CR>)>>
-
+
 ;"spear carrier list:
   LIBRARIAN in Main Library
   NURSE in Hospital
@@ -10870,9 +10212,7 @@ fantasy, to the lost innocence of a carefree childhood." CR>
 		       <SETG ELAPSED-TIME 22>
 		       <TELL "a long time">)>
 		<TELL
-" for a teller to become available. You finally reach the teller, and hand
-her your card, which she runs through a reader. Looking confused, she says
-\"You only have one account, so there's no transfer to be performed.\"" CR>)
+" for a teller to become available. You finally reach the teller, and hand her your card, which she runs through a reader. Looking confused, she says \"You only have one account, so there's no transfer to be performed.\"" CR>)
 	       (<AND <VERB? CALL>
 		     <EQUAL? ,HERE ,SIMONS ,THE-COACHMAN>>
 		<COND (<EQUAL? ,MEAL-STATUS 1>
