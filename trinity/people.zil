@@ -201,7 +201,7 @@ D ,BAG " and a " D ,SCOIN " for you." CR>
 <ROUTINE ASK-BWOMAN-ABOUT (OBJ "AUX" (Q <>) CNT TBL X V)
 	 <MAKE ,BWOMAN ,SEEN>
 	 <COND (<EQUAL? .OBJ ,GTRINITY ,PLUTONIUM>
-		<COND (<L? <GETB 0 33> 79>
+		<COND (<L? <GETB 0 33> 32>
 		       <TELL CTHE ,BWOMAN " just smiles." CR>
 		       <RTRUE>)>
 		<V-$CREDITS>
