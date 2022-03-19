@@ -48,7 +48,7 @@ So, I decided to suck it up and do the hard work to make those games work well o
 You will need ZILF and ZAPF compiler tools to build from source code.
 https://foss.heptapod.net/zilf/zilf/
 
-I'm currently on ZILF v0.9.0. Inside each game folder, I have a `\build` folder that is excluded in the `.gitignore` file. From the root folder for a game I run this composite command (Bureaucracy shown; swap for the game you want to build)
+I'm currently on ZILF v0.9.0 for Windows. Inside each game folder, I have a `\build` folder that is excluded in the `.gitignore` file. From the root folder for a game I run this composite command (AMFV shown; swap for the game you want to build)
 ```
-del *.zap *.xzap \build\bureaucracy.z4 && zilf .\build\bureaucracy.zil && zapf -ab .\build\bureaucracy.zap > .\build\bureaucracy_freq.xzap & del .\build\bureaucracy_freq.zap && zapf .\build\bureaucracy.zap
+del .\build\*.zap .\build\*.xzap .\build\amfv.z4 && zilf .\amfv.zil .\build\amfv.zap && zapf -ab .\build\amfv.zap > .\build\amfv_freq.xzap & del .\build\amfv_freq.zap && zapf .\build\amfv.zap
 ```
