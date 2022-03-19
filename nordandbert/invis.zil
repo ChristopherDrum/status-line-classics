@@ -20,12 +20,7 @@
 		<RTRUE>)
 	       (<NOT ,HINT-WARNING>
 		<SETG HINT-WARNING T>
-		<TELL "[Warning: It is recognized that the temptation
-for help may at times be so exceedingly strong that you might fetch
-hints prematurely. Therefore, you may at any time during the story type
-HINTS OFF, and this will disallow the seeking out of help for the
-present session of the story. If you still want a hint now, indicate
-HINT.]" CR>
+		<TELL "[Warning: It is recognized that the temptation for help may at times be so exceedingly strong that you might fetch hints prematurely. Therefore, you may at any time during the story type HINTS OFF, and this will disallow the seeking out of help for the present session of the story. If you still want a hint now, indicate HINT.]" CR>
 		<RTRUE>)>
 	 <BUFOUT <>>
 	 <SET MAXQ <GET ,HINT-TBL 0>>
@@ -74,14 +69,15 @@ HINT.]" CR>
 	 <V-$REFRESH>
 	 <TELL CR "Back to the story..." CR>>
 
+;"got SUPER lucky with this LINE-TABLE going to line 21; perfect for Pico-8!"
 ;"zeroth (first) element is 5"
 <GLOBAL LINE-TABLE
 	<PTABLE 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
 	       5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21>>
 ;"zeroth (first) element is 4"
 <GLOBAL COLUMN-TABLE
-	<PTABLE 4 4 4 4 4  4  4  4  4  4  4  4  4  4  4  4  4
-	       24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24>>
+	<PTABLE 3 3 3 3 3  3  3  3  3  3  3  3  3  3  3  3  3
+	       19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19>>
 ;"four and nineteen are where the text of questions start"
 
 <GLOBAL CUR-POS 0> ;"determines where to place the highlight cursor
@@ -113,14 +109,13 @@ the curser and text"
 	 <SCREEN ,S-WINDOW>
 	 <CURSET 1 1>
 	 <INVERSE-LINE>
-	 <CENTER-LINE 1 "INVISICLUES" %<LENGTH "INVISICLUES">>
+	 <CENTER-LINE 1 "INVISICLUES" 11>
 	 <CURSET 3 1>
 	 <INVERSE-LINE>
 	 <COND (,WIDE
 		<TELL " ">)>
-	 <LEFT-LINE 3 "RETURN = see new hint">
-	 <RIGHT-LINE 3 "Q = see hint menu"
-		     %<LENGTH "Q = see hint menu">>
+	 <LEFT-LINE 3 "return:new hint">
+	 <RIGHT-LINE 3 "q:hint menu" 11>
 	 <HLIGHT ,H-BOLD>
 	 <SET H <GET ,HINT-TBL .N>>
 	 <CENTER-LINE 2 <GET .H 1 ;,HINT-QUESTION>>
@@ -172,13 +167,16 @@ the curser and text"
 
 ;"Invisiclues Stuff"
 
-;"longest hint topic can be 17 chars"
+;"longest hint topic can be 13 chars..."
+;"2 char for left-hand cursor, 13(ok, actually 14) for left-hand topic, 2 char columnar gap"
+;"2 char for right-hand cursor, 13 for right-hand topic"
+;"If you *know* there is only one column of clues, you can use longer topic names"
 <GLOBAL HAZING-HINTS
 	<PLTABLE
-	 <PLTABLE "The Lead House"
+	 <PLTABLE "Lead House"
 		 "This'll be a real head scratcher."
 		 "Type, HEAD LOUSE.">
-	 <PLTABLE "The Gritty Pearl"
+	 <PLTABLE "Gritty Pearl"
 		 "A gritty pearl is like a melody."
 		 "PRETTY GIRL">
 	 <PLTABLE "The Door Girl"
@@ -191,7 +189,7 @@ the curser and text"
 		 "\"Shake off your toes.\""
 		 "Consider the letters, not sounds."
 		 "TAKE OFF YOUR SHOES">
-	 <PLTABLE "Child Goose Waist"
+	 <PLTABLE "Goose Waist"
 		 "First, EXAMINE THE GOOSE."
 		 "It's a LITTLE goose, a child."
 		 "GO ON A WILD GOOSE CHASE..."
@@ -212,7 +210,7 @@ the curser and text"
 	 <PLTABLE "An Experience"
 		  "E.g., when Buckwheat's scared."
 		  "HAIR-RAISING EXPERIENCE">
-	 <PLTABLE "Message in Sand"
+	 <PLTABLE "Sand Message"
 		 "Shepherd leads between the Rhines."
 		 "READ BETWEEN THE LINES">
 	 <PLTABLE "The Dishes"
@@ -224,7 +222,7 @@ the curser and text"
 	 <PLTABLE "Rat and Habit"
 		 "Magic? Nothing up my sleeve!"
 		 "PULL THE RABBIT OUT OF THE HAT">
-	 <PLTABLE "Bonfire Riddle"
+	 <PLTABLE "Bonfire"
 		 "Do something while foam burns."
 		 "The riddle book is useful here." 
 		 "Try phrasing \"riddle\" as a verb."
@@ -259,7 +257,7 @@ the curser and text"
 		 "TAKE OFF THE HAT. GIVE IT TO GIANT"
 		 "Now make a heavy of the giant."
 		 "Type LEAD HOUSE">
-	 <PLTABLE "Descend a Cloud"
+	 <PLTABLE "Descend Cloud"
 		 "The beets problem is a sleeper."
 		 "BED SHEETS"
 		 "You can tie and still be a winner."
@@ -271,7 +269,7 @@ the curser and text"
 	 <PLTABLE "Giant Defeat"
 		 "It'd be a crushing defeat, too."
 		 "TAKE THE BLOW. HIT GIANT WITH IT">
-	 <PLTABLE "Return the pearl"
+	 <PLTABLE "Return pearl"
 		 "First, have the GRITTY PEARL..."
 		 "Also, MAKE SMALL TALK WITH ELF"
 		 "Now, RIDE BIKE TO CLEARING"
@@ -279,7 +277,7 @@ the curser and text"
 		 
 <GLOBAL AISLE-HINTS
 	<PLTABLE
-	 <PLTABLE "Gorilla Warfare"
+	 <PLTABLE "Gorilla War"
 		 "What do primates like to eat?"
 		 "OFFER BANANA SPLIT TO APE"
 		 "What ape?! What banana split?!">
@@ -289,7 +287,7 @@ the curser and text"
 	 <PLTABLE "22 over 7"
 		 "A famous fraction, a real ratio."
 		 "It's called pi. So type, PIE.">
-	 <PLTABLE "Cereal Murderer"
+	 <PLTABLE "Cereal Murder"
 		 "How do you kill a vampire?"
 		 "In the Meets Aisle is a steak."
 		 "Also something for bad breath."
@@ -303,14 +301,14 @@ the curser and text"
 		 "Because they lack principles?"
 		 "No! This STORY lacks principals."
 		 "[This space left blank.]">
-	 <PLTABLE "The British Aisle"
+	 <PLTABLE "British Aisle"
 		 "Have you read the sign?"
 		 "Brits love this sweet & creamy."
 		 "PUDDING SECTION">
 	 <PLTABLE "The Ants"
 		 "They could be your relatives."
 		 "AUNTS">
-	 <PLTABLE "Returning Emily"
+	 <PLTABLE "Return Emily"
 		 "Bratwurst is on no shopping list."
 		 "GIVE WORST BRAT TO AUNTS">
 	 <PLTABLE "The Flour"
@@ -325,7 +323,7 @@ the curser and text"
 	 <PLTABLE "Stationary"
 		 "Get it write."
 		 "Spell it STATIONERY.">
-	 <PLTABLE "Wall of Quartz"
+	 <PLTABLE "Quartz Wall"
 		 "Not so tough, just a half pint."
 		 "KNOCK DOWN THE QUARTS">
 	 <PLTABLE "Locks"
@@ -544,9 +542,9 @@ the curser and text"
 		 "It's antique, nice for interiors."
 		 "PUT THE OLD BOTTLE ON THE MANTEL"
 		 "Then type, YES"
-	         "When the Interior asks what you..."
-		 "...want in return for the bottle..."
-		 "...type, LOUIS XIV CHAIR.">
+		 "When the Interior asks what you..."
+			"...want in return for the bottle..."
+			"...type, LOUIS XIV CHAIR.">
 	 <PLTABLE "Kremlin"
 		 "This communist fears insurgency."
 		 "First, find the clock and the box."
@@ -657,8 +655,8 @@ the curser and text"
 	 <SET WID <GETB 0 33>>
 	 <SPLIT 0>
 	 <CLEAR -1>
-	 ;<SPLIT <GETB 0 32>>
-	 <SPLIT <- <GETB 0 32> 1>>
+	 <SPLIT <GETB 0 32>>
+	 ;" <SPLIT <- <GETB 0 32> 1>> "
 	 <SCREEN ,S-WINDOW>
 	 <BUFOUT <>>
 	 <CURSET 1 1>
@@ -668,10 +666,10 @@ the curser and text"
 	 <CURSET 3 1>
 	 <INVERSE-LINE>
 	 <CENTER-LINE 1 "INVISICLUES" 11>
-	 <LEFT-LINE 2 " N = next">
-	 <RIGHT-LINE 2 "P = previous" %<LENGTH "P = previous">>
-	 <LEFT-LINE 3 " RETURN = See hint">
-	 <RIGHT-LINE 3 "Q = Resume story" %<LENGTH "Q = Resume story">>>
+	 <LEFT-LINE 2 "n:next">
+	 <RIGHT-LINE 2 "return:see hint">
+	 <LEFT-LINE 3 "p:previous">
+	 <RIGHT-LINE 3 "q:resume story">>
 
 ;<CONSTANT HINT-COUNT 0>
 ;<CONSTANT HINT-QUESTION 1>
@@ -690,19 +688,23 @@ the curser and text"
 
 ;<GLOBAL HINT-FLAG-TBL <TABLE 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1>>
 
+;"centering routine is off by one. "
+;"The calculation thinks it is calculating the cursor position for centering text,"
+;"but it is actually calculating how many spaces should be put in "
+;"before printing the text, making the cursor position is off(left) by one"
 <ROUTINE CENTER-LINE (LN STR "OPTIONAL" (LEN 0) (INV T))
 	 <COND (<ZERO? .LEN>
 		<DIROUT ,D-TABLE-ON ;,DIROUT-TBL ,SLINE>
 		<TELL .STR>
 		<DIROUT ,D-TABLE-OFF>
 		<SET LEN <GET ;,DIROUT-TBL ,SLINE 0>>)>
-	 <CURSET .LN </ <- <GETB 0 33> .LEN> 2>>
+	 <CURSET .LN <+ </ <- <GETB 0 33> .LEN> 2> 1>>
 	 <COND (.INV <HLIGHT ,H-INVERSE>)>
 	 <TELL .STR>
 	 <COND (.INV <HLIGHT ,H-NORMAL>)>>
 
 <ROUTINE LEFT-LINE (LN STR "OPTIONAL" (INV T))
-	 <CURSET .LN 1>
+	 <CURSET .LN 2>
 	 <COND (.INV <HLIGHT ,H-INVERSE>)>
 	 <TELL .STR>
 	 <COND (.INV <HLIGHT ,H-NORMAL>)>>

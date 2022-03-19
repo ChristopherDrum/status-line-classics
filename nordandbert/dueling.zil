@@ -162,35 +162,27 @@ of your opulent surroundings, just like ">
 	       (<AND <EQUAL? .RARG ,M-BEG>
 		     <VERB? THROW THROW-TO KICK KILL MUNG KNOCK-OFF>>
 		<TELL
-"Shame shame shame on you, you ruffian! I tremble at the thought of having
-you crash one of my dinner parties. I just won't allow that type of
-behaviour!" CR>)
+"Shame shame shame on you, you ruffian! I tremble at the thought of having you crash one of my dinner parties. I just won't allow that type of behaviour!" CR>)
 	       (<AND <EQUAL? .RARG ,M-ENTER>
 		     <HELD? ,OLD-BOTTLE>
 		     <VISIBLE? ,OLD-BOTTLE>
 		     <NOT <FSET? ,OLD-BOTTLE ,SEENBIT>>>
 		<FSET ,OLD-BOTTLE ,SEENBIT>
 		<TELL 
-"Oh, my goodness, that's a rare antique bottle you're holding. Very
-impressive indeed." CR CR>)
+"Oh, my goodness, that's a rare antique bottle you're holding. Very impressive indeed." CR CR>)
 	       (<AND <EQUAL? .RARG ,M-ENTER>
 		     <NOT <FSET? ,ID-ROOM ,TOUCHBIT>>>
 		<TELL
-"The carpet! The carpet! Don't drag your feet on the carpet! It's a
-priceless hand-loomed Persian!|
+"The carpet! The carpet! Don't drag your feet on the carpet! It's a priceless hand-loomed Persian!|
 |
 Whew! Okay, you're now standing on the bone-white Louis-XV-inspired tile.||">)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"This room, with its modern sensibility yet also palpable feeling for
-the ancien regime, is unique in its elegant reflection of a confident,
-personal sense of style. The lines are lean and classic, the color is
-rich and distinctive.">
+"This room, with its modern sensibility yet also palpable feeling for the ancien regime, is unique in its elegant reflection of a confident, personal sense of style. The lines are lean and classic, the color is rich and distinctive.">
 		<COND (<AND <IN? ,LOUIS-CHAIR ,HERE>
 			    <FSET? ,LOUIS-CHAIR ,DESC-IN-ROOMBIT>>
 		       <TELL CR CR
-"The Louis XIV chair is plump, tufted, aristocratic -- it's styled with equal
-splashes of rococo and baroque. The piece definitely has charisma">
+"The Louis XIV chair is plump, tufted, aristocratic -- it's styled with equal splashes of rococo and baroque. The piece definitely has charisma">
 		<COND (<OR <NOT <FIRST? ,LOUIS-CHAIR>>
 			   <AND <IN? ,PROTAGONIST ,LOUIS-CHAIR>
 				<NOT <NEXT? ,PROTAGONIST>>>>
@@ -199,13 +191,11 @@ splashes of rococo and baroque. The piece definitely has charisma">
 		       <TELL ". Sitting on the chair:">
 		       <D-CONTENTS ,LOUIS-CHAIR 2>)>)>
 		<TELL "||
-Against the far wall is an heroically proportioned, Mediterranean-crafted,
-intricately inlaid, Pre-Raphaelite limestone mantelpiece, circa 1838.">
+Against the far wall is an heroically proportioned, Mediterranean-crafted, intricately inlaid, Pre-Raphaelite limestone mantelpiece, circa 1838.">
 		<COND (<IN? ,LACE ,MANTEL>
 		       <REMOVE ,LACE>
 		       <TELL CR CR
-"Adorning the mantel is a resplendently virgin-ivory hand-embroidered,
-filet-patterned lace tablecloth, circle 924 on your Reader Service Card">
+"Adorning the mantel is a resplendently virgin-ivory hand-embroidered, filet-patterned lace tablecloth, circle 924 on your Reader Service Card">
 		       <COND (;<G? <CCOUNT ,MANTEL> 1>
 		              <FIRST? ,MANTEL>
 			      <TELL ". Also on the mantel:">
@@ -251,8 +241,7 @@ filet-patterned lace tablecloth, circle 924 on your Reader Service Card">
 	       (<AND <VERB? TAKE>
 		     <FSET? ,LOUIS-CHAIR ,TRYTAKEBIT>>
 		<TELL
-"This is not a rummage sale. No! I could never think of parting
-with such a priceless antique." CR>)
+"This is not a rummage sale. No! I could never think of parting with such a priceless antique." CR>)
 	       (<VERB? STAND-ON>
 		<PERFORM ,V?BOARD ,PRSO>
 		<RTRUE>)
@@ -268,8 +257,7 @@ with such a priceless antique." CR>)
 		     <NOT <EQUAL? <ITAKE <>> ,M-FATAL <>>>>
 		<FCLEAR ,LOUIS-CHAIR ,DESC-IN-ROOMBIT>
 		<TELL 
-"Go ahead, but I can't bear to look. [With the proper reverence, you make
-a courtly bow in front of the priceless antique as you pick it up.]" CR>)>> 
+"Go ahead, but I can't bear to look. [With the proper reverence, you make a courtly bow in front of the priceless antique as you pick it up.]" CR>)>> 
 
 <OBJECT PILLOW
 	(LOC LOUIS-CHAIR)
@@ -282,9 +270,7 @@ a courtly bow in front of the priceless antique as you pick it up.]" CR>)>>
 <ROUTINE PILLOW-F ()
 	 <COND (<VERB? EXAMINE>
 		<TELL
-"The pillow, complementary to the Louis XIV, is multihued and textured,
-displaying free-form squiggles, curlicues and brash brushstrokes with a
-primitive look to them." CR>)>>
+"The pillow, complementary to the Louis XIV, is multihued and textured, displaying free-form squiggles, curlicues and brash brushstrokes with a primitive look to them." CR>)>>
 
 <OBJECT MANTEL ;"just like rest-table"
 	(LOC ID-ROOM)
@@ -335,24 +321,16 @@ primitive look to them." CR>)>>
 		<TELL
 "Go ahead, come on in and bore me.|
 |
-Walking into here is like driving across Nebraska. The place
-is neither bright nor dim, neither cool nor warm, neither this way nor
-that way. Even the air is unmoved by the experience of you entering the
-doldrums.|
+Walking into here is like driving across Nebraska. The place is neither bright nor dim, neither cool nor warm, neither this way nor that way. Even the air is unmoved by the experience of you entering the doldrums.|
 |
-In the center of the room is a vast wasteland, which gradually blends into
-a wide patch of long pale-green grass that spills over into yawning chasms.
-Above the cliff hangs a shapeless cloud through which a line of sheep are
-jumping, one after the next, in slow motion.|  
+In the center of the room is a vast wasteland, which gradually blends into a wide patch of long pale-green grass that spills over into yawning chasms. Above the cliff hangs a shapeless cloud through which a line of sheep are jumping, one after the next, in slow motion.|  
 |
-All of the objects here have the aspect of salt-water taffy left out in
-the sun too long.">
+All of the objects here have the aspect of salt-water taffy left out in the sun too long.">
 		<COND (<NOT <FSET? ,CLOCK ,TOUCHBIT>>
 		       <TELL
 " Cobwebs enshroud a clock that has long since clocked out.">)>
 		<TELL "||
-One wall appears to have been recently painted pea green. The weak smell
-of paint lingers in the air.">)>>
+One wall appears to have been recently painted pea green. The weak smell of paint lingers in the air.">)>>
 
 <ROUTINE I-DOLDRUMS ()
 	 <QUEUE I-DOLDRUMS -1>
@@ -378,8 +356,7 @@ of paint lingers in the air.">)>>
 <ROUTINE WASTELAND-F ()
 	 <COND (<VERB? EXAMINE>
 		<TELL
-"The television set, which has been left droning on here, is now showing
-a marathon of laundry detergent comercials." CR>)
+"The television set, which has been left droning on here, is now showing a marathon of laundry detergent comercials." CR>)
 	       (<VERB? OFF SET>
 		<TELL "It has no controls of any kind." CR>)>>    
 		
@@ -415,17 +392,12 @@ a marathon of laundry detergent comercials." CR>)
 <ROUTINE CHASMS-F ()
 	 <COND (<VERB? BOARD LEAP LEAP-OFF ENTER>
 		<TELL 
-"Okay, here you are falling down off the cliffs and with all the
-exhilaration you're showing you might as well be falling asleep. Your life
-flashes before your eyes and that's a bigger yawn than the chasms. The abyss
-is actually a continuum that loops back around whence you fell, and here
-you are standing upright again." CR>)
+"Okay, here you are falling down off the cliffs and with all the exhilaration you're showing you might as well be falling asleep. Your life flashes before your eyes and that's a bigger yawn than the chasms. The abyss is actually a continuum that loops back around whence you fell, and here you are standing upright again." CR>)
 	       (<AND <VERB? PUT THROW>
 		     <PRSI? ,CHASMS>>
 		<MOVE ,PRSO ,HERE>
 		<TELL 
-"As you throw in" T ,PRSO ", it is swallowed by the darkness of the abyss,
-only to reappear a second later at your feet." CR>)>>
+"As you throw in" T ,PRSO ", it is swallowed by the darkness of the abyss, only to reappear a second later at your feet." CR>)>>
 
 <OBJECT PAINT
 	(LOC DOLDRUMS)
@@ -467,8 +439,7 @@ only to reappear a second later at your feet." CR>)>>
 		<RTRUE>)
 	       (<VERB? READ EXAMINE>
 		<TELL
-"The clock is faceless and without hands, but has a winding key
-in its back." CR>)
+"The clock is faceless and without hands, but has a winding key in its back." CR>)
 	       (<VERB? OPEN>
 		<TELL "You can't." CR>)
 	       (<VERB? CLOSE>
@@ -494,8 +465,7 @@ in its back." CR>)
 		<COND (<NOT <FSET? ,CLOCK ,RMUNGBIT>>
 		       <FSET ,CLOCK ,RMUNGBIT>
 		       <TELL
-" If you couldn't see it was the clock making the noise, it would
-sound rather ominous.">)>
+" If you couldn't see it was the clock making the noise, it would sound rather ominous.">)>
 		<CRLF>)>
 	 <RTRUE>>
 		      
@@ -534,8 +504,7 @@ sound rather ominous.">)>
 		       <HLIGHT ,H-NORMAL>
 		       <CRLF> <CRLF>
 		       <TELL
-"\"Tick... tick.\" I hear bomb ticking! Counter-Revolutionary spy! Hold
-on to our sable hats.">
+"\"Tick... tick.\" I hear bomb ticking! Counter-Revolutionary spy! Hold on to our sable hats.">
 		       <COND (<VISIBLE? ,CLOCK>
 			      <TELL 
 " Oh, we can see is only inferior Capitalist clock">)
@@ -544,18 +513,14 @@ on to our sable hats.">
 			      <FSET ,MARX ,TOUCHBIT>
 			      <MOVE ,SAFE ,HERE>
 			      <TELL 
-" My sturdy walls tremble with xenophobia of Western hegemony into Mother
-Country. Poor Marx is jolted and falls indignantly to
-the floor, revealing some kind of safe on the red wall where he had hung">)>
+" My sturdy walls tremble with xenophobia of Western hegemony into Mother Country. Poor Marx is jolted and falls indignantly to the floor, revealing some kind of safe on the red wall where he had hung">)>
 		       <TELL ,PERIOD ;CR>)>)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<COND (<NOT ,KREMLIN-ENTER>
 		       <TELL 
 "\"Fellow traveller, welcome.\"" CR CR>)>
 		<TELL
-"This room is painted entirely in bold, revolutionary red -- walls, floor,
-and ceiling -- surrounding you symbolically with the inescapability of
-the coming of the revolution.">
+"This room is painted entirely in bold, revolutionary red -- walls, floor, and ceiling -- surrounding you symbolically with the inescapability of the coming of the revolution.">
 		<COND (<FSET? ,MARX ,TOUCHBIT>
 		       <TELL CR CR
 "There's a safe built into the wall where the picture once hung.">)>
@@ -568,9 +533,7 @@ the coming of the revolution.">
 	(LOC KREMLIN)
 	(DESC "portrait of Karl Marx")
 	(FDESC 
-"Presiding over the room, hanging from a high red wall, the portrait of the
-Grandfather of the Revolution, Karl Marx, looks down with furrowed brow upon
-your capitalist hide.")
+"Presiding over the room, hanging from a high red wall, the portrait of the Grandfather of the Revolution, Karl Marx, looks down with furrowed brow upon your capitalist hide.")
 	(SYNONYM FATHER MARX KARL PORTRAIT PICTURE)
 	(ADJECTIVE KARL)
 	(FLAGS TRYTAKEBIT)
@@ -586,21 +549,17 @@ your capitalist hide.")
 	       (<AND <VERB? MOVE REMOVE TAKE LOOK-BEHIND>
 		     <NOT <FSET? ,MARX ,TOUCHBIT>>>
 		<TELL 
-"The portrait seems to adhere more closely to the wall. These proud red
-walls shall never render up the hero of the revolution
-to a carpetbagging, imperialistic capitalist seeking booty." CR>)
+"The portrait seems to adhere more closely to the wall. These proud red walls shall never render up the hero of the revolution to a carpetbagging, imperialistic capitalist seeking booty." CR>)
 	       (<AND <VERB? TAKE>
 		     <FSET? ,MARX ,TOUCHBIT>>
 		<TELL 
-"The hero has suffered indignity enough. Never he to be taken away as
-capitalist booty!" CR>)>>
+"The hero has suffered indignity enough. Never he to be taken away as capitalist booty!" CR>)>>
 
 <OBJECT SAFE	
 	;(LOC KREMLIN)
 	(DESC "safe")
 	(LDESC 
-"A safe has been revealed high on the wall where the portrait of the
-Father of our Revolution has once proundly hung.")
+"A safe has been revealed high on the wall where the portrait of the Father of our Revolution has once proundly hung.")
 	(SYNONYM SAFE LOCK)
 	(ADJECTIVE UNIVERSIAL)
 	(FLAGS NDESCBIT CONTBIT SEARCHBIT LOCKEDBIT)
@@ -615,10 +574,7 @@ Father of our Revolution has once proundly hung.")
 	       (<AND <VERB? EXAMINE>
 		     <NOT <FSET? ,SAFE ,OPENBIT>>>
 		<TELL 
-"In keeping with the spirit of international brotherhood and with the
-lofty theme of the Lennon's song \"Imagine,\" the safe is kept closed
-only by a very simple universal lock, which can be opened by any kind
-of key." CR>)
+"In keeping with the spirit of international brotherhood and with the lofty theme of the Lennon's song \"Imagine,\" the safe is kept closed only by a very simple universal lock, which can be opened by any kind of key." CR>)
 	       (<AND <VERB? PUT>
 		     <PRSI? ,SAFE>
 		     <NOUN-USED ,SAFE ,W?LOCK>>
@@ -662,8 +618,7 @@ CR>)
 <ROUTINE REVOLUTION-F ()
 	 <COND (<VERB? EXAMINE READ>
 		<TELL
-"It reads, \"When you really need to turn around a situation, go ahead
-and revolve it.\"" CR>)>>
+"It reads, \"When you really need to turn around a situation, go ahead and revolve it.\"" CR>)>>
 
 <ROOM PHARMACY 
       (LOC ROOMS)
@@ -679,22 +634,19 @@ and revolve it.\"" CR>)>>
 |
 Sniff... sniff.|
 |
-You're standing upon a rubberized non-slip bathroom mat. Handrails,
-installed here as an extra precaution, run along the walls.||">
+You're standing upon a rubberized non-slip bathroom mat. Handrails, installed here as an extra precaution, run along the walls.||">
 		<COND (<FSET? ,CABINET ,OPENBIT>
 		       <TELL
 "The open medicine cabinet is cram packed full of a variety of medicines.">)
 		      (T
 		       <TELL
-"You look a little peaked to yourself, reflected in the mirror of
-the medicine cabinet.">)>)>>
+"You look a little peaked to yourself, reflected in the mirror of the medicine cabinet.">)>)>>
 
 <OBJECT BOX	
 	(LOC PHARMACY)
 	(DESC "cardboard box")
 	(FDESC 
-"A cardboard box, about one-foot square and empty of its value pack of
-medicines, sits on the floor.")
+"A cardboard box, about one-foot square and empty of its value pack of medicines, sits on the floor.")
 	(SYNONYM BOX)
 	(ADJECTIVE CARDBOARD)
 	(FLAGS TAKEBIT CONTBIT OPENBIT SEARCHBIT)
@@ -717,10 +669,7 @@ medicines, sits on the floor.")
 		<TELL
 "The cabinet creaks on its hinges, some would say from overuse.|
 |
-The cabinet is crowded to pharmaceutical proportions with a panoply of pills,
-lozenges and elixirs -- hey, you can't be too careful, with what's going
-around these days -- including some remedies for afflictions that, yes,
-haven't even afflicted anyone yet. But it's better to be safe than sorry." CR>)
+The cabinet is crowded to pharmaceutical proportions with a panoply of pills, lozenges and elixirs -- hey, you can't be too careful, with what's going around these days -- including some remedies for afflictions that, yes, haven't even afflicted anyone yet. But it's better to be safe than sorry." CR>)
 	       (<AND <VERB? SEARCH LOOK-INSIDE>
 		     <FSET? ,CABINET ,OPENBIT>>
 		<PERFORM ,V?EXAMINE ,MEDICINES>
@@ -741,14 +690,10 @@ haven't even afflicted anyone yet. But it's better to be safe than sorry." CR>)
 "Oh, no, no, I couldn't survive without my medicines." CR>)
 	       (<VERB? EXAMINE READ>
 		<TELL
-"I collect varieties of medicines like some people collect wines.
-You never know what'll ail you, and usually it's everything at once.
-There are cures for catastrophic illness, remedies for ringworms, pills
-for palpitations, and elixirs for everything else.">
+"I collect varieties of medicines like some people collect wines. You never know what'll ail you, and usually it's everything at once. There are cures for catastrophic illness, remedies for ringworms, pills for palpitations, and elixirs for everything else.">
 		<COND (<IN? ,OLD-BOTTLE ,CABINET>
 		       <TELL CR CR
-"Then there's one old, empty bottle that should've been thrown
-out centuries ago.">)>
+"Then there's one old, empty bottle that should've been thrown out centuries ago.">)>
 		<CRLF>)
 	       (<VERB? OPEN>
 		<TELL 
@@ -770,8 +715,7 @@ out centuries ago.">)>
 		     ;<EQUAL? <ITAKE> T>
 		     <NOT <EQUAL? <ITAKE <>> ,M-FATAL <>>>>
 		<TELL
-"You can go ahead and have that old thing anyway. It was here before I
-moved in." CR>)
+"You can go ahead and have that old thing anyway. It was here before I moved in." CR>)
 	       (<AND <VERB? TAKE>
 		     <IN? ,OLD-BOTTLE ,MANTEL>>
 		<TELL 
@@ -783,8 +727,7 @@ moved in." CR>)
 "Mmmm... Very handsome. Yes! I'd simply love to have it." CR>)
 	       (<VERB? EXAMINE LOOK-INSIDE>
 		<TELL 
-"It's a small and delicately sculpted glass bottle, looking to be hundreds
-of years old. The bottle is empty and has no lid." CR>)
+"It's a small and delicately sculpted glass bottle, looking to be hundreds of years old. The bottle is empty and has no lid." CR>)
 	       (<VERB? THROW MUNG KILL KICK>
 		<REMOVE ,OLD-BOTTLE>
 		<TELL "The fragile bottle is smashed into smithereens." CR>) 
@@ -813,11 +756,8 @@ of years old. The bottle is empty and has no lid." CR>)
 <ROUTINE MAT-F ()
 	 <COND (<VERB? TAKE>
 		<TELL 
-"Oh, oh, my back! The old discs are slipping again, and the strain is
-taking its toll. I'm going to have to
-rifle the cabinet again in search of that old rheumatoid nostrum. Forget
-the mat. It'd be as dangerous as a ski slope to walk in here without
-it on the floor." CR>)
+"Oh, oh, my back! The old discs are slipping again, and the strain is taking its toll. I'm going to have to
+rifle the cabinet again in search of that old rheumatoid nostrum. Forget the mat. It'd be as dangerous as a ski slope to walk in here without it on the floor." CR>)
 	       (<VERB? SIT CLIMB-ON>
 		<WASTES>)>>
 
@@ -835,17 +775,13 @@ it on the floor." CR>)
 <ROUTINE ATTIC-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"The attic is where the oxymoron is rumored to have been locked up
-recently for years and years. There doesn't seem to be even a shred of
-hard evidence, though, for such a secret rumor.">
+"The attic is where the oxymoron is rumored to have been locked up recently for years and years. There doesn't seem to be even a shred of hard evidence, though, for such a secret rumor.">
 		<COND (<FSET? ,ATTIC ,PHRASEBIT>
 		       <TELL
-" But the attic, once upside-down, has been set right by your turning
-it around.">)
+" But the attic, once upside-down, has been set right by your turning it around.">)
 		      (T
 		       <TELL 
-" A funny thing though -- the place is upside-down: You're standing on
-the ceiling with the floor above as the roof over your head.">)>
+" A funny thing though -- the place is upside-down: You're standing on the ceiling with the floor above as the roof over your head.">)>
 		<TELL CR CR "A sturdy, rickety stairway leads ">
 		<COND (<FSET? ,ATTIC ,PHRASEBIT>
 		       <TELL "down">)

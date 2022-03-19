@@ -1,6 +1,0 @@
-*.zap
-*.xzap
-*.z[0-9]
-*.dbg
-.vscode
-*~

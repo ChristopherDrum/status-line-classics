@@ -37,8 +37,7 @@ called."
 		    <ADJ-USED ,HAZING ,W?JEAN ,W?STOCK>>
 		<COND (<EQUAL? ,HERE ,CLOUD-ROOM>
 		       <TELL 
-"The stalk only quivers slightly underfoot. Not being in full view of the
-stalk, you can't seem to transform it." CR>
+"The stalk only quivers slightly underfoot. Not being in full view of the stalk, you can't seem to transform it." CR>
 		       <RTRUE>)
 		      (<AND <EQUAL? ,HERE ,STALK-ROOM>
 			    <RUNNING? ,I-CLIENT>>
@@ -52,10 +51,7 @@ stalk, you can't seem to transform it." CR>
 		       <RTRUE>)
 		      (<EQUAL? ,HERE ,STALK-ROOM>
 		       <TELL
-"A swift cloud of dust blows up from the trackless wastes into your face,
-causing you to bring your fists to your eyes like binoculars. After much
-rubbing, your vision, though blurry at first, returns to reveal familiar
-surroundings..." CR CR>
+"A swift cloud of dust blows up from the trackless wastes into your face, causing you to bring your fists to your eyes like binoculars. After much rubbing, your vision, though blurry at first, returns to reveal familiar surroundings..." CR CR>
 		       <GOTO ,STOCK-ROOM>
 		       <RTRUE>)>
 		<SETG REAL-HAZING ,STOCK-ROOM>)
@@ -70,23 +66,18 @@ surroundings..." CR CR>
 		    <ADJ-USED ,HAZING ,W?BEAN ,W?STALK>>
 		<COND (<IN? ,CLIENT ,HERE>
 		       <TELL
-"The " D ,CLIENT " must've read your thoughts and he must not
-have enjoyed what he read, since he angrily snaps a pair of jeans at you,
-and your thoughts stray from" TR ,JEAN-STOCK>
+"The " D ,CLIENT " must've read your thoughts and he must not have enjoyed what he read, since he angrily snaps a pair of jeans at you, and your thoughts stray from" TR ,JEAN-STOCK>
 		       <RTRUE>)>
 		<COND (<EQUAL? ,HERE ,STOCK-ROOM>
 		       <COND (<NOT <FSET? ,STALK-ROOM ,TOUCHBIT>>
 		              <UPDATE-SCORE>)>
 		       <TELL
-"The mile-high stack of jeans slowly leans heavily into your direction and
-as it passes the point of no return in a chaos of color, fabric and rivets,
-all the jeans come tumbling down upon your head,">
+"The mile-high stack of jeans slowly leans heavily into your direction and as it passes the point of no return in a chaos of color, fabric and rivets, all the jeans come tumbling down upon your head,">
 		       <COND (<OR <HELD? ,ICICLE>
 				  <EQUAL? <LOC ,PROTAGONIST> ,ICICLE>>
 			      <TELL " knocking the " D ,ICICLE " away and">
 		       	      <MOVE ,ICICLE ,STOCK-ROOM>)>
-		       <TELL " burying you completely in blackness.||
-When you come to, it's in a new environment..." CR CR>
+		       <TELL " burying you completely in blackness.||When you come to, it's in a new environment..." CR CR>
 		       <MOVE ,PROTAGONIST ,HERE> ;"get off bike"
 		       <GOTO ,STALK-ROOM>
 		       <RTRUE>)>
@@ -115,8 +106,7 @@ When you come to, it's in a new environment..." CR CR>
 			      <RTRUE>)
 			     (T
 			      <TELL 
-"All that's on a whole different plane of existence. The departure point
-of that existence is the stock room." CR>)>)
+"All that's on a whole different plane of existence. The departure point of that existence is the stock room." CR>)>)
 		      (<EQUAL? ,HERE ,STALK-ROOM>
 		       <COND (<EQUAL? ,REAL-HAZING ,CLOUD-ROOM>
 			      <DO-WALK ,P?UP>)
@@ -133,12 +123,8 @@ of that existence is the stock room." CR>)>)
 			      <TELL ,DONT-KNOW-WHERE>)
 			     (<NOT <FSET? ,FACTORY ,TOUCHBIT>>
 			      <TELL  "You follow in the precise
-direction of the shepherd. It's trecherous going, since you're
-travelling over dill and hail -- that is, pickles strewn along the
-paths, and ice chunks hurling from the sky. You eventually come upon an
-out-of-the-way spot along the now quite polluted river. It's a prime
-location for such a flagrant violator of anti-pollution laws as the old
-factory, between whose grimy gates you suspiciously enter." CR CR>
+direction of the shepherd. It's trecherous going, since you're travelling over dill and hail -- that is, pickles strewn along the
+paths, and ice chunks hurling from the sky. You eventually come upon an out-of-the-way spot along the now quite polluted river. It's a prime location for such a flagrant violator of anti-pollution laws as the old factory, between whose grimy gates you suspiciously enter." CR CR>
 			      <GOTO ,FACTORY>)
 			     (<EQUAL? ,HERE ,STOCK-ROOM>
 			      <TELL "You walk into the factory." CR CR>
@@ -176,8 +162,7 @@ factory, between whose grimy gates you suspiciously enter." CR CR>
 		       <MOVE ,ICICLE ,REAL-HAZING>
 		       <COND (<EQUAL? ,REAL-HAZING ,CLEARING>
 			      <TELL 
-"With all the enthusiasm of a child actor in a Steven Spielberg movie
-with a percentage, you pedal away...">)
+"With all the enthusiasm of a child actor in a Steven Spielberg movie with a percentage, you pedal away...">)
 			     (T
 			      <TELL 
 "Pedaling madly away, you ride like the wind...">)>
@@ -219,9 +204,7 @@ chances for finding her. 'they will go to great lengths to keep her from me.'"
 	(OLDDESC "door")
 	(NEWDESC "shore")
 	(OLD-TO-NEW 
-"The wind suddenly picks fiercly, and blows blinding sand the volume
-of dunes into the area. When the wind dies down, you find your surroundings
-have changed...")
+"The wind suddenly picks fiercly, and blows blinding sand the volume of dunes into the area. When the wind dies down, you find your surroundings have changed...")
 	(DESCFCN SHINING-DOOR-F)
 	(SYNONYM SHORE DOOR SAND)
 	(FLAGS OLDBIT DOORBIT CONTBIT OPENBIT SEARCHBIT NO-D-CONT LOCKEDBIT)
@@ -248,13 +231,11 @@ have changed...")
 		       <COND (<AND <IN? ,PEARL ,SHINING-DOOR>
 				   <FSET? ,PEARL ,OLDBIT>>
 			      <TELL 
-" Yet there is something radiant imbedded in it: A " D ,PEARL " appears
-to shine on the door.">)
+" Yet there is something radiant imbedded in it: A " D ,PEARL " appears to shine on the door.">)
 			     (<AND <IN? ,PEARL ,SHINING-DOOR>
 				   <NOT <FSET? ,PEARL ,OLDBIT>>>
 			      <TELL 
-" A radiantly " D ,PEARL ", kicking her feet in frustration,
-continues to shine on the door.">)>
+" A radiantly " D ,PEARL ", kicking her feet in frustration, continues to shine on the door.">)>
 		       <RTRUE>)
 		      (T
 		       <RFALSE>)>)
@@ -316,17 +297,13 @@ continues to shine on the door.">)>
 		      (T
 		       <TELL "it creaks open">)>
 		<TELL 
-". A tunnel of darkness opens up to you, and you cautiously walk inside. You
-almost vanish into the darkness, it is so black.">
+". A tunnel of darkness opens up to you, and you cautiously walk inside. You almost vanish into the darkness, it is so black.">
 		<COND (<AND <VISIBLE? ,PEARL>
 			    <HELD? ,PEARL>>
 		       <UPDATE-SCORE>
 		       <QUEUE I-END-SCENE 1>
 		       <TELL CR CR
-"But just now you can discern a fuzzy light beginning to shine from the pearl.
-It brightens to illuminate your upper body, creating a halo of pure white light
-around you. So astounding is the effect of the brightened pearl, that it
-spills from">
+"But just now you can discern a fuzzy light beginning to shine from the pearl. It brightens to illuminate your upper body, creating a halo of pure white light around you. So astounding is the effect of the brightened pearl, that it spills from">
 		       <COND (<NOT <IN? ,PEARL ,PROTAGONIST>>
 			      <TELL T <LOC ,PEARL>>)
 			     (T
@@ -336,8 +313,7 @@ spills from">
 " and rolls vanishingly away from you, echoing grittily along the tunnel">)
 		      (T
 		       <TELL CR CR
-"So bone-chillingly penetrating is the vacancy of the tunnel, that you retreat
-out through the door, and lock it behind you">)>
+"So bone-chillingly penetrating is the vacancy of the tunnel, that you retreat out through the door, and lock it behind you">)>
 		<TELL ,PERIOD>
 		<RTRUE>)
 	       (<AND <VERB? UNLOCK>
@@ -356,8 +332,7 @@ out through the door, and lock it behind you">)>
 	(OLDDESC "lead house")
 	(NEWDESC "head louse")
 	(OLD-TO-NEW 
-"The house disappears before your very eyes, a situation that leaves you
-scratching your head in perplexity.")
+"The house disappears before your very eyes, a situation that leaves you scratching your head in perplexity.")
 	(DESCFCN HOUSE-F)
 	(SYNONYM HOUSE LOUSE)
 	(ADJECTIVE HEAD LEAD)
@@ -388,9 +363,7 @@ scratching your head in perplexity.")
 				<FSET? ,RAT ,WORNBIT>>
 			   ,LOUSE-ON-HEAD>
 		       <TELL 
-"You start to feel the worst migraine of your life coming on, which
-forces you to think of things other than 20-ton houses, and the headache
-fades." CR>
+"You start to feel the worst migraine of your life coming on, which forces you to think of things other than 20-ton houses, and the headache fades." CR>
 		       <RTRUE>)
 		      (<HELD? ,HOUSE ,CLIENT>
 		       <TELL "You">
@@ -409,9 +382,7 @@ fades." CR>
 		       <FCLEAR, HOUSE ,TAKEBIT>
 		       <FSET ,HOUSE ,OLDBIT>
 		       <TELL 
-"The louse sprouts wings and flies busily around in circles, spewing an endless
-line of molten lead out of its abdomen which builds and builds, finally
-cooling into the form of a lead house." CR>
+"The louse sprouts wings and flies busily around in circles, spewing an endless line of molten lead out of its abdomen which builds and builds, finally cooling into the form of a lead house." CR>
 		       <RTRUE>)>)
 	       (<AND <NOUN-USED ,HOUSE ,W?LOUSE>
 		     <TRANS-PRINT ,HOUSE>>
@@ -424,13 +395,11 @@ cooling into the form of a lead house." CR>
 	 <COND (<FSET? ,HOUSE ,OLDBIT>
 		<COND (<VERB? EXAMINE>
 		       <TELL 
-"It's somewhat small as houses go, but it's one heavy property since it's
-made entirely of thick lead, and has neither doors nor windows." CR>)>)
+"It's somewhat small as houses go, but it's one heavy property since it's made entirely of thick lead, and has neither doors nor windows." CR>)>)
 	       (<AND <VERB? TAKE>
 		     ,LOUSE-ON-HEAD>
 		<TELL 
-"You pick around for the " D ,HOUSE " but can't seem to put the pinch
-on it." CR>)
+"You pick around for the " D ,HOUSE " but can't seem to put the pinch on it." CR>)
 	       (<AND <VERB? DROP GIVE THROW PUT PUT-ON>
 		     <PRSO? ,HOUSE>
 		     ,LOUSE-ON-HEAD>
@@ -445,10 +414,7 @@ on it." CR>)
 	(NEWDESC "pretty girl")
 	(DESCFCN PEARL-F)
 	(OLD-TO-NEW 
-"Tiny grains of sand fall from the pearl as it begins to pulse slowly with
-radiant red light, whose brightness soon becomes blinding. When you're finally
-able to move your arms away from your face, you can see a beautiful girl
-before you.")
+"Tiny grains of sand fall from the pearl as it begins to pulse slowly with radiant red light, whose brightness soon becomes blinding. When you're finally able to move your arms away from your face, you can see a beautiful girl before you.")
 	(NEW-TO-OLD
 "The girl withers down into a pearl.")
 	(SYNONYM PEARL GIRL)
@@ -491,9 +457,7 @@ D ,PAN-OF-KEYS "." CR>)
 		       <REMOVE ,PEARL>
 		       <SETG FOLLOW-FLAG 1>
 		       <QUEUE I-FOLLOW 4> 
-		       <TELL ;CR  "Upon a stiff off-shore wind, the pearl
-is blown into the river. It skips lightly across the Rhine with sparkling
-brilliance, and then sinks into the depths." CR>
+		       <TELL ;CR  "Upon a stiff off-shore wind, the pearl is blown into the river. It skips lightly across the Rhine with sparkling brilliance, and then sinks into the depths." CR>
 		       <RTRUE>)>)
 	       (<AND <OR <NOUN-USED ,PEARL ,W?GIRL>
 			 <ADJ-USED ,PEARL ,W?PRETTY>>
@@ -507,9 +471,7 @@ brilliance, and then sinks into the depths." CR>
 		<COND (<IN? ,PEARL ,SHINING-DOOR>
 		       <COND (<VERB? NO-VERB>
 			      <CRLF>)>
-		       <TELL ;CR 
-"The girl is radiantly pretty, but as she continues to \"shine on the door,\"
-she kicks her feet angrily in the air." CR>
+		       <TELL ;CR "The girl is radiantly pretty, but as she continues to \"shine on the door,\" she kicks her feet angrily in the air." CR>
 		       ;<COND (<NOT <VERB? NO-VERB>>
 			      <CRLF>)>
 		       <RTRUE>)
@@ -542,22 +504,18 @@ she kicks her feet angrily in the air." CR>
 		       <TELL " prettiness." CR>)>)
 	       (<VERB? TELL>
 		<TELL 
-"The pretty girl, who appears too spaced out by the recent major changes in her
-life, cannot respond." CR>
+"The pretty girl, who appears too spaced out by the recent major changes in her life, cannot respond." CR>
 		<STOP>)
 	       (<AND <VERB? TAKE>
 		     <IN? ,PEARL ,SHINING-DOOR>>
 		<TELL "She's stuck too firmly to the door." CR>)
 	       (<VERB? TAKE>
 		<TELL 
-"Though the " D ,PEARL " appears thin to the point of being underfed,
-carrying her around in her present state would be awkward indeed." CR>) 
+"Though the " D ,PEARL " appears thin to the point of being underfed, carrying her around in her present state would be awkward indeed." CR>) 
 	       (<AND <VERB? EXAMINE>
 		     <IN? ,PEARL ,SHINING-DOOR>>
 		<TELL 
-"The " D ,PEARL " is hanging against the door and flailing her legs into
-air. The operative words in this absurd predicament seem to be that she
-appears to \"shine on the door.\"" CR>)>>
+"The " D ,PEARL " is hanging against the door and flailing her legs into air. The operative words in this absurd predicament seem to be that she appears to \"shine on the door.\"" CR>)>>
 
 <ROUTINE GEN-GIRL ()
 	 <COND (<EQUAL? ,SCENE ,AISLE>
@@ -574,9 +532,7 @@ appears to \"shine on the door.\"" CR>)>>
 	(OLDDESC "pan of keys")
 	(NEWDESC "can of peas")
 	(OLD-TO-NEW
-"The keys jingle together in the pan, as if simmering, and one key pops out
-of the pan onto the ground. Then in a sudden \"poof\" the pan is
-transformed into a can.")  
+"The keys jingle together in the pan, as if simmering, and one key pops out of the pan onto the ground. Then in a sudden \"poof\" the pan is transformed into a can.")  
 	(SYNONYM CAN PAN KEYS PEAS PEA KEY)
 	(FLAGS OLDBIT TAKEBIT)
 	(GENERIC GEN-KEY)
@@ -627,8 +583,7 @@ CR>
 	       (<FSET? ,PAN-OF-KEYS ,OLDBIT>
 		<COND (<VERB? EXAMINE LOOK-INSIDE>
 		       <TELL
-"This is a frying pan that happens to be devoid of anything edible, but
-full of many keys." CR>)>)
+"This is a frying pan that happens to be devoid of anything edible, but full of many keys." CR>)>)
 	       (<VERB? EXAMINE LOOK-INSIDE>
 		<TELL
 "The lid is off the can, which is full of peas." CR>)
@@ -667,13 +622,9 @@ full of many keys." CR>)>)
 		      (T
 		       <TELL " whiff of">)>
 		<TELL 
-" the " D ,PAN-OF-KEYS " and scowls at it. \"Yukko.
-Gag me with a spoonerism.\"|
+" the " D ,PAN-OF-KEYS " and scowls at it. \"Yukko. Gag me with a spoonerism.\"|
 |
-From the looks of her very trim figure, the pretty girl is certainly in need of
-a square meal. But, being deprived of any kind of dining experience on the shore, she
-instead, by leaps and bounds, sprints toward the Rhine and dives headlong
-into the river." CR>)>>
+From the looks of her very trim figure, the pretty girl is certainly in need of a square meal. But, being deprived of any kind of dining experience on the shore, she instead, by leaps and bounds, sprints toward the Rhine and dives headlong into the river." CR>)>>
 
 <ROOM SHORE
       (LOC ROOMS)
@@ -688,8 +639,7 @@ into the river." CR>)>>
 "This is the shore of a river, between two tributaries of the Rhine.">
 		<COND (<FSET? ,ROCKS ,OLDBIT>
 		       <TELL 
-" A pile of " D ,ROCKS " jutting from the beach into the river blocks
-your path along the shore.">)>
+" A pile of " D ,ROCKS " jutting from the beach into the river blocks your path along the shore.">)>
 		<RTRUE>)>>
 
 <OBJECT ROCKS
@@ -697,9 +647,7 @@ your path along the shore.">)>
 	(OLDDESC "rocks")	
 	(NEWDESC "red fox")
 	(OLD-TO-NEW 
-"With frightful expressions on the faces of the rocks, a loud rumbling
-avalanche sends them tumbling and splashing into the Rhine. Through the thick
-rock dust, you can make out a red fox trotting out of sight.")
+"With frightful expressions on the faces of the rocks, a loud rumbling avalanche sends them tumbling and splashing into the Rhine. Through the thick rock dust, you can make out a red fox trotting out of sight.")
 	(SYNONYM ROCKS ROCK FOX PILE)
 	(ADJECTIVE FED RED)
 	(FLAGS NDESCBIT OLDBIT ACTORBIT PLURALBIT)
@@ -735,8 +683,7 @@ rock dust, you can make out a red fox trotting out of sight.")
 		<MOVE ,DEAN ,HERE>
 		<MOVE ,EXPERIENCE ,HERE>
 		<TELL CR
-"With a new section of the shore open to view, you now observe the following
-sight:" CR>
+"With a new section of the shore open to view, you now observe the following sight:" CR>
 		<DEAN-F ,M-OBJDESC>
 		<CRLF> ;"was semied"
 		<RTRUE>)>
@@ -746,28 +693,22 @@ sight:" CR>
 		     <NOT <FSET? ,ROCKS ,SEENBIT>>>
 		<FSET ,ROCKS ,SEENBIT>
 		<TELL 
-"As you make contact with the faces of the rocks, each becomes animated
-and exhibits a mean nasty expression: A look that says \"Feed me!\"
-Needless to say, you jump back." CR>)
+"As you make contact with the faces of the rocks, each becomes animated and exhibits a mean nasty expression: A look that says \"Feed me!\" Needless to say, you jump back." CR>)
 	       (<AND <FSET? ,ROCKS ,SEENBIT>
 		     <VERB? CLIMB-OVER CLIMB-UP CLIMB CLIMB-ON BOARD ENTER
 			    STAND-ON LEAP>>
 		<TELL
-"Knocking their heads together and snapping their granite jaws at your limbs,
-the rocks faces make you back away." CR>)
+"Knocking their heads together and snapping their granite jaws at your limbs, the rocks faces make you back away." CR>)
 	       (<VERB? EXAMINE>
 		<COND (<FSET? ,ROCKS ,RMUNGBIT>
 		       <TELL
-"You can see from the jowly, satiated faces of the fed rocks that they
-have eaten recently." CR>)
+"You can see from the jowly, satiated faces of the fed rocks that they have eaten recently." CR>)
 		      (T
 		       <TELL
-"Each face of the rocks has the same hungry, crazed expression that says
-\"Feed me!\"" CR>)>)
+"Each face of the rocks has the same hungry, crazed expression that says \"Feed me!\"" CR>)>)
 	       (<VERB? TELL>
 		<TELL
-"The crude speech of the rocks is deep, clanking and guttural. It sounds
-as if they have practiced their diction with humans in their mouths." CR>
+"The crude speech of the rocks is deep, clanking and guttural. It sounds as if they have practiced their diction with humans in their mouths." CR>
 		<STOP>)>>
 		      
 <GLOBAL SWUM-IN-RHINES <>>
@@ -785,8 +726,7 @@ as if they have practiced their diction with humans in their mouths." CR>
 	 <COND (<AND <NOUN-USED ,RHINES ,W?DOOR>
 		     <NOT <DONT-HANDLE ,RHINES>>>
 		<TELL 
-"Driven by a foul east wind, shifting sands blow this way and that, but
-the shore cannot gather itself further. " CR>
+"Driven by a foul east wind, shifting sands blow this way and that, but the shore cannot gather itself further. " CR>
 		<RTRUE>)
 	       (<VERB? EXAMINE>
 	        <PERFORM ,V?LOOK>
@@ -820,8 +760,7 @@ the shore cannot gather itself further. " CR>
 CR>)
 	       (<VERB? READ EXAMINE>
 		<TELL 
-"Since the two lines scrawled on the shore are written in the obscure
-language of sand-script, you're not able to comprehend their meaning." CR>)>>
+"Since the two lines scrawled on the shore are written in the obscure language of sand-script, you're not able to comprehend their meaning." CR>)>>
 
 <OBJECT SAND
 	(LOC SHORE)
@@ -860,9 +799,7 @@ language of sand-script, you're not able to comprehend their meaning." CR>)>>
 	(OLDDESC "queer old dean")
 	(NEWDESC "dear old queen")
 	(OLD-TO-NEW 
-"In the distance you hear the first few bars of the British National
-Anthem as, before your very eyes, the dean is transformed into a reigning
-monarch in full regalia.")
+"In the distance you hear the first few bars of the British National Anthem as, before your very eyes, the dean is transformed into a reigning monarch in full regalia.")
 	(NEW-TO-OLD "Queen turns into dean.")  
 	(DESCFCN DEAN-F)
 	(SYNONYM DEAN QUEEN)
@@ -876,19 +813,16 @@ monarch in full regalia.")
 		       <RTRUE>)>
 		<COND (<FSET? ,LEOPARD ,OLDBIT>
 		       <TELL CR
-"A " D ,DEAN " here seems to be the subject of a " D ,EXPERIENCE ". A
-tall leopard, standing up on its hind legs, is shoving ">
+"A " D ,DEAN " here seems to be the subject of a " D ,EXPERIENCE ". A tall leopard, standing up on its hind legs, is shoving ">
 		       <COND (<FSET? ,DEAN ,OLDBIT>
 			      <TELL "him">)
 			     (T
 			      <TELL "her">)>
 		       <TELL 
-" up and down the shoreline, creating quite a scene and kicking up
-sand all along the way. ">
+" up and down the shoreline, creating quite a scene and kicking up sand all along the way. ">
 		       <COND (<FSET? ,DEAN ,OLDBIT>
 			      <TELL
-"The dean, with his long grey locks flaming out like Einstein's,
-is hopelessly mismatched by the leopard and ">)
+"The dean, with his long grey locks flaming out like Einstein's, is hopelessly mismatched by the leopard and ">)
 			     (T
 			      <TELL "The proud queen ">)>
 		       <TELL 
@@ -909,8 +843,7 @@ is hopelessly mismatched by the leopard and ">)
 		<FSET ,DEAN ,ACTORBIT>
 		<COND (<FSET? ,LEOPARD ,OLDBIT>
 		       <TELL ;CR 
-"Our shoving leopard stops to make a brief curtsy before the queen,
-then continues pushing her up and down the shoreline." CR>)>)>
+"Our shoving leopard stops to make a brief curtsy before the queen, then continues pushing her up and down the shoreline." CR>)>)>
 	 <COND (<FSET? ,DEAN ,OLDBIT>
 		<COND (<VERB? TELL>
 		       <TELL "He says nothing." CR>
@@ -936,8 +869,7 @@ then continues pushing her up and down the shoreline." CR>)>)>
 	(OLDDESC "rare hazing experience")
 	(NEWDESC "hair raising experience")
 	(OLD-TO-NEW
-"Hair raising indeed. It really gives the follicles a workout to witness such
-a sight.")
+"Hair raising indeed. It really gives the follicles a workout to witness such a sight.")
 	(NEW-TO-OLD
 "It's a rare hazing experience all right.")	     
 	(SYNONYM EXPERIENCE RAISING HAIR) ;"syn hair added"
@@ -962,10 +894,7 @@ a sight.")
 	(NEWDESC "our loving shepherd")
 	(DESCFCN LEOPARD-F)
 	(OLD-TO-NEW
-"The leopard changes its appearance from beast into man and changes its
-spots into a black suit with a white, wraparound collar. He takes out
-a black book and intones solemnly in a guttural Germanic language for
-a few moments.")  
+"The leopard changes its appearance from beast into man and changes its spots into a black suit with a white, wraparound collar. He takes out a black book and intones solemnly in a guttural Germanic language for a few moments.")  
 	(SYNONYM LEOPARD SHEPHERD)
 	(ADJECTIVE YOUR OUR SHOVING LOVING TALL)
 	(FLAGS OLDBIT ACTORBIT NDESCBIT NARTICLEBIT)
@@ -976,10 +905,7 @@ a few moments.")
 		<COND (<EQUAL? .OARG ,M-OBJDESC?>
 		       <RTRUE>)>
 		<TELL CR
-"In a seedy corner of the factory, you can observe a scuffle going
-on. As far as you can see, " D ,LEOPARD " is engaged in a tug-of-war with
-a large, man-sized rodent which appears to be a rat. The shepherd is
-struggling, with religious zeal, to pull ">
+"In a seedy corner of the factory, you can observe a scuffle going on. As far as you can see, " D ,LEOPARD " is engaged in a tug-of-war with a large, man-sized rodent which appears to be a rat. The shepherd is struggling, with religious zeal, to pull ">
 		<COND (<FSET? ,HABIT ,OLDBIT>
 		       <TELL "some black-and-white cloth">)
 		      (T
@@ -994,9 +920,7 @@ struggling, with religious zeal, to pull ">
 		     <OR <NOUN-USED ,LEOPARD ,W?LEOPARD>
 			 <ADJ-USED ,LEOPARD ,W?SHOVING>>>		    
 	        <TELL
-"The man of cloth turns to you frantically, \"Loving leopard, shoving
-shepherd, never mind me! Just try and pull this " D ,HABIT " out
-of the rat.\"" CR>
+"The man of cloth turns to you frantically, \"Loving leopard, shoving shepherd, never mind me! Just try and pull this " D ,HABIT " out of the rat.\"" CR>
 		<RTRUE>)
 	       (<AND <OR <NOUN-USED ,LEOPARD ,W?SHEPHERD>
 			 <ADJ-USED ,LEOPARD ,W?LOVING>>
@@ -1009,11 +933,7 @@ of the rat.\"" CR>
 		<QUEUE I-DEAN 2>
 		<REMOVE ,EXPERIENCE>
 		<TELL
-"Closing his book with a hollow thud, the shepherd uses a stick
-to scrawl a two-line message on the shore. And then, looking with grand vision
-toward the tributaries of the Rhine River,
-our loving shepherd turns tail, walks away from the shore,
-and disappears in the distance as he leads between the Rhines." CR>)>
+"Closing his book with a hollow thud, the shepherd uses a stick to scrawl a two-line message on the shore. And then, looking with grand vision toward the tributaries of the Rhine River, our loving shepherd turns tail, walks away from the shore, and disappears in the distance as he leads between the Rhines." CR>)>
 	 <COND (<AND <VERB? FOLLOW>
 		     <IN? ,LEOPARD ,FACTORY>
 		     <NOT <FSET? ,FACTORY ,TOUCHBIT>>>
@@ -1025,10 +945,7 @@ and disappears in the distance as he leads between the Rhines." CR>)>
 	(OLDDESC "habit")
 	(NEWDESC "rabbit")
 	(OLD-TO-NEW 
-"You can see the black-and-white cloth folding in upon itself and twisting
-and wringing itself in a laundry-like fashion. With a final turning inside-out
-and the emergence of floppy ears from the cloth, it blooms gradually
-into the fluffy body of a rabbit.")
+"You can see the black-and-white cloth folding in upon itself and twisting and wringing itself in a laundry-like fashion. With a final turning inside-out and the emergence of floppy ears from the cloth, it blooms gradually into the fluffy body of a rabbit.")
 	(SYNONYM HABIT RABBIT CLOTH)
 	(ADJECTIVE BLACK-AND-WHITE WHITE BLACK)
 	(FLAGS OLDBIT TRYTAKEBIT)
@@ -1051,8 +968,7 @@ into the fluffy body of a rabbit.")
 			<EQUAL? <GET ,P-ADJW 1> ,W?MOHAIR>>>
 	       <MOVE ,HABIT ,PROTAGONIST>
 	       <TELL 
-"Abracadabra, Alacazam! With nothing up your sleeve (with the exception
-of your knobby elbow) you yank the ">
+"Abracadabra, Alacazam! With nothing up your sleeve (with the exception of your knobby elbow) you yank the ">
 	       <COND (<FSET? ,HABIT ,OLDBIT>
 		      <TELL D ,HABIT>)
 		     (T
@@ -1064,8 +980,7 @@ of your knobby elbow) you yank the ">
 	      (<FSET? ,HABIT ,OLDBIT>
 	       <COND (<VERB? EXAMINE>
 		      <TELL 
-"This habit is, unfortunately, the black and white cloth worn by members of
-a religious order. It's being clenched tightly in the huge rat's teeth." CR>)>)
+"This habit is, unfortunately, the black and white cloth worn by members of a religious order. It's being clenched tightly in the huge rat's teeth." CR>)>)
 	      (<VERB? EXAMINE>
 	       <TELL "The little flop-eared rabbit looks frightened." CR>)>>
 
@@ -1074,8 +989,7 @@ a religious order. It's being clenched tightly in the huge rat's teeth." CR>)>)
 	(OLDDESC "rat")
 	(NEWDESC "hat")
 	(OLD-TO-NEW 
-"The big rat twitches its bewhiskered snout, and yawns a gap-toothed
-yawn, then incredibly shrinks down to the size, and now the shape, of a hat.")	
+"The big rat twitches its bewhiskered snout, and yawns a gap-toothed yawn, then incredibly shrinks down to the size, and now the shape, of a hat.")	
 	(SYNONYM RAT HAT)
 	(ADJECTIVE MOHAIR)
 	(FLAGS OLDBIT CONTBIT OPENBIT SEARCHBIT NO-D-CONT NDESCBIT WEARBIT)
@@ -1101,8 +1015,7 @@ yawn, then incredibly shrinks down to the size, and now the shape, of a hat.")
 "At the thick-haired shoulder, the rat stands tall as you">
 		       <COND (<IN? ,HABIT ,RAT>
 			      <TELL
-". In it's buck teeth, which are the size of cheese wedges, hangs
-a " D ,HABIT>)>
+". In it's buck teeth, which are the size of cheese wedges, hangs a " D ,HABIT>)>
 		       <TELL ,PERIOD>)
 		      (<VERB? KILL>
 		       <TELL
@@ -1146,8 +1059,7 @@ a " D ,HABIT>)>
 	 <SETG LOUSE-ON-HEAD <>>	 
 	 <MOVE ,HOUSE ,RAT>
 	 <TELL "Moments later, you feel the curious
-little head louse migrate from your skull into the mohair fabric of the
-hat." CR>>
+little head louse migrate from your skull into the mohair fabric of the hat." CR>>
 
 <ROOM FACTORY
       (LOC ROOMS)
@@ -1177,15 +1089,12 @@ A passage leads into a back room.">)
 "The man of the cloth solemnly gathers the habit and leaves the factory">)
 			     (T
 			      <TELL 
-"The shepherd turns into a leopard and, licking his chops, scampers
-away with the rabbit tucked under one claw">)>
+"The shepherd turns into a leopard and, licking his chops, scampers away with the rabbit tucked under one claw">)>
 		       <TELL ,PERIOD>)
 		      (<AND <IN? ,LEOPARD ,HERE>
 			    <NOT <VERB? WALK-TO>>>
 		       <TELL CR 
-"The shepherd keeps struggling against all odds, with religious zeal,
-attempting to extract the " D ,HABIT " from the large rat, which is fiercely
-clenching it in his snout." CR>)>)>>
+"The shepherd keeps struggling against all odds, with religious zeal, attempting to extract the " D ,HABIT " from the large rat, which is fiercely clenching it in his snout." CR>)>)>>
 
 <OBJECT FOAM
 	(LOC FACTORY)
@@ -1203,8 +1112,7 @@ clenching it in his snout." CR>)>)>>
 		<COND (<EQUAL? .OARG ,M-OBJDESC?>
 		       <RTRUE>)>
 		<TELL CR 
-"Someone has left a bonfire going, as a large pile of foam is burning in
-the middle of the factory floor">
+"Someone has left a bonfire going, as a large pile of foam is burning in the middle of the factory floor">
 		<COND (<FSET? ,ICICLE ,TRYTAKEBIT>
 		       <TELL 
 ". Above the foam burning, an icicle is hanging down from the ceiling">)>
@@ -1228,10 +1136,7 @@ the middle of the factory floor">
 		<FCLEAR ,ICICLE ,NDESCBIT>
 		<PUTP ,ICICLE ,P?OLDDESC "well-boiled icicle">
 		<TELL
-"As you while away the time in the grand manner of great decadent epochs
-of the historical past, the icicle overhead suddenly takes as much heat as it
-can stand, letting loose from the ceiling and dropping to the factory
-floor with a surprising \"Thud.\"" CR>)
+"As you while away the time in the grand manner of great decadent epochs of the historical past, the icicle overhead suddenly takes as much heat as it can stand, letting loose from the ceiling and dropping to the factory floor with a surprising \"Thud.\"" CR>)
 	       (<AND <VERB? PUT>
 		     <PRSI? ,FOAM>>
 		<PERFORM ,V?BURN ,PRSO>
@@ -1241,20 +1146,16 @@ floor with a surprising \"Thud.\"" CR>)
 "That's the painful way to get a pair of hot pants." CR>) 
 	       (<VERB? OFF>
 		<TELL
-"Your feeble attempts have the negligible effect of spitting on the
-fire." CR>)>>
+"Your feeble attempts have the negligible effect of spitting on the fire." CR>)>>
 
 <OBJECT ICICLE
 	(LOC FACTORY)
 	(OLDDESC "icicle")	
 	(NEWDESC "well-oiled bicycle")
 	;(FDESC 
-"Lying next to the fire is a well-boiled icicle, evidently having been
-melted off the ceiling.")
+"Lying next to the fire is a well-boiled icicle, evidently having been melted off the ceiling.")
 	(OLD-TO-NEW 
-"The icicle, though thoroughly boiled already, lets off a searing vertical
-wall of steam. As the white vapor clears, a shiny, brand new bicycle is
-revealed.")
+"The icicle, though thoroughly boiled already, lets off a searing vertical wall of steam. As the white vapor clears, a shiny, brand new bicycle is revealed.")
 	(DESCFCN ICICLE-F)
 	(SYNONYM ICICLE BICYCLE BIKE ICE)
 	(ADJECTIVE WELL BOILED OILED WELL-BOILED WELL-OILED)
@@ -1299,8 +1200,7 @@ revealed.")
 		     <OR <NOUN-USED ,ICICLE ,W?ICICLE ,W?ICE>
 			 <ADJ-USED ,ICICLE ,W?WELL-BOILED>>>
 		<TELL 
-"The bicycle lets off a little steam like a backfiring motorbike, but
-doesn't change shape." CR>
+"The bicycle lets off a little steam like a backfiring motorbike, but doesn't change shape." CR>
 		<RTRUE>
 		;<TRANS-PRINT ,ICICLE T>
 		T)
@@ -1316,8 +1216,7 @@ doesn't change shape." CR>
 		<COND (<AND <VERB? EXAMINE>
 			    <FSET? ,ICICLE ,TRYTAKEBIT>>
 		       <TELL 
-"Suspended from the ceiling, the icicle makes a steady drip-dripping
-onto the fire. But, strangely, it seems not to be shrinking." CR>)
+"Suspended from the ceiling, the icicle makes a steady drip-dripping onto the fire. But, strangely, it seems not to be shrinking." CR>)
 		      (<AND <TOUCHING? ,ICICLE>
 			    <FSET? ,ICICLE ,TRYTAKEBIT>>
 		       <CANT-REACH ,ICICLE>)>)
@@ -1325,8 +1224,7 @@ onto the fire. But, strangely, it seems not to be shrinking." CR>)
 		<SETG OLD-HERE <>>
 		<MOVE ,PROTAGONIST ,ICICLE>
 		<TELL 
-"Decisively, you take the bike by the handlebars and swing the seat under
-you." CR>)>>
+"Decisively, you take the bike by the handlebars and swing the seat under you." CR>)>>
 
 <ROOM STOCK-ROOM
       (LOC ROOMS)
@@ -1340,19 +1238,14 @@ you." CR>)>>
 		<TELL "You're">
 		<COND (<IN? ,PROTAGONIST ,HERE>
 		       <TELL " standing">)>
-		<TELL " toward the rear of the factory, back in the jean stock.
-Jeans of every conceivable size, color, shape, and texture are stacked up along
-the walls, arranged into dozens of rows, piled high onto heaps. There is
-a dizzying effect, as if your point of view were from inside a large-capacity
-clothes dryer.">)>>
+		<TELL " toward the rear of the factory, back in the jean stock. Jeans of every conceivable size, color, shape, and texture are stacked up along the walls, arranged into dozens of rows, piled high onto heaps. There is a dizzying effect, as if your point of view were from inside a large-capacity clothes dryer.">)>>
 
 <OBJECT ELF
 	(LOC STOCK-ROOM)
 	(OLDDESC "sold elf")
 	(NEWDESC "your old self")
 	(OLD-TO-NEW 
-"The elf sprouts up and goes through the whole Dorian Grey thing, looking
-gradually more and more like you but a lot grayer.")
+"The elf sprouts up and goes through the whole Dorian Grey thing, looking gradually more and more like you but a lot grayer.")
 	(NEW-TO-OLD "Self to elf.")
 	(DESCFCN ELF-F)
 	(SYNONYM ELF SELF)
@@ -1375,9 +1268,7 @@ gradually more and more like you but a lot grayer.")
 			    <NOT <FSET? ,ELF ,RMUNGBIT>>>
 		       <FSET ,ELF ,RMUNGBIT>
 		       <TELL CR
-"You can see, looming in the distance, the dwarfish figure of a man who
-appears to have been sold into slavery to weave fabric at this factory, even
-in its dilapidated condition.|
+"You can see, looming in the distance, the dwarfish figure of a man who appears to have been sold into slavery to weave fabric at this factory, even in its dilapidated condition.|
 |
 As you approach, the " D ,ELF " awkwardly attempts to make a tall smock">)
 		      (<FSET? ,ELF ,OLDBIT>
@@ -1411,8 +1302,7 @@ As you approach, the " D ,ELF " awkwardly attempts to make a tall smock">)
 			      <TELL
 "Your old self looks self-pityingly upon you and">)>
 		       <TELL 
-" onto whole cloth he stitches out precise directions for getting back to
-the clearing, which you commit to memory." CR CR>
+" onto whole cloth he stitches out precise directions for getting back to the clearing, which you commit to memory." CR CR>
 		       <TELL
 "\"But you'll never make it on foot. You need some transportation.\"" CR>)
 		      (T
@@ -1423,8 +1313,7 @@ the clearing, which you commit to memory." CR CR>
 		       <TELL "He's small." CR>)
 		      (<VERB? TELL>
 		       <TELL 
-"The elf doesn't appear interested in the manner of your big talk. He
-seems wary of unseen higher-ups, and quietly continues working." CR>
+"The elf doesn't appear interested in the manner of your big talk. He seems wary of unseen higher-ups, and quietly continues working." CR>
 		       <STOP>)>)
 	       (<VERB? EXAMINE>
 		<TELL "It's you." CR>)
@@ -1432,9 +1321,7 @@ seems wary of unseen higher-ups, and quietly continues working." CR>
 		<COND (<NOT ,SELF-JOKE>
 		       <SETG SELF-JOKE T>
 		       <TELL
-"He speaks slowly and deliberately, \"All I have to say: Don't end up
-like this. You still have time to avoid such a fate. Listen: mutual
-funds and long-term bonds.\"" CR>		       
+"He speaks slowly and deliberately, \"All I have to say: Don't end up like this. You still have time to avoid such a fate. Listen: mutual funds and long-term bonds.\"" CR>		       
 		       <STOP>)
 		      (T
 		       <TELL "\"I have nothing to say.\"" CR>
@@ -1479,14 +1366,10 @@ funds and long-term bonds.\"" CR>
 	(OLDDESC "jean client")
 	(NEWDESC "clean giant")
 	(OLD-TO-NEW
-"Much to his horror, the jean client begins to undergo a Hulkian
-transformation -- with popping buttons, ripping seams, and bug-eyed
-self-examination.|
+"Much to his horror, the jean client begins to undergo a Hulkian transformation -- with popping buttons, ripping seams, and bug-eyed self-examination.|
 |
-Seemingly shamed by the revealing ordeal, the client, while he's still of a
-human size,
-demonstrates his dexterity and strength by clambering up the towering pile
-of jeans until he can no longer be seen.")
+Seemingly shamed by the revealing ordeal, the client, while he's still of a human size,
+demonstrates his dexterity and strength by clambering up the towering pile of jeans until he can no longer be seen.")
 	(DESCFCN CLIENT-F)
 	(SYNONYM GIANT CLIENT CLEAN)
 	(ADJECTIVE JEAN CLEAN MR)
@@ -1501,16 +1384,13 @@ of jeans until he can no longer be seen.")
 		       <RTRUE>)>
 		<COND (<NOT <FSET? ,CLIENT ,OLDBIT>>
 		       <TELL CR 
-"A giant of exceptional cleanliness stands proudly tall here, hands
-on his hips">)
+"A giant of exceptional cleanliness stands proudly tall here, hands on his hips">)
 		      (<EQUAL? ,HERE ,STOCK-ROOM>
 		       <TELL CR 
-"A " D ,CLIENT ", an intense-looking man wearing thick glasses, is impatiently
-rummaging through the haberdashery">)
+"A " D ,CLIENT ", an intense-looking man wearing thick glasses, is impatiently rummaging through the haberdashery">)
 		      (T
 		       <TELL CR
-"The " D ,CLIENT ", having been smashed back into his currently thin man-sized
-shape, stands here looking disheveled and shaken">)> 
+"The " D ,CLIENT ", having been smashed back into his currently thin man-sized shape, stands here looking disheveled and shaken">)> 
 		<TELL ,PERIOD>)
 	       (<NO-SUCH ,CLIENT ,W?JEAN ,W?GIANT ,W?CLEAN ,W?CLIENT>
 		<RTRUE>)
@@ -1557,8 +1437,7 @@ shape, stands here looking disheveled and shaken">)>
 			      <STOP>)>)>)
 	       (<VERB? EXAMINE>
 		<TELL
-"The " D ,CLIENT ", having been scrubbed from head to toe, is a towering
-figure of a man." CR>)
+"The " D ,CLIENT ", having been scrubbed from head to toe, is a towering figure of a man." CR>)
 	       (<VERB? TELL>
 		<TELL 
 "You hear his deep, echoing voice in return: \"Fe... fi... fo... fum...\"" CR>
@@ -1573,8 +1452,7 @@ figure of a man." CR>)
 		       <COND (<EQUAL? ,CLIENT-C 1>
 			      <MOVE ,CLIENT-NEEDLE ,CLIENT>
 			      <TELL CR 
-"Impulsively, the client dashes nearer, whips a needle out of his pocket,
-and begins to maliciously sew you to a sheet." CR>)
+"Impulsively, the client dashes nearer, whips a needle out of his pocket, and begins to maliciously sew you to a sheet." CR>)
 			     (<EQUAL? ,CLIENT-C 5>
 			      <JIGS-UP "You're all sewn up.">)
 			     (T
@@ -1590,28 +1468,22 @@ and begins to maliciously sew you to a sheet." CR>)
 	       (<EQUAL? ,CLIENT-C 1>
 		<FSET ,BEAN-STALK ,RMUNGBIT>
 		<TELL CR 
-"Laughing maliciously, the giant leans over and spills a large bucketful
-of thick, creamy butter on the bean stalk." CR>)
+"Laughing maliciously, the giant leans over and spills a large bucketful of thick, creamy butter on the bean stalk." CR>)
 	       (<EQUAL? ,CLIENT-C 2>
 		<TELL CR 
-"Glaring at you from high above are the giant's pair of sparkling eyes which
-are deep-set into his shiny bald head." CR>)
+"Glaring at you from high above are the giant's pair of sparkling eyes which are deep-set into his shiny bald head." CR>)
 	       (<EQUAL? ,CLIENT-C 3>
 		<TELL CR
-"The roar of a passing supersonic flight of fancy can be heard, and
-the wake of its exhaust ruffles the cloud for a few moments." CR>) 
+"The roar of a passing supersonic flight of fancy can be heard, and the wake of its exhaust ruffles the cloud for a few moments." CR>) 
 	       (<EQUAL? ,CLIENT-C 5>
 		<TELL
-"The big giant examines his fingernails, unfolds his massive arms
-and puts his hands on his hips." CR>)
+"The big giant examines his fingernails, unfolds his massive arms and puts his hands on his hips." CR>)
 	       (<EQUAL? ,CLIENT-C 6>
 		<TELL 
 "The giant covers most of the ground between you with one cloudy step." CR>)
 	       (<EQUAL? ,CLIENT-C 7>
 		<JIGS-UP
-"You get a sinking feeling as you're hammered through the floor of the cloud
-like a wooden peg. The view of the divided farmland below is picture-book
-and enobling. Your fodder enriches further the land.">)>>
+"You get a sinking feeling as you're hammered through the floor of the cloud like a wooden peg. The view of the divided farmland below is picture-book and enobling. Your fodder enriches further the land.">)>>
 
 <ROUTINE CLIENT-FALL ()
 	 <UPDATE-SCORE>
@@ -1622,10 +1494,7 @@ and enobling. Your fodder enriches further the land.">)>>
 	 <FCLEAR ,CLIENT ,NDESCBIT>
 	 <REMOVE ,HOUSE>
 	 <TELL
-" can see the giant's feet sinking deeply into the cloud floor, which soon
-gives way to the weight of the giant holding a lead house at his chest.
-You get a close-up, front-row view of the horrified expression across his
-huge face as it passes down in front of you and through the cloud." CR>>
+" can see the giant's feet sinking deeply into the cloud floor, which soon gives way to the weight of the giant holding a lead house at his chest. You get a close-up, front-row view of the horrified expression across his huge face as it passes down in front of you and through the cloud." CR>>
 
 <OBJECT JEAN-STOCK
 	(LOC STOCK-ROOM)
@@ -1650,15 +1519,11 @@ When you come to, it's in a new environment..." CR CR>
 		<GOTO ,STALK-ROOM>) 
 	       (<VERB? EXAMINE>
 		<TELL
-"A dizzying kaleidoscope of jeans surrounds you, notable among them is one
-stack that climbs as high as the eye can see, toward the murky upper reaches of
-this ceilingless room of the factory." CR>)
+"A dizzying kaleidoscope of jeans surrounds you, notable among them is one stack that climbs as high as the eye can see, toward the murky upper reaches of this ceilingless room of the factory." CR>)
 	       (<AND <VERB? BOARD CLIMB CLIMB-ON CLIMB-UP>
 		     <NOT <EQUAL? ,P-PRSA-WORD ,W?RIDE>>>
 		<TELL 
-"As you straddle the stack of jeans, and start to inch tentatively upward,
-the tall tower sways ominously, and you are forced to grab a bell-bottom
-to keep your balance. It's clear there's no safe way up." CR>)>>
+"As you straddle the stack of jeans, and start to inch tentatively upward, the tall tower sways ominously, and you are forced to grab a bell-bottom to keep your balance. It's clear there's no safe way up." CR>)>>
 
 <ROOM STALK-ROOM
       (LOC ROOMS)
@@ -1678,18 +1543,9 @@ to keep your balance. It's clear there's no safe way up." CR>)>>
 <ROUTINE STALK-ROOM-F (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL 
-"A page from the imagination of your childhood, an illustration of
-a country scene, an open field amid rolling hills under blue sky punctuated by
-cottony soft clouds, next to a simple story punctuated by exclamation
-points.|
+"A page from the imagination of your childhood, an illustration of a country scene, an open field amid rolling hills under blue sky punctuated by cottony soft clouds, next to a simple story punctuated by exclamation points.|
 |
-An overgrown bean stalk grows thick and tall up into the clouds.
-Nowadays, sadly, it seems the stalk would have to be rationalized, explained
-away somehow by experts, as an ominous instance of radioactive mutation,
-or as a patented, genetically manufactured hybrid -- rather than
-attributed to, as in the old days, simply, magic. Such a realization
-stirs a nostalgic longing for the days of yore when imagination reigned
-in all its grandeur and innocence.">) ;"There's a clucking finch here."
+An overgrown bean stalk grows thick and tall up into the clouds. Nowadays, sadly, it seems the stalk would have to be rationalized, explained away somehow by experts, as an ominous instance of radioactive mutation, or as a patented, genetically manufactured hybrid -- rather than attributed to, as in the old days, simply, magic. Such a realization stirs a nostalgic longing for the days of yore when imagination reigned in all its grandeur and innocence.">) ;"There's a clucking finch here."
 	       (<AND <EQUAL? .RARG ,M-BEG>
 		     <IN? ,BEETS ,HERE>
 		     <RUNNING? ,I-CLIENT>>
@@ -1709,8 +1565,7 @@ in all its grandeur and innocence.">) ;"There's a clucking finch here."
 	       (<AND <FSET? ,BEAN-STALK ,RMUNGBIT>
 		     <NOT ,SHEETS-TIED>>		     
 		<TELL 
-"The bean stalk, thoroughly coated with melted butter, is too slippery
-to climb">
+"The bean stalk, thoroughly coated with melted butter, is too slippery to climb">
 		<COND (<EQUAL? ,HERE ,CLOUD-ROOM>
 		       <TELL 
 " down. It would be like an express elevator to hades">)
@@ -1725,13 +1580,7 @@ to climb">
 		       <SETG SHEETS-TIED <>>
 		       <QUEUE I-CLIENT -1>
 		       <TELL
-"You grip the line of sheets and begin your
-hand-over-hand descent from the sky, feeling the sharp winds against your back.
-As your biceps begin tightening to the point of pain, you are again close
-to the land. And none too soon, for a few feet above the
-ground the tension of the life line is broken, and you tumble down to
-earth, buried under a waterfall of sheets that comes streaming down upon your
-head. Restlessly you dig yourself out..." CR CR>
+"You grip the line of sheets and begin your hand-over-hand descent from the sky, feeling the sharp winds against your back. As your biceps begin tightening to the point of pain, you are again close to the land. And none too soon, for a few feet above the ground the tension of the life line is broken, and you tumble down to earth, buried under a waterfall of sheets that comes streaming down upon your head. Restlessly you dig yourself out..." CR CR>
 		       <RETURN ,STALK-ROOM>)
 		      (T
 		       <TELL "You climb down stalk." CR CR>
@@ -1783,18 +1632,11 @@ head. Restlessly you dig yourself out..." CR CR>
 	(OLDDESC "blushing crow")
 	(NEWDESC "crushing blow")
 	(FDESC 
-"Walking around in circles here with its feathers ruffled is a crow, which is typically black except for its blushing red face. The crow seems
-embarrassed by the kind of strange behavior animals are capable of
-exhibiting in the vicinity.")
+"Walking around in circles here with its feathers ruffled is a crow, which is typically black except for its blushing red face. The crow seems embarrassed by the kind of strange behavior animals are capable of exhibiting in the vicinity.")
 	(OLD-TO-NEW 
-"The crow squawks loudly, scratches at the dirt, and bounds into flight,
-soaring higher and higher into the sky. Then, tucking in its wings, the
-weird bird takes a sudden nose dive that ends smashingly in a cloud of dirt
-on the field. Dust settles around the crushing blow.")
+"The crow squawks loudly, scratches at the dirt, and bounds into flight, soaring higher and higher into the sky. Then, tucking in its wings, the weird bird takes a sudden nose dive that ends smashingly in a cloud of dirt on the field. Dust settles around the crushing blow.")
 	(NEW-TO-OLD
-"A crack appears upon the surface of the blow, and extends jaggedly down
-with a loud cracking noise. Out hops the crow, shedding its membrane
-with bristling feathers.")     
+"A crack appears upon the surface of the blow, and extends jaggedly down with a loud cracking noise. Out hops the crow, shedding its membrane with bristling feathers.")     
 	(SYNONYM CROW BLOW)
 	(ADJECTIVE CRUSHING BLUSHING)
 	(FLAGS OLDBIT TRYTAKEBIT)
@@ -1820,8 +1662,7 @@ with bristling feathers.")
 "The " D ,BLUSHING-CROW " is walking pigeon-toed around in circles." CR>)
 		      (<VERB? TAKE>
 		       <TELL
-"Hopping away from your swipe, the " D ,BLUSHING-CROW " evades you, its
-face turning a deeper shade of crimson." CR>)>)
+"Hopping away from your swipe, the " D ,BLUSHING-CROW " evades you, its face turning a deeper shade of crimson." CR>)>)
 	       (<VERB? EXAMINE>
 		<TELL 
 "The strange-looking object seems to really pack a wallop. ">
@@ -1847,10 +1688,7 @@ face turning a deeper shade of crimson." CR>)>)
 		       <DEQUEUE I-CLIENT>
 		       <ITALICIZE "Kaboom!">
 		       <TELL 
-" The ground quakes with the staggering of the giant. Appearing like a punch
-drunk fighter, he weaves round and round, all the while shrinking in size,
-finally to the lowly hunched figure of the client. Humiliated at his defeat,
-the man makes a Chaplinesque exit, kicking dust as he walks crookedly away."
+" The ground quakes with the staggering of the giant. Appearing like a punch drunk fighter, he weaves round and round, all the while shrinking in size, finally to the lowly hunched figure of the client. Humiliated at his defeat, the man makes a Chaplinesque exit, kicking dust as he walks crookedly away."
 CR>)>)>> 
 
 <OBJECT MARE
@@ -1858,14 +1696,9 @@ CR>)>)>>
 	(OLDDESC "mare squeal")
 	(NEWDESC "square meal")
 	(FDESC 
-"In the distance you can hear the strange and unmistakable sound
-of a female horse attempting to imitate the sound of a pig.")
+"In the distance you can hear the strange and unmistakable sound of a female horse attempting to imitate the sound of a pig.")
 	(OLD-TO-NEW
-"The squealing of the mare becomes so increasingly strained and high-pitched
-that you are forced
-to cover your ears, lowering your head in squint-eyed pain. The instant
-the terrible noise shuts off, your eyes pop open and notice a rather
-angular meal at your feet.")
+"The squealing of the mare becomes so increasingly strained and high-pitched that you are forced to cover your ears, lowering your head in squint-eyed pain. The instant the terrible noise shuts off, your eyes pop open and notice a rather angular meal at your feet.")
 	(SYNONYM MARE HORSE SQUEAL MEAL)
 	(ADJECTIVE SQUARE MARE ANGULAR)
 	(FLAGS OLDBIT)
@@ -1880,8 +1713,7 @@ angular meal at your feet.")
 		     <NOT <FSET? ,MARE ,OLDBIT>>
 		     <NOT <DONT-HANDLE ,MARE>>>
 		<TELL 
-"The square meal lets out a horsey kind of \"oink\" sound, but nothing else
-happens." CR>
+"The square meal lets out a horsey kind of \"oink\" sound, but nothing else happens." CR>
 		<RTRUE>)
 	       (<AND <OR <NOUN-USED ,MARE ,W?MEAL>
 			 <ADJ-USED ,MARE ,W?SQUARE>> 
@@ -1900,13 +1732,10 @@ happens." CR>
 		       <TELL 
 "There's a mare squeal, hear.|
 |
-It's the distinct and curious noise
-produced by a female horse imitating a pig -- you shudder to realize
-you actually remember hearing this noise from reruns of Hee-Haw." CR>)>)
+It's the distinct and curious noise produced by a female horse imitating a pig -- you shudder to realize you actually remember hearing this noise from reruns of Hee-Haw." CR>)>)
 	       (<VERB? EAT>
 		<TELL 
-"You stop and realize there are other people in this world who need it
-more than you do." CR>)
+"You stop and realize there are other people in this world who need it more than you do." CR>)
 	       (<VERB? EXAMINE>
 		<TELL 
 "The meal is perfectly square, and looks scrumptous." CR>)>>
@@ -1924,15 +1753,10 @@ more than you do." CR>)
 		<QUEUE I-CLIENT -1>)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<TELL 
-"You're on cloud 673. It's not exactly cloud nine but it's rather cushy,
-and certainly roomy enough to be the home of a giant, which it just so happens
-to be.">
+"You're on cloud 673. It's not exactly cloud nine but it's rather cushy, and certainly roomy enough to be the home of a giant, which it just so happens to be.">
 		<COND (<IN? ,CLIENT ,HERE>
 		       <TELL "||
-Before you stands a giant of exceptional cleanliness, hands on his hips,
-wearing an immaculately tailored and dazzlingly white tee shirt. So
-statuesque is the figure of the giant that the floor of the
-cloud on which he stands sags noticeably under his weight.">)
+Before you stands a giant of exceptional cleanliness, hands on his hips, wearing an immaculately tailored and dazzlingly white tee shirt. So statuesque is the figure of the giant that the floor of the cloud on which he stands sags noticeably under his weight.">)
 		      (<AND ,SHEETS-TIED
 			    <IN? ,BEETS ,HERE>>
 		       <TELL "||
@@ -1944,13 +1768,9 @@ A line of sheets hangs down from the cloud.">)>
 	(OLDDESC "shed beets")
 	(NEWDESC "bed sheets")
 	(OLD-TO-NEW 
-"The entire cloud becomes turbulently billowy, its vapors undulating
-around and enveloping the shed. As the cloud recedes back to form, a pile
-of sheets is revealed lying in place of the beets.")
+"The entire cloud becomes turbulently billowy, its vapors undulating around and enveloping the shed. As the cloud recedes back to form, a pile of sheets is revealed lying in place of the beets.")
 	(FDESC 
-"Off to one side of the cloud, a great many beets are piled up inside a shed,
-evidently having been harvested from the green acres below in order
-to satisfy the cravings of one gigantic appetite.") 
+"Off to one side of the cloud, a great many beets are piled up inside a shed, evidently having been harvested from the green acres below in order to satisfy the cravings of one gigantic appetite.") 
 	(SYNONYM SHED BEETS SHEETS BEET SHEET SEAT)
 	(ADJECTIVE SHED BED SHOWING ANOTHER)
 	(FLAGS OLDBIT TRYTAKEBIT PLURALBIT)
@@ -1976,8 +1796,7 @@ to satisfy the cravings of one gigantic appetite.")
 		     <TRANS-PRINT ,BEETS>>
 		<COND (<IN? ,CLIENT ,HERE>
 		       <TELL ;CR 
-"\"Deny me my daily bread, will you, scoundrel!\" decries Mr. Clean in
-a stern voice." CR>)>
+"\"Deny me my daily bread, will you, scoundrel!\" decries Mr. Clean in a stern voice." CR>)>
 		<FSET ,BEETS ,TOUCHBIT>)
 	       (<OR <NOUN-USED ,BEETS ,W?SEAT>
 		    <ADJ-USED ,BEETS ,W?SHOWING>>
@@ -1991,12 +1810,7 @@ a stern voice." CR>)>
 		       <SETG CLIENT-C 0>
 		       <FCLEAR ,CLIENT ,OLDBIT>
 		       <TELL
-"Bumped by the train of your thoughts, the client pokes himself sharply with
-his needle. To the accompaniment of ripping stitches and popping buttons, the
-client's ire, along with his stature, is raised to the great height of a giant.
-Between thumb and forefinger, he smashes the intervening chair into splinters,
-which drift away above the rural landscape. Almost in slow-motion the giant
-starts after you." CR>
+"Bumped by the train of your thoughts, the client pokes himself sharply with his needle. To the accompaniment of ripping stitches and popping buttons, the client's ire, along with his stature, is raised to the great height of a giant. Between thumb and forefinger, he smashes the intervening chair into splinters, which drift away above the rural landscape. Almost in slow-motion the giant starts after you." CR>
 		       <RTRUE>)
 		      (<NOT <DONT-HANDLE ,BEETS>>
 		       <TELL "No seat materializes." CR>
@@ -2014,8 +1828,7 @@ starts after you." CR>
 		<COND (<AND <VERB? TAKE>
 		            <IN? ,CLIENT ,HERE>>
 		       <TELL 
-"\"Hands off! Shed beets for humungous appetite. Mine! Ho, ho, ho!\" bellows
-the " D ,CLIENT "." CR>)>)
+"\"Hands off! Shed beets for humungous appetite. Mine! Ho, ho, ho!\" bellows the " D ,CLIENT "." CR>)>)
 	       (<AND <TOUCHING? ,BEETS>
 		     <NOT <FSET? ,BEETS ,OLDBIT>>
 		     <EQUAL? ,HERE ,CLOUD-ROOM>
@@ -2024,8 +1837,7 @@ the " D ,CLIENT "." CR>)>)
 "\"Unhand my bedding,\" cautions the " D ,CLIENT "." CR>)
 	       (<VERB? TOUCH EXAMINE>
 		<TELL 
-"The many bed sheets are soft and fluffy as the cloud, yet seem to be
-made of sturdy fabric." CR>)
+"The many bed sheets are soft and fluffy as the cloud, yet seem to be made of sturdy fabric." CR>)
 	       (<AND ,SHEETS-TIED
 		     <OR <VERB? TIE-TOGETHER>
 			 <AND <VERB? TIE>
@@ -2041,10 +1853,7 @@ made of sturdy fabric." CR>)
 			      <PRSI? ,BEETS ,BEAN-STALK>>>>
 		<SETG SHEETS-TIED T>
 		<TELL 
-"One by one, you tie together the bed sheets, testing each knot with a
-firm tug accompanied by a tight-lipped grunt. Now off the edge of the
-cloud gets thrown the line of sheets, which is strung out and down, looking
-like a long kite tail swaying gently in the breeze.|
+"One by one, you tie together the bed sheets, testing each knot with a firm tug accompanied by a tight-lipped grunt. Now off the edge of the cloud gets thrown the line of sheets, which is strung out and down, looking like a long kite tail swaying gently in the breeze.|
 |
 The last sheet you tie firmly to the cloud itself." CR>)
 	       (<VERB? TIE>

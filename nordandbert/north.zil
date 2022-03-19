@@ -8,8 +8,7 @@
       (LOC ROOMS)
       (DESC "Jackville")
       (LDESC 
-"You have come upon a region far to the north of Punster, but still within
-the realm of possibilities. A simple wood-plank house stands near.")
+"You have come upon a region far to the north of Punster, but still within the realm of possibilities. A simple wood-plank house stands near.")
       (OUT PER FOREST-ENTER)
       (GLOBAL JACK-HOUSE)
       (IN TO JACK-ROOM)>
@@ -17,16 +16,12 @@ the realm of possibilities. A simple wood-plank house stands near.")
 <ROUTINE FOREST-ENTER ()
 	 <COND (<FSET? ,JACK-ROOM ,TOUCHBIT>
 		<TELL 
-"You walk along the trail a long way. With each uncertain
-step you take, it grows darker. Clouds gather. With large puffy white cheeks,
-they blow noisy cold across the sky, as will happen in this changeable
-realm." CR CR>
+"You walk along the trail a long way. With each uncertain step you take, it grows darker. Clouds gather. With large puffy white cheeks, they blow noisy cold across the sky, as will happen in this changeable realm." CR CR>
 		<QUEUE I-FROST -1>
 		<RETURN ,FROST-ROOM>)
 	       (T
 		<TELL 
-"You follow a twisty path under the canopy of the forest. After losing all
-sense of direction, you end up back here." CR CR>
+"You follow a twisty path under the canopy of the forest. After losing all sense of direction, you end up back here." CR CR>
 		<RETURN ,JACKVILLE>)>>	       
 
 <OBJECT JACK-HOUSE
@@ -56,8 +51,7 @@ sense of direction, you end up back here." CR CR>
       (LOC ROOMS)
       (DESC "Inside House")
       (LDESC
-"This drafty one-room cabin is so sparsely furnished as to be completely
-unfurnished. It looks like it has not been lived in for years and years.")
+"This drafty one-room cabin is so sparsely furnished as to be completely unfurnished. It looks like it has not been lived in for years and years.")
       (GLOBAL JACK-HOUSE)
       (FLAGS INDOORSBIT) 
       (OUT TO JACKVILLE)
@@ -111,12 +105,9 @@ It's sort of squarish, but sort of longish too">
 		       <TELL 
 " and has a fluffy ball of cottony fur at one end">)>
 		<TELL 
-". Its surface is made of thick cloth, except for one edge
-which is a long piece of metal that looks as if it can be pulled out.|
+". Its surface is made of thick cloth, except for one edge which is a long piece of metal that looks as if it can be pulled out.|
 |
-On three different sides of the strange contraption you
-can see a hand crank, a water faucet, and an electrical switch. As if all that
-wasn't enough, there is also a pair of sleeves sticking out of the thing." CR>)>>
+On three different sides of the strange contraption you can see a hand crank, a water faucet, and an electrical switch. As if all that wasn't enough, there is also a pair of sleeves sticking out of the thing." CR>)>>
 
 <ROUTINE CHANGE-JACK ("OPTIONAL" (OBJ <>)) 
 	 <COND (<NOT ,JACK-IS>
@@ -177,13 +168,7 @@ wasn't enough, there is also a pair of sleeves sticking out of the thing." CR>)>
 		       <NOT ,JACK-IS>
 		       <REMOVE ,BALL-OF-FUR>
 		       <UPDATE-SCORE>	       
-		       <TELL  "The ball of fur twitches excitedly for a
-moment. Suddenly the " D ,JOAT " seems to give birth as a full-grown
-jackrabbit is ejected from the contraption. His metabolism, following
-its winter of cooped-up discontent, seems to be racing away. But the
-furry mammal itself remains at your feet, all atremble. He pauses to look
-up at you. To the extent that his beady red eyes are able to emote, he
-seems to express gratitude. Then, with a jackrabbit start, he is gone." CR>)>)
+		       <TELL  "The ball of fur twitches excitedly for a moment. Suddenly the " D ,JOAT " seems to give birth as a full-grown jackrabbit is ejected from the contraption. His metabolism, following its winter of cooped-up discontent, seems to be racing away. But the furry mammal itself remains at your feet, all atremble. He pauses to look up at you. To the extent that his beady red eyes are able to emote, he seems to express gratitude. Then, with a jackrabbit start, he is gone." CR>)>)
 		       
 ;<"as the other features
 of the " D ,JOAT " seem to become blurry and indistinct and fade away like
@@ -209,16 +194,12 @@ you feel a jackrabbit squirming in your hands." CR>
 		      (<CHANGE-JACK ,PIECE-OF-METAL>
 		       <FSET ,PIECE-OF-METAL ,OPENBIT>
 		       <TELL
-"The long piece of metal, in reality the glistening, razor-sharp blade of a
-jackknife, pivots out of its handle and with a \"snap!\" all the other
-features of the " D ,JOAT " vanish." CR>)>)
+"The long piece of metal, in reality the glistening, razor-sharp blade of a jackknife, pivots out of its handle and with a \"snap!\" all the other features of the " D ,JOAT " vanish." CR>)>)
 	       (<AND <VERB? CLOSE>
 		     <EQUAL? ,JACK-IS ,PIECE-OF-METAL>>
 		<CHANGE-JACK>
 		<TELL 
-"Being careful that you don't lop off any fingers, you pivot the blade back
-and it closes with a \"snap!\" All the other dimensions of the " D ,JOAT "
-return." CR>) 
+"Being careful that you don't lop off any fingers, you pivot the blade back and it closes with a \"snap!\" All the other dimensions of the " D ,JOAT " return." CR>) 
 	       (<NO-JACK-HERE ,PIECE-OF-METAL ,W?JACKKNIFE
 					      ,W?KNIFE>
 		<RTRUE>)
@@ -256,9 +237,7 @@ D ,FISHING-LINE ", which blows away like a tumbleweed over the ">
 		<COND (<CHANGE-JACK ,CRANK>
 		       <FSET ,CRANK ,OPENBIT>
 		       <TELL
-"The " D ,JOAT " begins to play a simple plunkety tune, and as the music
-becomes louder and louder the strange contraption starts looking a lot more like a box and a
-lot less like anything else, and the music gets louder and louder until...|
+"The " D ,JOAT " begins to play a simple plunkety tune, and as the music becomes louder and louder the strange contraption starts looking a lot more like a box and a lot less like anything else, and the music gets louder and louder until...|
 |
 \"Pop!\"|
 |
@@ -268,15 +247,7 @@ The lid springs open and a jester rears its jolly head.|
 		       <COND (<IN? ,FROST ,HERE>
 			      <REMOVE ,FROST>
 			      <UPDATE-SCORE> ;"also in change-jack rout."
-			      <TELL CR
-"The jester winks at the frozen old man, and you can almost hear the rushing
-torrent of flood waters coming from deep within the heart of " D ,FROST
-". Some human color suddenly rushes into his cheeks in a flush, reddening his
-face and thawing the frown into much dripping and wetness, which can scarcely
-be distinguished from tears of happiness.|
-|
-Under a sunny disposition, a more quick and nimble Jack frolics down the path,
-making instant puddles out of his domain wherever he treads." CR>)
+			      <TELL CR "The jester winks at the frozen old man, and you can almost hear the rushing torrent of flood waters coming from deep within the heart of " D ,FROST ". Some human color suddenly rushes into his cheeks in a flush, reddening his face and thawing the frown into much dripping and wetness, which can scarcely be distinguished from tears of happiness.||Under a sunny disposition, a more quick and nimble Jack frolics down the path,making instant puddles out of his domain wherever he treads." CR>)
 			     (<VISIBLE? ,MERMAID>
 			      <TELL CR 
 "The mermaid merely smiles weakly." CR>)>
@@ -291,9 +262,7 @@ making instant puddles out of his domain wherever he treads." CR>)
 			 <EQUAL? ,JACK-IS ,CRANK>>>
 		<CHANGE-JACK>
 		<TELL 
-"You can almost swear that the jester winks at you as his head is lowered
-into the box and the lid is shut with a \"Click.\" All the other features of
-the " D ,JOAT " come back." CR>)
+"You can almost swear that the jester winks at you as his head is lowered into the box and the lid is shut with a \"Click.\" All the other features of the " D ,JOAT " come back." CR>)
 	       (<AND <VERB? EXAMINE LOOK-INSIDE>
 		     <EQUAL? ,JACK-IS ,CRANK>>
 		<TELL 
@@ -327,10 +296,7 @@ the " D ,JOAT " come back." CR>)
 		       <MOVE ,PROTAGONIST ,HOT-TUB>
 		       <SETG OLD-HERE <>>
 		       <TELL
-"There is a deep gurgling sound, then scalding hot water begins gushing out
-of the faucet, and you are surrounded by a thick cloud of steam. As the steam
-begins to thin out, you find yourself leaning back in a hot tub with Jacuzzi,
-and you can't remember when being in hot water ever felt so good">
+"There is a deep gurgling sound, then scalding hot water begins gushing out of the faucet, and you are surrounded by a thick cloud of steam. As the steam begins to thin out, you find yourself leaning back in a hot tub with Jacuzzi, and you can't remember when being in hot water ever felt so good">
 		       <COND (<IN? ,MERMAID ,HERE>
 			      <COND (<NOT <FSET? ,FAUCET ,RMUNGBIT>>
 				     <FSET ,FAUCET ,RMUNGBIT>
@@ -338,8 +304,7 @@ and you can't remember when being in hot water ever felt so good">
 			      <MOVE ,MERMAID ,HOT-TUB>
 			      <SETG MERMAID-WARM T>
 			      <TELL ".||
-The mermaid is also in the hot tub, smiling with her eyes closed as
-she swims ">
+The mermaid is also in the hot tub, smiling with her eyes closed as she swims ">
 			      <COND (<IN? ,FISHING-LINE ,MERMAID>
 				     <TELL "with some difficulty">)
 				    (T
@@ -378,10 +343,7 @@ she swims ">
 		<MOVE ,PROTAGONIST ,HERE>
 		<SETG OLD-HERE <>>
 		<TELL 
-"The water, slowly at first, begins to swirl toward the plug, creating a whirl
-of water so loud that it's nightmarish. You close your eyes and cover your
-ears and when you hear the last loud slurp you find yourself standing
-again">
+"The water, slowly at first, begins to swirl toward the plug, creating a whirl of water so loud that it's nightmarish. You close your eyes and cover your ears and when you hear the last loud slurp you find yourself standing again">
 		<COND (<AND <IN? ,MERMAID ,HOT-TUB>
 			    <NOT <IN? ,FISHING-LINE ,MERMAID>>>
 		       <MERMAID-LEAVES>)
@@ -394,22 +356,19 @@ again">
 		<TELL ,PERIOD>)
 	       (<VERB? OFF CLOSE SET ON>
 		<TELL 
-"The washerless faucet spins round, and some hot, steamy water gurgles
-out." CR>)
+"The washerless faucet spins round, and some hot, steamy water gurgles out." CR>)
 	       ;(<VERB? OFF CLOSE>
 		<TELL "You turn back the washerless faucet." CR>)
 	       (<AND <VERB? DISEMBARK>
 		     <IN? ,PROTAGONIST ,HOT-TUB>>
 		<TELL 
-"Your muscles and your mind have so relaxed from the immersion in the
-steamy waters that you have not the power or the will to leave." CR>)
+"Your muscles and your mind have so relaxed from the immersion in the steamy waters that you have not the power or the will to leave." CR>)
 	       (<AND <VERB? LEAP ENTER SWIM WALK-AROUND>
 		     <IN? ,PROTAGONIST ,HOT-TUB>
 		     <NOT <FSET? ,HOT-TUB ,RMUNGBIT>>>
 		<FSET ,HOT-TUB ,RMUNGBIT>
 		<TELL
-"In moving about the hot tub, your foot brushes against what feels to be a
-plug at bottom of the steamy water." CR>)>>  
+"In moving about the hot tub, your foot brushes against what feels to be a plug at bottom of the steamy water." CR>)>>  
 
 <OBJECT TUB-WATER
 	;(LOC LOCAL-GLOBALS)
@@ -453,12 +412,9 @@ plug at bottom of the steamy water." CR>)>>
 		       <MOVE ,NECKLACE ,MERMAID>
 		       <FSET ,ICE ,RMUNGBIT>
 		       <TELL 
-" Shiny shards of ice go flying out of the plume of exhaust created by the
-jackhammer as you ride the roaring machine in a tight circle. Then the hammer
-itself is pulverized back into the " D ,JOAT ".">
+" Shiny shards of ice go flying out of the plume of exhaust created by the jackhammer as you ride the roaring machine in a tight circle. Then the hammer itself is pulverized back into the " D ,JOAT ".">
 		       <TELL CR CR
-"The engine exhaust lifts, revealing the sight of a blue-tinted mermaid lying
-exhausted next to a hole in the ice.|
+"The engine exhaust lifts, revealing the sight of a blue-tinted mermaid lying exhausted next to a hole in the ice.|
 |
 The mermaid wearily slaps her tail fin against the damp ice">)
 		      (T
@@ -468,23 +424,22 @@ The mermaid wearily slaps her tail fin against the damp ice">)
 			      <UPDATE-SCORE>)>
 		       <PUTP ,PROTAGONIST ,P?ACTION ,PROTAG-JACKHAMMER-F>
 		       <TELL  
-" The " D ,JOAT " powerfully
-roars to life as you hang on the wildly chugging " D ,ELECTRICAL-SWITCH " like a rodeo cowboy">)>
+" The " D ,JOAT " powerfully roars to life as you hang on the wildly chugging " D ,ELECTRICAL-SWITCH " like a rodeo cowboy">)>
 		<TELL ,PERIOD>)>>
 
 <GLOBAL S-JACKHAMMER 
 	<LTABLE 2 
 "|
-T   y   n      t      s   y       o   e   h   n   ?|
-  r   i   g      o      a       s   m   t   i   g|"
+T y n   t   s y   o e h n ?|
+ r i g   o   a   s m t i g|"
 
 "|
-C   n   t      v   n      e   r      o   r   e   f      h   n   !|
-  a   '      e   e      h   a      y   u   s   l      t   i   k   !|"
+C n t  v n  e r  o r e f  h n !|
+ a '  e e  h a  y u s l  t i k|"
 
 "|
-J   s       t   r      o   f    t   i      j   c   h   m   e   !   !|
-  u   t       u   n      f        h   s      a   k   a   m   r   !|">>
+J s  t r  o f  h s  a k a m r !|
+ u t  u n  f  t i  j c h m e !|">>
 
 <OBJECT SLEEVES
 	(LOC JOAT)
@@ -502,8 +457,7 @@ J   s       t   r      o   f    t   i      j   c   h   m   e   !   !|
 		<FSET ,SLEEVES ,WORNBIT>
 		<FCLEAR ,SLEEVES ,PLURALBIT>		
 		<TELL
-"As you slip on the jacket, you find that it fits you quite well. It feels
-a lot more comfortable than it looks.">
+"As you slip on the jacket, you find that it fits you quite well. It feels a lot more comfortable than it looks.">
 		<COND (<EQUAL? ,HERE ,FROST-ROOM>
 		       <SETG FROST-C 0>
 		       ;<UPDATE-SCORE>
@@ -601,9 +555,7 @@ a lot more comfortable than it looks.">
 		<RTRUE>)
 	       (<EQUAL? ,FROST-C 2>
 		<TELL CR
-"Despite the shelter of the jacket, you're still in the midst of a cold
-snap. You begin to smell the vague illusory odor of \"chestnuts roasting on an
-open fire.\"" CR>
+"Despite the shelter of the jacket, you're still in the midst of a cold snap. You begin to smell the vague illusory odor of \"chestnuts roasting on an open fire.\"" CR>
 		<RTRUE>)
 	       (<EQUAL? ,FROST-C 3>
 		<TELL CR 
@@ -611,8 +563,7 @@ open fire.\"" CR>
 CR>)
 	       (<EQUAL? ,FROST-C 4>
 		<TELL CR 
-"You can barely see your hand in front of your face, but you can't miss
-the personification of frosty weather himself nipping at your nose." CR>)
+"You can barely see your hand in front of your face, but you can't miss the personification of frosty weather himself nipping at your nose." CR>)
 	       (<EQUAL? ,FROST-C 5>
 		<JIGS-UP 
 "You can't see where you're going and wander into a wayward avalanche.">
@@ -622,10 +573,7 @@ the personification of frosty weather himself nipping at your nose." CR>)
       (LOC ROOMS)
       (DESC "Near pond")
       (LDESC 
-"The mountain air is still and cold. You are
-next to a frozen-over pond, ringed by dense forest.|
-|
-There is an old wooden sign leaning slightly over.")
+"The mountain air is still and cold. You are next to a frozen-over pond, ringed by dense forest.||There is an old wooden sign leaning slightly over.")
       ;(OUT TO JACKVILLE)
       (IN PER POND-ROOM-ENTER)
       (GLOBAL SNOW SIGN ICE)
@@ -677,10 +625,7 @@ There is an old wooden sign leaning slightly over.")
 		       ;<COND (<ZERO? <LOC ,MERMAID>>)>
 		       <MOVE ,MERMAID ,HERE>
 		       <TELL
-"You knock a wide circle of frost away from the ice, allowing you to see an
-astonishing sight below the ice: A woman's face with her large beautiful
-eyes wide open and her long, blond hair drifting back and forth as she swims
-side to side below the surface of the ice." CR>)>)>>
+"You knock a wide circle of frost away from the ice, allowing you to see an astonishing sight below the ice: A woman's face with her large beautiful eyes wide open and her long, blond hair drifting back and forth as she swims side to side below the surface of the ice." CR>)>)>>
 
 <OBJECT SNOW 
 	(LOC LOCAL-GLOBALS)
@@ -754,9 +699,7 @@ side to side below the surface of the ice." CR>)>)>>
 	(SYNONYM FROST JACK MAN)
 	(ADJECTIVE OLD JACK)
 	(LDESC 
-"An old man is next to the pond, standing bent like one of the age old trees of
-the forest, with the frost of storms past still clinging in its whiteness
-upon his dark overcoat. He holds in his hands a gnarled stick.")  
+"An old man is next to the pond, standing bent like one of the age old trees of the forest, with the frost of storms past still clinging in its whiteness upon his dark overcoat. He holds in his hands a gnarled stick.") 
 	(FLAGS ACTORBIT NARTICLEBIT NDESCBIT NO-D-CONT CONTBIT OPENBIT
 	       SEARCHBIT)
 	(GENERIC GEN-JACK)
@@ -771,11 +714,7 @@ upon his dark overcoat. He holds in his hands a gnarled stick.")
 		<FCLEAR ,FROST ,NDESCBIT>
 		<MOVE ,FROST ,NEAR-POND>
 		<TELL 
-"Suddenly, all of the thick, nasty weather surrounding you begins
-to swirl, then lift, slowly
-at first, and then more rapidly up above your head, then up further to
-expose the large and many trunks of dense evergreen forest, and then
-up and past the high tops of the trees themselves and into the heavens." CR CR>
+"Suddenly, all of the thick, nasty weather surrounding you begins to swirl, then lift, slowly at first, and then more rapidly up above your head, then up further to expose the large and many trunks of dense evergreen forest, and then up and past the high tops of the trees themselves and into the heavens." CR CR>
 		<DEQUEUE I-FROST>
 		<GOTO ,NEAR-POND>
 		<RTRUE>)>
@@ -797,8 +736,7 @@ up and past the high tops of the trees themselves and into the heavens." CR CR>
 "The man does not say anything in return" ,STANDS-STILL>)>)
 	       (<VERB? EXAMINE>
 		<TELL 
-"He wears a permafrost frown upon his face, a face that betrays a lifetime
-of never any joy, never any surprise, never any sunshine." CR>)
+"He wears a permafrost frown upon his face, a face that betrays a lifetime of never any joy, never any surprise, never any sunshine." CR>)
 	       (<AND <VERB? ASK-FOR>
 		     <PRSI? ,STICK>>
 		<PERFORM ,V?TAKE ,STICK>
@@ -811,8 +749,7 @@ of never any joy, never any surprise, never any sunshine." CR>)
 		      (T
 		       <TELL "The frown remains frozen, b">)>
 		<TELL
-"ut he looks at the " D ,JOAT " with a tiny glimmer of curiosity in his
-eye." CR>)>>
+"ut he looks at the " D ,JOAT " with a tiny glimmer of curiosity in his eye." CR>)>>
 	       
 <GLOBAL S-FROST
 	<PTABLE
@@ -828,15 +765,13 @@ eye." CR>)>>
 	 <LTABLE 2
 	   "Don't you see this ice? You couldn't fall through it if you tried."
 	   "Go find some really THIN ice to go tap-dancing on."
-"The ice is too thick here. My job is to make things cold for you, not let
-you have fun.">>>
+"The ice is too thick here. My job is to make things cold for you, not let you have fun.">>>
 
 <ROUTINE SEE-FROST ()
 	 <COND (<NOT <FSET? ,FROST ,SEENBIT>>
 	        <FSET ,FROST ,SEENBIT>
 		<TELL
-"The frost-covered man turns and faces toward you. Some flakes of snow float
-down off his well-dusted coat." CR CR>)>>
+"The frost-covered man turns and faces toward you. Some flakes of snow float down off his well-dusted coat." CR CR>)>>
 
 ;<ROUTINE HEAR-FROST ()
 	 <COND (<NOT <FSET? ,FROST ,HEARDBIT>>
@@ -856,8 +791,7 @@ begins to speak." CR CR>)>>
 <ROUTINE STICK-F ()
 	 <COND (<VERB? TAKE>
 		<TELL 
-"Giving you nothing but a frozen stare, Jack Frost withdraws the gnarled stick
-from you." CR>)>>
+"Giving you nothing but a frozen stare, Jack Frost withdraws the gnarled stick from you." CR>)>>
 
 <ROOM POND-ROOM
       (LOC ROOMS)
@@ -916,21 +850,17 @@ from you." CR>)>>
 	       (<VERB? EXAMINE>
 		<COND (<NOT <FSET? ,MERMAID ,RMUNGBIT>>
 		       <TELL 
-"The mermaid is floating upright and swimming, with some difficulty, to and
-fro under the surface of the ice. Her long blond hair drifts back and forth
-following the undulating motion of her body">
+"The mermaid is floating upright and swimming, with some difficulty, to and fro under the surface of the ice. Her long blond hair drifts back and forth following the undulating motion of her body">
 		       <COND (<NOT <FSET? ,MERMAID ,SEENBIT>>
 			      <FSET ,MERMAID ,SEENBIT>
 			      <TELL ".||
 Tiny bubbles drift from her mouth in an aborted effort to speak">)>)
 		      (T
 		       <TELL 
-"The mermaid is tall, curvaceous and attractive, even with her long blond hair
-dripping wet">
+"The mermaid is tall, curvaceous and attractive, even with her long blond hair dripping wet">
 		<COND (<IN? ,FISHING-LINE ,MERMAID>
 		       <TELL
-". There is a large tangle of fishing line wrapped around her sizable tail
-fin">)>
+". There is a large tangle of fishing line wrapped around her sizable tail fin">)>
 		<COND (<IN? ,NECKLACE ,MERMAID>
 		       <TELL ". She's wearing a shark-tooth necklace">)>)>
 		<TELL ,PERIOD>)
@@ -942,8 +872,7 @@ fin">)>
 		<COND (<NOT ,MERMAID-KISS>
 		       <SETG MERMAID-KISS T>
 		<TELL
-"You drift near enough to feel the warmth of her breath, which carries
-barely a hint of brine but is not unpleasant. ">)>
+"You drift near enough to feel the warmth of her breath, which carries barely a hint of brine but is not unpleasant. ">)>
 		<TELL "She turns gracefully away." CR>)>>
 
 <GLOBAL MERMAID-KISS <>>
@@ -954,14 +883,7 @@ barely a hint of brine but is not unpleasant. ">)>
 		<QUEUE I-END-SCENE 1>
 		<TELL 
 ".||
-The mermaid, having been warmed by the dip in the hot tub, and freed of
-the entanglement of the fishing line, appears ready to brave the frigid
-waters for a long swim to warmer regions. She hyperventilates for a few
-moments and braces herself with a frenetic self-hug, stopping to give you
-a smile with her thin lips.|
-|
-She bids farewell, and slips back into the frigid water, causing a
-little plop of water as her tail fin disappears beneath the surface">)>>
+The mermaid, having been warmed by the dip in the hot tub, and freed of the entanglement of the fishing line, appears ready to brave the frigid waters for a long swim to warmer regions. She hyperventilates for a few moments and braces herself with a frenetic self-hug, stopping to give you a smile with her thin lips.||She bids farewell, and slips back into the frigid water, causing a little plop of water as her tail fin disappears beneath the surface">)>>
 
 <OBJECT FISHING-LINE
 	;(LOC MERMAID)

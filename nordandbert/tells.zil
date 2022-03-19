@@ -231,28 +231,15 @@
 	 <SETG HERE ,STARTING-ROOM>
 	 <V-$REFRESH>
 	 <TELL CR
-"Untied Press International|
-|
+"Untied Press International||
   PUNSTER (UPI) - Citizens of the little town of Punster have recently
-been victimized by a series of strange happenings which have ground local
-businesses to a halt and played havoc with everyday life.|
-  The wide-spread plague seems to be focused on the area of language
-itself. In some cases, what were once simple actions to perform now
-require the use of old, time-worn phrases.|
-  In other cases, objects and even citizens have been transformed
-overnight into strange mutations of their previous selves.|
-  A man-on-the-street interview conducted by this reporter proved
-fruitless. Two local farmers asked for their opinions of the situation
-said they couldn't make head or tail of it, and made no further
-statement.|
-  The mayor of Punster, whose administration has been widely viewed as
-being paralyzed and corrupted by the plague, could not be reached for
-comment.|
-  Meanwhile, a Citizens' Action Committee was recently formed to probe for
-ways to restore the town of Punster to its happily mundane condition.|
-|
-[Reporter's Note: This story was compiled with help from whoever it was|
-who untied me so I could type out this story.]|">
+been victimized by a series of strange happenings which have ground local businesses to a halt and played havoc with everyday life.|
+  The wide-spread plague seems to be focused on the area of language itself. In some cases, what were once simple actions to perform now require the use of old, time-worn phrases.|
+  In other cases, objects and even citizens have been transformed overnight into strange mutations of their previous selves.|
+  A man-on-the-street interview conducted by this reporter proved fruitless. Two local farmers asked for their opinions of the situation said they couldn't make head or tail of it, and made no further statement.|
+  The mayor of Punster, whose administration has been widely viewed as being paralyzed and corrupted by the plague, could not be reached for comment.|
+  Meanwhile, a Citizens' Action Committee was recently formed to probe for ways to restore the town of Punster to its happily mundane condition.||
+[Reporter's Note: This story was compiled with help from whoever it was who untied me so I could type out this story.]|">
 	 <GET-KEY>
 	 <V-$REFRESH ;T>
 	 <V-VERSION>
@@ -889,7 +876,7 @@ who untied me so I could type out this story.]|">
 		
 	        <SET X 14>
 		<COND (<NOT ,WIDE>
-		       <SET X 6 ;5>)
+		       <SET X 2 ;5>) ;"for super-terse; no 'go:' prefixing"
 		      (<EQUAL? ,SCENE ,AISLE>
 		       <SET X 16>)
 		      (<EQUAL? ,HERE ,STARTING-ROOM>
@@ -953,7 +940,7 @@ who untied me so I could type out this story.]|">
 	 <COND (<EQUAL? ,HERE ,STARTING-ROOM>
 		<RTRUE>)>
 	 <COND (<NOT ,WIDE>
-		<TELL "S">
+		; "super terse mode <TELL "S">"
 		<TELL-SCORE ,SCENE T>
 		<RTRUE>)>
 	 <TELL-SCORE ,SCENE>
@@ -980,7 +967,7 @@ who untied me so I could type out this story.]|">
 		<TELL "Mayor s">)>
 	 <SET NUM <GETP .SC ,P?MAX-SCORE>>
 	 <SET SCORE <GETP .SC ,P?SCENE-SCORE>>
-	 <TELL "core: " N .SCORE>
+	 <TELL  N .SCORE>
 	 <COND (,WIDE
 		<TELL " out">)>
 	 <TELL " of " N .NUM>
@@ -1050,26 +1037,26 @@ who untied me so I could type out this story.]|">
 		<TELL "Down">)
 	       (T
 		<COND (<NOT <EQUAL? ,ROAD ,HERE>>
-		       <TELL D ,ROAD ", ">)>
+		       <TELL D ,ROAD ",">)>
 		<COND (<NOT <EQUAL? ,BARN ,HERE>>
-		       <TELL D ,BARN ", ">)>
+		       <TELL D ,BARN ",">)>
 		<COND (<NOT <EQUAL? ,BARNYARD ,HERE>>
 		       <COND (,WIDE
 			      <TELL D ,BARNYARD ", ">)
 			     (T
-			      <TELL "Yard, ">)>)>
+			      <TELL "Yard,">)>)>
 		<COND (<NOT <EQUAL? ,STABLE ,HERE>>
-		       <TELL D ,STABLE ", ">)>
+		       <TELL D ,STABLE ",">)>
 		<COND (<NOT <EQUAL? ,FIELD ,HERE>>
 		       <COND (,WIDE
 			      <TELL D ,FIELD ", ">)
 			     (T
-			      <TELL "Crop, ">)>)>
+			      <TELL "Crop,">)>)>
 		<COND (<NOT <EQUAL? ,MARKET ,HERE>>
 		       <TELL D ,MARKET>)>
 		<COND (<AND <EQUAL? ,HERE ,BARN>
 			    ,WIDE>
-		       <TELL ", and Up">)>)>
+		       <TELL ", Up">)>)>
 	 <RTRUE>>
 		
 <ROUTINE RESTAURANT-ROOMS ()
@@ -1104,23 +1091,23 @@ who untied me so I could type out this story.]|">
 		<COND (,WIDE
 		       <TELL "Desserts, ">)
 		      (T
-		       <TELL "Dess, ">)>)>
+		       <TELL "Dess,">)>)>
 	 <COND (<NOT <EQUAL? ,MANICOTTI-ROOM ,HERE>>
 		<COND (,WIDE
 		       <TELL "Manicotti, ">)
 		      (T
-		       <TELL "Man, ">)>)>
+		       <TELL "Man,">)>)>
 	 <COND (<NOT <EQUAL? ,BRITISH-ROOM ,HERE>>
 		<COND (,WIDE
 		       <TELL "British, ">)
 		      (T
-		       <TELL "Brit, ">)>)>
+		       <TELL "Brit,">)>)>
 	 <COND (<NOT <EQUAL? ,ILL-ROOM ,HERE>>
-		<TELL "Write, ">)>
+		<TELL "Write,">)>
 	 <COND (<NOT <EQUAL? ,LET-ROOM ,HERE>>
 		<TELL "Meets">
 		<COND (<NOT <EQUAL? ,HERE ,MUSSEL-ROOM>>
-		       <TELL ", ">)>)>
+		       <TELL ",">)>)>
 	 <COND (<NOT <EQUAL? ,MUSSEL-ROOM ,HERE>>
 		<TELL "Misc">
 		;"next clause for the last room in this routine"
@@ -1128,18 +1115,18 @@ who untied me so I could type out this story.]|">
 			   <NOT <FSET? ,LOCKS-DOOR ,OPENBIT>>>
 		       <RTRUE>)
 		      (T
-		       <TELL ", ">)>)>
+		       <TELL ",">)>)>
 	 <COND (<AND ,WIDE
 		     <NOT <EQUAL? ,CELLAR-ROOM ,HERE>>
 		     <FSET? ,LOCKS-DOOR ,OPENBIT>>
 		<COND (<EQUAL? ,HERE ,MUSSEL-ROOM>
-		       <TELL ", ">)>
+		       <TELL ",">)>
 		<TELL "Cellar">)
 	       (<AND <NOT ,WIDE>
 		     <EQUAL? ,HERE ,ILL-ROOM>
 		     <FSET? ,LOCKS-DOOR ,OPENBIT>>
 		<COND (<EQUAL? ,HERE ,MUSSEL-ROOM>
-		       <TELL ", ">)>
+		       <TELL ",">)>
 		<TELL "In">)>
 	 <RTRUE>>
 
@@ -1148,9 +1135,9 @@ who untied me so I could type out this story.]|">
 		<COND (,WIDE
 		       <TELL D ,ID-ROOM ", ">)
 		      (T
-		       <TELL "Interior, ">)>)>
+		       <TELL "Interior,">)>)>
 	 <COND (<NOT <EQUAL? ,KREMLIN ,HERE>>
-		<TELL D ,KREMLIN ", ">)>
+		<TELL D ,KREMLIN ",">)>
 	 <COND (<NOT <EQUAL? ,DOLDRUMS ,HERE>>
 		<COND (,WIDE
 		       <TELL D ,DOLDRUMS>)
@@ -1159,14 +1146,14 @@ who untied me so I could type out this story.]|">
 		<COND (<EQUAL? ,HERE ,PHARMACY>
 		       <RTRUE>) ;"stop"
 		      (T
-		       <TELL ", ">)>)>
+		       <TELL ",">)>)>
 	 <COND (<NOT <EQUAL? ,PHARMACY ,HERE>>
 		<COND (<NOT ,WIDE>
 		       <TELL "Rx">)
 		      (T
 		       <TELL D ,PHARMACY>)>)>
 	 <COND (<NOT <EQUAL? ,HERE ,ATTIC>>
-		<TELL ", Attic">)>
+		<TELL ",Attic">)>
 	 ;<COND (<AND <EQUAL? ,HERE ,ID-ROOM>
 		     <NOT <FSET? ,ATTIC ,PHRASEBIT>>>
 		<TELL ", Down">)>
@@ -1200,8 +1187,7 @@ who untied me so I could type out this story.]|">
 		<COND (<AND <EQUAL? ,HERE ,FRONT-ROOM>
 			    <EQUAL? ,WIFE-N 2>>
 		       <TELL CR 
-"She walks over to Bob and consoles him as he describes what a
-meanee you have been." CR>)
+"She walks over to Bob and consoles him as he describes what a meanee you have been." CR>)
 		      (<AND <EQUAL? ,HERE ,FRONT-ROOM>
 			    <EQUAL? ,WIFE-N 3>>
 		       <TELL CR
@@ -1215,18 +1201,13 @@ meanee you have been." CR>)
 		       <SETG KNOCK-JOKE ,W?DWAYNE>
 		       <COND (<EQUAL? ,HERE ,TV-KITCHEN>
 			      <TELL
-"You can hear your wife leaving and Bob locking himself in the bathroom.
-You rush to the living room..." CR CR>
+"You can hear your wife leaving and Bob locking himself in the bathroom. You rush to the living room..." CR CR>
 			      <GOTO ,FRONT-ROOM>)
 			     (T
 		              <TELL 
-"She throws a tantrum and storms out, to her mother's (that's next week's
-episode). Bob is falling apart emotionally as well, and goes and locks
-himself in the bathroom." CR>)>
+"She throws a tantrum and storms out, to her mother's (that's next week's episode). Bob is falling apart emotionally as well, and goes and locks himself in the bathroom." CR>)>
 		       <TELL CR
-"Bob stays in there several very tense minutes, without making a sound.
-Just when you think it's about time to call a professional, Bob's silence
-is suddenly broken by the words, \"Knock knock.\"" CR>
+"Bob stays in there several very tense minutes, without making a sound. Just when you think it's about time to call a professional, Bob's silence is suddenly broken by the words, \"Knock knock.\"" CR>
 		       ;<QUEUE I-KNOCK -1>
 		       <THIS-IS-IT ,GLOBAL-ROOM>
 		       <SETG KNOCK-N 0>
