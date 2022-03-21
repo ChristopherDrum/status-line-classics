@@ -19,7 +19,7 @@ Bureaucracy tries to do many unusual things with screen layout to simulate vario
    - "unlabelled" cartridge
    - CH/A0S
 
-Other games do interesting layouts using screen 1 (the "upper" screen, with the status bar) for similar signage (the "quote boxes" in Trinity). For example, Trinity does check for a narrow screen and disallows playing, however the internal calculations for displaying unusual layouts are not hard-coded to any set values. Trinity properly evaluates a screen mid-point based on the screen size the interpreter reports. In-game signage does include hard-coded spacing which assumes a wide screen, but again the layout engine itself doesn't care about that. It will do its best to center a sign (for example) regardless. After re-spacing the in-game text, Trinity's layout engine appears to work as expected, even on a small screen.
+Sometimes Infocom games do interesting layouts using screen 1 (the "upper" screen) for signage (see "quote boxes" in Trinity). Games like Nord and Bert and Trinity do a good (but not perfect) job of abstracting their layout needs to be flexible to a wide variety of screen sizes. Nord, in fact, even uses internal values that define "wide" or "narrow" screens to do its best to accomodate an interpreter's capabilities. 
 
 **Not so with *Bureaucracy*!**
 
@@ -27,7 +27,17 @@ Bureaucracy makes a huge number of grand assumptions about screen width in chara
 
 For the current release of Bureaucracy for Status Line I have tried to identify all of the values that need adjustment to make this game work on a 32-character wide screen. These values should also work for a 40-character screen (the C64, for example) but may not look quite as pixel-perfect. It is going to take quite a bit of effort to generalize these changes into a universal format that functions across all devices of any given width/height. The PRINT puzzle may yet exclude certain classes of device (GameBoy, for example?)
 
-## About the r160 Source Code
+### About the r160 Source Code
+   
+This build of Bureaucracy branches from the only existing source code, the so-called `r160`. It should be noted that this represents a version that never shipped to customers and is *not* the "Masterpieces" edition source code. This version comes after that and appears to almost be a work-in-progress. There are quite a few bugs, and in fact the source code, as stands, does not build into a playable game.
+   
+### Resurrecting Bureaucracy
+
+There are two specific issues that had to be addressed to make this source code build into a solvable game file.
+1. There is a specific bug with how hyphenated text is handled, which renders the player unable to make phone calls. This makes the game unsolvable, as there is a point where the player must call a taxi service.
+2. ZILF/ZAPF 0.9.0 has a subtle bug which does not handle a very specific global variable assignment case properly. This results in the very last scene crashing the game as it tries to access a non-existant global variable.
+   
+I am happy to report that thanks to the efforts of the ZIL/ZILF community, these issues are repaired in this repository. This means that this particular distribution of the game is the only known working build of r160 source code into a fully playable, solvable game.
   
 ## The Game
 
