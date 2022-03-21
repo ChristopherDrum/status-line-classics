@@ -1,6 +1,6 @@
 # A Mind Forever Voyaging
 
-## About This Modification
+## About "A Mind Forever Voyaging" for Status Line
 There are four main areas affected by these changes:
 1. The "library mode" interface
 2. The ink-blot psych test
