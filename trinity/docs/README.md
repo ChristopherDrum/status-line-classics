@@ -1,5 +1,20 @@
 # Trinity
 
+## About "Trinity" for Status Line
+
+There really isn't much to say about adapting Trinity for the small screen. The game does an initial check at startup for the interpreter's supported screen width and stops the game if the width is too narrow. This, to me, was an odd choice because the game is almost entirely fine without that check.
+
+The only matters of concern were
+1. Overlay quote boxes that pop up at certain events
+2. Some status line locations can be too long to fit without cropping, in the event of a special player state like "(in the perambulator)" appended to a long location name. In that particular case, "(in the pram)" proved to be an effective truncation. But, like Nord and AMFV, a more generalized solution of "super terse descriptions" for use on small screens may be useful.
+
+The status line was already doing appropriate work to center location names on screen. However, perhaps due to the hard-coded line breaks, the quotation boxes do not handle themselves so flexibly, and instead hard-code spacing values that assume a wider screen. Longer quotations are definitely a challenge to fit on the small screen. I have opted to format them and preserve the gameplay element precisely.
+
+There are a few other potential ways to handle this:
+1. Only display quotations that fit on the interpreter's screen
+2. Supply multiple versions of each quotation, with line breaks unique to each version. For example, "original," "small," and "tiny," screen variations, perhaps? The inclusion of extra, redundant text risks pushing the final build size over the 256K limit, however.
+3. Provide an alternate presentation style for the quotations on small screens. Perhaps they could be shown full-screen, rather than as a floating overlay, with a "hit any key to continue" prompt? Perhaps they could be presented in-line with the main body of the game text, with some special formatting to make it stand out?
+
 ## The Game
 
 Trinity is a 1986 interactive fiction game written by Brian Moriarty and published by Infocom.
