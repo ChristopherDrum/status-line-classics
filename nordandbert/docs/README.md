@@ -1,5 +1,13 @@
 # Nord and Bert Couldn't Make Head or Tail of it
 
+## About "Nord and Bert" for Status Line
+
+Nord and Bert proved to be a relatively easy game to adapt to the small screen. It mostly worked "as-is" with a few small formatting elements here and there. In fact, I was actually quite surprised to see how much code was already devoted to adapting the status line and other elements for a variety of screen sizes. That said, it still isn't quite a flexible as I needed it to be.
+
+The biggest change was to the Invisiclues section. Like AMFV and the need to introduce "descriptions" for locations that are formatted exclusively for display in the status line, so too does Nord's Invisiclues need similar treatment. The columnar layout, somewhat equivalent to "library mode" in AMFV, proved relatively easy to adapt. Because the names of the clues are short and meant to be more mnenomic aids than actual in-game prose, we can take a few more liberties to fit it all. 
+
+In this case, Nord assumes a 21-line screen and wants to display 2 columns of clues. This works out exactly right for Pico-8's screen, and simply adjusting the cursor x-position for the second column mostly got things work without any additional work. Introducing a kind of "short description" for invisiclue display only took care of the issue of left-hand column text overlaping the right-hand column. Simply enforce a maximum description length for this special value and display it if it exists as a property on the room object, otherwise default to the normal `DESC` property.
+
 ## The Game
 
 Nord and Bert Couldn't Make Head or Tail of it is a 1987 interactive fiction game written by Jeff O'Neill and published by Infocom.
