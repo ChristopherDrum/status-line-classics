@@ -14,6 +14,7 @@ Before submitting bug reports, be aware there are two categories of bugs
 2. Game bugs, of which there are many. Each game's original repository has a long list of known issues, including strange responses to text, garbled text, and more.
 
 **Formatting bugs** should be submitted to this repository.
+
 **Gameplay bugs** should be submitted to each of the [original repositories](https://github.com/the-infocom-files) (and may actually have already been reported)
 
 ## Examples of primary changes
@@ -57,7 +58,7 @@ So, I decided to suck it up and do the hard work to make those games work well o
 * Last, propose changes to the upstream source repos to make the originals more generically flexible to a wide range of screens.
 
 ## Build Notes
-You will need ZILF and ZAPF compiler tools to build from source code.
+For those wanting to build from source, you will need the ZILF and ZAPF compiler tools.
 https://foss.heptapod.net/zilf/zilf/
 
 I'm currently on ZILF v0.9.0 for Windows. Inside each game folder, I have a `\build` folder that is excluded in the `.gitignore` file. From the root folder for a game I run this composite command (AMFV shown; swap for the game you want to build)
