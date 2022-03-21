@@ -7,6 +7,15 @@ There are a handful of Infocom classics which have hard-coded formatting values 
 ### Important note regarding games in-progress
 Because of the way the compiler makes a build, every revision to this game code results in game files whose save games are incompatible with one another. I currently see no way around this, as internal memory locations often change between builds. So, if an update to one of these games is published, you will not be able to continue a game in-progress from a previous game build. Please recognize this is only with regard to these specific game files and is not true of the main Status Line engine. Updates to Status Line proper have no effect on your save games.
 
+## Regarding bug reports
+Before submitting bug reports, be aware there are two categories of bugs
+
+1. Formatting bugs in which layout and UI/UX of the game doesn't work/fit on a small screen. This includes text boxes or titles that are cut off by the narrow screen.
+2. Game bugs, of which there are many. Each game's original repository has a long list of known issues, including strange responses to text, garbled text, and more.
+
+**Formatting bugs** should be submitted to this repository.
+**Gameplay bugs** should be submitted to each of the [original repositories](https://github.com/the-infocom-files) (and may actually have already been reported)
+
 ## Examples of primary changes
 
 ### [Bureaucracy](https://github.com/ChristopherDrum/status-line-classics/tree/main/bureaucracy#about-bureaucracy-for-status-line)
