@@ -381,7 +381,7 @@ you!" CR>)
 	 ;<SETG CWIDTH <LOWCORE (FWRD 0)>>
 	 ;<SETG WIDTH </ <LOWCORE HWRD> ,CWIDTH>>
 	 <SETG WIDTH <LOWCORE SCRH>>
-	 <COND (<L? ,WIDTH 38>
+	 <COND (<L? ,WIDTH 32>
 		<TELL "[Screen too narrow.]" CR>
 		<QUIT>)>
 	 ;<SETG MIDSCREEN <+ </ ,WIDTH 2> 1>>
