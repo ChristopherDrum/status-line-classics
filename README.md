@@ -57,10 +57,11 @@ To provide extra support to people who enjoy the cozy atmosphere of Status Line 
 * Last, propose lightweight changes to the upstream source repos to introduce screen flexibility to everyone? (maybe not necessary; just use this repo I suppose)
 
 ## Build Notes
-For those wanting to build from source, you will need the ZILF and ZAPF compiler tools.
+For those wanting to build from source, you will need the ZILF and ZAPF compiler tools. Add the location for the tools to your PATH environment variable.
 https://foss.heptapod.net/zilf/zilf/
 
-I'm currently on ZILF v0.9.0 for Windows. Inside each game folder, I have a `\build` folder that is excluded in the `.gitignore` file. From the root folder for a game I run this composite command (AMFV shown; swap for the game you want to build)
+I've added a Windows .bat file which can be run quite simply from this project's top-level root directory.
 ```
-del .\build\*.zap .\build\*.xzap .\build\amfv.z4 && zilf .\amfv.zil .\build\amfv.zap && zapf -ab .\build\amfv.zap > .\build\amfv_freq.xzap & del .\build\amfv_freq.zap && zapf .\build\amfv.zap
+./build <game>
 ```
+This will generate a build/ folder at the top level. Inside that will be <game>.z#, ready to play in the interpreter of your choice.
