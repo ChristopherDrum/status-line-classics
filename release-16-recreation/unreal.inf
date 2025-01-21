@@ -1,0 +1,422 @@
+Class   URoom
+  with  section T_UNREAL;
+
+URoom   Unreal_City "Unreal City"        
+  with  n_to Shadowy_Hallway,
+        e_to Near_Ring_Road,
+        w_to Down_by_River,
+        description "This is a city side street, but as if seen through the grey of despair. People stream by, some 
+            of whom you almost recognise, as if dead. The street runs east-west, and to the north is a doorway
+            into a grubby tenement building.",
+        each_turn UnrealEachTurn,
+  has   light scored;
+
+URoom   Shadowy_Hallway "Shadowy Hallway"        
+  with  s_to Unreal_City,
+        e_to Bohemia,
+        u_to Consulting_Room,
+        description "This shambolic flat, extending to the east, shares a filthy hallway with the one upstairs. To 
+            the south, passers-by pass by along the street. Peeling-away posters have been stuck up on top of each
+            other on the walls, in such a way that you can only read the most recent.",
+  has   light;
+
+Object  -> poster "poster"       
+  with  name 'poster' 'posters' 'peeling',
+        before [;
+            Take, RipDown, Rip, Pull:
+                if( self has scenery ) {
+                    give self ~scenery;
+                    "You hastily tear down the poster, but there's nothing interesting behind it, only painted 
+                     graffiti: ~Shantih Shantih Shantih~.";
+                }
+                rfalse;
+            Wave:
+                if( location == Down_by_River && tourist_boat hasnt open ) {
+                    print "You wave the poster at the boat, but the boat remains unmoved.^";
+                    GoodTry();
+                    rtrue;
+                }
+                rfalse;
+        ],
+        description "~Bateaux Phlebas - toujours le dernier mot~. You briefly wish you had a dog called Toto, so 
+            as to be able to say ~Toto, I've got a feeling we're not in England any more.~",
+        devil_hint "What a very useful piece of paper. Pity there's writing on it.",
+  has   scenery;
+
+URoom   Bohemia "Bohemia"        
+  with  name 'easels' 'brushes' 'paint',
+        w_to Shadowy_Hallway,
+        initial [;
+            switch( random(10) ) {
+                1: Impressionist_painting.initial = "One whole wall is an Impressionist mural painting of a yellow chair.";
+                2: Impressionist_painting.initial = "One whole wall is an Impressionist mural painting of lilies on a pond.";
+                3: Impressionist_painting.initial = "One whole wall is an Impressionist mural painting of a chateau in Aix-en-Provence.";
+                4: Impressionist_painting.initial = "One whole wall is an Impressionist mural painting of nude bathers.";
+                5: Impressionist_painting.initial = "One whole wall is an Impressionist mural painting of a waitress at a bar.";
+                6: Impressionist_painting.initial = "One whole wall is an Cubist mural painting of a woman with a plate of fish on her head.";
+                7: Impressionist_painting.initial = "One whole wall is an abstract Cubist mural painting.";
+                8: Impressionist_painting.initial = "One whole wall is an Pre-Raphaelite mural painting of the Virgin Mary looking up at the light.";
+                9: Impressionist_painting.initial = "One whole wall is an Impressionist mural painting of a woman with a parasol.";
+                10: Impressionist_painting.initial = "One whole wall is an pointillist mural painting of a scene in a park by a lake.";
+            }
+        ],
+
+        description "Flats occupied by starving-but-noble artists can be romantic and stylish despite the squalor. 
+            This one, however, is simply a one-room hovel, caked with paint, littered with brushes and improvised
+            easels, and you can't help standing on tiptoe here.",
+  has   light;
+
+LagachObj -> Impressionist_painting "Impressionist painting"       
+  with  name 'impressionist' 'painting' 'mural',
+        initial nothing,
+        description "The bottom corner is signed simply ~Helene~.",
+        article "an",
+  has   static;
+
+URoom   Consulting_Room "Consulting Room"        
+  with  name 'sevenbranch' 'candelabra' 'sticks' 'table',
+        before [; Smell: "You feel briefly incensed."; ],
+        w_to "Peculiarly, the hanging curtain seems to be solid iron when you walk into it.",
+        d_to Shadowy_Hallway,
+        description "The stairs end at a shabby room, with screened windows, lit by incense sticks and sevenbranched 
+            candelabra. A doorway with a hanging bead curtain leads west. In the centre of the room is a table,
+            on which is an electric bell push and a wicked Tarot pack.",
+  has   light;
+
+Object  -> Tarot_pack "Tarot pack"       
+  with  name 'wicked' 'tarot' 'pack' 'deck',
+        before [;
+            Take, Remove:
+                "That's funny. For a moment there your hand seemed to go straight through the pack of cards without 
+                 touching it!";
+            Stack:
+                if( second == nothing )
+                    "An intriguing idea, but you'll have to be more explicit about how to do it.";
+                << Insert second self >>;
+            Receive:
+                if( Madame_Sosostris in location ) "Madame Sosostris won't let you.";
+                if( noun hasnt card ) "That would look rather incongruous, surely?";
+                remove noun;
+                InsertCardIntoDeck(noun);
+                print_ret "You carefully lay ", (the) noun, " face down on the tarot pack.";
+            Search, Examine, LookUnder: "The cards defy mortal examination.";
+        ],
+  has   scenery;
+
+Object  -> curtain "curtain"     
+  with  name 'curtain' 'bead',
+  has   scenery;
+
+[ InsertCardIntoDeck o ;
+    card_deck-->card_ptr = o;
+    ++card_ptr;
+    rtrue;
+];
+
+[ Deal_card_number rank ;
+    print "the ";
+    if( rank == 1 ) print "Ace";
+    if( rank == 2 ) print "Two";
+    if( rank == 3 ) print "Three";
+    if( rank == 4 ) print "Four";
+    if( rank == 5 ) print "Five";
+    if( rank == 6 ) print "Six";
+    if( rank == 7 ) print "Seven";
+    if( rank == 8 ) print "King";
+    if( rank == 9 ) print "Queen";
+    if( rank == 10 ) print "Knave";
+    rtrue;
+];
+
+[ Deal_random_card i j card ;
+    if( card_ptr == 0 ) {
+        card = random(50);
+        while( card == i || card == j )
+            card = random(50);
+        if( card == 1 ) print "the Blank Card (~which I am forbidden to see~)";
+        if( card == 2 ) print "the One-Eyed Merchant";
+        if( card == 3 ) print "Marie, the Sledging Girl";
+        if( card == 4 ) print "the Red Rock";
+        if( card == 5 ) print "the Stony Wastes";
+        if( card == 6 ) print "the Arch-Duke";
+        if( card == 7 ) print "the Hyacinths";
+        if( card == 8 ) print "the Wheel";
+        if( card == 9 ) print "Belladonna, the Lady of the Rocks";
+        if( card == 10 ) print "the Hypocrit Reader";
+        if( card == 11 ) print "the Golden Cupidon";
+        if( card == 12 ) print "the Candle-Flames";
+        if( card == 13 ) print "the Carved Dolphin";
+        if( card == 14 ) print "Philomel, the Barbarous King";
+        if( card == 15 ) print "the Lonely Typist";
+        if( card == 16 ) print "the Bradford Millionaire";
+        if( card == 17 ) print "Magnus, the Martyr";
+        if( card == 18 ) print "Phlebas, the Phoenician";
+        if( card == 19 ) print "the Woman with Long Black Hair";
+        if( card == 20 ) print "the Cicadas in the Pine Trees";
+        if( card < 21 ) return card;
+        if( card < 31 ) {
+            Deal_card_number(card - 20);
+            print " of Staves";
+            return card;
+        }
+        if( card == 31 ) {
+            print "Tiresias, the shape changer";
+            return card;
+        }
+        if( card < 41 ) {
+            Deal_card_number(card - 30);
+            print " of Cups";
+            return card;
+        }
+        Deal_card_number(card - 40);
+        print " of Stones";
+        return card;
+    }
+    --card_ptr;
+    card = card_deck-->card_ptr;
+    move card to Consulting_Room;
+    print (the) card;
+    return card;
+];
+
+[ SosostrisDeals card3 card2 card1 ;     
+    print "Madame Sosostris picks up the cards and deals them onto the table. She frowns in concentration as ";
+    card3 = Deal_random_card(0,0);
+    print ", ";
+    card2 = Deal_random_card(card3,0);
+    print " and then ";
+    card1 = Deal_random_card(card3,card2);
+    print " show. ";
+    if( card3 == Death_card ) {
+        print "She blanches with alarm, then recovers and jabbers something about not taking the cards too 
+            literally, the images being symbolic and so on. As rapidly as she possibly can, she warns you to fear
+            death by water and then hustles you out onto the street.^";
+    } else {
+        if( card3 ~= Star || card2 ~= Maiden_card || card1 ~= Eight_of_Wands_card ) {
+            ! no code
+        } else {
+            print "~You have come!  At last, after all these centuries!  But there is little I can do to ease 
+                your way, save to return the staff you left with me for safe keeping.~  And she shows you out. You
+                feel rather bewildered.^";
+            move oak_quarterstaff to player;
+            give Unreal_City general;
+            PlayerTo(Unreal_City);
+        }
+        trigger_quotation(18);
+        print "~Curse it, another nobody,~ she hisses in an unguarded moment, as she tidies the pack absentmindedly 
+            with her hands. Then she recovers her poise and advises about handsome strangers, fearing death by
+            water, crossing palms with gold and so on. Eventually she ushers you out.^";
+    }
+    PlayerTo(Unreal_City);
+];
+
+Object  -> bell_push "bell push" 
+  with  name 'bell' 'push',
+        before [;
+            Push:
+                if( Madame_Sosostris in Consulting_Room ) "Madame Sosostris looks at you in some irritation.";
+                if( Madame_Sosostris hasnt general ) {
+                    move Madame_Sosostris to Consulting_Room;
+                    give curtain general;
+                    "Madame Sosostris, the famous clairvoyante, breezes in through the hanging curtain and sits 
+                     behind the table, making waving gestures with her hands.^^~First, this I must know, were you
+                     born in an even, or an odd, year?~";
+                }
+                if( Unreal_City has general ) "She has helped enough.";
+                print "Madame Sosostris breezes in once more. ~You again,~ she says warily. ~Let us see how your 
+                    fortunes have changed.~^^";
+                SosostrisDeals();
+                rtrue;
+        ],
+  has   scenery;
+
+Object  Madame_Sosostris "Madame Sosostris, famous clairvoyante" 
+  with  name 'sosostris' 'madame' 'clairvoyant',
+        life [;
+            Give:
+                if( noun == silk_handkerchief )
+                    "Gratefully she blows her nose but then returns the handkerchief. You refold it ingeniously.";
+                print_ret "She looks warily at ", (the) noun, ".";
+            Kiss: "She kisses you forcibly. Her mouth tastes of tobacco.";
+            Attack: "She mesmerises you into immobility. She hasn't lived all these centuries in the Latin Quarter 
+                     for nothing, you know.";
+            Answer:
+                if( curtain hasnt general ) "She is startled and stares.";
+                if( special_word == 'even' or 'odd' ) {
+                    SosostrisDeals();
+                    remove Madame_Sosostris;
+                    give curtain ~general;
+                    give Madame_Sosostris general concealed;
+                    rtrue;
+                }
+                "~You must answer my question!~  She does seem anxious.";
+        ],
+        description "She has a bad cold, but nevertheless is known to be the wisest woman in Europe.",
+  has   animate proper;
+
+Object  oak_quarterstaff "oak quarterstaff"      
+  with  name 'oak' 'staff' 'quarterstaff',
+        article "an",
+        rod_assoc rod_of_bronze,
+        devil_hint "Shoddy workmanship, but never mind, it's only a staff and who needs those any more?",
+  has   hidden_rod;
+
+URoom   Down_by_River "Down by River"    
+  with  name 'rats' 'mounds' 'rubbish',
+        before [;
+            Swim, Drink: "That foul water?  Not a chance.";
+        ], 
+        e_to Unreal_City,
+        w_to [;
+            if( tourist_boat hasnt open )
+                << Enter tourist_boat >>;
+            return tourist_boat;
+        ],
+        description "Down at the end of the street, the brown urban waters carry by unpleasant rubbish, and rats 
+            scuttle up and over the mounds washed up around you.",
+  has   light;
+
+Object  -> silk_handkerchief "silk handkerchief" 
+  with  name 'silk' 'handkerchier' 'hanky' 'hankie',
+        before [;
+            Wave:
+                if( location == Down_by_River && tourist_boat hasnt open ) {
+                    give tourist_boat open;
+                    "You wave the handkerchief, and the boat glides smoothly across the river toward you.";
+                }
+                rfalse;
+        ],
+        initial "On one especially repellent mound is, of all things, a fine silk handkerchief.",
+        description "Monogrammed J. A. P., but that's no great matter.",
+        devil_hint "People had no style in those days, before they invented paper tissues. I mean this tatty cloth is 
+            hardly attractive, is it?",
+  has   ;
+
+Object  -> tourist_boat "tourist boat"   
+  with  name 'tourist' 'boat' 'bateau',
+        before [;
+            Enter:
+                if( self hasnt open )
+                    "Are you in Seine?  There is a river in between you and the boat.";
+                rfalse;
+        ],
+        door_to On_board_the_Phlebas,
+        when_closed "On the far bank is a glass-roofed tourist boat. As much as you like to explore, you can't see 
+            how to attract its attention.",
+        door_dir w_to,
+        when_open "Moored close to the bank is a glass-roofed tourist boat.",
+        description "The side reads: PHLEBAS.",
+  has   door static;
+
+URoom   On_board_the_Phlebas "On board the Phlebas"      
+  with  name 'wheel',
+        e_to Down_by_River,
+        description "A tourist river-boat, glass-roofed. You can climb out to the shore to the east. At the helm is a 
+            very strange man, at times almost a straw dummy, almost perhaps a hollow cut-out made of paper. He
+            (or it) turns the wheel and casts his eyes to windward.",
+  has   light;
+
+Object  -> hollow_man "hollow man"       
+  with  name 'hollow' 'man',
+        life [;
+            Attack: "You are unable to touch the man. It is as if he isn't there.";
+            Ask: "Your question merely echoes inside him.";
+            Answer, Order:
+                if( special_word == 'time' || action == ##Time ) {
+                    print "You lose all sense of time and place as the boat drifts down river... It comes as a 
+                        considerable relief to your befuddled nerves when the man helps you off the boat again, 
+                        and you find yourself:^";
+                    if( tourist_map_of_Paris has moved ) {
+                        PlayerTo(Infinity_Symbol);
+                        rtrue;
+                    }
+                    PlayerTo(Garden_Stream);
+                    if( hollow_man hasnt general ) {
+                        give hollow_man general;
+                        move Ace_of_Cups_card to player;
+                        "^Was any of that real? you wonder, as you relax in the sunshine. But then you realise 
+                         you are clutching a tarot card which certainly is.";
+                    }
+                    rtrue;
+                }
+                ++hollow_man_cnt;
+                if( hollow_man_cnt == 1 ) "~I don't believe in that place any more. Hurry up please it's time!~";
+                if( hollow_man_cnt == 2 ) "~Hurry up please it's time!~";
+                if( hollow_man_cnt == 3 ) "~HURRY UP PLEASE IT'S TIME!~";
+                if( hollow_man_cnt == 4 ) "He can't be bothered to say anything this time.";
+                if( hollow_man_cnt == 5 ) "It really is time you thought of something.";
+                if( hollow_man_cnt == 6 ) "Time and time again you haven't guessed correctly.";
+                if( hollow_man_cnt == 7 ) "The hollow man must be beginning to think you can't take a hint.";
+                "~It's time!~ repeats the hollow man.";
+        ],
+        initial "The hollow man mechanically says: ~Where to, guv'nor?  Me with my big mouth, I gone and done it 
+            again, calling you the guv'nor. I was down Margate Sands way once, had a bloke come on board, he
+            thought any old destination would do, like a real place, like anywhere was real... We are the hollow
+            men, I says, he didn't like that... Hurry up, please, it's time.~",
+        description "Every now and then he whimpers.",
+        article "the",
+  has   animate;
+
+[ UnrealEachTurn ;
+    switch( random(10) ) {
+        1: "^A clock keeps the hours, with a dead sound on the final stroke of nine.";
+        2: "^There is a brown fog about, like a winter dawn's.";
+        3: "^You can almost make out the pleasant whining of a mandoline from a faraway bar.";
+        4: "^Drifting through the streets from some distant bar comes the sound of one of Scott Joplin's 
+            newfangled piano pieces, accompanying song settings from ~Romeo and Juliet~.";
+    }
+];
+
+URoom   Near_Ring_Road "Near Ring Road"  
+  with  name 'metro' 'pedestrians' 'army',
+        w_to Unreal_City,
+        d_to Chatelet_les_Halles,
+        description "A dry, desolate waste of buildings borders here on a main road, so full of black-suited 
+            pedestrians off to work at banks that you can't force your way any further east. Once in a while a
+            few of the bowler-hatted army step into the street and down some steps below a Metropolitan sign.",
+        cant_go "You can't force your way through the tide of bankers.",
+        each_turn UnrealEachTurn,
+  has   light;
+
+URoom   Chatelet_les_Halles "Chatelet-les-Halles"        
+  with  name 'gates',
+        before [; Buy: "~Q'est-ce que vous voulez acheter?~"; ],
+        u_to Near_Ring_Road,
+        description "This is a vast underground station in great rectangular caverns, deep beneath the streets. 
+            You are outside the ticket gates, near a flight of steps back up to the city, and since you haven't
+            a ticket you're likely to stay that way.",
+        cant_go "Back up the stairs for you. Call yourself a traveller...",
+  has   light;
+
+Object  -> surly_shopkeeper "surly shopkeeper"   
+  with  name 'surly' 'man' 'shopkeeper',
+        life [;
+            Give:
+                if( noun ~= fifty_franc_note ) "~Ceci n'est pas argent,~ he explains wearily.";
+                remove noun;
+                give noun general;
+                "He takes the money. ~Q'est-ce que vous desirez?~";
+            Answer:
+                if( fifty_franc_note hasnt general )
+                    "It's not that he doesn't understand you, he's just obstructive for the sake of it.";
+                if( special_word == 'carte' ) {
+                    move tourist_map_of_Paris to player;
+                    Achieved(SCORE_MAP);
+                    give tourist_map_of_Paris moved;
+                    "Extremely reluctantly he serves you, giving you a tourist map of Paris.";
+                }
+                if( special_word == 'map' ) "He refuses to understand you, on principle.";
+                "~Non.~  And he folds his arms defiantly. Perhaps he has no such thing.";
+        ],
+        initial "Behind a kiosk, a surly-looking man is selling guide books and maps.",
+        description "His jumper is unstriped, and there are no onions around his neck. Nonetheless he has a rather 
+            Gallic, disgruntled look to him. Perhaps he's a former Socialist cabinet minister.",
+  has   animate;
+
+Object  tourist_map_of_Paris "tourist map of Paris"      
+  with  name 'tourist' 'map' 'of' 'paris',
+        description "Just the way you remember yours having been.",
+        devil_hint "Burn it!  Burn it at once!",
+        angel_hint "What a very useful map!  Now you can go on holiday.",
+  has   ;
+

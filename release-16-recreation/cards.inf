@@ -1,0 +1,52 @@
+class   TarotCard 
+  with  before [;
+            Examine:
+                if( self.door_to ~= nothing )
+                    print "A beautifully realistic picture. ";
+                rfalse;
+        ],
+        list_together "Tarot cards",
+        parse_name [ i j w len cnt;
+            if( parser_action==##TheSame ) {   
+                 if( (parser_one.&name)-->0 == (parser_two.&name)-->0 ) 
+                     return -1;
+                 return -2;
+            }
+            len = (self.#name)/2;
+
+            for( w = NextWord() : w : w = NextWord() ) {
+                j = false;
+                for( i=0: i < len : i++ ) {
+                    if( w == 'cards' )
+                        parser_action = ##PluralFound;
+                    else if( w == self.&name-->i or 'card' or 'tarot' )
+                        j = true;
+                }
+                if( j == false )
+                    return cnt;
+                else
+                    cnt++;
+            }
+            return cnt;
+       ],
+        article "the",
+  has   card;
+
+TarotCard Death_card "Grim Reaper" 
+  with  name 'death' 'grim' 'reaper',
+        door_to Ruined_Castle_Cafe,
+        description "Hood, scythe, skeleton, implacable grin: yes, it's the Reaper all right.",
+        devil_hint "It's vital you slide right along with this one.";
+
+TarotCard Fool_card "Fool" 
+  with  name 'fool',
+        door_to Ruined_Castle_Cafe,
+        description "The Fool is a man looking directly ahead as he steps off the edge of a cliff.",
+        devil_hint "Don't worry, he won't slide down the cliff.";
+
+TarotCard Drowned_Sailor_card "Drowned Sailor"     
+  with  name 'drowned' 'sailor',
+        door_to Ruined_Castle_Cafe,
+        description "Those are pearls that were his eyes...",
+        devil_hint "He's one of my colleagues now, of course.";
+

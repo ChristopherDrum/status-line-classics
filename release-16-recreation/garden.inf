@@ -1,0 +1,642 @@
+Class   GRoom
+  with  section T_GARDEN;
+
+GRoom   Garden_Stream "Garden Stream"    
+  with  name 'reeds',
+        before [;
+            Swim: "Too shallow for comfort.";
+            Drink: "Just about drinkable. Not much fun, though.";
+        ],
+        n_to "Better not... you'd be seen from the Library.",
+        s_to coal_bunker,
+        e_to Beside_the_Wall,
+        w_to "Better not... you'd be seen from the Orangery.",
+        ne_to "Better not... you'd be seen from the Old Ballroom.",
+        nw_to Family_Tree,
+        d_to "The Hall is not safely climbable.",
+        description "In the lush, verdant (which is to say, under-cared for) gardens of Meldrew House, where a 
+            stream gurgles pleasantly as it meanders through reeds. The house rises up high above you to the south
+            and you dare not be seen from the windows by the rest of the family, so you'll have to go northwest,
+            deeper into the gardens, or else east along a path hugging the wall.",
+        cant_go "The bulk of the Hall is in your way.",
+  has   light scored;
+
+Object  -> coal_bunker "coal bunker"     
+  with  name 'coal' 'bunker' 'loading' 'door',
+        after [;
+            Close: give metal_door ~open; rfalse;
+            Open: give metal_door open; rfalse;
+            Lock: give metal_door locked; rfalse;
+            Unlock: give metal_door ~locked; rfalse;
+        ],
+        door_to Dark_Passage,
+        when_closed "On the house wall is a coal bunker, whose loading door is shut.",
+        door_dir s_to,
+        when_open "On the house wall is a coal bunker, whose door stands open.",
+  has   door locked openable static;
+
+Object  -> stream "stream"       
+  with  name 'stream' 'water' 'gurgling',
+        before [;
+            Enter: <<Swim>>;
+            Drink: "It's a warm, not unpleasant taste, silt and algae.";
+        ],
+  has   scenery;
+
+GRoom   Beside_the_Wall "Beside the Wall"        
+  with  n_to "You'd be seen from the Old Ballroom that way.",
+        s_to "There's no door into the Hall.",
+        w_to Garden_Stream,
+        nw_to "You'd be seen from the Library that way.",
+        u_to "The walls of the Hall are unclimbable to someone suffering from your degree of vertigo.",
+        d_to nothing,
+        description "The east-west path along the foot of Meldrew Hall ends here at one of the carved walls 
+            bordering the garden.",
+        cant_go "The stone wall blocks further passage east.",
+  has   light;
+
+Object  -> potted_shrub "potted shrub"   
+  with  name 'pot' 'potted' 'tub' 'plant' 'shrub',
+        before [;
+            Climb, Enter: "It's only three feet high!";
+            Turn: "You swivel the plant's tub.";
+            Push, PushDir, Pull:
+                if( self has general ) rfalse;
+                give self general;
+                move timber_hatch to location;
+                Beside_the_Wall.d_to = timber_hatch;
+                move self to location;
+                "Pushing the shrub a little aside reveals an unsightly old timber hatch, about three feet in diameter.";
+        ],
+        initial "A shrub is being nursed in a wide round tub in the centre of the path, sheltered behind the wall.",
+  has   static;
+
+Object  -> stone_wall "stone wall"       
+  with  name 'stone' 'wall' 'carved' 'carvings' 'painted',
+        before [;
+            Climb, Enter:
+                "The old, carved garden wall is one of the treasures of rural England, and you're not nearly 
+                 desperate enough to crumble it further into ruin.";
+            Answer, Ask: "The old wall is mute.";
+        ],
+        orders [;
+            Lagach: "For a moment, the slightest of zephyrs blows from the wall, but dies away to nothing.";
+            default: "The old wall is mute.";
+        ],
+        description "The garden wall once bore painted carvings, but they have fallen into disrepair.",
+        found_in Beside_the_Wall Beside_the_Drive,
+  has   scenery talkable;
+
+Object  timber_hatch "timber hatch"      
+  with  name 'timber' 'hatch' 'old' 'rotted' 'rotting' 'lid',
+        after [;
+            Open:
+                give Wine_Cellars light;
+                print (string) self.when_open;
+                new_line;
+                rtrue;
+            Close:
+                give Wine_Cellars ~light;
+                rfalse;
+        ],
+        door_to Wine_Cellars,
+        when_closed "Beside the shrub is a timber hatch, three feet across.",
+        door_dir d_to,
+        when_open "The timber lid stands open beside the shrub, revealing the old barrel-hatch.",
+  has   door openable static;
+
+GRoom   Family_Tree "Family Tree"        
+  with  name 'sign' 'signpost' 'post',
+        n_to [;
+            if( player in garden_roller )
+                return Maze;
+            "You can't go that way.^^Now, this takes a little explaining... These days, it isn't easy to keep up 
+             a house the size of Meldrew Hall, and your family has had to strike a bargain with the National
+             Trust that the house should be open to the public in the summer months. The maze is so popular with
+             visitors that the grass has worn away, and it's being reseeded at the moment, so you shouldn't go
+             treading all over it.";
+        ],
+        e_to Lawn_Ornaments,
+        w_to Clearing,
+        se_to Garden_Stream,
+        u_to Up_the_Plane_Tree,
+        initial [;
+            MazeX = 4; MazeY = 6; rfalse;
+        ],
+        description "You stand in the shade of a great plane tree, seedlings for which were brought back from Spain 
+            by an ancestor of yours in 1806. To the southeast is a stream, to the west is a small clearing and
+            to the north a single break in the green privet hedge marks the entrance to the famously difficult
+            Meldrew Hall Maze. A signpost reading ~To the Mosaic~ points east across the lawn.",
+  has   light;
+
+Object  -> plane_tree "plane tree"       
+  with  name 'plane' 'tree' 'family',
+        before [; Climb: << Go u_obj >>; ],
+  has   scenery;
+
+GRoom   Lawn_Ornaments "Lawn Ornaments"  
+  with  name 'gnomes' 'nymphs' 'windmills' 'gnome' 'nymph' 'windmill' 'ornament' 'ornaments',
+        e_to Mosaic,
+        w_to Family_Tree,
+        d_to Mosaic,
+        description "Several hundred years of rolling have made this a rather fine patch of grass, between the privet hedge (north), the plane tree (west) and the mosaic (east). Unfortunately, it is adorned with all the really ugly ornaments (gnomes, plaster nymphs, stone windmills to grow flowers in), this being the corner of the garden least visible from the house.",
+        cant_go "The options appear to be east or west.",
+  has   light;
+
+Object  -> plaster_statuette "plaster statuette" 
+  with  name 'plaster' 'statuette' 'bust' 'statue',
+        initial "Prominent amongst these is a plaster statuette, a bust of a woman.",
+        description "It stands four feet high. At the base is an engraving: ~Self-Portrait, H.M. '54~. (It's presumably not by Her Majesty the Queen, though.)",
+  has   static;
+
+Object  ancient_well "ancient well"      
+  with  name 'ancient' 'well' 'dark',
+        after [;
+            Receive:
+                move noun to hanging_cord;
+                give CR ~general;
+                "It plummets down into the well.";
+        ],
+        initial "The lawn is lightly coated with broken plaster and dust, and in the spot where the statuette once stood is a dark, ancient well.",
+        description "You can make out nothing below, and the well is too small to climb down.",
+  has   container open static;
+
+GRoom   Mosaic "Mosaic"  
+  with  name 'perspex' 'scenes' 'quadrants',
+        e_to nothing,
+        w_to Lawn_Ornaments,
+        u_to Lawn_Ornaments,
+        description "This sunken corner of the garden has been excavated and then covered over with tough perspex to protect it from visitors' shoes. It consists of a time-worn Roman mosaic, divided into four quadrants, each showing scenes of idealised Roman life. There was probably a villa on this site, but your family has never been keen on archaeologists so the excavations went no further.",
+        cant_go "From here you can climb back up to the lawn.",
+  has   light;
+
+LagachObj -> Roman_mosaic "Roman mosaic"   
+  with  name 'roman' 'mosaic',
+        description "Made of terra-cotta and ceramic fragments, it has held together surprisingly well.",
+  has   scenery;
+
+Object  -> hard_wooden_ball "hard wooden ball"   
+  with  name 'croquet' 'hard' 'wooden' 'ball',
+        initial "A hard wooden ball, palm-sized, rolls about across the mosaic.",
+        angel_hint "Splendid, you're having a ball. I do hope you hit it off.",
+  has   ;
+
+GRoom   Clearing "Clearing"      
+  with  s_to Vegetable_Garden,
+        e_to Family_Tree,
+        w_to Garage,
+        description "A clearing at the edge of the garden, surrounded by walls and the privet hedges of the maze. To the east is the plane tree, to the west an opening in the wall makes a garage entrance and to the south is a small vegetable garden.",
+  has   light;
+
+GRoom   Vegetable_Garden "Vegetable Garden"      
+  with  n_to Clearing,
+        u_to runner_bean_plant,
+        description "A recently-turned vegetable garden, using up a shady corner of the garden. The patch testifies more to good intentions than horticulture.",
+        cant_go "From this corner, you can only go back to the clearing.",
+  has   light;
+
+Object  -> runner_bean_plant "runner-bean plant" 
+  with  name 'runner' 'bean' 'plant',
+        door_to Up_the_Beanstalk,
+        when_closed "Only a runner-bean plant graces the vegetable garden.",
+        door_dir u_to,
+        when_open "A giant runner-bean plant leads up vertiginously into the sky from here.",
+        section T_GARDEN,
+  has   door static;
+
+GRoom   Up_the_Beanstalk "Up the Beanstalk"      
+  with  before [;
+            Jump: deadflag = DIED; "You fall and break your neck!";
+        ],
+        after [;
+            Drop:
+                 move noun to Family_Tree;
+                 if( noun == medicine_bottle && noun has locked ) {
+                    print "The medicine bottle plummets to the earth below.^";
+                    give medicine_bottle ~locked;
+                    give medicine_bottle open;
+                    rtrue;
+                }
+                print_ret (The) noun, " plummets to the earth below.";
+        ],
+        n_to Heavenly_Place,
+        d_to Vegetable_Garden,
+        description "At the top of the beanstalk, in amongst the clouds. There 
+            is no safe way to go from here except back down, not surprisingly. A dangerous way might be to step
+            out onto the clouds to the north, but even if this is a fairy-tale it would be taking a lot on trust.",
+        cant_go "The clouds are too tenuous that way.",
+  has   light;
+
+GRoom   Garage "Garage"  
+  with  e_to Clearing,
+        description "A modest brick garage, built into the garden walls. A big open doorway leads east onto the clearing.",
+  has   light;
+
+Object  -> garden_roller "garden roller" 
+  with  name 'garden' 'roller' 'switch' 'motor' 'motorised' 'power',
+        before [;
+            Go:
+                if( self hasnt on )
+                    print "(The motor isn't on at the moment.)^";
+                else {
+                    if( noun == u_obj or d_obj ) {
+                        print "The garden roller is a somewhat horizontal conveyance.^";
+                        return 2;
+                    }
+                    if( location == Garden_Stream && noun == s_obj ) {
+                        print "The garden roller will never fit.^";
+                        return 2;
+                    }
+                    if( location == Lawn_Ornaments && noun == e_obj ) {
+                        print "Philistine!  How dare you try to drive a garden roller over a Roman mosaic.^";
+                        return 2;
+                    }
+                    rtrue;
+                }
+                rfalse;
+        ],
+        s_to "A big motorised garden roller is parked here.",
+        initial "The garden roller sits here, its engine still running.",
+        description "A motorised garden roller of the kind you sit inside, among whose simple controls is a big 
+            on/off switch.",
+        each_turn [;
+            if( player notin self || self hasnt on )
+                rfalse;
+            if( location == Lawn_Ornaments && plaster_statuette in Lawn_Ornaments ) {
+                print "^Crunch!  The garden roller ran into something there.^";
+                give CR light;
+                remove plaster_statuette;
+                move ancient_well to Lawn_Ornaments;
+                give Lawn_Ornaments general;
+            }
+            if( medicine_bottle in location && medicine_bottle has locked && location ~= Garage ) {
+                print "^Oh dear. The medicine bottle, which you negligently left lying in the path of the roller, 
+                    seems to have been cracked.^";
+                give medicine_bottle open;
+                give medicine_bottle ~locked;
+            }
+        ],
+  has   container enterable open static switchable;
+
+Object  -> weed_killer_bottle "weed killer bottle"       
+  with  name 'weed' 'killer' 'bottle' 'weedkille',
+        before [ i;
+            Squeeze, Push:
+                if( self has general ) "Nothing emerges. The bottle must be empty.";
+                give self general;
+                if( location == Wall_of_Thorns ) {
+                    "A valiant but doomed idea. The weed killer harms barely a single tendril of the wall.";
+                }
+                if( location == Vegetable_Garden ) {
+                    remove runner_bean_plant;
+                    Vegetable_Garden.u_to = nothing;
+                    "Congratulations. You have devastated the runner-bean plant.";
+                }
+                if( location == Family_Tree ) {
+                    "Happily, the weed killer makes no impression on the beautiful old tree.";
+                }
+                if( game_section == T_GARDEN ) {
+                    ! no code
+                } else {
+                    if( game_section ~= T_GARDEN_PAST ) {
+                        "A stream of weed-killer emerges, but evaporates almost at once, just as well considering the vile smell.";
+                    }
+                    if( location ~= Maze_Foundations ) {
+                        ! no code
+                    } else {
+                        i = MazeBoundary(MazeX,MazeY);
+                        if( i == 0 ) 
+                            "A stream of weed-killer soaks into the grass, and does nothing obvious.";
+                        WeedkillerX = MazeX;
+                        WeedkillerY = MazeY;
+                        StartDaemon(self);
+                        "A stream of weed-killer soaks into the seedbed, and does nothing obvious.";
+                    }
+                }
+                "A stream of weed-killer soaks into the earth, and does nothing obvious.";
+        ],
+        initial "In the shadows is a weed killer bottle.",
+        description "If squeezed, it squirts weed killer over the ground. There are many warning labels about getting it on one's hands.",
+        daemon [ ndx;
+            if( game_section ~= T_GARDEN_PAST ) {
+                ndx = WeedkillerX + 9 * WeedkillerY;
+                garden_array->ndx = 48;
+                StopDaemon(self);
+            }
+        ],
+        angel_hint "The funny thing is, they didn't have weedkillers in the early nineteenth century, and yet they still planned some marvellous gardens.",
+  has   ;
+
+Object  -> spade "spade" 
+  with  name 'bladed' 'agricultural' 'implement' 'zzzzzzzzz',
+        before [;
+            Examine:
+                if( spade has general ) {
+                    rfalse;
+                }
+                give spade general;
+                spade.&name-->3 = 'spade';
+                "On second thoughts, let's just call a spade a spade.";
+        ],
+        initial "Hanging from a hook is a bladed agricultural implement.",
+        short_name [ ;
+            if( self has general ) {
+                print "spade";
+            } else {
+                print "bladed agricultural implement";
+            }
+            rtrue;
+        ],
+        angel_hint "Do you think there's anywhere in the garden particularly suitable for such an implement?",
+  has   ;
+
+GRoom   Up_the_Plane_Tree "Up the Plane Tree"    
+  with  name 'jemima' 'conservatory' 'window',
+        before [;
+            Jump:
+                deadflag = DIED; "You fall and break your neck!";
+        ],
+        d_to Family_Tree,
+        description "A magnificent view of the gardens would be yours, were it not for the branches and leaves 
+            which surround you. You can make out Aunt Jemima up at one of the conservatory windows, but hide from
+            her view. Down below, the privet-hedge layout of the maze can be seen through the lower branches.",
+        cant_go "No, don't go out on a limb.",
+  has   light;
+
+Object  -> maze_layout "maze layout"     
+  with  name 'maze' 'layout',
+        description [ x y wallp;
+            print "The layout is roughly as follows:^^";
+            0-->8 = 2 | 0-->8;
+            y = 0;
+            --y;
+            while( y < 6 ) {
+                y++;
+                print "    ";
+                x = 0;
+                x--;
+                while( x < 8 ) {
+                    x++;
+                    wallp = MazeBoundary(x,y);
+                    if( wallp == true )
+                        print "###";
+                    else
+                        print "...";
+                }
+                new_line;
+            }
+            0-->8 = 65533 & 0-->8;
+        ],
+        article "the",
+  has   scenery;
+
+GRoom  Bricked_Path "Bricked Path"      
+  with  e_to Hedgery,
+        sw_to White_Hallway,
+        initial [; trigger_quotation(22); rfalse; ],
+        description "You're strolling on a pleasant bricked path, passing from the outer rooms of Meldrew Hall to a track through the eastern side of the garden.",
+        section T_GARDEN,
+  has   light;
+
+Object Hedgery "Hedgery"        
+  with  n_to [;
+            give flock_of_sparrows general;
+            print "Your first step towards the sparrows startles them into the air, and they whirl upwards and 
+                around with panic, chirping their alarm.^";
+            return Summer_House;
+        ],
+        e_to Croquet_Lawn,
+        w_to Bricked_Path,
+        description "Named by some family wag generations back, this is a restful hedge garden, crowned with a summer house to the north, widening out to a broad croquet lawn east.",
+        section T_GARDEN,
+  has   light;
+
+Object -> flock_of_sparrows "flock of sparrows" 
+  with  name 'flock' 'of' 'sparrows',
+        initial "A flock of sparrows crowds around the gutters of the summer house. Every now and then one flits up and lands somewhere else, and they bustle about chirpily.",
+  has   static;
+
+GRoom  Summer_House "Summer House"      
+  with  after [;
+            if( flock_of_sparrows hasnt general ) {
+                    print "^Sparrows chirp happily away to themselves around the high gutter.^";   
+                } else {
+                    print "^Startled sparrows circle high in the sky, showing no signs of calming down.^";
+                }
+                rfalse;
+        ],
+        n_to nothing,
+        s_to [;
+            if( flock_of_sparrows has general ) {
+                give flock_of_sparrows ~general;
+                print "As you step out, the sparrows gradually settle back down again.^";
+            }
+            return Hedgery;
+        ],
+        description "An old wooden summer house, reeking of varnish and uncertain beneath your feet. Several 
+            segments of the tall glass many-sided pyramidal roof are missing and others are cracked, but this is
+            still somehow a homely and welcoming retreat. The only entrance is also the only exit.",
+        section T_GARDEN,
+  has   light;
+
+Object -> croquet_mallet "croquet mallet"       
+  with  name 'croquet' 'mallet',
+        initial "A croquet mallet stands by one wooden wall.",
+        devil_hint "It's for mashing croquet potatoes.",
+        angel_hint "Croquet is the Devil's own game!",
+  has   ;
+
+Object -> gold_watch_on_a_chain "gold watch on a chain" 
+  with  name 'gold' 'watch' 'on' 'chain',
+        before [;
+            if( self hasnt moved )
+                "The watch is just within sight, but quite beyond reach.";
+            Swing, Wave: "You come dangerously close to hypnotising yourself.";
+        ],
+        initial "Something golden hangs by a chain from a loose pane in the roof, but it's too high up to reach.",
+        description "It is beautifully polished, and captivates the eye. You could stare for hours...",
+        angel_hint "How easily are the weak mesmerised by baubles.",
+  has   ;
+
+GRoom   Behind_Summer_House "Behind Summer House"        
+  with  s_to loose_board,
+        w_to Mosaic,
+        se_to Croquet_Lawn,
+        d_to Mosaic,
+        description "Among dense hedges by the shabby wood-slatted back of the summer house. Dark scratchy branches hem you in, but you could scramble down to the west or out onto the croquet lawn southeast.",
+        section T_GARDEN,
+  has   light scored;
+
+Object -> loose_board "loose board"     
+  with  name 'loose' 'board',
+        before [;
+            Open, Push, Pull, Turn:
+                if( irate_squirrel_friend in location )
+                    "The squirrel rears up and nips you on the wrist. You withdraw, hurt.";
+                rfalse;
+        ],
+        door_to Summer_House,
+        when_closed "One board of the back wall is noticeably loose, making a good-sized crack.",
+        door_dir s_to,
+        when_open "You could easily squeeze past the loose board south into the summer house.",
+  has   door openable static;
+
+Object -> crack "crack" 
+  with  name 'crack' 'gap' 'hole' 'summerhou' 'summer' 'house',
+        before [;
+            Search: "Through the crack you can see sunlight on the summer-house floorboards.";
+        ],
+        after [;
+            Receive:
+                if( noun == bunch_of_nuts ) {
+                    give loose_board open;
+                    move bunch_of_nuts to irate_squirrel_friend;
+                    move irate_squirrel_friend to Summer_House;
+                    GoNuts();
+                    Summer_House.n_to = Behind_Summer_House;
+                    "You throw the nuts through the loose board into the summer house, and the squirrel jumps up after them, battering through the board and opening up a hole in the wall.";
+                }
+                move noun to Summer_House;
+                "Thrown through the loose board into the summer house.";
+        ],
+
+        description "Through the crack you can see the summer house.",
+  has   container open scenery;
+
+[ GoNuts ;
+    irate_squirrel_friend.initial = "The squirrel sits here, watchfully pecking away at the nuts.";
+    rtrue;
+];
+
+Object -> irate_squirrel_friend "irate squirrel friend" 
+  with  name 'irate' 'my' 'squirrel' 'friend',
+        life [;
+            Show:
+                if( noun == bunch_of_nuts ) "The squirrel finds them of consuming interest.";
+                rfalse;
+            Give:
+                if( noun has edible ) {
+                    remove noun;
+                    if( noun == bunch_of_nuts ) {
+                        GoNuts();
+                        "The squirrel is extremely pleased, and devours the nuts delightedly. You have an 
+                         uncomfortable feeling of having been suckered.";
+                    }
+                    print "Grateful for any food he can get, however unsuitable, the squirrel eagerly consumes ";
+                    if( noun == Ekmek_Special ) {
+                        print "the ";
+                    }
+                    print (the) noun;
+                    ". He does of course feel no obligation towards you at all as a result, so don't expect any 
+                     favours.";
+                }
+                rfalse;
+        ],
+        initial nothing,
+        description "Not at all shy when on his own territory.",
+        article "your",
+  has   animate;
+
+[ DugHoleDesc ;
+    if( OldDigX == DigX && OldDigY == DigY ) {
+        "^The hole you dug in the lawn is just here.";
+    }
+    print "^Some vandal has dug a hole in the lawn, ";
+    DescribePaces(OldDigX - DigX,OldDigY - DigY);
+    ".";
+];
+
+[ DescribePaces x y ;
+    if (x ~= 0) {
+        DescribePacesPoetically(x);
+        if (x > 0) {
+            print " east";
+        } else {
+            print " west";
+        }
+        if (y ~= 0) {
+            print " and ";
+        }
+    }
+    if (y ~= 0) {
+        DescribePacesPoetically(y);
+        if (y > 0) {
+            print " north";
+        } else {
+            print " south";
+        }
+    }
+    rtrue;
+];
+
+GRoom  Croquet_Lawn "Croquet Lawn"      
+  with  w_to Hedgery,
+        nw_to nothing,
+        initial [; DigX = 0; DigY = 0; rfalse; ],
+        description [;
+            print "One of the most beautiful hedge-enclosed, tree-muffled lawns in England, and just out of sight 
+                of the house, this has been a jewel in the gardens for centuries. Since the twenties it has also
+                been a croquet lawn, of the regulation twenty-four yards square, laid out with a central coloured
+                peg and six peripheral hoops";
+            if( self.nw_to == nothing ) ".";
+            ". The hedge is broken slightly to the northwest.";
+        ],
+        cant_go "The lawn is enclosed on all sides, but for a gap back west.",
+        short_name [;
+            if( DigX == 0 && DigY == 0 ) {
+                rfalse;
+            }
+!            if( before_short_desc == true ) {
+!                rfalse;
+!            }
+            print "Croquet Lawn (";
+            DescribePaces(DigX,DigY);
+            print " of the peg)";
+            rtrue;
+        ],
+        section T_GARDEN,
+  has   light;
+
+Object -> peg_and_six_hoops "peg and six hoops" 
+  with  name 'peg' 'hoop' 'hoops',
+        description "There are six arched hoops in a croquet set, arranged around a central peg. These ones 
+            have been safely anchored in place since the lawn was laid out in, oh, Midsummer 1923 if family lore
+            is to be believed.",
+  has   scenery;
+
+Object strongbox "strongbox"    
+  with  name 'strong' 'box' 'strongbox',
+        with_key iron_key,
+        description "A good strong strongbox, buried for two centuries and now unearthed; it bears a fine gothic 
+            iron lock, and a tasteless coat of arms (a wild boar rampant).",
+        angel_hint "You might have read about this. One of your ancestors is the key, perhaps?",
+  has   container lockable locked openable;
+
+Object -> golden_astrolabe "golden astrolabe"   
+  with  name 'golden' 'gold' 'astrolabe' 'eyepiece',
+        before [;
+            Remove: if( noun == second ) "It is in one piece.";
+            Search:
+                if( parent(golden_astrolabe) ~= Palace_Balustrade || golden_astrolabe has moved ) 
+                    "You catch a fascinating, but all too brief, glimpse of something grey, angular and tall... 
+                     which slips out of view as your unsteady hand shakes.";
+                print "Through the golden eyepiece you see, not the moon (for the astrolabe is tilted too low), 
+                    but a curious, sunlit, grey triangle.^^Fascinated, you strain closer to the vision... closer...^";
+                PlayerTo(Out_on_the_Spire);
+                rtrue;
+        ],
+        after [; Take: trigger_quotation(43); rfalse; ],
+        initial nothing,
+        description "A very old instrument for measuring altitudes, this is all that remains of Sir Joshua 
+            Meldrewe's stolen hoard of gold. There is an eyepiece.",
+        angel_hint "A mighty fine instrument, though not much use hand-held.",
+  has   scored;
+
+Object dug_hole "dug hole"      
+  with  name 'hole' 'dug',
+        before [; Take: "A surreal idea, somewhat reminiscent of the Beatles film ~Yellow Submarine~."; ],
+        description "The rich loam, the silver of earthworms, the dignity of toil... none of these pastoral 
+            consolations is yours as you scrabble in the dirt.",
+        describe DugHoleDesc,
+  has   container open static;
+

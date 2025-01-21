@@ -1,0 +1,1036 @@
+[ DigWithSub ;
+    if( noun ~= spade ) {
+        "Not really a suitable implement.";
+    }
+    DigSub();
+    rtrue;
+];
+
+[ DigSub ;
+    if( spade notin player ) "You have nothing really suitable to hand.";
+    if( location == Vegetable_Garden or Maze_Foundations ) "You succeed only in turning the earth further.";
+    if( location == Mosaic ) "Archaeology is not for the amateur!";
+    if( location == Beside_the_Drive ) "The gravel is thin and lies on concrete.";
+    if( location == Up_the_Plane_Tree ) "Surreal!";
+    if( location ~= Croquet_Lawn ) "The ground is unsuitable.";
+
+    if( DigX == 0 && DigY == 0 ) 
+        "You surely don't want to dig here, right in the middle of such a fine lawn. The peg would fall out, and 
+         that would never do.";
+    if( DigX == OldDigX && DigY == OldDigY ) "There is already a hole on this exact spot of the lawn.";
+
+    OldDigX = DigX;
+    OldDigY = DigY;
+    print "You dig an energetic little hole in the superb turf";
+    if( dug_hole in Croquet_Lawn ) {
+        print ", filling your last one up with the earth uncovered";
+        while( child(dug_hole) ~= nothing ) {
+            remove child(dug_hole);
+            dig_cnt = 2;
+        }
+    }
+    if( DigX == StrongboxX && DigY == StrongboxY && strongbox hasnt moved ) {
+        print ", until your spade bumps into something solid";
+        move strongbox to dug_hole;
+        Achieved(SCORE_STRONGBOX);
+    } else if( dig_cnt == 1 ) {
+        dig_cnt = 0;
+        print ", failing to find whatever it was you buried";
+    }
+    move dug_hole to Croquet_Lawn;
+    if( dig_cnt == 2 ) {
+        dig_cnt = 1;
+    }
+    ".";
+];
+
+[ LieDownSub ;
+    if( location == Servants_Room ) << Enter servants_bed >>;
+    if( location == Alisons_Writing_Room ) << Enter comfortable_bed >>;
+    "You lie down on the floor for a while and then get up again, feeling foolish.";
+];
+
+
+[ StartSub ;    
+    "You'll have to say exactly how to do that.";
+];
+
+[ LeanSub ;
+    if( location ~= Folly ) {
+        "That won't achieve anything very much.";
+    }
+    if( second ~= Folly_tower ) {
+        "That isn't in conspicuous need of support.";
+    }
+    if( noun ~= old_timber_spar ) {
+        "That isn't a particularly good support.";
+    }
+    move old_timber_spar to Folly;
+    old_timber_spar.initial = "The timber prop leans against the tottering Folly, supporting it.";
+    give old_timber_spar ~moved;
+    bean_pole.number = 0;
+    give old_timber_spar general;
+    give bean_pole ~general;
+    "You lean the timber prop against the Folly tower, supporting it. (Better just hope you won't be needing the prop for anything else!)";
+];
+
+[ PropWithSub o ;
+    o = noun;
+    noun = second;
+    second = o;
+    LeanSub();
+    rtrue;
+];
+
+[ AnotherWord w ;
+    w = NextWordStopped();
+    --wn;
+    return w;
+];
+
+[ DiagnoseSub ;
+    "Hang on a moment... yes, you're still breathing. Keep it up!";
+];
+
+[ PaceSub ;
+!    print "DEBUG: verb, PaceDirSub^";
+    if( yard_dir <= 0 ) {
+        yard_dir = e_obj;
+    }
+    PaceMovement(1, yard_dir);
+    ! PaceMovement(number_paces, yard_dir);
+    rtrue;
+];
+
+[ PaceDirSub ;
+!    print "DEBUG: verb, PaceSub^";
+    PaceMovement(number_paces,yard_dir);
+    rtrue;
+];
+
+[ PaceMovement i d ydelta xdelta x y ;
+!    print "Debug PaceMovement(", i, ", ", (name) d, ")^";
+!    print "Current pos: (", DigX, ", ", DigY, ")^";
+    if( d == nothing ) {
+        d = e_obj;
+    }
+    if( d == -1 ) {
+        DigX = 0;
+        DigY = 0;
+        << Look >>;
+    }
+    if( d == -2 ) {
+        DigX = OldDigX;
+        DigY = OldDigY;
+        << Look >>;
+    }
+    if( location ~= Croquet_Lawn ) {
+        "You pace up and down, Holmes-fashion.";
+    }
+    if( d == nothing ) {
+        "Perhaps you should say which way to pace.";
+    }
+    if( parent(d) ~= compass ) {
+        "What?";
+    }
+    if( d == n_obj ) {
+        xdelta = 1;
+    }
+    if( d == s_obj ) {
+        xdelta = -1;
+    }
+    if( d == e_obj ) {
+        ydelta = 1;
+    }
+    if( d == w_obj ) {
+        ydelta = -1;
+    }
+    if( d == ne_obj ) {
+        ydelta = 1;
+        xdelta = 1;
+    }
+    if( d == nw_obj ) {
+        ydelta = -1;
+        xdelta = 1;
+    }
+    if( d == se_obj ) {
+        ydelta = 1;
+        xdelta = -1;
+    }
+    if( d == sw_obj ) {
+        ydelta = -1;
+        xdelta = -1;
+    }
+    if( ydelta == 0 && xdelta == 0 ) {
+        "Hardly!";
+    }
+!    print "DEBUG: xdelta = ", xdelta, "  ydelta = ", ydelta, "^";
+    x = DigX + ydelta * i;
+    y = DigY + xdelta * i;
+    if( x >= 13 || x <= -13 || y >= 13 || y <= -13 ) {
+        "That would go past the edge of the lawn.";
+    }
+    DigX = x;
+    DigY = y;
+    << Look >>;
+];
+
+[ PaceOrPaces d ;
+    if( d == 'pace' or 'step' or 'stride' ) {
+        return 1;
+    }
+    if( d == 'paces' or 'steps' or 'strides' ) {
+        return 2;
+    }
+    rfalse;
+];
+
+[ SomeParse w n i ;
+    i = wn;
+    w = AnotherWord();
+    if (w == 'by' or 'for') {
+        ++wn;
+        w = AnotherWord();
+    }
+    if (w == 'a//' or 'single') {
+        ++wn;
+        w = AnotherWord();
+        if (PaceOrPaces(w) ~= 1) {
+            wn = i;
+            rfalse;
+        }
+        ++wn;
+        return 1;
+    }
+    if (PaceOrPaces(w) == 1) {
+        ++wn;
+        return 1;
+    }
+    n = TryNumber(wn);
+    if (n < 0) {
+        wn = i;
+        rfalse;
+    }
+    ++wn;
+    w = AnotherWord();
+    if (PaceOrPaces(w) == 1 && n == 1 || (PaceOrPaces(w) == 2 && n > 1)) {
+        ++wn;
+    }
+    return n;
+];
+
+[ CroquetMove w i flag j d ;
+    w = AnotherWord();
+    if (w == 'forward' or 'forwards') {
+        ++wn;
+        return yard_dir;
+    }
+    if (w == 'back' or 'backward' or 'backwards') {
+        ++wn;
+        w = AnotherWord();
+        flag = 1;
+    }
+    if (w == 'to') {
+        ++wn;
+        w = AnotherWord();
+    }
+    if (w == 'the') {
+        ++wn;
+        w = AnotherWord();
+    }
+    if (w == 'peg' or 'middle' or 'centre' or 'hoop' or 'hoops' or 'center') {
+        ++wn;
+        return -1;
+    }
+    if (w == 'hole' && dug_hole in Croquet_Lawn) {
+        ++wn;
+        return -2;
+    }
+    i = wn;
+    if (w ~= -1 ) {
+        j = NounDomain(compass,0,0);
+
+! ("pace 3 north")
+! [line 4 * Routine(20088) -> PaceDir]
+!  [line 4 token 1 word 2 : Routine(20088)]
+!    [NounDomain called at word 4
+!    seeking definite object
+! 
+! [** Programming error: tried to find the "child" of Class **]
+!    [ND made 0 matches]
+
+    } else {
+        j = -1;
+    }
+    if (j <= top_object && j > 0) {
+        d = j;
+    } else {
+        wn = i;
+        d = yard_dir;
+        if (d <= 0) {
+            d = e_obj;
+        } else if (flag == 1) {
+            if (yard_dir == n_obj) {
+                d = s_obj;
+            }
+            if (yard_dir == s_obj) {
+                d = n_obj;
+            }
+            if (yard_dir == e_obj) {
+                d = w_obj;
+            }
+            if (yard_dir == w_obj) {
+                d = e_obj;
+            }
+            if (yard_dir == ne_obj) {
+                d = sw_obj;
+            }
+            if (yard_dir == nw_obj) {
+                d = se_obj;
+            }
+            if (yard_dir == sw_obj) {
+                d = ne_obj;
+            }
+            if (yard_dir == se_obj) {
+                d = nw_obj;
+            }
+        }
+    }
+!    print "DEBUG CroquetMove(), return: ", (name) d, "^";
+    return d;
+];
+
+[ CroquetFunc i j ;     
+    i = SomeParse();
+    if( i == 0 ) {
+        if( AnotherWord() == -1 ) {
+            return -1;
+        }
+        j = CroquetMove();
+        if( AnotherWord() == -1 ) {
+            i = 1;
+        } else {
+            i = SomeParse();
+        }
+        if( i == 0 ) {
+            return -1;
+        }
+    } else {
+        j = CroquetMove();
+    }
+    number_paces = i;
+    yard_dir = j;
+!    print "DEBUG CroquetFunc(): number_paces = ", number_paces, ", yard_dir = ", (name) yard_dir, "^";
+    return 0;
+];
+
+[ AnotherCroquetFunc i j ;      
+    i = SomeParse();
+    if( i == 0 ) {
+        return -1;
+    }
+    j = CroquetMove();
+    number_paces = i;
+    yard_dir = j;
+    return 0;
+];
+
+[ KillSub ;     
+    if( noun ~= hard_wooden_ball || second ~= croquet_mallet ) 
+        << Attack noun >>;
+    if( parent(hard_wooden_ball) ~= location ) 
+        "The ball is not on the ground.";
+    trigger_quotation(15);
+    print "You strike the ball with the mallet, and a pleasing cracking sound.^";
+    if( location == Lawn_Ornaments ) 
+        "^The ball ricochets around the ornaments as on a pinball table.";
+
+    if( location ~= Croquet_Lawn || Croquet_Lawn.nw_to ~= nothing ) {
+        rfalse;
+    }
+    print "^The ball runs smoothly across the lawn";
+    if( dug_hole in Croquet_Lawn ) {
+        move hard_wooden_ball to dug_hole;
+        " and falls in the hole.";
+    }
+    remove hard_wooden_ball;
+    Croquet_Lawn.nw_to = Behind_Summer_House;
+    Lawn_Ornaments.cant_go = "There are paths only west and northwest.";
+    Mosaic.e_to = Behind_Summer_House;
+    ", along to the northwestern hedge and into an irate squirrel. In a sudden rustle he leaps away, knocking 
+     aside a rotten branch and uncovering a tiny gap through the hedge.";
+];
+
+[ RepairSub; "You would achieve nothing by this."; ];
+
+[ BeepSub ;
+    "Are you feeling quite right?";
+];
+
+[ PlayCroquetSub ;      
+    "You'll have to be a little more explicit.";
+];
+
+[ FullScoreSub ndx score_var ;  
+    ScoreSub();
+    if( score == 0 ) {
+        rfalse;
+    }
+    new_line;
+    L__M(##FullScore,1);
+    ndx = 0;
+    while( ndx < 45 ) {
+        if( task_done->ndx == 1 ) {
+            if( ndx == 21 ) {
+                PANum(65486);
+                score_var = score_var - 50;
+            } else {
+                PANum(task_scores->ndx);
+                score_var = score_var + task_scores->ndx;
+            }
+            PrintTaskName(ndx);
+        }
+        ++ndx;
+    }
+    if( rod_score ~= 0 ) {
+        PANum(rod_score);
+        print "discovering rods^";
+    }
+    if( things_score ~= 0 ) {
+        PANum(things_score);
+        L__M(##FullScore,2);
+    }
+    if( places_score ~= 0 ) {
+        PANum(places_score);
+        L__M(##FullScore,3);
+    }
+    if( good_try_bonus ~= 0 ) {
+        PANum(5);
+        print "bonus for a good try^";
+        score_var = score_var + 5;
+    }
+    score_var = score_var + rod_score + things_score + places_score;
+    if( score == 65437 ) {
+        score_var = 0 - score_var - 99;
+        PANum(score_var);
+        print "destroying universe^";
+    }
+    new_line;
+    PANum(score);
+    L__M(##FullScore,4);
+    if( deadflag == WON && task_done->11 == 0 ) {
+        "^Sadly, you missed out on the 50-point bonus for rescuing Andromeda.";
+    }
+    rtrue;
+];
+
+[ WaveSub r ;
+    if (noun notin player) {
+        "But you aren't holding it.";
+    }
+    if (noun has hidden_rod) {
+        if (daisy_chain in player && daisy_chain has worn && daisy_chain.number == 1) {
+            score = score + 6;
+            rod_score = rod_score + 6;
+            print "Light pulses around the daisy chain, then leaps out to engulf ", (the) noun, " which melts into ";
+            remove noun;
+            r = noun.rod_assoc;
+            itobj = r;
+            give r moved;
+            give r unidentifed_rod;
+            move r to player;
+            print (a) r;
+            "!";
+        }
+        if (yellow_daisy in player && yellow_daisy has worn) {
+            score = score + 6;
+            rod_score = rod_score + 6;
+            print "Light pulses from the daisy behind your ear, leaping out to engulf ", (the) noun, 
+                " which melts into ";
+            remove noun;
+            r = noun.rod_assoc;
+            itobj = r;
+            give r moved;
+            move r to player;
+            if (r has rod_attr) {
+                print (the) r;
+            } else {
+                print (a) r;
+            }
+            "!";
+        }
+    }
+    if (noun has rod_attr) {
+        "That seems to be not quite how they work...";
+    }
+    if (noun has worn) {
+        "You can't wave what you're wearing.";
+    }
+    print "You look ridiculous waving ";
+    Defart(noun);
+    ".";
+];
+
+[ WishSub ;
+    if( chicken_wishbone notin player ) {
+        "You make a wish.";
+    }
+    "The wishbone has already been pulled, and you have the part which lost.";
+];
+
+[ DanceSub ;
+    print_ret (The) noun, " does not wish to dance with you.";
+];
+
+[ InscribeSub ; "Graffiti is uncouth."; ];
+
+[ InscribeOnSub ;
+    if( second has unidentifed_rod ) {
+        "The silver plaque is extremely strong, and resists all attempts to mark it.";
+    }
+    InscribeSub();
+    rtrue;
+];
+
+[ TurnWithSub ;
+    if( second ~= steel_wrench )
+        print_ret (The) second, " is unsuitable for turning things.";
+    if( location ~= Library_Storage )
+        print "(The wrench seems unnecessary, so you use bare hands.)^";
+    << Turn noun >>;
+];
+
+[ KnockSub ;
+    if( noun hasnt door )
+        print "(If you insist.)  ";
+    "There is no reply.";
+];
+
+[ WashSub ;
+    if( noun ~= carbolic_soap ) "That's not something you can wash with.";
+    if( carbolic_soap notin player ) "You've no soap.";
+    remove carbolic_soap;
+    give carbolic_soap concealed;
+    "Ugh, it tastes absolutely ghastly. But you feel better for it.";
+];
+
+
+[ StrongSub ;
+    move carbolic_soap to player;
+    give carbolic_soap ~concealed;
+    "Now, that sort of language is an absolute disgrace, and you're going to have to pay the price for it.";
+];
+
+[ MildSub ;
+    "It's good that you can express your frustration in such a mild way.";
+];
+
+[ SorrySub ;
+    if( carbolic_soap has concealed ) "Oh, don't apologise.";
+    "Sorry isn't good enough!";
+];
+
+[ PointAtSub ;
+    print_ret "You point at ", (the) noun, ".";
+];
+
+[ PointVagueSub ;
+    if( noun in compass && adamantine_knight in location ) {
+        adamantine_knight.orders();
+        rfalse;
+    }
+    if( noun has rod_attr ) 
+        "Please point it at something.";
+    "A useless gesture.";
+];
+
+[ PointSub r ;
+    if( noun notin player ) "But you aren't holding it.";
+    if( second in player ) "It's too fiddly pointing it at something you're holding.";
+    if( noun hasnt rod_attr ) "Ok. (Why?)";
+    if( noun hasnt charged ) "Nothing happens.";
+
+    Achieved(SCORE_AIMWAND);
+    r = noun.rod_action;
+    if( r == -1 ) {
+        "** No rod routine **";
+    }
+    give noun ~charged;
+    r();
+    rtrue;
+];
+
+
+[ StrikeSub ;
+    if( noun notin player ) "But you aren't holding it.";
+    if( noun hasnt rod_attr ) 
+        print_ret "You ineffectually bash ", (the) noun, " on the ground.";
+    if( noun has charged ) {
+        deadflag = DIED;
+        "The already-charged rod explodes with cataclysmic violence, burying everything nearby in rubble!";
+    }
+    give noun charged;
+    Achieved(SCORE_WAND);
+    if( BeforeRoutines() == true ) {
+        rtrue;
+    }
+    "The rod charges with etherial power, drawn up from the earth through ley lines...";
+];
+
+[ MilkSub ;
+    if( noun == goat or herd_of_goats ) 
+        "Pour encourager les udders... But milking goats is no job for an amateur.";
+    "What?";
+];
+
+[ StackSub; << Drop noun >>; ];
+
+[ RipSub ;
+    "That sort of wilful damage to property is exactly what's wrong with the world today. And another thing, 
+     the influence of so-called rock and roll music on society has in my view, and I may be old-fashioned, 
+     but... [etc]";
+];
+
+[ RipDownSub ;
+    << Rip >>;
+];
+
+[ XyzzySub ;
+    "For a moment you can almost hear a hoarse voice say something to you. But it passes.";
+];
+
+[ LagachSub ;
+    "You feel inexplicably powerful, but nothing happens. Perhaps you should have addressed yourself more precisely.";
+];
+
+[ ShantihSub ;
+    "For a moment you can almost hear thunder, as though it were saying something. But the moment passes.";
+];
+
+[ TimeSub ;
+    WhereInGame();
+    new_line;
+    rtrue;
+];
+
+[ WhereInGame ;
+    if( location == Inside_the_Orb ) {
+        print "Inside the golden orb.";
+        rfalse;
+    }
+    if( game_section == T_MODERN ) print "This is the afternoon of June 3rd, 1993, and you are in Meldrew Hall.";
+    if( game_section == T_UNREAL ) print "It is early morning on October 5th, 1922, and you are in the Unreal City.";
+    if( game_section == T_HAMBURG ) print "It is nearly midnight on October 31st, 1988, and you are in a museum in Hamburg.";
+    if( game_section == T_TAROT ) print "You are passing among the strange, unearthly world of the Tarot box.";
+    if( game_section == T_GARDEN ) print "It is the afternoon of June 3rd, 1993, and you are in the gardens.";
+    if( game_section == T_GARDEN_PAST ) print "It is about noon on March 14th, 1808, and you are in the gardens.";
+    if( game_section == T_ANCIENT_BRITAIN ) print "It is some time in the sixth century A.D., and you are in the Master Game.";
+    if( game_section == T_DREAMING or (T_DREAMING|T_UNREAL) ) print "Time seems to have no meaning, and you are dreaming.";
+    if( game_section == T_CATACOMBS ) print "It is the afternoon of June 3rd, 1993, and you are in the catacombs beneath the gardens.";
+    if( game_section == T_ALEXANDRIA ) print "It is some time in the winter of 275 B.C., the reign of Ptolemy II, and you are in ancient Alexandria.";
+    if( game_section == T_NE_OF_HOME ) print "It is the afternoon of June 3rd, 1993, and you are northeast of Meldrew Hall.";
+    if( game_section == T_SPIRIT_WORLD ) print "You are in the Spirit World, centuries ahead of your sleeping body.";
+    if( game_section == T_AFTERLIFE ) print "In the great Monopoly-board Jail of the afterlife, you are ~Just Visiting~.";
+    rtrue;
+];
+
+[ SaveSub i;
+!    redraw_statusline = true;
+    if( location == Heavenly_Place ) "The angel looks at you reproachfully.";
+    if( location == Hellish_Place ) "The demon looks at you viciously.";
+    @save -> i;
+    if( i == 0 ) 
+        "Failed.";
+    print "Ok.^";
+    rtrue;
+];
+
+[ RamSub ;
+    if( game_section == T_MODERN ) "For heaven's sake, this is your own house.";
+    if( location == Coven_Cell ) "No, this is a goat. A ~ram~ is a kind of sheep.";
+    "Please don't ram anything. This computer only has limited RAM.";
+];
+
+[ GambleSub ; "How, exactly?"; ];
+
+[ HypnotizeSub ;
+    if( second ~= nothing or gold_watch_on_a_chain ) {
+        "You don't seem to have a suitable focus.";
+    }
+    if( gold_watch_on_a_chain notin player ) {
+        "Unaided, you are unable to make any impression.";
+    }
+    print "You set the gold watch swinging, back and forth, spinning the light. ";
+    if( noun == Old_Evans ) {
+        give Old_Evans general;
+        "Old Evans, who is nine-tenths hypnotised most of the time anyway, succumbs easily.";
+    }
+    if( noun == player ) {
+        << Sleep >>;
+    }
+    print "But ";
+    Defart(noun);
+    " seems wilful enough to resist hypnosis.";
+];
+
+[ AnointSub ; "You have no oil."; ];
+
+[ AnoppeSub ;
+    if (location ~= Lost_inside_the_Palace || Lost_inside_the_Palace hasnt general) 
+        "Nothing happens.";
+    SlaveFindsYou();
+    rtrue;
+];
+
+[ readchar s i j k ;
+    j = wn * 4 + 1;
+    k = parse->j;
+    s = k + buffer;
+    i = parse->(j - 1);
+    if (i ~= true) {
+        return -1;
+    }
+    j = -1;
+
+    if (s->0 >= 97 && s->0 <= 122) {
+        j = s->0 - 97 + 1;
+    }
+    if (s->0 >= 65 && s->0 <= 90) {
+        j = s->0 - 65 + 1;
+    }
+    if (j == -1) {
+        return -1;
+    }
+    parsed_number = j;
+    ++wn;
+    return 1;
+];
+
+[ SlideSub i j col;
+    if (location ~= CR) {
+        "~Slide~ is inappropriate here.";
+    }
+    if (noun == nothing) {
+        "What piece was that?";
+    }
+    i = 0;
+  .label128490;
+    if (i <= 14) {
+        if (henri_post_array->i == noun) {
+            if (i >= 3) {
+                j = i - 3;
+                if (henri_post_array->j == 0) {
+                    jump label128652;
+                }
+            }
+            if (i < 12) {
+                j = i + 3;
+                if (henri_post_array->j == 0) {
+                    jump label128652;
+                }
+            }
+            col = i % 3;
+            if (col ~= 0) {
+                j = i - 1;
+                if (henri_post_array->j == 0) {
+                    jump label128652;
+                }
+            }
+            if (col ~= 2) {
+                j = i + 1;
+                if (henri_post_array->j == 0) {
+                    jump label128652;
+                }
+            }
+        }
+        ++i;
+        jump label128490;
+    }
+    print "Unfortunately, '", (char) noun + 65 - 1, "' is not adjacent to the gap.";
+    new_line;
+    rtrue;
+  .label128652;
+    ++slide_moves;
+    if (slide_moves == 8) {
+        trigger_quotation(36);
+    }
+    if (slide_moves == 5) {
+        trigger_quotation(42);
+    }
+    col = henri_post_array->i;
+    henri_post_array->j = col;
+    henri_post_array->i = 0;
+    print "You slide '", (char) noun + 65 - 1, "' into the gap, leaving the grid looking like:^^";
+    DisplayWholeGrid();
+    i = 0;
+  .label128749;
+    if (i <= 14) {
+        if (henri_post_array->i ~= henry_post_initial_layout->i) {
+            rfalse;
+        }
+        ++i;
+        jump label128749;
+    }
+    Achieved(SCORE_HENRIPOST);
+    print "^There is a click from the mechanism. Pulleys pull. Cogs spin. Little bits of string run.^";
+    if (CR hasnt general) {
+        give CR general;
+        print "^The cannonball drops out of the metal hand, and falls into the higher basket, which plunges down, 
+            hurling the other basket upwards, ";
+        j = child(hanging_cord);
+        if (j == 0) {
+            "but it must have been empty.";
+        }
+        j = sibling(j);
+        print "and projecting ";
+        if (j == 0) {
+            print "something";
+        } else {
+            print "some things";
+        }
+        print " up the hole in the corner.^";
+        if (CR has light) {
+            j = child(hanging_cord);
+          .label129019;
+            if (j ~= 0) {
+                i = sibling(j);
+                move j to Lawn_Ornaments;
+                j = i;
+                jump label129019;
+            }
+            move ancient_well to Lawn_Ornaments;
+        } else {
+            print "^A moment later, however, there is a distant but loud thump. A moment after that, something 
+                plummets back down out of the hole (in a shower of thin white plaster) and into the higher basket,
+                which (owing to fantastic machinery) wrenches down again, hurling the cannonball in the other end
+                up into the air.^^The metal hand catches the cannonball beautifully.^";
+            give CR ~general;
+        }
+        if (parent(golden_orb) == hanging_cord) {
+            move glowing_golden_orb to CR;
+        } else {
+            remove glowing_golden_orb;
+        }
+    }
+    rtrue;
+];
+
+[ SailSub ;
+    if (player notin skiff) 
+        "You are not in any suitable means of transport.";
+    if (skiff in Warehouses_and_Port || skiff in Garden_Stream) {
+        if (skiff in Warehouses_and_Port) {
+            move skiff to Garden_Stream;
+            location = Garden_Stream;
+        } else {
+            move skiff to Warehouses_and_Port;
+            location = Warehouses_and_Port;
+        }
+        print "The skiff gathers wind from somewhere, which whistles past you until your eyes are blurred and watery. 
+            When you look around, you find that you are moored once again...^";
+        << Look >>;
+    }
+    if (skiff has general) 
+        "That seems to be happening whether you like it or not.";
+    give skiff general;
+    move skiff to Harbour_Mouth;
+    location = Harbour_Mouth;
+    print "You set sail, and a light breeze propels your skiff...^";
+    << Look >>;
+];
+
+[ JumpSub ;
+    if( Austin in location ) {
+        if( game_section == T_ALEXANDRIA ) {
+            "Austin is quite unruffled.";
+        }
+        print "For some reason, Austin is startled and springs for his life ";
+        trigger_quotation(7);
+        if( location == Souvenirs_Room && charcoal_sketch in slide_projector && south_wall hasnt concealed ) {
+            move Austin to Causeway;
+            Achieved(SCORE_AUSTIN);
+            "right up through the south wall and into Alexandria!";
+        }
+        AustinMovements(true);
+        rfalse;
+    }
+    L__M(##Jump);
+    rtrue;
+];
+
+
+[ HintsSub ;
+    "There are hints built into this game, but you will have to find out for yourself how to get them.";
+];
+
+Verb 'strike'
+    * noun                                              -> Strike
+    * noun 'with' held                                  -> Attack;
+
+Verb 'beckon' 'direct' 'gesture' 'point'
+    * noun                                              -> PointVague
+    * 'at' noun                                         -> PointAt
+    * held 'at' noun                                    -> Point;
+
+Extend 'turn' last
+    * noun 'with' held                                  -> TurnWith;
+
+Verb 'knock'
+    * 'on' noun                                         -> Knock
+    * 'at' noun                                         -> Knock;
+
+
+Verb 'wash'
+    * 'my' 'mouth' 'with' held                          -> Wash
+    * 'my' 'mouth' 'out' 'with' held                    -> Wash
+    * 'mouth' 'with' held                               -> Wash
+    * 'mouth' 'out' 'with' held                         -> Wash;
+
+Verb 'milk'
+    * noun                                              -> Milk;
+
+Verb 'rip' 'tear'
+    *                                                   -> Rip
+    * 'down' noun                                       -> RipDown
+    * noun                                              -> Rip;
+
+Verb 'achetez'
+    * special                                           -> Buy;
+
+Verb 'stack'
+    * noun                                              -> Stack
+    * noun 'with' held                                  -> Stack
+    * held 'on' noun                                    -> Insert
+    * held 'onto' noun                                  -> Insert
+    * held 'in' noun                                    -> Insert;
+
+Verb 'lagach'
+    *                                                   -> Lagach;
+
+Verb 'shantih'
+    *                                                   -> Shantih
+    * special                                           -> Shantih
+    * special special                                   -> Shantih;
+
+Verb 'plover' 'plugh' 'xyzzy'
+    *                                                   -> Xyzzy;
+
+Verb 'time'
+    *                                                   -> Time;
+
+Verb 'ram'
+    * special                                           -> Ram;
+
+Verb 'bet' 'gamble' 'wager'
+    *                                                   -> Gamble
+    * 'with' noun                                       -> Gamble;
+
+Verb 'add' 'join' 'mend' 'repair'
+    * noun                                              -> Repair
+    * noun 'to' noun                                    -> Repair;
+
+Verb 'anoppe' 'eppona'
+    *                                                   -> Anoppe;
+
+Verb 'anoint' 'oil'
+    * noun                                              -> Anoint;
+
+Verb 'float' 'sail'
+    *                                                   -> Sail
+    * 'away'                                            -> Sail;
+
+Verb 'hypnotise' 'hypnotize'
+    * creature                                          -> Hypnotize
+    * creature 'with' noun                              -> Hypnotize;
+
+Verb 'etch' 'inscribe' 'scribe' 'write'
+    * special                                           -> Inscribe
+    * special 'on' noun                                 -> InscribeOn;
+
+Verb 'make' 'wish'
+    *                                                   -> Wish
+    * 'wish'                                            -> Wish
+    * 'a//' 'wish'                                      -> Wish
+    * 'for' special                                     -> Wish;
+
+Verb 'hint' 'hints'
+    *                                                   -> Hints;
+
+Verb 'dance' 'tango' 'waltz'
+    * 'with' creature                                   -> Dance;
+
+Verb 'beep' 'bleep' 'chirp'
+    *                                                   -> Beep;
+
+Verb 'slide'
+    * readchar                                          -> Slide;
+
+Verb 'play'
+    * 'croquet'                                         -> PlayCroquet
+    * 'with' held                                       -> Blow
+    * held                                              -> Blow;
+
+Extend 'attack' last
+   * noun 'with' held                                   -> Kill;
+
+Verb 'pace'
+    *                                                   -> Pace
+    * CroquetFunc                                       -> PaceDir;
+
+Extend 'take' last
+    * AnotherCroquetFunc                                -> PaceDir;
+
+
+Verb 'change' 'flip'
+    * noun                                              -> SwitchOn;
+
+Verb 'reverse' 'revolve'
+    * noun                                              -> Turn;
+
+Verb 'pinch' 'slap'
+    * creature                                          -> Attack
+    * noun                                              -> Take;
+
+Verb 'scratch'
+    * noun                                              -> Rub;
+
+Verb 'ring'
+    * noun                                              -> Push;
+
+Verb 'diagnose'
+    *                                                   -> Diagnose;
+
+Verb 'frisk'
+    * animate                                           -> Search;
+
+Verb 'exhibit' 'reveal'
+    *                                                   -> Sing;
+
+Verb 'pet' 'stroke' 'tickle'
+    * noun                                              -> Touch;
+
+Verb 'roll' 'shoot' 'toss'
+    * noun                                              -> Drop;
+
+Verb 'lean' 'prop' 'rest' 'support'
+    * held 'against' noun                               -> Lean
+    * held 'on' noun                                    -> Lean
+    * 'up' noun 'with' held                             -> PropWith
+    * noun 'with' held                                  -> PropWith;
+
+Verb 'lay'
+    * noun 'on' noun                                    -> PutOn;
+
+Verb 'start' 'stop'
+    * noun                                              -> Start;
+
+Extend 'lie' last
+    * 'down'                                            -> LieDown
+    * 'down' 'on' noun                                  -> Enter; 
+
+Extend 'dig' last
+    * 'with' held                                       -> DigWith;
+
+Extend 'go' last
+    * CroquetFunc                                       -> PaceDir;
+
