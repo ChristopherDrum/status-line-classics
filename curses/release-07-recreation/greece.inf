@@ -1,0 +1,257 @@
+Object  Sea_Shore "Sea Shore"
+  with  description "A rough rocky sea shore below barely-climbable cliffs, 
+            against which an inviting deep blue sea laps. It seems to
+            be early morning, soon after dawn, from the look of the sun
+            on the water.",
+        u_to Cliffs,
+        before [;
+            Swim:
+                deadflag = MYTH;
+                "As you dive into the sea, you catch sight of Andromeda 
+                 looking suddenly cheerful. It soon becomes apparent
+                 why, as a Kraken wakes from the depths of the ocean and
+                 swipes you for a quick snack. You seem to have replaced
+                 her as sacrifice... a Pyrrhic victory.";
+        ],
+        cant_go "The rocks are too dangerous. You'll have to scale the cliff.",
+  has   light;
+
+Object  -> Andromeda "Andromeda"
+  with  name 'andromeda' 'maiden',
+        initial "Chained to the cliff face is the beautiful Andromeda, 
+            looking nobly out to sea as she awaits her fate.",
+        description [;
+            print "Avert your eyes. She is naked";
+            if( amber_hairband has static )
+                print " (unless you count a hairband)";
+            ", as used to be fashionable for human sacrifices: the victim left 
+             overnight without food or shelter until the dawn. It has to
+             be said that she doesn't look all that keen to be rescued.";
+        ],
+        life [;
+            Give: 
+                if( noun has edible ) {
+                    if( noun == Ekmek_Special ) {
+                        remove noun;
+                        give amber_hairband ~static moved;
+                        move amber_hairband to player;
+                        "She smiles as if to say there's not much point 
+                         watching her waist-line any more, and hungrily
+                         wolfs down her favourite dessert. As a gesture
+                         of thanks, she takes off her amber hairband
+                         and hands it you. Quickly she readopts her
+                         noble pose, however, just in case anyone else
+                         is looking.";
+                    }
+                    "She looks with obvious hunger, but her sense of duty 
+                     wins out and she refuses.";
+                }
+            Kiss: "She evades you deftly, after years of practice with Greek men.^";
+            Attack: "No need, if the sea-monster is all it's cracked up to be.";
+            Ask, Tell, Answer, Order:
+                if( gas_mask in player && gas_mask has worn )
+                    "Not through a gas mask you can't.";
+                "Andromeda hisses something contemptuous at you in Greek. (Demotic, not Attic, 
+                 ironically enough, but then it's all Greek to you.)";
+        ],
+  has   animate proper;
+
+Object  -> amber_hairband "amber hairband"
+  with  name 'amber' 'hairband' 'hair' 'band',
+        description "A long clasp of amber, pefect for long straggly Greek hair.",
+        article "Andromeda's",
+        rod_assoc rod_of_sacrifice,
+        devil_hint "Mmm... it still has her perfume on it. Hehehehe. Bet she's dead now.",
+  has   concealed static hidden_rod;
+
+Rod     rod_of_sacrifice "Rod of Sacrifice"
+  with  name 'rod' 'of' 'sacrifice',
+        rod_action [;
+            if( second == player ) {
+                deadflag = DIED;
+                "You feel a noble surge of pride as your body is 
+                 incinerated by the Rod of Sacrifice. At least you died
+                 for some terribly important cause, although exactly
+                 what it was seems to have slipped your mind.";
+            }
+            "Nothing obvious happens.";
+        ],
+        angel_hint "Far, far too dangerous. The age of martyrs in the church is long gone, you know.";
+
+Object  Cliffs "Cliffs"
+  with  name 'pharosp' 'lighthouse' 'tower',
+        description "On top of some exposed cliffs on the Mediterranean. A 
+            dangerous slither down leads on one side to the shore, all
+            other ways down being even more hazardous. Atop the cliffs
+            is the Pharos tower, a round stone pinnacle lighthouse,
+            but there is no way in from here. A grassy walk leads east.",
+        e_to Clifftop_Walk,
+        d_to Sea_Shore,
+        cant_go "There's only dull grassland that way.",
+  has   light;
+
+Object  Clifftop_Walk "Clifftop Walk"
+  with  description "A long clifftop walk by the sea, from the lighthouse 
+            to the west to the village not far east. These fields are
+            occupied by herds of hardy mountain goats, continually
+            butting each other and frisking. To the south a path leads
+            across sparse grassland to a great outgrowth of some kind.",
+        s_to Wall_of_Thorns,
+        e_to [;
+            if( herd_of_goats hasnt general )
+                "The goats hiss and butt against you, not letting you through.";
+            print "The goats obediently part to allow you to get by.^";
+            return Outside_Taverna;
+        ],
+        w_to Cliffs,
+        cant_go "There's only dull grassland that way.",
+  has   light;
+
+Object  -> herd_of_goats "herd of goats"
+  with  name 'goats' 'herd' 'of',
+  has   scenery;
+
+Object Wall_of_Thorns "Wall of Thorns"
+  with  description "The rather sparse rolling landscape is dominated here 
+            by a massive, and suspiciously unnatural, wall of thorns,
+            which forms a great ring about an area perhaps a hundred
+            yards in diameter. There are goat pastures to the north.",
+        n_to Clifftop_Walk,
+        s_to wall_of_thorns_object,
+        cant_go "There's only dull grassland that way.",
+  has   light;
+
+Object  -> wall_of_thorns_object "wall of thorns"
+  with  name 'gap' 'thorns' 'of' 'wall',
+        description "It's hard to imagine what could possibly shift a wall like that.",
+        initial "A ragged gap in the wall has been burnt out to the south.",
+        door_dir s_to,
+        door_to Sacred_Earth,
+        describe "The wall rustles and clashes its thorns like a beast alive.",
+  has   door static;
+
+Object  Sacred_Earth "Sacred Earth"
+  with  description "Here inside the thorn wall, a north-south path leads 
+            across sacred earth into the imposing marble Temple of
+            Zeus. You feel distinctly uneasy walking on such hallowed
+            turf. There are any number of myths about gods getting cross
+            about that sort of thing.",
+        n_to Wall_of_Thorns,
+        s_to [;
+            print "Zeus, who is after all the chief of all the gods, appears and hurls a thunderbolt down just before you begin to cross into the Temple. ";
+            if( big_electricians_switch has on ) {
+                deadflag = DIED;
+                "With the kind of calculation only a god could make, Zeus has worked out exactly what would happen and aimed the thunderbolt so that it hits you straight in the back despite your attempt to weave about. Pretty impressive prediction, is your last thought.";
+            }
+            if( rod_of_luck has general ) {
+                print "Astonishingly, you beat the luck of the gods and slip into the temple just clear of the thunderbolt. ~Damn, missed!~ says a sepulchral voice from without.^";
+                return Temple_of_Zeus;
+            }
+            deadflag = DIED;
+            "With the luck of the gods, Zeus' thunderbolt strikes you just about exactly in the back, despite your attempts to weave about.";
+        ],
+        cant_go "The wall of thorns hems you in.",
+  has   light;
+
+Object Temple_of_Zeus "Temple of Zeus"
+  with  name 'pillar',
+        description "The beautiful candle-lit Temple of Zeus, a cavern of marble 
+            pillars which is quite empty and featureless save for the
+            entrance at the north. So much for all the rumours about
+            hoards of treasure - it looks as if Zeus (who is, by the
+            way howling with anger outside) was bluffing all along.",
+        n_to [;
+            print "~I'll get you this time, worm!~ says Zeus, and hurls another thunderbolt, but now he's angry his aim is right off. You survive once more.^";
+            return Sacred_Earth;
+        ],
+        cant_go "Unfortunately for you (since Zeus is watching it), the temple has only one entrance.",
+  has   light scored;
+
+Object  -> copper_coin "copper coin"
+  with  name 'copper' 'coin',
+        article "one",
+        angel_hint "This currency is only valid in ancient Greece. Where on earth have you been?",
+  has   ;
+
+Object  Outside_Taverna "Outside Taverna"
+  with  description "A long walk along the cliffs from the lighthouse 
+            leads naturally here, just outside the Eraina Taverna,
+            whose open doorway lies to the south.",
+        s_to Eraina_Taverna,
+        w_to Clifftop_Walk,
+        cant_go "There's only dull grassland that way.",
+  has   light;
+
+Object  Eraina_Taverna "Eraina Taverna"
+  with  description "A plain but cheery taverna, fill of miserable and rather 
+            ashamed men who are drinking retsina heavily. The day is
+            dawning outside the north door, but they strangely do not
+            share your uplifted feeling at the sight.",
+        before [;
+            Buy: "Given the language difficulty, you'd better resort to barter.";
+        ],
+        n_to Clifftop_Walk,
+        cant_go "The tavern entrance is to the north.",
+        each_turn [;
+            switch( random(13) ) {
+                1: "^The diners grumble and play backgammon viciously.";
+                2: "^The bartender gives you a hard stare.";
+                3: "^A fight breaks out, over an obscure question to do with somebody's second cousin.";
+                4: "^The gentle sound of bazouki music strikes up in the background, and gradually rises to an intolerable pitch. After a moment comes a dull thud and a strangled noise, then blessed quiet.";
+            }
+        ],
+  has   light scored;
+
+Object  -> Ekmek_Special "Ekmek Special"
+  with  name 'ekmek' 'special' 'dessert',
+        description "A speciality dessert of the Taverna: ice cream, kateifi, 
+            raspberry sauce, cream. An acquired taste.",
+        initial "Left untouched on one table is an Ekmek Special dessert.",
+        before [;
+            Take:
+                if( self has moved || copper_coin has general )
+                    rfalse;
+                "You can't understand a word of what the bartender says, but the drift is clear enough. Not until you pay for it.";
+        ],
+                
+        devil_hint "Better with chocolate ice cream, I think.",
+        angel_hint "Doesn't somebody else need this more than you?",
+  has   proper edible scored;
+
+Object  -> bartender "bartender"
+  with  name 'bar' 'tender' 'bartender',
+        description "Morose and unconvivial at the best of times. This is not the best of times.",
+        life [;
+            Give:
+                if( noun == copper_coin ) {
+                    remove noun;
+                    give copper_coin general;
+                    "The bartender takes the coin wearily.";
+                }
+                rfalse;
+            Answer, Ask, Tell:
+                "Being an educated person, the bartender speaks a little Latin and some Aramaic. 
+                 Being an uneducated one, you don't, and communication proves impossible.";
+        ],
+        initial "Behind the bar, a depressed bartender polishes glasses.",
+  has   animate;
+
+Object  Lighthouse "Lighthouse"
+  with  name 'smudge' 'quinqu',
+        description "You stand atop a pinnacle of stone, on an early Pharos, 
+            or lighthouse. Inconsiderately enough, the builders have
+            provided no obvious way down from here. Still, there's a
+            fine view out across the Mediterranean sea into the dim
+            dawning sun. It's going to be a nice day, you can't help
+            thinking.^^In the centre of the pinnacle is a marvellous
+            device of polished bronze mirrors, its open end pointed out
+            across the bay. There seems to be very little traffic at
+            the moment, though a smudge on the horizon might possibly
+            be a quinquireme.",
+        cant_go "Being a lighthouse, this pinnacle is way up in the air. Point taken?",
+  has   light scored;
+
+Object  -> mirrored_device "mirrored device"
+  with  name 'device' 'mirror' 'bronze',
+  has   container transparent open scenery;
+
