@@ -2,10 +2,10 @@
 Classic text adventures, reformatted to look beautiful in [Status Line on the Pico-8](https://christopherdrum.itch.io/statusline)
 
 ### TL;DR
-There are a handful of Infocom classics which have hard-coded formatting values which prevent them from being played on narrow screens under 40-characters wide (sometimes even under 60-characters), even if the target machine has enough processing power to play the game. This repo attempts to remove those layout restrictions to adapt a certain class of games to look and play great on small screens.
+There are a handful of interactive fiction classics which have hard-coded formatting values which prevent them from being played on screens under 40-characters wide (sometimes even under 60-characters), even if the target machine has enough processing power to play the game. This repo attempts to remove those layout restrictions to adapt a certain class of games to look and play great on small screens.
 
 ### Important note regarding games in-progress
-Because of the way the compiler makes a build, every revision to this game code results in game files whose save games are incompatible with one another. I currently see no way around this, as internal memory locations often change between builds. So, if an update to one of these games is published, you will not be able to continue a game in-progress from a previous game build. Please recognize this is only with regard to these specific game files and is not true of the main Status Line engine. Updates to Status Line proper have no effect on your save games.
+Because of the way the compiler makes a build, every revision to this game code results in game files whose save games are incompatible with one another. I currently see no way around this, as internal memory locations often change between builds. So, if an update to one of these games is published, you will not be able to continue a game in-progress from a previous game build. Please recognize this is only with regard to these specific game files and is not true of the main Status Line engine. Minor updates to Status Line proper have no effect on your save games; major updates may change the save game structure to accomodate new features.
 
 ## Regarding bug reports
 Before submitting bug reports, be aware there are two categories of bugs
@@ -49,13 +49,12 @@ I am the author of [Status Line](https://christopherdrum.itch.io/statusline), a 
 
 As I expand Status Line's capabilities into z4 compatibility and beyond, I am forced to reckon with the harsh fact that some titles were hard-coded to require a minimum 40-character (or more) display. Granted, a z-machine interpreter can "lie" and claim it supports such a screen. However, while this will trick the game into starting and playing, it can render certain games "playable" with the huge caveat that important text may be drawn off-screen. For most players this makes the games challenging to play, and not in the fun way.
 
-So, I decided to suck it up and do the hard work to make those games work well on a small screen, with specific emphasis on Status Line and its capabilities/limitations. I do sometimes (judiciously and while preserving authorial intent) reword/truncate a phrase or two here and there to fit the horizontal space of the small screen. This does not alter any wording of prose, and is mostly relegated to status line information, redundant to the main textual corpus.
+To provide extra support to people who enjoy the cozy atmosphere of Status Line on the Pico-8, I endeavor to make classics (whose source code is available) to work well on a small screen. I do (when appropriate) place specific emphasis on Status Line and its capabilities/limitations. I may (judiciously and while preserving authorial intent) reword/truncate a phrase or two here and there to fit the horizontal space of the small screen. This does not alter any wording of prose, and is mostly relegated to status line information, redundant to the main textual corpus.
 
-## The Plan
-* First, make it work in Status Line. This will allow me to identify the areas that need code adjustments for later work. So, to begin this will probably just mean swapping certain hard-coded layout values with numbers appropriate to the 32-character wide Pico-8 screen.
-* Next, refactor the hard-coded values out into variables and/or calculation routines.
-* Next, feed the refactored routines with dynamic values from the z-code header and verify the original experience is unaltered while providing smaller screens an equivalent play experience.
-* Last, propose changes to the upstream source repos to make the originals more generically flexible to a wide range of screens.
+## Intentions
+* First, make it work in Status Line. This allows me to identify areas that need code adjustments for later work. So, to begin this will probably just mean swapping certain hard-coded layout values with numbers appropriate to the 32-character wide Pico-8 screen.
+* Then, refactor the above changes to be generally flexible to all screen sizes.
+* Last, propose lightweight changes to the upstream source repos to introduce screen flexibility to everyone? (maybe not necessary; just use this repo I suppose)
 
 ## Build Notes
 For those wanting to build from source, you will need the ZILF and ZAPF compiler tools.
