@@ -76,8 +76,8 @@ hint now, indicate HINT.]" CR>
 
 <ROUTINE PICK-QUESTION ("AUX" CHR MAXQ (Q <>))
 	<INIT-HINT-SCREEN <>>
-	<LEFT-LINE 3 "return:new hint">
-	<RIGHT-LINE 3 "q:hint menu" 11>
+	<LEFT-LINE 3 "return:see hint" 15>
+	<RIGHT-LINE 3 "q:main menu" 11>
 	<SET MAXQ <- <GET <GET ,HINTS ,CHAPT-NUM> 0> 1>>
 	<CURSET 5 1>
 	<PUT-UP-QUESTIONS>
@@ -165,16 +165,16 @@ the cursor and text"
 	<SCREEN ,S-WINDOW>
 	<CURSET 1 1>
 	<INVERSE-LINE>
-	<CENTER-LINE 1 "INVISICLUES (tm)" %<LENGTH "INVISICLUES (tm)">>
+	<CENTER-LINE 1 "INVISICLUES (tm)" 16>
 	<CURSET 3 1>
 	<INVERSE-LINE>
 	;<COND (,WIDE
 	       <TELL " ">)>
-	<LEFT-LINE 3 "RETURN = see new hint">
-	<RIGHT-LINE 3 "Q = see hint menu" %<LENGTH "Q = see hint menu">>
+	<LEFT-LINE 3 "return:new hint" 15>
+	<RIGHT-LINE 3 "q:hint menu" 11>
 	<CURSET 2 1>
 	<INVERSE-LINE>
-	<HLIGHT ,H-BOLD>
+	<HLIGHT ,H-ITALIC>
 	<SET H <GET <GET ,HINTS ,CHAPT-NUM> <+ ,QUEST-NUM 1>>>
 	<CENTER-LINE 2 <GET .H 2 ;1 ;,HINT-QUESTION>>
 	<HLIGHT ,H-NORMAL>
@@ -320,30 +320,30 @@ topic as an indication of what is important.">
 		  <LTABLE 3 "What is a grue?"
 			   "Type, WHAT IS A GRUE.">>
 	 <PLTABLE "The Cellar Area"
-		  <LTABLE 3 "Can I open the trapdoor from below?"
+		  <LTABLE 3 "Open the trapdoor from below?"
 			   "No. The only way to keep the trapdoor from closing behind you is to find another exit (other than the chimney, which is very limited).">
 		  <LTABLE 3 "Can I get up the Cellar ramp?"
 			   "The ramp is too slippery to climb."
 			   "Is there a way to make it less slippery?"
 			   "No. You won't ever get up the ramp.">
-		  <LTABLE 3 "How do I negotiate with the Troll?"
+		  <LTABLE 3 "Negotiate with the Troll?"
 			   "Trolls tend not to be conversational. They require a much more direct approach."
 			   "You won't get past the Troll while he is conscious."
 			   "Kill him with the sword.">
 		  <LTABLE 3 "What do I do with the axe?"
 			   "It can be used as a weapon, but isn't really necessary for anything."
 			   "This space intentionally left blank.">
-		  <LTABLE 3 "What's the studio paint all about?"
+		  <LTABLE 3 "What's the studio paint for?"
 			   "The artist was sloppy.">>
 	 <PLTABLE "The Maze"
-		  <LTABLE 3 "How do I get through the Maze?"
+		  <LTABLE 3 "How to get through the Maze?"
 			   "It is essential that you make a map of the Maze."
 			   "All ten directions are used: N, S, E, W, NE, NW, SE, SW, UP and DOWN."
 			   "Some passages lead back to the same room."
 "Rooms can be marked by dropping objects. (However,
 the Thief can be a pain.)" 
 "There are 22 rooms west of the Troll Room.">
-		  <LTABLE 3 "Still, how do I get through the Maze?"
+		  <LTABLE 3 "Still can't get through Maze?"
 			   "From the Troll Room to the Grating Room:"
 			   "W. W. W. U. SW. U. D. NE."
 			   "From the Grating Room to the Troll Room:"
@@ -356,16 +356,16 @@ the Thief can be a pain.)"
 			   "SW. D. E. N. E. S. SE."
 			   "From the Cyclops Room to the Grating Room:"
 			   "NW. S. W. U. D. NE.">
-		  <LTABLE 3 "What do I do with the rusty knife?"
+		  <LTABLE 3 "What about the rusty knife?"
 			   "If you had your sword when you took it, the pulse of blinding light should have served as a warning."
 			   "Try throwing the knife or attacking someone with it.">
-		  <LTABLE 3 "What do I do with the skeleton?"
+		  <LTABLE 3 "What about the skeleton?"
 			   "Let the dead rest in peace."
 			   "This space intentionally left blank.">
 		  <LTABLE 3 "Can I use the broken lantern?"
 "If you think it's useful, there's this bridge you
 might be interested in.">
-		  <LTABLE 3 "How do I get past the Cyclops?"
+		  <LTABLE 3 "How to get past the Cyclops?"
 			   "Fighting isn't always the answer."
 			   "There are two solutions."
 			   "First, the first solution:"
@@ -380,7 +380,7 @@ nemesis, ODYSSEUS (first letter of each line in commandment -- some computer scr
 "The Latin version of the name, ULYSSES, is also accepted."
 "For fun, try saying ODYSSEUS elsewhere.">>
 	 <PLTABLE "The Round Room Area"
-		  <LTABLE 3 "How do I get the platinum bar?"
+		  <LTABLE 3 "How do I get the platinum?"
 			   "There are actually two solutions."
 			   "What is causing the loud roar?"
 			   "Is there a way to control the flow of water?"
@@ -398,7 +398,7 @@ nemesis, ODYSSEUS (first letter of each line in commandment -- some computer scr
 		  <LTABLE 3 "How do I kill the rock?"
 			   "How silly!"
 			   "The term \"living rock\" is metaphorical, and should not be taken literally.">
-		  <LTABLE 3 "Anything special about the mirror?"
+		  <LTABLE 3 "What about the mirror?"
 			   "Breaking it is not a good idea."
 			   "Looking into it can be fun."
 			   "Did you ever try touching or rubbing it?"
@@ -412,15 +412,15 @@ nemesis, ODYSSEUS (first letter of each line in commandment -- some computer scr
 			   "The order in which you perform the ceremony is very important."
 			   "Also, you must be holding the candles when you light them."
 			   "Speed is of the essence, too -- don't waste any more time than is necessary between steps.">
-		  <LTABLE 3 "Can I go down from the Dome Room?"
+		  <LTABLE 3 "Can I go down from Dome Room?"
 			   "Yes."
 			   "It is likely that you have seen the necessary
 equipment."
 			   "It is found in the Attic."
 			   "Tie the rope to the railing.">
-		  <LTABLE 3 "Can I go up from the Torch Room?"
+		  <LTABLE 3 "Can I go up from Torch Room?"
 			   "No.">
-		  <LTABLE 3 "How do I get out of the Temple area?"
+		  <LTABLE 3 "How do I leave the Temple?"
 			   "You'll never reach the rope."
 			   "You can leave from the altar end by going down, but you \"haven't a prayer\" of getting the coffin down that hole."
 			   "Or solve the puzzle of the granite walls."
@@ -431,7 +431,7 @@ equipment."
 		  <LTABLE 3 "How do I blow up the dam?"
 			   "What a concept!"
 			   "This space intentionally left blank.">
-		  <LTABLE 3 "How is the control panel operated?"
+		  <LTABLE 3 "How the control panel works"
 			   "You can turn the bolt."
 			   "You need the wrench."
 			   "You must activate the panel. (Green bubble lights up).">
@@ -445,7 +445,7 @@ equipment."
 			   "Gooey gunk like this is good for patching leaks in water pipes or boats.">
 		  <LTABLE 3 "What is the screwdriver for?"
 			   "You'll know when the time comes.">
-		  <LTABLE 3 "What about Maintenance Room buttons?"
+		  <LTABLE 3 "The Maintenance Room buttons"
 			   "Try them all. You should be able to find out."
 			   "The blue button causes a water pipe to burst."
 			   "The red button turns the lights on and off."
@@ -455,7 +455,7 @@ equipment."
 			   "Yes, but not with your finger."
 			   "Isn't there some sort of glop you could apply?"
 			   "Use the gunk in the tube.">
-		  <LTABLE 3 "What is the pile of plastic good for?"
+		  <LTABLE 3 "What is the pile of plastic?"
 			   "What is the valve for?"
 			   "Did you try blowing into it?"
 			   "You need the air pump, which is north of the Reservoir."
@@ -463,10 +463,10 @@ equipment."
 		  <PLTABLE "Old Man River"
 			   <LTABLE 3 "Can the river be crossed?"
 				    "Not without a boat.">
-			   <LTABLE 3 "What will placate the River God?"
+			   <LTABLE 3 "What placates the River God?"
 				    "What have you tried to throw into the river?"
 				    "There is no River God. Anything thrown in is lost forever.">
-			   <LTABLE 3 "Can I get back across the river?"
+			   <LTABLE 3 "Getting back across the river"
 				    "If you launch the boat from Sandy Beach, you can cross the river to the west to White Cliffs South."
 				   "It is also possible to cross the rainbow.">
 			   <LTABLE 3 "How do I control the boat?"
@@ -484,10 +484,10 @@ equipment."
 				    "You do not click your heels together three times while saying \"There's no place like home.\""
 				    "The description of one of the treasures, and the result of manipulating it properly were meant to be subtle hints."
 				    "Raise or wave the sceptre while standing at the end of the rainbow.">
-			   <LTABLE 3 "Can I go through the Damp Cave crack?"
+			   <LTABLE 3 "The Damp Cave crack"
 				    "\"It's too narrow for most insects.\""
 				    "You can't.">
-			   <LTABLE 3 "How do I turn myself into an insect?"
+			   <LTABLE 3 "Can I turn into an insect?"
 				    "Build a cocoon?"
 				    "Not bloody likely.">>
 		  <PLTABLE "The Coal Mine Area"
@@ -495,19 +495,19 @@ equipment."
 				    "It's a vampire bat."
 				    "Have you never watched an old horror movie?"
 				    "Use the garlic.">
-			   <LTABLE 3 "How do I get by the Smelly Room?"
+			   <LTABLE 3 "Getting by the Smelly Room?"
 				    "If your lantern battery is dead, forget it.">
-			   <LTABLE 3 "What's the best coal mine route?"
+			   <LTABLE 3 "The best coal mine route?"
 				    "From the Gas Room to Ladder Top:"
 				    "E. NE. SE. SW. D."
 				    "From Ladder Top to the Gas Room:"
 				    "U. N. E. S. N.">
-			   <LTABLE 3 "Is the basket on the chain useful?"
+			   <LTABLE 3 "Is the chained basket useful?"
 				    "Anything in ZORK I is useful.">
-			   <LTABLE 3 "Can I get through the narrow passage?"
+			   <LTABLE 3 "Through the narrow passage"
 				    "\"You cannot fit through this passage with that load.\""
 				    "Did you try dropping everything?">
-			   <LTABLE 3 "Need a Drafty Room light source?"
+			   <LTABLE 3 "A Drafty Room light source?"
 				    "Matches."
 				    "(Well, no one said they would work in a draft.) You can't carry a light source in. There is another way."
 				    "Why might the room be drafty?"
@@ -519,13 +519,13 @@ equipment."
 				    "The switch description should remind you of something."
 				    "Try putting something inside and turning the machine on with the screwdriver. Have a dictionary handy."
 				    "You can make a diamond out of coal.">
-			   <LTABLE 3 "What's the Granite Wall about?"
+			   <LTABLE 3 "What's the Granite Wall?"
 				    "Evidently the ancient Zorkers did not have strong truth-in-advertising laws. Take nothing for granite.">
-			   <LTABLE 3 "Is the coal good for anything?"
+			   <LTABLE 3 "Is the coal useful?"
 				    "It is a source of carbon."
 				    "One of the most valuable gems is made of carbon."
 				    "Diamonds are pure carbon in a crystalline form. They are created under tremendous heat and pressure.">
-			   <LTABLE 3 "Is the gas of any use?"
+			   <LTABLE 3 "Is the gas useful?"
 				    "It's great for blowing up dim-witted adventurers who wander into a coal mine with an open flame.">>
 		  <PLTABLE "The Land Beyond the Chasm"
 			   <LTABLE 3 "How do I cross the chasm?"
@@ -541,9 +541,9 @@ equipment."
 			   <LTABLE 3 "What do I do about the Thief?"
 				    "Discretion is the better part of valor."
 				    "You can almost always avoid a confrontation by walking away. Although you may be robbed, at least you won't be killed.">
-			   <LTABLE 3 "How may total points are there?"
+			   <LTABLE 3 "How many points are there?"
 				    "350. Any time you say QUIT, RESTART, or SCORE, this is pointed out.">
-			   <LTABLE 3 "How do I get out of the dungeons?"
+			   <LTABLE 3 "How do I exit the dungeons?"
 				    "There are six exits."
 				    "The chimney will allow you to carry one object at a time in addition to your lamp."
 				    "Once you find an exit other than the chimney, the trap door will not close behind you."
@@ -574,40 +574,40 @@ equipment."
 				    "To quote the black book, Oh ye who go about saying unto each: 'Hello Sailor': Dost thou know the magnitude of thy sin before the gods? ... Surely thou shalt repent of thy cunning."
 				    "Nowhere. (You were warned.)">>
 		  <PLTABLE "More General Questions"
-			   <LTABLE 3 "Objects seem to move or disappear."
+			   <LTABLE 3 "Objects move or disappear."
 				    "The Thief is constantly moving about."
 				    "There is a high probability that he will take valuable objects (except the gold coffin) which you have seen. There is a much lower probability that he will take a nonvaluable object (again, only if you have seen it), and he may later decide to drop it.">
-			   <LTABLE 3 "Where are my stolen treasures?"
+			   <LTABLE 3 "Where are my stolen treasures"
 				    "As the Thief wanders about stealing things, he puts them in his bag. Whenever he stops in his Treasure Room, he drops off the valuables he has collected."
 				    "You can get the contents of the bag by defeating him in a fight."
 				    "The Treasure Room is guarded by the Cyclops.">
-			   <LTABLE 3 "What do I do with the stiletto?"
+			   <LTABLE 3 "Using the stiletto"
 				    "Congratulations! Getting the stiletto is rare. If you keep it away from the Thief, he won't attack you."
 				    "It is a weapon, nothing more.">
-			   <LTABLE 3 "Who is the lean and hungry gentleman?"
+			   <LTABLE 3 "Lean and hungry gentleman?"
 				    "The Thief.">
 			   <LTABLE 3 "Where can I use the shovel?"
 				    "It will dig only into very soft soil."
 				    "Try it in the sand."
 				    "The sand in the Sandy Cave is most promising.">
-			   <LTABLE 3 "What's with the granite walls?"
+			   <LTABLE 3 "The granite walls?"
 				    "There are only two true granite walls."
 				    "While next to a real granite wall, you can transport yourself to the location of the other by saying the name of the room."
 				    "The two granite walls are in the Temple and the Treasure Room.">
 			   <LTABLE 3 "What's the best image-caster?"
 				    "What are you talking about?"
 				    "This space intentionally left blank.">
-			   <LTABLE 3 "Can I get into the Strange Passage?"
+			   <LTABLE 3 "Get into the Strange Passage?"
 				    "This is not necessary to complete the game."
 				    "See the alternative Cyclops answer.">
-			   <LTABLE 3 "How do I get into the Stone Barrow?"
+			   <LTABLE 3 "Get into the Stone Barrow?"
 				    "You'll know when the time comes."
 				    "When you have all 350 points, you'll be able to enter the Barrow.">
 			   <LTABLE 3 "How Points are Scored."
 				    "(Use only as a last resort.)"
 				    "You get 10 points for getting into the house, 25 for getting into the Cellar, 5 for getting past the Troll, 13 for getting to the Drafty Room, and 25 for getting to the Treasure Room."
 				    "These points plus all the treasure points make 350. When you have all 350 points, the twentieth treasure will appear in the case -- a map which leads (indirectly) to 400 more points (ZORK II).">
-			   <LTABLE 3 "Treasures: Their Values, Locations."
+			   <LTABLE 3 "Treasures: Values & Locations"
 				    "(Use only as a last resort.)"
 				    "(The treasure will be listed, followed by the points for taking it, the points for putting it in the trophy case, then the place it is found.)"
 				    "jewel-encrusted egg - 5 - 5 - in nest in tree"
@@ -675,10 +675,12 @@ equipment."
 	<CURSET 3 1>
 	<INVERSE-LINE>
 	<CENTER-LINE 1 "INVISICLUES (tm)" 16>
-	<LEFT-LINE 2 "n:next">
-	<RIGHT-LINE 2 "return:see hint">
-	<LEFT-LINE 3 "p:previous">
-	<RIGHT-LINE 3 "q:resume story">>
+	<LEFT-LINE 2 "n:next" 6>
+		<RIGHT-LINE 2 "p:previous" 10>
+	<COND (<T? .THIRD>
+	<LEFT-LINE 3 "return:see hint" 15>
+		<RIGHT-LINE 3 "q:resume story" 14>)>>
+
 
 ;<CONSTANT HINT-COUNT 0>
 ;<CONSTANT HINT-QUESTION 1>
