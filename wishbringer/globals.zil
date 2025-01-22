@@ -18,7 +18,7 @@
 <CONSTANT BLANKS <ITABLE ,BLANKS-LEN (BYTE) !\ >>
 
 <ROUTINE INIT-STATUS-LINE ()
-	 <COND (<L? ,WIDTH 38>
+	 <COND (<L? ,WIDTH 32>
 		<TELL "[Screen too narrow.]" CR>
 		<QUIT>
 		<RTRUE>)>
@@ -30,8 +30,6 @@
 	 <HLIGHT ,H-INVERSE>
 	 <CURSET 1 1>	 
 	 <PRINT-SPACES ,WIDTH>
-	 <CURSET 1 <- ,WIDTH 16>>
-	 <TELL "Time: ">
 	 <HLIGHT ,H-NORMAL>
 	 <SCREEN ,S-TEXT>
 	 <RTRUE>>
@@ -53,7 +51,7 @@
 		<SETG OLD-LEN <GET ,SL-TABLE 0>> ;"Print new HERE desc."
 		<CURSET 1 2>
 		<SAY-HERE>)>
-	 <CURSET 1 <- ,WIDTH 10>>
+	 <CURSET 1 <- ,WIDTH 6>>
 	 <TELL-TIME>
 	 <TELL " ">
 	 <HLIGHT ,H-NORMAL>
