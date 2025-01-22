@@ -76,8 +76,8 @@ hint now, indicate HINT.]" CR>
 
 <ROUTINE PICK-QUESTION ("AUX" CHR MAXQ (Q <>))
 	<INIT-HINT-SCREEN <>>
-	<LEFT-LINE 3 " RETURN = see hint" %<LENGTH " RETURN = see hint">>
-	<RIGHT-LINE 3 "Q = main menu" %<LENGTH "Q = main menu">>
+	<LEFT-LINE 3 "return:new hint">
+	<RIGHT-LINE 3 "q:hint menu" 11>
 	<SET MAXQ <- <GET <GET ,HINTS ,CHAPT-NUM> 0> 1>>
 	<CURSET 5 1>
 	<PUT-UP-QUESTIONS>
@@ -125,13 +125,12 @@ hint now, indicate HINT.]" CR>
 		5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
 		5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21>>
 
-;"zeroth (first) element is 4"
+;"copied this from the nord and bert implementation"
 <GLOBAL COLUMN-TABLE
-	<PTABLE
-		 4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4
-		24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24 24>>
+	<PTABLE 3 3 3 3 3  3  3  3  3  3  3  3  3  3  3  3  3
+	       19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19>>
 
-;"four and nineteen are where the text of questions start"
+;"3 and 19 are where the text of questions start"
 
 <GLOBAL CUR-POS 0>	;"determines where to place the highlight cursor
 			  Can go up to 34, that is 17 slots in each row"
@@ -253,7 +252,7 @@ the cursor and text"
 		;<CRLF>	;"above curset will do the trick?"
 		<SET ST <+ .ST 1>>>>
 
-;"longest hint topic can be 17 chars"
+;"longest hint topic can be 28 chars (29 is OK, but crowds the right side)"
 <GLOBAL HINTS
 	<PLTABLE
 	 <PLTABLE "Above Ground"
@@ -263,7 +262,7 @@ the cursor and text"
 			   "Play ZORK II.">
 		  <LTABLE 3 "How do I kill the songbird?"
 			   "What a concept! You need a psychiatrist.">
-		  <LTABLE 3 "Is the nest useful for anything?"
+		  <LTABLE 3 "Is the nest useful?"
 			   "In China you might make bird's nest soup."
 			   "This is not China."
 			   "In other words, no.">
@@ -274,10 +273,10 @@ the cursor and text"
 proper tools."
 			   "Someone else in the game can do it."
 			   "Only the Thief can open the egg. Give it to him or leave it underground where he will find it.">
-		  <LTABLE 3 "How do I fix the broken canary?"
+		  <LTABLE 3 "Can I fix the broken canary?"
 			   "It is broken beyond repair."
 			   "No one can fix it. Really!">
-		  <LTABLE 3 "Are the leaves useful for anything?"
+		  <LTABLE 3 "Are the leaves useful?"
 			   "They're great for hiding gratings."
 			   "They can be taken, counted, or burned.">
 		  <LTABLE 3 "I'm lost in the Forest."
@@ -288,7 +287,7 @@ proper tools."
 			   "You need the skeleton key."
 			   "It can be unlocked only from below."
 			   "The grating and key can be found in the Maze.">
-		  <LTABLE 3 "How do I get off the house's roof?"
+		  <LTABLE 3 "How do I get off the roof?"
 			   "How did you get up there?"
 			   "Someone from Infocom would love to hear how you did it."
 "This is a actually a dummy question. Do not use
@@ -299,7 +298,7 @@ topic as an indication of what is important.">
 			   "Something is attracted to its singing."
 			   "It is also a treasure."
 			   "Try winding it in the forest.">
-		  <LTABLE 3 "How do I get the brass bauble?"
+		  <LTABLE 3 "How do I get the bauble?"
 			   "You must open the egg first."
 			   "See the previous question.">
 		  <LTABLE 3 "How do I open the front door?"
@@ -314,7 +313,7 @@ topic as an indication of what is important.">
 			   "Try it."
 			   "Try the water, too."
 			   "You can't be afraid to try anything in ZORK I (but it may make sense to SAVE your state first).">
-		  <LTABLE 3 "How do I get into the dungeons?"
+		  <LTABLE 3 "How do I enter the dungeons?"
 			   "The entrance is in the house."
 			   "Trapdoors can be hidden."
 			   "Move the rug.">
@@ -676,11 +675,10 @@ equipment."
 	<CURSET 3 1>
 	<INVERSE-LINE>
 	<CENTER-LINE 1 "INVISICLUES (tm)" 16>
-	<LEFT-LINE 2 " N = next">
-	<RIGHT-LINE 2 "P = previous" %<LENGTH "P = previous">>
-	<COND (<T? .THIRD>
-	       <LEFT-LINE 3 " RETURN = See hint">
-	       <RIGHT-LINE 3 "Q = Resume story" %<LENGTH "Q = Resume story">>)>>
+	<LEFT-LINE 2 "n:next">
+	<RIGHT-LINE 2 "return:see hint">
+	<LEFT-LINE 3 "p:previous">
+	<RIGHT-LINE 3 "q:resume story">>
 
 ;<CONSTANT HINT-COUNT 0>
 ;<CONSTANT HINT-QUESTION 1>
