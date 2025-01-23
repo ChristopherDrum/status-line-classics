@@ -23,7 +23,7 @@
 <GLOBAL WIDTH:NUMBER 0> "Width of screen in chars."
 
 <ROUTINE INIT-STATUS-LINE ()
-	 <COND (<L? ,WIDTH 38>
+	 <COND (<L? ,WIDTH 32>
 		<TELL "[Screen too narrow.]" CR>
 		<QUIT>)>
 	 <SETG OHERE <>>
@@ -73,10 +73,10 @@
 		<TELL N ,MOVES>)
 	       (T
 		<DIROUT ,D-TABLE-ON ,SL-TABLE>
-		<TELL N ,SCORE "/" N ,MOVES " ">
+		<TELL N ,SCORE "/" N ,MOVES>
 		<DIROUT ,D-TABLE-OFF>
-		<CURSET 1 <- ,WIDTH <+ <GET ,SL-TABLE 0> 1>>>
-		<TELL N ,SCORE "/" N ,MOVES " ">)>
+		<CURSET 1 <- ,WIDTH <+ <GET ,SL-TABLE 0> 2 ;1>>>
+		<TELL " " N ,SCORE "/" N ,MOVES>)>
 	 <HLIGHT ,H-NORMAL>
 	 <SCREEN ,S-TEXT>  ;"Back to main screen."
 	 <RTRUE>>
