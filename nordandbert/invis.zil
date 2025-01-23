@@ -116,7 +116,9 @@ the curser and text"
 		<TELL " ">)>
 	 <LEFT-LINE 3 "return:new hint">
 	 <RIGHT-LINE 3 "q:hint menu" 11>
-	 <HLIGHT ,H-BOLD>
+	 <CURSET 2 1>
+  	 <INVERSE-LINE>
+	 <HLIGHT ,H-ITALIC>
 	 <SET H <GET ,HINT-TBL .N>>
 	 <CENTER-LINE 2 <GET .H 1 ;,HINT-QUESTION>>
 	 <HLIGHT ,H-NORMAL>
