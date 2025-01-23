@@ -27,7 +27,7 @@ contains the opening sequence which occurs prior to planetfall."
 <GLOBAL OLD-LEN:NUMBER 0>
 
 <ROUTINE INIT-STATUS-LINE ()
-	 <COND (<L? ,WIDTH 38>
+	 <COND (<L? ,WIDTH 32>
 		<TELL "[Screen too narrow.]" CR>
 		<QUIT>)>
 	 <SETG OHERE <>>
@@ -70,9 +70,9 @@ contains the opening sequence which occurs prior to planetfall."
 		<TELL N ,MOVES>)
 	       (T
 		<DIROUT ,D-TABLE-ON ,SL-TABLE>
-		<TELL N ,SCORE "/" N ,MOVES " ">
+		<TELL N ,SCORE "/" N ,MOVES>
 		<DIROUT ,D-TABLE-OFF>
-		<CURSET 1 <- ,WIDTH <+ <GET ,SL-TABLE 0> 1>>>
+		<CURSET 1 <- ,WIDTH <GET ,SL-TABLE 0>>>
 		<TELL N ,SCORE "/" N ,MOVES " ">)>
 	 <HLIGHT ,H-NORMAL>
 	 <SCREEN ,S-TEXT>  ;"Back to main screen."
@@ -1147,10 +1147,11 @@ outlining his planet's major exports."CR>)>)>>
 	(TEXT
 "\"The leading export of Blow'k-bibben-Gordo is the adventure game|
 |
-          *** PLANETFALL ***|
+      *** PLANETFALL ***|
 |
 written by S. Eric Meretzky.|
-Buy one today. Better yet, buy a thousand.\"")>
+Buy one today.|
+Better yet, buy a thousand.\"")>
 
 <CONSTANT AMBASSADOR-QUOTES
 	<PLTABLE

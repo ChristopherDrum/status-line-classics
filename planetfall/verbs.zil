@@ -348,7 +348,7 @@ Release " N .V " / Serial number ">
 <ROUTINE JIGS-UP (DESC "OPTIONAL" (PLAYER? <>))
  	 <TELL .DESC CR>
 	 <TELL CR
-"    ****  You have died  ****" CR>
+"   ****  You have died  ****" CR>
 	 <FINISH T>>
 
 <ROUTINE V-RESTORE ()
