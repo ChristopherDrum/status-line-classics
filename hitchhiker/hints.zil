@@ -74,8 +74,8 @@ hint now, indicate HINT.]" CR>
 
 <ROUTINE PICK-QUESTION ("AUX" CHR MAXQ (Q <>))
 	<INIT-HINT-SCREEN <>>
-	<LEFT-LINE 3 " RETURN = See hint">
-	<RIGHT-LINE 3 "Q = Main menu" %<LENGTH "Q = Main menu">>
+	<LEFT-LINE 3 "return:see hint">
+	<RIGHT-LINE 3 "q:main menu" %<LENGTH "q:main menu">>
 	<SET MAXQ <- <GET <GET ,HINTS ,CHAPT-NUM> 0> 1>>
 	<CURSET 5 1>
 	<PUT-UP-QUESTIONS>
@@ -118,7 +118,7 @@ hint now, indicate HINT.]" CR>
 ;"zeroth (first) element is 4"
 <GLOBAL COLUMN-TABLE
 	<PTABLE
-	  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4>>
+	  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3>>
 
 <GLOBAL CUR-POS 0>	;"determines where to place the highlight cursor
 			  Can go up to 17 Questions"
@@ -129,7 +129,7 @@ hint now, indicate HINT.]" CR>
 
 <ROUTINE ERASE-CURSOR ()
 	<CURSET <GET ,LINE-TABLE ,CUR-POS>
-		<- <GET ,COLUMN-TABLE ,CUR-POS> 2 ;1>>
+		<- <GET ,COLUMN-TABLE ,CUR-POS> 1 ;1>>
 	<TELL " ">	;"erase previous highlight cursor">
 
 ;"go back 2 spaces from question text, print cursor and flash is between
@@ -137,7 +137,7 @@ the cursor and text"
 
 <ROUTINE NEW-CURSOR ()
 	<CURSET <GET ,LINE-TABLE ,CUR-POS>
-		<- <GET ,COLUMN-TABLE ,CUR-POS> 2 ;1>>
+		<- <GET ,COLUMN-TABLE ,CUR-POS> 1 ;1>>
 	<TELL ">">	;"print the new cursor">
 
 <ROUTINE INVERSE-LINE ("AUX" (CENTER-HALF <>)) 
@@ -156,11 +156,11 @@ the cursor and text"
 	<CENTER-LINE 1 "INVISICLUES (tm)" %<LENGTH "INVISICLUES (tm)">>
 	<CURSET 3 1>
 	<INVERSE-LINE>
-	<LEFT-LINE 3 " RETURN = See hint">
-	<RIGHT-LINE 3 "Q = See hint menu" %<LENGTH "Q = See hint menu">>
+	<LEFT-LINE 3 "return:see hint">
+	<RIGHT-LINE 3 "q:hint menu" %<LENGTH "q:hint menu">>
 	<CURSET 2 1>
 	<INVERSE-LINE>
-	<HLIGHT ,H-BOLD>
+	<HLIGHT ,H-ITALIC>
 	<SET H <GET <GET ,HINTS ,CHAPT-NUM> <+ ,QUEST-NUM 1>>>
 	<CENTER-LINE 2 <GET .H 2>>
 	<HLIGHT ,H-NORMAL>
@@ -238,11 +238,11 @@ the cursor and text"
 	<CURSET 3 1>
 	<INVERSE-LINE>
 	<CENTER-LINE 1 "INVISICLUES (tm)" %<LENGTH "INVISICLUES (tm)">>
-	<LEFT-LINE 2 " N = Next">
-	<RIGHT-LINE 2 "P = Previous" %<LENGTH "P = Previous">>
+	<LEFT-LINE 2 "n:next">
+	<RIGHT-LINE 2 "p:previous" %<LENGTH "p:previous">>
 	<COND (<T? .THIRD>
-	      <LEFT-LINE 3 " RETURN = See topics">
-	      <RIGHT-LINE 3 "Q = Resume story" %<LENGTH "Q = Resume story">>)>>
+	      <LEFT-LINE 3 "return:see topics">
+	      <RIGHT-LINE 3 "q:resume story" %<LENGTH "Q = Resume story">>)>>
 
 <ROUTINE CENTER-LINE (LN STR "OPTIONAL" (LEN 0) (INV T))
 	<COND (<ZERO? .LEN>

@@ -29,7 +29,7 @@
 ;<GLOBAL CHEIGHT:NUMBER 0> "Pixel height of characters."
 
 <ROUTINE INIT-STATUS-LINE ()
-	 <COND (<L? ,WIDTH 38>
+	 <COND (<L? ,WIDTH 32>
 		<TELL "[Screen too narrow.]" CR>
 		<QUIT>)>
 	 ;<SETG MIDSCREEN <+ </ ,WIDTH 2> 1>>
@@ -83,10 +83,10 @@
 		<TELL N ,MOVES>)
 	       (T
 		<DIROUT ,D-TABLE-ON ,SL-TABLE>
-		<TELL N ,SCORE "/" N ,MOVES " "> ;"110 to 80 bug"
+		<TELL N ,SCORE "/" N ,MOVES> ;"110 to 80 bug"
 		<DIROUT ,D-TABLE-OFF>
 		<CURSET 1 <- ,WIDTH <+ <GET ,SL-TABLE 0> 1>>>
-		<TELL N ,SCORE "/" N ,MOVES " ">)>  ;"110 to 80 bug"
+		<TELL N ,SCORE "/" N ,MOVES>)>  ;"110 to 80 bug"
 	 <HLIGHT ,H-NORMAL>
 	 <SCREEN ,S-TEXT>  ;"Back to main screen."
 	 <RTRUE>>
