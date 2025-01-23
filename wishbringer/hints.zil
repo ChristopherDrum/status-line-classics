@@ -31,7 +31,7 @@
 
 <CONSTANT COLUMN-TABLE		;"zeroth (first) element is 4"
 	<PTABLE
-	  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4>>
+	  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3>>
 
 ; "If the first argument is non-false, build a parallel impure table
    for storing the count of answers already seen; make it a constant
@@ -1039,7 +1039,7 @@ hint now, indicate HINT.]" CR>
 
 <ROUTINE ERASE-CURSOR ()
 	<CURSET <GET ,LINE-TABLE ,CUR-POS>
-		<- <GET ,COLUMN-TABLE ,CUR-POS> 2>>
+		<- <GET ,COLUMN-TABLE ,CUR-POS> 1>>
 	<TELL " ">	;"erase previous highlight cursor">
 
 ;"go back 2 spaces from question text, print cursor and flash is between
@@ -1047,7 +1047,7 @@ the cursor and text"
 
 <ROUTINE NEW-CURSOR ()
 	<CURSET <GET ,LINE-TABLE ,CUR-POS>
-		<- <GET ,COLUMN-TABLE ,CUR-POS> 2 ;1>>
+		<- <GET ,COLUMN-TABLE ,CUR-POS> 1>>
 	<TELL ">">	;"print the new cursor">
 
 <ROUTINE INVERSE-LINE ("AUX" (CENTER-HALF <>)) 
