@@ -282,7 +282,8 @@ the cursor and text"
 	<TABLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 	       0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 >>
 
-;"longest hint topic can be 17 questions long, longest question 36 characters"
+;"topics should strive to be 28 chars long, for visual beauty; 30 chars max"
+;"longest hint topic can be 17 questions long, longest question 33 characters"
 
 <GLOBAL HINTS
    <PLTABLE
@@ -299,7 +300,7 @@ the cursor and text"
 	  "There is ONE thing you can pick up."
 	  "It's the gown.">
 	 <LTABLE 3
-	  "How can I get out of the bedroom?"
+	  "How to get out of the bedroom?"
 	  "You bounce off the doorframe because the room is spinning from your hangover."
 	  "You'll have to get rid of it."
 	  "See the previous question."
@@ -311,7 +312,7 @@ the cursor and text"
 	  "Now you know what's going on outside."
 	  "Take it along, it might prove useful later.">
 	 <LTABLE 3
-	  "What's that bulldozer doing outside?"
+	  "What's that bulldozer doing?"
 	  "Have you read the pile of mail on your Front Porch?"
 	  "It's there to knock down your house to make way for a new highway bypass.">
 	 <LTABLE 3
@@ -324,14 +325,14 @@ the cursor and text"
 	  "BLOCK THE BULLDOZER, STOP THE BULLDOZER, or LIE DOWN also work."
 	  "You'll have to wait a few turns after you lie down before the bulldozer finally grinds to a halt.">
 	 <LTABLE 3
-	  "What should I do with Ford Prefect?"
+	  "What should I do with Ford?"
 	  "If you take the towel he's trying to give you, he'll walk away."
 	  "Standing up to follow him is fatal."
 	  "Without Ford you'll never survive the upcoming destruction of the Earth."
 	  "Ford is oblivious to your problem. If you wait, he'll notice the bulldozer, and help you out."
 	  "Or you can say FORD, WHAT ABOUT MY HOME? as soon as he arrives.">
 	 <LTABLE 3
-	  "Should I go with Ford to the Pub?"
+	  "Do I go with Ford to the Pub?"
 	  "Don't stand up until Prosser is lying down in your place."
 	  "This will happen if you wait a few turns after Ford shows up."
 	  "At this point, listen to Ford and follow him to the Pub.">
@@ -356,20 +357,20 @@ the cursor and text"
 	  "You can't."
 	  "At least, not when you're Arthur.">
 	 <LTABLE 3
-	  "How can I buy a cheese sandwich?"
+	  "How to buy a cheese sandwich?"
 	  "How about BUY A CHEESE SANDWICH."
 	  "Or BARTENDER, GIVE ME A CHEESE SANDWICH."
 	  "Perhaps ASK BARTENDER FOR A SANDWICH is more up your alley.">
 	 <LTABLE 3
-	  "My home's being wrecked. What now?"
+	  "My home's wrecked! What now?"
 	  "There's not much you can do about it."
 	  "You might return to survey the rubble, or to have it out with Prosser.">
 	 <LTABLE 3
-	  "What should I do about the dog?"
+	  "What to do about the dog?"
 	  "Have you examined the dog?"
 	  "If you haven't figured it out, you'll find out more later.">
 	 <LTABLE 3
-	  "How do I survive Earth's demolition?"
+	  "Survive Earth's demolition?"
 	  "DON'T PANIC."
 	  "Read everything carefully."
 	  "Remember Ford's reason for drinking all that beer?"
@@ -379,7 +380,7 @@ the cursor and text"
 	  "You want to hitch a ride aboard one of the Vogon ships."
 	  "PUSH THE GREEN BUTTON.">
 	 <LTABLE 3
-	  "Why do I die during transference?"
+	  "Died during transference?"
 	  "You didn't drink enough beer."
 	  "See the question about how much beer to drink.">>
       <PLTABLE
@@ -404,7 +405,7 @@ the cursor and text"
 	  "That's your way out of Dark."
 	  "EXAMINE THE SHADOW.">
 	 <LTABLE 3
-	  "Help! I'm in the blasted Dark AGAIN!"
+	  "I'm in the Dark AGAIN!"
 	  "Unless you've been to the Vogon Hold, you're at the wrong question."
 	  "You've been through Dark at least once before, so you know what's going on."
 	  "This time, though, it isn't smell that goes away on the fourth description."
@@ -422,7 +423,7 @@ the cursor and text"
 	  "The second time, hearing will go away. See the third question in this section."
 	  "On subsequent visits to Dark, the sense that disappears will be fairly random. See the following question for more details.">
 	 <LTABLE 3
-	  "Can I control my exit from Darkness?"
+	  "Control my exit from Darkness?"
 	  "Not usually."
 	  "Don't continue until you have a cup of tea."
 	  "Don't continue until you have real tea, not merely Advanced Tea Substitute."
@@ -453,7 +454,7 @@ the cursor and text"
 	  "It's frequently found on shelves behind bars in Pubs."
 	  "EAT THE PEANUTS.">
 	 <LTABLE 3
-	  "What's this Guide Ford gives me?"
+	  "What's the Guide from Ford?"
 	  "That's the Hitchhiker's Guide to the Galaxy."
 	  "It's the single most useful thing an intergalactic hitchhiker (or Infocom game player) can have."
 	  "See the Hitchhiker's Guide question in the General Questions section for more information.">
@@ -472,10 +473,10 @@ the cursor and text"
 	  "Once you have the babel fish, flip the switch again."
 	  "Now you know what to type. Just wait around to hear the captain's poetry reading and see the question about what's going on in the Captain's Quarters.">
 	 <LTABLE 3
-	  "What is the tall dispensing machine?"
+	  "What's the dispensing machine?"
 	  "Examine it.">
 	 <LTABLE 3
-	  "Why does the machine go \"click\"?"
+	  "Why does machine \"click\"?"
 	  "It's out of fish. Time to RESTORE.">
 	 <LTABLE 3
 	  "What is a babel fish?"
@@ -514,11 +515,11 @@ the cursor and text"
 	  "See the questions about the babel fish."
 	  "The announcement will begin 18 turns after you enter the Vogon Hold, or 3 turns after you obtain the babel fish.">
 	 <LTABLE 3
-	  "Why are the guards dragging me away?"
+	  "The guards drag me away?"
 	  "See the question about the gibberish from the intercom."
 	  "The guards will arrive 36 turns after you arrive in the Vogon Hold, or 5 turns after you obtain a babel fish.">
 	 <LTABLE 3
-	  "What happens in Captain's Quarters?"
+	  "What about Captain's Quarters?"
 	  "Don't go on unless you've translated the garbled announcement."
 	  "Don't go on until you've figured out what's going on with the glass case and switch and keyboard."
 	  "You are at a Vogon Poetry Appreciation Session. The Vogon Captain is about to read you his favourite poem. The Guide's entry on Vogon Poetry makes clear that this is extremely nasty."
@@ -530,7 +531,7 @@ the cursor and text"
 	  "Now that you've heard the glass case's recording AND the second verse of the poem, you know what to type on the keyboard to get the atomic vector plotter. (When the guards drag you back into the Vogon Hold, of course.)"
 	  "For example, if the recording asked you to type the second word from the second verse, and the word was \"lyshus,\" you should type TYPE \"LYSHUS\" when you get back to the Vogon Hold. NOTE: Each time you play the game, the lines of the second verse come in different orders. Similarly, the glass case's recording asks for a different number word each time you play.">
 	 <LTABLE 3
-	  "Can I stop being put in the airlock?"
+	  "Stop being put in the airlock?"
 	  "There's no way to prevent this."
 	  "However, you should make sure that you've accomplished everything that needs to be accomplished aboard the Vogon ship before this occurs."
 	  "You should have gotten the atomic vector plotter.">
@@ -559,14 +560,14 @@ the cursor and text"
 	  "There is no way to actually STAY in the sauna."
 	  "Therefore, once Ford, Zaphod, and Trillian enter the sauna, they will be effectively inaccessible to you for the remainder of the game.">
 	 <LTABLE 3
-	  "Is Eddie, the ship computer, of use?"
+	  "Is Eddie (computer) of use?"
 	  "Without Eddie, who would make all those fun announcements?"
 	  "Eddie is the only one who can turn on the main drive."
 	  "But he won't obey your order to do that, only Zaphod's."
 	  "Eddie's help is indirectly necessary to obtain a cup of tea."
 	  "But in terms of solving puzzles, you can basically ignore Eddie.">
 	 <LTABLE 3
-	  "Are the Bridge controls useful?"
+	  "Are Bridge controls useful?"
 	  "Have you examined them?"
 	  "The large receptacle is important."
 	  "Don't go on until you've figured out how to set up and use the spare Improbability Drive."
@@ -590,7 +591,7 @@ the cursor and text"
 	  "Open the service panel and remove the circuit board. Now, put the interface inside the Nutrimat. Finally, touch the pad!"
 	  "Still having trouble getting tea? See the question about the missile attack. It's the last question in this section.">
 	 <LTABLE 3
-	  "What is the Advanced Tea Substitute?"
+	  "Advanced Tea Substitute?"
 	  "ATS is useful, although drinking it is a bad idea."
 	  "Have you ever examined it?"
 	  "Have you discovered a need for a source of Brownian Motion?"
@@ -603,7 +604,7 @@ the cursor and text"
 	  "Because it has even more Brownian Motion than the ATS, it will make a better source of it for the spare Improbability Drive. Try it."
 	  "See the question about controlling where you go when you leave Dark, in the section called \"In the Dark\".">
 	 <LTABLE 3
-	  "How do I adjust the circuit board?"
+	  "How to adjust circuit board?"
 	  "You can remove it from the Nutrimat."
 	  "Have you examined it?"
 	  "You can flip any of the eight dipswitches."
@@ -614,7 +615,7 @@ the cursor and text"
 	  "Don't go on until you've opened the toolbox."
 	  "READ THE MESSAGE THROUGH THE MAGNIFYING GLASS.">
 	 <LTABLE 3
-	  "Is the shipping carton important?"
+	  "Is shipping carton important?"
 	  "Try examining or reading it."
 	  "Have you opened the carton?"
 	  "The Sirius Cybernetics Corporation has apparently screwed up (a common occurrence) and put the wrong item inside the shipping carton."
@@ -627,13 +628,13 @@ the cursor and text"
 	  "Have you tried it several times?"
 	  "The gun is completely worthless, useless, and unimportant.">
 	 <LTABLE 3
-	  "Can I go aft from Corridor, Aft End?"
+	  "Go aft from Corridor, Aft End?"
 	  "Yes, but not without a fight."
 	  "You'll have to argue with the game for a few turns."
 	  "Usually, YES or NO responses are sufficient."
 	  "The proper sequence, from the Corridor, Aft End is AFT. YES. YES. AFT. NO.">
 	 <LTABLE 3
-	  "Is anything in the Engine Room?"
+	  "Anything in the Engine Room?"
 	  "Have you gotten into the Engine Room? If not, you should do so before looking at the next hint."
 	  "The game claims that there's nothing interesting there."
 	  "However, after losing that argument with you, the game is probably a bit peeved and is acting petulant."
@@ -652,7 +653,7 @@ the cursor and text"
 	  "You want to plug the small plug (from the drive) into the small receptacle (in the atomic vector plotter). Put the plotter's long dangly bit into the cup of ATS."
 	  "That still leaves the drive's large plug unattached. See the question about the controls on the Bridge.">
 	 <LTABLE 3
-	  "How can I open the screening door?"
+	  "Can I open the screening door?"
 	  "This is a very difficult problem."
 	  "Furthermore, you won't be able to tackle it until you're pretty far into the game. Don't let it worry you until you get up around 200 points."
 	  "Don't develop any further unless you've gotten the cup of tea (real tea, not Advanced Tea Substitute)."
@@ -715,7 +716,7 @@ the cursor and text"
 	  "Go down through the hatch."
 	  "Start waiting for the next exciting Hitchhiker's game.">
 	 <LTABLE 3
-	  "How do I stop the missile attack?"
+	  "How to stop missile attack?"
 	  "This is a good point for a SAVE."
 	  "The computer is helpless because you've tied it up with the Nutrimat interface."
 	  "You'll have to save the ship yourself."
@@ -729,10 +730,10 @@ the cursor and text"
       <PLTABLE
        "ON TRAAL"
          <LTABLE 3
-	  "How do I go southwest from the Lair?"
+	  "How to go southwest from Lair?"
 	  "Figuring out how to subdue the Beast would help.">
 	 <LTABLE 3
-	  "Can I stop the Beast from eating me?"
+	  "Stop the Beast from eating me?"
 	  "The Beast will devour you about five turns after you pop up in its Lair."
 	  "Leaving the room (EAST) will buy you some time."
 	  "Have you read the Guide entry on the Ravenous Bugblatter Beast of Traal?"
@@ -743,7 +744,7 @@ the cursor and text"
 	  "The towel. COVER MY HEAD WITH THE TOWEL or PUT THE TOWEL OVER MY EYES or WRAP THE TOWEL AROUND MY HEAD."
 	  "Unfortunately, you can't move around very well with a towel over your eyes. Furthermore, as you may have already noticed, this method is also only temporarily effective.">
 	 <LTABLE 3
-	  "Why does the beast ask me my name?"
+	  "Why does beast ask my name?"
 	  "A good question. Have you tried figuring out the answer yourself?"
 	  "Have you been in the Beast's Outer Lair?"
 	  "Have you ever tried saying your name as the Beast demands?"
@@ -752,7 +753,7 @@ the cursor and text"
 	  "The Beast's response when you told it your name should provide an additional hint toward why the Beast wants to know your name and how to solve this entire Traal puzzle."
 	  "Still stuck? Go on to the next question.">
 	 <LTABLE 3
-	  "What use is the sandstone memorial?"
+	  "What's the sandstone memorial?"
 	  "Have you figured out why the Beast wants to know your name?"
 	  "The Beast wants to carve your name in this, his memorial of remembrance, after he has devoured you."
 	  "Have you figured out how to stop the Beast from attacking you, at least on a temporary basis?"
@@ -766,23 +767,23 @@ the cursor and text"
 	  "First you have to tell the Beast your name and cover your head with the towel."
 	  "It is now safe to remove the towel from your head, and to go southwest from the Lair.">
 	 <LTABLE 3
-	  "Are the tall walls important?"
+	  "Are tall walls important?"
 	  "If you could climb them, you might be able to escape the Beast."
 	  "If you could collapse them onto the Beast, that just might do it in."
 	  "If you could transmute them into steaming mounds of Qurmeesian Mega-Rhino flank steaks, the Beast might start in on those and ignore your few measly pounds of stringy flesh."
 	  "Unfortunately, you can't do any of the above.">
 	 <LTABLE 3
-	  "Are the bleached bones important?"
+	  "Are bleached bones important?"
 	  "Don't go on until you've found the black paint."
 	  "Have you tried painting the bones with the paint?"
 	  "Where does the Beast go when he sees the black bones?"
 	  "Black paint? There's no black paint. You're looking at answers you shouldn't be.">
 	 <LTABLE 3
-	  "Are the sharp stones important?"
+	  "Are sharp stones important?"
 	  "Have you examined them?"
 	  "See the question about the sandstone memorial.">
 	 <LTABLE 3
-	  "What's the point of the Traal scene?"
+	  "Explain the Traal scene."
 	  "First you'll have to figure out how to \"neutralize\" the Beast."
 	  "Don't go on until the Beast is sleeping."
 	  "Have you been in the Inner Lair?"
@@ -804,7 +805,7 @@ the cursor and text"
 	  "There aren't a lot of hiding places around the boat."
 	  "SEARCH THE PILOT SEAT or LOOK UNDER THE CUSHION.">
 	 <LTABLE 3
-	  "Can I stop the boat from crashing?"
+	  "Stop the boat from crashing?"
 	  "EXAMINE THE CONTROLS."
 	  "PUSH THE AUTOPILOT BUTTON."
 	  "The autopilot doesn't seem concerned about your situation, since it just takes a look around and then shuts itself off."
@@ -812,10 +813,10 @@ the cursor and text"
 	  "Instead of steering toward the channel, try steering toward the cliff or the rocky spire."
 	  "After three turns of heading toward an obstacle, the autopilot will kick on and navigate you safely to your destination.">
 	 <LTABLE 3
-	  "What do I do when the boat docks?"
+	  "What to do when boat docks?"
 	  "Leave the boat. Type NORTH or LEAVE THE BOAT.">
 	 <LTABLE 3
-	  "What do I do when I reach the Dais?"
+	  "What to do when I reach Dais?"
 	  "You're here for the dedication ceremonies of the Heart of Gold. You obviously have the crowd eating out of your hands."
 	  "You might try smiling, or waving, or making a speech."
 	  "Mainly, though, you just need to wait until Trillian shows up.">
@@ -828,7 +829,7 @@ the cursor and text"
 	  "You should say GUARDS, DON'T SHOOT or GUARDS, DROP THE PHOTON RIFLES."
 	  "If you're still having troubles with the guards, see the next question.">
 	 <LTABLE 3
-	  "How can I enter the Heart of Gold?"
+	  "How to enter Heart of Gold?"
 	  "Until Trillian shows up, the game won't even let you try."
 	  "After Trillian shows up, attempting to enter the Heart of Gold is deadly."
 	  "Don't go on unless you've disarmed the guards (see the previous question)."
@@ -871,7 +872,7 @@ the cursor and text"
 	  "If you take the fluff from his jacket, it will \"break the ice\" and Arthur will begin jabbering."
 	  "Did you notice that you can't take the fluff until you drop one of the other things you're carrying (handbag, wine, hors d'oeuvres)? You can't hold more than three things while you're at the party.">
 	 <LTABLE 3
-	  "What should I do about the hostess?"
+	  "What to do about the hostess?"
 	  "You're usually able to avoid her."
 	  "If you try to talk to her, you'll learn the meaning of the phrase \"bored to death.\""
 	  "If you drop your glass of wine, your handbag, or your plate of hors d'oeuvres, the hostess will come over and pester you about it. She won't leave you alone until you take the item that you dropped.">
@@ -881,7 +882,7 @@ the cursor and text"
 	  "Dying will get you back to Dark, but that's probably not what you had in mind."
 	  "There is a way to leave the apartment, but you'll have to solve a puzzle first. See the next question.">
 	 <LTABLE 3
-	  "What's the point of the party scene?"
+	  "The point of the party scene?"
 	  "There's an item at the party that you have to get back to the Heart of Gold."
 	  "That item is the unsightly piece of jacket fluff."
 	  "See the previous questions in this section of the hint booklet."
@@ -906,19 +907,19 @@ the cursor and text"
 	  "You want to do what Ford did when you were Arthur."
 	  "Go north to Front of House.">
 	 <LTABLE 3
-	  "How can I lose my uneasy feeling?"
+	  "How to lose my uneasy feeling?"
 	  "Have you tried waiting a few turns?"
 	  "Obviously, you're doing the wrong thing."
 	  "You shouldn't be in the Pub at this point."
 	  "See the previous question.">
 	 <LTABLE 3
-	  "What should I do about Arthur?"
+	  "What to do about Arthur?"
 	  "According to the introductory text for this scene, why did you come here?"
 	  "What did Ford do at this point when you were Arthur?"
 	  "Try to give the towel to Arthur."
 	  "The towel is inside your satchel.">
 	 <LTABLE 3
-	  "What should I do about Prosser?"
+	  "What to do about Prosser?"
 	  "Don't go on until you've done the step called for by the previous question."
 	  "You want Arthur to come with you to the Pub."
 	  "If you recall from when you were Arthur, it would mean the destruction of Arthur's house if he stood up at this point."
@@ -930,7 +931,7 @@ the cursor and text"
 	  "Try PROSSER, LIE DOWN IN FRONT OF THE BULLDOZER."
 	  "Arthur is now willing to follow you to the Pub.">
 	 <LTABLE 3
-	  "What should I do in the Pub?"
+	  "What to do in the Pub?"
 	  "Unless Arthur is with you, you are here prematurely."
 	  "Once again, think back to what Ford did when you were Arthur."
 	  "The first thing to do is BUY SOME BEER."
@@ -938,11 +939,11 @@ the cursor and text"
 	  "You can BUY SOME PEANUTS, but it isn't necessary to do so."
 	  "When Arthur's house is destroyed, he will rush out of the Pub. It would be a good idea to stay with him.">
 	 <LTABLE 3
-	  "What should I do about the dog?"
+	  "What to do about the dog?"
           "There's not much you can do about the dog at this point."
 	  "You may find out more about the dog later.">
 	 <LTABLE 3
-	  "What's the point of this scene?"
+	  "What's the point of this?"
 	  "You learn a lot about Ford's motivations, thus making for a more cohesive, internally consistent story line."
 	  "Oh, right. You're more interested in puzzle solutions. The entire point of this scene is acquiring one particular item for use on the Heart of Gold."
 	  "It's in the satchel."
@@ -955,7 +956,7 @@ the cursor and text"
       <PLTABLE
        "WAR CHAMBER/MAZE"
          <LTABLE 3
-	  "What's going on in the War Chamber?"
+	  "What's going on in War Chamber"
 	  "Have you tried listening to the conversation?"
 	  "Have you examined the approaching star system?"
 	  "Do you remember the long piece of text that appeared when your careless words set off an interstellar war?"
@@ -965,7 +966,7 @@ the cursor and text"
 	  "Just TAKE AWL!"
 	  "Then solve the puzzle involving the giant dog.">
 	 <LTABLE 3
-	  "How do I not get eaten by the dog?"
+	  "How to not get eaten by dog?"
 	  "The dog really isn't a giant dog."
 	  "It's a normal-sized dog. The spaceship you're aboard is microscopic."
 	  "Have you seen a dog anywhere else?"
@@ -993,7 +994,7 @@ the cursor and text"
 	  "The third time you successfully move to a new Maze room (as opposed to being blocked by a synaptic discharge), you'll run across the black particle."
 	  "If you ignore the particle, you'll run across it again later.">
 	 <LTABLE 3
-	  "What is this black particle for?"
+	  "What is black particle for?"
 	  "Have you read the markings on the particle?"
 	  "The particle is your own common sense!"
 	  "You have an opportunity here to remove your own common sense."
@@ -1001,13 +1002,13 @@ the cursor and text"
 	  "See the question about no tea in the General Questions section."
 	  "Taking the particle also has the beneficial side effect of getting you out of the Maze.">
 	 <LTABLE 3
-	  "Where did the black particle go?"
+	  "Where did black particle go?"
 	  "Particle physicists have two theories on what happened to the particle."
  	  "The first theory states that the particle is too small to see when you recover from being microscopic."
 	  "The second theory states that the particle was destroyed in the electrical impulse that resulted when you reopened the synapse."
 	  "Take your pick.">
 	 <LTABLE 3
-	  "What's the point of this section?"
+	  "What's the point of this part?"
 	  "You should be able to figure it out for yourself."
 	  "Do you know the answers to all the other questions in this section?"
 	  "There are two goals for the War Chamber/Maze scene."
@@ -1025,7 +1026,7 @@ the cursor and text"
 	  "The Improbability Drive, in one of its nastier coincidences, has transported you inside the very same whale you created when you used the Drive to save the ship during the missile attack."
 	  "If you recall, the missiles were turned into a sperm whale, which was last seen plummeting through the atmosphere of Magrathea. This explains why, after a few turns, the whale invariably splats (and you along with it).">
 	 <LTABLE 3
-	  "How can I get out of the whale?"
+	  "How to get out of the whale?"
 	  "There are no exits in any direction."
 	  "If you wait long enough, you'll splat and return to Dark."
 	  "There's one other way to get out of the whale."
@@ -1034,11 +1035,11 @@ the cursor and text"
 	  "Hitchhike using the Thumb."
 	  "The Thumb is probably broken, though. You'll have to get it fixed by an Engineer robot.">
 	 <LTABLE 3
-	  "Can I stop the whale from splatting?"
+	  "Stop the whale from splatting?"
 	  "You can't."
 	  "No matter what you do, you've only got ten moves in the whale before it splats.">
 	 <LTABLE 3
-	  "How do I get the pot from the whale?"
+	  "How to get pot from the whale?"
 	  "There are two ways to do this."
 	  "One way involves the Thumb."
 	  "The other method involves the thing your aunt gave you which you don't know what it is."
@@ -1054,12 +1055,12 @@ the cursor and text"
       <PLTABLE
        "GENERAL QUESTIONS"
 	 <LTABLE 3
-	  "Is there a significance to \"no tea\"?"
+	  "Any significance to \"no tea\"?"
 	  "Yes."
 	  "It's a hint that at some point, getting tea will be important."
 	  "Also, see the question about the screening door in the HEART OF GOLD section.">
 	 <LTABLE 3
-	  "What is the thing my aunt gave me?"
+	  "The thing my aunt gave me?"
 	  "Have you tried examining it?"
 	  "Have you tried getting rid of it?"
 	  "You've probably noticed that it keeps turning up."
@@ -1071,7 +1072,7 @@ the cursor and text"
 	  "It's a puzzle toward the very end of the game."
 	  "It's the puzzle of getting the flowerpot out of the whale.">
 	 <LTABLE 3
-	  "Is the Hitchhiker's Guide important?"
+	  "Hitchhiker's Guide important?"
 	  "Well, the game IS named after it..."
 	  "The various entries in the Guide contain all sorts of useful information and hints that you'll need to solve the puzzles in the game."
 	  "The proper syntax for reading a particular Guide entry is CONSULT GUIDE ABOUT (item). For example, you could type CONSULT GUIDE ABOUT MUSHROOMS."
@@ -1100,7 +1101,7 @@ the cursor and text"
 	  "If the Thumb is broken, the Engineer robot won't agree to fix it unless you also SHOW THE GUARANTEE TO THE ENGINEER ROBOT."
 	  "Actually, you can shortcut by showing the guarantee first.">
 	 <LTABLE 3
-	  "What's this nonsense about fluff?"
+	  "What's this about fluff?"
 	  "There does seem to be a lot of it scattered throughout the game."
 	  "Have you consulted the Guide about fluff?"
 	  "The ancient legend is of particular interest."
@@ -1152,25 +1153,25 @@ the cursor and text"
 	  "HOW ALL THE POINTS ARE SCORED"
 	  "This section should only be used as a last resort, or for your own interest after you've completed the game."
 	  "SCORE  ACTION"
-	  "   10  Take the buffered analgesic"
-	  "    5  Drinking the beer (1st time)"
-	  "    5  Drinking the beer (2nd time)"
-	  "    5  Drinking the beer (3rd time)"
-	  "    8   Arriving at the Vogon Hold"
-	  "   12   Getting the babel fish"
-	  "   15   Enjoying the Vogon poetry"
-	  "   25   Opening the glass case"
-	  "   25   Entering the Engine Room"
-	  "   25   Getting the Interface"
-	  "   15   Drinking the beer (as Ford)"
-	  "   25   Leaving the party with Phil"
-	  "   25   Stealing the Heart of Gold"
-	  "   25   Taking the black particle"
-	  "  100   Drinking the tea"
-	  "   25   Entering Marvin's Pantry"
-	  "   25   Blooming the plant"
-	  "   25   Get Marvin to open the hatch"
-	  "  400   TOTAL POINTS"
+	  "   10  Take buffered analgesic"
+	  "    5  Drinking beer (1st time)"
+	  "    5  Drinking beer (2nd time)"
+	  "    5  Drinking beer (3rd time)"
+	  "    8  Arriving at Vogon Hold"
+	  "   12  Getting the babel fish"
+	  "   15  Enjoying Vogon poetry"
+	  "   25  Opening the glass case"
+	  "   25  Entering the Engine Room"
+	  "   25  Getting the Interface"
+	  "   15  Drinking beer (as Ford)"
+	  "   25  Leaving party with Phil"
+	  "   25  Stealing Heart of Gold"
+	  "   25  Taking black particle"
+	  "  100  Drinking the tea"
+	  "   25  Entering Marvin's Pantry"
+	  "   25  Blooming the plant"
+	  "   25  Get Marvin to open hatch"
+	  "  400  TOTAL POINTS"
 	  "NOTE: You LOSE 30 points each for eating the cheese sandwich, drinking the Advanced Tea Substitute, or turning on the spare Drive while plugged into the large receptacle before the missile attack begins.">
 	 <LTABLE 3
 	  "FOR YOUR AMUSEMENT"
@@ -1289,19 +1290,19 @@ the cursor and text"
 	  "FOOTNOTES"
 	  "The section tells where each footnote is referenced in the game. Once again, you shouldn't develop this section until you've finished."
 	  "FN# HOW TO GET IT"
-	  " 1  ENJOY THE DARKNESS in the Dark"
-	  " 2  Type FORD, WHAT ABOUT MY HOUSE?"
-	  " 3  Upon arrival at the Speedboat"
-	  " 4  Listen to the music in the Pub"
-	  " 5  Remove the towel (beast asleep)"
-	  " 6  Type FOOTNOTE without any number"
+	  " 1  ENJOY DARKNESS in the Dark"
+	  " 2  FORD, WHAT ABOUT MY HOUSE?"
+	  " 3  Upon arrival at Speedboat"
+	  " 4  Listen to music in the Pub"
+	  " 5  Remove towel (beast asleep)"
+	  " 6  FOOTNOTE without any number"
 	  " 7  Shoot the Beast three times"
-	  " 8  Consult the Guide about fluff"
+	  " 8  Consult Guide about fluff"
 	  " 9  ASK GUIDE ABOUT SPACE in space"
 	  "10  Looking in the Engine Room"
-	  "11  This footnote is not referenced"
-	  "12  This footnote is self referenced"
-	  "13  Push the autopilot button thrice"
-	  "14  When Ford hands you the Guide"
-	  "15  Read the banner at the Dais">>
+	  "11  This is not referenced"
+	  "12  This is self referenced"
+	  "13  Push autopilot button thrice"
+	  "14  When Ford hands you Guide"
+	  "15  Read the banner at Dais">>
 >>
