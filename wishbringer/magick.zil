@@ -612,199 +612,96 @@ D ,SHOE " begin to twinkle with Luck." CR>
 
 <GLOBAL PAGES <PTABLE
 	       
-"    \"A Moral History, in Verse,|
-               of the|
-         Magick Dream-Stone|
-     recently unearthed by the|
-Society of Thaumaturgic Archaelogy,|
-       and commonly known as|
-            WISHBRINGER|
-    including a substantial body|
- of hitherto unpublished discoveries|
-  regarding the mystick Properties|
-         of said Artifact.\"|"
+"  \"A Moral History, in Verse,   |
+    of the Magick Dream-Stone|
+recently unearthed by the Society|
+    of Thaumaturgic Archaelogy,|
+      and commonly known as|
+           WISHBRINGER|
+ including a substantial body of|
+ hitherto unpublished discoveries|
+ regarding the mystick Properties|
+        of said Artifact.\"|"
 	 
 "\"CHAPTER THE FIRST|
 |
-(Of Morning-Star's birth and great beauty,|
-and how she was abducted by the evil Queen Alexis.)|
+(Of Morning-Star's birth and great beauty, and how she was abducted by the evil Queen Alexis.)|
 |
-It happened in the reign of mighty|
-Anatinus, King of Misty Island,|
-that there was born into a peasant home|
-a daughter, blessed with rare and perfect Beauty.|
-Morning-Star they named her; and the legend|
-of her beauty spread through all the kingdom,|
-even to the court of Anatinus.|
+It happened in the reign of mighty Anatinus, King of Misty Island, that there was born into a peasant home a daughter, blessed with rare and perfect Beauty.|
+Morning-Star they named her; and the legend of her beauty spread through all the kingdom, even to the court of Anatinus.|
 |
-There beside the throne sat Queen Alexis,|
-heavy-hearted. For her newborn daughter,|
-cursed by fate and prophecy, was sightless.|
-Loth the Queen to look upon her blind child's|
-face! And how the baby Morning-Star,|
-more beautiful and perfect, made her jealous!\"|"
+There beside the throne sat Queen Alexis, heavy-hearted. For her newborn daughter, cursed by fate and prophecy, was sightless.|
+Loth the Queen to look upon her blind child's face! And how the baby Morning-Star, more beautiful and perfect, made her jealous!\"|"
 
-"\"Envy breedeth Evil: Queen Alexis|
-caused the simple peasant home of Morning-Star|
-to burn. The sleeping family perished,|
-all but Morning-Star, who, being rescued|
-by the Queen's design, became her daughter,|
-sight restored by Prayer.|
+"\"Envy breedeth Evil: Queen Alexis caused the simple peasant home of Morning-Star to burn. The sleeping family perished, all but Morning-Star, who, being rescued by the Queen's design, became her daughter, sight restored by Prayer.|
 |
-(The one true Princess,|
-left behind to fill the vacant cradle,|
-perished too, and never saw her mother.)\"|"
+(The one true Princess, left behind to fill the vacant cradle, perished too, and never saw her mother.)\"|"
 
 "\"CHAPTER THE SECOND.|
 |
-(Of Morning-Star's coming of age,|
-and of the many knights who sought her fair hand|
-in Marriage.)|
+(Of Morning-Star's coming of age, and of the many knights who sought her fair hand in Marriage.)|
 |
-The years were kind to Morning-Star. Her beauty|
-blossomed like the fragrant water-lily|
-into full, abundant maidenhood.|
-Anon befell here ten-and-seventh birthday.|
+The years were kind to Morning-Star. Her beauty blossomed like the fragrant water-lily into full, abundant maidenhood. Anon befell here ten-and-seventh birthday.|
 |
-Anatinus made it known that whosoever|
-might desire to win the hand of Morning-Star|
-should now come forth to claim it.|
-To prove his worth, the groom must first by needs|
-fulfill a Love-Quest, of the Queen's own choosing,|
-according to the custom of the kingdom.|
+Anatinus made it known that whosoever might desire to win the hand of Morning-Star should now come forth to claim it. To prove his worth, the groom must first by needs fulfill a Love-Quest, of the Queen's own choosing, according to the custom of the kingdom.|
 |
-Many were the eager knights who journeyed|
-to the royal palace, hoping there to|
-win the love of Princess Morning-Star.|
-Alexis, dark with envy, watched the lusty|
-swains descend like vultures 'round her daughter,|
-and vowed in secret not to let them have her.|
+Many were the eager knights who journeyed to the royal palace, hoping there to win the love of Princess Morning-Star. Alexis, dark with envy, watched the lusty swains descend like vultures 'round her daughter, and vowed in secret not to let them have her.|
 |
-From the knights assembled, six were chosen,|
-and stood before the heartless Queen for testing.\"|"
+From the knights assembled, six were chosen, and stood before the heartless Queen for testing.\"|"
 
 "\"CHAPTER THE THIRD|
 |
-(Of the impossible Love-Quests devised by|
-the crafty Queen Alexis,|
-and how the six knights fared by them.)|
+(Of the impossible Love-Quests devised by the crafty Queen Alexis, and how the six knights fared by them.)|
 |
-One brave knight, a lad but one-and-twenty,|
-was sent across the sea to beg Lord Nimbus,|
-God of RAIN, to quench the thirsting|
-Fields of Frotzen. But the God, not sympathetic,|
-smote his vessel with a bolt of lightning.|
+One brave knight, a lad but one-and-twenty, was sent across the sea to beg Lord Nimbus, God of RAIN, to quench the thirsting Fields of Frotzen. But the God, not sympathetic, smote his vessel with a bolt of lightning.|
 |
-The second knight, a weapons-bearer, strong|
-of limb and nimble, scaled the mountain peak of|
-Matter-Horn, to seek ADVICE from spirits.|
-The hopes of Princess Morning-Star fell with him.|
+The second knight, a weapons-bearer, strong of limb and nimble, scaled the mountain peak of Matter-Horn, to seek ADVICE from spirits. The hopes of Princess Morning-Star fell with him.|
 |
-A third knight ventured forth to try the fabled|
-Wings of Icarus, and learn the secret|
-method of their FLIGHT, to please Alexis.|
-But alas! The joyful knight, whilst soaring|
-home to claim the Princess, flew into|
-the open maw of Thermofax, a Dragon.\"|"
+A third knight ventured forth to try the fabled Wings of Icarus, and learn the secret method of their FLIGHT, to please Alexis. But alas! The joyful knight, whilst soaring home to claim the Princess, flew into the open maw of Thermofax, a Dragon.\"|"
 
-"\"Alexis sent the fourth knight deep into the|
-Mines of Anthar, there to slay a Grue,|
-and drag the carcass up where all might see it.|
-But DARKNESS overcame the hapless knight, who,|
-lost without a lamp, was soon Devoured.|
+"\"Alexis sent the fourth knight deep into the Mines of Anthar, there to slay a Grue, and drag the carcass up where all might see it. But DARKNESS overcame the hapless knight, who, lost without a lamp, was soon Devoured.|
 |
-Another knight, the fifth, directed by the|
-Queen to steal the Cocoa-Nut of Quendor,|
-chanced upon a lair of hungry Implementors,|
-and did not FORESEE his peril.|
+Another knight, the fifth, directed by the Queen to steal the Cocoa-Nut of Quendor, chanced upon a lair of hungry Implementors, and did not FORESEE his peril.|
 |
-Lastly stood before the Queen a gentle|
-boy, no older than the Princess. Morning-Star|
-liked well his beardless smile, and begged her|
-mother not to test his LUCK too harshly.|
-But Alexis caused the youth to spend an|
-evening midst an unclean Cemetery,|
-from which he ne'er returned; for eldritch vapors|
-carried him away, and gave no reason.\"|"
+Lastly stood before the Queen a gentle boy, no older than the Princess. Morning-Star liked well his beardless smile, and begged her mother not to test his LUCK too harshly. But Alexis caused the youth to spend an evening midst an unclean Cemetery, from which he ne'er returned; for eldritch vapors carried him away, and gave no reason.\"|"
 
 "\"CHAPTER THE FOURTH|
 |
-(Of the Edict of Alexis,|
-the demise of Morning-Star,|
-and the discovery, many years after,|
-of a Magick Stone, called Wishbringer.)|
+(Of the Edict of Alexis, the demise of Morning-Star, and the discovery, many years after, of a Magick Stone, called Wishbringer.)|
 |
-Queen Alexis cried, \"Is no man|
-in the kingdom fit to wed my daughter?|
-Methinks she must remain unmarried, then,|
-and Virgin all her days.\" So was it Written.|
+Queen Alexis cried, \"Is no man in the kingdom fit to wed my daughter? Methinks she must remain unmarried, then, and Virgin all her days.\" So was it Written.|
 |
-Morning-Star hoped death might grant|
-her FREEDOM from the Edict of Alexis,|
-by her mother's timely passing. But the Reaper|
-(busy elsewhere with a Plague) heard not her|
-praying; so Alexis lived, and laughed,|
-and watched her daughter's beauty fade away,|
-and all her Wishes dwindle in her bosom.|
+Morning-Star hoped death might grant her FREEDOM from the Edict of Alexis, by her mother's timely passing. But the Reaper (busy elsewhere with a Plague) heard not her praying; so Alexis lived, and laughed, and watched her daughter's beauty fade away, and all her Wishes dwindle in her bosom.|
 |
-Many kingdoms after, when the reign of|
-Anatinus was forgotten, and the|
-names of Morning-Star and Queen Alexis|
-lost in Time, there came unto the Misty Isle|
-a scholar, who, amid the crumbling|
-tombs of monarchs, chanced upon the mortal|
-relic of the Princess. All was dust,|
-except her Heart, which, hard and shrunken|
-to a pebble in the grave, was shining brightly|
-with the stifled Wishes of her lifetime.|
+Many kingdoms after, when the reign of Anatinus was forgotten, and the names of Morning-Star and Queen Alexis lost in Time, there came unto the Misty Isle a scholar, who, amid the crumbling tombs of monarchs, chanced upon the mortal relic of the Princess. All was dust, except her Heart, which, hard and shrunken to a pebble in the grave, was shining brightly with the stifled Wishes of her lifetime.|
 |
 Thus, the Magick Stone of Dreams discovered.\"|"
 
 "\"CHAPTER THE FIFTH|
 |
-(Of the Seven Wishes,|
-and what ye must know to invoke them.)|
+(Of the Seven Wishes, and what ye must know to invoke them.)|
+Seven is the number of the Wishes bound into the Stone; and if ye speak a Wish, that Wish is Spent, and lost forever. Also know, that ye must hold the Wishing-Stone within thy hands to wield its Magick.|
 |
-Seven is the number of the Wishes|
-bound into the Stone; and if ye speak a Wish,|
-that Wish is Spent, and lost forever. Also know,|
-that ye must hold the Wishing-Stone|
-within thy hands to wield its Magick.|
+Look ye, then,|
+upon the Seven Wishes:|
 |
-Look ye, then, upon the Seven Wishes:|
+RAIN falls only for the bearer of the Stone who standeth under an umbrella.|
 |
-RAIN falls only for the bearer of the Stone|
-who standeth under an umbrella.|
+ADVICE may bring wise counsel to the bearer of the Stone who listeneth to Sea-Shells.|
 |
-ADVICE may bring wise counsel to the bearer|
-of the Stone who listeneth to Sea-Shells.|
+FLIGHT shall bear the Magick-wielder swiftly home, if ye be sitting on a Broom-Stick.|
 |
-FLIGHT shall bear the Magick-wielder swiftly|
-home, if ye be sitting on a Broom-Stick.|
+DARKNESS, blacker than the Night, shall fall across the land if Milk of Grue thou drinkest.|
 |
-DARKNESS, blacker than the Night, shall fall|
-across the land if Milk of Grue thou drinkest.|
+FORESIGHT lifts the veil of Time, and shows the Future, but prepare thy eyes with Glasses.|
 |
-FORESIGHT lifts the veil of Time, and shows|
-the Future, but prepare thy eyes with Glasses.|
+LUCK will bring good fortune, if ye hold a Horseshoe and the Stone in thy possession.|
 |
-LUCK will bring good fortune, if ye hold|
-a Horseshoe and the Stone in thy possession.|
-|
-FREEDOM spring the wielder from confinement,|
-but mark well that ye first hath eaten Candy.\"|"
+FREEDOM spring the wielder from confinement, but mark well that ye first hath eaten Candy.\"|"
 
 "\"EPILOGUE|
 |
-Now ye know the Origins and Magick|
-of the Wishing-Stone. But know ye also,|
-bold Adventurer, that every problem|
-ye encounter in thy travels may be|
-also bested by the spell of Logick.|
-Exercise thy Brain, and work thy Wits!|
-Forget ye not that Morning-Star, a Princess,|
-who threw away her life in easy Wishing,|
-died in vain.|
+Now ye know the Origins and Magick of the Wishing-Stone. But know ye also, bold Adventurer, that every problem ye encounter in thy travels may be also bested by the spell of Logick. Exercise thy Brain, and work thy Wits! Forget ye not that Morning-Star, a Princess, who threw away her life in easy Wishing, died in vain.|
 |
 Let her fate be thy Warning.\"|"
 >>

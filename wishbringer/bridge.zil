@@ -91,7 +91,7 @@
 		<TELL CR CR>
 		<COND (,SKEWED?
 		       <TELL 
-"  Curfew Begins At 6 PM|
+" Curfew Begins At 6 PM|
    Boot Patrol On Duty|
 Violators Will Be Jailed!">)
 		      (T
