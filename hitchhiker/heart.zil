@@ -860,31 +860,31 @@ disgusting.">
 	       (<EQUAL? ,TEA-COUNTER 2>
 		<TELL
 "A red sign lights up saying:|
-   MEMORY OVERLOAD" CR>)
+  MEMORY OVERLOAD" CR>)
 	       (<EQUAL? ,TEA-COUNTER 3>
 		<TELL
-"Another red sign lights up saying:|
-   RESERVE MEMORY OVERLOAD" CR>)
+"Another red sign lights up:|
+  RESERVE MEMORY OVERLOAD" CR>)
 	       (<EQUAL? ,TEA-COUNTER 4>
 		<TELL
 "A third sign lights up:|
-   PROCESSOR OVERLOAD,|
-   SWITCH TO TERMINAL MODE" CR>)
+  PROCESSOR OVERLOAD,|
+  SWITCH TO TERMINAL MODE" CR>)
 	       (<EQUAL? ,TEA-COUNTER 5>
 		<TELL
 "A blue sign lights up:|
-   NUTRIMAT GOING ON LINE" CR>)
+  NUTRIMAT GOING ON LINE" CR>)
 	       (<EQUAL? ,TEA-COUNTER 6>
 		<TELL
 "More and more signs light up:|
-   SHIPBOARD COMPUTER ACCESSED|
-   MAIN MEMORY OVERLOAD|
-   RESERVE MEMORY ACCESSED|
-   PARALLEL PROCESSORS ON LINE|
+  SHIPBOARD COMPUTER ACCESSED|
+  MAIN MEMORY OVERLOAD|
+  RESERVE MEMORY ACCESSED|
+  PARALLEL PROCESSORS ON LINE|
 |
-   ****************************|
-   ** NUMBERS BEING CRUNCHED **|
-   ****************************" CR>)
+  ****************************|
+  ** NUMBERS BEING CRUNCHED **|
+  ****************************" CR>)
 	       (<EQUAL? ,TEA-COUNTER 7>
 		<FSET ,THUMB ,MUNGEDBIT>
 		<TELL ,ANNOUNCEMENT D ,EDDIE
