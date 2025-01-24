@@ -3272,7 +3272,7 @@ followed almost immediately by the rest of ">
 <ROUTINE JIGS-UP (DESC)
 	 <TELL .DESC>
 	 <TELL CR CR
-"      ****  You have died  ****" CR>
+"   ****  You have died  ****" CR>
 	 <FINISH>>
 
 ;"subtitle useful utility routines"
