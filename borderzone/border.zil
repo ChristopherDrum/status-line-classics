@@ -1829,7 +1829,7 @@ piece." CR>)>)>>
       (EW 2)
       (NS 2)
       (LOC ROOMS)
-      (DESC "Border Zone, Station")
+      (DESC "Border Zone Station")
       (PATH 0)
       (WEST TO A2 IF HACK-FLAG ELSE
 "You emerge from the forest into an open area through which runs
@@ -1947,7 +1947,7 @@ to attempt anything other than a direct run at the tower to the north.")
       (EW 4)
       (NS 2)
       (LOC ROOMS)
-      (DESC "Border Zone, Center")
+      (DESC "Border Zone, Cent")
       (PATH 0)
       (WEST TO C2 IF HACK-FLAG ELSE
 "You continue through the forest, until you come to the edge of a wide

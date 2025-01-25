@@ -16,7 +16,7 @@
 	 <SET N <MOD ,CHRONOGRAPH-TIME 60>>
 	 <COND (<L? .N 10>
 		<TELL "0">)>
-	 <TELL N .N>>
+	 <TELL N .N >>
 
 <GLOBAL CLOCK-TIME 0>
 
@@ -128,8 +128,8 @@
 <ROUTINE UPDATE-TIME ("AUX" MIN TMP)
 	 <BUFOUT <>>
 	 <SCREEN 1>
-	 <CURSET 1 <- <GETB 0 33> 5>>
 	 <HLIGHT ,H-INVERSE>
+	 <CURSET 1 <- <GETB 0 33> 5>>
 	 <SET MIN <+ </ ,CLOCK-TIME 60> ,START-MINUTE>>
 	 <SET TMP <+ ,START-HOUR </ .MIN 60>>>
 	 <COND (<G? .TMP 23>
@@ -151,7 +151,8 @@
 		       <CURSET 1 21>)> ;"just eye-balling it; hopefully won't collide with location string"
 		<SETG CHRONOGRAPH-TIME <+ ,CHRONOGRAPH-TIME .TICKS>>
 		<COND (<EQUAL? ,SCENARIO 2>
-		       <CHRONOGRAPH-TELL>)
+		       <CHRONOGRAPH-TELL>
+			   <TELL "/">)
 		      (T
 		       <TELL "     ">)>
 		<TELL " ">)>

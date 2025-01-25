@@ -85,7 +85,7 @@
 	 <HERE-TELL>
 	 <SCREEN-0>>
 
-<ROUTINE HERE-TELL ("OPTIONAL" (PAD? T) "AUX" LEN)
+<ROUTINE HERE-TELL ("OPTIONAL" (PAD? T) "AUX" LEN PL)
 	 <DIROUT ,D-TABLE-ON ,DIROUT-TBL>
 	 <COND (,IN-SWAMP? <TELL "In the Swamp">)
 	       (,ON-BRACE? <TELL "On the Brace">)
@@ -100,8 +100,11 @@
 		      (,ON-BRACE? <TELL "On the Brace">)
 		      (,ON-THE-CAN <TELL "On the Trash Can">)
 		      (T <TELL D ,HERE>)>
+			  ;"in scenario 2 we need to avoid desc overwriting the chronograph display"
+		<COND (<EQUAL? ,SCENARIO 2> <SET PL 19>)
+		      (T <SET PL 24>)>
 		<COND (.PAD?
-		       <PRINT-SPACES <- 24 .LEN>>)>)>
+		       <PRINT-SPACES <- .PL .LEN>>)>)>
 	 <RTRUE>>
 
 <GLOBAL HERE <>>
