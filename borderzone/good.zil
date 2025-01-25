@@ -504,11 +504,11 @@ a bit faster. At this moment, the ">
 		<SETG CLOCK-MOVE 4>
 		<SCREEN-1>
 		<CURSET 2 2>
-		<TELL "Left:">
-		<CURSET 2 <- </ <GETB 0 33> 2> 6>>
-		<TELL "Center:">
-		<CURSET 2 <- <GETB 0 33> 11>>
-		<TELL "Right:">
+		<TELL "LT:">
+		<CURSET 2 <- </ <GETB 0 33> 2> 3>>
+		<TELL "CTR:">
+		<CURSET 2 <- <GETB 0 33> 7>>
+		<TELL "RT:">
 		<SL-WATCHER>
 		<SCREEN-0>
 		<CRLF>

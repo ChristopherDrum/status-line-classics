@@ -170,11 +170,11 @@
 <ROUTINE I-SEARCHLIGHTS () <TURN-SL> ;<TELL "[SL]" CR>>
 
 <ROUTINE SL-WATCHER ()
-	 <CURSET 2 4>
+	 <CURSET 2 5>
 	 <TELL <SL-POS-STR-AB 1> "  ">
-	 <CURSET 2 </ <GETB 0 33> 2>>
+	 <CURSET 2 <+ </ <GETB 0 33> 2> 1>>
 	 <TELL <SL-POS-STR-AB 2> "  ">
-	 <CURSET 2 <- <GETB 0 33> 4>>
+	 <CURSET 2 <- <GETB 0 33> 3>>
 	 <TELL <SL-POS-STR-AB 3> "  ">>
 
 <GLOBAL G-WATCH <>>
