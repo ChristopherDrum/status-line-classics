@@ -12,18 +12,18 @@
 <SYNTAX HINT OFF OBJECT (FIND RLANDBIT) = V-HINTS-NO>
 <VERB-SYNONYM HINT HINTS CLUE CLUES INVISICLUES>
 
-<CONSTANT RETURN-SEE-HINT " RETURN = see hint">
-<CONSTANT RETURN-SEE-HINT-LEN <LENGTH " RETURN = see hint">>
-<CONSTANT Q-MAIN-MENU "Q = main menu">
-<CONSTANT Q-MAIN-MENU-LEN <LENGTH "Q = main menu">>
+<CONSTANT RETURN-SEE-HINT "return:see hint">
+<CONSTANT RETURN-SEE-HINT-LEN <LENGTH "return:see hint">>
+<CONSTANT Q-MAIN-MENU "q:main menu">
+<CONSTANT Q-MAIN-MENU-LEN <LENGTH "q:main menu">>
 <CONSTANT INVISICLUES "INVISICLUES (tm)">
 <CONSTANT INVISICLUES-LEN <LENGTH "INVISICLUES (TM)">>
-<CONSTANT Q-SEE-HINT-MENU "Q = see hint menu">
-<CONSTANT Q-SEE-HINT-MENU-LEN <LENGTH "Q = see hint menu">>
-<CONSTANT Q-RESUME-STORY "Q = Resume story">
-<CONSTANT Q-RESUME-STORY-LEN <LENGTH "Q = Resume story">>
-<CONSTANT PREVIOUS "P = Previous">
-<CONSTANT PREVIOUS-LEN <LENGTH "P = Previous">>
+<CONSTANT Q-SEE-HINT-MENU "q:hint menu">
+<CONSTANT Q-SEE-HINT-MENU-LEN <LENGTH "q:hint menu">>
+<CONSTANT Q-RESUME-STORY "q:resume story">
+<CONSTANT Q-RESUME-STORY-LEN <LENGTH "q:resume story">>
+<CONSTANT PREVIOUS "p:previous">
+<CONSTANT PREVIOUS-LEN <LENGTH "p:previous">>
 
 <GLOBAL LINE-TABLE		;"zeroth (first) element is 5"
 	<PTABLE
@@ -31,7 +31,7 @@
 
 <CONSTANT COLUMN-TABLE		;"zeroth (first) element is 4"
 	<PTABLE
-	  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4>>
+	  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3>>
 
 ; "If the first argument is non-false, build a parallel impure table
    for storing the count of answers already seen; make it a constant
@@ -78,7 +78,7 @@
    <EVAL <FORM PLTABLE !<REST .HL>>>>
 
 ;"longest hint topic can be 17 questions"
-;"longest question can be 36 chars."
+;"longest question can be 27 chars. (down from 36 for Status Line)"
 ;"question can't have more than 32 answers"
 
 <CONSTANT HINTS
@@ -98,7 +98,7 @@ and answers in order to minimize the problem.">
 		 "If you are stuck at some point in Wishbringer, find the
 question that most pertains to your problem. Follow the directions above.
 If you're still stumped, go on to the next hint.">
-	<PLTABLE "What's the plural of \"platypus\"?"
+	<PLTABLE "The plural of \"platypus\"?"
 		 "Platypuses."
 		 "Platypi."
 		 "Both platypuses and platypi are correct.">
@@ -107,7 +107,7 @@ If you're still stumped, go on to the next hint.">
 Your Amusement\" section. Don't look at them before you've finished, though --
 they may reveal the answers to certain problems.">
 	"The beginning of the story"
-	<PLTABLE "Somebody's calling me. What do I do?"
+	<PLTABLE "Someone's calling. What now?"
 		 "The Post Office door may give you a clue. EXAMINE it."
 		 "Since the door is open, why not GO INSIDE and see who's calling?">
 	<PLTABLE "Where is the Magick Stone?"
@@ -116,38 +116,38 @@ they may reveal the answers to certain problems.">
 		 "He's your mean old boss."
 		 "And he isn't very happy about your idle daydreaming."
 		 "So you'd better do what he says.">
-	<PLTABLE "When should I open the envelope?"
+	<PLTABLE "When do I open the envelope?"
 		 "The story will tell you. Patience!">
-	<PLTABLE "How do I get into the cemetery?"
+	<PLTABLE "How to go into the cemetery?"
 		 "WALK INTO THE CEMETERY."
 		 "You're not going to be scared away, are you?"
 		 "Go on, chicken! WALK INTO THE CEMETERY and answer YES to the
 question.">
 	<PLTABLE "Who is the gravedigger?"
 		 "LOOK AT THE GRAVEDIGGER and find out.">
-	<PLTABLE "Can I get the flowers in the hearse?"
+	<PLTABLE "Get flowers from the hearse?"
 		 "Did you find the vase?"
 		 "It may be hidden amongst the flowers in the hearse." 
 		 "There aren't any flowers in the hearse."
 		 "There's no hearse or vase, either."
 		 "Remember the warning in the introduction: Don't let the
 presence or absence of questions influence the way you play."> 
-	<PLTABLE "What should I do with the umbrella?"
+	<PLTABLE "What to do with umbrella?"
 		 "It might come in handy if it rains."
 		 "You can't WISH FOR RAIN unless you have an umbrella."
 		 "So maybe you should hold onto it for later.">
-	<PLTABLE "How do I get thru the locked gate?"
+	<PLTABLE "How to get thru locked gate?"
 		 "The gravedigger has the only key to the gate."
 		 "But the gravedigger is nowhere to be seen."
 		 "You can't unlock the gate. To leave the cemetery, you must go
 out through the open gate at Creepy Corner."> 
-	<PLTABLE "The dog won't let me in the cottage!"
+	<PLTABLE "Dog won't let me in cottage!"
 		 "It wouldn't be much of a watchdog if it did, would it?">
-	<PLTABLE "The poodle let me go north. Why?"
+	<PLTABLE "Poodle let me go north. Why?"
 		 "It doesn't like people walking past the cottage."
 		 "It doesn't like mail clerks."
 		 "It doesn't like you."> 
-	<PLTABLE "How do I get past the poodle?"
+	<PLTABLE "How do I get past poodle?"
 		 "I wouldn't PICK UP THE POODLE THEN KICK IT if I were you."
 		 "Since violence doesn't work, maybe bribery will."  
 		 "You'll have to find something to bribe it with."
@@ -159,7 +159,7 @@ past the poodle?"
 		 "Wait until the gravedigger goes away. Then GO INTO THE OPEN
 GRAVE. PICK UP THE OLD BONE. Bring it to the poodle and FEED THE BONE TO
 THE POODLE. Now you can GO NORTH into the village.">
-	<PLTABLE "Help! I left the envelope behind!"
+	<PLTABLE "Help! I forgot the envelope!"
  		 "You're not a very good mail clerk, are you?"
 		 "There's no way to walk past the poodle once it has finished
 eating the bone."
@@ -171,11 +171,11 @@ eating the bone."
 Festeron Historical Museum, and author of the best-selling \"Local History
 Series\" of booklets, including The Legend of Wishbringer."
 		 "Aren't you glad you asked?">
-	<PLTABLE "Miss Voss give me my library card!"
+	<PLTABLE "Voss give me my library card!"
 		 "She doesn't like mail clerks."
 		 "She doesn't like you."
 		 "What library card?">
-	<PLTABLE "What do I do with the violet note?"
+	<PLTABLE "What to do with violet note?"
 		 "Miss Voss asked you to give it to your boss, Mr. Crisp."
 		 "But delivering the mysterious envelope is more important
 right now."
@@ -185,7 +185,7 @@ right now."
 		 "But why would Miss Voss write a note to her dog?"
 		 "Since Miss Voss asked you to give the note to Mr. Crisp,
 and the note is addressed to \"Corky,\" it's probably Mr. Crisp's nickname.">
-	<PLTABLE "How do I get inside the Library?"
+	<PLTABLE "How to get in the Library?"
 		 "Miss Voss probably has the key."
 		 "Unfortunately, Miss Voss isn't around any more."
 		 "You don't have time to fool around with the Library right
@@ -200,31 +200,31 @@ envelope.">
 		 "Have you tried examining Sgt. MacGuffin?"
 		 "Wait until Sgt. MacGuffin falls asleep before taking the
 chocolate.">
-	<PLTABLE "What should I do in the Park?"
+	<PLTABLE "What to do in the Park?"
 		 "The statue in the middle of the fountain is interesting."
 		 "But not as interesting as the other objects in the fountain."
 		 "LOOK INSIDE THE FOUNTAIN."
 		 "The rest is up to you.">
-	<PLTABLE "How do I catch the goldfish?"
+	<PLTABLE "How to catch the goldfish?"
 		 "Unfortunately, you won't find a net or pole anywhere."
 		 "What makes you think you have to catch the goldfish?">
-	<PLTABLE "How do I get in the movie theater?"
+	<PLTABLE "How to get in the theater?"
 		 "The schedule might give you a hint."
 		 "The theater opens at seven o'clock. Come back later."> 
-	<PLTABLE "Can I get things from the mailbox?"
+	<PLTABLE "Get something from mailbox?"
 		 "No. Public mailboxes are built to discourage prying fingers
 like yours.">
-	<PLTABLE "How do I play the video game?"
+	<PLTABLE "How to play the video game?"
 		 "By scoring as many points as you can."
 		 "Naturally, you'll have to put a token in the video machine
 before you can play."
 		 "Isn't it getting awfully close to five o'clock?">
 	"Festeron, continued" 
-	<PLTABLE "What do I do with the seahorse?"
+	<PLTABLE "What to do with the seahorse?"
 		 "If you don't do something quickly, it will probably die."
 		 "A seahorse can't live long out of water."
 		 "PICK UP THE SEAHORSE THEN THROW IT INTO THE BAY.">
-	<PLTABLE "What happened to the church mouse?"
+	<PLTABLE "Where's the church mouse?"
 		 "It ran away when it saw you. Surprised?">
 	<PLTABLE "How do I get the candle?"
 		 "Try to TAKE THE CANDLE."
@@ -232,16 +232,16 @@ before you can play."
 		 "Taking things that don't belong to you is stealing,
 especially in a church."
 		 "At the moment, you can't steal the candle.">
-	<PLTABLE "What should I do with the leaves?"
+	<PLTABLE "What to do with the leaves?"
 		 "Did you notice the message in the sand near the leaves?"
 		 "Are you going to do what the message says?"
 		 "You might be sorry if you don't.">
-	<PLTABLE "Who wrote the message in the sand?"
+	<PLTABLE "Who wrote the sand message?"
 		 "The person who wrote the message was obviously very
 concerned that somebody like you might come along and disturb the pile of
 leaves. Aside from this acute observation, the author of the message is not
 important.">
-	<PLTABLE "How do I get to Misty Island?"
+	<PLTABLE "How to get to Misty Island?"
 		 "If you had a bathing suit you could put it on and swim over."
 		 "No bathing suit, eh? Oh, well. You'll just have to wait for
 the Misty Island ferry."
@@ -249,63 +249,63 @@ the Misty Island ferry."
 wet bar and jacuzzi."
 		 "If all else fails, give up."
 		 "But watch for new opportunities after you deliver the envelope."> 
-	<PLTABLE "What do I do with the horseshoe?"
+	<PLTABLE "What to do with horseshoe?"
 		 "Keep it. It might bring you good luck."
 		 "Especially if you use it to WISH FOR LUCK after you find the
 Magick Stone.">
-	<PLTABLE "How do I get into the lighthouse?"
+	<PLTABLE "How to get in the lighthouse?"
 		 "It's a phoney lighthouse. You can't go into it."
 		 "Ever."
 	         "So stop trying.">
-	<PLTABLE "What should I feed to the pelican?"
+	<PLTABLE "What to feed to the pelican?"
 		 "A flapping, juicy fish would be nice if you can find one."
 		 "The only fish you'll find is in the fountain."
 		 "Unfortunately, you can't get the fish in the fountain."
 		 "What makes you think the pelican is hungry?">
-	<PLTABLE "Can I enter the impenetrable forest?"
+	<PLTABLE "Enter impenetrable forest?"
 		 "Look up the word \"impenetrable\" in a dictionary.">
-	<PLTABLE "What can I do with the gnarled tree?"
+	<PLTABLE "What to do with gnarled tree?"
 		 "You can always CLIMB THE GNARLED TREE."
 		 "Maybe you should have examined the tree first.">
-	<PLTABLE "What can I do with the dead branch?"
+	<PLTABLE "What to do with dead branch?"
 		 "It probably won't help you deliver the envelope any faster."
 		 "But it's a good idea to remember where it is. You might
 find a use for it later.">
-	<PLTABLE "Mr. Crisp fired me! What did I do?"
+	<PLTABLE "Mr. Crisp fired me! Why?"
 		 "You failed to deliver the envelope on time, or didn't read
 it to the old woman. Next time, make sure you're in the Magick Shoppe before
 five o'clock, and do what the old woman asks you to do!">
 	"Ye Olde Magick Shoppe"
-	<PLTABLE "Why is \"Magick\" spelled with a \"k\"?"
+	<PLTABLE "Why is \"Magick\" with a \"k\"?"
 		 "Because."
 		 "Oh, all right. \"Magick\" is an archaic spelling popularized
 by Aleister Crowley (a 20th century occultist) and occasionally seen in pulp
 fantasies and tales of horror. It's supposed to imply an especially old and
 potent variety of supernatural force.">
-	<PLTABLE "How do I get into the Magick Shoppe?"
+	<PLTABLE "How to get in Magick Shoppe?"
 		 "Just OPEN THE DOOR THEN GO INSIDE.">
-	<PLTABLE "Can I reopen the door the wind shut?"
+	<PLTABLE "Reopen door the wind shut?"
 		 "You can't open it by yourself."
 		 "Relax. Maybe somebody will come along and open it for you.">
-	<PLTABLE "How can I take the birthday cards?"
+	<PLTABLE "Take the birthday cards?"
 		 "By removing them from the glass case."
 		 "Unfortunately, you can't reach into the glass case."
 		 "So you can't take the naughty birthday cards."
 		 "You rascal."> 
-	<PLTABLE "Why can't I approach the curtain?"
+	<PLTABLE "Can't approach the curtain?"
 		 "Maybe it doesn't like mail clerks."
 		 "It's enchanted in such a way as to discourage nosey visitors.">
 	<PLTABLE "Who is the old woman?"
 		 "She's the proprietor of the Magick Shoppe."
 		 "The mysterious envelope is addressed to her."
 		 "So maybe you ought to give her the mysterious envelope.">
-	<PLTABLE "Why did the Shoppe become quiet?"
+	<PLTABLE "Why did the Shoppe get quiet?"
 		 "A noise stopped."
 		 "A nearby mechanism stopped working."
 		 "EXAMINE THE GRANDFATHER CLOCK."
 		 "The clock stopped when the old woman appeared. Creepy,
 isn't it?">
-	<PLTABLE "The clock stopped. Is it a bug?"
+	<PLTABLE "The clock stopped. A bug?"
 		 "It's not a bug. See the previous question for details."
 		 "If it was a bug, you could blame it on one of the Infopeople
 who playtested the game. In alphabetical order, they are: \"Hollywood\" Dave
@@ -319,10 +319,10 @@ a Magick Stone for ransom."
 		 "If she doesn't get the Stone before the moon sets, she'll
 probably do something awful to the cat."
 		 "Doesn't sound like a very nice person, does she?">
-	<PLTABLE "What should I do with the metal can?"
+	<PLTABLE "What to do with metal can?"
 		 "Like all objects in the story, you should EXAMINE it."
 		 "The rest is up to you.">
-	<PLTABLE "Why does the metal can rattle?"
+	<PLTABLE "Why does the can rattle?"
 		 "Maybe there are some yummy mixed nuts inside." 
 		 "Then again, maybe not."
 		 "There's something built into the can that makes it rattle."
@@ -339,10 +339,11 @@ making them believe there may be nuts inside.">
 		 "He used to work at Infocom."
 		 "He paid $10.00 to see his name in print."
 		 "(This space for sale.)">
-	<PLTABLE "My status line just went crazy!"
+	<PLTABLE "My status line went crazy!"
 		 "It's not a bug."
 		 "It's a feature."
-		 "It's the sort of thing that happens in Magick Shoppes.">
+		 "It's the sort of thing that happens in Magick Shoppes."
+		 "Thanks for using Status Line on the Pico-8!">
 	"After the Magick Shoppe"
 	<PLTABLE "What's up? Festeron changed!"
 		 "Exactly."
@@ -352,7 +353,7 @@ influence."
 		 "The \"T\" stands for \"The,\" and the \"O\" stands
 for \"One.\""
 		 "Sorry. You have to figure out the \"E\" yourself.">
-	<PLTABLE "Where is the stone, Wishbringer?"
+	<PLTABLE "Wishbringer, where's stone?"
 		 "It may be a lot closer than you think."
 		 "It seems odd that the old woman didn't simply give it to you,
 doesn't it?"
@@ -366,12 +367,12 @@ doesn't it?"
 	<PLTABLE "Who is Thermofax?"
 		 "He's a fire-breathing dragon mentioned in The Legend of
 Wishbringer and the opening title screen.">
-	<PLTABLE "Thermofax won't leave me alone!"
+	<PLTABLE "Thermofax hounds me!"
 		 "Throw the Magick Stone into his open maw."
 		 "If that doesn't work, throw yourself into his open maw."
 		 "Except for brief mentions in The Legend of Wishbringer and
 the opening title screen, Thermofax does not appear in the story.">
-	<PLTABLE "How do I get down the steep trail?"
+	<PLTABLE "How get down steep trail?"
 		 "Use the map you drew on your way up the trail."
 		 "You did take the story's advice when it told you to draw
 a map, didn't you?"
@@ -388,7 +389,7 @@ to the bottom of the cliff.">
 		 "It's watching you."
 		 "Doesn't that make you uneasy?"
 		 "It ought to. The vulture is the Evil One's spy.">
-	<PLTABLE "How do I get past the toll gate?"
+	<PLTABLE "How to get past toll gate?"
 		 "Why not just pay the troll?"
 		 "The troll won't take your gold coin? Gee. Tough luck."
 		 "Maybe there's something else you can give the troll."
@@ -423,31 +424,31 @@ light of day, and few have survived its fearsome jaws to tell the tale.">
 	<PLTABLE "How do you milk a grue?"
 		 "Very carefully."
 		 "Fortunately, you don't have to milk a grue to finish the story.">
-	<PLTABLE "Where do I find the grue's milk?"
+	<PLTABLE "Where is the grue's milk?"
 		 "Grue's milk must be kept in a cool, well-lighted place to
 stay spoiled."
 		 "Grue refrigerators are cool and well-lighted."
 		 "There's a grue refrigerator in the Grue's Nest.">
-	<PLTABLE "How do I safely get the grue's milk?"
+	<PLTABLE "How to safely get grue's milk?"
 		 "Avoid waking up the beast with light or noise."
 		 "The light source you're carrying is waking up the beast."
 		 "Cover the beast so it can't see." 
 		 "Blankets make an excellent cover."
 		 "Get the blanket in the Jail Cell. COVER THE BEAST WITH
 THE BLANKET before it wakes up.">
-	<PLTABLE "How do I get around in the dark?"
+	<PLTABLE "How to get around in dark?"
 		 "You'll need a source of light."
 		 "Have you found the small stone yet?"
 		 "Have you examined it?"
 		 "There's another, more conventional source of light."
 		 "It's in the church."
 		 "Go into the church and STEAL THE CANDLE.">
-	<PLTABLE "Why can't I blow out the candle?"
+	<PLTABLE "I can't blow out the candle?"
 		 "It's magic."
 		 "It's Magick.">
 	<PLTABLE "What is the Boot Patrol?"
 		 "Stay in one place for a while. You'll find out.">
-	<PLTABLE "How do I get out from the jail?"
+	<PLTABLE "How to get out of jail?"
 		 "Maybe you're not the first person who's tried to escape."
 		 "Have you investigated everything in the Jail Cell?"
 		 "Have you looked under everything?"
@@ -460,7 +461,7 @@ Now you'll need Magick to get out of the Jail Cell."
 		 "EAT THE CHOCOLATE THEN WISH FOR FREEDOM."
 		 "If you don't have the chocolate or Wishbringer handy, relax.
 The Boot Patrol will be along in just a few moves, and all your troubles will be over.">
-	<PLTABLE "How do I get rid of the big mailbox?"
+	<PLTABLE "Get rid of the big mailbox?"
 		 "Give it what it wants."
 		 "Give it mail."
 		 "Give it stamped mail."
@@ -470,22 +471,22 @@ The Boot Patrol will be along in just a few moves, and all your troubles will be
 		 "OPEN THE SMALL MAILBOX. TAKE THE LEAFLET OUT OF THE BOX.
 Go to the big mailbox and FEED THE LEAFLET TO THE BIG MAILBOX."
 		 "Congratulations. You have a new companion.">
-	<PLTABLE "The small mailbox follow me! Why?"
+	<PLTABLE "The small mailbox follows me!"
 		 "It likes mail clerks."
 		 "It likes you.">
-	<PLTABLE "How do I get through the Cemetery?"
+	<PLTABLE "How to get through Cemetery?"
 		 "Did somebody warn you about going in there after dark?"
 		 "You can't get through the Cemetery. It's a trap.">
 	<PLTABLE "What is an eldritch vapor?"
 		 "Any relation to Eldridge Cleaver?"
 		 "They're mischievous but generally harmless ghosts that hang
 around cemeteries at night, annoying passersby with supernatural tricks.">
-	<PLTABLE "Help! The vapors stole everything!"
+	<PLTABLE "The vapors stole everything!"
 		 "Have you looked around the village?"
 		 "Everywhere?"
 		 "The vapors will scatter your possessions randomly around the
 village, always outdoors. Pesty little critters, aren't they?">
-	<PLTABLE "How can I get past the hellhound?"
+	<PLTABLE "How to get past hellhound?"
 		 "Maybe you can bribe the hellhound the same way you bribed
 the poodle."
 		 "Then again, maybe not."
@@ -506,7 +507,7 @@ already been inside the Tower."
 read the note."
 		 "Then go to the hellhound and say ALEXIS, HEEL. The hellhound
 will become considerably less ferocious.">
-        "Platypuses (or is it Platypi?)"
+        "Platypuses (Platypi?)"
 	<PLTABLE "What's inside the pit?"
 		 "Maybe you should LOOK INSIDE THE PIT."
 		 "If you found a platypus, congratulations."
@@ -520,7 +521,7 @@ pile of leaves."
 		 "A platypus has webbed feet, a flat tail, dense fur, and a
 bill that looks like a duck's bill."
 		 "Amazing, aren't they?">
-	<PLTABLE "What do I do with the platypus?"
+	<PLTABLE "What to do with platypus?"
 		 "Maybe you don't have to do anything with it."
 		 "Unless you want to finish the story."
 		 "It'd be really nice if you rescued the platypus."
@@ -539,13 +540,13 @@ already used the Rain Wish, you'll have to find another way to rescue the platyp
 		 "There's something you can get that might help you reach into the pit."
 		 "Did you notice the dead branch at Cliff Bottom?"
 		 "PUT THE BRANCH IN THE PIT. The platypus will hold on to the end of the branch. PULL THE BRANCH OUT OF THE PIT.">
-	<PLTABLE "Why are there so many platypuses?"
+	<PLTABLE "Why so many platypuses?"
 		 "That's what our marketing department wanted to know."
 		 "But we wouldn't explain it to them."
 		 "And we won't explain it to you, either."
 		 "Marketing Department's Note: Actually, Brian Moriarty is a
 bit strange, and we decided it was best to humor him.">
-	<PLTABLE "What's the silver whistle for?"
+	<PLTABLE "What's the whistle for?"
 		 "What silver whistle?"
 		 "Oh, that silver whistle! Well, you can always EXAMINE THE WHISTLE."
 		 "If you're really adventurous, you could even (dare we
@@ -556,30 +557,30 @@ and EXAMINE THE WHISTLE again."
 		 "The whistle only twinkles when you're at Edge of Lake."
 		 "BLOW THE WHISTLE only when it's twinkling ... unless you
 just like to hear the music.">
-	<PLTABLE "How do I get to Misty Island?"
+	<PLTABLE "How to get to Misty Island?"
 		 "Read the previous hint. You may discover something unexpected.">
-	<PLTABLE "What should I say to King Anatinus?"
+	<PLTABLE "What to say to King Anatinus?"
 		 "You don't need to say anything. Just do what he says."
 		 "If he offers you a gift, take it."
 		 "TAKE THE HAT."
 		 "If he asks you to do anything, do it."
 		 "BLOW THE WHISTLE."
 		 "Don't annoy the King. You might be sorry.">
-	<PLTABLE "What do I do with the wizard's hat?"
+	<PLTABLE "What to do with wizard hat?"
 		 "Do what the King told you to do."
                  "Take the hat to the pelican."
 		 "GIVE THE HAT TO THE PELICAN.">
-        <PLTABLE "Why's the pelican on the lighthouse?"
+        <PLTABLE "Pelican on the lighthouse?"
 		 "Read the above hint.">
 	"The Theatre and the Arcade"
-	<PLTABLE "How do I get into the movie theater?"
+	<PLTABLE "How get into movie theater?"
 		 "There are two ways into the movie theater."
 		 "The first way into the theater involves the use of Magick."
 		 "Go into the theater lobby and WISH FOR DARKNESS. You can
 sneak inside while the gravedigger is stumbling around in the dark."
 		 "Or GIVE THE GOLD COIN TO MISS VOSS. GO INSIDE. GIVE THE
 TICKET TO THE GRAVEDIGGER. GO INTO THE THEATER.">
-	<PLTABLE "Why is the movie is all fuzzy?"
+	<PLTABLE "Why is the movie fuzzy?"
 		 "Did you read the marquee outside the theater?"
 		 "Did you examine the empty carton in the lobby?"
 		 "This is a 3D movie. You need a pair of 3D glasses to see it."
@@ -588,12 +589,12 @@ TICKET TO THE GRAVEDIGGER. GO INTO THE THEATER.">
 dropped a pair somewhere."
 		 "Have you searched everywhere in the theater?"
 		 "LOOK UNDER THE SEATS.">
-	<PLTABLE "Where can I find an arcade token?"
+	<PLTABLE "Where can I find a token?"
 		 "Ask one of the humanoids. They seem to have plenty of tokens."
 		 "Oh, well. Maybe somebody dropped one somewhere."
 		 "Have you been to the Park lately?"
 		 "LOOK IN THE FOUNTAIN.">
-	<PLTABLE "I found the token! How do I get it?"
+	<PLTABLE "Found it! How do I get it?"
 		 "Simply TAKE THE TOKEN OUT OF THE FOUNTAIN."
 		 "But the piranha might have other ideas."
 		 "Remember the poodle?"
@@ -608,7 +609,7 @@ distracted the poodle."
 		 "TAKE THE WORM OUT OF THE REFRIGERATOR. Then go to the Park
 and FEED THE WORM TO THE PIRANHA. The piranha will leave you alone long enough
 to TAKE THE TOKEN OUT OF THE FOUNTAIN.">
-	<PLTABLE "How do I play the video game?"
+	<PLTABLE "How to play the video game?"
 		 "It would help if you turned on the machine."
 		 "PUT THE TOKEN IN THE SLOT."
 		 "Have you tried to EXAMINE THE SCREEN?"
@@ -627,7 +628,7 @@ Go on! PUSH THE BUTTON!"
 on the map. Then PUSH THE BUTTON. You'll end up outside the Tower, without
 having to get past the hellhound.">
         "The Tower"
-	<PLTABLE "How do I get into the Tower?"
+	<PLTABLE "How to get into the Tower?"
 		 "Didn't King Anatinus say something about getting into the Tower?"
 		 "You need a Word of Power."
 		 "The pelican knows what it is."
@@ -636,13 +637,13 @@ something in return."
 		 "GIVE THE WIZARD'S HAT TO THE PELICAN. A Word will be
 revealed to you. Go to the tower and say the word (just type it in). The
 drawbridge will lower automatically.">
-	<PLTABLE "The Princess got captured again!"
+	<PLTABLE "Princess got captured again!"
 		 "She isn't a very smart platypus, is she?">
-	<PLTABLE "Mr. Crisp is about to torture me!"
+	<PLTABLE "Mr. Crisp will torture me!"
 		 "He's sleazy enough to take a bribe."
 		 "Didn't somebody ask you to give him something a long time ago?"
 		 "GIVE THE VIOLET NOTE TO MR. CRISP.">
-	<PLTABLE "Crisp's gone, but I'm still chained!"
+	<PLTABLE "Crisp gone, but I'm chained!"
 		 "There are two ways to get out of the chains."
 		 "One of them involves Magick."
 		 "WISH FOR FREEDOM will work."
@@ -654,10 +655,10 @@ UNLOCK THE CHAINS WITH THE KEY.">
 	<PLTABLE "Where did Mr. Crisp go?"
 		 "He went to visit his sweetheart, Miss Voss."
 		 "But who cares, as long as he isn't here to torture you?">
-	<PLTABLE "How do I release the Princess?"
+	<PLTABLE "How to release the Princess?"
 		 "Just do what she says."
 		 "PULL DOWN THE LEVER.">
-	<PLTABLE "How do I exit the torture chamber?"
+	<PLTABLE "How to exit torture chamber?"
 		 "The same way Mr. Crisp did."
 		 "OPEN THE HATCH. CLIMB UP THE LADDER.">
 	<PLTABLE "What are the paintings for?"
@@ -665,25 +666,25 @@ UNLOCK THE CHAINS WITH THE KEY.">
 		 "Especially if you read The Legend of Wishbringer."
 		 "The paintings also conceal an important secret."
 		 "LOOK BEHIND A PAINTING.">
-	<PLTABLE "The drawbridge is closed again!"
+	<PLTABLE "Drawbridge is closed again!"
 		 "Read the previous hint for clues.">
-	<PLTABLE "The suit of armor is chasing me!"
+	<PLTABLE "The armor is chasing me!"
 		 "Hit it with the dead branch."
 		 "Throw the stone at it."
 		 "Light the grue's milk on fire with the candle, then give the
 milk to the suit of armor to drink. It'll still chase you, but at least it
 will be laughing."
 		 "There is no suit of armor in this story.">
-	<PLTABLE "Why's this tower room all blurry?"
+	<PLTABLE "Why is tower room blurry?"
 		 "Blurry, huh? Gee. Maybe you need glasses."
 		 "PUT ON THE 3D GLASSES after you walk into the blurry room.">
-	<PLTABLE "What should I do with the telescope?"
+	<PLTABLE "What to do with telescope?"
 		 "You could ignore it. It's probably just a prop."
 		 "The telescope is just a prop."
 		 "So ignore it!">
-	<PLTABLE "What are the bubbling chemicals for?"
+	<PLTABLE "What are bubbling chemicals?"
 		 "They're not significant at all. Leave them alone.">
-	<PLTABLE "What is the control panel for?"
+	<PLTABLE "What is control panel for?"
 		 "It has two switches, so it probably controls two things."
 		 "Have you examined both of the switches?"
 		 "The first switch controls the power in the Palace Theater.
@@ -692,7 +693,7 @@ will be laughing."
 Hmm. Wonder what the Evil One wants to keep secure ..."
 		 "TURN OFF THE SECOND SWITCH.">
 	"The Library"
-	<PLTABLE "How do I get into the Library?"
+	<PLTABLE "How to get into Library?"
 		 "Wait until Miss Voss opens it tomorrow morning."
 		 "Unfortunately, you haven't got time to wait. Looks like
 you'll have to unlock the front door somehow."
@@ -701,7 +702,7 @@ you'll have to unlock the front door somehow."
 		 "It's easy to get into the cottage once you tame the
 hellhound. (But that's another hint.)"
 		 "The key to the Library is on Miss Voss's bookcase.">
-	<PLTABLE "How can I see in the Library?"
+	<PLTABLE "How to see in the Library?"
 		 "The candle is a source of light."
 		 "Too bad the candle fizzles out when the Library door closes."
 		 "Wishbringer is also a source of light."
@@ -715,17 +716,17 @@ might turn up someplace else."
 		 "Things you drop into the hat appear in the Museum's display case."
 		 "DROP THE CANDLE INTO THE WIZARD'S HAT before it gets blown
 out. You can later retrieve the candle for use as a source of light.">
-	<PLTABLE "Where's the circulation desk key?"
+	<PLTABLE "Where's circulation desk key?"
 		 "The steel key might work. After all, it unlocked the library door."
 		 "Then again, why should a door key work in a desk?"
 		 "There is no desk key. You can't open the circulation desk.">
-	<PLTABLE "Can I get the spider in the books?"
+	<PLTABLE "How to get spider in books?"
 		 "You'll have to pick up the books first."
 		 "You'll need a library card to take the books."
 		 "Shucks! You forgot your library card."
 		 "There isn't any spider in the library books."
 		 "Or anywhere else, either.">
-	<PLTABLE "How do I open the display case?"
+	<PLTABLE "How to open display case?"
 		 "Did you try the rusty key?"
 		 "Did you try the steel key?"
 		 "Did you try the key in the circulation desk?"
@@ -739,26 +740,26 @@ use the broom, the umbrella, the conch shell, the bottle or the dead branch."
 breaking it."
 		 "You must deactivate the security system before breaking the case."
 		 "The switch for the security system is in the Laboratory.">
-	<PLTABLE "How do I leave with the sculpture?"
+	<PLTABLE "How to leave with sculpture?"
 		 "Try unlocking the door."
 		 "Lock's on the outside? Oh, well. Why not WISH FOR FLIGHT?"
 		 "Nope, you're indoors. But you can still WISH FOR FREEDOM."
 		 "Not confined, eh? There must be another way out, then."
 		 "Have you tried to EXAMINE THE SCULPTURE yet?"
 		 "Go on to the next hint.">
-	<PLTABLE "What should I do with the sculpture?"
+	<PLTABLE "What to do with sculpture?"
 		 "Such a fine work of art should probably be examined."
                  "Hmm. Seems to be a piece missing."
 		 "Have you tried to WISH FOR ADVICE?"
 		 "Have you tried to WISH FOR FORESIGHT?"
 		 "Something might fit into the forehead of the statue."
 		 "PUT THE STONE INTO THE FOREHEAD.">
-	<PLTABLE "Who's the old woman in the Library?"
+	<PLTABLE "Who's the woman in Library?"
 		 "She looks familiar, but somewhat fuzzy."
 		 "What can you do to make fuzzy things clearer?"
 		 "PUT ON THE 3D GLASSES."
 		 "Yipes!">
-	<PLTABLE "How do I escape the sinister being?"
+	<PLTABLE "How to escape sinister being?"
 		 "Just walk right past her. She won't mind."
 		 "Much."
 		 "You could try bribing her with something."
@@ -771,7 +772,7 @@ before she interrupted."
 		 "PUT THE STONE INTO THE FOREHEAD."
 		 "Don't listen to her! PUT THE STONE INTO THE FOREHEAD!">
 	"The Seven Wishes"
-	<PLTABLE "What Advice do I get from the shell?"
+	<PLTABLE "Advice from the shell"
 		 "There are seven bits of Advice. In order of appearance, they are:"
 		 "1. \"If ye hath not kept a Map, only patience or Magick can help thee.\""
 		 "2. \"Magick may help thee cross the Bridge.\""
@@ -780,14 +781,14 @@ before she interrupted."
 		 "5. \"One path Magick, one path Science; both lead to thy Goal.\""
 		 "6. \"Many wonders await thee in the Halls of Knowledge.\""
 		 "7. \"Fit the Pieces together, and the Puzzle is complete.\"">
-	<PLTABLE "Where is WISH FOR RAIN useful?"
+	<PLTABLE "WISH FOR RAIN, when useful?"
 		 "If you're lost in the fog, wishing for Rain will wash you
 safely down to the Cliff Bottom."
 		 "If you're at Edge of Lake, wishing for Rain will fill the
 narrow pit with water and free any creatures that may be trapped there." 
 		 "Wishing for Rain anywhere else is harmless, but the downpour
 might irritate nearby characters.">
-	<PLTABLE "When should I WISH FOR FLIGHT?"
+	<PLTABLE "WISH FOR FLIGHT, when useful?"
 		 "Whenever you want to go back to the Magick Shoppe. Just make
 sure you're outdoors (or in the Laboratory), and off you go!"
 		 "It's not a good idea to go back to the Magick Shoppe until
@@ -795,7 +796,7 @@ you've found Chaos, the old woman's black cat."
 		 "Make sure the black cat you've found is the right one."
 		 "If you locate the real Chaos, you won't need to WISH FOR FLIGHT."
 		 "So you'll never need to WISH FOR FLIGHT. It's a trap.">
-	<PLTABLE "Why do I want to WISH FOR DARKNESS?"
+	<PLTABLE "Why WISH FOR DARKNESS?"
 		 "Some characters might not like the sudden Darkness."
 		 "One of them is the troll at the toll gate."
 		 "If you WISH FOR DARKNESS with the troll present, he'll run
@@ -808,12 +809,12 @@ good movie usher, is he?)"
 		 "It's the hellhound."  
 		 "If you WISH FOR DARKNESS at Outside Cottage, the hellhound
 will cower in fear long enough for you to sneak past.">
-	<PLTABLE "What's the WISH FOR FORESIGHT?"
+	<PLTABLE "What's WISH FOR FORESIGHT?"
 		 "You get a tantalizing, heavily symbolic glimpse of the
 future, all mixed up with snippets of the past and present."
 		 "Don't worry about what it means." 
 		 "It's a dream sequence.">
-	<PLTABLE "Why didn't the WISH FOR MAGICK work?"
+	<PLTABLE "WISH FOR MAGICK didn't work?"
 		 "You weren't holding Wishbringer."
 		 "You weren't holding the Magick Wand."
 		 "You didn't wave the Magick Wand over the Magick Rutabaga."
@@ -835,10 +836,10 @@ before they carry you away."
 than three moves. But if you're Lucky, it'll just keep roaring at you."
 		 "5. Your chances of being eaten by a grue in the dark are
 much lower if you're Lucky.">
-	<PLTABLE "Why was my Luck Wish neutralized?"
+	<PLTABLE "Luck Wish was neutralized?"
 		 "Next time, avoid opening the umbrella indoors or walking
 under the ladder. These are very Unlucky things to do.">
-	<PLTABLE "Where should I WISH FOR FREEDOM?"
+	<PLTABLE "Where to WISH FOR FREEDOM?"
 		 "It only works in two situations."
 		 "If you're thrown in jail more than once, the only way out
 is to WISH FOR FREEDOM. You'll usually end up on Lookout Hill (unless the
@@ -848,7 +849,7 @@ outside the Police Station)."
 Chamber with a WISH FOR FREEDOM."
 		 "Just make sure Mr. Crisp isn't there when you try it.">
 	"Miscellaneous"
-	<PLTABLE "HOW POINTS ARE SCORED"
+	<PLTABLE "How points are scored"
 		 "1 - Enter the Post Office"
 		 "5 - Take the mysterious envelope"
 		 "1 - Take the old bone"
@@ -866,7 +867,7 @@ Chamber with a WISH FOR FREEDOM."
 		 "1 - Take the wizard's hat"
 		 "5 - Give wizard's hat to pelican"
 		 "3 - Buy ticket">
-	<PLTABLE "HOW POINTS ARE SCORED - continued"
+	<PLTABLE "How points are scored (cont)"
 		 "3 - Take the 3D glasses"
 		 "3 - Take the blanket"
 		 "3 - Cover beast with blanket"
@@ -884,7 +885,7 @@ Chamber with a WISH FOR FREEDOM."
 		 "3 - Take the steel key"
 		 "3 - Unlock the library door"
 		 "5 - Put small stone in sculpture">
-	<PLTABLE "HOW POINTS ARE LOST"
+	<PLTABLE "How points are lost"
 		 "-10 - Fail to take the violet note"
 		 "-10 - Disturb the pile of leaves"
 		 "-10 - Give small stone to vulture"
@@ -892,7 +893,7 @@ Chamber with a WISH FOR FREEDOM."
 		 "-10 - Torture the Princess"
 		 "-10 - Torture the black cat"
 		 "-10 - Feed grue's milk to Chaos">
-	<PLTABLE "FOR YOUR AMUSEMENT"
+	<PLTABLE "For your amusement"
 		 "Have you tried:"
 		 "Reading the theater marquee before delivering the envelope?"
 		 "Listening to the conch shell before delivering the envelope?"
@@ -1038,7 +1039,7 @@ hint now, indicate HINT.]" CR>
 
 <ROUTINE ERASE-CURSOR ()
 	<CURSET <GET ,LINE-TABLE ,CUR-POS>
-		<- <GET ,COLUMN-TABLE ,CUR-POS> 2>>
+		<- <GET ,COLUMN-TABLE ,CUR-POS> 1>>
 	<TELL " ">	;"erase previous highlight cursor">
 
 ;"go back 2 spaces from question text, print cursor and flash is between
@@ -1046,7 +1047,7 @@ the cursor and text"
 
 <ROUTINE NEW-CURSOR ()
 	<CURSET <GET ,LINE-TABLE ,CUR-POS>
-		<- <GET ,COLUMN-TABLE ,CUR-POS> 2 ;1>>
+		<- <GET ,COLUMN-TABLE ,CUR-POS> 1>>
 	<TELL ">">	;"print the new cursor">
 
 <ROUTINE INVERSE-LINE ("AUX" (CENTER-HALF <>)) 
@@ -1064,11 +1065,11 @@ the cursor and text"
   <CENTER-LINE 1 ,INVISICLUES ,INVISICLUES-LEN>
   <CURSET 3 1>
   <INVERSE-LINE>
-  <LEFT-LINE 3 "RETURN = see new hint">
+  <LEFT-LINE 3 "return:see hint">
   <RIGHT-LINE 3 ,Q-SEE-HINT-MENU ,Q-SEE-HINT-MENU-LEN>
   <CURSET 2 1>
   <INVERSE-LINE>
-  <HLIGHT ,H-BOLD>
+  <HLIGHT ,H-ITALIC>
   <SET H <GET <GET ,HINTS ,CHAPT-NUM> <+ ,QUEST-NUM 1>>>
   ; "Byte table to use for showing questions already seen"
   ; "Actually a nibble table.  The high four bits of each byte are for
@@ -1157,10 +1158,10 @@ the cursor and text"
   <CURSET 3 1>
   <INVERSE-LINE>
   <CENTER-LINE 1 ,INVISICLUES ,INVISICLUES-LEN>
-  <LEFT-LINE 2 " N = Next">
+  <LEFT-LINE 2 "n:next">
   <RIGHT-LINE 2 ,PREVIOUS ,PREVIOUS-LEN>
   <COND (.THIRD
-	 <LEFT-LINE 3 " RETURN = See hint">
+	 <LEFT-LINE 3 "return:see hint">
 	 <RIGHT-LINE 3 ,Q-RESUME-STORY ,Q-RESUME-STORY-LEN>)>>
 
 <ROUTINE CENTER-LINE (LN STR "OPTIONAL" (LEN 0) (INV T))

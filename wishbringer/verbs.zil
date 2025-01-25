@@ -341,9 +341,9 @@ session of the game, or look at hints?|
 		<TELL "0">)>
 	 <TELL N ,MINUTES>
 	 <COND (.PM?
-		<TELL " pm">)
+		<TELL "p">)
 	       (T
-		<TELL " am">)>
+		<TELL "a">)>
 	 <RTRUE>>
 
 <ROUTINE V-SCRIPT ()
