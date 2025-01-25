@@ -148,7 +148,7 @@
 		<COND (<G? <GETB 0 33> 58>
 		       <CURSET 1 <- </ <GETB 0 33> 2> 3>>)
 		      (T
-		       <CURSET 1 27>)>
+		       <CURSET 1 21>)> ;"just eye-balling it; hopefully won't collide with location string"
 		<SETG CHRONOGRAPH-TIME <+ ,CHRONOGRAPH-TIME .TICKS>>
 		<COND (<EQUAL? ,SCENARIO 2>
 		       <CHRONOGRAPH-TELL>)
@@ -168,9 +168,9 @@
 <ROUTINE I-SEARCHLIGHTS () <TURN-SL> ;<TELL "[SL]" CR>>
 
 <ROUTINE SL-WATCHER ()
-	 <CURSET 2 8>
+	 <CURSET 2 4>
 	 <TELL <SL-POS-STR-AB 1> "  ">
-	 <CURSET 2 <+ </ <GETB 0 33> 2> 2>>
+	 <CURSET 2 </ <GETB 0 33> 2>>
 	 <TELL <SL-POS-STR-AB 2> "  ">
 	 <CURSET 2 <- <GETB 0 33> 4>>
 	 <TELL <SL-POS-STR-AB 3> "  ">>
@@ -181,21 +181,19 @@
 
 <ROUTINE GUARD-WATCHER ("OPTIONAL" (INIT? <>) "AUX" MT FACE? OFF SW)
 	 <SET SW <GETB 0 33>>
-	 <COND (,GUARD-MARGIN
-		<SET OFF ,GUARD-MARGIN>)
-	       (T
-		<COND (<L? .SW 41>
-		       <SET OFF 2>)
-		      (T
+	 <COND (,GUARD-MARGIN <SET OFF ,GUARD-MARGIN>)
+	    (T
+		<COND (<L? .SW 41> <SET OFF 0>)
+			  (T
 		       <SET OFF <- </ <- .SW 36> 2> 4>>)>
 		<SETG GUARD-MARGIN .OFF>)>
 	 <COND (.INIT?
 		<SCREEN-1>
 		<CURSET 2 .OFF>
 		<TELL "T">
-		<CURSET 2 <+ 18 .OFF>>
+		<CURSET 2 <+ 16 .OFF>>
 		<TELL "T">
-		<CURSET 2 <+ 36 .OFF>>
+		<CURSET 2 <+ 32 .OFF>>
 		<TELL "T">
 		<CURSET 3 <+ .OFF </ <GETP ,HERE ,P?GPOS> 5>>>
 		<TELL "*">)>
@@ -208,18 +206,18 @@
 		<SET MT <- 90 .MT>>)>
 	 <COND (,G-WATCH
 		<CURSET 2 <+ .OFF <- ,G-WATCH 1>>>
-		<COND (<EQUAL? ,G-WATCH 1 19>
+		<COND (<EQUAL? ,G-WATCH 1 17>
 		       <TELL "T">)
 		      (T <TELL " ">)>
-		<CURSET 2 <+ .OFF <- 37 ,G-WATCH>>>
-		<COND (<EQUAL? ,G-WATCH 1 19>
+		<CURSET 2 <+ .OFF <- 33 ,G-WATCH>>>
+		<COND (<EQUAL? ,G-WATCH 1 17>
 		       <TELL "T">)
 		      (T <TELL " ">)>)>
 	 <SETG G-WATCH <+ </ .MT 5> 1>>
 	 <CURSET 2 <+ .OFF <- ,G-WATCH 1>>>
 	 <COND (.FACE? <TELL ">">)
 	       (T <TELL "<">)>
-	 <CURSET 2 <+ .OFF <- 37 ,G-WATCH>>>
+	 <CURSET 2 <+ .OFF <- 33 ,G-WATCH>>>
 	 <COND (.FACE? <TELL "<">)
 	       (T <TELL ">">)>
 	 <COND (.INIT?

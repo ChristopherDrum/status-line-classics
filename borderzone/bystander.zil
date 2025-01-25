@@ -1780,9 +1780,10 @@ trails off in a rather sarcastic way.">>
 "The words don't make a lot of sense, and your Frobnian is poor, but it seems
 to say:|
 |
-         BORDER ZONE|
-    Written by Marc Blank|
-Copyright (c) 1987, Infocom, Inc.|
+          BORDER ZONE|
+     Written by Marc Blank|
+      Copyright (c) 1987,|
+         Infocom, Inc.|
 " CR>)>>
 
 <OBJECT TOWEL-DISPENSER
