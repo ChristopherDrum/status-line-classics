@@ -242,7 +242,7 @@ the cursor and text"
 	<RIGHT-LINE 2 "p:previous" %<LENGTH "p:previous">>
 	<COND (<T? .THIRD>
 	      <LEFT-LINE 3 "return:see topics">
-	      <RIGHT-LINE 3 "q:resume story" %<LENGTH "Q = Resume story">>)>>
+	      <RIGHT-LINE 3 "q:resume story" %<LENGTH "q:resume story">>)>>
 
 <ROUTINE CENTER-LINE (LN STR "OPTIONAL" (LEN 0) (INV T))
 	<COND (<ZERO? .LEN>
