@@ -508,7 +508,7 @@ overflowing with people pressed up against the barricades." CR>)
 "You can't see the crowd from here." CR>)
 		      (T
 		       <TELL
-"The people are everywhere - tourists, businessmen, families - all
+"The people are everywhere - tourists, businessmen, families|- all
 turned out to witness the days' festivities." CR>)>)>>
 
 <ROOM ANTIQUE-STORAGE
@@ -3497,13 +3497,14 @@ a few dozen seconds behind you now.">)>
 			<PUT .TBL 1 <GET ,DIR-NAMES <+ .OFF 1>>>
 			<PUT ,DIR-NAMES .OFF 0>
 			<RTRUE>)>>>
-		       
+
+;"we need no more than 6 characters so the apartment directory can format correctly"		       
 <GLOBAL DIR-NAMES
-	<LTABLE "Brgmiz" 6 "Dornik" 6 "Blenka" 6 "Cyrink" 6 "Endrizen" 8
-		"Galnitz" 7 "Mrtzki" 6 "Profnim" 7 "Onilik" 6 "Brzni" 5
-		"Lebniz" 6 "Brlensk" 7 "Rivni" 5 "Cnezeni" 7 "Veznich" 7
-		"Lengnoz" 7 "Gentezek" 8 "Carlyni" 7 "Dimwitz" 7 "Urg" 3
-		"Robnerim" 8 "Bextra" 6 "Winip" 5 "Kooplitz" 8 "Sinkriz" 7
+	<LTABLE "Brgmiz" 6 "Dornik" 6 "Blenka" 6 "Durum" 5 "Endriz" 6
+		"Picopo" 6 "Mrtzki" 6 "Profni" 6 "Onilik" 6 "Brzni" 5
+		"Lebniz" 6 "Brlenk" 6 "Rivni" 5 "Cnezni" 6 "Veznic" 6
+		"Akayo"  5 "Gentzk" 6 "Carly" 5 "Dimwtz" 6 "Urg" 3
+		"Robner" 6 "Bextra" 6 "Winip" 5 "Kopl"   4 "Sinkri" 6
 		"Blivik" 6 "Flipni" 6>>
 
 <GLOBAL APT-DIR
@@ -3576,11 +3577,12 @@ a few dozen seconds behind you now.">)>
 
 <ROUTINE PRINT-APT-DIR ("AUX" CNT TMP TBL LEN)
 	 <SET CNT -1>
-	 <TELL CR
-"           Gribnitz Apartments" CR CR>
-	 <TELL
-"     2nd      3rd      4th      5th">
-	 <CRLF>
+	 <TELL CR>
+	 <HLIGHT, H-BOLD>
+	 <TELL "   Gribnitz Apartments" CR CR>
+	 <HLIGHT, H-NORMAL>
+	 <TELL"   2nd    3rd    4th    5th" CR>
+	 <TELL"  -----------------------------">
 	 <REPEAT ()
 		 <SET TBL <REST ,APT-DIR 2>>
 		 <CRLF>
@@ -3588,14 +3590,15 @@ a few dozen seconds behind you now.">)>
 			<RETURN>)
 		       (T
 			<PRINTC <+ .CNT %<ASCII !\A>>>
-			<TELL ": ">
+			<PRINTC %<ASCII !\|>>
+			<TELL " ">
 			<SET TBL <REST .TBL <* .CNT 4>>>
 			<SET TMP 0>
 			<REPEAT ()
 				<COND (<G? <SET TMP <+ .TMP 1>> 4>
 				       <RETURN>)
 				      (<ZERO? <GET .TBL 0>>
-				       <TELL "         ">)
+				       <TELL "       ">)
 				      (T
 				       <TELL <GET .TBL 0>>
 				       <SET LEN <GET .TBL 1>>
@@ -3603,7 +3606,7 @@ a few dozen seconds behind you now.">)>
 					      ;<COND (,DEBUG
 						     <TELL "*">)>
 					      <SET LEN <- 0 .LEN>>)>
-				       <PRINT-SPACES <- 9 .LEN>>)>
+				       <PRINT-SPACES <- 7 .LEN>>)>
 				<SET TBL <+ .TBL 24>>>)>>>
 	   
 <GLOBAL FLOOR-PROPS
