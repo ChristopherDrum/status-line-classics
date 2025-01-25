@@ -1692,7 +1692,9 @@ where you had been hoping to arrive.">)>
 		<UPDATE-CHRONOGRAPH 0>)>
 	 <COND (<EQUAL? ,SCENARIO 2>
 		<TELL CR CR
-" *** You have been arrested ***" CR>)>
+"       * * *|
+You have been arrested|
+       * * *" CR>)>
 	 <HLIGHT ,H-NORMAL>
 	 <STATUS-LINE>
 	 <FINISH .CONTIN>

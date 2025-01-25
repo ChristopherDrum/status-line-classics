@@ -148,9 +148,10 @@
 		<COND (<G? <GETB 0 33> 58>
 		       <CURSET 1 <- </ <GETB 0 33> 2> 3>>)
 		      (T
-		       <CURSET 1 21>)> ;"just eye-balling it; hopefully won't collide with location string"
+		       <CURSET 1 19>)> ;"just eye-balling it; hopefully won't collide with location string"
 		<SETG CHRONOGRAPH-TIME <+ ,CHRONOGRAPH-TIME .TICKS>>
 		<COND (<EQUAL? ,SCENARIO 2>
+			   <TELL "  "> ;"rather than truncate room name in status line, we're overprinting the last couple of characters"
 		       <CHRONOGRAPH-TELL>
 			   <TELL "/">)
 		      (T
