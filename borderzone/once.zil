@@ -78,7 +78,7 @@ You understand.\" And with that, he disappears from the compartment." CR CR>
 	 <SETG CLOCK-INTS ,CLOCK-INTS-2>
 	 <SETG MAX-WEIGHT 40>
 	 <SETG SCENARIO ,S-GOOD>
-	 <SETG HERE ,B8>
+	 <SETG HERE ,INF-1>
 	 <SETG WINNER ,PROTAGONIST>
 	 <MOVE ,EXPLODING-PEN ,WINNER>
 	 <MOVE ,NORMAL-SHOES ,WINNER>

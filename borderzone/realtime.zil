@@ -183,21 +183,21 @@
 
 <ROUTINE GUARD-WATCHER ("OPTIONAL" (INIT? <>) "AUX" MT FACE? OFF SW)
 	 <SET SW <GETB 0 33>>
-	 <COND (,GUARD-MARGIN <SET OFF ,GUARD-MARGIN>)
-	    (T
-		<COND (<L? .SW 41> <SET OFF 0>)
-			  (T
-		       <SET OFF <- </ <- .SW 36> 2> 4>>)>
+	 <COND (,GUARD-MARGIN
+		<SET OFF ,GUARD-MARGIN>)
+	       (T
+		<COND (<L? .SW 41> <SET OFF 2>)
+		      (T <SET OFF <- </ <- .SW 36> 2> 4>>)>
 		<SETG GUARD-MARGIN .OFF>)>
 	 <COND (.INIT?
 		<SCREEN-1>
 		<CURSET 2 .OFF>
 		<TELL "T">
-		<CURSET 2 <+ 16 .OFF>>
+		<CURSET 2 <+ 15 .OFF>>
 		<TELL "T">
-		<CURSET 2 <+ 32 .OFF>>
+		<CURSET 2 <+ 30 .OFF>>
 		<TELL "T">
-		<CURSET 3 <+ .OFF </ <GETP ,HERE ,P?GPOS> 5>>>
+		<CURSET 3 <+ .OFF </ <GETP ,HERE ,P?GPOS> 6>>> ;"adjust div for new 15/30 tower positions"
 		<TELL "*">)>
 	 <SET FACE? <GUARDS-FACING-EACH-OTHER?>>
 	 <SET MT <MOD ,CLOCK-TIME 180>>
@@ -208,18 +208,18 @@
 		<SET MT <- 90 .MT>>)>
 	 <COND (,G-WATCH
 		<CURSET 2 <+ .OFF <- ,G-WATCH 1>>>
-		<COND (<EQUAL? ,G-WATCH 1 17>
+		<COND (<EQUAL? ,G-WATCH 1 19>
 		       <TELL "T">)
 		      (T <TELL " ">)>
-		<CURSET 2 <+ .OFF <- 33 ,G-WATCH>>>
-		<COND (<EQUAL? ,G-WATCH 1 17>
+		<CURSET 2 <+ .OFF <- 37 ,G-WATCH>>>
+		<COND (<EQUAL? ,G-WATCH 1 19>
 		       <TELL "T">)
 		      (T <TELL " ">)>)>
 	 <SETG G-WATCH <+ </ .MT 5> 1>>
 	 <CURSET 2 <+ .OFF <- ,G-WATCH 1>>>
 	 <COND (.FACE? <TELL ">">)
 	       (T <TELL "<">)>
-	 <CURSET 2 <+ .OFF <- 33 ,G-WATCH>>>
+	 <CURSET 2 <+ .OFF <- 37 ,G-WATCH>>>
 	 <COND (.FACE? <TELL "<">)
 	       (T <TELL ">">)>
 	 <COND (.INIT?
