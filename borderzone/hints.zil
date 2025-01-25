@@ -41,7 +41,7 @@ HINT.]" CR>
 	 <COND (<G? ,LAST-Q 0>
 		<SET CURQ ,LAST-Q>)>
 	 <CURSET .CURL 2>
-	 <PRINTI "->">
+	 <PRINTI ">">
 	 <REPEAT ()
 		 <SET CHR <INPUT 1>>
 		 <COND (<EQUAL? .CHR %<ASCII !\Q> %<ASCII !\q>>
@@ -53,20 +53,20 @@ HINT.]" CR>
 			<COND (<EQUAL? .CURQ .MAXQ> T)
 			      (T
 			       <CURSET .CURL 2>
-			       <PRINTI "  ">
+			       <PRINTI " ">
 			       <SET CURL <+ .CURL 1>>
 			       <SET CURQ <+ .CURQ 1>>
 			       <CURSET .CURL 2>
-			       <PRINTI "->">)>)
+			       <PRINTI ">">)>)
 		       (<EQUAL? .CHR %<ASCII !\P> %<ASCII !\p>>
 			<COND (<EQUAL? .CURQ 1> T)
 			      (T
 			       <CURSET .CURL 2>
-			       <PRINTI "  ">
+			       <PRINTI " ">
 			       <SET CURL <- .CURL 1>>
 			       <SET CURQ <- .CURQ 1>>
 			       <CURSET .CURL 2>
-			       <PRINTI "->">)>)
+			       <PRINTI ">">)>)
 		       (<EQUAL? .CHR 13 10>
 			<SETG LAST-HINT .CURL>
 			<SETG LAST-Q .CURQ>
@@ -87,12 +87,13 @@ HINT.]" CR>
 	 <CURSET 1 1>
 	 <INVERSE-LINE>
 	 <CENTER-LINE 1 "INVISICLUES (TM)" %<LENGTH "INVISICLUES (TM)">>
+	 <CURSET 2 1>
+  	 <INVERSE-LINE>
 	 <CURSET 3 1>
 	 <INVERSE-LINE>
-	 <LEFT-LINE 3 " RETURN for hint">
-	 <RIGHT-LINE 3 "Q to go back"
-		     %<LENGTH "Q to go back">>
-	 <HLIGHT ,H-BOLD>
+	 <LEFT-LINE 3 "return:see hint">
+	 <RIGHT-LINE 3 "q:go back" %<LENGTH "q:go back">>
+   	 <HLIGHT ,H-ITALIC>
 	 <CENTER-LINE 2 <GET <SET H <GET ,HINT-TBL .N>> ,HINT-QUESTION>>
 	 <HLIGHT ,H-NORMAL>
 	 <SET MX <GET .H 0>>
@@ -150,7 +151,7 @@ HINT.]" CR>
 			<RETURN <- .ST 1>>)
 		       (T
 			<CURSET <- .LN 2> 1>
-			<TELL "    "
+			<TELL "  "
 			      <GET <GET ,HINT-TBL .ST> ,HINT-QUESTION>>)>
 		 <SET ST <+ .ST 1>>>>
 
@@ -168,10 +169,10 @@ HINT.]" CR>
 	 <CURSET 3 1>
 	 <INVERSE-LINE>
 	 <CENTER-LINE 1 "INVISICLUES (TM)" 16>
-	 <LEFT-LINE 2 " N for Next hint">
-	 <RIGHT-LINE 2 "P for Previous hint" %<LENGTH "P for Previous hint">>
-	 <LEFT-LINE 3 " RETURN to see hint">
-	 <RIGHT-LINE 3 "Q to return to game" %<LENGTH "Q to return to game">>>
+	 <LEFT-LINE 2 "n:next">
+	 <RIGHT-LINE 2 "p:previous" %<LENGTH "p:previous">>
+	 <LEFT-LINE 3 "return:see hint">
+	 <RIGHT-LINE 3 "q:resume game" %<LENGTH "q:resume game">>>
 
 <CONSTANT HINT-COUNT 0>
 <CONSTANT HINT-QUESTION 1>
@@ -198,7 +199,7 @@ HINT.]" CR>
 		 "If he thinks you are lying, it will raise his level of suspicion, regardless of what you said."
 		 "Also, the admission that you have seen the American agent is enough to generate a little suspicion.">
       <NEW-HINT H-BLOOD
-		 "Why doesn't he believe my answer?"
+		 "Why doesn't he believe me?"
 		 "Is there any reason the man might KNOW that you've seen
 the American agent?"
 		 "Might the agent have left something behind, besides the document and the carnation?"
@@ -207,7 +208,7 @@ the American agent?"
 		 "In the lavatory, across the hall and to the south, there is a towel. Get it, wet it, then use it to clean up the blood."
 		 "Also, answering in a way that contradicts the evidence (i.e. the bloodiness of the floor), adds suspicion.">
       <NEW-HINT H-SUSPICIOUS
-		 "Why am I searched so thoroughly?"
+		 "Why am I searched thoroughly?"
 		 "For one reason, there's an important document missing."
 		 "For another, they know the American agent had it."
 		 "You are American, therefore somewhat suspicious."
@@ -215,11 +216,11 @@ the American agent?"
 		 "Depending on how you handled your 'interview' with the trench coated man, you might have appeared suspicious."
 		 "Also, if you have been seen outside of your compartment holding any unusual items - a carnation, a briefcase, etc...">
       <NEW-HINT H-FOLLOW
-		 "Why am I followed at the station?"
+		 "Why I'm followed at station?"
 		 "Clearly, you are under suspicion."
 		 "There are a number of things you may have done to make the situation worse. See the previous two questions. Also, if the guards found anything peculiar in their search of your possessions, that would increase their suspicions.">
       <NEW-HINT H-DOCUMENT
-		 "How can I deliver the document?"
+		 "How to deliver the document?"
 		 "You'll have to make sure the guards don't find it."
 		 "Have you tried hiding it...?"
 		 "...in your compartment?"
@@ -257,7 +258,7 @@ the American agent?"
 <GLOBAL HINT-TBL-2
    <PLTABLE
       <NEW-HINT H-BLEEDING
-		 "How do I stop myself from bleeding?"
+		 "How can I stop bleeding?"
 		 "Have you tried using a tourniquet?"
 		 "Is there any cloth or fabric you can use?"
 		 "RIP your CLOTHES."
@@ -270,7 +271,7 @@ the American agent?"
 		 "There's a very nice parka inside."
 		 "See the question \"How do I get into the hut?\"">
       <NEW-HINT H-DOGS
-		 "How can I keep away from the dogs?"
+		 "How to keep away from dogs?"
 		 "Can you find food to distract them?"
 		 "Didn't think so."
 		 "Can you hide your tracks?"
@@ -282,7 +283,7 @@ the American agent?"
 		 "Make sure that you ENTER THE SWAMP; then move somewhere else along the edge, so they'll lose the trail."
 		 "Oh, I hope you weren't wearing any of your nice shoes.">
       <NEW-HINT H-CAR
-		 "What about the automobile I hear?"
+		 "What about the automobile?"
 		 "Have you observed it from up close?"
 		 "If you get in it's way, you'll be caught."
 		 "There's a good spot where you can observe the car."
@@ -313,7 +314,7 @@ the American agent?"
 		 "You don't really need this until you've gotten as far as the border fences."
 		 "See \"How can I cross the border?\" for details.">
       <NEW-HINT H-SL
-		 "How can I avoid the searchlights?"
+		 "How to avoid the searchlights?"
 		 "If you are not WATCHing them, you should."
 		 "The status line will show you the current positions of the lights."
 		 "You should plan to head NORTH when the three lights are all aimed away from you."
@@ -323,7 +324,7 @@ the American agent?"
 		 "You should also be wearing proper shoes."
 		 "For example, the WORK SHOES in the hut.">
       <NEW-HINT H-FENCE
-		 "How can I cross the first fence?"
+		 "How to cross the first fence?"
 		 "It's electrified, so you'd best not touch it."
 		 "Also, you'll need something to break the chain links."
 		 "You could use something insulating on your hands."
@@ -333,7 +334,7 @@ the American agent?"
 		 "Try CUTting the LINKS WITH THE BOLT CUTTERS."
 		 "Oh, yeah. If you want to get through the fence, you'll have to BEND (or PULL) it back, otherwise you'll get zapped going through.">
       <NEW-HINT H-GAS
-		 "How can I survive the tear gas?"
+		 "How to survive the tear gas?"
 		 "Did you don your gas mask?"
 		 "And why not?"
 		 "Oh, you don't have one."
@@ -341,7 +342,7 @@ the American agent?"
 		 "Or cheating?"
 		 "Either way, it doesn't reflect well on you.">
       <NEW-HINT H-GUARDS
-		 "How can I avoid the border guards?"
+		 "How to avoid border guards?"
 		 "Both are moving, so you should WATCH them."
 		 "When they are facing away from you, you have some freedom of action."
 		 "Unless you're in front of the middle tower, you are ALWAYS in view of one of the guards."
@@ -349,7 +350,7 @@ the American agent?"
 		 "The farther away they are, the better."
 		 "The less you hang around there, the better.">
       <NEW-HINT H-BORDER
-		 "How do I get past the second fence?"
+		 "How to get past second fence?"
 		 "There's no way."
 		 "You can't."
 		 "Really."
@@ -375,7 +376,7 @@ the American agent?"
 		 "Then try KNOCKing on the DOOR."
 		 "No, we're not pulling your leg.">
       <NEW-HINT H-CHASE
-		 "The guards are coming after me!"
+		 "The guards are coming!"
 		 "Well, what did you expect?"
 		 "You can't leave; you can't fight; or can you?"
 		 "You'll have to somehow blow up the tower and yet stay in relative safety (no mean trick)."
@@ -438,7 +439,7 @@ for fear of being killed by Topaz, who has an axe to grind with you."
 		 "Can you put a stumbling block in his way?"
 		 "You can TOPPLE THE VENDOR'S CART and make an unholy mess; that will hold Topaz for a little while. After that, it's up to you.">
       <NEW-HINT H-BEST
-		 "I can't get the best ending. Why?"   
+		 "Why can't I get best ending?"   
 		 "Presumably, you have found the sniper and know the password."
 		 "Also, you know that Topaz can be made to kill the sniper for you."
 		 "Meaning that Topaz must follow you up to the sniper's room. See the previous clue for help in this regard."
