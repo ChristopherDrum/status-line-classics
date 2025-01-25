@@ -172,13 +172,13 @@ you've lost some blood." CR>)>>
 	 <TELL
 "Would you like to ">
 	 <COND (.CONTIN
-		<TELL "continue with the next scenario, ">)>
-	 <TELL "start over, restore a saved position, get a hint, or
-end this session of the game?|
-(Type ">
+		<TELL "continue with the next scenario,|">)>
+	 <TELL "start over, restore a saved position,|get a hint, or
+end this session|of the game?|
+(">
 	 <COND (.CONTIN
 		<TELL "CONTINUE, ">)>
-	 <TELL "RESTART, RESTORE, HINT, or QUIT) >">
+	 <TELL "RESTART, RESTORE, HINT, QUIT)|>">
 	 <PUTB ,P-INBUF 1 0>
 	 <READ ,P-INBUF ,P-LEXV>
 	 <COND (<EQUAL? <SET W <GET ,P-LEXV 1>> ,W?RESTART>
@@ -210,7 +210,7 @@ end this session of the game?|
 	 <SET V <BAND <GET 0 1> *3777*>>
 	 <TELL CR 
 "BORDER ZONE: A Game of Intrigue|
-Copyright (c) 1987 by Infocom, Inc. All rights reserved.|
+Copyright (c) 1987 Infocom, Inc.|All rights reserved.|
 BORDER ZONE is a trademark of Infocom, Inc.|
 Release " N .V " / Serial number ">
 	 <REPEAT ()
@@ -218,8 +218,9 @@ Release " N .V " / Serial number ">
 			<RETURN>)
 		       (T
 			<PRINTC <GETB 0 .CNT>>)>>
-	 <TELL " / ">
+	 <TELL "|">
 	 <V-$ID>
+	 <TELL "(Status Line Classics, Rev.1)">
 	 <CRLF>>
 
 <CONSTANT D-RECORD-ON 4>
@@ -1691,7 +1692,7 @@ where you had been hoping to arrive.">)>
 		<UPDATE-CHRONOGRAPH 0>)>
 	 <COND (<EQUAL? ,SCENARIO 2>
 		<TELL CR CR
-"****  You have been arrested  ****" CR>)>
+" *** You have been arrested ***" CR>)>
 	 <HLIGHT ,H-NORMAL>
 	 <STATUS-LINE>
 	 <FINISH .CONTIN>
