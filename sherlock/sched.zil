@@ -236,12 +236,12 @@
 		      <SET AM-PM? 2>)>
 	       <COND (<==? .AM-PM? 1>
 		      <COND (<BAND .FMT ,K-NTI-SM>
-			     <SET MER " AM">)
+			     <SET MER "a">)
 			    (T
 			     <SET MER " a.m.">)>)
 		     (<==? .AM-PM? 2>
 		      <COND (<BAND .FMT ,K-NTI-SM>
-			     <SET MER " PM">)
+			     <SET MER "p">)
 			    (T
 			     <SET MER " p.m.">)>)
 		     (T
