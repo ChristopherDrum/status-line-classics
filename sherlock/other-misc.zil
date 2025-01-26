@@ -837,9 +837,11 @@ characters.]" CR>
 		<RTRUE>)>
 	 <COND (<ZERO? .MARGIN>
 		<SET MARGIN <- ,GL-MIDSCREEN </ .WIDTH 2>>>)>
-	 ;<BUFOUT <>>
+	 <COND (<ZERO? .MARGIN>
+		<SET MARGIN 1>)> ;"might divide down to 0, but we always want 1, minimum"
+		;<BUFOUT <>>
 	 <COND (<L? <LOWCORE SCRV> 25> ;"e.g. Amiga, DEC-20, etc."
-		<DEC Y>)>
+		<SET Y 5>)>
 	 <SPLIT <+ .LINES 6>>
 	 <SCREEN ,K-S-WIN>
 	 <HLIGHT ,K-H-INV>
@@ -961,23 +963,21 @@ characters.]" CR>
 			"\"Many monarchs are buried in"
 			"Westminster. But only one   "
 			"died here. It happened on   "
-			"March 20th, 1413, and the   "
-			"event was later made famous "
-			"in a scene written by       "
-			"Shakespeare:\"               "
+			"March 20th, 1413, and was   "
+			"later made famous by        "
+			"Shakespeare:\"              "
 			0
-			"\"It hath been prophesied to  "
-			"   me many years             "
-			"I should not die but in      "
-			"   Jerusalem,                "
-			"Which vainly I supposed the  "
-			"   Holy Land.                "
-			"But bear me to that chamber; "
-			"   there I'll lie.           "
-			"In that Jerusalem shall      "
-			"   Harry die.\"               "
-			0
-			"\"Henry IV, Part II, Act V\"   ">
+			"\"It hath been prophesied to "
+			"   me many years            "
+			"I should not die but in     "
+			"   Jerusalem,               "
+			"Which vainly I supposed the "
+			"   Holy Land.               "
+			"But bear me to that chamber;"
+			"   there I'll lie.          "
+			"In that Jerusalem shall     "
+			"   Harry die.\"             "
+			" -\"Henry IV, Part II, Act V\"">
 		<PLTABLE 17
 			"   HELD OVER   "
 			0

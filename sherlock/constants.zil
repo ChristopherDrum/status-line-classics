@@ -985,7 +985,7 @@ of the tombs, and relieving the general gloom of the Abbey's dark interior.">
 " apologetically stands in front of the closed door. \"I'm terribly worried
 about Mr Holmes, Doctor. Won't you please attend to him right away?\"">
 
-<CONSTANT K-ASTERISK-MSG "         **********">
+<CONSTANT K-ASTERISK-MSG "    **********">
 
 <CONSTANT K-TWINKLE-MSG
 "Twinkle, twinkle, son of Mars,">

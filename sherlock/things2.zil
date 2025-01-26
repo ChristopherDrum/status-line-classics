@@ -1988,9 +1988,9 @@ of sleuthing. In just three short days, Inspector G. Lestrade will teach
 you everything he knows of the art of detection. Here are just some of the
 things you'll learn." CR CR
 
-"*** Fifteen new and exciting ways to" WRAP "say \"'Ullo! Wot's this?\"" CR
-"*** Modern obfuscatory locution" WRAP "eschewel techniques." CR
-"*** How to insult private detectives." CR CR
+"** Fifteen new and exciting ways" WRAP "to say \"'Ullo! Wot's this?\"" CR
+"** Modern obfuscatory locution" WRAP "eschewel techniques." CR
+"** How to insult" WRAP "private detectives." CR CR
 
 "Included in your tuition is an official Scotland Yard
 notebook, and a brand new bobby pin. Just send twenty-five pounds
