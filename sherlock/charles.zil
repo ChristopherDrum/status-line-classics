@@ -143,11 +143,11 @@
 		      <TELL "out the match." CR>)>)>>
 
 <ROUTINE CLEAR-ALL-FLAGS (OBJ)
-  <REPEAT ((N 1))
+  <REPEAT ((N 0))
     <COND (<NOT <EQUAL? .N ,FL-HAS-SDESC ,FL-HAS-DESCFCN ,FL-NEEDS-IDENTITY
 			,FL-LOSE-IDENTITY>>
 	   <FCLEAR .OBJ .N>)>
-    <COND (<G? <SET N <+ .N 1>> 48> <RETURN>)>>>
+    <COND (<G? <SET N <+ .N 1>> 47> <RETURN>)>>>
 
 <ROUTINE RT-AC-TH-TORCH ("OPTIONAL" (CONTEXT <>) "AUX" WHO)
 	<DEBUGGING? <RT-DEBUG-OB-AC "TH-TORCH">>
