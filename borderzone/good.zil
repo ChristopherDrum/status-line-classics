@@ -18,7 +18,7 @@
 
 <GLOBAL 30-TIMER 0>
 
-<ROUTINE I-30-SECONDS ("AUX" TMP HF (OC <LOC ,CAR>))
+<ROUTINE I-30-SECONDS ("AUX" TMP (OC <LOC ,CAR>))
 	 <SETG 30-TIMER <+ ,30-TIMER 1>>
 	 <COND (<ZERO? <MOD ,30-TIMER 4>>
 		<I-120-SECONDS>)>
@@ -443,7 +443,7 @@ Perhaps where there's smoke there will be warmth.">)>
 	(SCENARIO 2)
 	(ACTION TIMING-OBJECT-F)>
 
-<ROUTINE TIMING-OBJECT-F ("AUX" TMP)
+<ROUTINE TIMING-OBJECT-F ()
 	 <COND (<VERB? SET>
 		<TELL
 "You can only do three things to the timer: reset it, turn it on,

@@ -23,7 +23,7 @@ default) or SUPERBRIEF descriptions." CR>>
 
 <GLOBAL SAVE-FLAG <>>
 
-<ROUTINE V-SAVE ("AUX" SV FLG)
+<ROUTINE V-SAVE ("AUX" SV)
 	 <SETG SAVE-FLAG T>
 	 <COND (<EQUAL? <SET SV <SAVE>> 1>
 	        <CHECK-REFRESH>
@@ -330,10 +330,10 @@ Release " N .V " / Serial number ">
 <ROUTINE V-BUY ()
 	 <TELL "It's not for sale." CR>>
 
-<ROUTINE V-BUY-WITH ("AUX" ACTOR) ;"PAY WITH --"
+<ROUTINE V-BUY-WITH () ;"PAY WITH --"
 	 <IMPOSSIBLES>>
 
-<ROUTINE V-BUY-OBJECT-WITH ("AUX" ACTOR)
+<ROUTINE V-BUY-OBJECT-WITH ()
 	 <IMPOSSIBLES>>
 
 <ROUTINE V-CALL () ;"prso need not be in room"
@@ -896,7 +896,7 @@ be more specific with what you are listening for." CR>)
 <ROUTINE V-PLUG-IN ()
 	 <IMPOSSIBLES>>
 
-<ROUTINE V-POINT ("AUX" ACTOR)
+<ROUTINE V-POINT ()
 	 <TELL "Pointless." CR>>
 
 <ROUTINE V-POUR ()
@@ -1348,7 +1348,7 @@ so it isn't surprising that he ignores you." CR>)
 	       (T
 		<V-WALK-AROUND>)>>
 
-<ROUTINE V-WAIT ("OPTIONAL" (NUM 0) "AUX" PERSON NW)
+<ROUTINE V-WAIT ("OPTIONAL" (NUM 0) "AUX" NW)
 	 <COND (,MINUTES-FLAG
 		<SET NUM <* .NUM 60>>)>
 	 <COND (<G? .NUM 999>
@@ -1445,7 +1445,7 @@ so it isn't surprising that he ignores you." CR>)
 
 ;"subtitle object manipulation"
 
-<ROUTINE ITAKE ("OPTIONAL" (VB T) "AUX" ;CNT OBJ)
+<ROUTINE ITAKE ("OPTIONAL" (VB T))
 	 <COND (<NOT <FSET? ,PRSO ,TAKEBIT>>
 		<COND (.VB
 		       <IMPOSSIBLES>)>

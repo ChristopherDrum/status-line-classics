@@ -1204,7 +1204,7 @@ all of the film will be exposed and ruined." CR>)
 		<TELL
 "There's no film there." CR>)>>
 
-<ROUTINE GENERIC-FILM ("AUX" F)
+<ROUTINE GENERIC-FILM ()
 	 <COND (<VERB? REWIND>
 		,CAMERA)
 	       (<AND <VERB? TAKE> <EQUAL? ,P-NCN 2>>
@@ -2168,7 +2168,7 @@ you'd swear it was the American agent.">)>
 	 <CRLF>
 	 <RT-QUEUE ,I-BAD-BORDER 100>>
 
-<ROUTINE I-BAD-BORDER ("AUX" ITM TMP)
+<ROUTINE I-BAD-BORDER ("AUX" TMP)
 	 <HLIGHT ,H-BOLD>
 	 <SETG BAD-CONFINED <>>
 	 ;<COND (,DEBUG

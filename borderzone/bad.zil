@@ -2946,7 +2946,7 @@ through the door." CR>)>)
 		<TELL
 "Nobody here seems interested in your words." CR>)>>
 
-<ROUTINE SNIPER-SPOTS? ("AUX" OBJ (OFF 0) F N (FLG <>))
+<ROUTINE SNIPER-SPOTS? ("AUX" (OFF 0) F N (FLG <>))
 	 <SET F <FIRST? ,SNIPER-HALL>>
 	 <REPEAT ()
 		 <COND (<NOT .F> <RETURN>)
@@ -3487,7 +3487,7 @@ a few dozen seconds behind you now.">)>
 
 <GLOBAL TOPAZ-SPOT-COUNT 0>
 
-<ROUTINE PICK-NAME (TBL "AUX" ENT OFF DIR)
+<ROUTINE PICK-NAME (TBL "AUX" ENT OFF)
 	 <REPEAT ()
 		 <SET OFF <- <* <RANDOM </ <GET ,DIR-NAMES 0> 2>> 2> 1>>
 		 <COND (<ZERO? <SET ENT <GET ,DIR-NAMES .OFF>>>
