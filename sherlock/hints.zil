@@ -13,10 +13,10 @@
 	       <TELL "[Hints have been disallowed for this session.]" CR>)>
 	<RFATAL>>
 
-<CONSTANT RETURN-SEE-HINT " RETURN = see hint">
-<CONSTANT RETURN-SEE-HINT-LEN <LENGTH " RETURN = see hint">>
-<CONSTANT Q-MAIN-MENU "Q = main menu">
-<CONSTANT Q-MAIN-MENU-LEN <LENGTH "Q = main menu">>
+<CONSTANT RETURN-SEE-HINT "return:see hint">
+<CONSTANT RETURN-SEE-HINT-LEN <LENGTH "return:see hint">>
+<CONSTANT Q-MAIN-MENU "q:main menu">
+<CONSTANT Q-MAIN-MENU-LEN <LENGTH "q:main menu">>
 
 ;"zeroth (first) element is 5"
 <GLOBAL GL-LINE-TABLE
@@ -26,7 +26,7 @@
 ;"zeroth (first) element is 4"
 <CONSTANT GL-COLUMN-TABLE
 	<PTABLE
-	  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4>>
+	  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3>>
 
 ; "If the first argument is non-false, build a parallel impure table
    for storing the count of answers already seen; make it a constant
@@ -77,50 +77,50 @@
 <CONSTANT K-HINTS
   <CONSTRUCT-HINTS K-HINT-COUNTS
     "STARTERS"
-    <PLTABLE "How do I get into the house?"
+    <PLTABLE "How to get into the house?"
 	     "Mrs Hudson is expecting you, so you shouldn't have to do
 anything too unusual."
 	     "Have you tried kicking down the door?"
 	     "KNOCK ON THE DOOR.">
-    <PLTABLE "How do I get into the parlour?"
+    <PLTABLE "How to get into the parlour?"
 	     "Mrs Hudson wants you to attend to something first."
 	     "Get Holmes's mind off the drug.">
-    <PLTABLE "How do I get into the kitchen?"
+    <PLTABLE "How to get into the kitchen?"
 	     "Don't look at the next clue until you have opened the trap door in the hall."
 	     "You're cheating, aren't you?"
 	     "There is no trap door."
 	     "There is no kitchen."
 	     "Don't let the existence of these questions influence your playing of the game.">
-    <PLTABLE "How do I get into the bedroom?"
+    <PLTABLE "How to get into the bedroom?"
 	     "Only Holmes can open that door."
 	     "When the visitor leaves, Holmes will open it.">
-    <PLTABLE "How do I get onto the roof?"
+    <PLTABLE "How to get onto the roof?"
 	     "The same way you got into the kitchen.">
-    <PLTABLE "Will Mrs Hudson do anything for me?"
+    <PLTABLE "Will Mrs Hudson do anything?"
 	     "Have you tried kissing her?"
 	     "Have you tried bribing her?"
 	     "The sad fact is that she won't do anything for you.">
-    <PLTABLE "Can I get Holmes out of his stupor?"
+    <PLTABLE "Get Holmes out of his stupor?"
 	     "Holmes is bored with the commonplace events of everyday life."
 	     "He needs some mental excitement."
 	     "Newspapers generally contain interesting items."
 	     "For a doctor, you're not too bright. Read him the newspaper. (Or tell him about the visitor).">
-    <PLTABLE "Why does the clue paper exist?"
+    <PLTABLE "Why does clue paper exist?"
 	     "It looks like the thief is challenging Sherlock Holmes to a duel of wits."
 	     "Unlike yourself, Sherlock is not unarmed for such a duel."
 	     "The thief is laying down a trail of clues for Holmes to follow.">
-    <PLTABLE "What's the answer to the 1st riddle?"
+    <PLTABLE "Answer to the 1st riddle?"
 	     "The verse refers to a particular place."
 	     "The place is the spot where most English royalty is buried."
 	     "Westminster Abbey.">
-    <PLTABLE "What's the answer to the 2nd riddle?"
+    <PLTABLE "Answer to the 2nd riddle?"
 	     "The verse refers to the last of the Tudor monarchs."
 	     "She was called the \"Virgin Queen.\""
 	     "Elizabeth I.">
-    <PLTABLE "What's the answer to the 3rd riddle?"
+    <PLTABLE "Answer to the 3rd riddle?"
 	     "The discoverer of the law of gravity."
 	     "Sir Isaac Newton.">
-    <PLTABLE "What's the answer to the 4th riddle?"
+    <PLTABLE "Answer to the 4th riddle?"
 	     "Don't read the next clue until you have thoroughly explored Westminster Abbey."
 	     "Have you looked around in the Jerusalem Chamber?"
 	     "The fourth verse refers to Henry V.">
@@ -131,7 +131,7 @@ anything too unusual."
     "CABS"
     <PLTABLE "How do I hail a cab?"
 	     "Consult the sample transcript in your game manual.">
-    <PLTABLE "Why does the growler cab get lost?"
+    <PLTABLE "Why does growler cab get lost?"
 	     "The driver is friendly, but stupid."
 	     "The driver is stupid, but friendly."
 	     "Give up. He'll never take you where you want to go.">
@@ -139,14 +139,14 @@ anything too unusual."
     <PLTABLE "Are the tombs important?"
 	     "They are to the people buried in them."
 	     "Yes.">
-    <PLTABLE "How do I make a brass rubbing?"
+    <PLTABLE "How to make a brass rubbing?"
 	     "Take a piece of paper from the pacquet of paper, put it on the
 tomb of your choice, and then rub it with the crayon.">
-    <PLTABLE "What should I make rubbings of?"
+    <PLTABLE "What rubbings should I make?"
 	     "Do not read the next clue until you have solved the verses on
 the thief's clue paper."
 	     "The tombs of Queen Elizabeth, Sir Isaac Newton and Henry V.">
-    <PLTABLE "Why am I making brass rubbings?"
+    <PLTABLE "Why am I making rubbings?"
 	     "The thief is trying to send messages to Sherlock."
 	     "He wouldn't want his messages to be visible to everyone, now would he?"
 	     "Have you visited the British Museum yet?"
@@ -163,13 +163,13 @@ onto the back of the paper."
 Chapel - but we knew it was going to be stolen in 1950 and then returned
 several months later.  We figured that was enough excitement for any one rock,
 so we left it out of the game, safe from your grubby paws.">
-    <PLTABLE "What's the Son of Mars answer?"
+    <PLTABLE "The Son of Mars answer?"
 	     "Admiral Lord Nelson.">
-    <PLTABLE "What's the Chopper answer?"
+    <PLTABLE "The Chopper answer?"
 	     "Charles I.">
-    <PLTABLE "What's the London Bridge answer?"
+    <PLTABLE "The London Bridge answer?"
 	     "Under London Bridge.">
-    <PLTABLE "What's the answer to life's riddle?"
+    <PLTABLE "The answer to life's riddle?"
 	     "If we knew that, do you think we'd be sitting around writing games?">
     <PLTABLE "What's the Pussycat answer?"
 	     "Go to the Tower of London.">
@@ -178,10 +178,10 @@ so we left it out of the game, safe from your grubby paws.">
 	     "Have you read the sign on the Monument?"
 	     "Have you ever read the Charge of the Light Brigade?"
 	     "600.">
-    <PLTABLE "How about Hickory Dickory Dock?"
+    <PLTABLE "And Hickory Dickory Dock?"
 	     "Big Ben.">
     "BRITISH MUSEUM"
-    <PLTABLE "How do I get past the librarian?"
+    <PLTABLE "How to get past librarian?"
 	     "Think of the room not as a museum, but as a library."
 	     "Have you read the sign on the librarian's desk?"
 	     "Has it occurred to you that he's doing an awful lot of talking?"
@@ -192,7 +192,7 @@ so we left it out of the game, safe from your grubby paws.">
 far away.">
     <PLTABLE "How do I get up there?"
 	     "Take the stairs up from the clerestory.">
-    <PLTABLE "How do I get to the clerestory?"
+    <PLTABLE "How to get to clerestory?"
 	     "You can't. St Paul's isn't even in the game."
 	     "We just like the word clerestory.">
     "TRAFALGAR SQUARE"
@@ -210,7 +210,7 @@ of keeping the statue out of your reach.">
     <PLTABLE "Is anything important?"
 	     "Like, wow, man.  Heavy question!">
     "ON THE THAMES"
-    <PLTABLE "How do I stop rowing in circles?"
+    <PLTABLE "How stop rowing in circles?"
 	     "Has anyone told you you're not playing with a full deck?"
 	     "Has anyone told you you're not rowing with both oars in the water?"
 	     "You need two oars to steer the boat."
@@ -232,18 +232,18 @@ of keeping the statue out of your reach.">
 	     "If you don't have the paddle, you need two oars to row back up the river."
 	     "If you're on the river without a paddle or both oars, you're making a big mistake."
 	     "You can only take the paddle after you've entered the Tower.">
-    <PLTABLE "Can I stop the man taking the boat?"
+    <PLTABLE "Stop the man taking the boat?"
 	     "No, you can't. But after all, it's his boat.">
     "VICTORIA STATION"
-    <PLTABLE "What time does the last train leave?"
+    <PLTABLE "When does last train leave?"
 	     "The timetable is posted on the wall."
 	     "9:15 p.m.">
-    <PLTABLE "What track does it leave from?"
+    <PLTABLE "From what track?"
 	     "Track 29.">
-    <PLTABLE "How much is a round-trip ticket?"
+    <PLTABLE "Cost of round-trip ticket?"
 	     "Why are you reading clues about a place that isn't even in the game?">
     "COVENT GARDEN"
-    <PLTABLE "What is the matter with the girl?"
+    <PLTABLE "What's wrong with the girl?"
 	     "She has a bad heart."
 	     "Perhaps some medicine...."
 	     "Be careful. Drugs are dangerous.">
@@ -264,7 +264,7 @@ of keeping the statue out of your reach.">
 	     "Sorry about this. It turns out that Watson always carries his
 stethoscope in his hat. Really. (Read \"A Scandal in Bohemia.\")">
     "MADAME TUSSAUD'S"
-    <PLTABLE "How do I get past the guard dog?"
+    <PLTABLE "How to get past guard dog?"
 	     "He won't let you carry any matches inside."
 	     "OK. So you already knew that."
 	     "He won't let you carry in any flames that he can see."
@@ -279,17 +279,17 @@ stethoscope in his hat. Really. (Read \"A Scandal in Bohemia.\")">
 	     "Light it from a burning piece of paper."
 	     "Light a piece of paper from the pipe, and then use it to light the torch.">
     "SCOTLAND YARD"
-    <PLTABLE "Will Lestrade talk to me in his office?"
+    <PLTABLE "Lestrade talk to me in office?"
 	      "He doesn't like you."
 	      "He really doesn't like you."
 	      "What office?">
     "BANK OF ENGLAND"
-    <PLTABLE "How do I get inside the bank?"
+    <PLTABLE "How to get inside the bank?"
 	     "Despite the guard's assertions to the contrary, he can be bribed."
 	     "Give him something valuable."
 	     "Some gems might do the trick."
 	     "Give him the ruby, the sapphire, the emerald and the opal.">
-    <PLTABLE "How do I get inside the vault?"
+    <PLTABLE "How to get inside the vault?"
 	     "The door has a combination lock on it."
 	     "The tumblers turn too quietly for you to hear without amplification."
 	     "Listen to the door with the stethoscope, and then turn the dial left or right."
@@ -300,7 +300,7 @@ stethoscope in his hat. Really. (Read \"A Scandal in Bohemia.\")">
     <PLTABLE "Which box should I open?"
 	     "Have you solved the second clue on Sir Isaac Newton's tomb?"
 	     "Open box 600.">
-    <PLTABLE "How do I open safety deposit boxes?"
+    <PLTABLE "How open safety deposit boxes?"
 	     "Do you have any dynamite?"
 	     "Try using a key."
 	     "The bank guard has it."
@@ -308,12 +308,12 @@ stethoscope in his hat. Really. (Read \"A Scandal in Bohemia.\")">
 	     "How good a pickpocket are you?"
 	     "How good a pickpocket are the people you know?"
 	     "Ask Wiggins to steal it.">
-    <PLTABLE "How can I stop the kidnapping?"
+    <PLTABLE "How to stop the kidnapping?"
 	     "Hire bodyguards."
 	     "Put Holmes in your medical bag."
 	     "You can't.">
     "DIOGENES CLUB"
-    <PLTABLE "What does Mycroft want from me?"
+    <PLTABLE "What does Mycroft want?"
 	     "Your blood?"
 	     "Your first-born male child?"
 	     "Sherlock's ring.">
@@ -427,27 +427,27 @@ the ruby to the pigeon, ask him to get it, and then let him go."
 	     "Have you looked at any of them closely?"
 	     "Look at each of the gems through the magnifying glass.">
     "THE LAIR"
-    <PLTABLE "Can I stop Akbar's knocking me out?"
+    <PLTABLE "Stop Akbar knocking me out?"
 	     "Knock him out first."
 	     "Perhaps you could smuggle something in."
 	     "Have you noticed the henchman's religion?"
 	     "He probably won't disturb your hat."
 	     "Perhaps the etherium ampoule....">
-    <PLTABLE "Can I stop Moriarty when I wake up?"
+    <PLTABLE "Stop Moriarty when I wake up?"
 	     "If he is free to move around, he will always win."
 	     "Tie him up."
 	     "Don't forget to tie up the henchman, too.">
     "MISCELLANEOUS"
-    <PLTABLE "Why do I finish without 100 points?"
+    <PLTABLE "I finished under 100 points?"
 	     "If you play the game from start to finish and solve all
 the puzzles, you will end up with 100 points. If, however, you start the
 game and play through it using information you acquired in a previous
 session, you may have neglected to perform a few actions for which you
 received points. This should not be of concern to anyone who is content
 with failing to discover the highest ranking available to the game player.">
-    <PLTABLE "Can I abbreviate \"stethoscope\"?"
+    <PLTABLE "Abbreviate \"stethoscope\"?"
 	     "Yes. It can be abbreviated to STETH or SS.">
-    <PLTABLE "What is the square root of 64?"
+    <PLTABLE "The square root of 64?"
 	      "Eight.">>>
 
 <GLOBAL GL-CUR-POS 0>	;"determines where to place the highlight cursor
@@ -585,7 +585,7 @@ work this out on our own.\"">)>
 
 <ROUTINE RT-ERASE-CURSOR ()
 	<CURSET <GET ,GL-LINE-TABLE ,GL-CUR-POS>
-		<- <GET ,GL-COLUMN-TABLE ,GL-CUR-POS> 2>>
+		<- <GET ,GL-COLUMN-TABLE ,GL-CUR-POS> 1>>
 	<TELL " ">	;"erase previous highlight cursor">
 
 ;"go back 2 spaces from question text, print cursor and flash is between
@@ -593,7 +593,7 @@ the cursor and text"
 
 <ROUTINE RT-NEW-CURSOR ()
 	<CURSET <GET ,GL-LINE-TABLE ,GL-CUR-POS>
-		<- <GET ,GL-COLUMN-TABLE ,GL-CUR-POS> 2 ;1>>
+		<- <GET ,GL-COLUMN-TABLE ,GL-CUR-POS> 1 ;1>>
 	<TELL ">">	;"print the new cursor">
 
 <ROUTINE RT-INVERSE-LINE ("AUX" (CENTER-HALF <>)) 
@@ -611,11 +611,11 @@ the cursor and text"
   <RT-CENTER-LINE 1 "INVISICLUES (tm)" <STRLENGTH "INVISICLUES (tm)">>
   <CURSET 3 1>
   <RT-INVERSE-LINE>
-  <RT-LEFT-LINE 3 "RETURN = see new hint">
-  <RT-RIGHT-LINE 3 "Q = see hint menu" <STRLENGTH "Q = see hint menu">>
+  <RT-LEFT-LINE 3 "return:see hint">
+  <RT-RIGHT-LINE 3 "q:hint menu" <STRLENGTH "q:hint menu">>
   <CURSET 2 1>
   <RT-INVERSE-LINE>
-  <HLIGHT ,K-H-BLD>
+  <HLIGHT ,K-H-ITL>
   <SET H <GET <GET ,K-HINTS ,GL-CHAPT-NUM> <+ ,GL-QUEST-NUM 1>>>
   ; "Byte table to use for showing questions already seen"
   ; "Actually a nibble table.  The high four bits of each byte are for
@@ -704,11 +704,11 @@ the cursor and text"
   <CURSET 3 1>
   <RT-INVERSE-LINE>
   <RT-CENTER-LINE 1 "INVISICLUES (tm)" <STRLENGTH "INVISICLUES (tm)">>
-  <RT-LEFT-LINE 2 " N = Next">
-  <RT-RIGHT-LINE 2 "P = Previous" <STRLENGTH "P = Previous">>
+  <RT-LEFT-LINE 2 "n:next">
+  <RT-RIGHT-LINE 2 "p:previous" <STRLENGTH "p:previous">>
   <COND (<MC-T? .THIRD>
-	 <RT-LEFT-LINE 3 " RETURN = See hint">
-	 <RT-RIGHT-LINE 3 "Q = Resume story" <STRLENGTH "Q = Resume story">>)>>
+	 <RT-LEFT-LINE 3 "return:see hint">
+	 <RT-RIGHT-LINE 3 "q:resume story" <STRLENGTH "q:resume story">>)>>
 
 <ROUTINE RT-CENTER-LINE (LN STR "OPTIONAL" (LEN 0) (INV T))
   <COND (<ZERO? .LEN>
