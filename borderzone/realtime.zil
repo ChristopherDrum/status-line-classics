@@ -208,18 +208,18 @@
 		<SET MT <- 90 .MT>>)>
 	 <COND (,G-WATCH
 		<CURSET 2 <+ .OFF <- ,G-WATCH 1>>>
-		<COND (<EQUAL? ,G-WATCH 1 19>
+		<COND (<EQUAL? ,G-WATCH 1 16>
 		       <TELL "T">)
 		      (T <TELL " ">)>
-		<CURSET 2 <+ .OFF <- 37 ,G-WATCH>>>
-		<COND (<EQUAL? ,G-WATCH 1 19>
+		<CURSET 2 <+ .OFF <- 31 ,G-WATCH>>>
+		<COND (<EQUAL? ,G-WATCH 1 16>
 		       <TELL "T">)
 		      (T <TELL " ">)>)>
 	 <SETG G-WATCH <+ </ .MT 5> 1>>
 	 <CURSET 2 <+ .OFF <- ,G-WATCH 1>>>
 	 <COND (.FACE? <TELL ">">)
 	       (T <TELL "<">)>
-	 <CURSET 2 <+ .OFF <- 37 ,G-WATCH>>>
+	 <CURSET 2 <+ .OFF <- 31 ,G-WATCH>>>
 	 <COND (.FACE? <TELL "<">)
 	       (T <TELL ">">)>
 	 <COND (.INIT?

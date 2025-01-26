@@ -82,10 +82,10 @@ it would be safer approaching the hut from the other side." CR>
 		<COND (,G-WATCH
 		       <SCREEN-1>
 		       <CURSET 3 <+ ,GUARD-MARGIN
-				    </ <GETP .STUFF ,P?GPOS> 5>>>
+				    </ <GETP .STUFF ,P?GPOS> 6>>>
 		       <TELL " ">
 		       <CURSET 3 <+ ,GUARD-MARGIN
-				    </ <GETP ,HERE ,P?GPOS> 5>>>
+				    </ <GETP ,HERE ,P?GPOS> 6>>>
 		       <TELL "*">
 		       <SCREEN-0>)>
 		<RTRUE>)>>
