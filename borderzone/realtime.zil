@@ -215,7 +215,7 @@
 		<COND (<EQUAL? ,G-WATCH 1 16>
 		       <TELL "T">)
 		      (T <TELL " ">)>)>
-	 <SETG G-WATCH <+ </ .MT 5> 1>>
+	 <SETG G-WATCH <+ </ .MT 6> 1>>
 	 <CURSET 2 <+ .OFF <- ,G-WATCH 1>>>
 	 <COND (.FACE? <TELL ">">)
 	       (T <TELL "<">)>
