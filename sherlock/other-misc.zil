@@ -972,8 +972,8 @@ characters.]" CR>
 			"   Jerusalem,                "
 			"Which vainly I supposed the  "
 			"   Holy Land.                "
-			"But bear me to that chamber, "
-			"   there I'll lie,           "
+			"But bear me to that chamber; "
+			"   there I'll lie.           "
 			"In that Jerusalem shall      "
 			"   Harry die.\"               "
 			0
