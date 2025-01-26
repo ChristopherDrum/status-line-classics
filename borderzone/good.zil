@@ -415,7 +415,7 @@ Perhaps where there's smoke there will be warmth.">)>
 		<BOLDTELL "You're feeling a lot warmer now.">)>>
 
 <GLOBAL WARMTH-TBL
-	<PTABLE "You're shaking uncontrollably from the cold. It won't be long before you are competely incapacitated."
+	<PTABLE "You're shaking uncontrollably from the cold. It won't be long before you are completely incapacitated."
 	       "You're shivering badly. If you don't find some warmth soon, it's hard to see how you can go on."
 	       "Your teeth start to chatter from the cold; you are clearly slowing down, both physically and mentally."
 	       "You've got quite a chill; you must move now to keep warm, but even this is not enough."
@@ -1315,7 +1315,7 @@ the rear of the hut. Fortunately, he isn't looking inside."
 		      BEHIND-HUT>
 	       <PTABLE ROAD-END HUT-BEDROOM
 		      "You can see a single guard slowly walking around the back side of the hut to the south side of the hut."
-		      "Through the window, a lone guard comes into view, awalking slowly toward the front of the hut. Fortunately, he isn't looking in your direction." 
+		      "Through the window, a lone guard comes into view, walking slowly toward the front of the hut. Fortunately, he isn't looking in your direction." 
 		      SOUTH-HUT>
 	       <PTABLE NORTH-HUT 0
 		      "You watch as the lone guard returns to the group. He appears relieved that he has nothing to report."

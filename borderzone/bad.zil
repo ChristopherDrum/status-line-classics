@@ -299,7 +299,7 @@ the street, to the west, lies a vacant lot." CR>
       (DESC "Near Empty Lot")
       (FDESC "spot directly across from the vacant lot")
       (LDESC
-"You are on Fremzi Stret, halfway between Brzni to the north and Besnap
+"You are on Fremzi Street, halfway between Brzni to the north and Besnap
 to the south. A vacant lot sits to the west; two buildings rise to the
 northeast and southeast, but access to the inside is on Ostnitz Street.")
       (NORTH PER BB1-MOVE)
@@ -601,7 +601,7 @@ the back room and take you into custody." CR>
 	 <COND (<VERB? LISTEN FOLLOW EXAMINE>
 		<TELL
 "You can't make out every word, but the police are questioning your friend
-about certain acquaintences, affiliations, and the like." CR>)
+about certain acquaintances, affiliations, and the like." CR>)
 	       (T
 		<TELL "Bizarre." CR>)>>
 
@@ -611,7 +611,7 @@ about certain acquaintences, affiliations, and the like." CR>)
       (PATH-TIME 0)
       (DESC "Side Entrance")
       (LDESC
-"This is as far as you can go on Fremzi Stret, before running into the
+"This is as far as you can go on Fremzi Street, before running into the
 police cordons. A metal door, closed and locked, lies to the east.
 On it, a sign reads \"Riznik's Antiques - Deliveries Only\"")
       (FDESC "side entrance of the antique store")
@@ -2602,7 +2602,7 @@ of the hall.")
       (DESC "Hallway, South")
       (FDESC "southern part of the hallway")
       (LDESC
-"You are about one-third of the way betwween the southern and northern
+"You are about one-third of the way between the southern and northern
 ends of the hallway. Doors are on both sides of you, east and west.")
       (NORTH TO HALL-3 IF FALSE-FLAG ELSE
 "You continue down the hall to the next set of doorways, one to the east

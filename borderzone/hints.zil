@@ -422,7 +422,7 @@ the American agent?"
 		 "A variety of reasons. First, anything you do that might cause him to think you're intent on defeating him will get you killed. Also, arriving at his door while you're being pursued is a definite killer.">
       <NEW-HINT H-TOPAZ
 		 "How can I avoid Topaz?"
-		 "Once he's seen you, he will doggedly pursue you for the remainder of your alloted time (i.e. until the assassination happens.)"
+		 "Once he's seen you, he will doggedly pursue you for the remainder of your allotted time (i.e. until the assassination happens.)"
 		 "He can be avoided by staying away from the cafe. The more you pass by there or spend time there, the more likely that he'll see you."
 		 "Maybe you don't want to avoid him...">
       <NEW-HINT H-TOPAZ-HELP
