@@ -19,6 +19,7 @@
 <CONSTANT C64 8>
 <CONSTANT APPLE-2C 9>
 <CONSTANT APPLE-2GS 10>
+<CONSTANT PICO8 12>
 
 <CONSTANT MACHINES
 	<PLTABLE "DEC-20"
@@ -31,7 +32,9 @@
 		 "C64"
 		 "Apple //c"
 		 "Apple //gs"
-		 "Tandy Color Computer">>
+		 "Tandy Color Computer"
+		 ""
+		 "Pico-8">>
 
 <CONSTANT F-OLD 0>
 <CONSTANT F-DEFAULT 1>
@@ -102,6 +105,10 @@
 	   0 ; "Apple //c"
 	   <PLTABLE
 	       BWCR DWWW BWWW WBBB> ; "Apple //gs"
+		   0;
+		   0;
+	   <PLTABLE
+	       BWCR DWWW BWWW WBBB> ; "Pico-8"
 	   >>
 
 "Apple //c MouseText characters."
@@ -374,7 +381,7 @@
 <CONSTANT DBOX-LENGTH %<+ <* ,MAX-HEIGHT ,MAX-DWIDTH> 2>>
 <CONSTANT DBOX <ITABLE ,DBOX-LENGTH (BYTE) 0>>
 
-<CONSTANT MWIDTH 17>
+<CONSTANT MWIDTH 12>
 <CONSTANT MHEIGHT 11>
 <CONSTANT MAP-SIZE %<* ,MWIDTH ,MHEIGHT>>
 <CONSTANT MAP <ITABLE ,MAP-SIZE (BYTE) 0>>

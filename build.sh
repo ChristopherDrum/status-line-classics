@@ -19,5 +19,6 @@ find ./build -name "${GAME}.z*" -delete
 
 # Run zilf and zapf commands
 zilf -w "./${GAME}/${GAME}.zil" "./build/${GAME}.zap"
-zapf -ab "./build/${GAME}.zap" > "./build/${GAME}_freq.xzap" && rm -f "./build/${GAME}_freq.zap"
+zapf -ab "./build/${GAME}.zap" > "./build/${GAME}_freq.xzap"
+rm "./build/${GAME}_freq.zap"
 zapf "./build/${GAME}.zap"

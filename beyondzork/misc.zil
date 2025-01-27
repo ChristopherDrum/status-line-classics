@@ -490,7 +490,7 @@
 		<SETG WIDTH 80>)>
 	 
 	 <SET X <LOWCORE VWRD>> ; "Get pixel height of screen."	 
-	 <SETG HEIGHT </ .X ,CHEIGHT>> ; "Screen width in chars."
+	 <SETG HEIGHT </ .X ,CHEIGHT>> ; "Screen height in chars."
 	 	 
 	 <SETG DWIDTH <- ,WIDTH %<+ ,MWIDTH 3>>> ; "Width of DBOX."
 	 <SETG BOXWIDTH ,DWIDTH>
