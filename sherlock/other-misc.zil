@@ -836,14 +836,6 @@ characters.]" CR>
 		<TELL "[*** Window too wide ***]" CR>
 		<RTRUE>)>
 	 <SET MARGIN <+ <- ,GL-MIDSCREEN </ .WIDTH 2>> 1>>
-
-	 ;[" <COND (<ZERO? .MARGIN> "]
-		;[" <SET MARGIN <- ,GL-MIDSCREEN </ .WIDTH 2>>>)> "]
-	 ;[" <COND (<L? .MARGIN 2> "]
-		;[" <SET MARGIN 2>)> ;"might divide down to 0, but we always want 1 space, minimum" "]
-	 ;[" <COND (<=? .WIDTH ,GL-ALLSCREEN> "]
-		;[" <SET MARGIN 1>)> ;"except in the case where it is PRECISELY the screen width" "]
-		;<BUFOUT <>>
 	 <COND (<L? <LOWCORE SCRV> 25> ;"e.g. Amiga, DEC-20, etc."
 		<SET Y 4>)>
 	 <SPLIT <+ .LINES 6>>
