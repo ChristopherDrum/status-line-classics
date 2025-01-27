@@ -835,13 +835,17 @@ characters.]" CR>
 	 <COND (<G? .WIDTH ,GL-ALLSCREEN>
 		<TELL "[*** Window too wide ***]" CR>
 		<RTRUE>)>
-	 <COND (<ZERO? .MARGIN>
-		<SET MARGIN <- ,GL-MIDSCREEN </ .WIDTH 2>>>)>
-	 <COND (<ZERO? .MARGIN>
-		<SET MARGIN 1>)> ;"might divide down to 0, but we always want 1, minimum"
+	 <SET MARGIN <+ <- ,GL-MIDSCREEN </ .WIDTH 2>> 1>>
+
+	 ;[" <COND (<ZERO? .MARGIN> "]
+		;[" <SET MARGIN <- ,GL-MIDSCREEN </ .WIDTH 2>>>)> "]
+	 ;[" <COND (<L? .MARGIN 2> "]
+		;[" <SET MARGIN 2>)> ;"might divide down to 0, but we always want 1 space, minimum" "]
+	 ;[" <COND (<=? .WIDTH ,GL-ALLSCREEN> "]
+		;[" <SET MARGIN 1>)> ;"except in the case where it is PRECISELY the screen width" "]
 		;<BUFOUT <>>
 	 <COND (<L? <LOWCORE SCRV> 25> ;"e.g. Amiga, DEC-20, etc."
-		<SET Y 5>)>
+		<SET Y 4>)>
 	 <SPLIT <+ .LINES 6>>
 	 <SCREEN ,K-S-WIN>
 	 <HLIGHT ,K-H-INV>
@@ -911,11 +915,11 @@ characters.]" CR>
 			"Visiting Hours: 7am - 6pm">
 		<PLTABLE 18
 			"\"Quiet, please.\"">
-		<PLTABLE 26
-			"   CHAMBER OF HORRORS   "
-			"------------------------"
-			"      ABANDON HOPE"
-			"  ALL YE WHO ENTER HERE ">
+		<PLTABLE 25
+			"   CHAMBER OF HORRORS  "
+			"-----------------------"
+			"      ABANDON HOPE     "
+			" ALL YE WHO ENTER HERE ">
 		<PLTABLE 27
 			"MUSEUM HOURS: 8 am - 6 pm">
 		<PLTABLE 8
@@ -924,22 +928,24 @@ characters.]" CR>
 			"This a replica of the rowboat"
 			"in which Captain Bligh was   "
 			"set adrift after the infamous"
-			"Mutiny on the Bounty.        "
-			"Bligh and his men rowed 3600 "
+			"Mutiny on the Bounty.         "
+			" Bligh and his men rowed 3600"
 			"miles in 45 days, and lived  "
 			"to see the mutineers brought "
-			"to justice.                  ">
-		<PLTABLE 31
-			"For your convenience,        "
-			"the Bank shall be closed for "
-			"the entire Jubilee weekend.  "
-			"Thank you for your patronage.">
-		<PLTABLE 31
-			"    THE TOWER IS CLOSED.    "
+			"to justice.                   ">
+		<PLTABLE 23
+			"For your convenience,"
+			"the Bank shall be    "
+			"closed for the entire"
+			"Jubilee weekend.      "
+			"Thank you for        "
+			"your patronage.       ">
+		<PLTABLE 30
+			"    THE TOWER IS CLOSED.     "
 			0
 			"WE REGRET ANY INCONVENIENCE."
 			0
-			"      HAVE A NICE DAY.      ">
+			"      HAVE A NICE DAY.       ">
 		<PLTABLE 32
 			"During the battle of          "
 			"Copenhagen, Lord Nelson's     "
@@ -952,7 +958,7 @@ characters.]" CR>
 			"\"I do not see the signal.\"    "
 			"His subsequent attack led to  "
 			"victory and a secure place for"
-			"Nelson in British history.    ">
+			"Nelson in British history.     ">
 		<PLTABLE 17
 			" No Loitering. "
 			0
@@ -962,22 +968,20 @@ characters.]" CR>
 		<PLTABLE 30
 			"\"Many monarchs are buried in"
 			"Westminster. But only one   "
-			"died here. It happened on   "
-			"March 20th, 1413, and was   "
-			"later made famous by        "
-			"Shakespeare:\"              "
+			"died here, March 20, 1413,  "
+			"made famous by Shakespeare:\""
 			0
 			"\"It hath been prophesied to "
 			"   me many years            "
 			"I should not die but in     "
 			"   Jerusalem,               "
 			"Which vainly I supposed the "
-			"   Holy Land.               "
+			"   Holy Land.                "
 			"But bear me to that chamber;"
-			"   there I'll lie.          "
+			"   there I'll lie.           "
 			"In that Jerusalem shall     "
-			"   Harry die.\"             "
-			" -\"Henry IV, Part II, Act V\"">
+			"   Harry die.\"              "
+			"- \"Henry IV, Part II, Act V\"">
 		<PLTABLE 17
 			"   HELD OVER   "
 			0
