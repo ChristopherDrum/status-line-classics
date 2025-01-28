@@ -162,7 +162,6 @@ Global save_game_sec;
 Global before_short_desc;
 Global current_game_sec;
 Global short_loc_var;
-Global save_score;
 Global quote_selection = -1;
 Global ball_polished;
 Global rod_identity;
@@ -1428,40 +1427,15 @@ Object carbolic_soap "carbolic soap"
         short_loc_var = location;
         redraw_statusline = true;
     }
-    ! if (pretty_flag == false) {
-    !     c2 = columns - 15;
-    !     @set_cursor 1 c2;
-    !     save_score = score;
-    !     print score, "/", turns, "   ";
-    ! } else {
-        ! if (redraw_statusline == true) {
-        !     c2 = columns - 31;
-        !     @set_cursor 1 c2;
-        !     if (deadflag > 0) {
-        !         print "Final score: ";
-        !     } else {
-        !         print "Score: ";
-        !     }
-        ! } else {
-        !     c2 = columns - 24;
-        !     @set_cursor 1 c2;
-        ! }
-        if (redraw_statusline == true || save_score ~= score) {
-            if (deadflag > 0) {
-                @set_cursor 1 12;
-                print "Final:";
-            } else {
-                @set_cursor 1 21;
-                print "S:";
-            }
-            print score;
-            if (deadflag > 0) {
-                print "/550";
-            }
-        }
-
-        @set_cursor 1 27; !I'm assuming no more than 3 digits for the turn count :/
-        print "T:";
+        c2 = 31;
+        if (turns > 9) c2 = c2 - 1;
+        if (turns > 99) c2 = c2 - 1;
+        c2 = c2 - 2;
+        if (score > 9) c2 = c2 - 1;
+        if (score > 99) c2 = c2 - 1;
+        @set_cursor 1 c2;
+        print score;
+        print "/";
         print turns;
 
         if (redraw_statusline == true || save_game_sec ~= game_section) {
@@ -1550,49 +1524,45 @@ Object carbolic_soap "carbolic soap"
     rtrue;
 ];
 
-[ quote_display lines margin lines_arr columns center cursor i l generic_globvar;
-    i = lines + 6;
+[ quote_display quote_height quote_width quote_arr screen_width text_left block_left block_width block_height i j l;
+    ! split the window
+    i = quote_height + 6;
     @split_window i;
     @set_window 1;
-    columns = 0->33;
-    if (columns == 0) {
-        columns = 80;
-    }
-    center = (columns - margin) / 2;
+
+    ! calculate the lefthand start position for the text and the border
+    screen_width = 32;
+    block_left = (screen_width - quote_width) / 2;
+    text_left = block_left + 1;
+
+    ! print the blank quote box
     style reverse;
-    columns = center - 2;
-    cursor = 5;
-    i = 0;
-    @set_cursor 4 columns;
-    generic_globvar = margin + 4;
-    while (generic_globvar >= 1) {
-        print " ";
-        generic_globvar = generic_globvar - 1;
-        if (generic_globvar == 0) break;
-    }
+    block_height = quote_height + 2;
+    block_width = quote_width + 2;
+    j = block_height;
+    l = 4;
     do {
-        @set_cursor cursor columns;
-        generic_globvar = margin + 4;
-        while (generic_globvar >= 1) {
+        @set_cursor l block_left;
+        i = block_width;
+        do {
             print " ";
-            generic_globvar = generic_globvar - 1;
-            if (generic_globvar == 0) break;
-        }
-        @set_cursor cursor center;
-        l = lines_arr-->i;
+            --i;
+        } until (i == 0);
+        --j; ++l;
+    } until (j == 0);
+
+    ! print the text inside the quote box
+    i = 0;
+    j = 5;
+    do {
+        @set_cursor j text_left;
+        l = quote_arr-->i;
         if (l ~= 0) {
             print (string) l;
         }
-        ++cursor;
-        ++i;
-    } until (i == lines);
-    @set_cursor cursor columns;
-    generic_globvar = margin + 4;
-    while (generic_globvar >= 1) {
-        print " ";
-        generic_globvar = generic_globvar - 1;
-        if (generic_globvar == 0) break;
-    }
+        ++i; ++j;
+    } until (i == quote_height);
+
     @buffer_mode true;
     style roman;
     @set_window 0;
@@ -1601,12 +1571,12 @@ Object carbolic_soap "carbolic soap"
     print "[ ";
     i = 0;
   .label186748;
-    columns = lines_arr-->i;
-    if (columns ~= 0) {
-        print (string) columns;
+    screen_width = quote_arr-->i;
+    if (screen_width ~= 0) {
+        print (string) screen_width;
     }
     ++i;
-    if (i == lines) {
+    if (i == quote_height) {
         print "]^^";
     } else {
         print "^  ";
