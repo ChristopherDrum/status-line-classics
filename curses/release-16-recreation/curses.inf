@@ -1246,61 +1246,83 @@ Object carbolic_soap "carbolic soap"
         quote_display(5,29,quote_line);
     }
     if (n == 43) {
-        quote_line-->0 = "Then for as moche as a philosofre saith,";
-        quote_line-->1 = "~he wrappith him in his frend, that condescendith";
-        quote_line-->2 = "to the rightfulle praiers of his frend,~";
-        quote_line-->3 = "therefore have I yeven the a suffisant Astrolabie";
-        quote_line-->4 = "as for oure orizonte, compowned after the";
-        quote_line-->5 = "latitude of Oxenforde;";
-        quote_line-->6 = 0;
-        quote_line-->7 = "-- Geoffrey Chaucer, ~A Treatise on the Astrolabe~";
-        quote_display(8,50,quote_line);
+        quote_line-->0 = "Then for as moche as a";
+        quote_line-->1 = "philosofre saith, ~he wrappith";
+        quote_line-->2 = "him in his frend, that con-";
+        quote_line-->3 = "descendith to the rightfulle";
+        quote_line-->4 = "praiers of his frend,~ therefore";
+        quote_line-->5 = "have I yeven the a suffisant";
+        quote_line-->6 = "Astrolabie as for oure orizonte,"
+        quote_line-->7 = "compowned after the latitude of";
+        quote_line-->8 = "Oxenforde;";
+        quote_line-->9 = 0;
+        quote_line-->10 = "- Geoffrey Chaucer";
+        quote_line-->11 = "  ~A Treatise on the Astrolabe~";
+        quote_display(12,31,quote_line);
     }
     if (n == 44) {
-        quote_line-->0 = "Upon a nyght in sleep as he hym leyde,";
-        quote_line-->1 = "Hym thoughte how that the wynged god Mercurie";
-        quote_line-->2 = "Biforn hym stood and bad hym to be murie.";
-        quote_line-->3 = "His slepy yerde in hond he bar uprighte;";
-        quote_line-->4 = "An hat he werede upon his heris brighte.";
-        quote_line-->5 = 0;
-        quote_line-->6 = "-- Geoffrey Chaucer, ~The Knight's Tale~";
-        quote_display(7,45,quote_line);
+        quote_line-->0 = "Upon a nyght in sleep as";
+        quote_line-->1 = "  he hym leyde,";
+        quote_line-->2 = "Hym thoughte how that the";
+        quote_line-->3 = "  wynged god Mercurie";
+        quote_line-->4 = "Biforn hym stood and bad hym";
+        quote_line-->5 = "  to be murie.";
+        quote_line-->6 = "His slepy yerde in hond he";
+        quote_line-->7 = " bar uprighte;";
+        quote_line-->8 = "An hat he werede upon his";
+        quote_line-->9 = "  heris brighte.";
+        quote_line-->10 = 0;
+        quote_line-->11 = "- Geoffrey Chaucer";
+        quote_line-->12 = "  ~The Knight's Tale~";
+        quote_display(13,28,quote_line);
     }
     if (n == 45) {
         quote_line-->0 = "Benedick:";
-        quote_line-->1 = "  To bind me or undo me, one of those.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Shakespeare, ~Much Ado About Nothing~";
-        quote_display(4,40,quote_line);
+        quote_line-->1 = "  To bind me or undo me,";
+        quote_line-->2 = "  one of those.";
+        quote_line-->3 = 0;
+        quote_line-->4 = "- Shakespeare";
+        quote_line-->5 = "  ~Much Ado About Nothing~";
+        quote_display(6,26,quote_line);
     }
     if (n == 46) {
-        quote_line-->0 = "In the central display case, there is a curious";
-        quote_line-->1 = "pottery model, either representing the Labyrinth";
-        quote_line-->2 = "of Minos or a water-cooling system.";
-        quote_line-->3 = 0;
-        quote_line-->4 = "-- W. J. Murnane's ~Guide to Ancient Egypt~";
-        quote_display(5,48,quote_line);
+        quote_line-->0 = "In the central display case,";
+        quote_line-->1 = "there is a curious pottery";
+        quote_line-->2 = "model, either representing the";
+        quote_line-->3 = "Labyrinth of Minos or a";
+        quote_line-->4 = "water-cooling system.";
+        quote_line-->5 = 0;
+        quote_line-->6 = "- W. J. Murnane's";
+        quote_line-->7 = "  ~Guide to Ancient Egypt~";
+        quote_display(8,30,quote_line);
     }
     if (n == 47) {
-        quote_line-->0 = "I don't know who was there before me:";
-        quote_line-->1 = "One person, several, none;";
-        quote_line-->2 = "It doesn't matter.";
-        quote_line-->3 = "There are marks on the slabs of rock,";
-        quote_line-->4 = "Some beautiful, all mysterious;";
-        quote_line-->5 = "Some certainly not made by human hands.";
-        quote_line-->6 = 0;
-        quote_line-->7 = "-- Primo Levi, ~A Valley~";
-        quote_display(8,39,quote_line);
+        quote_line-->0 = "I don't know who was there";
+        quote_line-->1 = "  before me:";
+        quote_line-->2 = "One person, several, none;";
+        quote_line-->3 = "It doesn't matter.";
+        quote_line-->4 = "There are marks on the slabs";
+        quote_line-->5 = "  of rock,";
+        quote_line-->6 = "Some beautiful, all mysterious;";
+        quote_line-->7 = "Some certainly not made by";
+        quote_line-->8 = "  human hands.";
+        quote_line-->9 = 0;
+        quote_line-->10 = "-- Primo Levi, ~A Valley~";
+        quote_display(11,31,quote_line);
     }
     if (n == 48) {
-        quote_line-->0 = "It has always seemed to me that I had to answer";
-        quote_line-->1 = "questions which fate had posed to my forefathers,";
-        quote_line-->2 = "and which had not yet been answered, or as if I";
-        quote_line-->3 = "had to complete, or perhaps continue, things which";
-        quote_line-->4 = "previous ages had left unfinished.";
-        quote_line-->5 = 0;
-        quote_line-->6 = "-- Carl Jung, ~Memories, Dreams, Reflections~";
-        quote_display(7,50,quote_line);
+        quote_line-->0 = "It has always seemed to me";
+        quote_line-->1 = "that I had to answer questions";
+        quote_line-->2 = "which fate had posed to my";
+        quote_line-->3 = "forefathers, and which had not";
+        quote_line-->4 = "yet been answered, or as if I";
+        quote_line-->5 = "had to complete, or perhaps";
+        quote_line-->6 = "continue, things which previous";
+        quote_line-->7 = "ages had left unfinished.";
+        quote_line-->8 = 0;
+        quote_line-->9 = "- Carl Jung";
+        quote_line-->10 = " ~Memories, Dreams, Reflections~";
+        quote_display(11,32,quote_line);
     }
     rtrue;
 ];
@@ -1321,7 +1343,7 @@ Object carbolic_soap "carbolic soap"
         generic_globvar = generic_globvar - 1;
         if( generic_globvar == 0) break;
     }
-    print "               Welcome to CURSES^";
+    print "       Welcome to CURSES^";
     style roman;
     print "^^";
     generic_globvar = i;
@@ -1330,33 +1352,42 @@ Object carbolic_soap "carbolic soap"
         generic_globvar = generic_globvar - 1;
         if( generic_globvar == 0) break;
     }
-    print "         [Please press SPACE to begin.]^";
+    print "  [Please press SPACE to begin.]^";
     0-->8 = 65533 & 0-->8;
     i = random(3);
     if( i == 1 ) {
-        quote_line-->0 = "Nine times she waved the fluttering wimple round,";
-        quote_line-->1 = "And made a little plot of magic ground.";
-        quote_line-->2 = "And in that daisied circle, as men say,";
-        quote_line-->3 = "Is Merlin prisoner till the judgement day...";
-        quote_line-->4 = 0;
-        quote_line-->5 = "-- Matthew Arnold, Tristram and Iseult III (1852)";
-        generic_globvar = quote_display(6,49,quote_line);
+        quote_line-->0 = "Nine times she waved the";
+        quote_line-->1= "  fluttering wimple round,";
+        quote_line-->2 = "And made a little plot of";
+        quote_line-->3 = "  magic ground.";
+        quote_line-->4 = "And in that daisied circle,";
+        quote_line-->5 = "  as men say,";
+        quote_line-->6 = "Is Merlin prisoner till the";
+        quote_line-->7 = "  judgement day...";
+        quote_line-->8 = 0;
+        quote_line-->9 =  "- Matthew Arnold";
+        quote_line-->10 = "  ~Tristram and Iseult III~";
+        quote_line-->11 = "  (1852)";
+        generic_globvar = quote_display(12,27,quote_line);
     }
     if( i == 2 ) {
         quote_line-->0 = "Curses are like young chickens,";
         quote_line-->1 = "they always come home to roost.";
         quote_line-->2 = 0;
-        quote_line-->3 = "-- Robert Southey (1774-1843),";
-        quote_line-->4 = "   ~The Curse of Kehama~";
+        quote_line-->3 = "- Robert Southey (1774-1843)";
+        quote_line-->4 = "  ~The Curse of Kehama~";
         generic_globvar = quote_display(5,31,quote_line);
     }
     if( i == 3 ) {
-        quote_line-->0 = "Let Rome in Tiber melt, and the wide arch";
-        quote_line-->1 = "Of the ranged empire fall! Here is my space.";
-        quote_line-->2 = "Kingdoms are clay.";
-        quote_line-->3 = 0;
-        quote_line-->4 = "-- Shakespeare, ~Antony and Cleopatra~ I:1";
-        generic_globvar = quote_display(5,44,quote_line);
+        quote_line-->0 = "Let Rome in Tiber melt,";
+        quote_line-->1 = "  and the wide arch";
+        quote_line-->2 = "Of the ranged empire fall!";
+        quote_line-->3 = "  Here is my space.";
+        quote_line-->4 = "Kingdoms are clay.";
+        quote_line-->5 = 0;
+        quote_line-->6 = "- Shakespeare";
+        quote_line-->7 = "  ~Antony and Cleopatra~ I:1";
+        generic_globvar = quote_display(8,28,quote_line);
     }
     do {
         @read_char 1 0 0 -> i;
