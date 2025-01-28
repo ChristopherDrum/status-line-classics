@@ -10,6 +10,7 @@
 *.userosscache
 *.sln.docstates
 .DS_Store
+gametext.txt
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -353,3 +354,4 @@ MigrationBackup/
 # Status Line Classics Workspace Files
 .distributions/
 build/
+./curses/release-16-recreation/curses.z8
