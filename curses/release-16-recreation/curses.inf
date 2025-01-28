@@ -833,8 +833,8 @@ Object carbolic_soap "carbolic soap"
         quote_line-->2 = "Love, curiosity,";
         quote_line-->3 = "   freckles and doubt.";
         quote_line-->4 = 0;
-        quote_line-->5 = "-- Dorothy Parker"; 
-        quote_line-->6 = "   ~Inventory~";
+        quote_line-->5 = "- Dorothy Parker"; 
+        quote_line-->6 = "  ~Inventory~";
         quote_display(7,27,quote_line);
     }
     if (n == 1) {
@@ -846,8 +846,8 @@ Object carbolic_soap "carbolic soap"
         quote_line-->5 = "and that the hardest part";
         quote_line-->6 = "was just beginning.";
         quote_line-->7 = 0;
-        quote_line-->8 = "-- Anton Chekhov"; 
-        quote_line-->9 = "   ~The Lady with the Dog~";
+        quote_line-->8 = "- Anton Chekhov"; 
+        quote_line-->9 = "  ~The Lady with the Dog~";
         quote_display(10,28,quote_line);
     }
     if (n == 2) {
@@ -855,15 +855,15 @@ Object carbolic_soap "carbolic soap"
         quote_line-->1 = "Behind the mouldering"; 
         quote_line-->2 = "      wainscot shrieked.";
         quote_line-->3 = 0;
-        quote_line-->4 = "-- Alfred, Lord Tennyson";
-        quote_line-->5 = "   ~Mariana~";
+        quote_line-->4 = "- Alfred, Lord Tennyson";
+        quote_line-->5 = "  ~Mariana~";
         quote_display(6,24,quote_line);
     }
     if (n == 3) {
         quote_line-->0 = "Parturient montes";, 
         quote_line-->1 = "nascetur ridiculus mus.";
         quote_line-->2 = 0;
-        quote_line-->3 = "-- Horace, ~Ars Poetica~";
+        quote_line-->3 = "- Horace, ~Ars Poetica~";
         quote_display(4,24,quote_line);
     }
     if (n == 4) {
@@ -873,7 +873,7 @@ Object carbolic_soap "carbolic soap"
         quote_line-->3 = "Ordained one eternal plan:";
         quote_line-->4 = "Man must suffer to be wise.";
         quote_line-->5 = 0;
-        quote_line-->6 = "-- Aeschylus, ~Agamemnon~";
+        quote_line-->6 = "- Aeschylus, ~Agamemnon~";
         quote_display(6,35,quote_line);
     }
     if (n == 5) {
@@ -883,14 +883,14 @@ Object carbolic_soap "carbolic soap"
         quote_line-->3 = "minds profound; if I can re-";
         quote_line-->4 = "member any of the damn things."
         quote_line-->5 = 0;
-        quote_line-->6 = "-- Dorothy Parker";
+        quote_line-->6 = "- Dorothy Parker";
         quote_display(7,30,quote_line);
     }
     if (n == 6) {
         quote_line-->0 = "More ways of killing a cat";
         quote_line-->1 = "than choking her with cream.";
         quote_line-->2 = 0;
-        quote_line-->3 = "-- Charles Kingsley";
+        quote_line-->3 = "- Charles Kingsley";
         quote_display(4,28,quote_line);
     }
     if (n == 7) {
@@ -898,7 +898,7 @@ Object carbolic_soap "carbolic soap"
         quote_line-->1 = "were it but to see how";
         quote_line-->2 = "the cat jumps.";
         quote_line-->3 = 0;
-        quote_line-->4 = "-- Sir Walter Scott";
+        quote_line-->4 = "- Sir Walter Scott";
         quote_display(5,25,quote_line);
     }
     if (n == 8) {
@@ -907,14 +907,14 @@ Object carbolic_soap "carbolic soap"
         quote_line-->2 = "Rage, rage against the"; 
         quote_line-->3 = "dying of the light.";
         quote_line-->4 = 0;
-        quote_line-->5 = "-- Dylan Thomas";
+        quote_line-->5 = "- Dylan Thomas";
         quote_display(6,32,quote_line);
     }
     if (n == 9) {
         quote_line-->0 = "No, 'tis not so deep as a well, nor so wide as";
         quote_line-->1 = "a church door; but 'tis enough, 'twill serve.";
         quote_line-->2 = 0;
-        quote_line-->3 = "-- Shakespeare, ~Romeo and Juliet~";
+        quote_line-->3 = "- Shakespeare, ~Romeo and Juliet~";
         quote_display(4,46,quote_line);
     }
     if (n == 10) {
@@ -923,15 +923,15 @@ Object carbolic_soap "carbolic soap"
         quote_line-->2 = "Russia for ever. We begin";
         quote_line-->3 = "bombing in five minutes.";
         quote_line-->4 = 0;
-        quote_line-->5 = "-- President Reagan,";
-        quote_line-->6 = "   mistakenly believing the"; 
-        quote_line-->7 = "   TV cameras were off";
+        quote_line-->5 = "- President Reagan,";
+        quote_line-->6 = "  mistakenly believing the"; 
+        quote_line-->7 = "  TV cameras were off";
         quote_display(8,28,quote_line);
     }
     if (n == 11) {
         quote_line-->0 = "What is a ship but a prison?";
         quote_line-->1 = 0;
-        quote_line-->2 = "-- Robert Burton (1577-1640)";
+        quote_line-->2 = "- Robert Burton (1577-1640)";
         quote_display(3,28,quote_line);
     }
     if (n == 12) {
@@ -941,29 +941,35 @@ Object carbolic_soap "carbolic soap"
         quote_line-->3 = "adjusted to make possible the";
         quote_line-->4 = "development of life.";
         quote_line-->5 = 0;
-        quote_line-->6 = "-- Stephen Hawking";
-        quote_line-->7 = "   ~A Brief History of Time~";
+        quote_line-->6 = "- Stephen Hawking";
+        quote_line-->7 = "  ~A Brief History of Time~";
         quote_display(8,29,quote_line);
     }
     if (n == 13) {
-        quote_line-->0 = "Remember that you are an Englishman, and have";
-        quote_line-->1 = "consequently won first prize in the lottery of life.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Cecil Rhodes (1853-1902)";
-        quote_display(4,52,quote_line);
+        quote_line-->0 = "Remember that you are an"; 
+        quote_line-->1 = "Englishman, and have con-";
+        quote_line-->2 = "sequently won first prize";
+        quote_line-->3 = "in the lottery of life.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "- Cecil Rhodes (1853-1902)";
+        quote_display(6,27,quote_line);
     }
     if (n == 14) {
-        quote_line-->0 = "Les plus desesperes sont les chants les plus beaux";
-        quote_line-->1 = "Et j'en sais d'immortels quit sont de purs songlots.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Alfred de Musset, ~La Nuit de mai~";
-        quote_display(4,52,quote_line);
+        quote_line-->0 = "Les plus desesperes sont";
+        quote_line-->1 = "les chants les plus beaux";
+        quote_line-->2 = "Et j'en sais d'immortels";
+        quote_line-->3 = "quit sont de purs songlots.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "- Alfred de Musset";
+        quote_line-->6 = "  ~La Nuit de mai~";
+        quote_display(7,27,quote_line);
     }
     if (n == 15) {
-        quote_line-->0 = "There is no return game between a man and his stars.";
-        quote_line-->1 = 0;
-        quote_line-->2 = "-- Samuel Beckett, ~Murphy~";
-        quote_display(3,52,quote_line);
+        quote_line-->0 = "There is no return game";
+        quote_line-->1 = "between a man and his stars.";
+        quote_line-->2 = 0;
+        quote_line-->3 = "- Samuel Beckett, ~Murphy~";
+        quote_display(4,28,quote_line);
     }
     if (n == 16) {
         quote_line-->0 = "Throw away thy rod,";
@@ -971,194 +977,256 @@ Object carbolic_soap "carbolic soap"
         quote_line-->2 = "O my God.";
         quote_line-->3 = "Take the gentle path.";
         quote_line-->4 = 0;
-        quote_line-->5 = "-- George Herbert, ~Discipline~";
-        quote_display(6,31,quote_line);
+        quote_line-->5 = "- George Herbert";
+        quote_line-->6 = "  ~Discipline~";
+        quote_display(7,21,quote_line);
     }
     if (n == 17) {
         quote_line-->0 = "Speak gently, she can hear";
         quote_line-->1 = "The daisies grow.";
         quote_line-->2 = 0;
-        quote_line-->3 = "-- Oscar Wilde, ~Requiescat~";
-        quote_display(4,28,quote_line);
+        quote_line-->3 = "- Oscar Wilde, ~Requiescat~";
+        quote_display(4,27,quote_line);
     }
     if (n == 18) {
-        quote_line-->0 = "Too poor for a bribe, and too proud to importune";
-        quote_line-->1 = "He had not the method of making a fortune.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Thomas Grey, ~Sketch of His own Character~";
-        quote_display(4,48,quote_line);
+        quote_line-->0 = "Too poor for a bribe,"; 
+        quote_line-->1 = "and too proud to importune";
+        quote_line-->2 = "He had not the method of"; 
+        quote_line-->3 = "making a fortune.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "- Thomas Grey";
+        quote_line-->6 = "  ~Sketch of His own Character~";
+        quote_display(7,31,quote_line);
     }
     if (n == 19) {
         quote_line-->0 = "Facilis descensus Averno:";
-        quote_line-->1 = "Noctes atque dies patet atri ianua Ditis;";
-        quote_line-->2 = "Sed revocare gradum superasque evadere ad auras,";
-        quote_line-->3 = "Hoc opus, hic labor est.";
-        quote_line-->4 = 0;
-        quote_line-->5 = "-- Virgil, ~The Aeneid~ Book VI:126";
-        quote_display(6,48,quote_line);
+        quote_line-->2 = "Noctes atque dies patet";
+        quote_line-->3 = "  atri ianua Ditis;";
+        quote_line-->4 = "Sed revocare gradum"
+        quote_line-->5 = "  superasque evadere ad auras,";
+        quote_line-->6 = "Hoc opus, hic labor est.";
+        quote_line-->7 = 0;
+        quote_line-->8 = "- Virgil";
+        quote_line-->9 = "  ~The Aeneid~ Book VI:126";
+        quote_display(10,30,quote_line);
     }
     if (n == 20) {
-        quote_line-->0 = "We are the children of primeval night; we bear";
-        quote_line-->1 = "The name of Curses in our home deep under earth.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Aeschylus, ~The Eumenides~";
-        quote_display(4,48,quote_line);
+        quote_line-->0 = "We are the children of";
+        quote_line-->1 = "  primeval night; we bear";
+        quote_line-->2 = "The name of Curses in our"; 
+        quote_line-->3 = "  home deep under earth.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "- Aeschylus, ~The Eumenides~";
+        quote_display(6,28,quote_line);
     }
     if (n == 21) {
-        quote_line-->0 = "Thou makest his beauty to consume away,";
-        quote_line-->1 = "Like as it were a moth fretting a garment:";
-        quote_line-->2 = "Every man therefore is but vanity.";
-        quote_line-->3 = 0;
-        quote_line-->4 = "-- Psalms 39:12 (Book of Common Prayer version)";
-        quote_display(5,47,quote_line);
+        quote_line-->0 = "Thou makest his beauty to"; 
+        quote_line-->1 = "  consume away,";
+        quote_line-->2 = "Like as it were a moth"; 
+        quote_line-->3 = "  fretting a garment:";
+        quote_line-->4 = "Every man therefore is";
+        quote_line-->5 = "  but vanity.";
+        quote_line-->6 = 0;
+        quote_line-->7 = "- Psalms 39:12 (Book of"; 
+        quote_line-->8 = "  Common Prayer version)";
+        quote_display(9,25,quote_line);
     }
     if (n == 22) {
         quote_line-->0 = "White lilac bowed,";
-        quote_line-->1 = "Lost lanes of Queen Anne's lace";
-        quote_line-->2 = "And that high-builded cloud";
-        quote_line-->3 = "Moving at summer's pace.";
-        quote_line-->4 = 0;
-        quote_line-->5 = "-- Philip Larkin, ~Cut Grass~";
-        quote_display(6,31,quote_line);
+        quote_line-->1 = "Lost lanes of"; 
+        quote_line-->2 = "  Queen Anne's lace";
+        quote_line-->3 = "And that high-builded cloud";
+        quote_line-->4 = "Moving at summer's pace.";
+        quote_line-->5 = 0;
+        quote_line-->6 = "- Philip Larkin, ~Cut Grass~";
+        quote_display(7,28,quote_line);
     }
     if (n == 23) {
-        quote_line-->0 = "At the end of the day victory belongs to the Curses,";
-        quote_line-->1 = "Who shout in shrill triumph";
-        quote_line-->2 = "Over the utter rout of the defeated house.";
-        quote_line-->3 = 0;
-        quote_line-->4 = "-- Aeschylus, ~Seven Against Thebes~";
-        quote_display(5,52,quote_line);
+        quote_line-->0 = "At the end of the day victory";
+        quote_line-->1 = "belongs to the Curses, who"; 
+        quote_line-->2 = "shout in shrill triumph over"; 
+        quote_line-->3 = "the utter rout of the"; 
+        quote_line-->4 = "defeated house.";
+        quote_line-->5 = 0;
+        quote_line-->6 = "- Aeschylus";
+                         " ~Seven Against Thebes~";
+        quote_display(7,29,quote_line);
     }
     if (n == 24) {
-        quote_line-->0 = "He shall separate them one from another,";
-        quote_line-->1 = "as a shepherd divideth his sheep from the goats.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Matthew 25:32";
-        quote_display(4,48,quote_line);
+        quote_line-->0 = "He shall separate them one";
+        quote_line-->1 = "from another, as a shepherd";
+        quote_line-->2 = "divideth his sheep from the";
+        quote_line-->3 = "goats.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "- Matthew 25:32";
+        quote_display(6,27,quote_line);
     }
     if (n == 25) {
         quote_line-->0 = "Quickly now the amber";
-        quote_line-->1 = "  Takes the fly with knees deranged";
-        quote_line-->2 = "To be buried unseen, unfound";
-        quote_line-->3 = "  And irrevocably changed.";
-        quote_line-->4 = 0;
-        quote_line-->5 = "-- Dean Waynflete, ~Substance~";
-        quote_display(6,35,quote_line);
+        quote_line-->1 = "  Takes the fly with ";
+        quote_line-->2 = "    knees deranged";
+        quote_line-->3 = "To be buried unseen, unfound";
+        quote_line-->4 = "  And irrevocably changed.";
+        quote_line-->5 = 0;
+        quote_line-->6 = "-- Dean Waynflete, ~Substance~";
+        quote_display(7,30,quote_line);
     }
     if (n == 26) {
-        quote_line-->0 = "Thus the devil played at chess with me, and yielding";
-        quote_line-->1 = "a pawn, thought to gain a queen of me, taking";
-        quote_line-->2 = "advantage of my honest endeavours.";
-        quote_line-->3 = 0;
-        quote_line-->4 = "-- Sir Thomas Browne, ~Religio Medici~ pt I";
-        quote_display(5,52,quote_line);
+        quote_line-->0 = "Thus the devil played at";
+        quote_line-->1 = "chess with me, and yielding";
+        quote_line-->2 = "a pawn, thought to gain a";
+        quote_line-->3 = "queen of me, taking advantage";
+        quote_line-->4 = "of my honest endeavours.";
+        quote_line-->5 = 0;
+        quote_line-->6 = "- Sir Thomas Browne"
+        quote_line-->7 = "  ~Religio Medici~ pt I";
+        quote_display(8,29,quote_line);
     }
     if (n == 27) {
         quote_line-->0 = "Art thou pale for weariness";
-        quote_line-->1 = "Of climbing heaven and gazing on the earth?";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Shelley, ~To The Moon~";
-        quote_display(4,43,quote_line);
+        quote_line-->1 = "Of climbing heaven and"; 
+        quote_line-->2 = "  gazing on the earth?";
+        quote_line-->3 = 0;
+        quote_line-->4 = "-- Shelley, ~To The Moon~";
+        quote_display(5,27,quote_line);
     }
     if (n == 28) {
-        quote_line-->0 = "A nice, - respectable, - middle class, middle-aged maiden";
-        quote_line-->1 = "lady, with time on her hands and the money to help her pass";
-        quote_line-->2 = "it... Let us call her Aunt Edna... Aunt Edna is universal,";
-        quote_line-->3 = "and to those who may feel that all the problems of the";
-        quote_line-->4 = "modern theatre might be solved by her liquidation, let me";
-        quote_line-->5 = "add that... she is also immortal.";
-        quote_line-->6 = 0;
-        quote_line-->7 = "-- Terence Rattigan, preface to the ~Collected Plays~";
-        quote_display(8,60,quote_line);
+        quote_line-->0 = "A nice, respectable, middle-";
+        quote_line-->1 = "class, middle-aged maiden";
+        quote_line-->2 = "lady, with time on her hands";
+        quote_line-->3 = "and the money to help her";
+        quote_line-->4 = "pass it... Let us call her"; 
+        quote_line-->5 = "Aunt Edna... Aunt Edna is"; 
+        quote_line-->6 = "universal, and to those who";
+        quote_line-->7 = "may feel that all the problems";
+        quote_line-->8 = "of the modern theatre might be";
+        quote_line-->9 = "solved by her liquidation,";
+        quote_line-->10 = "let me add that... she is also";
+        quote_line-->11 = "immortal.";
+        quote_line-->12 = 0;
+        quote_line-->13 = "- Terence Rattigan, preface";
+        quote_line-->14 = "  ~The Collected Plays, v2~";
+        quote_display(15,30,quote_line);
     }
     if (n == 29) {
-        quote_line-->0 = "I seemed to move among a world of ghosts,";
-        quote_line-->1 = "And feel myself the shadow of a dream.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Alfred, Lord Tennyson, ~The Princess~";
-        quote_display(4,41,quote_line);
+        quote_line-->0 = "I seemed to move among a"; 
+        quote_line-->1 = "   world of ghosts,";
+        quote_line-->2 = "And feel myself the shadow";
+        quote_line-->3 = "   of a dream.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "- Alfred, Lord Tennyson";
+        quote_line-->6 = "  ~The Princess~";
+        quote_display(7,26,quote_line);
     }
     if (n == 30) {
-        quote_line-->0 = "If the doors of perception were cleansed,";
-        quote_line-->1 = "everything would appear to man as it is, infinite.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- William Blake";
-        quote_display(4,50,quote_line);
+        quote_line-->0 = "If the doors of perception";
+        quote_line-->1 = "were cleansed, everything";
+        quote_line-->2 = "would appear to man as it is,";
+        quote_line-->3 = "infinite.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "- William Blake";
+        quote_display(4,29,quote_line);
     }
     if (n == 31) {
         quote_line-->0 = "Follow the instructions,";
         quote_line-->1 = "tell us what you think:";
-        quote_line-->2 = "they lose something in translation,";
-        quote_line-->3 = "they might as well be written in invisible ink.";
-        quote_line-->4 = 0;
-        quote_line-->5 = "-- Peter Hammill, ~Invisible Ink~";
-        quote_display(6,47,quote_line);
+        quote_line-->2 = "they lose something in";
+        quote_line-->3 = "  translation,";
+        quote_line-->4 = "they might as well be";
+        quote_line-->5 = "  written in invisible ink.";
+        quote_line-->6 = 0;
+        quote_line-->7 = "- Peter Hammill"
+        quote_line-->8 = "  ~Invisible Ink~";
+        quote_display(9,27,quote_line);
     }
     if (n == 32) {
         quote_line-->0 = "On a round ball";
-        quote_line-->1 = "A workman that hath copies by, can lay";
-        quote_line-->2 = "An Europe, Afrique and an Asia,";
-        quote_line-->3 = "And quickly make that, which was nothing, All.";
-        quote_line-->4 = 0;
-        quote_line-->5 = "-- John Donne, ~Valediction: Of Weeping~";
-        quote_display(6,46,quote_line);
+        quote_line-->1 = "A workman that hath";
+        quote_line-->2 = "  copies by, can lay";
+        quote_line-->3 = "An Europe, Afrique";
+        quote_line-->4 = "  and an Asia,";
+        quote_line-->5 = "And quickly make that,";
+        quote_line-->6 = "  which was nothing, All.";
+        quote_line-->7 = 0;
+        quote_line-->8 = "- John Donne";
+        quote_line-->9 = "  ~Valediction: Of Weeping~";
+        quote_display(10,27,quote_line);
     }
     if (n == 33) {
-        quote_line-->0 = "What you don't know would make a great book.";
-        quote_line-->1 = 0;
-        quote_line-->2 = "-- The Rev. Sydney Smith";
-        quote_display(3,44,quote_line);
+        quote_line-->0 = "What you don't know would";
+        quote_line-->1 = "make a great book.";
+        quote_line-->2 = 0;
+        quote_line-->3 = "- The Rev. Sydney Smith";
+        quote_display(4,25,quote_line);
     }
     if (n == 34) {
-        quote_line-->0 = "Sir Walter Elliot, of Kellynch-hall, in Somersetshire,";
-        quote_line-->1 = "was a man who, for whose own amusement, never took up";
-        quote_line-->2 = "any book but the Baronetage; there he found occupation";
-        quote_line-->3 = "in an idle hour, and consolation in a distressed one";
-        quote_line-->4 = 0;
-        quote_line-->5 = "-- Jane Austen, ~Persuasion~";
-        quote_display(6,54,quote_line);
+        quote_line-->0 = "Sir Walter Elliot, of Kellynch-";
+        quote_line-->1 = "hall, in Somersetshire, was a";
+        quote_line-->2 = "man who, for whose own amusement";
+        quote_line-->3 = "never took up any book but the";
+        quote_line-->4 = "Baronetage; there he found";
+        quote_line-->5 = "occupation in an idle hour, and";
+        quote_line-->6 = "consolation in a distressed one."
+        quote_line-->7 = 0;
+        quote_line-->8 = "- Jane Austen, ~Persuasion~";
+        quote_display(9,32,quote_line);
     }
     if (n == 35) {
-        quote_line-->0 = "I am the Love that dare not speak its name.";
-        quote_line-->1 = 0;
-        quote_line-->2 = "-- Lord Alfred Douglas, ~Two Loves~";
-        quote_display(3,43,quote_line);
+        quote_line-->0 = "I am the Love that";
+        quote_line-->1 = "dare not speak its name.";
+        quote_line-->2 = 0;
+        quote_line-->3 = "- Lord Alfred Douglas";
+        quote_line-->4 = "  ~Two Loves~";
+        quote_display(5,24,quote_line);
     }
     if (n == 36) {
-        quote_line-->0 = "'I am inclined to think -' said I.";
-        quote_line-->1 = "'I should do so,' Sherlock Holmes remarked";
-        quote_line-->2 = "impatiently.";
-        quote_line-->3 = 0;
-        quote_line-->4 = "-- Sir Arthur Conan Doyle, ~The Valley of Fear~";
-        quote_display(5,47,quote_line);
+        quote_line-->0 = "'I am inclined to think -'";
+        quote_line-->1 = "said I. 'I should do so,'";
+        quote_line-->2 = "Sherlock Holmes remarked";
+        quote_line-->3 = "impatiently.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "- Sir Arthur Conan Doyle";
+        quote_line-->0 = "  ~The Valley of Fear~";
+        quote_display(7,26,quote_line);
     }
     if (n == 37) {
-        quote_line-->0 = "Hell is a city much like London -";
-        quote_line-->1 = "A populous and a smoky city.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Shelley, ~Peter Bell the Third~";
-        quote_display(4,34,quote_line);
+        quote_line-->0 = "Hell is a city much like";
+        quote_line-->1 = "London - A populous and a";
+        quote_line-->2 = "smoky city.";
+        quote_line-->3 = 0;
+        quote_line-->4 = "- Shelley";
+        quote_line-->5 = "  ~Peter Bell the Third~";
+        quote_display(4,25,quote_line);
     }
     if (n == 38) {
-        quote_line-->0 = "I hope I shall never be deterred from detecting";
-        quote_line-->1 = "what I think a cheat, by the menaces of a ruffian.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Dr Johnson (a letter from 1775)";
-        quote_display(4,50,quote_line);
+        quote_line-->0 = "I hope I shall never be ";
+        quote_line-->1 = "deterred from detecting what";
+        quote_line-->2 = "I think a cheat, by the";
+        quote_line-->3 = "menaces of a ruffian.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "- Dr Johnson";
+        quote_line-->6 = "  (a letter from 1775)";
+        quote_display(7,28,quote_line);
     }
     if (n == 39) {
-        quote_line-->0 = "Expatiate free o'er all this scene of man;";
-        quote_line-->1 = "A mighty maze! but not without a plan.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Alexander Pope, ~An Essay on Man~";
-        quote_display(4,42,quote_line);
+        quote_line-->0 = "Expatiate free o'er all";
+        quote_line-->1 = "  this scene of man;";
+        quote_line-->2 = "A mighty maze! but not";
+        quote_line-->3 = "  without a plan.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "- Alexander Pope";
+        quote_line-->6 = "  ~An Essay on Man~";
+        quote_display(7,23,quote_line);
     }
     if (n == 40) {
-        quote_line-->0 = "It's hard to be religious when certain people";
-        quote_line-->1 = "are never incinerated by bolts of lightning.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Bill Watterson, ~Calvin & Hobbes~";
-        quote_display(4,45,quote_line);
+        quote_line-->0 = "It's hard to be religious";
+        quote_line-->1 = "when certain people are";
+        quote_line-->2 = "never incinerated by bolts";
+        quote_line-->3 = "of lightning.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "- Bill Watterson";
+        quote_line-->6 = "  ~Calvin & Hobbes~";
+        quote_display(7,26,quote_line);
     }
     if (n == 41) {
         quote_line-->0 = "Follow me, follow";
@@ -1166,15 +1234,16 @@ Object carbolic_soap "carbolic soap"
         quote_line-->2 = "And there let us wallow";
         quote_line-->3 = "In glorious mud.";
         quote_line-->4 = 0;
-        quote_line-->5 = "-- Flanders and Swann";
+        quote_line-->5 = "- Flanders and Swann";
         quote_display(6,23,quote_line);
     }
     if (n == 42) {
         quote_line-->0 = "Zoe, logic merely enables one";
         quote_line-->1 = "to be wrong with authority";
         quote_line-->2 = 0;
-        quote_line-->3 = "-- Dr Who, aboard ~The Wheel In Space~";
-        quote_display(4,38,quote_line);
+        quote_line-->3 = "- Dr Who";
+        quote_line-->4 = "  aboard ~The Wheel In Space~";
+        quote_display(5,29,quote_line);
     }
     if (n == 43) {
         quote_line-->0 = "Then for as moche as a philosofre saith,";
