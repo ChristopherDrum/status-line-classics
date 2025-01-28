@@ -828,50 +828,63 @@ Object carbolic_soap "carbolic soap"
 [ display_quote n ;     
     redraw_statusline = true;
     if (n == 0) {
-        quote_line-->0 = "Four be the things I'd been better without:";
-        quote_line-->1 = "Love, curiosity, freckles and doubt.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Dorothy Parker, ~Inventory~";
-        quote_display(4,43,quote_line);
+        quote_line-->0 = "Four be the things";
+        quote_line-->1 = "   I'd been better without:";
+        quote_line-->2 = "Love, curiosity,";
+        quote_line-->3 = "   freckles and doubt.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "-- Dorothy Parker"; 
+        quote_line-->6 = "   ~Inventory~";
+        quote_display(7,27,quote_line);
     }
     if (n == 1) {
-        quote_line-->0 = "It seemed that the next minute they would discover";
-        quote_line-->1 = "a solution. Yet it was clear to both of them that";
-        quote_line-->2 = "the end was still far, far off, and that the";
-        quote_line-->3 = "hardest part was just beginning.";
-        quote_line-->4 = 0;
-        quote_line-->5 = "-- Anton Chekhov, ~The Lady with the Dog~";
-        quote_display(6,50,quote_line);
+        quote_line-->0 = "It seemed that the next";
+        quote_line-->1 = "minute they would discover";
+        quote_line-->2 = "a solution. Yet it was clear"; 
+        quote_line-->3 = "to both of them that the";
+        quote_line-->4 = "end was still far, far off,"; 
+        quote_line-->5 = "and that the hardest part";
+        quote_line-->6 = "was just beginning.";
+        quote_line-->7 = 0;
+        quote_line-->8 = "-- Anton Chekhov"; 
+        quote_line-->9 = "   ~The Lady with the Dog~";
+        quote_display(10,28,quote_line);
     }
     if (n == 2) {
-        quote_line-->0 = "                           The mouse";
-        quote_line-->1 = "Behind the mouldering wainscot shrieked.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Alfred, Lord Tennyson, ~Mariana~";
-        quote_display(4,40,quote_line);
+        quote_line-->0 = "               The mouse";
+        quote_line-->1 = "Behind the mouldering"; 
+        quote_line-->2 = "      wainscot shrieked.";
+        quote_line-->3 = 0;
+        quote_line-->4 = "-- Alfred, Lord Tennyson";
+        quote_line-->5 = "   ~Mariana~";
+        quote_display(6,24,quote_line);
     }
     if (n == 3) {
-        quote_line-->0 = "Parturient montes, nascetur ridiculus mus.";
-        quote_line-->1 = 0;
-        quote_line-->2 = "-- Horace, ~Ars Poetica~";
-        quote_display(3,42,quote_line);
+        quote_line-->0 = "Parturient montes";, 
+        quote_line-->1 = "nascetur ridiculus mus.";
+        quote_line-->2 = 0;
+        quote_line-->3 = "-- Horace, ~Ars Poetica~";
+        quote_display(4,24,quote_line);
     }
     if (n == 4) {
-        quote_line-->0 = "Zeus, whose will has marked for man";
-        quote_line-->1 = "A single way where wisdom lies";
-        quote_line-->2 = "Ordained one eternal plan:";
-        quote_line-->3 = "Man must suffer to be wise.";
-        quote_line-->4 = 0;
-        quote_line-->5 = "-- Aeschylus, ~Agamemnon~";
+        quote_line-->0 = "Zeus, whose will has";
+        quote_line-->1 = "   marked for man";
+        quote_line-->2 = "A single way where wisdom lies";
+        quote_line-->3 = "Ordained one eternal plan:";
+        quote_line-->4 = "Man must suffer to be wise.";
+        quote_line-->5 = 0;
+        quote_line-->6 = "-- Aeschylus, ~Agamemnon~";
         quote_display(6,35,quote_line);
     }
     if (n == 5) {
-        quote_line-->0 = "I might repeat to myself, slowly and soothingly,";
-        quote_line-->1 = "a list of quotations beautiful from minds profound;";
-        quote_line-->2 = "if I can remember any of the damn things.";
-        quote_line-->3 = 0;
-        quote_line-->4 = "-- Dorothy Parker";
-        quote_display(5,51,quote_line);
+        quote_line-->0 = "I might repeat to myself,";
+        quote_line-->1 = "slowly and soothingly, a list";
+        quote_line-->2 = "of quotations beautiful from";
+        quote_line-->3 = "minds profound; if I can re-";
+        quote_line-->4 = "member any of the damn things."
+        quote_line-->5 = 0;
+        quote_line-->6 = "-- Dorothy Parker";
+        quote_display(7,30,quote_line);
     }
     if (n == 6) {
         quote_line-->0 = "More ways of killing a cat";
@@ -882,17 +895,20 @@ Object carbolic_soap "carbolic soap"
     }
     if (n == 7) {
         quote_line-->0 = "I would like to be there,";
-        quote_line-->1 = "were it but to see how the cat jumps.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Sir Walter Scott";
-        quote_display(4,37,quote_line);
+        quote_line-->1 = "were it but to see how";
+        quote_line-->2 = "the cat jumps.";
+        quote_line-->3 = 0;
+        quote_line-->4 = "-- Sir Walter Scott";
+        quote_display(5,25,quote_line);
     }
     if (n == 8) {
-        quote_line-->0 = "Do not go gentle into that good night.";
-        quote_line-->1 = "Rage, rage against the dying of the light.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- Dylan Thomas";
-        quote_display(4,42,quote_line);
+        quote_line-->0 = "Do not go gentle into"; 
+        quote_line-->1 = "that good night.";
+        quote_line-->2 = "Rage, rage against the"; 
+        quote_line-->3 = "dying of the light.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "-- Dylan Thomas";
+        quote_display(6,32,quote_line);
     }
     if (n == 9) {
         quote_line-->0 = "No, 'tis not so deep as a well, nor so wide as";
@@ -902,12 +918,15 @@ Object carbolic_soap "carbolic soap"
         quote_display(4,46,quote_line);
     }
     if (n == 10) {
-        quote_line-->0 = "...I have just signed legislation that will outlaw";
-        quote_line-->1 = "Russia for ever. We begin bombing in five minutes.";
-        quote_line-->2 = 0;
-        quote_line-->3 = "-- President Reagan, mistakenly believing the TV";
-        quote_line-->4 = "   cameras were switched off";
-        quote_display(5,51,quote_line);
+        quote_line-->0 = "...I have just signed legis-";
+        quote_line-->1 = "lation that will outlaw";
+        quote_line-->2 = "Russia for ever. We begin";
+        quote_line-->3 = "bombing in five minutes.";
+        quote_line-->4 = 0;
+        quote_line-->5 = "-- President Reagan,";
+        quote_line-->6 = "   mistakenly believing the"; 
+        quote_line-->7 = "   TV cameras were off";
+        quote_display(8,28,quote_line);
     }
     if (n == 11) {
         quote_line-->0 = "What is a ship but a prison?";
@@ -916,12 +935,15 @@ Object carbolic_soap "carbolic soap"
         quote_display(3,28,quote_line);
     }
     if (n == 12) {
-        quote_line-->0 = "The remarkable fact is that the values of these";
-        quote_line-->1 = "numbers seem to have been very finely adjusted";
-        quote_line-->2 = "to make possible the development of life.";
-        quote_line-->3 = 0;
-        quote_line-->4 = "-- Stephen Hawking, ~A Brief History of Time~";
-        quote_display(5,47,quote_line);
+        quote_line-->0 = "The remarkable fact is that";
+        quote_line-->1 = "the values of these numbers";
+        quote_line-->2 = "seem to have been very finely";
+        quote_line-->3 = "adjusted to make possible the";
+        quote_line-->4 = "development of life.";
+        quote_line-->5 = 0;
+        quote_line-->6 = "-- Stephen Hawking";
+        quote_line-->7 = "   ~A Brief History of Time~";
+        quote_display(8,29,quote_line);
     }
     if (n == 13) {
         quote_line-->0 = "Remember that you are an Englishman, and have";
