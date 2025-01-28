@@ -833,9 +833,8 @@ Object carbolic_soap "carbolic soap"
         quote_line-->2 = "Love, curiosity,";
         quote_line-->3 = "   freckles and doubt.";
         quote_line-->4 = 0;
-        quote_line-->5 = "- Dorothy Parker"; 
-        quote_line-->6 = "  ~Inventory~";
-        quote_display(7,27,quote_line);
+        quote_line-->5 = "- Dorothy Parker, ~Inventory~";
+        quote_display(6,29,quote_line);
     }
     if (n == 1) {
         quote_line-->0 = "It seemed that the next";
@@ -1092,21 +1091,20 @@ Object carbolic_soap "carbolic soap"
     }
     if (n == 28) {
         quote_line-->0 = "A nice, respectable, middle-";
-        quote_line-->1 = "class, middle-aged maiden";
-        quote_line-->2 = "lady, with time on her hands";
-        quote_line-->3 = "and the money to help her";
-        quote_line-->4 = "pass it... Let us call her"; 
-        quote_line-->5 = "Aunt Edna... Aunt Edna is"; 
-        quote_line-->6 = "universal, and to those who";
-        quote_line-->7 = "may feel that all the problems";
-        quote_line-->8 = "of the modern theatre might be";
-        quote_line-->9 = "solved by her liquidation,";
-        quote_line-->10 = "let me add that... she is also";
-        quote_line-->11 = "immortal.";
-        quote_line-->12 = 0;
-        quote_line-->13 = "- Terence Rattigan, preface";
-        quote_line-->14 = "  ~The Collected Plays, v2~";
-        quote_display(15,30,quote_line);
+        quote_line-->1 = "class, middle-aged maiden lady";
+        quote_line-->2 = "with time on her hands and the";
+        quote_line-->3 = "money to help her pass it...";
+        quote_line-->4 = "Let us call her Aunt Edna..."; 
+        quote_line-->5 = "Aunt Edna is universal, and to"; 
+        quote_line-->6 = "those who may feel that all";
+        quote_line-->7 = "the problems of the modern";
+        quote_line-->8 = "theatre might be solved by her";
+        quote_line-->9 = "liquidation, let me add that..";
+        quote_line-->10 = "she is also immortal.";
+        quote_line-->11 = 0;
+        quote_line-->12 = "- Terence Rattigan, preface";
+        quote_line-->13 = "  ~The Collected Plays, v2~";
+        quote_display(14,30,quote_line);
     }
     if (n == 29) {
         quote_line-->0 = "I seemed to move among a"; 
@@ -1329,7 +1327,7 @@ Object carbolic_soap "carbolic soap"
 
 [ StartSplash i generic_globvar ;
     @erase_window 65535;
-    print "^^^^^^^^^^^^^^^";
+    print "^^^^^^^^^^^^^";
     i = 0->33;
     if( i == 0 ) {
         i = 80;
@@ -1398,14 +1396,10 @@ Object carbolic_soap "carbolic soap"
 [ DrawStatusLine columns c2 tmpvar ;
     columns = 0->33;
     if (columns == 0) {
-        columns = 80;
+        columns = 32;
     }
     0-->8 = 2 | 0-->8;
-    if (pretty_flag == true) {
-        @split_window 2;
-    } else {
-        @split_window 1;
-    }
+    @split_window 2;
     @buffer_mode false;
     @set_window 1;
     style reverse;
@@ -1420,14 +1414,12 @@ Object carbolic_soap "carbolic soap"
         @set_cursor 1 1;
         tmpvar = columns;
         spaces tmpvar;
-        if (pretty_flag == true) {
-            @set_cursor 2 1;
-            tmpvar = columns;
-            spaces tmpvar;
-        }
+        @set_cursor 2 1;
+        tmpvar = columns;
+        spaces tmpvar;
     }
     if (redraw_statusline == true || short_loc_var ~= location) {
-        @set_cursor 1 2;
+        @set_cursor 1 1;
         before_short_desc = true;
         PrintShortName(location);
         before_short_desc = false;
@@ -1436,108 +1428,115 @@ Object carbolic_soap "carbolic soap"
         short_loc_var = location;
         redraw_statusline = true;
     }
-    if (pretty_flag == false) {
-        c2 = columns - 15;
-        @set_cursor 1 c2;
-        save_score = score;
-        print score, "/", turns, "   ";
-    } else {
-        if (redraw_statusline == true) {
-            c2 = columns - 35;
-            @set_cursor 1 c2;
-            if (deadflag > 0) {
-                print "Final score: ";
-            } else {
-                print "Score: ";
-            }
-        } else {
-            c2 = columns - 28;
-            @set_cursor 1 c2;
-        }
+    ! if (pretty_flag == false) {
+    !     c2 = columns - 15;
+    !     @set_cursor 1 c2;
+    !     save_score = score;
+    !     print score, "/", turns, "   ";
+    ! } else {
+        ! if (redraw_statusline == true) {
+        !     c2 = columns - 31;
+        !     @set_cursor 1 c2;
+        !     if (deadflag > 0) {
+        !         print "Final score: ";
+        !     } else {
+        !         print "Score: ";
+        !     }
+        ! } else {
+        !     c2 = columns - 24;
+        !     @set_cursor 1 c2;
+        ! }
         if (redraw_statusline == true || save_score ~= score) {
+            if (deadflag > 0) {
+                @set_cursor 1 12;
+                print "Final:";
+            } else {
+                @set_cursor 1 21;
+                print "S:";
+            }
             print score;
             if (deadflag > 0) {
                 print "/550";
             }
         }
-        @set_cursor 2 c2;
-        if (redraw_statusline == true) {
-            print "Turns: ";
-        }
+
+        @set_cursor 1 27; !I'm assuming no more than 3 digits for the turn count :/
+        print "T:";
         print turns;
+
         if (redraw_statusline == true || save_game_sec ~= game_section) {
             game_section = location.section;
-            c2 = columns - 20;
+            c2 = columns - 12;
             @set_cursor 2 c2;
             if (game_section == T_MODERN) {
-                print "    June 3rd, 1993";
+                print " Jun 3, 1993";
             }
             if (game_section == T_UNREAL) {
-                print " October 5th, 1922";
+                print " Oct 5, 1922";
             }
             if (game_section == T_HAMBURG) {
-                print "October 31st, 1988";
+                print "Oct 31, 1988";
             }
             if (game_section == T_GARDEN) {
-                print "    June 3rd, 1993";
+                print " Jun 3, 1993";
             }
             if (game_section == T_GARDEN_PAST) {
-                print "  March 14th, 1808";
+                print "Mar 14, 1808";
             }
             if (game_section == T_ANCIENT_BRITAIN) {
-                print "  Sixth century AD";
+                print " 6th cent AD";
             }
             if (game_section == T_CATACOMBS) {
-                print "    June 3rd, 1993";
+                print " Jun 3, 1993";
             }
             if (game_section == T_ALEXANDRIA) {
-                print "  Winter of 275 BC";
+                print "Winter 275bc";
             }
             if (game_section == T_NE_OF_HOME) {
-                print "    June 3rd, 1993";
+                print "  Jun 3, 1993";
             }
             if (game_section == T_EGYPT_DREAMING or T_SPIRIT_WORLD or T_TAROT or T_AFTERLIFE) {
-                print "                  ";
+                print "              ";
             }
-            @set_cursor 2 2;
+            @set_cursor 2 1;
             if (game_section == T_MODERN) {
-                print "(in Meldrew Hall)       ";
+                print "(in Meldrew Hall)";
             }
             if (game_section == T_UNREAL) {
-                print "(in the Unreal City)    ";
+                print "(in Unreal City) ";
             }
             if (game_section == T_HAMBURG) {
-                print "(Hamburg by night)      ";
+                print "(Hamburg, night) ";
             }
             if (game_section == T_TAROT) {
-                print "(in the Tarot box)      ";
+                print "(in Tarot box)   ";
             }
             if (game_section == T_GARDEN) {
-                print "(in the gardens)        ";
+                print "(in the gardens) ";
             }
             if (game_section == T_GARDEN_PAST) {
-                print "(in the gardens)        ";
+                print "(in the gardens) ";
             }
             if (game_section == T_ANCIENT_BRITAIN) {
-                print "(in the Master Game)    ";
+                print "(in Master Game) ";
             }
             if (game_section == T_DREAMING or T_EGYPT_DREAMING) {
-                print "(dreaming?)             ";
+                print "(dreaming?)      ";
             }
             if (game_section == T_CATACOMBS) {
-                print "(in the catacombs)      ";
+                print "(in catacombs)   ";
             }
             if (game_section == T_ALEXANDRIA) {
-                print "(in Alexandria)         ";
+                print "(in Alexandria)  ";
             }
             if (game_section == T_NE_OF_HOME) {
-                print "(northeast of the House)";
+                print "(N-EAST of House)";
             }
             if (game_section == T_SPIRIT_WORLD or T_AFTERLIFE) {
-                print "                        ";
+                print "                 ";
             }
         }
-    }
+    ! }
     style roman;
     @buffer_mode true;
     @set_cursor 1 1;
