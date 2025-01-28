@@ -84,7 +84,7 @@ Constant NUMBER_TASKS = 45;
 Array task_scores -> 3 7 7 10 3 3 5 5 2 2 3 50 3 4 6 6 15 10 1
     8 4 0 0 3 3 6 5 10 7 7 3 3 3 6 3 8 3 3 7 3 3 15 15 3 1;
 
-Array quote_line --> 10;
+Array quote_line --> 15;
 
 Array garden_array ->
     49
@@ -860,7 +860,7 @@ Object carbolic_soap "carbolic soap"
         quote_display(6,24,quote_line);
     }
     if (n == 3) {
-        quote_line-->0 = "Parturient montes";, 
+        quote_line-->0 = "Parturient montes"; 
         quote_line-->1 = "nascetur ridiculus mus.";
         quote_line-->2 = 0;
         quote_line-->3 = "- Horace, ~Ars Poetica~";
@@ -881,7 +881,7 @@ Object carbolic_soap "carbolic soap"
         quote_line-->1 = "slowly and soothingly, a list";
         quote_line-->2 = "of quotations beautiful from";
         quote_line-->3 = "minds profound; if I can re-";
-        quote_line-->4 = "member any of the damn things."
+        quote_line-->4 = "member any of the damn things.";
         quote_line-->5 = 0;
         quote_line-->6 = "- Dorothy Parker";
         quote_display(7,30,quote_line);
@@ -1002,7 +1002,7 @@ Object carbolic_soap "carbolic soap"
         quote_line-->0 = "Facilis descensus Averno:";
         quote_line-->2 = "Noctes atque dies patet";
         quote_line-->3 = "  atri ianua Ditis;";
-        quote_line-->4 = "Sed revocare gradum"
+        quote_line-->4 = "Sed revocare gradum";
         quote_line-->5 = "  superasque evadere ad auras,";
         quote_line-->6 = "Hoc opus, hic labor est.";
         quote_line-->7 = 0;
@@ -1049,8 +1049,8 @@ Object carbolic_soap "carbolic soap"
         quote_line-->4 = "defeated house.";
         quote_line-->5 = 0;
         quote_line-->6 = "- Aeschylus";
-                         " ~Seven Against Thebes~";
-        quote_display(7,29,quote_line);
+        quote_line-->7 = " ~Seven Against Thebes~";
+        quote_display(8,29,quote_line);
     }
     if (n == 24) {
         quote_line-->0 = "He shall separate them one";
@@ -1078,7 +1078,7 @@ Object carbolic_soap "carbolic soap"
         quote_line-->3 = "queen of me, taking advantage";
         quote_line-->4 = "of my honest endeavours.";
         quote_line-->5 = 0;
-        quote_line-->6 = "- Sir Thomas Browne"
+        quote_line-->6 = "- Sir Thomas Browne";
         quote_line-->7 = "  ~Religio Medici~ pt I";
         quote_display(8,29,quote_line);
     }
@@ -1135,7 +1135,7 @@ Object carbolic_soap "carbolic soap"
         quote_line-->4 = "they might as well be";
         quote_line-->5 = "  written in invisible ink.";
         quote_line-->6 = 0;
-        quote_line-->7 = "- Peter Hammill"
+        quote_line-->7 = "- Peter Hammill";
         quote_line-->8 = "  ~Invisible Ink~";
         quote_display(9,27,quote_line);
     }
@@ -1166,7 +1166,7 @@ Object carbolic_soap "carbolic soap"
         quote_line-->3 = "never took up any book but the";
         quote_line-->4 = "Baronetage; there he found";
         quote_line-->5 = "occupation in an idle hour, and";
-        quote_line-->6 = "consolation in a distressed one."
+        quote_line-->6 = "consolation in a distressed one.";
         quote_line-->7 = 0;
         quote_line-->8 = "- Jane Austen, ~Persuasion~";
         quote_display(9,32,quote_line);
@@ -1252,7 +1252,7 @@ Object carbolic_soap "carbolic soap"
         quote_line-->3 = "descendith to the rightfulle";
         quote_line-->4 = "praiers of his frend,~ therefore";
         quote_line-->5 = "have I yeven the a suffisant";
-        quote_line-->6 = "Astrolabie as for oure orizonte,"
+        quote_line-->6 = "Astrolabie as for oure orizonte,";
         quote_line-->7 = "compowned after the latitude of";
         quote_line-->8 = "Oxenforde;";
         quote_line-->9 = 0;
@@ -1329,7 +1329,7 @@ Object carbolic_soap "carbolic soap"
 
 [ StartSplash i generic_globvar ;
     @erase_window 65535;
-    print "^^^^^^^^^^^^^";
+    print "^^^^^^^^^^^^^^^";
     i = 0->33;
     if( i == 0 ) {
         i = 80;
@@ -1343,16 +1343,15 @@ Object carbolic_soap "carbolic soap"
         generic_globvar = generic_globvar - 1;
         if( generic_globvar == 0) break;
     }
-    print "       Welcome to CURSES^";
+    print "^^    Welcome to CURSES^";
     style roman;
-    print "^^";
     generic_globvar = i;
     while( generic_globvar >= 1 ) {
         print " ";
         generic_globvar = generic_globvar - 1;
         if( generic_globvar == 0) break;
     }
-    print "  [Please press SPACE to begin.]^";
+    print " [Please press SPACE to begin.]^";
     0-->8 = 65533 & 0-->8;
     i = random(3);
     if( i == 1 ) {
