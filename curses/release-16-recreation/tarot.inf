@@ -647,10 +647,14 @@ TRoom   East_Cloister "East Cloister"
 Object  -> inscribed_stone "inscribed stone"     
   with  name 'rosetta' 'stone' 'inscribed' 'pumice',
         initial "Resting in the niche is an inscribed pumice stone, two feet tall.",
+        found_in Attic,
         description [;
-            print "The stone bears two inscriptions, side by side:^";
+            print "The stone bears two inscriptions, side by side:^^";
+            print "(left side)^";
             0-->8 = 2 | 0-->8;
-            print "^   #. [] = # +*+  __             an-ta re-im ka u bir ka-i^             |||       ^        |        |     ^   / # -+- :; # -+-                 ka ne : to-ro-ma ka ur^        |        |     ^                       ^   >>> -> # (---)         .je-fe-im ka ur-a an-ge to-ro-ma^             |||^";
+            print "#. [] = # +*+  __^          |||       ^     |        |^/ # -+- :; # -+-^     |        |^^>>> -> # (---)^          |||^";
+            print "^                    (right side)^";
+            print "       an-ta re-im ka u bir ka-i^^          ka ne : to-ro-ma ka ur^^^.je-fe-im ka ur-a an-ge to-ro-ma^";
             0-->8 = 65533 & 0-->8;
             rtrue;
         ],

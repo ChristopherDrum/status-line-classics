@@ -77,7 +77,7 @@ wear gloves
 e
 e
 open demijohn
-get nasty <-------------- last action
+get nasty
 s
 s
 se
@@ -103,7 +103,7 @@ u
 nw
 get key
 get bone
-give bone to ghost
+give bone to ghost <---- last command entered
 se
 d
 s
