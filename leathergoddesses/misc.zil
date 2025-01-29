@@ -190,17 +190,17 @@
 	 <SETG HERE ,WARNING>
 	 <UPDATE-STATUS-LINE>
 	 <TELL
-"   Some material in this story may not be suitable for children, especially
+"  Some material in this story may not be suitable for children, especially
 the parts involving sex, which no one should know anything about until
 reaching the age of eighteen (twenty-one in certain states). This story is
 also unsuitable for censors, members of the Moral Majority, and anyone
 else who thinks that sex is dirty rather than fun.|
-   The attitudes expressed and language used in this story are representative
+  The attitudes expressed and language used in this story are representative
 only of the views of the author, and in no way represent the views of Infocom,
 Inc. or its employees, many of whom are children, censors, and members of the
 Moral Majority. (But very few of whom, based on last year's Christmas Party,
 think that sex is dirty.)|
-   By now, all the folks who might be offended by " ,LGOP-CAPS " have whipped
+  By now, all the folks who might be offended by " ,LGOP-CAPS " have whipped
 their disk out of their drive and, evidence in hand, are indignantly huffing
 toward their dealer, their lawyer, or their favorite repression-oriented
 politico. So.." ,HIT-RETURN "begin!">

@@ -101,14 +101,14 @@ approximately .175 cm/sec/sec, or about 1/5000th the surface gravity of Earth."
 		<SETG TRAY-DELIVERED T>
 		<MOVE ,TRAY ,HERE>
 		<TELL
-"   Someone thrusts a tray into your cell. A " D ,CHOCOLATE " on the tray"
+"  Someone thrusts a tray into your cell. A " D ,CHOCOLATE " on the tray"
 ,LOOKS-UNAPPETIZING>)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <IN? ,SIDEKICK ,HERE>
 		     <NOT ,CELL-GRIPE>>
 		<SETG CELL-GRIPE T>
 		<TELL
-"   \"What a great cell!\" says " D ,SIDEKICK ", looking around. \"Why
+"  \"What a great cell!\" says " D ,SIDEKICK ", looking around. \"Why
 didn't I get a cell like this? Maybe I shouldn't have kicked that guard ">
 		<COND (<EQUAL? ,NAUGHTY-LEVEL 1>
 		       <TELL "below the waist ">)
@@ -264,7 +264,7 @@ didn't I get a cell like this? Maybe I shouldn't have kicked that guard ">
 		    <AND <NOT ,GONE-APE>
 			 <EQUAL? ,SUGAR-RUSH ,HUMAN-ATE-CHOCOLATE>>>
 		<SETG SUGAR-RUSH <>>
-	 	<TELL "   You feel the sugar rush ebb." CR>)
+	 	<TELL "  You feel the sugar rush ebb." CR>)
 	       (T
 		<SETG SUGAR-RUSH <>>
 		<RFALSE>)>>
@@ -340,7 +340,7 @@ mutant weirdo scum!\"" CR>)>>
 	 <COND (.OARG
 		<COND (<EQUAL? .OARG ,M-OBJDESC?>
 		       <RTRUE>)>
-		<TELL "   " D ,SIDEKICK " is here, ">
+		<TELL "  " D ,SIDEKICK " is here, ">
 		<SIDEKICK-DESC>
 		<TELL ".">)
 	       (<EQUAL? ,SIDEKICK ,WINNER>
@@ -643,7 +643,7 @@ remaining letters spell HISSING FRIGHTENS FLY TRAPS"
 		       <TELL "re are no visible exits.">)>)>>
 
 <ROUTINE I-CRAMPED-SPACE ()
-	 <TELL "   Suddenly, part of the floor collapses, and you">
+	 <TELL "  Suddenly, part of the floor collapses, and you">
 	 <AND-SIDEKICK>
 	 <TELL " tumble through the resulting hole" ,ELLIPSIS>
 	 <GOTO ,CELL T>
@@ -652,7 +652,7 @@ remaining letters spell HISSING FRIGHTENS FLY TRAPS"
 	 <SETG HOLE-OPEN T>
 	 <FCLEAR ,CRAMPED-SPACE ,TOUCHBIT>
 	 <TELL
-"   Among the new rubble, you notice" A ,HOLE ", attached to a piece
+"  Among the new rubble, you notice" A ,HOLE ", attached to a piece
 of (what used to be) the floor of the cramped space." CR>
 	 <CELL-F ,M-END>
 	 <RTRUE>>
@@ -732,7 +732,7 @@ the Observation Room window." CR>)
 		      (T
 		       <EXAMINATION-ROOM-DESC>)>
 		<TELL
-"   Before you've really gotten as sick as you know you could get, one of the">
+"  Before you've really gotten as sick as you know you could get, one of the">
 		<LECKBANDI>)
 	       (T
 		<THIS-IS-IT ,EXAM-ROOM-DOOR>
@@ -989,7 +989,7 @@ would be twice this, or 40 degrees. One quarter of the sky is 45 degrees."
 		     <NOT <QUEUED? ,I-SIDEKICK-OUT-WINDOW>>>
 		<MOVE ,MATCHBOOK ,PROTAGONIST>
 		<TELL
-"   " D ,SIDEKICK " trots over to you. \"I've got a plan to bring these
+"  " D ,SIDEKICK " trots over to you. \"I've got a plan to bring these
 Leather Goddess jokers to their knees,\" ">
 		<HE-SHE>
 		<TELL " says, flipping you a " 'MATCHBOOK ". ">
@@ -1102,7 +1102,7 @@ device. Below that is a parts list:|
 	(FLAGS VEHBIT OPENBIT CONTBIT SEARCHBIT NDESCBIT)>
 
 <ROUTINE I-BOUDOIR ("OPTIONAL" (NOT-CALLED-BY-FUCK T))
-	 <TELL "   You hear a click, and ">
+	 <TELL "  You hear a click, and ">
 	 <COND (<NOT <IN? ,PROTAGONIST ,HERE>>
 		<TELL "leap to your feet as ">)>
 	 <TELL
@@ -1191,7 +1191,7 @@ someone who knows how to kiss">
 		       <BODIES-PRESS-TOGETHER "kissing" "lips">)>
 		<COND (<VISIBLE? ,SIDEKICK>
 		       <TELL
-,PERIOD-CR "   You hear a \"thunk\" as " D ,SIDEKICK
+,PERIOD-CR "  You hear a \"thunk\" as " D ,SIDEKICK
 ", humping enthusiastically, falls off ">
 		       <HIS-HER>
 		       <TELL " couch">)>
@@ -1264,7 +1264,7 @@ hop across the lawn, lazily collecting nuts.">)
 from" T ,ANTI-LGOP-MACHINE ".">)
 	       (<EQUAL? .RARG ,M-END>
 		<SETG PLAZA-COUNTER <+ ,PLAZA-COUNTER 1>>
-	 	<TELL "   ">
+	 	<TELL "  ">
 	 	<COND (<EQUAL? ,PLAZA-COUNTER 1>
 		       <TELL
 "A half-megaton grenade explodes nearby as the palace
@@ -1326,7 +1326,7 @@ tanks loom above you, their gun turrets blocking out the sun. Beyond them, the"
 incredible to describe in the 23 words allotted to this sentence.">)>
 		<COND (<NOT <VISIBLE? ,SIDEKICK>>
 		       <RTRUE>)>
-		<TELL "   " D ,SIDEKICK>
+		<TELL "  " D ,SIDEKICK>
 	 	<COND (<EQUAL? ,PLAZA-COUNTER 1>
 		       <MOVE ,ANTI-LGOP-MACHINE ,HERE>
 		       <TELL " shouts, \"Okay, this is it!">
@@ -1394,26 +1394,26 @@ you hear is " D ,SIDEKICK "'s voice, saying,">
 					    <CRLF>
 					    <PERFORM ,V?SMELL ,ODOR>)>
 				     <TELL
-"   The peel lands a few feet away, as the " 'ANTI-LGOP-MACHINE " gives one
+"  The peel lands a few feet away, as the " 'ANTI-LGOP-MACHINE " gives one
 final shudder and self-destructs in an orgy of flames and shrapnel!|
-   The attacking forces continue to close, and certain death is only seconds
+  The attacking forces continue to close, and certain death is only seconds
 away when one of the Chompers, loping toward you at nearly Mach One, steps on
 the banana peel, and slips a few inches to one side before righting itself.
 This is enough, however, to nudge a tank into a crater, tripping one of the
 samurai robots!|
-   More and more of the attacking forces plow into the mess in the crater, like
+  More and more of the attacking forces plow into the mess in the crater, like
 some improbably fantastical football tackle. A stray grenade lands right in
 its midst, and the resulting plume of debris shears the fins off the leading
 warship. Your heart leaps as the entire" ,ATTACK-FLEET " of " 'LGOP " plummets
 toward the ground. The mass of flaming metal strikes the ground, and a
 tremendous explosion knocks you senseless!|
 |
-   Eventually, daylight intrudes upon your senselessness and illuminates a
+  Eventually, daylight intrudes upon your senselessness and illuminates a
 sleepy-looking gas station. You are lying at the edge of a dusty road, once
 again wearing your comfortable old overalls. Though dirty, dishevelled, and
 bleeding from a few superficial cuts, you are nevertheless aglow in the
 knowledge that Earth is safe from the threat of " 'LGOP ".|
-   As " 'HEAD " clears, three uniformed ">
+  As " 'HEAD " clears, three uniformed ">
 				     <COND (,MALE
 					    <TELL "girls come bounc">)
 					   (T
@@ -1427,8 +1427,8 @@ knowledge that Earth is safe from the threat of " 'LGOP ".|
 				     <TELL
 ", in perfect unison. \"Are you all right?\"|
 |
-   Coming soon from Infocom: GAS PUMP GIRLS MEET THE
-PULSATING INCONVENIENCE FROM PLANET X." CR>
+Coming soon from Infocom:|GAS PUMP GIRLS MEET THE|
+PULSATING INCONVENIENCE|FROM PLANET X." CR>
 				     <SETG RANK 9>
 				     <SETG EXT-MAX ,INT-MAX>)>
 			      <FINISH>)>)>

@@ -333,7 +333,7 @@ you notice something dark." CR>)
 		<COND (<FSET? ,TRELLIS ,MUNGBIT>
 		       <COND (<EQUAL? .OARG ,M-OBJDESC?>
 			      <RTRUE>)>
-		       <TELL "   ">
+		       <TELL "  ">
 		       <DESCRIBE-TRELLIS-ON-HOLE>)
 		      (T
 		       <RFALSE>)>)
@@ -545,7 +545,7 @@ a stair leading down.")
 		       <COND (<EQUAL? .OARG ,M-OBJDESC?>
 			      <RTRUE>)>
 		       <COND (<NOT <VERB? EXAMINE>>
-			      <TELL "   ">)>
+			      <TELL "  ">)>
 		       <COND (,SHEET-TIED
 			      <TELL "A " D ,SHEET " is tied to the bed">
 		       	      <COND (,SHEET-HANGING
@@ -689,7 +689,7 @@ hospitals in Cleveland. If only the ambulances had all picked the same
 hospital, there might've been a chance to put you back together.">>
 
 <ROUTINE I-SIDEKICK-OUT-WINDOW ()
-	 <TELL "   ">
+	 <TELL "  ">
 	 <COND (,SIDEKICK-TRIP-FLAG
 		<FSET ,BEDROOM ,MUNGBIT>
 		<MOVE ,SIDEKICK ,HERE>

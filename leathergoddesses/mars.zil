@@ -136,7 +136,7 @@ daughter into a" ,45-DEGREE-ANGLE ".">)>>
 	 <COND (.OARG
 		<COND (<EQUAL? .OARG ,M-OBJDESC?>
 		       <RTRUE>)>
-		<TELL "   King Mitre sits upon the throne, looking ">
+		<TELL "  King Mitre sits upon the throne, looking ">
 		<COND (<FSET? ,THETA ,MUNGBIT>
 		       <TELL
 "dejected and lonely. Next to him is a pile of" ,45-DEGREE-ANGLE "s. One
@@ -487,7 +487,7 @@ from your loins, spreading like a fiery potion through your veins. Within
 moments you are joined in passionate love, and just as a quick and lustful
 orgasm seems inevitable, a force crackles in the air, and you are alone, naked,
 sweating, and unsatisfied.">)>
-		<TELL CR "   As you gather up your garment and put it on, y">)>
+		<TELL CR "  As you gather up your garment and put it on, y">)>
 	 <TELL "ou notice" A ,BLENDER " on the ground. " ,ITS-ENGRAVED>
 	 <COND (<IN? ,SIDEKICK ,HERE>
 		<TELL
@@ -508,9 +508,9 @@ rubble, oblivious to your \"experience.\"">)>
 		<COND (<NOT <EQUAL? ,NAUGHTY-LEVEL 0>>
 		       <TELL "\"Dearest," CR>
 		       <COND (<EQUAL? ,NAUGHTY-LEVEL 2>
-			      <TELL "   Sorry to leave so abruptly; p">)
+			      <TELL "  Sorry to leave so abruptly; p">)
 			     (T
-			      <TELL "   P">)>
+			      <TELL "  P">)>
 		       <TELL "erhaps some day we will meet again">
 		       <COND (<EQUAL? ,NAUGHTY-LEVEL 2>
 			      <TELL ", and finish what we began">)>
@@ -623,7 +623,7 @@ Earth, and dickory wood from the jungles of Venus. A path leads south.")
 	 <COND (<IN? ,MOUSE ,RUINED-CASTLE-1>
 	 	<FCLEAR ,MOUSE ,TOUCHBIT>)>
 	 <COND (<IN? ,MOUSE ,HERE>
-	 	<TELL "   The mouse relaxes and begins scampering about." CR>)
+	 	<TELL "  The mouse relaxes and begins scampering about." CR>)
 	       (T
 		<RFALSE>)>>
 
@@ -670,7 +670,7 @@ to the south, is a ruined castle.">)>>
 		<COND (<EQUAL? .OARG ,M-OBJDESC?>
 		       <RTRUE>)>
 		<TELL
-"   A barge, hand-crafted from fine Martian cedarwood, is ">
+"  A barge, hand-crafted from fine Martian cedarwood, is ">
 		<COND (<EQUAL? ,HERE ,CANAL>
 		       <TELL "floating nearby.">)
 		      (T
@@ -715,7 +715,7 @@ and no visible mooring lines.">)>
 			 <NOUN-USED ,W?CONTROLS ,BARGE>
 			 <NOUN-USED ,W?BUTTONS ,BARGE>>>
 		<PERFORM-PRSA ,ORANGE-BUTTON>
-		<TELL "   ">
+		<TELL "  ">
 		<PERFORM-PRSA ,PURPLE-BUTTON>
 		<RTRUE>)
 	       (<VERB? SET>
@@ -1168,12 +1168,12 @@ buoy shows a skull and crossbones.">)>
 		<COND (<AND <G? .NUM 12>
 			    <L? .NUM 32>>
 		       <COND (<EQUAL? .NUM 31>
-			      <TELL CR "   ">
+			      <TELL CR "  ">
 			      <DESCRIBE-POWER-TRANSMITTER 31>
 			      <COND (<NOT <FSET? ,POWER-TRANSMITTER ,TOUCHBIT>>
 				     <FSET ,POWER-TRANSMITTER ,TOUCHBIT>
 				     <TELL CR
-"   As the " D <LOC ,PROTAGONIST> " passes through the beam, you feel a
+"  As the " D <LOC ,PROTAGONIST> " passes through the beam, you feel a
 tingling from every cell in " 'YOUR-BODY ".">)>)
 			     (T
 			      <TELL " ">
@@ -1295,7 +1295,7 @@ tingling from every cell in " 'YOUR-BODY ".">)>)
 		<RFALSE>)
 	       (<NOT .MOVED>
 		<RFALSE>)>
-	 <TELL "   The " D <LOC ,PROTAGONIST> " ">
+	 <TELL "  The " D <LOC ,PROTAGONIST> " ">
 	 <COND (<EQUAL? .NUM 10>
 		<COND (<AND ,BARGE-UNDER-POWER
 			    <IN? ,PROTAGONIST ,BARGE>>
@@ -1413,7 +1413,7 @@ is visible at the edge of the canal">
 
 <ROUTINE I-ION-DEATH ()
 	 <SETG ION-DEATH-COUNTER <+ ,ION-DEATH-COUNTER 1>>
-	 <TELL "   ">
+	 <TELL "  ">
 	 <COND (<G? ,ION-DEATH-COUNTER 4>
 		<JIGS-UP
 "Your anatomy, in absorbing a dose of superionized energy in translethal
@@ -1430,7 +1430,7 @@ terms, you've just blown up.">)
 			    <VISIBLE? ,SIDEKICK>
 			    <EQUAL? ,ION-DEATH-COUNTER 3>>
 		       <TELL
-"   " D ,SIDEKICK " says, \"My head is pounding! I wish we
+"  " D ,SIDEKICK " says, \"My head is pounding! I wish we
 had some aspirin.\"" CR>)>
 		<RTRUE>)>>
 
@@ -1691,21 +1691,21 @@ east bank, and a dilapidated one on the closer shore.|
 		<RFALSE>)
 	       (<EQUAL? ,TITS-COUNTER 4>
 		<TELL
-"   [A warning for any Jerry Falwell groupies who are miraculously still
+"  [A warning for any Jerry Falwell groupies who are miraculously still
 playing: we'll be using the word \"tits\" in five turns or so. Please
 consult the manual for the proper way to stop playing.]" CR>)
 	       (<EQUAL? ,TITS-COUNTER 7>
 		<TELL
-"   [Only a few turns until the \"tits\" reference! Use QUIT now if
+"  [Only a few turns until the \"tits\" reference! Use QUIT now if
 you might be offended!]" CR>)
 	       (<EQUAL? ,TITS-COUNTER 9>
 		<TELL
-"   [Last warning! The word \"tits\" will appear in the very next turn!
+"  [Last warning! The word \"tits\" will appear in the very next turn!
 This is your absolutely last chance to avoid seeing \"tits\" used!!!]" CR>)
 	       (<EQUAL? ,TITS-COUNTER 10>
 		<DEQUEUE I-TITS>
 		<TELL
-"   A hyperdimensional traveller suddenly appears out of thin air.
+"  A hyperdimensional traveller suddenly appears out of thin air.
 \"My sister has tremendous breasts,\" says the traveller and, without
 further explanation, vanishes">
 		<COND (<NOT <FSET? ,NOSE ,MUNGBIT>>
@@ -1803,7 +1803,7 @@ faded sign. An exit is barely visible through the dust to the north.")
 		     <NOT <FSET? ,PROPRIETOR ,TOUCHBIT>>>
 		<FSET ,PROPRIETOR ,TOUCHBIT>
 		<TELL
-"   " ,PROPRIETOR-STIRS "Don't get many customers these days, since they
+"  " ,PROPRIETOR-STIRS "Don't get many customers these days, since they
 abandoned the dock. In fact, you're only the third in the last hundred and
 fifty centuries.\" He slips back into a drowse." CR>)>>
 
@@ -2398,7 +2398,7 @@ a response from you.")
 		<REMOVE ,HAREM-GUARD>
 		<RFALSE>)>
 	 <COND (<NOT .CALLED-BY-HAREM-GUARD-F>
-		<TELL "   ">)>
+		<TELL "  ">)>
 	 <TELL "\"">
 	 <COND (<EQUAL? ,HAREM-GUARD-COUNTER 5>
 		<REMOVE ,HAREM-GUARD>
@@ -2480,7 +2480,7 @@ guard storms angrily away." CR>)
 	 <COND (.OARG
 		<COND (<EQUAL? .OARG ,M-OBJDESC?>
 		       <RTRUE>)>
-		<TELL "   The " D ,SULTAN " is here,">
+		<TELL "  The " D ,SULTAN " is here,">
 		<COND (,RIDDLE-ANSWERED
 		       <ARGUING-WITH-LEGAL-ADVISOR>)
 		      (T
@@ -2548,7 +2548,7 @@ D ,SULTAN " is struck by a thought. \"Can we kill ">
 
 <ROUTINE I-SULTAN ()
 	 <SETG SULTAN-COUNTER <+ ,SULTAN-COUNTER 1>>
-	 <TELL "   ">
+	 <TELL "  ">
 	 <COND (<G? ,SULTAN-COUNTER 1>
 		<COND (<EQUAL? ,SULTAN-COUNTER 4>
 		       <TELL "\"Have this bore devoured.\" ">
@@ -2597,7 +2597,7 @@ very very very very ferocious.">>
 <ROUTINE I-SNEEZE ()
 	 <QUEUE I-SNEEZE -1>
 	 <SETG SULTAN-COUNTER <+ ,SULTAN-COUNTER 1>>
-	 <TELL "   The " D ,SULTAN>
+	 <TELL "  The " D ,SULTAN>
 	 <COND (<EQUAL? ,SULTAN-COUNTER 4>
 		<TELL " convulses. \"Achoooooo!!!!\" ">
 		<RIDDLE-DEATH>)
@@ -2666,7 +2666,7 @@ A draped exit leads east.">
 		;"this can happen if you answer the riddle before ever
 	          meeting sidekick, then go back, get him, and enter harem"
 		<TELL
-"   A " 'HAREM-GUARD " grabs " D ,SIDEKICK ". \"You didn't
+"  A " 'HAREM-GUARD " grabs " D ,SIDEKICK ". \"You didn't
 answer the riddle!\" ">
 		<TIGER-EATS-SIDEKICK>)
 	       (<EQUAL? .RARG ,M-SMELL>
@@ -2690,13 +2690,13 @@ followed by a blood-curdling scream">
 <ROUTINE I-HAREM ()
 	 <COND (<EQUAL? ,HERE ,HAREM>
 		<TELL
-"   A figure, completely cloaked in veils of silk, enters and beckons
+"  A figure, completely cloaked in veils of silk, enters and beckons
 you deeper into the harem" ,ELLIPSIS>
 		<GOTO ,INNER-HAREM>
 		<THIS-IS-IT ,SULTANS-WIFE>
 		<FCLEAR ,SULTANS-WIFE ,NDESCBIT>
 		<QUEUE I-HOUR 60>
-		<TELL "   " D ,SULTANS-WIFE>
+		<TELL "  " D ,SULTANS-WIFE>
 		<COND (<EQUAL? ,NAUGHTY-LEVEL 0>
 		       <TELL " sits down at the far end of the room." CR>)
 		      (T
@@ -2713,7 +2713,7 @@ an hour, I am yours.\"" CR>)>)
 <ROUTINE I-HOUR ()
 	 <COND (<EQUAL? ,HERE ,INNER-HAREM>
 		<TELL
-"   \"The hour is over,\" sighs " D ,SULTANS-WIFE
+"  \"The hour is over,\" sighs " D ,SULTANS-WIFE
 ", reluctantly leading you out of the " 'HERE ,ELLIPSIS>
 		<GOTO ,HAREM>)
 	       (T
@@ -2787,7 +2787,7 @@ touch as though still alive. ">
 	 <COND (.OARG
 		<COND (<EQUAL? .OARG ,M-OBJDESC?>
 		       <RTRUE>)>
-		<TELL "   " D ,SULTANS-WIFE " is here">
+		<TELL "  " D ,SULTANS-WIFE " is here">
 		<COND (<NOT <EQUAL? ,NAUGHTY-LEVEL 0>>
 		       <TELL ", lying seductively naked on a bed of furs">)>
 		<TELL ".">)
@@ -3022,7 +3022,7 @@ D ,SULTANS-WIFE " is enough to ">
 	 <COND (<AND <VISIBLE? ,TORCH>
 		     <NOT <FSET? ,EYES ,MUNGBIT>>
 		     <NOT <EQUAL? ,HAND-COVER ,EYES>>>
-		<TELL "   ">
+		<TELL "  ">
 		<COND (<EQUAL? ,TORCH-LIFE 0>
 		       <TELL ,PFFT>
 		       <NOW-DARK?>)
@@ -3106,7 +3106,7 @@ into the gloom of the catacombs" ,ELLIPSIS>)>
 		<MOVE ,SIDEKICK ,HERE>
 		<SETG SIDEKICK-EATEN <>>
 		<TELL
-"   \"Yo!\" says " D ,SIDEKICK ", tapping your shoulder. \"Looked like my
+"  \"Yo!\" says " D ,SIDEKICK ", tapping your shoulder. \"Looked like my
 number was up that time! Would've been, if those dimension-hopping midgets
 hadn't come through at the right moment. Good thing the tiger cage leads
 to the catacombs, eh?\" ">
@@ -3372,17 +3372,17 @@ by a fleet of dirigibles.")
 		       <COND (<EQUAL? .OARG ,M-OBJDESC?>
 			      <RTRUE>)>
 		       <TELL
-"   On the other hand, another Sultan had a considerably more modest
+"  On the other hand, another Sultan had a considerably more modest
 vision of the afterlife, bringing only a simple rubber life raft.">)
 		      (,RAFT-HELD
 		       <COND (<EQUAL? .OARG ,M-OBJDESC?>
 			      <RTRUE>)>
 		       <TELL
-"   There is a raft here, which you're keeping a hand on.">)
+"  There is a raft here, which you're keeping a hand on.">)
 		      (<EQUAL? ,HERE ,CANAL>
 		       <COND (<EQUAL? .OARG ,M-OBJDESC?>
 			      <RTRUE>)>
-		       <TELL "   A raft is floating nearby.">)
+		       <TELL "  A raft is floating nearby.">)
 		      (T
 		       <RFALSE>)>)
 	       (<AND <EQUAL? ,HERE ,CANAL>
@@ -3547,7 +3547,7 @@ vision of the afterlife, bringing only a simple rubber life raft.">)
 		<FSET ,CATACOMBS ,MUNGBIT> ;"for V-DIAGNOSE"
 		<OPEN-EYES-AND-REMOVE-HANDS>
 	 	<TELL
-"   Suddenly the water explodes with life! A swarm of the nastiest beetles
+"  Suddenly the water explodes with life! A swarm of the nastiest beetles
 this side of Pluto starts munching your flesh. You escape by running blindly
 through the catacombs, completely losing track of your location." CR>)
 	       (T
@@ -3561,7 +3561,7 @@ through the catacombs, completely losing track of your location." CR>)
 		<OPEN-EYES-AND-REMOVE-HANDS>
 		<FSET ,CATACOMBS ,MUNGBIT> ;"for V-DIAGNOSE"
 	 	<TELL
-"   You feel an intense pain, like a tuft of hair being yanked out -- except
+"  You feel an intense pain, like a tuft of hair being yanked out -- except
 that it's coming from your feet, and in about a hundred places. As you flail
 at the pack of Martian sand crabs, the splashing startles them away">
 	 	<COND (<AND <SET OBJ <FIRST? ,PROTAGONIST>>
@@ -3584,7 +3584,7 @@ at the pack of Martian sand crabs, the splashing startles them away">
 		<RFALSE>)>
 	 <COND (<IN? ,PROTAGONIST ,HERE>
 		<JIGS-UP
-"   A Martian alligator, large enough to blend in inconspicuously with
+"  A Martian alligator, large enough to blend in inconspicuously with
 Great Britain's mercantile fleet, swims by and gulps a huge bunch of
 canal water -- the bunch that happens to include you, by the way.">)
 	       (T
@@ -3593,7 +3593,7 @@ canal water -- the bunch that happens to include you, by the way.">)
 
 <ROUTINE HARMLESS-SNAP (STRING)
 	 <TELL
-"   The calm water is suddenly shattered by the jaws of a huge Martian "
+"  The calm water is suddenly shattered by the jaws of a huge Martian "
 .STRING " snapping harmlessly toward you. Good thing you were in the
 raft." CR>>
 
@@ -3694,7 +3694,7 @@ path curves east around the " 'DUNES>
 		       <MOVE ,SIDEKICK ,HERE>
 		       <SETG SIDEKICK-DROWNED <>>
 		       <TELL
-"   Like a wet watermelon seed being squirted from between two fingers, "
+"  Like a wet watermelon seed being squirted from between two fingers, "
 D ,SIDEKICK " is ejected from the fountain and lands in a dripping heap at
 your feet. \"Good thing I'm so good at holding my breath,\" ">
 		       <HE-SHE>
@@ -3704,7 +3704,7 @@ your feet. \"Good thing I'm so good at holding my breath,\" ">
 		       <SETG CIRCLE-BLACK <>>
 		       <PUTP ,HOLE ,P?SDESC "white circle">
 		       <TELL
-"   Inexplicably, the circle fades before your very eyes, slowly going from
+"  Inexplicably, the circle fades before your very eyes, slowly going from
 black to white." CR>)>)>>
 
 <OBJECT RABBIT
@@ -3744,7 +3744,7 @@ whiteness of the southern ice cap.")
 		<QUEUE I-FOLLOW 2>
 		<REMOVE ,SIDEKICK>
 		<SETG SIDEKICK-DROWNED T>
-		<TELL "   With a whoop of surprise, " D ,SIDEKICK " loses ">
+		<TELL "  With a whoop of surprise, " D ,SIDEKICK " loses ">
 		<HIS-HER>
 		<TELL
 " footing on the ice, skids right into the canal, and is immediately dragged
@@ -3823,7 +3823,7 @@ Well, here they are! A whole waddling mass of them, ">
 " the path to the southeast. Other paths lead west and northwest.">
 		<COND (<NOT ,PENGUINS-PARTED>
 		       <TELL CR
-"   One penguin teasingly waves a sign in your direction, much like
+"  One penguin teasingly waves a sign in your direction, much like
 a matador waving his cape toward a bull.">)>
 		<RTRUE>)>>
 
@@ -3886,7 +3886,7 @@ pitched on the north side of the camp, and trails lead northwest and south.")
 		       <COND (<EQUAL? ,VERBOSITY 0>
 			      <RTRUE>)>
 		       <TELL
-"   A male and a female robot emerge from the tent, waving in a gesture
+"  A male and a female robot emerge from the tent, waving in a gesture
 of gypsyish greeting. \"Hello, weary traveller">
 		       <COND (<IN? ,SIDEKICK ,HERE>
 			      <TELL "s">)>
@@ -3902,7 +3902,7 @@ atmosphere and completely obliterates the two robots." CR>)>
 		<COND (<AND <IN? ,BABY ,TENT>
 			    <NOT <IN? ,BLANKET ,BABY>>>
 		       <TELL
-"   You hear the sound of high-pitched crying, slightly muffled, coming from
+"  You hear the sound of high-pitched crying, slightly muffled, coming from
 inside the tent." CR>)>)>>
 
 <ROUTINE OUTSIDE-TENT-F ()
@@ -3955,7 +3955,7 @@ against the cold polar winds. You can exit to the south.")
 	       (<NOT <VISIBLE? ,BABY>>
 		<RFALSE>)
 	       (T
-		<TELL "   The baby continues to wail at the top of its lungs.">
+		<TELL "  The baby continues to wail at the top of its lungs.">
 		<COND (<PROB 12>
 		       <TELL
 " It's amazing that such small lungs have such a high top.">)>
@@ -3979,7 +3979,7 @@ against the cold polar winds. You can exit to the south.")
 		       <COND (<EQUAL? .OARG ,M-OBJDESC?>
 			      <RTRUE>)>
 		       <TELL
-"   A little baby robot is shivering in the corner. It stops crying long
+"  A little baby robot is shivering in the corner. It stops crying long
 enough to open a tiny metal eyelid and look at you. \"">
 		       <COND (,MALE
 			      <TELL "Momm">)
@@ -4043,7 +4043,7 @@ a calm sleep. A peaceful smile creeps over its face." CR>)
 		<QUEUE I-CRY -1>
 		<TELL "The baby robo" ,TWICE-AS-LOUD>
 		<COND (<ULTIMATELY-IN? ,BABY ,FRONT-STOOP>
-		       <TELL "   ">
+		       <TELL "  ">
 		       <CRYING-ALERTS-MATRON>)>
 		<RTRUE>)
 	       (<VERB? KISS>
@@ -4200,7 +4200,7 @@ north.")
 
 <ROUTINE COLD-CAUSES-CRYING ()
 	 <TELL
-"As you place the baby on the cold doorstep, i" ,TWICE-AS-LOUD "   ">>
+"As you place the baby on the cold doorstep, i" ,TWICE-AS-LOUD "  ">>
 
 <ROUTINE ABANDON-BABY (STRING)
 	 <QUEUE I-ORPHANAGE 5>
@@ -4218,7 +4218,7 @@ north.")
 		<SETG FOLLOW-FLAG 15>
 		<QUEUE I-FOLLOW 2>
 		<TELL
-"   " ,MATRON-DESC "opens the " 'ORPHANAGE-DOOR ". She coos over the baby
+"  " ,MATRON-DESC "opens the " 'ORPHANAGE-DOOR ". She coos over the baby
 for a moment then carries it inside, closing the door behind her." CR>)
 	       (T
 		<RFALSE>)>>
@@ -4271,13 +4271,13 @@ window is next to the ">
 
 <ROUTINE I-ORPHANAGE-BOOT ()
 	 <COND (<EQUAL? ,HERE ,ORPHANAGE-FOYER>
-		<TELL "   ">
+		<TELL "  ">
 		<SHOO "steal">
 		<FCLEAR ,ORPHANAGE-DOOR ,OPENBIT>
 	 	<FSET ,ORPHANAGE-DOOR ,LOCKEDBIT>)
 	       (<AND <EQUAL? ,HERE ,SOUTH-POLE>
 		     <FSET? ,ORPHANAGE-DOOR ,OPENBIT>>
-		<TELL "   The " 'ORPHANAGE-DOOR " slams shut." CR>
+		<TELL "  The " 'ORPHANAGE-DOOR " slams shut." CR>
 		<FCLEAR ,ORPHANAGE-DOOR ,OPENBIT>
 	 	<FSET ,ORPHANAGE-DOOR ,LOCKEDBIT>)
 	       (T
