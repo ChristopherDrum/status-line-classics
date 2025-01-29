@@ -2757,12 +2757,12 @@ or let go of it!" CR>
 		<TELL
 "\"Here, then, is the riddle. Don't strain " 'HEAD "; no one's ever
 gotten it right.\" You hear a growling snarl from somewhere nearby.|
-   \"Some say I'm pointless,|
-       yet many are obsessed by me.|
-    I have caused heroic gambles|
-       and sown endless frustration.|
-    Uncounted deaths have I caused.|
-       What am I?\"" CR>
+ \"Some say I'm pointless,|
+    yet many are obsessed by me.|
+ I have caused heroic gambles|
+   and sown endless frustration.|
+ Uncounted deaths have I caused.|
+   What am I?\"" CR>
 		<COND (<IN? ,SIDEKICK ,HERE>
 		       <TELL
 "  " D ,SIDEKICK " steps briskly forward. \"That's easy!\" ">
