@@ -653,8 +653,8 @@ Object  -> inscribed_stone "inscribed stone"
             print "(left side)^";
             0-->8 = 2 | 0-->8;
             print "#. [] = # +*+  __^          |||       ^     |        |^/ # -+- :; # -+-^     |        |^^>>> -> # (---)^          |||^";
-            print "^                    (right side)^";
-            print "       an-ta re-im ka u bir ka-i^^          ka ne : to-ro-ma ka ur^^^.je-fe-im ka ur-a an-ge to-ro-ma^";
+            print "                    (right side)^";
+            print "       an-ta re-im ka u bir ka-i^^^          ka ne : to-ro-ma ka ur^^^.je-fe-im ka ur-a an-ge to-ro-ma^";
             0-->8 = 65533 & 0-->8;
             rtrue;
         ],
