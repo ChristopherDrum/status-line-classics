@@ -328,7 +328,7 @@ It is clear that the owners must have been extremely wealthy." CR>)
 <ROUTINE FWEEP (N)
 	 <REPEAT ()
 		 <COND (<L? <SET N <- .N 1>> 1> <RETURN>)
-		       (T <TELL "    Fweep!" CR>)>>
+		       (T <TELL "  Fweep!" CR>)>>
 	 <CRLF>>
 
 <GLOBAL BAT-DROPS

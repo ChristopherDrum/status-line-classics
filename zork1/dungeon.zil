@@ -950,8 +950,8 @@ southwest, is marked \"To Stone Barrow\".")>
 Hello, Sailor!|
 |
 Instructions for use:|
-  To get into a body of water, say \"Launch\".|
-  To get to shore, say \"Land\" or the direction in which you want
+  To get into a body of water|    say \"Launch\".|
+  To get to shore, say \"Land\" or|    the direction in which you|    want
 to maneuver the boat.|
 |
 Warranty:|
