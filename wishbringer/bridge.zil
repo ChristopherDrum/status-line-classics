@@ -78,7 +78,7 @@
 	 <COND (<VERB? READ EXAMINE>
 		<CRLF>
 		<FIXED-FONT-ON>
-		<TELL "   ">
+		<TELL "  ">
 		<COND (<EQUAL? ,WHERE-FROM ,SOUTH-OF-BRIDGE>
 		       <TELL "LEAV">)
 		      (T
@@ -98,7 +98,7 @@ Violators Will Be Jailed!">)
 		       <COND (<EQUAL? ,WHERE-FROM ,SOUTH-OF-BRIDGE>
 			      <TELL "Next Time You're In Town" CR>)>
 		       <TELL 
-"  Visit Our Fun-Filled" CR "     " D ,PLEASURE-WHARF>)>
+"  Visit Our Fun-Filled" CR "  " D ,PLEASURE-WHARF>)>
 		<CRLF>
 		<FIXED-FONT-OFF>
 		<RTRUE>)
