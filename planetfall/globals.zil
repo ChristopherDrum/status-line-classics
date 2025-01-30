@@ -1147,7 +1147,7 @@ outlining his planet's major exports."CR>)>)>>
 	(TEXT
 "\"The leading export of Blow'k-bibben-Gordo is the adventure game|
 |
-      *** PLANETFALL ***|
+     *** PLANETFALL ***|
 |
 written by S. Eric Meretzky.|
 Buy one today.|
