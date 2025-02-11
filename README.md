@@ -68,14 +68,9 @@ About as difficult as making Bureaucracy work, this one presented unique challen
 ## But why?
 I am the author of [Status Line](https://christopherdrum.itch.io/statusline), a z-machine interpreter written with/for the virtual console known as [Pico-8](https://www.lexaloffle.com/pico-8.php). The initial v1.x releases of Status Line targetted only z3 games, and due to the small feature set were easy to adapt to the Pico-8's 128x128px (32x21 character) display. One player even called it "my favorite way to play text adventures."
 
-As I expand Status Line's capabilities into z4 compatibility and beyond, I am forced to reckon with the harsh fact that some titles were hard-coded to require a minimum 40-character (or more) display. Granted, a z-machine interpreter can "lie" and claim it supports such a screen. However, while this will trick the game into starting and playing, it can render certain games "playable" with the huge caveat that important text may be drawn off-screen. For most players this makes the games challenging to play, and not in the fun way.
+Expanding Status Line's capabilities into z4 compatibility and beyond, I am forced to reckon with the harsh fact that some titles were hard-coded to require a minimum 40-character (or more) display. Granted, a z-machine interpreter can "lie" and claim it supports such a screen. However, while this will trick the game into starting and playing, it can render certain games "playable" with the huge caveat that important text may be drawn off-screen. For most players this makes the games challenging to play, and not in the fun way.
 
-To provide extra support to people who enjoy the cozy atmosphere of Status Line on the Pico-8, I endeavor to make classics (whose source code is available) to work well on a small screen. I do (when appropriate) place specific emphasis on Status Line and its capabilities/limitations. I may (judiciously and while preserving authorial intent) reword/truncate a phrase or two here and there to fit the horizontal space of the small screen. This does not alter any wording of prose, and is mostly relegated to status line information, redundant to the main textual corpus.
-
-## Intentions
-* First, make it work in Status Line. This allows me to identify areas that need code adjustments for later work. So, to begin this will probably just mean swapping certain hard-coded layout values with numbers appropriate to the 32-character wide Pico-8 screen.
-* Then, refactor the above changes to be generally flexible to all screen sizes.
-* Last, propose lightweight changes to the upstream source repos to introduce screen flexibility to everyone? (maybe not necessary; just use this repo I suppose)
+To provide extra support to people who enjoy the cozy atmosphere of Status Line on the Pico-8, I endeavor to make classics (whose source code is available) that work well on a very small screen. I do (when appropriate) place specific emphasis on Status Line and its capabilities/limitations. I may (judiciously and while preserving authorial intent) reword/truncate a phrase or two here and there to fit the horizontal space of the small screen. This does not alter any wording of prose, and is mostly relegated to status line information, redundant to the main textual corpus.
 
 ## Build Notes
 For those wanting to build from source, you will need the ZILF and ZAPF compiler tools. Add the location for the tools to your PATH environment variable.
@@ -86,3 +81,4 @@ I've added a Windows .bat file which can be run quite simply from this project's
 ./build <game>
 ```
 This will generate a build/ folder at the top level. Inside that will be <game>.z#, ready to play in the interpreter of your choice.
+The Unix/macOS/WSL/gitbash build script `build.sh` is also available.
