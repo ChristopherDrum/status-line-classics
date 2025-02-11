@@ -2792,7 +2792,7 @@ takes TWO bytes to represent their values"
 		<GOTO ,DARK>)
 	       (T
 		<TELL CR CR
-"    ****  You have died  ****" CR CR>
+"   ****  You have died  ****" CR CR>
 		<FINISH>)>>
 
 
