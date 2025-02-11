@@ -2756,23 +2756,23 @@ or let go of it!" CR>
 		<DEQUEUE I-SULTAN>
 		<TELL
 "\"Here, then, is the riddle. Don't strain " 'HEAD "; no one's ever
-gotten it right.\" You hear a growling snarl from somewhere nearby.|
-   \"Some say I'm pointless,|
-       yet many are obsessed by me.|
-    I have caused heroic gambles|
-       and sown endless frustration.|
-    Uncounted deaths have I caused.|
-       What am I?\"" CR>
+gotten it right.\" You hear a growling snarl from somewhere nearby.||
+ \"Some say I'm pointless,|
+    yet many are obsessed by me.|
+ I have caused heroic gambles|
+   and sown endless frustration.|
+ Uncounted deaths have I caused.|
+   What am I?\"" CR CR>
 		<COND (<IN? ,SIDEKICK ,HERE>
 		       <TELL
-"   " D ,SIDEKICK " steps briskly forward. \"That's easy!\" ">
+"  " D ,SIDEKICK " steps briskly forward. \"That's easy!\" ">
 		       <HE-SHE>
 		       <TELL
 " yells. \"A grapefruit!\" As the eunuchs snicker behind their weapons, the "
 D ,SULTAN " cries \"Wrongo!\" and ">
 		       <TIGER-EATS-SIDEKICK>
 		       <TELL
-"   \"Your turn to guess,\" says the " D ,SULTAN ", looking gleeful." CR>)>
+"  \"Your turn to guess,\" says the " D ,SULTAN ", looking gleeful." CR>)>
 		<RTRUE>)
 	       (<EQUAL? ,AWAITING-REPLY 2>
 		<TELL "That was just a rhetorical question." CR>)
@@ -2950,7 +2950,7 @@ D ,SULTAN " cries \"Wrongo!\" and ">
 		    <EQUAL? ,VERBOSITY 2>
 		    <AND .FIRST-VISIT
 			 <EQUAL? ,VERBOSITY 1>>>
-		<TELL "   ">
+		<TELL "  ">
 		<COND (<NOT <APPLY <GETP ,HERE ,P?ACTION> ,M-LOOK>>
 		       <TELL <GETP ,HERE ,P?LDESC>>)>
 		<CRLF>)>
@@ -2971,7 +2971,7 @@ are responsible for doing the beginning-of-paragraph indentation."
 		       (<AND <DESCRIBABLE? .O>
 			     <NOT <FSET? .O ,TOUCHBIT>>
 			     <SET STR <GETP .O ,P?FDESC>>>
-			<TELL "   " .STR>
+			<TELL "  " .STR>
 			<COND (<FSET? .O ,CONTBIT>
 			       <DESCRIBE-CONTENTS .O T <+ ,D-ALL? ,D-PARA?>>)>
 			<CRLF>)>
@@ -2992,7 +2992,7 @@ are responsible for doing the beginning-of-paragraph indentation."
 			       <DESCRIBE-CONTENTS .O T <+ ,D-ALL? ,D-PARA?>>)>
 			<CRLF>)
 		       (<SET STR <GETP .O ,P?LDESC>>
-			<TELL "   " .STR>
+			<TELL "  " .STR>
 			<COND (<FSET? .O ,CONTBIT>
 			       <DESCRIBE-CONTENTS .O T <+ ,D-ALL? ,D-PARA?>>)>
 			<CRLF>)>
@@ -3044,7 +3044,7 @@ are responsible for doing the beginning-of-paragraph indentation."
 				   <COND (<NOT .PARA?>
 					  <COND (<NOT <EQUAL? .OBJ
 							      ,PROTAGONIST>>
-						 <TELL "   ">)>
+						 <TELL "  ">)>
 					  <SET PARA? T>)
 					 (<EQUAL? .LEVEL T>
 					  <TELL " ">)>
@@ -3236,7 +3236,7 @@ on a pile of" ,45-DEGREE-ANGLE "s.">
 	       (T
 		<MOVE ,SIDEKICK <LOC ,PROTAGONIST>>)>
 	 <COND (,HOLE-MOVE
-		<TELL "   A few seconds later, you ">
+		<TELL "  A few seconds later, you ">
 		<COND (<LIT? ,HERE>
 		       <TELL "see ">)
 		      (T
@@ -3250,7 +3250,7 @@ followed almost immediately by the rest of ">
 		<NORMAL-SIDEKICK-FOLLOW>)>>
 
 <ROUTINE NORMAL-SIDEKICK-FOLLOW ()
-	 <TELL "   " D ,SIDEKICK <PICK-ONE ,FOLLOWS> CR>>
+	 <TELL "  " D ,SIDEKICK <PICK-ONE ,FOLLOWS> CR>>
 
 <GLOBAL SIDEKICK-PARTS
 	<LTABLE
@@ -3272,7 +3272,7 @@ followed almost immediately by the rest of ">
 <ROUTINE JIGS-UP (DESC)
 	 <TELL .DESC>
 	 <TELL CR CR
-"      ****  You have died  ****" CR>
+"   ****  You have died  ****" CR>
 	 <FINISH>>
 
 ;"subtitle useful utility routines"
@@ -3436,7 +3436,7 @@ followed almost immediately by the rest of ">
 	 <COND (<AND ,LIT
 		     <NOT <LIT? ,HERE>>>
 		<SETG LIT <>>
-		<TELL "   It is now too dark to see." CR>)>>
+		<TELL "  It is now too dark to see." CR>)>>
 
 <ROUTINE NOW-LIT? ()
 	 <COND (<AND <NOT ,LIT>

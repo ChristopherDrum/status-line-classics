@@ -450,7 +450,7 @@ but we were sorely tempted!]">)>>
 <ROUTINE I-URGE ()
 	 <QUEUE I-URGE -1>
 	 <SETG URGE-COUNTER <+ ,URGE-COUNTER 1>>
-	 <TELL "   ">
+	 <TELL "  ">
 	 <COND (<EQUAL? ,URGE-COUNTER 1>
 		<TELL "You feel an urge." CR>)
 	       (<EQUAL? ,URGE-COUNTER 2>
@@ -521,7 +521,7 @@ Three weeks later, when the Earth is invaded and everyone is enslaved by "
 	 <COND (<NOT <FSET? ,NOSE ,MUNGBIT>>
 		<THIS-IS-IT ,ODOR>
 		<TELL CR
-"   Now that the \"crisis\" has passed, you notice a strong and familiar
+"  Now that the \"crisis\" has passed, you notice a strong and familiar
 odor pervading the room." CR>)>>
 
 <ROUTINE I-KIDNAPPING ()
@@ -543,10 +543,10 @@ odor pervading the room." CR>)>>
 	 <INCREMENT-SCORE 1 7>
 	 <COND (<NOT <EQUAL? ,VERBOSITY 0>>
 		<TELL
-"   A brilliant flash of green light seems less unusual when followed by the
+"  A brilliant flash of green light seems less unusual when followed by the
 appearance of tentacled aliens, as is the case with the current flash of green
 light. The tentacles wrap roughly around you as you faint.|
-   After an unknown amount of time... Well, let's ">
+  After an unknown amount of time... Well, let's ">
 		<COND (<EQUAL? ,NAUGHTY-LEVEL 0>
 		       <TELL "be frank">)
 		      (T

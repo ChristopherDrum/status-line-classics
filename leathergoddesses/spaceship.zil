@@ -31,7 +31,7 @@ lead in directions that we will arbitrarily call south and southwest.">)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <EQUAL? ,SIDEKICK-EXPLODED 0>>
 		<TELL
-"   A radium-powered grenade clatters against the deck! You glimpse a
+"  A radium-powered grenade clatters against the deck! You glimpse a
 shadowy figure, dressed in black, slipping away. ">
 		<COND (<IN? ,SIDEKICK ,HERE>
 		       <SETG FOLLOW-FLAG 12>
@@ -183,7 +183,7 @@ light pulsate along the corridor in rhythm with the ship's throbbing engines">
 		<TELL ".">)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     <IN? ,STALLION ,HERE>>
-		<TELL "   The stallion whinnies then gallops ">
+		<TELL "  The stallion whinnies then gallops ">
 		<COND (<EQUAL? ,LONG-CORRIDOR-LOC 1>
 		       <MOVE ,STALLION ,STABLE>
 		       <TELL "ea">)
@@ -253,7 +253,7 @@ light pulsate along the corridor in rhythm with the ship's throbbing engines">
 		<MOVE ,SIDEKICK ,HERE>
 		<REMOVE ,SPLATTERED-SIDEKICK>
 		<TELL
-"   You hear panting as " D ,SIDEKICK " dashes up behind you, somewhat out of
+"  You hear panting as " D ,SIDEKICK " dashes up behind you, somewhat out of
 breath. \"Good, you're still here! Thank God that time traveller who wandered
 by the hold had a matter reconstituter!\"" CR>)>>
 
@@ -449,7 +449,7 @@ seem to be true. Let's hope ">
 		<SETG CHILL-COUNTER 0>
 		<DEQUEUE I-CHILL>
 		<RFALSE>)>
-	 <TELL "   ">
+	 <TELL "  ">
 	 <COND (<EQUAL? ,CHILL-COUNTER 1>
 		<TELL "It sure gets chilly this far from the sun!" CR>)
 	       (<EQUAL? ,CHILL-COUNTER 2 3>
@@ -480,7 +480,7 @@ seem to be true. Let's hope ">
 		<RFALSE>)
 	       (<EQUAL? ,BEM-COUNTER 1>
 		<RFALSE>)>
-	 <TELL "   ">
+	 <TELL "  ">
 	 <COND (<EQUAL? ,BEM-COUNTER 2>
 		<MOVE ,BEM ,HERE>
 		<TELL
@@ -531,7 +531,7 @@ which slowly fades." CR>)
 	       (<FSET? ,THORBAST ,MUNGBIT>
 		<DEQUEUE I-FIGHT>
 		<RFALSE>)>
-	 <TELL "   ">
+	 <TELL "  ">
 	 <COND (<EQUAL? ,FIGHT-COUNTER 1>
 		<MOVE ,THORBAST ,HERE>
 		<MOVE ,YOUNG-WOMAN ,HERE>
@@ -635,7 +635,7 @@ D ,THORBAST " lunges at your chest, but your own blade knocks ">
 		<COND (<EQUAL? .OARG ,M-OBJDESC?>
 		       <RTRUE>)>
 		<COND (<NOT <VERB? EXAMINE>>
-		       <TELL "   ">)>
+		       <TELL "  ">)>
 		<TELL "Chief Assassin " D ,THORBAST " floats before you, ">
 		<HIS-HER>
 		<TELL
@@ -790,7 +790,7 @@ good guy, and therefore ">
 		<COND (<EQUAL? ,HERE ,IN-SPACE>
 		       <COND (<EQUAL? .OARG ,M-OBJDESC?>
 			      <RTRUE>)>
-		       <TELL "   A " D ,YOUNG-WOMAN " of refined bearing">
+		       <TELL "  A " D ,YOUNG-WOMAN " of refined bearing">
 		       <DESCRIBE-YOUNG-WOMAN>)
 		      (T
 		       <RFALSE>)>)
@@ -918,7 +918,7 @@ than its bite." CR>)>)
 	 <COND (<NOT <IN-SPACE?>>
 		<RFALSE>)>
 	 <TELL
-"   A rumbling from outside the ship sends shivers running through the deck.">
+"  A rumbling from outside the ship sends shivers running through the deck.">
 	 <COND (<OR <EQUAL? ,HERE ,HOLD>
 		    <AND <EQUAL? ,HERE ,AT-MAIN-HATCH>
 			 <FSET? ,HATCH ,OPENBIT>>>
@@ -955,7 +955,7 @@ than its bite." CR>)>)
 		<MOVE ,PHOTO ,PROTAGONIST>
 		<INCREMENT-SCORE 17 13 T>
 		<TELL
-"   The " D ,YOUNG-WOMAN " turns to you. \"I am called Elysi">
+"  The " D ,YOUNG-WOMAN " turns to you. \"I am called Elysi">
 		<COND (,MALE
 		       <TELL "a">)
 		      (T
@@ -1031,7 +1031,7 @@ now, I must retire to my cabin to recover from this hideous ordeal.\" ">
 " Naturally, you apologize and beat a hasty retreat.">)
 		      (T
 		       <TELL CR
-"   \"How dare you come in here without knocking! Am I to be allowed
+"  \"How dare you come in here without knocking! Am I to be allowed
 no privacy at all? Will my horror never end? Will...\" ">
 		       <SHE-HE T>
 		       <TELL
@@ -1042,7 +1042,7 @@ set in, begins sobbing. Moved, you take ">
 		       <COND (<EQUAL? ,NAUGHTY-LEVEL 1>
 			      <TELL " One thing leads to another...">)
 			     (T
-			      <TELL CR "   You dry ">
+			      <TELL CR "  You dry ">
 			      <HER-HIS>
 			      <TELL
 " tears, and as your bodies press closer, hysteria slowly turns
@@ -1061,7 +1061,7 @@ to lust. You tenderly lead Elysi">
 			      <TELL
 " is struck with an idea. \"Would ... would you like to tie me up?
 It really turns me on...\"">)>
-		       <TELL CR "   Much, much later, making sure that Elysi">
+		       <TELL CR "  Much, much later, making sure that Elysi">
 		       <COND (,MALE
 			      <TELL "a">)
 			     (T

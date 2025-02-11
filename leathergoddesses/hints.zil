@@ -11,18 +11,18 @@
 <VERB-SYNONYM HELP HINT HINTS CLUE CLUES INVISICLUES>
 <SYNTAX HELP OFF OBJECT (FIND RLANDBIT) = V-HINTS-NO>
 
-<CONSTANT RETURN-SEE-HINT " RETURN = see hint">
-<CONSTANT RETURN-SEE-HINT-LEN <LENGTH " RETURN = see hint">>
-<CONSTANT Q-MAIN-MENU "Q = main menu">
-<CONSTANT Q-MAIN-MENU-LEN <LENGTH "Q = main menu">>
+<CONSTANT RETURN-SEE-HINT "return:see hint">
+<CONSTANT RETURN-SEE-HINT-LEN <LENGTH "return:see hint">>
+<CONSTANT Q-MAIN-MENU "q:main menu">
+<CONSTANT Q-MAIN-MENU-LEN <LENGTH "q:main menu">>
 <CONSTANT INVISICLUES "INVISICLUES (tm)">
-<CONSTANT INVISICLUES-LEN <LENGTH "INVISICLUES (tm)">>
-<CONSTANT Q-SEE-HINT-MENU "Q = see hint menu">
-<CONSTANT Q-SEE-HINT-MENU-LEN <LENGTH "Q = see hint menu">>
-<CONSTANT Q-RESUME-STORY "Q = Resume story">
-<CONSTANT Q-RESUME-STORY-LEN <LENGTH "Q = Resume story">>
-<CONSTANT PREVIOUS "P = Previous">
-<CONSTANT PREVIOUS-LEN <LENGTH "P = Previous">>
+<CONSTANT INVISICLUES-LEN <LENGTH "INVISICLUES (TM)">>
+<CONSTANT Q-SEE-HINT-MENU "q:hint menu">
+<CONSTANT Q-SEE-HINT-MENU-LEN <LENGTH "q:hint menu">>
+<CONSTANT Q-RESUME-STORY "q:resume story">
+<CONSTANT Q-RESUME-STORY-LEN <LENGTH "q:resume story">>
+<CONSTANT PREVIOUS "p:previous">
+<CONSTANT PREVIOUS-LEN <LENGTH "p:previous">>
 
 <GLOBAL LINE-TABLE		;"zeroth (first) element is 5"
 	<PTABLE
@@ -30,7 +30,7 @@
 
 <CONSTANT COLUMN-TABLE		;"zeroth (first) element is 4"
 	<PTABLE
-	  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4>>
+	  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3>>
 
 ; "If the first argument is non-false, build a parallel impure table
    for storing the count of answers already seen; make it a constant
@@ -77,45 +77,45 @@
    <EVAL <FORM PLTABLE !<REST .HL>>>>
 
 ;"longest hint topic can be 17 chars"
-;"longest question can be 36 chars."
+;"longest question can be 30?? chars. I think 30 is OK now for Status Line"
 ;"question can't have more than 32 answers"
 
 <CONSTANT HINTS
   <CONSTRUCT-HINTS HINT-COUNTS ;"Put topics in Quotes - followed by PLTABLEs
 				 of Questions and Answers in quotes"
 	"JOE'S BAR"
-	<PLTABLE "How can I get out of the bar area?"
+	<PLTABLE "How can I get out of the bar?"
 		 "There's no way to leave the bar through the front door."
 		 "There's another way to leave, but you won't be able to until you've relieved your bladder."
 		 "Just enter the bathroom of your choice (NW or NE), relieve yourself, then wait for a few turns.">
-	<PLTABLE "This section sure was short huh?"
+	<PLTABLE "This section sure was short!"
 		 "Yup.">
 	"PRISON AREA"
 	<PLTABLE "How can I get out of my cell?"
 		 "You're gonna feel pretty silly when you get to the next hint."
 		 "Try OPEN THE DOOR.">
-	<PLTABLE "Is the hunk of brown food important?"
+	<PLTABLE "Is the brown food important?"
 		 "Smell it."
 		 "You could try eating the chocolate to see what happens..."
 		 "...but since you're not hungry, it's probably best to hang onto it until you need it.">
-	<PLTABLE "Can I avoid the Leckbandi guards?"
+	<PLTABLE "Can I avoid the guards?"
 		 "Just don't go east or west from End of Hallway.">
 	<PLTABLE "Is Trent/Tiffany important?"
 		 "You'll never finish the story without him/her."
 		 "Once you've met in the Other Cell, he/she will follow you around. The places where he/she can help you will be revealed in the hints to other questions.">
-	<PLTABLE "Is there a way to light the Closet?"
+	<PLTABLE "Can I light the Closet?"
 		 "Sure. Turn on the flashlight.">
-	<PLTABLE "Can I get the basket off the shelf?"
+	<PLTABLE "Can I get the basket?"
 		 "There are two ways. Both involve increasing your height."
 		 "If you brought the stool from the bathroom, you can get the basket by standing on it."
 		 "Otherwise, find Trent/Tiffany. When he/she follows you into the Closet, climb on him/her.">
-	<PLTABLE "How can I leave the prison area?"
+	<PLTABLE "How can I leave the prison?"
 		 "The answer has something to do with the black circles on the Roof and in the Closet."
 		 "They're teleportation devices. Standing on them transports you elsewhere.">
 	<PLTABLE "Is the basement important?"
 		 "No."
 		 "This space intentionally left blank.">
-	<PLTABLE "Is the scrap of paper meaningful?"
+	<PLTABLE "Is the scrap of paper useful?"
 		 "Yes, it's a word search."
 		 "It will become more meaningful once Trent/Tiffany gives you the matchbook with the parts list on it."
 		 "Search for the items on the parts list within the grid of letters on the scrap of paper. As you find each of the eight items, circle or cross off its letters."
@@ -123,7 +123,7 @@
 		 "Namely: HISSING FRIGHTENS FLYTRAPS."
 		 "This is one of two methods of getting past the Venus flytrap. Just HISS when you're in the same location as the flytrap.">
 	"VENUS"
-	<PLTABLE "How do I get past the Venus flytrap?"
+	<PLTABLE "How to get past Venus flytrap?"
 		 "There are two ways. The more straightforward way is to kill it. The knowledge of how to kill it comes from the scrap of paper in Trent/Tiffany's cell. See the \"scrap of paper\" question from the PRISON AREA section."
 		 "A second way to get past the flytrap is to trap it."
 		 "Don't go on unless you've been to Cleveland."
@@ -131,7 +131,7 @@
 		 "Put the trellis over the tree hole..."
 		 "...and the leaves over the trellis."
 		 "If the flytrap sees you setting the trap, it won't fall for it, and therefore won't fall into it. \"Shake off\" the flytrap by going to the Clearing. Then return to the tree hole, set the trap, go to the Jungle to attract the flytrap again, and finally return to the fork and wait a few turns.">
-	<PLTABLE "Is the untangling cream important?"
+	<PLTABLE "Is untangling cream important?"
 		 "Yes."
 		 "Don't go on unless you have the odd machine."
 		 "Don't go on unless you understand what the odd machine does."
@@ -139,14 +139,14 @@
 		 "It's on Mars..."
 		 "It's in the Ruined Castle area..."
 		 "See the question about King Mitre.">
-	<PLTABLE "How can I get out of the tree hole?"
+	<PLTABLE "How to get out of tree hole?"
 		 "There's no reason to ever get into the tree hole."
 		 "But if you do, you can climb out by standing on the stool or by standing on Trent/Tiffany. If you don't have the stool, or if you're alone, you're stuck.">
 	<PLTABLE "What is the can of stain for?"
 		 "Have you read what it says on the can?"
 		 "It's for staining those black circles black. Of course, it's possible that all the ones you've seen are already black."
 		 "See the question about the white circle at the Oasis in the Mars section.">
-	<PLTABLE "What do I barter to get the machine?"
+	<PLTABLE "What to barter for machine?"
 		 "There are no clues in the story about this. You'll have to try everything you can find."
 		 "OFFER THE FLASHLIGHT TO THE SALESMAN.">
 	<PLTABLE "How does the odd machine work?"
@@ -163,12 +163,12 @@
 		 "The doors are locked and you cannot unlock them."
 		 "How would you normally get into someone's house?"
 		 "Knock on the door (either front or back).">
-	<PLTABLE "How do I get the hose from the cage?"
+	<PLTABLE "How to get hose from the cage?"
 		 "Have you tried to bend the bars?"
 		 "You'll go ape solving this puzzle."
 		 "WAIT a bit once you've gotten to the Laboratory."
 		 "You end up switching identities with the gorilla of your sex, and can now easily get the rubber hose. But, unfortunately, you're now trapped in the cage and in the body of a gorilla! See the next question.">
-	<PLTABLE "I'm stuck in the cage as a gorilla!"
+	<PLTABLE "I'm stuck as a caged gorilla!"
 		 "Have you tried to bend the bars as a gorilla?"
 		 "You need a little more energy..."
 		 "...like you might get from a sugar rush..."
@@ -178,7 +178,7 @@
 		 "You still need to get back into your own body, of course. How did the mad scientist cause the transfer?"
 		 "The red power switch, of course! Throw the switch and you'll be back in your own body."
 		 "But don't forget to untie yourself first, or you'll be trapped on the slab when you get back in your own body!">
-	<PLTABLE "Is the Vizicomm Booth important?"
+	<PLTABLE "Is Vizicomm Booth important?"
 		 "Yes."
 		 "It's broken and can't be repaired, so you can't make any calls. But there's something you can get in the booth."
 		 "Push the coin return knob..."
@@ -188,7 +188,7 @@
 		 "Using the black circle at the Rocky Clifftop."
 		 "There's also a black circle beyond the flytrap.">
 	"MARS - RUINS AREA"
-	<PLTABLE "What should I do about the frog?"
+	<PLTABLE "What to do about the frog?"
 		 "You won't be able to solve this puzzle until you've been around a bit. To other sections of the story, that is."
 		 "Examine the frog."
 		 "The frog is an enchanted prince or princess."
@@ -206,7 +206,7 @@
 		 "Mice are terrified of cats."
 		 "There's a painting of a cat in your Cell."
 		 "Show the painting to the mouse. You will be able to take the mouse until its fright wears off several turns later.">
-	<PLTABLE "ASK ABOUT KING MITRE AND THE ANGLES"
+	<PLTABLE "ASK ABOUT KING AND ANGLES"
 		 "You can't use multiple objects with \"ask.\" Hey, King Mitre and the Angles -- sounds like a 50's rock and roll group, huh? But seriously, Mitre is obviously pretty dejected. Do you know why?"
 		 "Because he's turned his daughter into a 45 degree angle. (She's the angle with the golden hair and satin robes.)"
 		 "I bet that if you found a way to \"cure\" her, the King would be VERY grateful."
@@ -215,26 +215,26 @@
 		 "See the question about the untangling cream in the Venus section."
 		 "Put the unangling cream on the princess to \"cure\" her.">
 	"ALONG THE CANAL"
-	<PLTABLE "How can I control the royal barge?"
+	<PLTABLE "How to control royal barge?"
 		 "Examine the controls. Read the buttons. Try pushing them."
 		 "The orange button turns the magnetic mooring mechanism on or off. If you're docked, pushing the orange button will send you off into the canal. If you're in the canal near a dock, turn on the MagnetoMoor to dock. If you're in the canal but not near a dock, turning on the MagnetoMoor will have no immediate effect -- but if you subsequently pass a dock, you'll dock at it automatically."
 		 "The purple button turns the engines on or off. When the button reads \"Full Spead Ahead\" the engines are on, and the barge will move to a new canal location every turn. When the button reads \"Go With The Flow\" the engines are off, and the barge will move to a new canal location only every other turn.">
-	<PLTABLE "How can I decode the coded message?"
+	<PLTABLE "How do I decode the message?"
 		 "Reread \"The Adventures of Lane Mastodon #91.\""
 		 "Look at the center-left panel on Page 5 of the comic. This tells you how to decode Martian messages."
 		 "One additional catch: once you've decoded the message you also have to read it backwards! (Including the number.)">
-	<PLTABLE "How do I get to the other dock?"
+	<PLTABLE "How to get to the other dock?"
 		 "At the place in the canal where two docks are directly opposite each other, you can get to either dock using the barge, but not both in the same play-through of the story. Once the barge has docked at one of the docks, there's no way to get the barge to the other dock."
 		 "You should use the barge to get to the dock on the east bank."
 		 "It has something to do with the barge controls and the river current."
 		 "Control the barge's speed with the purple button. When the engines are on, the barge will make a wider turn and end up near the east bank. With the engines off, you'll drift around the bend and end up near the west bank."
 		 "Later, to get to the dock on the west side of the canal, you'll need something from the palace area."
 		 "Use the raft from the Catacombs. (Teleport to the ruined castle region, put the raft in the water, get in the raft, and drift until you're at Donald Dock or the Abandoned Dock.)">
-	<PLTABLE "How can I land if I'm in the raft?"
+	<PLTABLE "How to land if I'm in raft?"
 		 "You can only land when you're near a dock. To do so, just GRAB THE DOCK.">
-	<PLTABLE "Can I do anything at the Dunetop?"
+	<PLTABLE "Anything to do at Dunetop?"
 		 "No. It's just a view of what's beyond the bend in the canal.">
-	<PLTABLE "Can I do anything at Canalview Mall?"
+	<PLTABLE "Do anything at Canalview Mall?"
 		 "The only interesting thing is the Exit Shop.">
 	<PLTABLE "How can I buy an exit?"
 		 "You won't have what it takes until you've been to several different parts of the story."
@@ -248,7 +248,7 @@
 		 "The exit is inside the tube! It's a portable black circle! It must be on the ground to function.">
 	<PLTABLE "What does the buoy mean?"
 		 "There's danger further down the canal.">
-	<PLTABLE "How does the white circle work?"
+	<PLTABLE "How does white circle work?"
 		 "It's just like the black circles you've seen, only it's faded to white. Try stepping on it."
 		 "I guess they only work when they're black."
 		 "Have you been to Venus?"
@@ -257,7 +257,7 @@
 	<PLTABLE "Is the rabbit important?"
 		 "No."
 		 "Eh...What's up, Doc?">
-	<PLTABLE "Can I get past the ion beam safely?"
+	<PLTABLE "Can get past ion beam safely?"
 		 "Yes."
 		 "There's no way to turn off the beam, and no way to pass through that section of the canal without being affected."
 		 "There is, however, a way to \"jump past\" the beam."
@@ -269,52 +269,52 @@
 		 "Have you realized that you can push the buttons on the barge while standing on the dock?"
 		 "From My Kinda Dock, send the barge downstream by pressing the orange button while standing on the dock. Wait long enough to allow the barge to pass the beam. Now go to Well Bottom and step on the black circle, or climb down the well in the Oriental Garden.">
 	"SULTAN'S PALACE"
-	<PLTABLE "What do I do in the Laundry Room?"
+	<PLTABLE "What to do in Laundry Room?"
 		 "Get the clothes pin.">
-	<PLTABLE "Is the Oriental Garden important?"
+	<PLTABLE "Is Oriental Garden important?"
 		 "The well is somewhat interesting. Look into it."
 		 "Try climbing down it.">
-	<PLTABLE "What should I do at the Minaret?"
+	<PLTABLE "What to do at the Minaret?"
 		 "Nice view. There's also a black circle."
 		 "Hey, wait a minute! It takes me to a place with no exits."
 		 "Like I said, wait a minute! The floor will collapse, creating an exit from the Cramped Space, and revealing a new black circle, as well!"> 
-	<PLTABLE "Help! The Sultan/Sultaness kills me."
+	<PLTABLE "Help! Sultan(ess) kills me."
 		 "Maybe you didn't answer when he/she asked if you were ready for the riddle. Type ANSWER \"YES\"."
 	         "Maybe you didn't give an answer to the riddle! You have only three turns to do so.">
-        <PLTABLE "The Sultan(ess) kills Trent/Tiffany!"
+        <PLTABLE "Sultan(ess) kills Trent/Tiff!"
 		 "Don't worry about it.">
-	<PLTABLE "What is the answer to the riddle?"
+	<PLTABLE "What is answer to the riddle?"
 		 "The riddle is designed to mislead you into thinking that the answer is something like \"SEX\" or \"LOVE\"."
 		 "However, it IS something intangible."
 		 "It's something you've encountered in the game."
 		 "In fact, it's something you encountered in the palace area."
 		 "In fact, it's something you've encountered in this very room (the Audience Chamber)!"
 		 "The answer to the riddle is the riddle! Type ANSWER \"RIDDLE.\"">
-	<PLTABLE "What number should I give the guard?"
+	<PLTABLE "What number do I give guard?"
 		 "I hope you've been to Among the Dunes."
 		 "Have you deciphered the message?"
 		 "Ask for the husband/wife number mentioned in the message. Remember that the message is backwards, and so is the number. Type ANSWER \"123\" or ASK GUARD FOR 789 (for example).">
-	<PLTABLE "What should I do in the Inner Harem?"
+	<PLTABLE "What to do in the Inner Harem?"
 		 "Do you really have to ask me?"
 		 "If you've asked for the correct husband/wife (see the previous question), you should know what to do."
 		 "Ask him/her to do what the secret message tells you to ask.">
-	<PLTABLE "It's too dark in the Catacombs!"
+	<PLTABLE "The Catacombs are too dark!"
 		 "Take the torch that the husband/wife lays at your feet, you ninny! Or use the flashlight, if you still have it.">
-	<PLTABLE "How do I navigate the Catacombs?"
+	<PLTABLE "How to navigate the Catacombs?"
 		 "Use the secret map, which the husband/wife gives you, which is also the map that comes in your LGOP package."
 		 "There's an arrow on the \"Lower Level\" side which shows you the point at which you enter the Catacombs."
 		 "The map is very old, however. Since it was made, many of the passages have collapsed into rubble, blocking your way. You have to figure out which ones are blocked and which are still open."
 		 "There are four interesting locations within the Catacombs; these are shown on the map as squares rather than circles."
 		 "If you are still stuck, or can't figure it out, look at the \"I'm really stuck\" question.">
-	<PLTABLE "I get attacked in the Catacombs!"
+	<PLTABLE "I get attacked in Catacombs!"
 		 "Reread \"The Adventures of Lane Mastodon #91\"."
 		 "Specifically, the lower left panel on page 7."
 		 "Do what Professor Ziggeraut suggests, as often as he suggests, if not more often. (You can assume that one turn equals one minute).">
-	<PLTABLE "How can I get out of the Catacombs?"
+	<PLTABLE "How do I exit the Catacombs?"
 		 "Via the ladder in the Ladder Room, or the black circle in the Well Bottom.">
-	<PLTABLE "What should I do in the Catacombs?"
+	<PLTABLE "What to do in the Catacombs?"
 		 "You need to get the phone book (one of the items on the parts list) from the Forgotten Storehouse, and you need to get the raft (see the question, earlier in this section, about the two docks on opposite sides of the canal).">
-	<PLTABLE "Help!!! I'm really stuck. I give up."
+	<PLTABLE "I'm really stuck. I give up!"
 		 "Don't go further unless you just want us to tell you exactly what to type to get through the catacombs."
 		 "These explicit directions start from having gone DOWN to enter the catacombs. They assume you have a light source and can pick up two more objects."
 		 "NW. N. NE. E. CLAP"
@@ -333,18 +333,18 @@
 		 "The turn after you've gone down into the catacombs (but haven't moved) type $CATACOMB to cheat your way through. You'll end up at the Ladder Room with the raft and the Cleveland telephone directory."
 		 "You're welcome.">
 	"SOUTH POLE"
-	<PLTABLE "I lost Trent/Tiffany at Icy Dock!"
+	<PLTABLE "I lost Trent/Tiff at Icy Dock!"
 		 "Don't worry about it.">
-	<PLTABLE "How can I get past the penguins?"
+	<PLTABLE "How to get past the penguins?"
 		 "Read the sign."
 		 "You'll need something from Venus."
 		 "Give the coin from the Vizicomm Booth to the penguins.">
 	<PLTABLE "How can I save the gypsies?"
 		 "You can't."> 
-	<PLTABLE "What should I do with the baby?"
+	<PLTABLE "What to do with the baby?"
 		 "Its parents have been killed."
 		 "That makes it an orphan. Perhaps you can find an orphanage somewhere.">
-	<PLTABLE "How can I get into the igloo?"
+	<PLTABLE "How to get into the igloo?"
 		 "Read the sign."
 		 "Have you seen anything that might interest those running an orphanage?"
 		 "The baby from the Tent in the Gypsy Camp."
@@ -355,26 +355,26 @@
 		 "Wrap the baby in the blanket (from your Cell). Then put the baby in the basket (from the Closet)."
 		 "Now put the basket on the front stoop of the igloo. Wait a few turns."
 		 "When the matron gets the baby, she forgets to lock the door. You can now open it. Once inside, you have a few turns to grab the cotton balls before the matron discovers you.">
-	<PLTABLE "What's the geography near the igloo?"
+	<PLTABLE "What's geography near igloo?"
 		 "You're at the south pole of Mars. The only direction you can go from a south pole is north! To enter the igloo, type ENTER THE IGLOO.">
 	"CLEVELAND"
 	<PLTABLE "Is the rake useful?"
 		 "The rake is completely useless.">
 	<PLTABLE "How about the sack?"
 		 "The sack is necessary only to carry the leaves around. It's also useful for carrying things once you reach the limit of individual items that you can hold at once.">
-	<PLTABLE "Well then, what about the leaves?"
+	<PLTABLE "OK, what about the leaves?"
 		 "The leaves are important for solving one puzzle."
 		 "You find out more when you come to the particular puzzle.">
-	<PLTABLE "How do I get the telephone directory?"
+	<PLTABLE "How get telephone directory?"
 		 "Don't go on until you've been in Basement of House."
 		 "Have you opened the trunk labelled \"Old Appliances\"?"
 		 "Surely you examined the boomerang!"
 		 "Can we assume that you thoroughly interrogated Winston Churchill and Attila the Hun?"
 		 "Have you realized that this is one of those fake questions designed to keep you from reading hints to puzzles you're not stumped on? There's no basement in Cleveland!">
-	 <PLTABLE "Where's the Cleveland phonebook?"
+	 <PLTABLE "Where's Cleveland phonebook?"
 		  "It's not anywhere in Cleveland."
 		  "When you get there, the phonebook will be obvious."> 
-	 <PLTABLE "Is there anything in the bedroom?"
+	 <PLTABLE "Anything in the bedroom?"
 		  "Have you looked out the window?">
 	 <PLTABLE "How can I get the headlight?"
 		  "There's no way to access the Ford other than via the Bedroom window."
@@ -385,10 +385,10 @@
 		  "Tie the resulting strips together."
 		  "Tie the rope to the bed then throw it out the window."
 		  "If YOU climb down the rope, it breaks and you die. However, if Trent/Tiffany is with you, he/she seems willing to take the risk! Just wait a turn.">
-	 <PLTABLE "Trent/Tiffany got killed by a truck!"
+	 <PLTABLE "Trent/Tiffany killed by truck!"
 		  "Jolly bad show, but things are not always as they appear."
 		  "WAIT another turn after the \"accident.\"">
-	 <PLTABLE "Can I stop the brakes from failing?"
+	 <PLTABLE "Prevent brakes from failing?"
 		  "Sure. Get the brakes a good tutor."
 		  "But seriously, folks, when did your brakes fail? There's no way to get to the car, let alone get into it, let alone start it, let alone experience a brake failure. This is a fake question.">
 	 <PLTABLE "What can I do in the Garden?"
@@ -396,14 +396,14 @@
 		  "The flowers, however, are not one of them."
 		  "You might want to snatch the trellis, though."
 		  "Also, see the next question.">
-	 <PLTABLE "HELP! How do I get out of Cleveland?"
+	 <PLTABLE "How do I leave Cleveland?!"
 		  "Millions ask this question daily."
 		  "There's an exit in the garden."
 		  "EXAMINE THE SOD."
 		  "LOOK UNDER IT."
 		  "ROLL IT UP! Voila, a black circle.">
 	 "OUTER SPACE"
-	 <PLTABLE "When I reach the Hold, I'm blown up!"
+	 <PLTABLE "Reaching the Hold, I blow up!"
 		  "Don't step on the black circle in the Spawning Ground unless Trent/Tiffany is with you.">
 	 <PLTABLE "Trent/Tiffany gets blown up!"
 		  "Don't worry about it."
@@ -420,10 +420,10 @@
 		  "But the only exit from this battleship is down at the other end of that Long Corridor."
 		  "You can't walk to the hatch in time to get to the other ship before it rumbles away."
 		  "But you can make it in time if you ride a horse!">
-	 <PLTABLE "I keep dying from the cold In Space."
+	 <PLTABLE "Keep dying from cold In Space."
 		  "You missed something obvious."
 		  "You need to wear the therma-suit you'll find At Main Hatch.">
-	 <PLTABLE "How do I get past Thorbast/Thorbala?"
+	 <PLTABLE "How get past Thorbast(bala)?"
 		  "You'll never get past while he's/she's alive."
 		  "Try killing him/her with the sword from the Hold."
 		  "Thorbast/Thorbala is a tough opponent, but after several attempts to kill him/her with your sword you will succeed in knocking Thobast's/Thorbala's sword out of his/her hands. Take it as it floats toward you, disarming Thorbast/Thorbala."
@@ -431,16 +431,16 @@
 		  "What would the \"good guy\" in any sword fight do upon disarming his/her opponent?"
 		  "Once you're holding Thorbast's/Thorbala's sword, give it to him/her."
 		  "You must get Thorbast/Thorbala to \"give up\" before the bug-eyed monster carries away the young man/woman.">
-	 <PLTABLE "How can I save the young man/woman?"
+	 <PLTABLE "How to save the man/woman?"
 		  "You'll have to get past Thorbast/Thorbala first."
 		  "Once you've done that, it's easy!"
 		  "Just kill the monster. Even your bare hands are sufficient."
 		  "Then, don't forget to untie the young man/woman.">
-	 <PLTABLE "What about after saving him/her?"
+	 <PLTABLE "After saving him/her?"
 		  "He/she enters the small spaceship and beckons you to follow."
 		  "So follow!"
 		  "Once you enter the Space Yacht, Elysia/Elysium will give you the photo you need. And when you return to the battleship, you may have an unexpected meeting!">
-	 <PLTABLE "How can I land on Titan safely?"
+	 <PLTABLE "How to land on Titan safely?"
 		  "A ship this size must have an auto-pilot."
 		  "It's probably behind the panel in the Control Room."
 		  "Did you turn the auto-pilot on?"
@@ -451,7 +451,7 @@
 		  "There's a black circle aboard the battleship."
 		  "It's in the third Long Corridor location west of the Stable.">
 	 "NEPTUNE"
-	 <PLTABLE "Is there any way to light the cave?"
+	 <PLTABLE "Any way to light the cave?"
 	          "Probably."
 		  "But considering the \"interests\" of the creature who lives in the cave, would you really want to ruin things by bringing a light?">
 	 <PLTABLE "Is the love potion useful?"
@@ -460,22 +460,22 @@
 		  "Natasha/Ivan seems pretty aloof, wouldn't you say?"
 		  "Put the love potion in her/his vodka."
 		  "Don't put it in the orangutang's milk by accident.">
-	 <PLTABLE "Help! I can't keep the baboons away!"
+	 <PLTABLE "I can't keep the baboons away!"
 		  "Let's face it, you just have animal magnetism."
 		  "Have you ever wondered what the extra machine on your spacesuit was?"
 		  "It's an animal magnet! Switch it off."
 		  "The vaseline will help loosen the switch."
 		  "Once the monkeys have stopped bothering you, the bouncer will let you into the bordello.">
-	 <PLTABLE "How do I avoid the Throbber Rays?"
+	 <PLTABLE "How to avoid Throbber Rays?"
 		  "You'll need the germanium shielding from Mercury."
 		  "You'll also need some fruit from the orchard on Io."
 		  "And you'll definitely need the makeup kit from the transvestites on Ceres."
 		  "But mostly, you'll need to ignore answers to questions you're not stuck on.">
 	 "BOUDOIR/PLAZA"
-	 <PLTABLE "What's the Boudoir and what do I do?"
+	 <PLTABLE "The Boudoir. What do I do?"
 		  "You find out more about the Boudoir a few turns after your arrival. Meanwhile, why not \"enjoy\" the company of your divan-mate?"
 		  "At long last, you have come face to face with your archenemies, the Leather Goddesses of Phobos!">
-	 <PLTABLE "I'm in the Plaza. What do I do here?"
+	 <PLTABLE "At the Plaza. What do I do?"
 		  "If Trent/Tiffany isn't with you, not much."
 		  "It's time for Trent/Tiffany to build his/her Super-Duper Anti-Leather Goddesses of Phobos Attack Machine. Just give him/her whatever item from the parts list he/she asks for. You must do this immediately...you can't spare a single turn."
 		  "If you got to the Plaza without all eight items from the parts list, you're lost. You'll have to RESTART (or RESTORE) and collect them all before returning."
@@ -497,12 +497,12 @@
 	 <PLTABLE "It won't let me into LEWD mode."
 		  "You must be at least 18 years old."
 		  "If you are, just type 18 (or whatever) when prompted to input your age. If you're not, you simply can't play in LEWD mode!">
-	 <PLTABLE "Why does LGOP take place in Ohio?"
+	 <PLTABLE "LGOP takes place in Ohio???"
 		  "Why not?">
 	 <PLTABLE "Is a marsmid like a zorkmid?"
 		  "They're both coins...">
 	 "MISCELLANEOUS"
-	 <PLTABLE "Where the Scratch-n-sniff Odors Are"
+	 <PLTABLE "Scratch-n-sniff Locations"
 		  "Don't expose the answers until you've finished
 the story, or you might see things you don't want to see!"
 		  "1. Pizza (in the bathroom after urinating)"  
@@ -513,7 +513,7 @@ the story, or you might see things you don't want to see!"
 		  "6. Leather (in the Boudoir -- this scent is weaker than the others)"
 		  "7. Banana (on the last turn before winning)"  
 		  "Some other odors we were considering: Skunk, Peanut Butter, Grapefruit, Bubble Gum, Whipped Cream, Mushroom, New Car, Anchovy, Martini, Fried Chicken...">
-	 <PLTABLE "Where All the Sex Scenes Are Located"
+	 <PLTABLE "Sex Scene Locations"
 		  "Reading the next hint will give things away. Don't go any further until you finish the story."
 		  "There are five opportunities for some \"foolin' around\""
 		  "1. Solving the frog puzzle."
@@ -522,7 +522,7 @@ the story, or you might see things you don't want to see!"
 		  "4. Following Elysia/Elysium into his/her private cabin after he/she gives you the photo."
 		  "5. On the divan in the Boudoir."
 		  "Don't forget to experience these \"episodes\" in all three naughtiness levels. (Unless you're underage, of course. Or unless you're a personal friend of Ed Meese. If you're a personal friend of Ed Meese, we're just joking and there really aren't any sex scenes at all.)">
-	 <PLTABLE "Where All the Parts Are Located"
+	 <PLTABLE "All the Parts Locations"
 		  "This section tells you where to find the eight items on the parts list. Use it only as a last resort."
 		  "Common household blender -- from the frog prince"
 		  "Six feet of rubber hose -- in the cage in the Laboratory"
@@ -768,7 +768,7 @@ hint now, indicate HINT.]" CR>
 
 <ROUTINE ERASE-CURSOR ()
 	<CURSET <GET ,LINE-TABLE ,CUR-POS>
-		<- <GET ,COLUMN-TABLE ,CUR-POS> 2>>
+		<- <GET ,COLUMN-TABLE ,CUR-POS> 1>>
 	<TELL " ">	;"erase previous highlight cursor">
 
 ;"go back 2 spaces from question text, print cursor and flash is between
@@ -776,7 +776,7 @@ the cursor and text"
 
 <ROUTINE NEW-CURSOR ()
 	<CURSET <GET ,LINE-TABLE ,CUR-POS>
-		<- <GET ,COLUMN-TABLE ,CUR-POS> 2 ;1>>
+		<- <GET ,COLUMN-TABLE ,CUR-POS> 1 ;1>>
 	<TELL ">">	;"print the new cursor">
 
 <ROUTINE INVERSE-LINE ("AUX" (CENTER-HALF <>)) 
@@ -794,11 +794,11 @@ the cursor and text"
   <CENTER-LINE 1 ,INVISICLUES ,INVISICLUES-LEN>
   <CURSET 3 1>
   <INVERSE-LINE>
-  <LEFT-LINE 3 "RETURN = see new hint">
+  <LEFT-LINE 3 "return:see hint">
   <RIGHT-LINE 3 ,Q-SEE-HINT-MENU ,Q-SEE-HINT-MENU-LEN>
   <CURSET 2 1>
   <INVERSE-LINE>
-  <HLIGHT ,H-BOLD>
+  <HLIGHT ,H-ITALIC>
   <SET H <GET <GET ,HINTS ,CHAPT-NUM> <+ ,QUEST-NUM 1>>>
   ; "Byte table to use for showing questions already seen"
   ; "Actually a nibble table.  The high four bits of each byte are for
@@ -887,10 +887,10 @@ the cursor and text"
   <CURSET 3 1>
   <INVERSE-LINE>
   <CENTER-LINE 1 ,INVISICLUES ,INVISICLUES-LEN>
-  <LEFT-LINE 2 " N = Next">
+  <LEFT-LINE 2 "n:next">
   <RIGHT-LINE 2 ,PREVIOUS ,PREVIOUS-LEN>
   <COND (.THIRD
-	 <LEFT-LINE 3 " RETURN = See hint">
+	 <LEFT-LINE 3 "return:see hint">
 	 <RIGHT-LINE 3 ,Q-RESUME-STORY ,Q-RESUME-STORY-LEN>)>>
 
 <ROUTINE CENTER-LINE (LN STR "OPTIONAL" (LEN 0) (INV T))
