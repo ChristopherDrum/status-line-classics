@@ -1,3 +1,5 @@
+# Curses
+
 ## About "Curses" for Status Line
 A difficult project to reformat for a small screen, especially due to the extensive use of very lengthy quote blocks (like we seen in Trinity, for example).
 
@@ -11,6 +13,8 @@ I had two options here: remove the quotes that are too long, or reformat every q
 This was the trickiest puzzle to adapt, because it truly did rely on having a wider screen to display left-right puzzle information: cryptic symbols on the left aligned with translation symbols on the right, line by line.
 
 Infocom have 19 lines of vertical space to work with and with a huge amount of luck the rosetta stone is 8 lines tall. I realized this meant I could split the stone in half and display left and right vertically, with left-aligned text, right-aligned text, and part identifiers. This put me at 18 display lines, which fit perfectly into one screen of information. I got very lucky.
+
+## Original README.txt from recreation repo
 
 Curses was written by Graham Nelson between 1993 and 1995 in versions
 of Inform between 1 and 6, a simple C-like programming language for
