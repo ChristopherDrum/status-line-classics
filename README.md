@@ -27,6 +27,9 @@ The in-game status line and "rosetta stone" puzzle both also proved challenging 
 ### Solid Gold Releases
 Zork 1, Planetfall, Leather Goddesses of Phobos, Wishbringer, and Hitchhiker's Guide were all tweaked in small ways, but most notably the Invisiclues screens were updated to fit and format to the narrow screen. This meant taking small liberties with phrasing of hint questions, to fit in the space provided without being quite as wordy as the originals. My apologies to any hard-line Infocom purists who might be offended by these truncations.
 
+<img src="https://github.com/user-attachments/assets/bf0c3116-ce87-4d9e-9d3c-a7ee57e8f8d6" width="200"/><img src="https://github.com/user-attachments/assets/614a4cb5-dbdb-4076-9bec-27bedf443bc7" width="200"/><img src="https://github.com/user-attachments/assets/e632e67b-98b0-4384-b3f9-2eedfd27fd1e" width="200" /><img src="https://github.com/user-attachments/assets/2b5ec099-75f1-411b-8245-f26c70492546" width="200" />
+
+
 ### Sherlock: The Riddle of the Crown Jewels
 In addition to the Invisiclues reformatting, various signage and quote boxes about town needed gentle nudging to fit on screen. Sherlock will run on a narrow screen, but will deny the ability to read in-world signage; this is fixed.
 
