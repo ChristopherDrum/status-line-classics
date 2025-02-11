@@ -1,5 +1,15 @@
 # Sherlock: The Riddle of the Crown Jewels
 
+## About *Sherlock* for Status Line
+
+Not much to say about this, except that it is odd how the game will happily launch on a system with a very narrow screen, but then in-game signage will complain about the screen being to narrow. However, reading signs is important, as the player needs to know (for example) the opening and closing hours for a museum. 
+
+I added debug teleportation code to jump from location to location so as to read the signs quickly and check formatting. Also rewrote (simplified) the centering routine to fit my needs.
+
+Quote boxes and Invisiclues had typical reformatting/rewording changes applied.
+
+Lastly, I applied a couple of bug fixes and spelling errors that were found by the community. Why not?
+
 ## The Game
 
 Sherlock is a 1987 interactive fiction game written by Bob Bates and published by Infocom.
