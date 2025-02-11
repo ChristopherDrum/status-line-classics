@@ -5,12 +5,12 @@ This is the game that pushed me to finally implement timed input support into St
 
 There are a few puzzle-important fixes that I needed to make to support the Pico-8's small screen.
 
-###Chapter 2 status bar puzzles
+### Chapter 2 status bar puzzles
 In Border Zone chapter 2, there are interesting (if perhaps not so intuitive) puzzles involved watching guards and searchlights. The information for updating the player with the real-time status of these elements is portrayed as character-based graphics in the expanded status bar.
 
 So, clearly the positioning of elements in the status bar for guard movement and such must be seen at all times and must also match the timing of guard position/orientation with its relative character position within the status bar. This required a little bit of tricky math adjustment (which I'm not 100% convinced I got right) to ensure the guards movements coordinated properly.
 
-###Chapter 3 apartment directory
+### Chapter 3 apartment directory
 To find the sniper nest, an apartment directory is consulted with empty positions representing potential locations. The layout of the directory is important to spatial understanding of which locations are located relative to other locations in the building. I found that this was actually quite a simple thing to adjust for the 32-character-wide screen, because the names are just pulled from a random list and have nothing to do with anything. They're not real vocabulary words.
 
 So, all I had to do was just limit the names to 6 characters instead of 9 and everything fit and formatted (with a little extra personal touch) just fine. The entire directory can be viewed and referenced in one screen.
