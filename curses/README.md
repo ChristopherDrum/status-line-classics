@@ -9,6 +9,8 @@ Curses takes a slightly rare approach to the status line by keeping it at 2 line
 ### Quote blocks
 I had two options here: remove the quotes that are too long, or reformat every quote to fit (barely!) onto screen. I opted for reformatting, as it is important to me to not alter anything editorially/content in these games. I believe I did justice to the formatting to preserve poem stanza/line breaks and authorial credits.
 
+I rewrote the entire "quote block centering" routine to be much simpler and more consistent.
+
 ### Rosetta stone
 This was the trickiest puzzle to adapt, because it truly did rely on having a wider screen to display left-right puzzle information: cryptic symbols on the left aligned with translation symbols on the right, line by line.
 
