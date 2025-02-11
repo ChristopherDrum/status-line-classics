@@ -24,14 +24,18 @@ I wanted to expand beyond the Infocom canon, and saw that this classic had been 
 
 The in-game status line and "rosetta stone" puzzle both also proved challenging to adapt and preserve Nelson's puzzle intent. I believe I've provided strong solutions to both layout challenges without compromising on his vision.
 
+<img src="https://github.com/user-attachments/assets/ec096d59-abc9-4c19-825d-9b7afb7148ec" width="200" /><img src="https://github.com/user-attachments/assets/75db52c7-5c85-4f2f-92f9-17997eda19d2" width="200" /><img src="https://github.com/user-attachments/assets/25fb021a-90aa-45ab-82bd-9c6900cc1a98" width="200" />
+
 ### Solid Gold Releases
 Zork 1, Planetfall, Leather Goddesses of Phobos, Wishbringer, and Hitchhiker's Guide were all tweaked in small ways, but most notably the Invisiclues screens were updated to fit and format to the narrow screen. This meant taking small liberties with phrasing of hint questions, to fit in the space provided without being quite as wordy as the originals. My apologies to any hard-line Infocom purists who might be offended by these truncations.
 
-<img src="https://github.com/user-attachments/assets/bf0c3116-ce87-4d9e-9d3c-a7ee57e8f8d6" width="200"/><img src="https://github.com/user-attachments/assets/614a4cb5-dbdb-4076-9bec-27bedf443bc7" width="200"/><img src="https://github.com/user-attachments/assets/e632e67b-98b0-4384-b3f9-2eedfd27fd1e" width="200" /><img src="https://github.com/user-attachments/assets/2b5ec099-75f1-411b-8245-f26c70492546" width="200" />
+<img src="https://github.com/user-attachments/assets/bf0c3116-ce87-4d9e-9d3c-a7ee57e8f8d6" width="200"/><img src="https://github.com/user-attachments/assets/614a4cb5-dbdb-4076-9bec-27bedf443bc7" width="200"/><img src="https://github.com/user-attachments/assets/e632e67b-98b0-4384-b3f9-2eedfd27fd1e" width="200" />
 
 
 ### Sherlock: The Riddle of the Crown Jewels
 In addition to the Invisiclues reformatting, various signage and quote boxes about town needed gentle nudging to fit on screen. Sherlock will run on a narrow screen, but will deny the ability to read in-world signage; this is fixed.
+
+![status_line_3_2](https://github.com/user-attachments/assets/47b69482-54fd-498e-94e4-5db248f270d5)
 
 ### Border Zone
 A tricky adaptation to the small screen, mostly because of the unusual status bar animations(?) that drive realtime puzzles. The player must "watch" certain events, and the status bar displays a continuously updated realtime display of the status of those events. This leads to some timed puzzles which are based on the visual information in the status bar, so I tried to be careful about adjusting anything that might disrupt that timing. I *think* I got it right, but that section of the game is kind of hard to get through as a matter of course.
