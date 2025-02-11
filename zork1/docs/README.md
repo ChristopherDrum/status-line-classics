@@ -1,5 +1,15 @@
 # Zork I: The Great Underground Empire (Solid Gold Edition)
 
+## About *Zork 1* for Status Line
+This is part of the Solid Gold series from Infocom, which re-released older z3 games as z5 games with built-in Invisiclues hint system. This set of games required very little in formatting; mostly just the hint system:
+- Zork 1
+- Hitchhiker's Guide to the Galaxy
+- Leather Goddesses of Phobos
+- Wishbringer
+- Planetfall
+
+This game required very tiny formatting changes to the boat instruction label and some signage.
+
 ## The Game
 
 Zork I is a 1980 interactive fiction game written by Marc Blank, Dave Lebling, Bruce Daniels and Tim Anderson and published by Infocom.

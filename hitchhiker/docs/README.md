@@ -1,5 +1,16 @@
 # The Hitchhiker's Guide to the Galaxy (Solid Gold Edition)
 
+## About *Hitchhiker's Guide* for Status Line
+This is part of the Solid Gold series from Infocom, which re-released older z3 games as z5 games with built-in Invisiclues hint system. This set of games required very little in formatting; mostly just the hint system:
+- Zork 1
+- Hitchhiker's Guide to the Galaxy
+- Leather Goddesses of Phobos
+- Wishbringer
+- Planetfall
+
+This game required small formatting changes to the ship computer display in the Heart of Gold.
+
+
 ## The Game
 
 The Hitchhiker's Guide to the Galaxy is a 1984 interactive fiction game written by Douglas Adams and Steve Meretzky and published by Infocom.

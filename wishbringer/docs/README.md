@@ -1,5 +1,15 @@
 # Wishbringer: The Magick Stone of Dreams (Solid Gold Edition)
 
+## About *Wishbringer* for Status Line
+This is part of the Solid Gold series from Infocom, which re-released older z3 games as z5 games with built-in Invisiclues hint system. This set of games required very little in formatting; mostly just the hint system:
+- Zork 1
+- Hitchhiker's Guide to the Galaxy
+- Leather Goddesses of Phobos
+- Wishbringer
+- Planetfall
+
+The entire storybook needed extensive reformatting, as well as various signage and notices throughout the land.
+
 ## The Game
 
 Wishbringer is a 1985 interactive fiction game written by Brian Moriarty and published by Infocom.
