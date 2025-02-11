@@ -328,7 +328,7 @@ It is clear that the owners must have been extremely wealthy." CR>)
 <ROUTINE FWEEP (N)
 	 <REPEAT ()
 		 <COND (<L? <SET N <- .N 1>> 1> <RETURN>)
-		       (T <TELL "    Fweep!" CR>)>>
+		       (T <TELL "  Fweep!" CR>)>>
 	 <CRLF>>
 
 <GLOBAL BAT-DROPS
@@ -1065,7 +1065,7 @@ drawing you over the railing and down." CR>
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
 "You are outside a large gateway, on which is inscribed||
-  Abandon every hope
+  Abandon every hope|
 all ye who enter here!||
 The gate is open; through it you can see a desolation, with a pile of
 mangled bodies in one corner. Thousands of voices, lamenting some
@@ -4056,7 +4056,7 @@ I am not such a talent. Sorry." CR>
 	 <PROG ()
 	       <SCORE-UPD -10>
 	       <TELL "
-|    ****  You have died  ****
+|   ****  You have died  ****
 |
 |">
 	       <COND (<FSET? <LOC ,WINNER> ,VEHBIT>
