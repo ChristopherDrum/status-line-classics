@@ -432,9 +432,9 @@ THE ONE IS WATCHING!|
 		<TELL " says:" CR CR>
 		<FIXED-FONT-ON>
 		<COND (,SKEWED?
-		       <TELL "    OPEN ALL NIGHT!">)
+		       <TELL "  OPEN ALL NIGHT!">)
 		      (T
-		       <TELL "   EVENINGS AT 7 & 9">)>
+		       <TELL "  EVENINGS AT 7 & 9">)>
 		<TELL CR "ALL SHOWS ONE GOLD COIN" CR>
 		<FIXED-FONT-OFF>
 		<RTRUE>)

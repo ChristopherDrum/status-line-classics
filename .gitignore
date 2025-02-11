@@ -13,6 +13,7 @@
 gametext.txt
 *.rec
 
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
