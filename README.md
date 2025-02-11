@@ -32,12 +32,12 @@ The in-game status line and "rosetta stone" puzzle both also proved challenging 
 <img src="https://github.com/user-attachments/assets/bf0c3116-ce87-4d9e-9d3c-a7ee57e8f8d6" width="200"/><img src="https://github.com/user-attachments/assets/614a4cb5-dbdb-4076-9bec-27bedf443bc7" width="200"/><img src="https://github.com/user-attachments/assets/e632e67b-98b0-4384-b3f9-2eedfd27fd1e" width="200" />
 
 
-### Sherlock: The Riddle of the Crown Jewels
+### [Sherlock: The Riddle of the Crown Jewels](https://github.com/ChristopherDrum/status-line-classics/blob/main/sherlock/docs/README.md#about-sherlock-for-status-line)
 In addition to the Invisiclues reformatting, various signage and quote boxes about town needed gentle nudging to fit on screen. Sherlock will run on a narrow screen, but will deny the ability to read in-world signage; this is fixed.
 
 ![status_line_3_2](https://github.com/user-attachments/assets/47b69482-54fd-498e-94e4-5db248f270d5)
 
-### Border Zone
+### [Border Zone](https://github.com/ChristopherDrum/status-line-classics/tree/main/borderzone/docs#about-border-zone-for-status-line)
 A tricky adaptation to the small screen, mostly because of the unusual status bar animations(?) that drive realtime puzzles. The player must "watch" certain events, and the status bar displays a continuously updated realtime display of the status of those events. This leads to some timed puzzles which are based on the visual information in the status bar, so I tried to be careful about adjusting anything that might disrupt that timing. I *think* I got it right, but that section of the game is kind of hard to get through as a matter of course.
 
 ### [Bureaucracy](https://github.com/ChristopherDrum/status-line-classics/tree/main/bureaucracy#about-bureaucracy-for-status-line)
