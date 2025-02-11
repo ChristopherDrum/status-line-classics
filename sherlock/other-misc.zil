@@ -639,9 +639,9 @@ characters.]" CR>
 	 ; "Short status line"
 	 <SETG GL-SHORT-STAT? T>
 	 <SETG GL-STAT-S-POS 4>
-	 <SETG GL-STAT-T-POS 17>
+	 <SETG GL-STAT-T-POS 15>
 	 <SETG GL-SCORE-HEADER-LEN 0>
-	 <SETG GL-STAT-MAX-ROOM <- ,GL-ALLSCREEN 19>>)>
+	 <SETG GL-STAT-MAX-ROOM <- ,GL-ALLSCREEN 17>>)>
   <SETG GL-STAT-S-POS <- ,GL-ALLSCREEN ,GL-STAT-S-POS>>
   <SETG GL-STAT-T-POS <- ,GL-ALLSCREEN ,GL-STAT-T-POS>>
   <SETG GL-SPLIT-ROW 1>
@@ -835,11 +835,9 @@ characters.]" CR>
 	 <COND (<G? .WIDTH ,GL-ALLSCREEN>
 		<TELL "[*** Window too wide ***]" CR>
 		<RTRUE>)>
-	 <COND (<ZERO? .MARGIN>
-		<SET MARGIN <- ,GL-MIDSCREEN </ .WIDTH 2>>>)>
-	 ;<BUFOUT <>>
+	 <SET MARGIN <+ <- ,GL-MIDSCREEN </ .WIDTH 2>> 1>>
 	 <COND (<L? <LOWCORE SCRV> 25> ;"e.g. Amiga, DEC-20, etc."
-		<DEC Y>)>
+		<SET Y 4>)>
 	 <SPLIT <+ .LINES 6>>
 	 <SCREEN ,K-S-WIN>
 	 <HLIGHT ,K-H-INV>
@@ -905,77 +903,86 @@ characters.]" CR>
 
 <CONSTANT GL-QUOTES:TABLE
 	<PTABLE
-		<PLTABLE 38
-			"Visiting Hours: 7:00 a.m - 6:00 p.m.">
+		<PLTABLE 27
+			"Visiting Hours: 7am - 6pm">
 		<PLTABLE 18
 			"\"Quiet, please.\"">
-		<PLTABLE 36
-			"        CHAMBER OF HORRORS        "
-			"ABANDON HOPE ALL YE WHO ENTER HERE">
-		<PLTABLE 32
-			"MUSEUM HOURS:  8 a.m. - 6 p.m.">
+		<PLTABLE 25
+			"   CHAMBER OF HORRORS  "
+			"-----------------------"
+			"      ABANDON HOPE     "
+			" ALL YE WHO ENTER HERE ">
+		<PLTABLE 27
+			"MUSEUM HOURS: 8 am - 6 pm">
 		<PLTABLE 8
 			"\"1666\"">
-		<PLTABLE 38
-			"This a replica of the rowboat in    "
-			"which Captain Bligh was set adrift  "
-			"after the infamous Mutiny on the    "
-			"Bounty. Bligh and his men rowed 3600"
-			"miles in 45 days, and lived to see  "
-			"the mutineers brought to justice.    ">
-		<PLTABLE 38
-			"For your convenience, the Bank shall"
-			"be closed for the entire Jubilee    "
-			"weekend. Thank you for your         "
-			"patronage.                           ">
-		<PLTABLE 38
-			"        THE TOWER IS CLOSED.         "
+		<PLTABLE 31
+			"This a replica of the rowboat"
+			"in which Captain Bligh was   "
+			"set adrift after the infamous"
+			"Mutiny on the Bounty.         "
+			" Bligh and his men rowed 3600"
+			"miles in 45 days, and lived  "
+			"to see the mutineers brought "
+			"to justice.                   ">
+		<PLTABLE 23
+			"For your convenience,"
+			"the Bank shall be    "
+			"closed for the entire"
+			"Jubilee weekend.      "
+			"Thank you for        "
+			"your patronage.       ">
+		<PLTABLE 30
+			"    THE TOWER IS CLOSED.     "
 			0
-			"    WE REGRET ANY INCONVENIENCE.     "
+			"WE REGRET ANY INCONVENIENCE."
 			0
-			"          HAVE A NICE DAY.           ">
-		<PLTABLE 38
-			"During the battle of Copenhagen,    "
-			"Lord Nelson's commander-in-chief ran"
-			"the signal to \"discontinue action\"  "
-			"up his mast. Knowing the battle     "
-			"could yet be won, Nelson clapped his"
-			"telescope to his blind eye and said,"
-			"\"I do not see the signal.\" His      "
-			"subsequent attack led to victory and"
-			"a secure place for Nelson in British"
-			"history.                             ">
+			"      HAVE A NICE DAY.       ">
+		<PLTABLE 32
+			"During the battle of          "
+			"Copenhagen, Lord Nelson's     "
+			"commander-in-chief ran the    "
+			"signal to \"discontinue action\""
+			"up his mast. Knowing the      "
+			"battle could yet be won,      " 
+			"Nelson clapped his telescope  "
+			"to his blind eye and said,    "
+			"\"I do not see the signal.\"    "
+			"His subsequent attack led to  "
+			"victory and a secure place for"
+			"Nelson in British history.     ">
 		<PLTABLE 17
 			" No Loitering. "
 			0
 			"This means YOU!">
 		<PLTABLE 13
 			"BAR OF GOLD">
-		<PLTABLE 38
-			"\"Many monarchs are buried in        "
-			"Westminster. But only one died here."
-			"It happened on March 20th, 1413, and"
-			"the event was later made famous in a"
-			"scene written by Shakespeare:\"      "
+		<PLTABLE 30
+			"\"Many monarchs are buried in"
+			"Westminster. But only one   "
+			"died here, March 20, 1413,  "
+			"made famous by Shakespeare:\""
 			0
-			"\"It hath been prophesied to me many "
-			"   years                            "
-			"I should not die but in Jerusalem,  "
-			"Which vainly I supposed the Holy    "
-			"   Land.                             "
-			"But bear me to that chamber, there  "
-			"   I'll lie,                        "
-			"In that Jerusalem shall Harry die.\" "
-			0
-			"\"Henry IV, Part II, Act V\"          ">
+			"\"It hath been prophesied to "
+			"   me many years            "
+			"I should not die but in     "
+			"   Jerusalem,               "
+			"Which vainly I supposed the "
+			"   Holy Land.                "
+			"But bear me to that chamber;"
+			"   there I'll lie.           "
+			"In that Jerusalem shall     "
+			"   Harry die.\"              "
+			"- \"Henry IV, Part II, Act V\"">
 		<PLTABLE 17
 			"   HELD OVER   "
 			0
 			"SIXTH BIG WEEK!"
 			0
 			"THE MOUSETRAP!!">
-		<PLTABLE 39
-			"This sign unintentionally left blank.">
+		<PLTABLE 27
+			"This sign unintentionally"
+			"       left blank.       ">
 		;<PLTABLE 29
 			"THE SIGN OF THE RED HERRING">>>
 

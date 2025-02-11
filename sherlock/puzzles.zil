@@ -980,7 +980,7 @@ INDENT "Hickory Dickory Dock." CR CR
 
 INDENT ,K-ASTERISK-MSG CR CR
 
-INDENT "Here comes a candle to light you to bed." CR
+INDENT "Here comes a candle" WRAP "to light you to bed." CR
 INDENT "Here comes a chopper" WRAP "to chop off your head." CR>
 				    <MC-MAKE .PAPER-NAME ,FL-LOCKED>
 				    <SETG TH-PACKET-OF-PAPER-AUX1
@@ -995,8 +995,8 @@ INDENT "Britannia ne'er to rule again." CR CR
 INDENT ,K-ASTERISK-MSG CR CR
 
 INDENT "When a number you require," CR
-INDENT "And you're banking all thereon." CR
-INDENT "Subtract the conquest from the fire," CR
+INDENT "And you're banking" WRAP "all thereon." CR
+INDENT "Subtract the conquest" WRAP "from the fire," CR
 INDENT "Half a league, half a league." WRAP "Half a league on." CR>
 				    <MC-MAKE .PAPER-NAME ,FL-LOCKED>
 				    <SETG TH-PACKET-OF-PAPER-AUX1
@@ -1004,7 +1004,7 @@ INDENT "Half a league, half a league." WRAP "Half a league on." CR>
 				   (<EQUAL? 3 .WRITING>
 				    <TELL
 INDENT ,K-TWINKLE-MSG CR
-INDENT "Fought at sea, midst masts and spars." CR
+INDENT "Fought at sea," WRAP "midst masts and spars." CR
 INDENT "Now above the world so high," CR
 INDENT "Looking down with watchful eye." CR
 INDENT ,K-TWINKLE-MSG CR

@@ -143,11 +143,11 @@
 		      <TELL "out the match." CR>)>)>>
 
 <ROUTINE CLEAR-ALL-FLAGS (OBJ)
-  <REPEAT ((N 1))
+  <REPEAT ((N 0))
     <COND (<NOT <EQUAL? .N ,FL-HAS-SDESC ,FL-HAS-DESCFCN ,FL-NEEDS-IDENTITY
 			,FL-LOSE-IDENTITY>>
 	   <FCLEAR .OBJ .N>)>
-    <COND (<G? <SET N <+ .N 1>> 48> <RETURN>)>>>
+    <COND (<G? <SET N <+ .N 1>> 47> <RETURN>)>>>
 
 <ROUTINE RT-AC-TH-TORCH ("OPTIONAL" (CONTEXT <>) "AUX" WHO)
 	<DEBUGGING? <RT-DEBUG-OB-AC "TH-TORCH">>
@@ -549,27 +549,27 @@ compliments, old chap.\"" CR>)>
 INDENT "Mortality, behold and fear!" CR
 INDENT "What a change of flesh is here!" CR
 INDENT "Think how many royal bones" CR
-INDENT "Sleep within this heap of stones:" CR
-INDENT "Here they lie, had realms and lands," CR
+INDENT "Sleep within this" WRAP "heap of stones:" CR
+INDENT "Here they lie," WRAP "had realms and lands," CR
 INDENT "Who now want strength" WRAP "to stir their hands." CR CR
 
 INDENT ,K-ASTERISK-MSG CR CR
 		      
-INDENT "For two-score years I reigned alone," CR
-INDENT "A virgin queen on England's throne." CR
+INDENT "For two-score years" WRAP "I reigned alone," CR
+INDENT "A virgin queen" WRAP "on England's throne." CR
 INDENT "My navy caused Armada's shame," CR
-INDENT "And with me died the Tudor name." CR CR
+INDENT "And with me died" WRAP "the Tudor name." CR CR
 
 INDENT ,K-ASTERISK-MSG CR CR
 
 INDENT "The apple sorely tempted Eve," CR
-INDENT "And Tell another aimed to cleave." CR
-INDENT "But when one fell, it showed to me," CR
+INDENT "And Tell another" WRAP "aimed to cleave." CR
+INDENT "But when one fell," WRAP "it showed to me," CR
 INDENT "The mighty pull of gravity." CR CR
 
 INDENT ,K-ASTERISK-MSG CR CR
 
-INDENT "My father, it was said, would die," CR
+INDENT "My father, it was said," WRAP "would die," CR
 INDENT "Beneath the Holy City's sky." CR
 INDENT "Jerusalem his body claimed," CR
 INDENT "And it is after him I'm named." CR CR

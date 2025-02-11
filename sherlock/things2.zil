@@ -1057,7 +1057,7 @@ decide you're better off in the water and politely decline."  CR CR>
 <ROUTINE RT-AC-TH-OAR-1 ("OPT" (CONTEXT <>))
 	<DEBUGGING? <RT-DEBUG-OB-AC "TH-OAR-1">>
 	<COND (<==? .CONTEXT ,K-M-DESCFCN>
-	       <TELL "The oar is hopelessy jammed into the oarlock." CR>)
+	       <TELL "The oar is hopelessly jammed into the oarlock." CR>)
 	      (<MC-T? .CONTEXT>
 	       <RFALSE>)
 	      (<MC-VERB? TAKE>
@@ -1988,9 +1988,9 @@ of sleuthing. In just three short days, Inspector G. Lestrade will teach
 you everything he knows of the art of detection. Here are just some of the
 things you'll learn." CR CR
 
-"*** Fifteen new and exciting ways to" WRAP "say \"'Ullo! Wot's this?\"" CR
-"*** Modern obfuscatory locution" WRAP "eschewel techniques." CR
-"*** How to insult private detectives." CR CR
+"** Fifteen new and exciting ways" WRAP "to say \"'Ullo! Wot's this?\"" CR
+"** Modern obfuscatory locution" WRAP "eschewel techniques." CR
+"** How to insult" WRAP "private detectives." CR CR
 
 "Included in your tuition is an official Scotland Yard
 notebook, and a brand new bobby pin. Just send twenty-five pounds
