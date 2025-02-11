@@ -1051,50 +1051,50 @@ Pleez tiip zeeroo tuu goo tuu aa hiiyur levul. If yuu reekwiir
 asistins, kawl xe liibrereein.\"">
 
 <CONSTANT MAIN-MENU
-"    1. Histooree|
-    2. Kulcur|
-    3. Teknolojee|
-    4. Jeeografee|
-    5. Xe Prajekt|
-    6. Inturlajik Gaamz">
+"   1. Histooree|
+   2. Kulcur|
+   3. Teknolojee|
+   4. Jeeografee|
+   5. Xe Prajekt|
+   6. Inturlajik Gaamz">
 
 <CONSTANT HISTORY-MENU
-"    0. Maan Menyuu|
-    1. Raashul Orijinz|
-    2. Graat Hiiaatus|
-    3. Riiz uv xe Nuu Teknakrasee">
+"   0. Maan Menyuu|
+   1. Raashul Orijinz|
+   2. Graat Hiiaatus|
+   3. Riiz uv xe Nuu Teknakrasee">
 
 <CONSTANT CULTURE-MENU
-"    0. Maan Menyuu|
-    1. Lituracur|
-    2. Art|
-    3. Muusik">
+"   0. Maan Menyuu|
+   1. Lituracur|
+   2. Art|
+   3. Muusik">
 
 <CONSTANT TECHNOLOGY-MENU
-"    0. Maan Menyuu|
-    1. Medisin|
-    2. Agrikultcur|
-    3. Tranzportaashun|
-    4. Roobotiks|
-    5. Planateree Sistumz">
+"   0. Maan Menyuu|
+   1. Medisin|
+   2. Agrikultcur|
+   3. Tranzportaashun|
+   4. Roobotiks|
+   5. Planateree Sistumz">
 
 <CONSTANT GEOGRAPHY-MENU
-"    0. Maan Menyuu|
-    1. Planit Landmasiz|
-    2. Undursee Reejunz|
-    3. Spaas Kolooneez">
+"   0. Maan Menyuu|
+   1. Planit Landmasiz|
+   2. Undursee Reejunz|
+   3. Spaas Kolooneez">
 
 <CONSTANT PROJECT-MENU
-"    0. Maan Menyuu|
-    1. Orijinz uv xe Dizeez|
-    2. Xe Instalaashunz|
-    3. Prajekt Kuntrool|">
+"   0. Maan Menyuu|
+   1. Orijinz uv xe Dizeez|
+   2. Xe Instalaashunz|
+   3. Prajekt Kuntrool|">
 
 <CONSTANT INTERLOGIC-MENU
-"    0. Maan Menyuu|
-    1. Zoork|
-    2. Dedliin and Witnis|
-    3. Starkros and Suspendid">
+"   0. Maan Menyuu|
+   1. Zoork|
+   2. Dedliin and Witnis|
+   3. Starkros and Suspendid">
 
 <CONSTANT 11-TEXT
 "\"Xe aancint lejindz saa xat ships frum xe Sekund Yuunyun wuns fild ar skiis
@@ -2088,7 +2088,8 @@ of the Starcrossed Miner:|
 |
 O, they ruled the solar system|
 Near ten thousand years before|
-In their single starcrossed scout ships|
+In their single starcrossed|
+   scout ships|
 Mining ast'roids, spinning lore.|
 |
 Then one true courageous miner|
@@ -2096,15 +2097,19 @@ Spied a spaceship from the stars|
 Boarded he that alien liner|
 Out beyond the orb of Mars.|
 |
-Yes, that ship was filled with danger|
+Yes, that ship was filled|
+   with danger|
 Mighty monsters barred his way|
-Yet he solved the alien myst'ries|
+Yet he solved the alien|
+   myst'ries|
 Mining quite a lode that day.|
 |
 O, they ruled the solar system|
 Near ten thousand years before|
-'Til one brave advent'rous spirit|
-Brought that mighty ship to shore.|
+'Til one brave advent'rous|
+   spirit|
+Brought that mighty ship|
+   to shore.|
 |
 As you finish the last verse, Floyd smiles with contentment, and then his
 eyes close as his head rolls to one side. You sit in silence for a moment,

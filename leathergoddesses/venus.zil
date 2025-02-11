@@ -105,7 +105,7 @@ to do with its breath." CR>)>>
 
 <ROUTINE I-FLYTRAP ()
 	 <SETG FLYTRAP-COUNTER <+ ,FLYTRAP-COUNTER 1>>
-	 <TELL "   ">
+	 <TELL "  ">
 	 <COND (<NOT <IN? ,FLYTRAP ,HERE>>
 		<SETG FLYTRAP-COUNTER 0>
 		<COND (<EQUAL? ,HERE ,CLEARING>
@@ -610,7 +610,7 @@ other salesmen scatter like frightened salesmen." CR>
 		<FCLEAR ,SALESMAN ,TOUCHBIT>
 		<DEQUEUE I-SALESMAN>
 		<RFALSE>)>
-	 <TELL "   ">
+	 <TELL "  ">
 	 <COND (<FSET? ,SALESMAN ,TOUCHBIT>
 		<TELL <PICK-ONE ,SALESMANISMS> CR>)
 	       (T
@@ -799,7 +799,7 @@ a short flight of stairs below. There are doors to the north">
 		<QUEUE I-MAD-SCIENTIST 2>
 		<FCLEAR .OPEN-DOOR ,OPENBIT>
 		<TELL
-"   You feel uneasy as" T ,MAD-SCIENTIST " locks the door behind you
+"  You feel uneasy as" T ,MAD-SCIENTIST " locks the door behind you
 and dissolves the key in a vat of acid." CR>)>>
 
 <OBJECT MAD-SCIENTIST
@@ -816,7 +816,7 @@ and dissolves the key in a vat of acid." CR>)>>
 		       <RFALSE>)
 		      (<EQUAL? .OARG ,M-OBJDESC?>
 		       <RTRUE>)>
-		<TELL "   The wild-eyed " 'MAD-SCIENTIST " is "
+		<TELL "  The wild-eyed " 'MAD-SCIENTIST " is "
 <GET ,MAD-SCIENTIST-DESCS ,MAD-SCIENTIST-COUNTER>>)
 	       (<EQUAL? ,MAD-SCIENTIST ,WINNER>
 		<COND (<OR <AND <VERB? WHAT>
@@ -847,7 +847,7 @@ of no-doze? Vat in heck are you jabbering about?\"" CR>)
 <GLOBAL IMPATIENCE-COUNTER 0>
 
 <ROUTINE I-MAD-SCIENTIST ()
-	 <TELL "   ">
+	 <TELL "  ">
 	 <COND (<EQUAL? ,MAD-SCIENTIST-COUNTER 0>
 		<SETG IMPATIENCE-COUNTER <+ ,IMPATIENCE-COUNTER 1>>
 		<QUEUE I-MAD-SCIENTIST 2>
@@ -950,7 +950,7 @@ is" A ,HOLE ".">)
 		<QUEUE I-MAD-SCIENTIST 5>
 		<SETG MAD-SCIENTIST-COUNTER 1>
 		<TELL
-"   The " 'MAD-SCIENTIST " bounds down from the first floor, activating
+"  The " 'MAD-SCIENTIST " bounds down from the first floor, activating
 a (guaranteed 100% effective) Vaporo-Zap Energy Barrier across the foot
 of the stairs." CR>)>>
 
@@ -1237,7 +1237,7 @@ as \"Oh, you animal!\"">)>)>
 	 <TELL "!\" He dashes off." CR>
 	 <COND (<VISIBLE? ,SIDEKICKS-BODY>
 		<TELL
-"   Through the briefly open door, you see two " 'FLYTRAP "s running madly
+"  Through the briefly open door, you see two " 'FLYTRAP "s running madly
 around the next room. One is chasing, while the other is frantically trying
 to stay as far away as possible." CR>)>
 	 <RTRUE>>
@@ -1425,7 +1425,7 @@ booth. At the edge of the cliff is" A ,HOLE ".">)
 	       (<AND <EQUAL? .RARG ,M-END>
 		     ,GONE-APE>
 		<JIGS-UP
-"   A tranquilizer dart pierces your rump and you spend your remaining years
+"  A tranquilizer dart pierces your rump and you spend your remaining years
 in the gorilla cage of the Venusian Planetary Zoo.">)>>
 
 <ROUTINE CLIFF-OBJECT-F ()

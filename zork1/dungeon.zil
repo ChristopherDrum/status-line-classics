@@ -945,24 +945,22 @@ southwest, is marked \"To Stone Barrow\".")>
 	(FLAGS READBIT TAKEBIT BURNBIT)
 	(SIZE 2)
 	(TEXT
-"  !!!!FROBOZZ MAGIC BOAT COMPANY!!!!|
+"!! FROBOZZ MAGIC BOAT COMPANY !!|
 |
 Hello, Sailor!|
 |
 Instructions for use:|
-|
-   To get into a body of water, say \"Launch\".|
-   To get to shore, say \"Land\" or the direction in which you want
+  To get into a body of water|    say \"Launch\".|
+  To get to shore, say \"Land\" or|    the direction in which you|    want
 to maneuver the boat.|
 |
 Warranty:|
-|
   This boat is guaranteed against all defects for a period of 76
 milliseconds from date of purchase or until first used, whichever comes first.|
 |
 Warning:|
-   This boat is made of thin plastic.|
-   Good Luck!" )>
+  This boat is made of thin plastic.|
+  Good Luck!" )>
 
 <OBJECT THIEF
 	(LOC ROUND-ROOM)
@@ -1007,7 +1005,7 @@ against one wall. He is armed with a deadly stiletto.")
 "Some guidebooks entitled \"Flood Control Dam #3\" are on the reception
 desk.")
 	(TEXT
-"\"	Flood Control Dam #3|
+"\"Flood Control Dam #3|
 |
 FCD#3 was constructed in year 783 of the Great Underground Empire to
 harness the mighty Frigid River. This work was supported by a grant of
@@ -1029,8 +1027,8 @@ processors, and nearly one million dead trees.|
 We will now point out some of the more interesting features
 of FCD#3 as we conduct you on a guided tour of the facilities:|
 |
-        1) You start your tour here in the Dam Lobby. You will notice
-on your right that...." )>
+  1) You start your tour here in the Dam Lobby. You will notice
+on your right that....\"" )>
 
 <OBJECT TROLL
 	(LOC TROLL-ROOM)
@@ -1069,8 +1067,8 @@ out of the room.")
 	(CAPACITY 7)
 	(SIZE 5)
 	(TEXT
-"---> Frobozz Magic Gunk Company <---|
-	  All-Purpose Gunk")>
+"-> Frobozz Magic Gunk Company <-|
+        All-Purpose Gunk")>
 
 <OBJECT PUTTY
 	(LOC TUBE)

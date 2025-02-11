@@ -62,14 +62,14 @@ game position, receive a hint, or end this session of the game?|
 <ROUTINE V-QUIT ("AUX" SCOR)
 	 <V-SCORE>
 	 <TELL 
-"Do you wish to leave the game? (Y is affirmative): ">
+"Do you wish to leave the game?|(Y is affirmative): ">
 	 <COND (<YES?>
 		<QUIT>)
 	       (ELSE <TELL "Ok." CR>)>>
 
 <ROUTINE V-RESTART ()
 	 <V-SCORE T>
-	 <TELL "Do you wish to restart? (Y is affirmative): ">
+	 <TELL "Do you wish to restart?|(Y is affirmative): ">
 	 <COND (<YES?>
 		<TELL "Restarting." CR>
 		<RESTART>
@@ -143,7 +143,8 @@ Infocom interactive fiction - a fantasy story|
 Copyright 1982, 1983, 1984, 1986">)>
 	<TELL " Infocom, Inc.|
 All rights reserved." CR>
-	<TELL "ZORK is a registered trademark of Infocom, Inc.|
+	<TELL "ZORK is a registered trademark|
+of Infocom, Inc.|
 Release ">
 	<PRINTN <BAND <GET 0 1> *3777*>>
 	<TELL " / Serial number ">

@@ -11,18 +11,18 @@
 
 <GLOBAL HINTS-OFF -1>
 
-<CONSTANT RETURN-SEE-HINT " RETURN = see hint">
-<CONSTANT RETURN-SEE-HINT-LEN <LENGTH " RETURN = see hint">>
-<CONSTANT Q-MAIN-MENU "Q = main menu">
-<CONSTANT Q-MAIN-MENU-LEN <LENGTH "Q = main menu">>
+<CONSTANT RETURN-SEE-HINT "return:see hint">
+<CONSTANT RETURN-SEE-HINT-LEN <LENGTH "return:see hint">>
+<CONSTANT Q-MAIN-MENU "q:main menu">
+<CONSTANT Q-MAIN-MENU-LEN <LENGTH "q:main menu">>
 <CONSTANT INVISICLUES "INVISICLUES (tm)">
-<CONSTANT INVISICLUES-LEN <LENGTH "INVISICLUES (tm)">>
-<CONSTANT Q-SEE-HINT-MENU "Q = see hint menu">
-<CONSTANT Q-SEE-HINT-MENU-LEN <LENGTH "Q = see hint menu">>
-<CONSTANT Q-RESUME-STORY "Q = Resume story">
-<CONSTANT Q-RESUME-STORY-LEN <LENGTH "Q = Resume story">>
-<CONSTANT PREVIOUS "P = Previous">
-<CONSTANT PREVIOUS-LEN <LENGTH "P = Previous">>
+<CONSTANT INVISICLUES-LEN <LENGTH "INVISICLUES (TM)">>
+<CONSTANT Q-SEE-HINT-MENU "q:hint menu">
+<CONSTANT Q-SEE-HINT-MENU-LEN <LENGTH "q:hint menu">>
+<CONSTANT Q-RESUME-STORY "q:resume story">
+<CONSTANT Q-RESUME-STORY-LEN <LENGTH "q:resume story">>
+<CONSTANT PREVIOUS "p:previous">
+<CONSTANT PREVIOUS-LEN <LENGTH "p:previous">>
 
 <GLOBAL LINE-TABLE		;"zeroth (first) element is 5"
 	<PTABLE
@@ -30,7 +30,7 @@
 
 <CONSTANT COLUMN-TABLE		;"zeroth (first) element is 4"
 	<PTABLE
-	  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4  4>>
+	  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3>>
 
 ; "If the first argument is non-false, build a parallel impure table
    for storing the count of answers already seen; make it a constant
@@ -77,7 +77,7 @@
    <EVAL <FORM PLTABLE !<REST .HL>>>>
 
 ;"longest hint topic can be 17 chars"
-;"longest question can be 36 chars."
+;"longest question can be 28-ish chars. (down from 36 for Status Line)"
 ;"question can't have more than 32 answers"
 
 <CONSTANT HINTS
@@ -88,25 +88,25 @@
 	<PLTABLE "How do I get past Blather?"
 		 "There's no way to get beyond Deck Eight or the Reactor Lobby."
 		 "Really! There's no way!">
-	<PLTABLE "How can I stop getting demerits?"
+	<PLTABLE "How to stop getting demerits?"
 		 "Scrub harder?"
 		 "I wouldn't worry too much; demerits aren't that important.">
 	<PLTABLE "What about Lieutenant Measle?"
 		 "All he wants is some information for your records."
 		 "Ahem.  Lieutenant Measle???">
-	<PLTABLE "What do I do with the Ambassador?"
+	<PLTABLE "What to do with Ambassador?"
 		 "Enjoy his company. He's just there to liven up the game opening.">
 	<PLTABLE "How do I get the translator?" 
 		 "You can't.">
 	<PLTABLE "How do I get the celery?"
 		 "You can't.">
-	<PLTABLE "How do I get the Ambassador's map?"
+	<PLTABLE "How to get Ambassador's map?"
 		 "The Ambassador doesn't have any map!">
-	<PLTABLE "What should I do in the Galley?"
+	<PLTABLE "What do I  do in the Galley?"
 		 "Try eating the stew."
 		 "Did you find the handbook for programming autopilots?"
 		 "How did you get to a nonexistent place?">
-	<PLTABLE "How do I get out of the Brig?"
+	<PLTABLE "How do I escape the Brig?"
 		 "The best way to get out is to never get thrown in."
 		 "If you don't upset Blather by leaving your post, you'll never get thrown in the Brig."
 		 "Once you're in the Brig, there's no way out.">
@@ -114,7 +114,7 @@
 		 "It might be a malfunction in the Hyperspatial Jump Machinery Room."
 		 "Of course, since you can't enter that room, you'll never know."
 		 "There's no way to prevent it, and you won't find out until later what caused it. Best thing to do is try to survive the shipwreck.">
-	<PLTABLE "Can I open the escape pod bulkhead?"
+	<PLTABLE "Can I open the escape pod?"
 		 "It opens automatically during any emergency."
 		 "For example, when the Feinstein begins exploding.">
 	
@@ -126,16 +126,16 @@
 		 "Are you standing?"
 		 "The adjective associated with the web is notable."
 		 "Get in the safety web and don't stand until you've landed.">
-	<PLTABLE "Can I keep the pod from sinking?"
+	<PLTABLE "Keep the pod from sinking?"
 		 "Sorry, you can't.">
-	<PLTABLE "Will I use the emergency provisions?"
+	<PLTABLE "Will I use the provisions?"
 		 "It's always a good idea in adventure games to take anything that you can carry.">
-	<PLTABLE "Can I leave the pod after landing?"
+	<PLTABLE "Leave the pod after landing?"
 		 "Sure. Have you tried opening the door?"
 		 "You can't reach the door while you're still in the web."
 		 "Once the door is open, either UP or OUT works."
 		 "Needless to say, don't dally too long.">
-	<PLTABLE "I keep drowning underwater. Help!"
+	<PLTABLE "I keep drowning. Help!"
 		 "The water is a dangerous place to be. Leave it immediately."
 		 "There is light filtering down from above."
 		 "Say UP.">
@@ -143,12 +143,12 @@
 	"THE DORMITORY"
 	<PLTABLE "What can I do on the Balcony?"
 		 "The plaque is the only thing of interest there.">
-	<PLTABLE "Of what use is the ruined castle?"
+	<PLTABLE "What about the ruined castle?"
 		 "Not much.">
-	<PLTABLE "What can I do in the Rec Area?"
+	<PLTABLE "What to do in Rec Area?"
 		 "There are some interesting tapes and games there."
 		 "Have you noticed the locked door leading north?">
-	<PLTABLE "Can I unlock the door with the dial?"
+	<PLTABLE "Can I unlock the door dial?"
 		 "It's a combination lock."
 		 "You could try setting it to every number from 1 to 1000."
 		 "The combination can be found in the lab area."
@@ -156,7 +156,7 @@
 	<PLTABLE "What use are the four dorms?"
 		 "They are all identical."
 		 "They make good places to sleep.">
-	<PLTABLE "What about the sanitary facilities?"
+	<PLTABLE "Using sanitary facilities?"
 		 "You won't need to use them. The game isn't THAT realistic."
 		 "They are of no importance.">
 	<PLTABLE "How do I open the padlock?"
@@ -170,7 +170,7 @@
 		 "Don't develop the next hint until you've found the can opener."
 		 "There is no can opener. You must be cheating."
 		 "There is no way to open the can.">
-	<PLTABLE "Does the door in the Mess Hall open?"
+	<PLTABLE "Does the Mess Hall door open?"
 		 "If you mean the locked door in the southern end, yes."
 		 "The slot next to the door is important."
 		 "You'll need the kitchen access card."
@@ -180,22 +180,22 @@
 		 "It is needed to get past a major obstacle."
 		 "You've probably seen the obstacle."
 		 "The rift.">
-	<PLTABLE "What use is the kitchen dispenser?"
+	<PLTABLE "What is the kitchen dispenser?"
 		 "Have you tried pushing the button?"
 		 "That liquid is food."
 		 "You'll need something to catch the liquid."
 		 "The octagonal shape of the niche is important."
 		 "Open the canteen and put it in the niche.">
 	"ADMIN/MECH AREA"
-	<PLTABLE "What can I do in the Physical Plant?"
+	<PLTABLE "What to do in Physical Plant?"
 		 "Nothing."
 		 "It's there just for show. Every large complex of buildings needs one.">
 	<PLTABLE "Is the crack in the floor important?"
 		 "Yes.">
-	<PLTABLE "Is the deactivated robot important?"
+	<PLTABLE "Is the robot important?"
 		 "Yes, indeed!"
 		 "Turn it on.">
-	<PLTABLE "How do I run the reactor elevator?"
+	<PLTABLE "How to run reactor elevator?"
 		 "The slot in the elevator is important."
 		 "You'll need the reactor elevator access pass."
 		 "Don't develop further until you've been on the helicopter trip."
@@ -210,31 +210,31 @@
 		 "You'll need an item which you may not have seen yet."
 		 "It's behind the padlocked door."
 		 "Extend the ladder and put it across the rift.">
-	<PLTABLE "How can I see in the darkened area?"
+	<PLTABLE "How can I see in the dark?"
 		 "You'll need a light source.">
-	<PLTABLE "What is the chemical dispenser for?"
+	<PLTABLE "What is chemical dispenser?"
 		 "Have you tried pushing any of the buttons on it?"
 		 "The flask can be used to hold the chemical fluid."
 		 "The first seven buttons are obviously coolants and catalysts."
 		 "The two white buttons produce an acid and a base."
 		 "You'll need the coolants and catalysts for the Comm Room problem.">
-	<PLTABLE "What do I do with the acid and base?"
+	<PLTABLE "What about the acid and base?"
 		 "Batteries are made out of acids and bases."
 		 "Have you run into any dangerous creatures?  You might be able to use the acid or base as a weapon."
 		 "Actually, these two chemicals are totally useless.">
-	<PLTABLE "Can I fix the disassembled robots?"
+	<PLTABLE "Fix the disassembled robots?"
 		 "A repair robot might be of help."
 		 "Don't go on until you've repaired Achilles."
 		 "There's no way to reassemble those robots.">
 	<PLTABLE "What about the Plan Room?"
 		 "There's nothing for you to do in there, but you might pick up some useful information there.">
-	<PLTABLE "What about the Systems Monitors?"
+	<PLTABLE "What about Systems Monitors?"
 		 "There's nothing for you to do in there, but you might pick up some useful information there.">
-	<PLTABLE "Is there any way to take the hose?"
+	<PLTABLE "Can I take the hose?"
 		 "What hose?">
 		
      	"ELEVATORS/TOWER"
-	<PLTABLE "Can I open the Elevator Lobby doors?"
+	<PLTABLE "Open Elevator Lobby doors?"
 		 "Try pushing the red and blue buttons."
 		 "Then wait a little while.">
 	<PLTABLE "How do the elevators work?"
@@ -247,18 +247,18 @@
 		 "He may give it to you when you use another access card in his presence. Alternately, you can turn him off and search him.">
 	<PLTABLE "What is the Helipad for?"
 		 "The helicopters probably land and take off from there.">
-	<PLTABLE "How do I enter the Helicopter?"
+	<PLTABLE "How to enter the Helicopter?"
 		 "Try ENTER THE HELICOPTER.">
-	<PLTABLE "TELL ME ABOUT THE OBSERVATION DECK"
+	<PLTABLE "TELL ME ABOUT OBSERVATION DECK"
 		 "Nice view of another complex of buildings on a nearby island.">
-	<PLTABLE "Should I do anything with the birds?"
+	<PLTABLE "What can I do with the birds?"
 		 "Try feeding them."
 		 "Birds like insects."
 		 "What birds?  What insects?">
-	<PLTABLE "What is the comm. receive console?"
+	<PLTABLE "The comm. receive console?"
 		 "Try pressing the button on it."
 		 "Apparently, it received a transmission from the Feinstein just before the ship blew up.">
-	<PLTABLE "What is the comm. send console?"
+	<PLTABLE "The comm. send console?"
 		 "Read the screen. The message is very interesting."
 		 "The message isn't being sent, however."
 		 "You can repair the communication system using the chemical dispenser in the Machine Shop."
@@ -266,12 +266,12 @@
 		 "Keep pouring the proper chemical fluid into the hole on the console until it is fixed.  It will take anywhere from three to five trips.">
 	
 	"HELICOPTER TRIP"
-	<PLTABLE "Where do I find the helicopter?"
+	<PLTABLE "Where is the helicopter?"
 		 "You need to use the upper elevator to get to it.">
 	<PLTABLE "How do I unlock the control panel?"
 		 "Try reading the green spool using the microfilm reader."
 		 "According to the spool, you'll find a key in Transportation Supply.">
-	<PLTABLE "Where is the helicopter access card?"
+	<PLTABLE "Where is 'copter access card?"
 		 "Try reading the green spool using the microfilm reader."
 		 "According to the spool, the card would be in Transportation Supply.">
 	<PLTABLE "How do I use the helicopter?"
@@ -280,25 +280,25 @@
 		 "Use the access card to activate the controls."
 		 "Just tell your intended destination to the voice-controlled autopilot, then sit back and enjoy the trip."
 		 "Amazing feat, your managing to get this far, considering the key and card don't exist.">
-	<PLTABLE "What destination should I select?"
+	<PLTABLE "Where should I go?"
 		 "Where would you expect to find people?"
 		 "A large city, perhaps?"
 		 "Try the capital city of Resida, Pilandoor."
 		 "Don't you feel pretty silly, considering there's no way to even get the helicopter off the ground?">
 
 	"SHUTTLE TRIP"
-	<PLTABLE "Where do I find the shuttle?"
+	<PLTABLE "Where is the shuttle?"
 		 "You need to use the lower elevator to get to it.">
-	<PLTABLE "How do I operate the shuttle?"
+	<PLTABLE "How to operate the shuttle?"
 		 "You'll need the shuttle access card.  By now you should know how to use these cards."
 		 "You can't operate the shuttle after 6000."
 		 "Hopefully, you can figure out that you want to be in the control cabin facing the set of tracks, not the one facing the blank wall.">
-	<PLTABLE "How do I use the shuttle controls?"
+	<PLTABLE "How to use shuttle controls?"
                  "First, activate the controls (see previous question)."
 		 "Pushing the lever up into the \"+\" position causes the shuttle to accelerate. Pulling the lever down into the \"-\" position causes the shuttle to decelerate."
 		 "When the lever is in the central position, the shuttle will continue to move at its current velocity."
 		 "The digital display tells the current velocity of the shuttle.">
-	<PLTABLE "I always crash at the other station!"
+	<PLTABLE "I always crash!"
 		 "You're going too fast. Decelerate sooner."
 		 "If you're going faster than 20 when you get to the far station, you'll be killed."
 		 "If you're going between 5 and 20 you will survive, but the shuttle will be damaged.">
@@ -306,11 +306,11 @@
 	"SYSTEMS/LIBRARY"
 	<PLTABLE "What is the medicine for?"
 		 "Read the label.">
-	<PLTABLE "The Repair Room door is too small!" 
+	<PLTABLE "Repair Room door too small!" 
 		 "It's too small for YOU to get through."
                  "It's \"robot-sized\"."
 		 "Ask Floyd to go through the doorway.">
-	<PLTABLE "Do the Repair Room cabinets open?"
+	<PLTABLE "Do Repair Room cabinets open?"
 		 "You'll have to repair Achilles first.">
 	<PLTABLE "How can I repair Achilles?"
 		 "Waldo won't be of any help (unless you're playing SUSPENDED)."
@@ -318,11 +318,11 @@
 		 "The brown spool is in the Radiation Lab."
 		 "Unfortunately, there's no way to get the brown spool to the microfilm reader."
 		 "There is also no way to repair Achilles.">
-	<PLTABLE "Is there a good fromitz board?"
+	<PLTABLE "Is there good fromitz board?"
 		 "Yes."
 		 "Have you been beyond the small door in the Repair Room?"
 		 "You'll have to ask Floyd to get the good fromitz board.">
-	<PLTABLE "Is there a good bedistor anywhere?"
+	<PLTABLE "Is there a good bedistor?"
 		 "Yes."
 		 "It's in Storage East, just off Mech Corridor North. If you missed it, you'd better improve your exploring and mapping abilities.">
 	<PLTABLE "TELL ME ABOUT PLANETARY DEFENSE"
@@ -333,7 +333,7 @@
 		 "Open the access panel."
 		 "Figure out which board is malfunctioning and remove it."
 		 "It's the second board. Take it and put the good fromitz board in the resulting empty socket.">
-	<PLTABLE "TELL ME ABOUT THE COURSE CONTROL"
+	<PLTABLE "TELL ME ABOUT COURSE CONTROL"
 		 "The library might tell you something about it."
 		 "Apparently, the entire planet was moved into a more favorable but less stable orbit. This system ensures that the planet stays in the proper orbit."
 		 "The course control system seems to be malfunctioning. If the planet was approaching its sun, it would explain the melting ice caps and water level rise."
@@ -342,25 +342,25 @@
 		 "You'll need a tool."
 		 "Use the pliers from the Tool Room to remove the fused bedistor."
 		 "Put the good bedistor into the cube.">
-	<PLTABLE "Why is this Physical Plant so big?"
+	<PLTABLE "Why is Physical Plant so big?"
 		 "True, this plant is larger than its counterpart in the Kalamontee Complex, even though the Lawanda Complex is slightly smaller."
 		 "Perhaps there is a large section of the Lawanda Compex that you haven't seen yet..."
 		 "...such as the cryo-chambers, buried deep underground.">
-	<PLTABLE "How do I use the computer terminal?"
+	<PLTABLE "How to use computer terminal?"
 		 "Firstly, turn it on."
 		 "To select an item in the menu, use the TYPE command. For example, to select item 2, type TYPE 2."
 		 "Typing TYPE 0 returns you to the next highest menu level (except, of course, if you are at the Main Menu, which is the highest level).">
-	<PLTABLE "How do I use the microfilm reader?"
+	<PLTABLE "How to use microfilm reader?"
 		 "It must be turned on."
 		 "The colored spools are spools of microfilm."
 		 "Put one in the opening in the reader.">
-	<PLTABLE "How do I summon the librarian?"
+	<PLTABLE "How to summon librarian?"
 		 "You can't."
 		 "Really!">
 	"PROJCON AND LAB"
-	<PLTABLE "What is the signficance of SanFac F?"
+	<PLTABLE "Signficance of SanFac F?"
 		 "Haven't you realized by now that these SanFacs are of no interest?">
-	<PLTABLE "What about the ProjCon Office?"
+	<PLTABLE "What about ProjCon Office?"
 		 "The library might be of some help."
 		 "It was the main office for the Project.">
 	<PLTABLE "Is the logo important?"
@@ -372,13 +372,13 @@
 		 "When the time comes, you'll know it.">
 	<PLTABLE "Who is Burstini Bonz?"
 		 "Wasn't he the great Respectivist artist who became famous for painting awesomely phenomenal murals during the 89th century?">
-	<PLTABLE "What is the laboratory area for?"
+	<PLTABLE "What is the lab area for?"
 		 "The library might have some information on that."
 		 "It is the laboratory built to find a cure for the Disease.">
 	<PLTABLE "Is the Bio-Lab safe to enter?"
 		 "Try it."
 		 "Nope, I guess it wasn't. Hope you did a SAVE first.">
-	<PLTABLE "Is the Radiation Lab safe to enter?"
+	<PLTABLE "How about the Radiation Lab?"
 		 "Try it."
 		 "Nope, I guess you can't. Hope you did a SAVE first.">
 	<PLTABLE "Where is the radiation suit?"
@@ -386,10 +386,10 @@
 		 "Find a light source, then use the Reactor Access Stairs."
 		 "There's a lamp in the Radiation Lab."
 		 "Going in circles? There's no radiation suit anywhere.">
-	<PLTABLE "What is the card in the Bio-Lab?"
+	<PLTABLE "What is the Bio-Lab card?"
 		 "Floyd will tell you when he sees it."
 		 "It's for the Miniaturization Booth.">
-	<PLTABLE "Can I get the card from the Bio-Lab?"
+	<PLTABLE "How to get card from Bio-Lab?"
 		 "You'll die trying."
 		 "Floyd's a robot. He might be tougher."
 		 "He'll volunteer to get the card if he has a good enough reason."
@@ -409,14 +409,14 @@
 		 "If you've been in the Repair Room, you'll know that summoning the repair robot didn't help."
 		 "You'll have to fix the computer yourself."
 		 "Use the Miniaturization Booth.">
-	<PLTABLE "Does the Miniaturization Booth work?"
+	<PLTABLE "Miniaturization Booth work?"
 		 "You'll need the proper access card, of course."
 		 "It's in the Bio-Lab."
 		 "Once you've activated the booth, type the damaged sector number."
 		 "Have you read the printout?"
 		 "The damaged sector is 384. Type TYPE 384."
 		 "You will then be miniaturized and teleported into the damaged sector, where you can attempt to effect repairs.">
-	<PLTABLE "I am at Station 384. What now?"
+	<PLTABLE "I'm at Station 384. Next?"
 		 "Explore around."
 		 "Have you seen and examined the relay?"
 		 "You'll have to figure out a way to remove the speck."
@@ -424,10 +424,10 @@
 		 "You must destroy the speck without harming the relay."
 		 "The dial must be set to 1, so that the beam will pass harmlessly through the red translucent exterior of the relay."
 		 "You'll have to shoot the speck a number of times to destroy it.">
-	<PLTABLE "Can I talk to the giant spider?"
+	<PLTABLE "Can I talk to giant spider?"
 		 "Yes."
 		 "Play STARCROSS.">
-	<PLTABLE "How do I get past the giant microbe?"
+	<PLTABLE "How to get past the microbe?"
 		 "Try shooting it with the laser."
 		 "That won't have any effect while the laser is set to 1, of course."
 		 "If you don't keep shooting the microbe, it will get close enough to eat you."
@@ -435,16 +435,16 @@
 		 "Has the microbe become interested in anything besides you?"
 		 "The microbe is attracted to the warmth of the laser."
 		 "When the laser gets warm enough, throw it over the edge of the strip, into the void below. The microbe will leap after it.">
-	<PLTABLE "How do I get back from the Strip?"
+	<PLTABLE "How to return from the Strip?"
 		 "Go to Station 384.">
-	<PLTABLE "How do I get out of the Lab Office?"
+	<PLTABLE "How to leave Lab Office?"
 		 "Opening the door right off isn't a healthy idea."
 		 "There are some buttons on the wall..."
 		 "To get a clue, search the desk."
 		 "Have you opened the desk?"
 		 "Put on the gas mask, then press the red button."
 		 "Then, move fast. You don't have a millichron to spare.">
-	<PLTABLE "How do I get rid of the mutants?"
+	<PLTABLE "How get rid of the mutants?"
 		 "You can't kill them."
 		 "There's only one way to lose them."
 		 "You're very close to the end of the game."
@@ -454,15 +454,15 @@
 		 "Go south into the elevator and push the button.">
 
 	"GENERAL QUESTIONS"
-	<PLTABLE "What do I do with my ID card?"
+	<PLTABLE "What to do with my ID card?"
 		 "It's useless.">
-	<PLTABLE "Why did my things go when I slept?"
+	<PLTABLE "My things left when I slept!"
 		 "Do you normally go to sleep holding things? You dropped them while you were sleeping. Check the floor of the room where you slept.">
-	<PLTABLE "How do I read the native language?"
+	<PLTABLE "How to read native language?"
 		 "It's actually a phonetic version of English."
 		 "\"X\" is used in place of \"TH\" and \"C\" is used in place of \"CH\"."
 		 "Double vowels signify the long vowel sound, and single vowels indicate the short vowel sound.">
-	<PLTABLE "I keep starving to death. Feed me!"
+	<PLTABLE "I keep starving to death!"
 		 "Didn't you take the survival kit from the safety pod?"
 		 "Of course, that doesn't last long."
 		 "There's a can of spam and eggs in Storage West."
@@ -474,7 +474,7 @@
 		 "If you sleep elsewhere, you might be devoured (by grues?)."
 		 "There are beds in the four dorms, and the Infirmary."
 		 "Of course, the bed in the Infirmary is a bad idea for other reasons.">
-	<PLTABLE "Where can I find a light source?"
+	<PLTABLE "Where is a light source?"
 		 "Have you tried burning the towel?"
 		 "Okay, that didn't work. There IS a lantern somewhere."
 		 "It's in the Radiation Lab."
@@ -483,7 +483,7 @@
 		 "There is no way to get a light source into the dark rooms.">
 	<PLTABLE "What is a grue?"
 		 "Ask the game.">
-	<PLTABLE "Do the teleportation booths work?"
+	<PLTABLE "Teleportation booths work?"
 		 "Of course! But you'll have to find the teleportation access card first."
 		 "It's in the lab area, which you may not have been to yet."
 		 "It's in the pocket of the lab uniform."
@@ -494,7 +494,7 @@
 		 "The battery in it when you find it won't last very long."
 		 "You'll need a fresh battery."
 		 "Open the laser, remove the old battery, and put the new battery in.">
-	<PLTABLE "Where do I find a new laser battery?"
+	<PLTABLE "Where is a new laser battery?"
 		 "Have you tried making one?"
 		 "Some batteries are made by mixing acids and bases."
 		 "However, there's no way to make your own battery. There is a fresh battery lying around somewhere."
@@ -508,12 +508,12 @@
 	<PLTABLE "What are bedistors for?"
 		 "They're electrical components."
 		 "They're usually used for repairing Course Control systems.">
-	<PLTABLE "Doctor, doctor! Why am I so sick?"
+	<PLTABLE "Doctor, why am I so sick?!"
 		 "You'll find out when you get to the Library."
 		 "You have contracted the Disease. It is fatal."
 		 "The medicine in the Infirmary might help a bit."
 		 "But your only long-term hope is to help bring the Project to its ultimate goal.">
-	<PLTABLE "I finished, but without 80 points!"
+	<PLTABLE "I finished, missing 80 pts!"
 		 "You didn't repair all the broken systems."
 		 "Consult the Systems Monitors."
 		 "You must repair the Communication System, the Planetary Defense System, and the Course Control System in order to get the optimum ending.">
@@ -687,7 +687,7 @@ hint now, indicate HINT.]" CR>
 
 <ROUTINE ERASE-CURSOR ()
 	<CURSET <GET ,LINE-TABLE ,CUR-POS>
-		<- <GET ,COLUMN-TABLE ,CUR-POS> 2>>
+		<- <GET ,COLUMN-TABLE ,CUR-POS> 1>>
 	<TELL " ">	;"erase previous highlight cursor">
 
 ;"go back 2 spaces from question text, print cursor and flash is between
@@ -695,7 +695,7 @@ the cursor and text"
 
 <ROUTINE NEW-CURSOR ()
 	<CURSET <GET ,LINE-TABLE ,CUR-POS>
-		<- <GET ,COLUMN-TABLE ,CUR-POS> 2 ;1>>
+		<- <GET ,COLUMN-TABLE ,CUR-POS> 1 ;1>>
 	<TELL ">">	;"print the new cursor">
 
 <ROUTINE INVERSE-LINE ("AUX" (CENTER-HALF <>)) 
@@ -713,11 +713,11 @@ the cursor and text"
   <CENTER-LINE 1 ,INVISICLUES ,INVISICLUES-LEN>
   <CURSET 3 1>
   <INVERSE-LINE>
-  <LEFT-LINE 3 "RETURN = see new hint">
+  <LEFT-LINE 3 "return:see hint">
   <RIGHT-LINE 3 ,Q-SEE-HINT-MENU ,Q-SEE-HINT-MENU-LEN>
   <CURSET 2 1>
   <INVERSE-LINE>
-  <HLIGHT ,H-BOLD>
+  <HLIGHT ,H-ITALIC>
   <SET H <GET <GET ,HINTS ,CHAPT-NUM> <+ ,QUEST-NUM 1>>>
   ; "Byte table to use for showing questions already seen"
   ; "Actually a nibble table.  The high four bits of each byte are for
@@ -806,10 +806,10 @@ the cursor and text"
   <CURSET 3 1>
   <INVERSE-LINE>
   <CENTER-LINE 1 ,INVISICLUES ,INVISICLUES-LEN>
-  <LEFT-LINE 2 " N = Next">
+  <LEFT-LINE 2 "n:next">
   <RIGHT-LINE 2 ,PREVIOUS ,PREVIOUS-LEN>
   <COND (.THIRD
-	 <LEFT-LINE 3 " RETURN = See hint">
+	 <LEFT-LINE 3 "return:see hint">
 	 <RIGHT-LINE 3 ,Q-RESUME-STORY ,Q-RESUME-STORY-LEN>)>>
 
 <ROUTINE CENTER-LINE (LN STR "OPTIONAL" (LEN 0) (INV T))
