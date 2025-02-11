@@ -12,7 +12,7 @@ I had two options here: remove the quotes that are too long, or reformat every q
 ### Rosetta stone
 This was the trickiest puzzle to adapt, because it truly did rely on having a wider screen to display left-right puzzle information: cryptic symbols on the left aligned with translation symbols on the right, line by line.
 
-Infocom have 19 lines of vertical space to work with and with a huge amount of luck the rosetta stone is 8 lines tall. I realized this meant I could split the stone in half and display left and right vertically, with left-aligned text, right-aligned text, and part identifiers. This put me at 18 display lines, which fit perfectly into one screen of information. I got very lucky.
+I have 19 lines of vertical space to work with and with a huge amount of luck the rosetta stone is 8 lines tall. I realized this meant I could split the stone in half and display left and right vertically, with left-aligned text, right-aligned text, and part identifiers. This put me at 18 display lines, which fit perfectly into one screen of information. I got very lucky.
 
 ## Original README.txt from recreation repo
 
