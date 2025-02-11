@@ -1,3 +1,17 @@
+## About "Curses" for Status Line
+A difficult project to reformat for a small screen, especially due to the extensive use of very lengthy quote blocks (like we seen in Trinity, for example).
+
+### Status line
+Curses takes a slightly rare approach to the status line by keeping it at 2 lines throughout the game. A lot of information is displayed, including location, timeframe-specific location info, the precise date, the score and the number of turns. Some very light trimming of things (limit month display to 3 characters) helped a lot. As well, current score and number of moves were combined into Infocom-style <score>/<move_count> truncated format.
+
+### Quote blocks
+I had two options here: remove the quotes that are too long, or reformat every quote to fit (barely!) onto screen. I opted for reformatting, as it is important to me to not alter anything editorially/content in these games. I believe I did justice to the formatting to preserve poem stanza/line breaks and authorial credits.
+
+### Rosetta stone
+This was the trickiest puzzle to adapt, because it truly did rely on having a wider screen to display left-right puzzle information: cryptic symbols on the left aligned with translation symbols on the right, line by line.
+
+Infocom have 19 lines of vertical space to work with and with a huge amount of luck the rosetta stone is 8 lines tall. I realized this meant I could split the stone in half and display left and right vertically, with left-aligned text, right-aligned text, and part identifiers. This put me at 18 display lines, which fit perfectly into one screen of information. I got very lucky.
+
 Curses was written by Graham Nelson between 1993 and 1995 in versions
 of Inform between 1 and 6, a simple C-like programming language for
 interactive fiction. That language was the ancestor of today's Inform 7,
