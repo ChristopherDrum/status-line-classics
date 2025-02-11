@@ -17,7 +17,21 @@ Before submitting bug reports, be aware there are two categories of bugs
 
 **Gameplay bugs** should be submitted to each of the [original repositories](https://github.com/the-infocom-files) (and may actually have already been reported)
 
-## Examples of primary changes
+## Examples of changes
+
+### Curses
+I wanted to expand beyond the Infocom canon, and saw that this classic had been rebuilt in Inform. It's use of extremely (!) long quote boxes proved a unique challenge to both preserve authorial intent (both Nelson and original quote author) while being formatted for a tiny screen. In the end, every quote box was preserved and brought over without exception.
+
+The in-game status line and "rosetta stone" puzzle both also proved challenging to adapt and preserve Nelson's puzzle intent. I believe I've provided strong solutions to both layout challenges without compromising on his vision.
+
+### Solid Gold Releases
+Zork 1, Planetfall, Leather Goddesses of Phobos, Wishbringer, and Hitchhiker's Guide were all tweaked in small ways, but most notably the Invisiclues screens were updated to fit and format to the narrow screen. This meant taking small liberties with phrasing of hint questions, to fit in the space provided without being quite as wordy as the originals. My apologies to any hard-line Infocom purists who might be offended by these truncations.
+
+### Sherlock: The Riddle of the Crown Jewels
+In addition to the Invisiclues reformatting, various signage and quote boxes about town needed gentle nudging to fit on screen. Sherlock will run on a narrow screen, but will deny the ability to read in-world signage; this is fixed.
+
+### Border Zone
+A tricky adaptation to the small screen, mostly because of the unusual status bar animations(?) that drive realtime puzzles. The player must "watch" certain events, and the status bar displays a continuously updated realtime display of the status of those events. This leads to some timed puzzles which are based on the visual information in the status bar, so I tried to be careful about adjusting anything that might disrupt that timing. I *think* I got it right, but that section of the game is kind of hard to get through as a matter of course.
 
 ### [Bureaucracy](https://github.com/ChristopherDrum/status-line-classics/tree/main/bureaucracy#about-bureaucracy-for-status-line)
 There is an entire, interesting story behind getting this game to work. Here we see the "Boysenberry computer" being used mid-puzzle, as well as the start game "registration form" formatted nicely for a 32-character/21 line screen.
