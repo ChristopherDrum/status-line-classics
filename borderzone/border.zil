@@ -3246,7 +3246,7 @@ in flames, and the heat and smoke make it hard to get much closer." CR>)
 		      (T
 		       <TELL
 "The hut is small, perhaps no more than a few rooms. The exterior is a
-dark wooden clapboard, worn and weaterbeaten. Some black smoke rises out
+dark wooden clapboard, worn and weatherbeaten. Some black smoke rises out
 of a small chimney, swirling around in the cold breeze, and vanishing
 into the night sky." CR>)>)
 	       (<VERB? CLIMB CLIMB-OVER CLIMB-UP>
@@ -3530,7 +3530,7 @@ preparing to depart." CR>)>>
 inexpensively built hut like this." CR>)
 	       (<VERB? KNOCK>
 		<TELL
-"Not smart; sombody might hear you." CR>)
+"Not smart; somebody might hear you." CR>)
 	       (<VERB? MUNG KICK>
 		<TELL
 "Not smart. If somebody's home, you're in big trouble, and if nobody's
@@ -4381,7 +4381,7 @@ continues along here to the southwest.")
 face. The road bends to the east here, but a narrow spur continues north.")
       (NE TO E6 IF HACK-FLAG ELSE
 "A brisk wind gives you a deep chill, but you reenter the forest. Soon,
-you rejoint the road which now is running from east to west.")
+you rejoin the road which now is running from east to west.")
 
       (NW TO C6 IF HACK-FLAG ELSE
 "You leave the side of the roadway and enter the forest, proceeding a

@@ -23,7 +23,7 @@ default) or SUPERBRIEF descriptions." CR>>
 
 <GLOBAL SAVE-FLAG <>>
 
-<ROUTINE V-SAVE ("AUX" SV FLG)
+<ROUTINE V-SAVE ("AUX" SV)
 	 <SETG SAVE-FLAG T>
 	 <COND (<EQUAL? <SET SV <SAVE>> 1>
 	        <CHECK-REFRESH>
@@ -172,13 +172,13 @@ you've lost some blood." CR>)>>
 	 <TELL
 "Would you like to ">
 	 <COND (.CONTIN
-		<TELL "continue with the next scenario, ">)>
-	 <TELL "start over, restore a saved position, get a hint, or
-end this session of the game?|
-(Type ">
+		<TELL "continue with the next scenario,|">)>
+	 <TELL "start over, restore a saved position,|get a hint, or
+end this session|of the game?|
+(">
 	 <COND (.CONTIN
 		<TELL "CONTINUE, ">)>
-	 <TELL "RESTART, RESTORE, HINT, or QUIT) >">
+	 <TELL "RESTART, RESTORE, HINT, QUIT)|>">
 	 <PUTB ,P-INBUF 1 0>
 	 <READ ,P-INBUF ,P-LEXV>
 	 <COND (<EQUAL? <SET W <GET ,P-LEXV 1>> ,W?RESTART>
@@ -210,7 +210,7 @@ end this session of the game?|
 	 <SET V <BAND <GET 0 1> *3777*>>
 	 <TELL CR 
 "BORDER ZONE: A Game of Intrigue|
-Copyright (c) 1987 by Infocom, Inc. All rights reserved.|
+Copyright (c) 1987 Infocom, Inc.|All rights reserved.|
 BORDER ZONE is a trademark of Infocom, Inc.|
 Release " N .V " / Serial number ">
 	 <REPEAT ()
@@ -218,8 +218,9 @@ Release " N .V " / Serial number ">
 			<RETURN>)
 		       (T
 			<PRINTC <GETB 0 .CNT>>)>>
-	 <TELL " / ">
+	 <TELL "|">
 	 <V-$ID>
+	 <TELL "(Status Line Classics, Rev.1)">
 	 <CRLF>>
 
 <CONSTANT D-RECORD-ON 4>
@@ -329,10 +330,10 @@ Release " N .V " / Serial number ">
 <ROUTINE V-BUY ()
 	 <TELL "It's not for sale." CR>>
 
-<ROUTINE V-BUY-WITH ("AUX" ACTOR) ;"PAY WITH --"
+<ROUTINE V-BUY-WITH () ;"PAY WITH --"
 	 <IMPOSSIBLES>>
 
-<ROUTINE V-BUY-OBJECT-WITH ("AUX" ACTOR)
+<ROUTINE V-BUY-OBJECT-WITH ()
 	 <IMPOSSIBLES>>
 
 <ROUTINE V-CALL () ;"prso need not be in room"
@@ -895,7 +896,7 @@ be more specific with what you are listening for." CR>)
 <ROUTINE V-PLUG-IN ()
 	 <IMPOSSIBLES>>
 
-<ROUTINE V-POINT ("AUX" ACTOR)
+<ROUTINE V-POINT ()
 	 <TELL "Pointless." CR>>
 
 <ROUTINE V-POUR ()
@@ -1347,7 +1348,7 @@ so it isn't surprising that he ignores you." CR>)
 	       (T
 		<V-WALK-AROUND>)>>
 
-<ROUTINE V-WAIT ("OPTIONAL" (NUM 0) "AUX" PERSON NW)
+<ROUTINE V-WAIT ("OPTIONAL" (NUM 0) "AUX" NW)
 	 <COND (,MINUTES-FLAG
 		<SET NUM <* .NUM 60>>)>
 	 <COND (<G? .NUM 999>
@@ -1444,7 +1445,7 @@ so it isn't surprising that he ignores you." CR>)
 
 ;"subtitle object manipulation"
 
-<ROUTINE ITAKE ("OPTIONAL" (VB T) "AUX" ;CNT OBJ)
+<ROUTINE ITAKE ("OPTIONAL" (VB T))
 	 <COND (<NOT <FSET? ,PRSO ,TAKEBIT>>
 		<COND (.VB
 		       <IMPOSSIBLES>)>
@@ -1691,7 +1692,9 @@ where you had been hoping to arrive.">)>
 		<UPDATE-CHRONOGRAPH 0>)>
 	 <COND (<EQUAL? ,SCENARIO 2>
 		<TELL CR CR
-"****  You have been arrested  ****" CR>)>
+"       * * *|
+You have been arrested|
+       * * *" CR>)>
 	 <HLIGHT ,H-NORMAL>
 	 <STATUS-LINE>
 	 <FINISH .CONTIN>

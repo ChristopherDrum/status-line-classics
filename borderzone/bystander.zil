@@ -109,7 +109,7 @@ distance the darkness that is Litzenburg.">)
 	       (<EQUAL? .RM ,PLATFORM-4>
 		<TELL CR CR
 "You've arrived at the platform's southern end, and can look back into
-Frobnia, sighting its formidible border defenses: guard towers, searchlights,
+Frobnia, sighting its formidable border defenses: guard towers, searchlights,
 patrols, guard dogs - God knows what else. It's a whole lot better to have a
 ticket, and you smile, realizing that it's not easy this way either.">)>
 	 <CRLF>
@@ -1204,7 +1204,7 @@ all of the film will be exposed and ruined." CR>)
 		<TELL
 "There's no film there." CR>)>>
 
-<ROUTINE GENERIC-FILM ("AUX" F)
+<ROUTINE GENERIC-FILM ()
 	 <COND (<VERB? REWIND>
 		,CAMERA)
 	       (<AND <VERB? TAKE> <EQUAL? ,P-NCN 2>>
@@ -1780,9 +1780,10 @@ trails off in a rather sarcastic way.">>
 "The words don't make a lot of sense, and your Frobnian is poor, but it seems
 to say:|
 |
-         BORDER ZONE|
-    Written by Marc Blank|
-Copyright (c) 1987, Infocom, Inc.|
+          BORDER ZONE|
+     Written by Marc Blank|
+      Copyright (c) 1987,|
+         Infocom, Inc.|
 " CR>)>>
 
 <OBJECT TOWEL-DISPENSER
@@ -1798,7 +1799,7 @@ Copyright (c) 1987, Infocom, Inc.|
 	 <COND (<VERB? EXAMINE>
 		<TELL
 "It's your ordinary metal towel dispenser. Here, as in the States, people
-tend to write grafitti on towel dispensers, and this one is no exception.">
+tend to write graffiti on towel dispensers, and this one is no exception.">
 		<COND (<IN? ,PAPER-TOWEL ,PRSO>
 		       <TELL
 " You are in luck - there's at least one paper towel inside.">)
@@ -2167,7 +2168,7 @@ you'd swear it was the American agent.">)>
 	 <CRLF>
 	 <RT-QUEUE ,I-BAD-BORDER 100>>
 
-<ROUTINE I-BAD-BORDER ("AUX" ITM TMP)
+<ROUTINE I-BAD-BORDER ("AUX" TMP)
 	 <HLIGHT ,H-BOLD>
 	 <SETG BAD-CONFINED <>>
 	 ;<COND (,DEBUG

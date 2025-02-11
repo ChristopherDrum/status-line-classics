@@ -219,24 +219,34 @@ milling crowd.|
 
 <ROUTINE OPENING-SCREEN ("AUX" CHR)
 	 <CLEAR -1>
-	 <HLIGHT ,H-BOLD>
 	 <V-VERSION>
+	 <HLIGHT ,H-BOLD>
 	 <TELL
 "|
-Welcome to Border Zone. This story of international intrigue has
+Welcome to Border Zone.">
+<HLIGHT H-NORMAL>
+<TELL CR
+"This story of international intrigue has
 three chapters, each telling a different piece of the story from a different
 point of view. You can play each chapter independently, but you will enjoy
 the story more if you play them in the proper order. If at any time you
 need to \"pause\" the game and cause the real-time clock to stop running
 (to get a sandwich or to read a long bit of
 text), use the PAUSE command.|
-|
-The chapters are:|
-|
-   Chapter 1: The Train|
-   Chapter 2: The Border|
-   Chapter 3: The Assassination|
-">
+|">
+<HLIGHT ,H-BOLD>
+<TELL"The chapters are:||">
+<TELL " Chapter 1:">
+<HLIGHT ,H-NORMAL>
+<TELL " The Train|">
+<HLIGHT ,H-BOLD>
+<TELL " Chapter 2:">
+<HLIGHT ,H-NORMAL>
+<TELL " The Border|">
+<HLIGHT ,H-BOLD>
+<TELL " Chapter 3:">
+<HLIGHT ,H-NORMAL>
+<TELL " The Assassination|">
 	 <REPEAT ()
 		 <TELL CR
 "Which chapter would you like to play: 1, 2, 3, or (R)estore? >">

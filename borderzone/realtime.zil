@@ -16,7 +16,7 @@
 	 <SET N <MOD ,CHRONOGRAPH-TIME 60>>
 	 <COND (<L? .N 10>
 		<TELL "0">)>
-	 <TELL N .N>>
+	 <TELL N .N >>
 
 <GLOBAL CLOCK-TIME 0>
 
@@ -128,8 +128,8 @@
 <ROUTINE UPDATE-TIME ("AUX" MIN TMP)
 	 <BUFOUT <>>
 	 <SCREEN 1>
-	 <CURSET 1 <- <GETB 0 33> 5>>
 	 <HLIGHT ,H-INVERSE>
+	 <CURSET 1 <- <GETB 0 33> 5>>
 	 <SET MIN <+ </ ,CLOCK-TIME 60> ,START-MINUTE>>
 	 <SET TMP <+ ,START-HOUR </ .MIN 60>>>
 	 <COND (<G? .TMP 23>
@@ -148,10 +148,12 @@
 		<COND (<G? <GETB 0 33> 58>
 		       <CURSET 1 <- </ <GETB 0 33> 2> 3>>)
 		      (T
-		       <CURSET 1 27>)>
+		       <CURSET 1 19>)> ;"just eye-balling it; hopefully won't collide with location string"
 		<SETG CHRONOGRAPH-TIME <+ ,CHRONOGRAPH-TIME .TICKS>>
 		<COND (<EQUAL? ,SCENARIO 2>
-		       <CHRONOGRAPH-TELL>)
+			   <TELL "  "> ;"rather than truncate room name in status line, we're overprinting the last couple of characters"
+		       <CHRONOGRAPH-TELL>
+			   <TELL "/">)
 		      (T
 		       <TELL "     ">)>
 		<TELL " ">)>
@@ -168,11 +170,11 @@
 <ROUTINE I-SEARCHLIGHTS () <TURN-SL> ;<TELL "[SL]" CR>>
 
 <ROUTINE SL-WATCHER ()
-	 <CURSET 2 8>
+	 <CURSET 2 5>
 	 <TELL <SL-POS-STR-AB 1> "  ">
-	 <CURSET 2 <+ </ <GETB 0 33> 2> 2>>
+	 <CURSET 2 <+ </ <GETB 0 33> 2> 1>>
 	 <TELL <SL-POS-STR-AB 2> "  ">
-	 <CURSET 2 <- <GETB 0 33> 4>>
+	 <CURSET 2 <- <GETB 0 33> 3>>
 	 <TELL <SL-POS-STR-AB 3> "  ">>
 
 <GLOBAL G-WATCH <>>
@@ -184,20 +186,18 @@
 	 <COND (,GUARD-MARGIN
 		<SET OFF ,GUARD-MARGIN>)
 	       (T
-		<COND (<L? .SW 41>
-		       <SET OFF 2>)
-		      (T
-		       <SET OFF <- </ <- .SW 36> 2> 4>>)>
+		<COND (<L? .SW 41> <SET OFF 2>)
+		      (T <SET OFF <- </ <- .SW 36> 2> 4>>)>
 		<SETG GUARD-MARGIN .OFF>)>
 	 <COND (.INIT?
 		<SCREEN-1>
 		<CURSET 2 .OFF>
 		<TELL "T">
-		<CURSET 2 <+ 18 .OFF>>
+		<CURSET 2 <+ 15 .OFF>>
 		<TELL "T">
-		<CURSET 2 <+ 36 .OFF>>
+		<CURSET 2 <+ 30 .OFF>>
 		<TELL "T">
-		<CURSET 3 <+ .OFF </ <GETP ,HERE ,P?GPOS> 5>>>
+		<CURSET 3 <+ .OFF </ <GETP ,HERE ,P?GPOS> 6>>> ;"adjust div for new 15/30 tower positions"
 		<TELL "*">)>
 	 <SET FACE? <GUARDS-FACING-EACH-OTHER?>>
 	 <SET MT <MOD ,CLOCK-TIME 180>>
@@ -208,18 +208,18 @@
 		<SET MT <- 90 .MT>>)>
 	 <COND (,G-WATCH
 		<CURSET 2 <+ .OFF <- ,G-WATCH 1>>>
-		<COND (<EQUAL? ,G-WATCH 1 19>
+		<COND (<EQUAL? ,G-WATCH 1 16>
 		       <TELL "T">)
 		      (T <TELL " ">)>
-		<CURSET 2 <+ .OFF <- 37 ,G-WATCH>>>
-		<COND (<EQUAL? ,G-WATCH 1 19>
+		<CURSET 2 <+ .OFF <- 31 ,G-WATCH>>>
+		<COND (<EQUAL? ,G-WATCH 1 16>
 		       <TELL "T">)
 		      (T <TELL " ">)>)>
-	 <SETG G-WATCH <+ </ .MT 5> 1>>
+	 <SETG G-WATCH <+ </ .MT 6> 1>>
 	 <CURSET 2 <+ .OFF <- ,G-WATCH 1>>>
 	 <COND (.FACE? <TELL ">">)
 	       (T <TELL "<">)>
-	 <CURSET 2 <+ .OFF <- 37 ,G-WATCH>>>
+	 <CURSET 2 <+ .OFF <- 31 ,G-WATCH>>>
 	 <COND (.FACE? <TELL "<">)
 	       (T <TELL ">">)>
 	 <COND (.INIT?
