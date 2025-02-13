@@ -769,7 +769,7 @@ Object  -> -> Pan_pipes "Pan pipes"
                 give flaming_bronze_urn ~static;
                 give flaming_bronze_urn scenery;
                 print ". Suddenly the great god Apollo appears before you!  As he speaks the very rock 
-                    reverberates.^^   ~All wisdom is mine, mortal!^   Though you shall seek out your curse^   A 
+                    reverberates.^^  ~All wisdom is mine, mortal!^  Though you shall seek out your curse^  A 
                     thousand years and more. Now ask!~^^Apollo, as he vanishes, laughs in that style more recently 
                     popularised by Third World dictators and mad scientists. His priestess, the Oracle, steps out 
                     of the shadows.^";

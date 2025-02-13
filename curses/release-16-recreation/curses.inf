@@ -573,7 +573,7 @@ Include "afterlife.inf";
     StrongboxX = random(18) - 9;
     StrongboxY = random(18) - 9;
 
-    "^^^^It's become a matter of pride now not to give up. That tourist map of Paris must be up here 
+    "^^^It's become a matter of pride now not to give up. That tourist map of Paris must be up here 
      somewhere in all this clutter, even if it has been five years since your last trip. And it's your own fault. It
      looks as if your great-grandfather was the last person to tidy up these lofts...^";
 ];

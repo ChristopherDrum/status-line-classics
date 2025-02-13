@@ -20,7 +20,7 @@ Class   HRoom
 Object  crumpled_piece_of_paper "crumpled piece of paper"        
   with  name 'crumpled' 'paper',
         list_together n_obj,
-        description "   Things to do:^^   1. Find map^   2. Phone airport to check parking^   3. Health forms...^^and 
+        description "  Things to do:^^  1. Find map^  2. Phone airport to^     check parking^  3. Health forms...^^and 
             so on. Let's face it, 1. is more enticing than the rest put together.",
         devil_hint "Immensely useful, that.",
   has   ;
@@ -1642,7 +1642,7 @@ Object  -> Sir_Joshua_Meldrewe "Sir Joshua Meldrewe"
             if( n == 4 ) 
                 "^The ghost laughs in a gurgling kind of way, as it were always coughing and spluttering.";
             if( n == 3 )
-                "^The ghost begins to speak:^^                       My hour is almost come^   When I to 
+                "^The ghost begins to speak:^^          My hour is almost come^   When I to 
                  sulph'rous and tormenting flames^   Must render up myself...^^Can this possibly be the 
                  infamous Sir Joshua Meldrewe?";
             if( n == 2 ) 
