@@ -3,6 +3,8 @@
 ## About "Curses" for Status Line
 A difficult project to reformat for a small screen, especially due to the extensive use of very lengthy quote blocks (like we seen in Trinity, for example).
 
+When playing Curses in the standalone executables of Status Line 3, the game file needs to be split into two, smaller pieces, much like splitting files across multiple floppy disks. [Status Line SPLIT](https://christopherdrum.itch.io/statusline-split) may be used to facilitate this process. If you are an owner of Pico-8 and are running the original .p8 code, you do not need to worry about doing such a split.
+
 ### In-game status line formatting
 Curses takes a slightly rare approach to the status line by keeping it at 2 lines throughout the game. A lot of information is displayed, including location, timeframe-specific location info, the precise date, the score and the number of turns. Some very light trimming of things (limit month display to 3 characters) helped a lot. As well, current score and number of moves were combined into Infocom-style <score>/<move_count> truncated format.
 
